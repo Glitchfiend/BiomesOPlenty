@@ -5,10 +5,14 @@
 package biomesoplenty.common.worldgen;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.serialization.BOPCodec;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -26,6 +30,14 @@ import java.util.function.BiConsumer;
 
 public class BOPStructureSettings extends StructureSettings
 {
+    public static final Codec<StructureSettings> CODEC = RecordCodecBuilder.create((p_64596_) -> {
+        return p_64596_.group(StrongholdConfiguration.CODEC.optionalFieldOf("stronghold").forGetter((p_158913_) -> {
+            return Optional.ofNullable(p_158913_.stronghold);
+        }), BOPCodec.lenientSimpleMap(Registry.STRUCTURE_FEATURE.byNameCodec(), StructureFeatureConfiguration.CODEC, Registry.STRUCTURE_FEATURE).fieldOf("structures").forGetter((structureSettings) -> {
+            return structureSettings.structureConfig;
+        })).apply(p_64596_, StructureSettings::new);
+    });
+
     private final ImmutableMap<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> configuredStructures;
 
     public BOPStructureSettings(Optional<StrongholdConfiguration> strongholdConfiguration, Map<StructureFeature<?>, StructureFeatureConfiguration> structureConfig)

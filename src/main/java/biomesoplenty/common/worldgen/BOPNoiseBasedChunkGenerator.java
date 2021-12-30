@@ -15,6 +15,7 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.RegistryFileCodec;
 import net.minecraft.resources.RegistryLookupCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -53,7 +54,7 @@ public class BOPNoiseBasedChunkGenerator extends NoiseBasedChunkGenerator
             return instance.biomeSource;
         }), Codec.LONG.fieldOf("seed").stable().forGetter((instance) -> {
             return instance.seed;
-        }), NoiseGeneratorSettings.CODEC.fieldOf("settings").forGetter((instance) -> {
+        }), BOPNoiseGeneratorSettings.CODEC.fieldOf("settings").forGetter((instance) -> {
             return instance.settings;
         })).apply(builder, builder.stable(BOPNoiseBasedChunkGenerator::new));
     });

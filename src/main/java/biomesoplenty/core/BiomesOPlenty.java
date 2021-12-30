@@ -46,13 +46,13 @@ public class BiomesOPlenty
         }
 
         ModConfig.setup();
-        ModBiomes.setup();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         event.enqueueWork(() ->
         {
+            ModBiomes.setup();
             ModVanillaCompat.setup();
         });
     }

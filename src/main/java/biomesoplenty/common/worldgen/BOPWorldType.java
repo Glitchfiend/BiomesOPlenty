@@ -35,7 +35,7 @@ public class BOPWorldType extends ForgeWorldPreset
             public ChunkGenerator createChunkGenerator(RegistryAccess dynamicRegistries, long seed, String generatorSettings)
             {
                 return new BOPNoiseBasedChunkGenerator(dynamicRegistries.registryOrThrow(Registry.NOISE_REGISTRY), BOPMultiNoiseBiomeSource.Preset.OVERWORLD.biomeSource(dynamicRegistries.registryOrThrow(Registry.BIOME_REGISTRY), false), seed, () -> {
-                    return BOPNoiseGeneratorSettings.BOP_OVERWORLD;
+                    return dynamicRegistries.registryOrThrow(Registry.NOISE_GENERATOR_SETTINGS_REGISTRY).getOrThrow(BOPNoiseGeneratorSettings.OVERWORLD);
                 });
             }
         });
@@ -53,7 +53,9 @@ public class BOPWorldType extends ForgeWorldPreset
         {
             defaultDimensions.register(LevelStem.NETHER, new LevelStem(() -> {
                 return dimensionTypeRegistry.getOrThrow(DimensionType.NETHER_LOCATION);
-            }, new BOPNoiseBasedChunkGenerator(noiseParametersRegistry, BOPMultiNoiseBiomeSource.Preset.NETHER.biomeSource(biomeRegistry, true), seed, () -> BOPNoiseGeneratorSettings.BOP_NETHER)), Lifecycle.stable());
+            }, new BOPNoiseBasedChunkGenerator(noiseParametersRegistry, BOPMultiNoiseBiomeSource.Preset.NETHER.biomeSource(biomeRegistry, true), seed, () -> {
+                return noiseGeneratorSettings.getOrThrow(BOPNoiseGeneratorSettings.NETHER);
+            })), Lifecycle.stable());
         }
 
         return defaultDimensions;

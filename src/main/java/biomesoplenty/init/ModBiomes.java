@@ -7,10 +7,7 @@ package biomesoplenty.init;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPNetherBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
-import biomesoplenty.common.worldgen.BOPMultiNoiseBiomeSource;
-import biomesoplenty.common.worldgen.BOPNoiseBasedChunkGenerator;
-import biomesoplenty.common.worldgen.BOPNoises;
-import biomesoplenty.common.worldgen.BOPWorldType;
+import biomesoplenty.common.worldgen.*;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -21,6 +18,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.world.ForgeWorldPreset;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -42,6 +40,16 @@ public class ModBiomes
         registerNoise(BOPNoises.RARENESS, -9, 0.6D, 1.5D, 0.6D, 0.0D, 0.0D);
         registerNoise(BOPNoises.RARENESS_LARGE, -11, 0.6D, 1.5D, 0.6D, 0.0D, 0.0D);
 
+        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(BiomesOPlenty.MOD_ID, "multi_noise"), BOPMultiNoiseBiomeSource.CODEC);
+        Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(BiomesOPlenty.MOD_ID, "noise"), BOPNoiseBasedChunkGenerator.CODEC);
+
+        Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, BOPNoiseGeneratorSettings.OVERWORLD, BOPNoiseGeneratorSettings.overworld());
+        Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, BOPNoiseGeneratorSettings.NETHER, BOPNoiseGeneratorSettings.nether());
+    }
+
+    @SubscribeEvent
+    public static void registerLevelTypes(RegistryEvent.Register<ForgeWorldPreset> event)
+    {
         // Obtain the game data logger and disable it temporarily
         Logger gameDataLogger = (Logger) LogManager.getLogger(GameData.class);
         Level oldLevel = gameDataLogger.getLevel();
@@ -52,13 +60,10 @@ public class ModBiomes
         // This is markedly better than the alternative of biomesoplenty:biomesoplenty.
         // We do this with GameData logging disabled to prevent people whining at us.
         bopWorldType.setRegistryName(new ResourceLocation("biomesoplenty"));
-        ForgeRegistries.WORLD_TYPES.register(bopWorldType);
+        event.getRegistry().register(bopWorldType);
 
         // Re-enable the game data logger
         gameDataLogger.setLevel(oldLevel);
-
-        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(BiomesOPlenty.MOD_ID, "multi_noise"), BOPMultiNoiseBiomeSource.CODEC);
-        Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(BiomesOPlenty.MOD_ID, "noise"), BOPNoiseBasedChunkGenerator.CODEC);
     }
 
     @SubscribeEvent
