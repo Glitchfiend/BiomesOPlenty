@@ -9,8 +9,10 @@ import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.common.reflect.TypeToken;
-import com.google.gson.*;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
@@ -29,20 +31,20 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.fml.loading.FMLPaths;
 
-import java.io.IOException;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class DataGenerator
 {
-    private static final Path DATA_PATH = FMLPaths.GAMEDIR.get().resolve("bop_worldgen");
+    private static final Path DATA_PATH = FMLPaths.GAMEDIR.get().resolve("bop_worldgen/data");
 
     private static Map<Integer, ResourceLocation> locationSubstitions = Maps.newHashMap();
 
@@ -100,7 +102,7 @@ public class DataGenerator
     {
         T type = registry.get(key);
         Optional<JsonElement> encodedResult = encodeJson(type, codec);
-        Path path = DATA_PATH.resolve(key.getRegistryName().getPath());
+        Path path = DATA_PATH.resolve(key.location().getNamespace() + "/" + key.getRegistryName().getPath());
 
         if (encodedResult.isPresent())
         {
