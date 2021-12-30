@@ -45,6 +45,12 @@
                 "biome": "biomesoplenty:cherry_blossom_grove"
             }
         },
+        "clover_patch": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:clover_patch"
+            }
+        },
         "cold_desert": {
             "trigger": "minecraft:location",
             "conditions": {

@@ -69,6 +69,7 @@ public class ModBiomes
         registerBiome(BOPBiomes.BOG, BOPOverworldBiomes.bog());
         registerBiome(BOPBiomes.BOREAL_FOREST, BOPOverworldBiomes.borealForest());
         registerBiome(BOPBiomes.CHERRY_BLOSSOM_GROVE, BOPOverworldBiomes.cherryBlossomGrove());
+        registerBiome(BOPBiomes.CLOVER_PATCH, BOPOverworldBiomes.cloverPatch());
         registerBiome(BOPBiomes.COLD_DESERT, BOPOverworldBiomes.coldDesert());
         registerBiome(BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(false));
         registerBiome(BOPBiomes.CRAG, BOPOverworldBiomes.crag());
@@ -146,6 +147,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.BOG, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.WET, Type.SWAMP);
         registerBiomeToDictionary(BOPBiomes.BOREAL_FOREST, Type.OVERWORLD, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.CHERRY_BLOSSOM_GROVE, Type.OVERWORLD, Type.WET, Type.LUSH, Type.RARE, Type.FOREST);
+        registerBiomeToDictionary(BOPBiomes.CLOVER_PATCH, Type.OVERWORLD, Type.SPARSE, Type.LUSH, Type.PLAINS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.COLD_DESERT, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.SNOWY, Type.DRY);
         registerBiomeToDictionary(BOPBiomes.CONIFEROUS_FOREST, Type.OVERWORLD, Type.DENSE, Type.CONIFEROUS, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.CRAG, Type.OVERWORLD, Type.SPARSE, Type.MOUNTAIN, Type.WASTELAND);
@@ -200,8 +202,8 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.WOODED_WASTELAND, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA, Type.DEAD, Type.RARE, Type.WASTELAND);
         registerBiomeToDictionary(BOPBiomes.WOODLAND, Type.OVERWORLD, Type.FOREST);
 
-        // TODO: Glowing Grotto
-        // TODO: Spider Nest
+        registerBiomeToDictionary(BOPBiomes.GLOWING_GROTTO, Type.OVERWORLD, Type.RARE);
+        registerBiomeToDictionary(BOPBiomes.SPIDER_NEST, Type.OVERWORLD, Type.SPOOKY);
 
         //Nether Biomes
         registerBiomeToDictionary(BOPBiomes.CRYSTALLINE_CHASM, Type.NETHER, Type.HOT, Type.DRY, Type.MAGICAL);
@@ -218,6 +220,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.BOG, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.BOREAL_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.CHERRY_BLOSSOM_GROVE, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.CLOVER_PATCH, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.COLD_DESERT, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.CONIFEROUS_FOREST, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.CRAG, VillagerType.PLAINS);

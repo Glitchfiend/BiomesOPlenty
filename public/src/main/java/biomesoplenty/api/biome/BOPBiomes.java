@@ -24,6 +24,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> BOG = registerOverworld("bog");
     public static final ResourceKey<Biome> BOREAL_FOREST = registerOverworld("boreal_forest");
     public static final ResourceKey<Biome> CHERRY_BLOSSOM_GROVE = registerOverworld("cherry_blossom_grove");
+    public static final ResourceKey<Biome> CLOVER_PATCH = registerOverworld("clover_patch");
     public static final ResourceKey<Biome> COLD_DESERT = registerOverworld("cold_desert");
     public static final ResourceKey<Biome> CONIFEROUS_FOREST = registerOverworld("coniferous_forest");
     public static final ResourceKey<Biome> CRAG = registerOverworld("crag");
