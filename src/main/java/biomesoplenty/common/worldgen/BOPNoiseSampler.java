@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.QuartPos;
@@ -23,7 +22,7 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
     private final NormalNoise uniquenessNoise;
     private final NormalNoise rarenessNoise;
 
-    private final List<BOPClimate.ParameterPoint> spawnTarget = (new BOPOverworldBiomeBuilder()).spawnTarget();
+    private final List<BOPClimate.ParameterPoint> bopSpawnTarget = (new BOPOverworldBiomeBuilder()).spawnTarget();
     private boolean noiseDataCallsAllowed = false;
 
     public BOPNoiseSampler(NoiseSettings noiseSettings, boolean isNoiseCavesEnabled, long seed, Registry<NormalNoise.NoiseParameters> noiseParamRegistry, WorldgenRandom.Algorithm randomSource)
@@ -41,6 +40,9 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
         PositionalRandomFactory positionalrandomfactory = randomSource.newInstance(seed).forkPositional();
         this.uniquenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, largeBiomes ? BOPNoises.UNIQUENESS_LARGE : BOPNoises.UNIQUENESS);
         this.rarenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, largeBiomes ? BOPNoises.RARENESS_LARGE : BOPNoises.RARENESS);
+
+        // Nuke Vanilla's spawn targets list to reduce memory usage.
+        this.spawnTarget = null;
     }
 
     @Override
@@ -97,7 +99,7 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
     @Override
     public BlockPos findSpawnPosition()
     {
-        return BOPClimate.findSpawnPosition(this.spawnTarget, this);
+        return BOPClimate.findSpawnPosition(this.bopSpawnTarget, this);
     }
 
     @VisibleForDebug

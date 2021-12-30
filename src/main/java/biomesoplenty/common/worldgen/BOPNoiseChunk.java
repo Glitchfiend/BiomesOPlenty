@@ -65,6 +65,9 @@ public class BOPNoiseChunk extends NoiseChunk
                 this.bopNoiseData[k][i1] = sampler.noiseDataBOP(l, j1, blender);
             }
         }
+
+        // Nuke Vanilla's noise data to reduce memory usage.
+        this.noiseData = null;
     }
 
     @Override
