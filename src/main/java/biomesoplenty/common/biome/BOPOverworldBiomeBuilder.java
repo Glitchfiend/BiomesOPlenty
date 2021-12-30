@@ -532,7 +532,7 @@ public final class BOPOverworldBiomeBuilder
             this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), 0.0F, BOPBiomes.GLOWING_GROTTO);
 
         if (biomeRegistry.get(BOPBiomes.SPIDER_NEST) != null)
-            this.addUndergroundBiome(mapper, BOPClimate.Parameter.span(0.4F, 0.7F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, BOPBiomes.SPIDER_NEST);
+            this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(-1.0F, -0.8F), 0.0F, BOPBiomes.SPIDER_NEST);
     }
 
     private ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
