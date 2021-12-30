@@ -35,6 +35,7 @@ public final class BOPOverworldBiomeBuilder
     public static final float EROSION_INDEX_2_START = -0.375F;
 
     private final BOPClimate.Parameter FULL_RANGE = BOPClimate.Parameter.span(-1.0F, 1.0F);
+    private final BOPClimate.Parameter DEFAULT_DEPTH_RANGE = BOPClimate.Parameter.span(0.2F, 0.9F);
 
     /* Terminology:
         Continentalness: Low to generate near coasts, far to generate away from coasts
@@ -525,14 +526,14 @@ public final class BOPOverworldBiomeBuilder
 
     private void addUndergroundBiomes(Registry<Biome> biomeRegistry, Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper)
     {
-        this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
-        this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, Biomes.LUSH_CAVES);
+        this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
+        this.addUndergroundBiome(mapper, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.LUSH_CAVES);
 
         if (biomeRegistry.get(BOPBiomes.GLOWING_GROTTO) != null)
-            this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.8F, 1.0F), 0.0F, BOPBiomes.GLOWING_GROTTO);
+            this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(-1.0F, -0.7F), this.FULL_RANGE, BOPClimate.Parameter.span(0.1F, 0.6F), 0.0F, BOPBiomes.GLOWING_GROTTO);
 
         if (biomeRegistry.get(BOPBiomes.SPIDER_NEST) != null)
-            this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(-1.0F, -0.8F), 0.0F, BOPBiomes.SPIDER_NEST);
+            this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, BOPClimate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, BOPClimate.Parameter.span(0.0F, 0.5F), 0.0F, BOPBiomes.SPIDER_NEST);
     }
 
     private ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
@@ -734,9 +735,9 @@ public final class BOPOverworldBiomeBuilder
         mapper.accept(Pair.of(BOPClimate.parameters(temperature, humidity, continentalness, erosion, BOPClimate.Parameter.point(1.0F), weirdness, uniqueness, rareness, offset), biome));
     }
 
-    private void addUndergroundBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
+    private void addUndergroundBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, BOPClimate.Parameter temperature, BOPClimate.Parameter humidity, BOPClimate.Parameter continentalness, BOPClimate.Parameter erosion, BOPClimate.Parameter weirdness, BOPClimate.Parameter depth, float offset, ResourceKey<Biome> biome)
     {
-        mapper.accept(Pair.of(BOPClimate.parameters(temperature, humidity, continentalness, erosion, BOPClimate.Parameter.span(0.2F, 0.9F), weirdness, this.FULL_RANGE, this.FULL_RANGE, offset), biome));
+        mapper.accept(Pair.of(BOPClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.FULL_RANGE, this.FULL_RANGE, offset), biome));
     }
 
     public static String getDebugStringForPeaksAndValleys(double p_187156_)
