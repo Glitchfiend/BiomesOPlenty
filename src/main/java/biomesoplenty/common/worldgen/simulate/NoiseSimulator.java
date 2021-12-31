@@ -7,6 +7,7 @@ package biomesoplenty.common.worldgen.simulate;
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import biomesoplenty.common.worldgen.BOPClimate;
 import biomesoplenty.common.worldgen.BOPNoiseSampler;
+import biomesoplenty.common.worldgen.noise.*;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
@@ -29,6 +30,7 @@ import java.nio.IntBuffer;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.function.LongFunction;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL13.GL_TEXTURE0;
@@ -202,8 +204,8 @@ public class NoiseSimulator
 
                     if (this.showNoise)
                     {
-                        double rareness = data.rareness();
-                        if (rareness < 0.35D) color = 0x00FF00;
+                        float uniqueness = (float)data.uniqueness();
+                        if (BOPClimate.quantizeCoord(uniqueness) == 0) color = 0x00FF00;
                         else color = 0xFF0000;
                     }
                     else

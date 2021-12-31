@@ -68,8 +68,8 @@ public final class BOPOverworldBiomeBuilder
             BOPClimate.Parameter.span(0.55F, 1.0F)
     };
 
-    private static final BOPClimate.Parameter VANILLA_UNIQUENESS_RANGE = BOPClimate.Parameter.span(-1.0F, -0.1F);
-    private static final BOPClimate.Parameter BOP_UNIQUENESS_RANGE = BOPClimate.Parameter.span(-0.1F, 1.0F);
+    private static final BOPClimate.Parameter VANILLA_UNIQUENESS_RANGE = BOPClimate.Parameter.point(BOPClimate.unquantizeCoord(0));
+    private static final BOPClimate.Parameter BOP_UNIQUENESS_RANGE = BOPClimate.Parameter.point(BOPClimate.unquantizeCoord(1));
 
     private static final BOPClimate.Parameter VANILLA_UNIQUENESS_RANGE_MODERATE_BOP_BIAS = BOPClimate.Parameter.span(-1.0F, -0.35F);
     private static final BOPClimate.Parameter BOP_UNIQUENESS_RANGE_MODERATE_BOP_BIAS = BOPClimate.Parameter.span(-0.35F, 1.0F);

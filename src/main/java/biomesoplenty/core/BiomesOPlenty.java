@@ -6,6 +6,7 @@
 package biomesoplenty.core;
 
 import biomesoplenty.client.handler.FluidFogHandler;
+import biomesoplenty.common.worldgen.simulate.NoiseSimulator;
 import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -59,7 +60,7 @@ public class BiomesOPlenty
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-//        NoiseSimulator.run();
+        NoiseSimulator.run();
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event)

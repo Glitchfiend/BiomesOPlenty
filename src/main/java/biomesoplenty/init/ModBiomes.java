@@ -35,8 +35,6 @@ public class ModBiomes
 
     public static void setup()
     {
-        registerNoise(BOPNoises.UNIQUENESS, -6, 1.0D, 1.5D, 1.0D, 1.5D, 0.0D);
-        registerNoise(BOPNoises.UNIQUENESS_LARGE, -8, 1.0D, 1.5D, 1.0D, 1.5D, 0.0D);
         registerNoise(BOPNoises.RARENESS, -9, 0.6D, 1.5D, 0.6D, 0.0D, 0.0D);
         registerNoise(BOPNoises.RARENESS_LARGE, -11, 0.6D, 1.5D, 0.6D, 0.0D, 0.0D);
 
