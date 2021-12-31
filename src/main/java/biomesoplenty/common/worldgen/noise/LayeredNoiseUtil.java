@@ -8,20 +8,13 @@ import java.util.function.LongFunction;
 
 public class LayeredNoiseUtil
 {
-    public static final Area UNIQUENESS = uniqueness();
-
-    private static Area uniqueness()
+    public static Area uniqueness(long worldSeed, int modBiomeBlockSize)
     {
-        long worldSeed = 0L;
         LongFunction<AreaContext> contextFactory = (seedModifier) -> new AreaContext(25, worldSeed, seedModifier);
-
         AreaFactory factory = InitialLayer.INSTANCE.run(contextFactory.apply(1L));
         factory = ZoomLayer.FUZZY.run(contextFactory.apply(2000L), factory);
         factory = zoom(2001L, ZoomLayer.NORMAL, factory, 3, contextFactory);
-
-        int modBiomeSectionSize = 3;
-        factory = zoom(1001L, ZoomLayer.NORMAL, factory, modBiomeSectionSize, contextFactory);
-
+        factory = zoom(1001L, ZoomLayer.NORMAL, factory, modBiomeBlockSize, contextFactory);
         return factory.make();
     }
 

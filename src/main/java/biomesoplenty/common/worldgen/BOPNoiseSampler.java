@@ -5,6 +5,7 @@
 package biomesoplenty.common.worldgen;
 
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
+import biomesoplenty.common.worldgen.noise.Area;
 import biomesoplenty.common.worldgen.noise.LayeredNoiseUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.QuartPos;
@@ -20,6 +21,7 @@ import java.util.function.Consumer;
 
 public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
 {
+    private final Area uniquenessNoise;
     private final NormalNoise rarenessNoise;
 
     private final List<BOPClimate.ParameterPoint> bopSpawnTarget = (new BOPOverworldBiomeBuilder()).spawnTarget();
@@ -38,6 +40,7 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
 
         boolean largeBiomes = noiseSettings.largeBiomes();
         PositionalRandomFactory positionalrandomfactory = randomSource.newInstance(seed).forkPositional();
+        this.uniquenessNoise = LayeredNoiseUtil.uniqueness(seed, largeBiomes ? 5 : 3);
         this.rarenessNoise = Noises.instantiate(noiseParamRegistry, positionalrandomfactory, largeBiomes ? BOPNoises.RARENESS_LARGE : BOPNoises.RARENESS);
 
         // Nuke Vanilla's spawn targets list to reduce memory usage.
@@ -104,7 +107,7 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
     @VisibleForDebug
     public double getUniqueness(double x, double y, double z)
     {
-        return BOPClimate.unquantizeCoord(LayeredNoiseUtil.UNIQUENESS.get((int)x, (int)z));
+        return BOPClimate.unquantizeCoord(this.uniquenessNoise.get((int)x, (int)z));
     }
 
     @VisibleForDebug

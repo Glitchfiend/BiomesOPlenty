@@ -2,6 +2,7 @@ package biomesoplenty.common.worldgen.simulate;
 
 import biomesoplenty.common.worldgen.BOPClimate;
 import biomesoplenty.common.worldgen.BOPNoiseSampler;
+import biomesoplenty.common.worldgen.noise.Area;
 import biomesoplenty.common.worldgen.noise.LayeredNoiseUtil;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.QuartPos;
@@ -31,6 +32,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
     private final NormalNoise continentalnessNoise;
     private final NormalNoise erosionNoise;
     private final NormalNoise weirdnessNoise;
+    private final Area uniquenessNoise;
     protected NormalNoise rarenessNoise;
     private final TerrainShaper terrainShaper = TerrainShaper.overworld(false);
 
@@ -44,6 +46,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
         this.continentalnessNoise = NormalNoise.create(random, CONTINENTALNESS);
         this.erosionNoise = NormalNoise.create(random, EROSION);
         this.weirdnessNoise = NormalNoise.create(random, WEIRDNESS);
+        this.uniquenessNoise = LayeredNoiseUtil.uniqueness(seed, 3);
         this.rarenessNoise = NormalNoise.create(random, RARENESS);
     }
 
@@ -176,7 +179,7 @@ public class NoiseSimulationHelper implements BOPClimate.Sampler
     @VisibleForDebug
     public double getUniqueness(double d, double e, double f)
     {
-        return BOPClimate.unquantizeCoord(LayeredNoiseUtil.UNIQUENESS.get((int)d, (int)f));
+        return BOPClimate.unquantizeCoord(this.uniquenessNoise.get((int)d, (int)f));
     }
 
     @VisibleForDebug
