@@ -6,7 +6,7 @@
 package biomesoplenty.core;
 
 import biomesoplenty.client.handler.FluidFogHandler;
-import biomesoplenty.common.worldgen.simulate.NoiseSimulator;
+import biomesoplenty.common.data.ReloadManager;
 import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,6 +40,7 @@ public class BiomesOPlenty
         ModParticles.PARTICLES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
+        MinecraftForge.EVENT_BUS.register(new ReloadManager());
 
         if (FMLEnvironment.dist == Dist.CLIENT)
         {
@@ -60,7 +61,7 @@ public class BiomesOPlenty
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        NoiseSimulator.run();
+//        NoiseSimulator.run();
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event)

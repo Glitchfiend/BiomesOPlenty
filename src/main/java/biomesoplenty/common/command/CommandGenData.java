@@ -4,7 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.command;
 
-import biomesoplenty.common.util.data.DataGenerator;
+import biomesoplenty.common.data.DataGenerator;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import net.minecraft.commands.CommandRuntimeException;
 import net.minecraft.commands.CommandSourceStack;
@@ -25,7 +25,7 @@ public class CommandGenData
 
     private static int genData(CommandSourceStack cs, Level level) throws CommandRuntimeException
     {
-        DataGenerator.generateData();
+        DataGenerator.generateData(level.registryAccess());
         cs.sendSuccess(new TranslatableComponent("commands.biomesoplenty.gendata.success"), true);
         return 1;
     }

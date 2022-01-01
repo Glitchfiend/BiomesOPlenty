@@ -1,6 +1,10 @@
 package biomesoplenty.common.worldgen;
 
+import biomesoplenty.api.biome.BiomeProviders;
+import biomesoplenty.common.data.ReloadManager;
 import biomesoplenty.init.ModConfig;
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Lifecycle;
 import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
@@ -9,11 +13,14 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
-import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.common.world.ForgeWorldPreset;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class BOPWorldType extends ForgeWorldPreset
 {
@@ -24,20 +31,30 @@ public class BOPWorldType extends ForgeWorldPreset
             @Override
             public WorldGenSettings createSettings(RegistryAccess dynamicRegistries, long seed, boolean generateStructures, boolean bonusChest, String generatorSettings)
             {
-                Registry<DimensionType> dimensionTypeRegistry = dynamicRegistries.registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
-                return new WorldGenSettings(seed, generateStructures, bonusChest,
-                        WorldGenSettings.withOverworld(dimensionTypeRegistry,
-                                bopDimensions(dynamicRegistries, seed),
-                                createChunkGenerator(dynamicRegistries, seed, generatorSettings)));
+                return settings(dynamicRegistries, seed, generateStructures, bonusChest, ImmutableList.of());
             }
 
             @Override
             public ChunkGenerator createChunkGenerator(RegistryAccess dynamicRegistries, long seed, String generatorSettings)
             {
-                return new BOPNoiseBasedChunkGenerator(dynamicRegistries.registryOrThrow(Registry.NOISE_REGISTRY), BOPMultiNoiseBiomeSource.Preset.OVERWORLD.biomeSource(dynamicRegistries.registryOrThrow(Registry.BIOME_REGISTRY), false), seed, () -> {
-                    return dynamicRegistries.registryOrThrow(Registry.NOISE_GENERATOR_SETTINGS_REGISTRY).getOrThrow(BOPNoiseGeneratorSettings.OVERWORLD);
-                });
+                return chunkGenerator(dynamicRegistries, seed, ImmutableList.of());
             }
+        });
+    }
+
+    public static WorldGenSettings settings(RegistryAccess dynamicRegistries, long seed, boolean generateStructures, boolean bonusChest, List<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> externalParameters)
+    {
+        Registry<DimensionType> dimensionTypeRegistry = dynamicRegistries.registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
+        return new WorldGenSettings(seed, generateStructures, bonusChest,
+                WorldGenSettings.withOverworld(dimensionTypeRegistry,
+                        bopDimensions(dynamicRegistries, seed),
+                        chunkGenerator(dynamicRegistries, seed, externalParameters)));
+    }
+
+    public static ChunkGenerator chunkGenerator(RegistryAccess dynamicRegistries, long seed, List<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> externalParameters)
+    {
+        return new BOPNoiseBasedChunkGenerator(dynamicRegistries.registryOrThrow(Registry.NOISE_REGISTRY), BOPMultiNoiseBiomeSource.Preset.OVERWORLD.biomeSource(dynamicRegistries.registryOrThrow(Registry.BIOME_REGISTRY), externalParameters, false), seed, () -> {
+            return dynamicRegistries.registryOrThrow(Registry.NOISE_GENERATOR_SETTINGS_REGISTRY).getOrThrow(BOPNoiseGeneratorSettings.OVERWORLD);
         });
     }
 

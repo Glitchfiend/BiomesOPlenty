@@ -29,11 +29,13 @@ import net.minecraft.world.level.levelgen.NoiseSampler;
 import net.minecraft.world.level.levelgen.TerrainInfo;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
+import javax.annotation.Nullable;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -53,7 +55,7 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
             return Either.right(p_187066_);
         });
     }).codec();
-    private final BOPClimate.ParameterList<Supplier<Biome>> parameters;
+    private BOPClimate.ParameterList<Supplier<Biome>> parameters;
     private final Optional<PresetInstance> preset;
 
     private BOPMultiNoiseBiomeSource(BOPClimate.ParameterList<Supplier<Biome>> p_187057_)
@@ -67,6 +69,7 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
         this.preset = p_187060_;
         this.parameters = p_187059_;
     }
+
 
     protected Codec<? extends BiomeSource> codec()
     {
@@ -150,13 +153,16 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
 
         public static final BOPMultiNoiseBiomeSource.Preset OVERWORLD = new BOPMultiNoiseBiomeSource.Preset(new ResourceLocation(BiomesOPlenty.MOD_ID, "overworld"), (biomeRegistry) -> {
             ImmutableList.Builder<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> builder = ImmutableList.builder();
-            (new BOPOverworldBiomeBuilder()).addBiomes(biomeRegistry, (p_187098_) -> {
-                builder.add(p_187098_.mapSecond((p_187103_) -> {
+
+            Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper = (parameterPair) -> {
+                builder.add(parameterPair.mapSecond((key) -> {
                     return () -> {
-                        return biomeRegistry.getOrThrow(p_187103_);
+                        return biomeRegistry.getOrThrow(key);
                     };
                 }));
-            });
+            };
+
+            (new BOPOverworldBiomeBuilder()).addBiomes(biomeRegistry, mapper);
             return new BOPClimate.ParameterList<>(builder.build());
         });
         final ResourceLocation name;
@@ -169,20 +175,37 @@ public class BOPMultiNoiseBiomeSource extends BiomeSource
             BY_NAME.put(p_187090_, this);
         }
 
-        BOPMultiNoiseBiomeSource biomeSource(BOPMultiNoiseBiomeSource.PresetInstance p_187093_, boolean p_187094_)
+        BOPMultiNoiseBiomeSource biomeSource(BOPMultiNoiseBiomeSource.PresetInstance preset, List<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> externalParameters, boolean isPreset)
         {
-            BOPClimate.ParameterList<Supplier<Biome>> parameterlist = this.parameterSource.apply(p_187093_.biomes());
-            return new BOPMultiNoiseBiomeSource(parameterlist, p_187094_ ? Optional.of(p_187093_) : Optional.empty());
+            return new BOPMultiNoiseBiomeSource(this.buildParameters(preset, externalParameters), isPreset ? Optional.of(preset) : Optional.empty());
         }
 
-        public BOPMultiNoiseBiomeSource biomeSource(Registry<Biome> p_187105_, boolean p_187106_)
+        BOPMultiNoiseBiomeSource biomeSource(BOPMultiNoiseBiomeSource.PresetInstance preset, boolean isPreset)
         {
-            return this.biomeSource(new BOPMultiNoiseBiomeSource.PresetInstance(this, p_187105_), p_187106_);
+            return new BOPMultiNoiseBiomeSource(this.buildParameters(preset, ImmutableList.of()), isPreset ? Optional.of(preset) : Optional.empty());
+        }
+
+        public BOPMultiNoiseBiomeSource biomeSource(Registry<Biome> biomeRegistry,List<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> externalParameters, boolean isPreset)
+        {
+            return this.biomeSource(new BOPMultiNoiseBiomeSource.PresetInstance(this, biomeRegistry), externalParameters, isPreset);
+        }
+
+        public BOPMultiNoiseBiomeSource biomeSource(Registry<Biome> biomeRegistry, boolean p_187106_)
+        {
+            return this.biomeSource(new BOPMultiNoiseBiomeSource.PresetInstance(this, biomeRegistry), p_187106_);
         }
 
         public BOPMultiNoiseBiomeSource biomeSource(Registry<Biome> p_187100_)
         {
             return this.biomeSource(p_187100_, true);
+        }
+
+        private BOPClimate.ParameterList<Supplier<Biome>> buildParameters(BOPMultiNoiseBiomeSource.PresetInstance preset, List<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> externalParameters)
+        {
+            ImmutableList.Builder<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> parameterListBuilder = ImmutableList.builder();
+            parameterListBuilder.addAll(this.parameterSource.apply(preset.biomes()).values());
+            parameterListBuilder.addAll(externalParameters);
+            return new BOPClimate.ParameterList<>(parameterListBuilder.build());
         }
     }
 

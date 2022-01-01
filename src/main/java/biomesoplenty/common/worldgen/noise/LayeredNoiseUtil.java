@@ -11,7 +11,7 @@ public class LayeredNoiseUtil
     public static Area uniqueness(long worldSeed, int modBiomeBlockSize)
     {
         LongFunction<AreaContext> contextFactory = (seedModifier) -> new AreaContext(25, worldSeed, seedModifier);
-        AreaFactory factory = InitialLayer.INSTANCE.run(contextFactory.apply(1L));
+        AreaFactory factory = new InitialLayer().run(contextFactory.apply(1L));
         factory = ZoomLayer.FUZZY.run(contextFactory.apply(2000L), factory);
         factory = zoom(2001L, ZoomLayer.NORMAL, factory, 3, contextFactory);
         factory = zoom(1001L, ZoomLayer.NORMAL, factory, modBiomeBlockSize, contextFactory);

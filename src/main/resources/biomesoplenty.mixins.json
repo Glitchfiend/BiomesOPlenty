@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "biomesoplenty.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "biomesoplenty.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "client.MixinMinecraft",
+    "client.MixinWorldGenSettingsComponent"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8.3"
+}

@@ -4,6 +4,8 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen.noise;
 
+import biomesoplenty.api.biome.BiomeProviders;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.random.WeightedRandom;
@@ -12,32 +14,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public enum InitialLayer implements AreaTransformer0
+public class InitialLayer implements AreaTransformer0
 {
-    INSTANCE;
+    private final WeightedRandomList weightedEntries;
 
-    private static WeightedRandomList weightedEntries = WeightedRandomList.create(new ModEntry("minecraft", 10), new ModEntry("biomesoplenty", 15));
+    public InitialLayer()
+    {
+        this.weightedEntries = WeightedRandomList.create(BiomeProviders.getProviders());
+    }
 
     @Override
     public int apply(AreaContext context, int x, int y)
     {
-        Optional<ModEntry> entry = weightedEntries.getRandom(context);
-        return entry.isPresent() ? entry.get().index : 0;
-    }
-
-    private static class ModEntry extends WeightedEntry.IntrusiveBase
-    {
-        private static int nextIndex = 0;
-
-        public final String modId;
-        public final int index;
-
-        public ModEntry(String modId, int weight)
-        {
-            super(weight);
-            this.modId = modId;
-            this.index = nextIndex++;
-        }
+        Optional<BiomeProviders.BiomeProvider> entry = weightedEntries.getRandom(context);
+        return entry.isPresent() ? entry.get().getIndex() : 0;
     }
 
     private static class WeightedRandomList<E extends WeightedEntry>

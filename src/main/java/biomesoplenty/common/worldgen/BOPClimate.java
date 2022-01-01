@@ -16,6 +16,7 @@ import net.minecraft.core.QuartPos;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.Climate;
+import net.minecraft.world.level.biome.Climate.Parameter;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -60,57 +61,6 @@ public class BOPClimate
 
     interface DistanceMetric<T> {
         long distance(RTree.Node<T> p_186810_, long[] p_186811_);
-    }
-
-    public record Parameter(long min, long max)
-    {
-        public static final Codec<Parameter> CODEC = ExtraCodecs.intervalCodec(Codec.floatRange(-2.0F, 2.0F), "min", "max", (p_186833_, p_186834_) -> {
-            return p_186833_.compareTo(p_186834_) > 0 ? DataResult.error("Cannon construct interval, min > max (" + p_186833_ + " > " + p_186834_ + ")") : DataResult.success(new Parameter(quantizeCoord(p_186833_), quantizeCoord(p_186834_)));
-        }, (p_186841_) -> {
-            return unquantizeCoord(p_186841_.min());
-        }, (p_186839_) -> {
-            return unquantizeCoord(p_186839_.max());
-        });
-
-        public static Parameter point(float p_186821_) {
-            return span(p_186821_, p_186821_);
-        }
-
-        public static Parameter span(float p_186823_, float p_186824_) {
-            if (p_186823_ > p_186824_) {
-                throw new IllegalArgumentException("min > max: " + p_186823_ + " " + p_186824_);
-            } else {
-                return new Parameter(quantizeCoord(p_186823_), quantizeCoord(p_186824_));
-            }
-        }
-
-        public static Parameter span(Parameter p_186830_, Parameter p_186831_) {
-            if (p_186830_.min() > p_186831_.max()) {
-                throw new IllegalArgumentException("min > max: " + p_186830_ + " " + p_186831_);
-            } else {
-                return new Parameter(p_186830_.min(), p_186831_.max());
-            }
-        }
-
-        public String toString() {
-            return this.min == this.max ? String.format("%d", this.min) : String.format("[%d-%d]", this.min, this.max);
-        }
-
-        public long distance(long p_186826_) {
-            long i = p_186826_ - this.max;
-            long j = this.min - p_186826_;
-            return i > 0L ? i : Math.max(j, 0L);
-        }
-
-        public long distance(Parameter p_186828_) {
-            long i = p_186828_.min() - this.max;
-            long j = this.min - p_186828_.max();
-            return i > 0L ? i : Math.max(j, 0L);
-        }
-
-        public Parameter span(@Nullable Parameter p_186837_) {
-            return p_186837_ == null ? this : new Parameter(Math.min(this.min, p_186837_.min()), Math.max(this.max, p_186837_.max()));
-        }
     }
 
     public static class ParameterList<T> {

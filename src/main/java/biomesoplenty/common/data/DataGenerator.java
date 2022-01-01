@@ -2,7 +2,7 @@
  * Copyright 2021, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
-package biomesoplenty.common.util.data;
+package biomesoplenty.common.data;
 
 import biomesoplenty.common.util.config.JsonUtil;
 import biomesoplenty.init.ModBiomes;
@@ -48,11 +48,11 @@ public class DataGenerator
 
     private static Map<Integer, ResourceLocation> locationSubstitions = Maps.newHashMap();
 
-    public static void generateData()
+    public static void generateData(RegistryAccess registryAccess)
     {
-        RegistryAccess registryAccess = RegistryAccess.builtin();
+        RegistryAccess.RegistryHolder newRegistryAccess = RegistryAccess.builtin();
         Registry<DimensionType> dimensionTypeRegistry = registryAccess.registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
-        WorldGenSettings settings = ModBiomes.bopWorldType.createSettings(registryAccess, 0, true, false, "");
+        WorldGenSettings settings = ModBiomes.bopWorldType.createSettings(newRegistryAccess, 0, true, false, "");
 
         ImmutableSet<Pair<Registry, Codec>> registryCodecs = ImmutableSet.<Pair<Registry, Codec>>builder()
             .add(Pair.of(settings.dimensions(), LevelStem.CODEC))
@@ -67,6 +67,8 @@ public class DataGenerator
             .add(Pair.of(BuiltinRegistries.PROCESSOR_LIST, StructureProcessorType.LIST_CODEC))
             .add(Pair.of(BuiltinRegistries.TEMPLATE_POOL, StructureTemplatePool.CODEC))
             .build();
+
+        addRegistrySubstitutions(registryAccess.registryOrThrow(Registry.BIOME_REGISTRY), Biome.CODEC);
 
         for (Pair<Registry, Codec> registryCodecPair : registryCodecs)
         {

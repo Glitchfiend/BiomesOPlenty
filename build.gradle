@@ -1,10 +1,12 @@
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net/' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 
@@ -14,6 +16,7 @@ plugins {
 
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
+apply plugin: 'org.spongepowered.mixin'
 
 repositories { mavenLocal() }
 
@@ -41,13 +44,19 @@ minecraft {
     runs {
         client = {
             workingDirectory = project.file("run").canonicalPath
+            arg "-mixin.config=biomesoplenty.mixins.json"
             source sourceSets.main
         }
         server = {
             workingDirectory = project.file("run").canonicalPath
+            arg "-mixin.config=biomesoplenty.mixins.json"
             source sourceSets.main
         }
     }
+}
+
+mixin {
+    add sourceSets.main, "biomesoplenty.refmap.json"
 }
 
 allprojects {
@@ -80,7 +89,14 @@ jar {
     classifier = 'universal'
     manifest {
         attributes([
-            "Implementation-Version": project.version
+            "Specification-Title": "biomesoplenty",
+            "Specification-Vendor": "Biomes O' Plenty",
+            "Specification-Version": "1.1",
+            "Implementation-Title": project.name,
+            "Implementation-Version": project.version,
+            "Implementation-Vendor" :"biomesoplenty",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            "MixinConfigs": "biomesoplenty.mixins.json"
         ])
     }
 }
