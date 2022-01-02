@@ -103,6 +103,7 @@ jar {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 task deobfJar(type: Jar) {

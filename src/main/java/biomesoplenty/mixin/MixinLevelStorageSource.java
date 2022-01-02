@@ -26,6 +26,7 @@ import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
 import net.minecraft.world.level.storage.LevelStorageSource;
 import org.apache.logging.log4j.Logger;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -37,12 +38,12 @@ import java.util.function.Function;
 public class MixinLevelStorageSource
 {
     @Shadow
+    @Final
     static Logger LOGGER;
 
     @Shadow
+    @Final
     private static ImmutableList<String> OLD_SETTINGS_KEYS;
-
-
 
     @Overwrite
     private static <T> Pair<WorldGenSettings, Lifecycle> readWorldGenSettings(Dynamic<T> dynamicData, DataFixer dataFixer, int version)
