@@ -16,17 +16,11 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.Dynamic;
 import com.mojang.serialization.Lifecycle;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.data.worldgen.SurfaceRuleData;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -35,12 +29,9 @@ import net.minecraft.world.level.levelgen.*;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public class DataPackManager
 {
@@ -85,17 +76,14 @@ public class DataPackManager
         return BOPWorldType.settings(registryAccess, currentSettings.seed(), currentSettings.generateFeatures(), currentSettings.generateBonusChest(), mergedChunkGenerator);
     }
 
-    public static <T> Pair<WorldGenSettings, Lifecycle> readWorldGenSettings(Dynamic<T> dynamicWorldGenSettings, DataFixer dataFixer, int version)
+
+    public static <T> DataResult replaceDatapackWorldGenSettings(Dynamic<T> dynamicWorldGenSettings)
     {
         DataResult<WorldGenSettings> directWorldGenSettingsResult = DIRECT_WGS_CODEC.parse(dynamicWorldGenSettings);
         DataResult<WorldGenSettings> dataPackedWorldGenSettingsResult = WorldGenSettings.CODEC.parse(dynamicWorldGenSettings);
         Optional<WorldGenSettings> directWorldGenSettingsOptional = directWorldGenSettingsResult.result();
-        Optional<WorldGenSettings> dataPackedWorldGenSettingsOptional = dataPackedWorldGenSettingsResult.resultOrPartial(Util.prefix("WorldGenSettings: ", BiomesOPlenty.logger::error));
-
-        BiomesOPlenty.logger.info(directWorldGenSettingsOptional.isPresent() && directWorldGenSettingsOptional.get().overworld() instanceof BOPNoiseBasedChunkGenerator);
-        BiomesOPlenty.logger.info(dataPackedWorldGenSettingsOptional.isEmpty());
-        BiomesOPlenty.logger.info(dataPackedWorldGenSettingsOptional.get().overworld() instanceof BOPNoiseBasedChunkGenerator);
-
+        Optional<WorldGenSettings> dataPackedWorldGenSettingsOptional = dataPackedWorldGenSettingsResult.result();
+        
         if (directWorldGenSettingsOptional.isPresent() && directWorldGenSettingsOptional.get().overworld() instanceof BOPNoiseBasedChunkGenerator && (dataPackedWorldGenSettingsOptional.isEmpty() || !(dataPackedWorldGenSettingsOptional.get().overworld() instanceof BOPNoiseBasedChunkGenerator)))
         {
             BiomesOPlenty.logger.info("Using merged world generation settings for datapack");
@@ -106,14 +94,11 @@ public class DataPackManager
                 BiomeProviders.register("datapack", 10);
             }
 
-            return Pair.of(directWorldGenSettingsOptional.get(), directWorldGenSettingsResult.lifecycle());
+            return directWorldGenSettingsResult;
         }
         else
         {
-            return Pair.of(dataPackedWorldGenSettingsOptional.orElseGet(() -> {
-                RegistryAccess registryaccess = RegistryAccess.RegistryHolder.readFromDisk(dynamicWorldGenSettings);
-                return WorldGenSettings.makeDefault(registryaccess);
-            }), dataPackedWorldGenSettingsResult.lifecycle());
+            return dataPackedWorldGenSettingsResult;
         }
     }
 
