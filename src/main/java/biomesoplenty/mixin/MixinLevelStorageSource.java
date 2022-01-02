@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.mixin;
 
+import biomesoplenty.api.biome.BiomeProviders;
 import biomesoplenty.common.data.DataPackManager;
 import biomesoplenty.common.worldgen.BOPNoiseBasedChunkGenerator;
 import biomesoplenty.core.BiomesOPlenty;
@@ -41,11 +42,7 @@ public class MixinLevelStorageSource
     @Shadow
     private static ImmutableList<String> OLD_SETTINGS_KEYS;
 
-    private static final Codec<WorldGenSettings> DIRECT_WGS_CODEC = RecordCodecBuilder.<WorldGenSettings>create((p_64626_) -> {
-        return p_64626_.group(Codec.LONG.fieldOf("seed").stable().forGetter(WorldGenSettings::seed), Codec.BOOL.fieldOf("generate_features").orElse(true).stable().forGetter(WorldGenSettings::generateFeatures), Codec.BOOL.fieldOf("bonus_chest").orElse(false).stable().forGetter(WorldGenSettings::generateBonusChest), MappedRegistry.dataPackCodec(Registry.LEVEL_STEM_REGISTRY, Lifecycle.stable(), LevelStem.CODEC).xmap(LevelStem::sortMap, Function.identity()).fieldOf("dimensions").forGetter(WorldGenSettings::dimensions), Codec.STRING.optionalFieldOf("legacy_custom_options").stable().forGetter((p_158959_) -> {
-            return p_158959_.legacyCustomOptions;
-        })).apply(p_64626_, p_64626_.stable(WorldGenSettings::new));
-    }).comapFlatMap(WorldGenSettings::guardExperimental, Function.identity());
+
 
     @Overwrite
     private static <T> Pair<WorldGenSettings, Lifecycle> readWorldGenSettings(Dynamic<T> dynamicData, DataFixer dataFixer, int version)
@@ -61,19 +58,6 @@ public class MixinLevelStorageSource
         }
 
         Dynamic<T> fixedDynamicWorldGenSettings = dataFixer.update(References.WORLD_GEN_SETTINGS, dynamicWorldGenSettings, version, SharedConstants.getCurrentVersion().getWorldVersion());
-        DataResult<WorldGenSettings> cleanWorldGenSettings = DIRECT_WGS_CODEC.parse(fixedDynamicWorldGenSettings);
-
-        if (cleanWorldGenSettings.result().isPresent() && cleanWorldGenSettings.result().get().overworld() instanceof BOPNoiseBasedChunkGenerator)
-        {
-            return Pair.of(cleanWorldGenSettings.result().get(), cleanWorldGenSettings.lifecycle());
-        }
-        else
-        {
-            DataResult<WorldGenSettings> dataPackedWorldGenSettings = WorldGenSettings.CODEC.parse(fixedDynamicWorldGenSettings);
-            return Pair.of(dataPackedWorldGenSettings.resultOrPartial(Util.prefix("WorldGenSettings: ", LOGGER::error)).orElseGet(() -> {
-                RegistryAccess registryaccess = RegistryAccess.RegistryHolder.readFromDisk(fixedDynamicWorldGenSettings);
-                return WorldGenSettings.makeDefault(registryaccess);
-            }), dataPackedWorldGenSettings.lifecycle());
-        }
+        return DataPackManager.readWorldGenSettings(fixedDynamicWorldGenSettings, dataFixer, version);
     }
 }

@@ -64,6 +64,13 @@ public class BiomeProviders
         return Climate.Parameter.span(min, max);
     }
 
+    public static void reset()
+    {
+        nextIndex = 2;
+        biomeIndices = Maps.newHashMap();
+        biomeProviders = Lists.newArrayList(DEFAULT_PROVIDERS);
+    }
+
     private static void addIndex(String modId, int index)
     {
         biomeIndices.put(modId, index);
