@@ -5,6 +5,7 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.biome.BiomeProviders;
 import biomesoplenty.common.util.biome.BiomeUtil;
 import biomesoplenty.common.worldgen.BOPClimate;
 import com.mojang.datafixers.util.Pair;
@@ -68,12 +69,6 @@ public final class BOPOverworldBiomeBuilder
             Climate.Parameter.span(0.45F, 0.55F),
             Climate.Parameter.span(0.55F, 1.0F)
     };
-
-    private static final Climate.Parameter VANILLA_UNIQUENESS_RANGE = Climate.Parameter.point(BOPClimate.unquantizeCoord(0));
-    private static final Climate.Parameter BOP_UNIQUENESS_RANGE = Climate.Parameter.point(BOPClimate.unquantizeCoord(1));
-
-    private static final Climate.Parameter VANILLA_UNIQUENESS_RANGE_MODERATE_BOP_BIAS = Climate.Parameter.span(-1.0F, -0.35F);
-    private static final Climate.Parameter BOP_UNIQUENESS_RANGE_MODERATE_BOP_BIAS = Climate.Parameter.span(-0.35F, 1.0F);
 
     private static final Climate.Parameter COMMON_RARENESS_RANGE = Climate.Parameter.span(-1.0F, 0.35F);
     private static final Climate.Parameter RARE_RARENESS_RANGE = Climate.Parameter.span(0.35F, 1.0F);
@@ -708,26 +703,34 @@ public final class BOPOverworldBiomeBuilder
 
     private void addParallelSurfaceBiomes(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome, ResourceKey<Biome> rareBiome)
     {
-        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, VANILLA_UNIQUENESS_RANGE, COMMON_RARENESS_RANGE, offset, vanillaBiome);
-        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, VANILLA_UNIQUENESS_RANGE, RARE_RARENESS_RANGE, offset, rareBiome);
-        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, BOP_UNIQUENESS_RANGE, COMMON_RARENESS_RANGE, offset, bopBiome);
-        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, BOP_UNIQUENESS_RANGE, RARE_RARENESS_RANGE, offset, rareBiome);
+        Climate.Parameter vanillaUniqueness = getVanillaUniqueness();
+        Climate.Parameter bopUniqueness = getBOPUniqueness();
+
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, vanillaUniqueness, COMMON_RARENESS_RANGE, offset, vanillaBiome);
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, vanillaUniqueness, RARE_RARENESS_RANGE, offset, rareBiome);
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, bopUniqueness, COMMON_RARENESS_RANGE, offset, bopBiome);
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, bopUniqueness, RARE_RARENESS_RANGE, offset, rareBiome);
     }
 
     private void addParallelSurfaceBiomesWithModerateBOPBias(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome)
     {
-        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, VANILLA_UNIQUENESS_RANGE_MODERATE_BOP_BIAS, this.FULL_RANGE, offset, vanillaBiome);
-        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, BOP_UNIQUENESS_RANGE_MODERATE_BOP_BIAS, this.FULL_RANGE,  offset, bopBiome);
+        // TODO: Implement bias
+        Climate.Parameter vanillaUniqueness = getVanillaUniqueness();
+        Climate.Parameter bopUniqueness = getBOPUniqueness();
+
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, vanillaUniqueness, this.FULL_RANGE, offset, vanillaBiome);
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, bopUniqueness, this.FULL_RANGE,  offset, bopBiome);
     }
 
     private void addSurfaceBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
     {
-        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, VANILLA_UNIQUENESS_RANGE, this.FULL_RANGE, offset, biome);
+        Climate.Parameter vanillaUniqueness = getVanillaUniqueness();
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, vanillaUniqueness, this.FULL_RANGE, offset, biome);
     }
 
     private void addSurfaceBiomeGlobal(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
     {
-        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, Climate.Parameter.span(BOPClimate.unquantizeCoord(0), BOPClimate.unquantizeCoord(1)), this.FULL_RANGE, offset, biome);
+        addSurfaceBiome(mapper, temperature, humidity, continentalness, erosion, weirdness, getTrustedUniqueness(), this.FULL_RANGE, offset, biome);
     }
 
     private void addSurfaceBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter uniqueness, Climate.Parameter rareness, float offset, ResourceKey<Biome> biome)
@@ -738,7 +741,22 @@ public final class BOPOverworldBiomeBuilder
 
     private void addUndergroundBiome(Consumer<Pair<BOPClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> biome)
     {
-        mapper.accept(Pair.of(BOPClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.FULL_RANGE, this.FULL_RANGE, offset), biome));
+        mapper.accept(Pair.of(BOPClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, getTrustedUniqueness(), this.FULL_RANGE, offset), biome));
+    }
+
+    private Climate.Parameter getVanillaUniqueness()
+    {
+        return BiomeProviders.getUniquenessParameter(BiomeProviders.getIndex("minecraft"));
+    }
+
+    private Climate.Parameter getBOPUniqueness()
+    {
+        return BiomeProviders.getUniquenessParameter(BiomeProviders.getIndex("biomesoplenty"));
+    }
+
+    private Climate.Parameter getTrustedUniqueness()
+    {
+        return Climate.Parameter.span(BOPClimate.unquantizeCoord(getVanillaUniqueness().min()), BOPClimate.unquantizeCoord(getBOPUniqueness().max()));
     }
 
     public static String getDebugStringForPeaksAndValleys(double p_187156_)

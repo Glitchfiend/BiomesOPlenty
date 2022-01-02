@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "biomesoplenty.refmap.json",
   "mixins": [
+    "MixinLevelStorageSource"
   ],
   "client": [
     "client.MixinMinecraft",

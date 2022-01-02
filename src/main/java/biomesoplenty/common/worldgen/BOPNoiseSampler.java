@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen;
 
+import biomesoplenty.api.biome.BiomeProviders;
 import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import biomesoplenty.common.worldgen.noise.Area;
 import biomesoplenty.common.worldgen.noise.LayeredNoiseUtil;
@@ -107,7 +108,7 @@ public class BOPNoiseSampler extends NoiseSampler implements BOPClimate.Sampler
     @VisibleForDebug
     public double getUniqueness(double x, double y, double z)
     {
-        return BOPClimate.unquantizeCoord(this.uniquenessNoise.get((int)x, (int)z));
+        return BiomeProviders.getUniquenessMidPoint(this.uniquenessNoise.get((int)x, (int)z));
     }
 
     @VisibleForDebug

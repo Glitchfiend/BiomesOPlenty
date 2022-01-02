@@ -5,22 +5,32 @@
 package biomesoplenty.common.data;
 
 import biomesoplenty.api.biome.BiomeProviders;
-import biomesoplenty.common.worldgen.BOPClimate;
-import biomesoplenty.common.worldgen.BOPNoiseBasedChunkGenerator;
-import biomesoplenty.common.worldgen.BOPWorldType;
+import biomesoplenty.common.worldgen.*;
+import biomesoplenty.common.worldgen.surface.DifferentialSurfaceRuleSource;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.DataFixer;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.Dynamic;
+import com.mojang.serialization.Lifecycle;
+import net.minecraft.SharedConstants;
+import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.data.worldgen.SurfaceRuleData;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
-import net.minecraft.world.level.levelgen.WorldGenSettings;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -30,50 +40,47 @@ public class DataPackManager
     public static WorldGenSettings mergeWorldGenSettings(RegistryAccess registryAccess, WorldGenSettings currentSettings, WorldGenSettings newSettings)
     {
         // Do not merge if the chunk generator isn't ours or the new settings don't use a MultiNoiseBiomeSource
-        if (!(currentSettings.overworld() instanceof BOPNoiseBasedChunkGenerator) || !(newSettings.overworld().getBiomeSource() instanceof MultiNoiseBiomeSource) || currentSettings == newSettings)
+        if (!(currentSettings.overworld() instanceof BOPNoiseBasedChunkGenerator) || !(newSettings.overworld().getBiomeSource() instanceof MultiNoiseBiomeSource) || currentSettings.equals(newSettings))
             return newSettings;
 
-        Registry<Biome> biomeRegistry = registryAccess.registryOrThrow(Registry.BIOME_REGISTRY);
         MultiNoiseBiomeSource biomeSource = (MultiNoiseBiomeSource)newSettings.overworld().getBiomeSource();
+        Registry<Biome> biomeRegistry = registryAccess.registryOrThrow(Registry.BIOME_REGISTRY);
 
-        ImmutableList<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> externalParameters = biomeSource.parameters.values().stream().filter(pair ->
-        {
-            ResourceLocation location = biomeRegistry.getKey(pair.getSecond().get());
+        // Register biome providers from the parameters
+        BiomeProviders.register("datapack", 10);
 
-            if (location == null)
-            {
-                BiomesOPlenty.logger.error("Location null for " + pair.toString() + ", skipping...");
-                return false;
-            }
-
-            return !location.getNamespace().equals("minecraft") && !location.getNamespace().equals(BiomesOPlenty.MOD_ID);
-        }).map(pair -> {
+        ImmutableList<Pair<BOPClimate.ParameterPoint, Supplier<Biome>>> externalParameters = biomeSource.parameters.values().stream().map(pair -> {
             Climate.ParameterPoint point = pair.getFirst();
             Supplier<Biome> biomeSupplier = pair.getSecond();
-//            Biome biome = biomeSupplier.get();
+            Biome biome = biomeSupplier.get();
+            ResourceLocation biomeKey = biomeRegistry.getKey(biome);
+            Climate.Parameter uniqueness = BiomeProviders.getUniquenessParameter(BiomeProviders.getIndex("datapack"));
 
-            // FIXME
-//                ResourceLocation location = biomeRegistry.getKey(biome);
+//            float minDepth = Mth.clamp(BOPClimate.unquantizeCoord(point.depth().min()), 0.0F, 1.0F);
+//            float maxDepth = Mth.clamp(BOPClimate.unquantizeCoord(point.depth().max()), 0.0F, 1.0F);
 //
-//                if (location == null)
-//                {
-//                    throw new RuntimeException("Third-party biome is missing location " + biome);
-//                }
+//            // Manually correct underground biome depth
+//            if (biome.getBiomeCategory() == Biome.BiomeCategory.UNDERGROUND)
+//            {
+//                minDepth = 0.2F;
+//                maxDepth = 0.9F;
+//            }
 //
-//                String modId = location.getNamespace();
-
-            // TODO: Fix uniqueness and offsets
-            Climate.Parameter uniqueness = Climate.Parameter.point(BOPClimate.unquantizeCoord(2));
-            BOPClimate.ParameterPoint bopPoint = BOPClimate.parameters(point.temperature(), point.humidity(), point.continentalness(), point.erosion(), point.depth(), point.weirdness(), uniqueness, Climate.Parameter.span(-1.0F, 1.0F), 0);
-
+//            Climate.Parameter adjustedDepth = Climate.Parameter.span(minDepth, maxDepth);
+            BOPClimate.ParameterPoint bopPoint = BOPClimate.parameters(point.temperature(), point.humidity(), point.continentalness(), point.erosion(), point.depth(), point.weirdness(), uniqueness, Climate.Parameter.span(-1.0F, 0.35F), BOPClimate.unquantizeCoord(point.offset()));
             return Pair.of(bopPoint, biomeSupplier);
         }).collect(ImmutableList.toImmutableList());
 
-        // Register biome providers from the parameters
-        Set<String> namespaces = externalParameters.stream().map((pair) -> biomeRegistry.getKey(pair.getSecond().get()).getNamespace()).collect(Collectors.toSet());
-        namespaces.forEach(namespace -> BiomeProviders.register(namespace, 10));
+        BOPNoiseBasedChunkGenerator currentOverworldChunkGenerator = (BOPNoiseBasedChunkGenerator)currentSettings.overworld();
+        NoiseGeneratorSettings currentNoiseGeneratorSettings = currentOverworldChunkGenerator.settings.get();
+        NoiseBasedChunkGenerator newOverworldChunkGenerator = (NoiseBasedChunkGenerator)newSettings.overworld();
+        NoiseGeneratorSettings newNoiseGeneratorSettings = newOverworldChunkGenerator.settings.get();
 
-        BiomesOPlenty.logger.info("Created merged WorldGenSettings");
-        return BOPWorldType.settings(registryAccess, currentSettings.seed(), currentSettings.generateFeatures(), currentSettings.generateBonusChest(), externalParameters);
+        SurfaceRules.RuleSource mergedOverworldRuleSource = new DifferentialSurfaceRuleSource(BOPSurfaceRuleData.overworld(), ImmutableList.of(newNoiseGeneratorSettings.surfaceRule()));
+        NoiseGeneratorSettings mergedNoiseGeneratorSettings = BOPNoiseGeneratorSettings.overworld(newNoiseGeneratorSettings.noiseSettings(), mergedOverworldRuleSource);
+        ChunkGenerator mergedChunkGenerator = BOPWorldType.chunkGenerator(registryAccess, currentSettings.seed(), () -> mergedNoiseGeneratorSettings, externalParameters);
+
+        BiomesOPlenty.logger.info("Merged generation settings with datapack");
+        return BOPWorldType.settings(registryAccess, currentSettings.seed(), currentSettings.generateFeatures(), currentSettings.generateBonusChest(), mergedChunkGenerator);
     }
 }

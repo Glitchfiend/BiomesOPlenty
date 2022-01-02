@@ -9,6 +9,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.world.level.biome.Climate;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,9 +17,10 @@ import java.util.Map;
 
 public class BiomeProviders
 {
-    private static final ImmutableList<BiomeProvider> DEFAULT_PROVIDERS = ImmutableList.of(new BiomeProvider("minecraft", 10), new BiomeProvider("biomesoplenty", 15));
-    private static List<BiomeProvider> biomeProviders = Lists.newArrayList(DEFAULT_PROVIDERS);
+    private static final ImmutableList<BiomeProvider> DEFAULT_PROVIDERS;
+    private static List<BiomeProvider> biomeProviders;
     private static Map<String, Integer> biomeIndices;
+    private static int nextIndex = 0;
 
     public static void register(String modId, int weight)
     {
@@ -36,22 +38,39 @@ public class BiomeProviders
 
     public static int getIndex(String modId)
     {
-        if (biomeIndices == null)
-            biomeIndices = Maps.newHashMap();
         return biomeIndices.containsKey(modId) ? biomeIndices.get(modId) : 0;
+    }
+
+    public static int getCount()
+    {
+        return nextIndex;
+    }
+
+    public static float getUniquenessRangeSize()
+    {
+        return 2.0F / (float)getCount();
+    }
+
+    public static float getUniquenessMidPoint(int index)
+    {
+        float rangeSize = getUniquenessRangeSize();
+        return -1.0F + rangeSize * index + (rangeSize * 0.5F);
+    }
+
+    public static Climate.Parameter getUniquenessParameter(int index)
+    {
+        float min = -1.0F + getUniquenessRangeSize() * index;
+        float max = -1.0F + getUniquenessRangeSize() * (index + 1);
+        return Climate.Parameter.span(min, max);
     }
 
     private static void addIndex(String modId, int index)
     {
-        if (biomeIndices == null)
-            biomeIndices = Maps.newHashMap();
         biomeIndices.put(modId, index);
     }
 
     public static class BiomeProvider extends WeightedEntry.IntrusiveBase
     {
-        private static int nextIndex = 0;
-
         private final String modId;
         private final int index;
 
@@ -59,7 +78,7 @@ public class BiomeProviders
         {
             super(weight);
             this.modId = modId;
-            this.index = nextIndex++;
+            this.index = BiomeProviders.nextIndex++;
             BiomeProviders.addIndex(modId, index);
         }
 
@@ -72,5 +91,12 @@ public class BiomeProviders
         {
             return this.index;
         }
+    }
+
+    static
+    {
+        biomeIndices = Maps.newHashMap();
+        DEFAULT_PROVIDERS = ImmutableList.of(new BiomeProvider("minecraft", 10), new BiomeProvider("biomesoplenty", 15));
+        biomeProviders = Lists.newArrayList(DEFAULT_PROVIDERS);
     }
 }

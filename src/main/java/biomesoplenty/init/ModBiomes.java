@@ -8,6 +8,7 @@ import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPNetherBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
 import biomesoplenty.common.worldgen.*;
+import biomesoplenty.common.worldgen.surface.DifferentialSurfaceRuleSource;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -43,6 +44,8 @@ public class ModBiomes
 
         Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, BOPNoiseGeneratorSettings.OVERWORLD, BOPNoiseGeneratorSettings.overworld());
         Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, BOPNoiseGeneratorSettings.NETHER, BOPNoiseGeneratorSettings.nether());
+
+        Registry.register(Registry.RULE, new ResourceLocation(BiomesOPlenty.MOD_ID, "merged"), DifferentialSurfaceRuleSource.CODEC);
     }
 
     @SubscribeEvent

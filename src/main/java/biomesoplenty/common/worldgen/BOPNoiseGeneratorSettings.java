@@ -32,20 +32,30 @@ public class BOPNoiseGeneratorSettings
     public static final ResourceKey<NoiseGeneratorSettings> OVERWORLD = ResourceKey.create(Registry.NOISE_GENERATOR_SETTINGS_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, "overworld"));
     public static final ResourceKey<NoiseGeneratorSettings> NETHER = ResourceKey.create(Registry.NOISE_GENERATOR_SETTINGS_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, "nether"));
 
+    public static NoiseSettings overworldNoiseSettings()
+    {
+        return NoiseSettings.create(
+                -64, 384,
+                new NoiseSamplingSettings(1.0D, 1.0D, 80.0D, 160.0D),
+                new NoiseSlider(-0.078125D, 2, 8),
+                new NoiseSlider(0.1171875D, 3, 0),
+                1, 2, false, ModConfig.GenerationConfig.amplified.get(), ModConfig.GenerationConfig.largeBiomes.get(),
+                TerrainProvider.overworld(ModConfig.GenerationConfig.amplified.get()));
+    }
+
     public static NoiseGeneratorSettings overworld()
+    {
+        return overworld(overworldNoiseSettings(), BOPSurfaceRuleData.overworld());
+    }
+
+    public static NoiseGeneratorSettings overworld(NoiseSettings noiseSettings, SurfaceRules.RuleSource ruleSource)
     {
         return new NoiseGeneratorSettings(
                 new BOPStructureSettings(true),
-                NoiseSettings.create(
-                        -64, 384,
-                        new NoiseSamplingSettings(1.0D, 1.0D, 80.0D, 160.0D),
-                        new NoiseSlider(-0.078125D, 2, 8),
-                        new NoiseSlider(0.1171875D, 3, 0),
-                        1, 2, false, ModConfig.GenerationConfig.amplified.get(), ModConfig.GenerationConfig.largeBiomes.get(),
-                        TerrainProvider.overworld(ModConfig.GenerationConfig.amplified.get())),
+                noiseSettings,
                 Blocks.STONE.defaultBlockState(),
                 Blocks.WATER.defaultBlockState(),
-                BOPSurfaceRuleData.overworld(),
+                ruleSource,
                 63, false, true, true, true, true, false);
     }
 
