@@ -7,16 +7,21 @@ package biomesoplenty.init;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPNetherBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
-import biomesoplenty.common.worldgen.*;
-import biomesoplenty.common.worldgen.surface.DifferentialSurfaceRuleSource;
+import biomesoplenty.common.worldgen.BOPBiomeProvider;
+import biomesoplenty.common.worldgen.BOPSurfaceRuleData;
+import biomesoplenty.common.worldgen.BOPWorldType;
 import biomesoplenty.core.BiomesOPlenty;
+import com.google.common.collect.ImmutableSet;
+import net.minecraft.data.worldgen.StructureFeatures;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
+import terrablender.api.BiomeProvider;
+import terrablender.api.BiomeProviders;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.world.ForgeWorldPreset;
@@ -28,6 +33,12 @@ import net.minecraftforge.registries.GameData;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
+import terrablender.api.BiomeStructures;
+import terrablender.api.GenerationSettings;
+import terrablender.worldgen.TBNoiseGeneratorSettings;
+
+import java.util.Set;
+import java.util.function.BiConsumer;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
@@ -36,16 +47,22 @@ public class ModBiomes
 
     public static void setup()
     {
-        registerNoise(BOPNoises.RARENESS, -9, 0.6D, 1.5D, 0.6D, 0.0D, 0.0D);
-        registerNoise(BOPNoises.RARENESS_LARGE, -11, 0.6D, 1.5D, 0.6D, 0.0D, 0.0D);
+        Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, TBNoiseGeneratorSettings.NETHER, TBNoiseGeneratorSettings.nether());
 
-        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(BiomesOPlenty.MOD_ID, "multi_noise"), BOPMultiNoiseBiomeSource.CODEC);
-        Registry.register(Registry.CHUNK_GENERATOR, new ResourceLocation(BiomesOPlenty.MOD_ID, "noise"), BOPNoiseBasedChunkGenerator.CODEC);
+        // Remove the Vanilla provider and replace it with a dummy as we manage it ourselves
+        BiomeProviders.remove(BiomeProviders.DEFAULT_PROVIDER_LOCATION);
+        BiomeProviders.register(BiomeProviders.DEFAULT_PROVIDER_LOCATION, new BiomeProvider(BiomeProviders.DEFAULT_PROVIDER_LOCATION, 10){});
 
-        Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, BOPNoiseGeneratorSettings.OVERWORLD, BOPNoiseGeneratorSettings.overworld());
-        Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, BOPNoiseGeneratorSettings.NETHER, BOPNoiseGeneratorSettings.nether());
+        // Register our biome providers
+        BiomeProviders.register(BOPBiomeProvider.LOCATION, new BOPBiomeProvider(10));
+        BiomeProviders.register(BOPBiomeProvider.RARE_LOCATION, new BiomeProvider(BOPBiomeProvider.RARE_LOCATION, 5){});
 
-        Registry.register(Registry.RULE, new ResourceLocation(BiomesOPlenty.MOD_ID, "merged"), DifferentialSurfaceRuleSource.CODEC);
+        // Set default surface rules
+        GenerationSettings.setDefaultOverworldSurfaceRules(BOPSurfaceRuleData.overworld());
+        GenerationSettings.setDefaultNetherSurfaceRules(BOPSurfaceRuleData.nether());
+
+        // Register structures
+        BiomeStructures.addRegisterStructuresCallback(ModBiomes::registerStructuresBOP);
     }
 
     @SubscribeEvent
@@ -282,6 +299,75 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.WOODLAND, VillagerType.PLAINS);
     }
 
+    private static void registerStructuresBOP(BiConsumer<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> mapper)
+    {
+        Set<ResourceKey<Biome>> iglooBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.COLD_DESERT).add(BOPBiomes.SNOWY_CONIFEROUS_FOREST).add(BOPBiomes.SNOWY_FIR_CLEARING).add(BOPBiomes.SNOWY_MAPLE_WOODS).build();
+        Set<ResourceKey<Biome>> jungleTempleBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.RAINFOREST).add(BOPBiomes.FLOODPLAIN).build();
+        Set<ResourceKey<Biome>> swampHutBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BOG).add(BOPBiomes.BAYOU).add(BOPBiomes.MARSH).add(BOPBiomes.WETLAND).build();
+        Set<ResourceKey<Biome>> woodlandMansionBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CONIFEROUS_FOREST).add(BOPBiomes.DEAD_FOREST).add(BOPBiomes.MYSTIC_GROVE).add(BOPBiomes.OMINOUS_WOODS).add(BOPBiomes.SEASONAL_FOREST).add(BOPBiomes.WOODLAND).build();
+        Set<ResourceKey<Biome>> beachStructureBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.DUNE_BEACH).build();
+
+        Set<ResourceKey<Biome>> plainsVillageBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.GRASSLAND).add(BOPBiomes.LAVENDER_FIELD).add(BOPBiomes.MEDITERRANEAN_FOREST).add(BOPBiomes.PRAIRIE).add(BOPBiomes.SHRUBLAND).add(BOPBiomes.WOODLAND).build();
+        Set<ResourceKey<Biome>> desertVillageBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.LUSH_DESERT).build();
+        Set<ResourceKey<Biome>> savannaVillageBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.DRYLAND).build();
+        Set<ResourceKey<Biome>> snowyVillageBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.COLD_DESERT).add(BOPBiomes.SNOWY_CONIFEROUS_FOREST).build();
+        Set<ResourceKey<Biome>> taigaVillageBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CONIFEROUS_FOREST).add(BOPBiomes.DEAD_FOREST).add(BOPBiomes.FIELD).add(BOPBiomes.MAPLE_WOODS).add(BOPBiomes.TUNDRA).build();
+
+        Set<ResourceKey<Biome>> ruinedPortalDesertBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.COLD_DESERT).add(BOPBiomes.DRYLAND).add(BOPBiomes.DUNE_BEACH).add(BOPBiomes.LUSH_DESERT).add(BOPBiomes.LUSH_SAVANNA).add(BOPBiomes.VOLCANIC_PLAINS).add(BOPBiomes.WASTELAND).add(BOPBiomes.WOODED_WASTELAND).build();
+        Set<ResourceKey<Biome>> ruinedPortalJungleBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.FUNGAL_JUNGLE).add(BOPBiomes.RAINFOREST).add(BOPBiomes.RAINFOREST_CLIFFS).add(BOPBiomes.TROPICS).build();
+        Set<ResourceKey<Biome>> ruinedPortalMountainBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRAG).add(BOPBiomes.HIGHLAND).add(BOPBiomes.HIGHLAND_MOOR).add(BOPBiomes.JADE_CLIFFS).add(BOPBiomes.VOLCANO).build();
+        Set<ResourceKey<Biome>> ruinedPortalStandardBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAMBOO_GROVE).add(BOPBiomes.BOREAL_FOREST).add(BOPBiomes.CHERRY_BLOSSOM_GROVE).add(BOPBiomes.CLOVER_PATCH).add(BOPBiomes.CONIFEROUS_FOREST).add(BOPBiomes.DEAD_FOREST).add(BOPBiomes.OLD_GROWTH_WOODLAND).add(BOPBiomes.FIELD).add(BOPBiomes.FIR_CLEARING).add(BOPBiomes.FORESTED_FIELD).add(BOPBiomes.GRASSLAND).add(BOPBiomes.PASTURE).add(BOPBiomes.LAVENDER_FIELD).add(BOPBiomes.LAVENDER_FOREST).add(BOPBiomes.MAPLE_WOODS).add(BOPBiomes.MEDITERRANEAN_FOREST).add(BOPBiomes.MEDITERRANEAN_LAKES).add(BOPBiomes.MUSKEG).add(BOPBiomes.MYSTIC_GROVE).add(BOPBiomes.OLD_GROWTH_DEAD_FOREST).add(BOPBiomes.OMINOUS_WOODS).add(BOPBiomes.ORCHARD).add(BOPBiomes.PRAIRIE).add(BOPBiomes.REDWOOD_FOREST).add(BOPBiomes.ROCKY_SHRUBLAND).add(BOPBiomes.SCRUBLAND).add(BOPBiomes.SHRUBLAND).add(BOPBiomes.SEASONAL_FOREST).add(BOPBiomes.PUMPKIN_PATCH).add(BOPBiomes.SNOWY_CONIFEROUS_FOREST).add(BOPBiomes.SNOWY_FIR_CLEARING).add(BOPBiomes.SNOWY_MAPLE_WOODS).add(BOPBiomes.TUNDRA).add(BOPBiomes.WOODED_SCRUBLAND).add(BOPBiomes.WOODLAND).build();
+        Set<ResourceKey<Biome>> ruinedPortalSwampBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAYOU).add(BOPBiomes.BOG).add(BOPBiomes.MARSH).add(BOPBiomes.FLOODPLAIN).add(BOPBiomes.WETLAND).build();
+
+        Set<ResourceKey<Biome>> ruinedPortalNetherBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRYSTALLINE_CHASM).add(BOPBiomes.ERUPTING_INFERNO).add(BOPBiomes.UNDERGROWTH).add(BOPBiomes.VISCERAL_HEAP).build();
+        Set<ResourceKey<Biome>> netherBridgeBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRYSTALLINE_CHASM).add(BOPBiomes.ERUPTING_INFERNO).add(BOPBiomes.UNDERGROWTH).add(BOPBiomes.VISCERAL_HEAP).add(BOPBiomes.WITHERED_ABYSS).build();
+        Set<ResourceKey<Biome>> bastionRemnantBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRYSTALLINE_CHASM).add(BOPBiomes.ERUPTING_INFERNO).add(BOPBiomes.UNDERGROWTH).add(BOPBiomes.VISCERAL_HEAP).add(BOPBiomes.WITHERED_ABYSS).build();
+
+        Set<ResourceKey<Biome>> mineshaftBiomes = ImmutableSet.copyOf(BOPBiomes.getOverworldBiomes().stream().filter((key -> key != BOPBiomes.ORIGIN_VALLEY)).toList());
+
+        registerStructure(mapper, StructureFeatures.MINESHAFT, mineshaftBiomes);
+
+        registerStructure(mapper, StructureFeatures.IGLOO, iglooBiomes);
+        registerStructure(mapper, StructureFeatures.JUNGLE_TEMPLE, jungleTempleBiomes);
+        registerStructure(mapper, StructureFeatures.SWAMP_HUT, swampHutBiomes);
+        registerStructure(mapper, StructureFeatures.WOODLAND_MANSION, woodlandMansionBiomes);
+        registerStructure(mapper, StructureFeatures.BURIED_TREASURE, beachStructureBiomes);
+        registerStructure(mapper, StructureFeatures.SHIPWRECK_BEACHED, beachStructureBiomes);
+
+        registerStructure(mapper, StructureFeatures.VILLAGE_PLAINS, plainsVillageBiomes);
+        registerStructure(mapper, StructureFeatures.VILLAGE_DESERT, desertVillageBiomes);
+        registerStructure(mapper, StructureFeatures.VILLAGE_SAVANNA, savannaVillageBiomes);
+        registerStructure(mapper, StructureFeatures.VILLAGE_SNOWY, snowyVillageBiomes);
+        registerStructure(mapper, StructureFeatures.VILLAGE_TAIGA, taigaVillageBiomes);
+
+        registerStructure(mapper, StructureFeatures.PILLAGER_OUTPOST, plainsVillageBiomes);
+        registerStructure(mapper, StructureFeatures.PILLAGER_OUTPOST, desertVillageBiomes);
+        registerStructure(mapper, StructureFeatures.PILLAGER_OUTPOST, savannaVillageBiomes);
+        registerStructure(mapper, StructureFeatures.PILLAGER_OUTPOST, snowyVillageBiomes);
+        registerStructure(mapper, StructureFeatures.PILLAGER_OUTPOST, taigaVillageBiomes);
+
+        registerStructure(mapper, StructureFeatures.RUINED_PORTAL_DESERT, ruinedPortalDesertBiomes);
+        registerStructure(mapper, StructureFeatures.RUINED_PORTAL_JUNGLE, ruinedPortalJungleBiomes);
+        registerStructure(mapper, StructureFeatures.RUINED_PORTAL_MOUNTAIN, ruinedPortalMountainBiomes);
+        registerStructure(mapper, StructureFeatures.RUINED_PORTAL_STANDARD, ruinedPortalStandardBiomes);
+        registerStructure(mapper, StructureFeatures.RUINED_PORTAL_SWAMP, ruinedPortalSwampBiomes);
+
+        registerStructure(mapper, StructureFeatures.RUINED_PORTAL_NETHER, ruinedPortalNetherBiomes);
+        registerStructure(mapper, StructureFeatures.NETHER_BRIDGE, netherBridgeBiomes);
+        registerStructure(mapper, StructureFeatures.BASTION_REMNANT, bastionRemnantBiomes);
+    }
+
+    private static void registerStructure(BiConsumer<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> mapper, ConfiguredStructureFeature<?, ?> structure, Set<ResourceKey<Biome>> biomes)
+    {
+        biomes.forEach((p_194770_) -> {
+            mapper.accept(structure, p_194770_);
+        });
+    }
+
+    private static void registerStructure(BiConsumer<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> mapper, ConfiguredStructureFeature<?, ?> structure, ResourceKey<Biome> biome)
+    {
+        mapper.accept(structure, biome);
+    }
 
     public static void registerBiome(ResourceKey<Biome> key, Biome biome)
     {
@@ -290,11 +376,6 @@ public class ModBiomes
             biome.setRegistryName(key.location());
             ForgeRegistries.BIOMES.register(biome);
         }
-    }
-
-    private static void registerNoise(ResourceKey<NormalNoise.NoiseParameters> key, int firstOctave, double firstAmplitude, double... amplitudes)
-    {
-        BuiltinRegistries.register(BuiltinRegistries.NOISE, key, new NormalNoise.NoiseParameters(firstOctave, firstAmplitude, amplitudes));
     }
 
     private static void registerBiomeToDictionary(ResourceKey<Biome> key, BiomeDictionary.Type...type)

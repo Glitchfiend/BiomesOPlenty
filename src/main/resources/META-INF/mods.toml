@@ -19,3 +19,10 @@ logoFile="bop_logo.png"
     versionRange="[39.0.8,)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.biomesoplenty]]
+    modId="terrablender"
+    mandatory=true
+    versionRange="[1.0.0.11,)"
+    ordering="NONE"
+    side="BOTH"

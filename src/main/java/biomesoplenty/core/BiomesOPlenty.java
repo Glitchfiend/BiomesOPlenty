@@ -5,9 +5,8 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.api.biome.BiomeProviders;
 import biomesoplenty.client.handler.FluidFogHandler;
-import biomesoplenty.common.data.DataPackManager;
+import terrablender.data.DataPackManager;
 import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;

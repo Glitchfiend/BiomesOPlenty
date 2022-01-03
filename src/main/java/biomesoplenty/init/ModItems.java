@@ -7,6 +7,7 @@ package biomesoplenty.init;
 import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.common.item.MusicDiscItemBOP;
 import biomesoplenty.common.util.CreativeModeTabBOP;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.base.Suppliers;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.*;

@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.common.block.*;
 import biomesoplenty.common.block.trees.*;
 import biomesoplenty.common.util.CreativeModeTabBOP;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.base.Suppliers;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
