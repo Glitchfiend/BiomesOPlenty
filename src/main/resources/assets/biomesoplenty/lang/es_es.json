@@ -4,6 +4,7 @@
   "advancements.biomesoplenty.all_biomes.title": "Ambulante",
   "advancements.biomesoplenty.all_biomes.description": "Descubre todos los biomas de Biomes O' Plenty",
 
+  "commands.biomesoplenty.gendata.success": "Se generaron los datos",
   "generator.minecraft.biomesoplenty": "Biomes O' Plenty",
   "itemGroup.biomesoplenty": "Biomes O' Plenty",
   
@@ -12,6 +13,7 @@
   "biome.biomesoplenty.bog": "Ciénaga",
   "biome.biomesoplenty.boreal_forest": "Bosque boreal",
   "biome.biomesoplenty.cherry_blossom_grove": "Arboleda de cerezos",
+  "biome.biomesoplenty.clover_patch": "Campo de tréboles",
   "biome.biomesoplenty.cold_desert": "Desierto frío",
   "biome.biomesoplenty.coniferous_forest": "Bosque de coníferas",
   "biome.biomesoplenty.crag": "Peñasco",
