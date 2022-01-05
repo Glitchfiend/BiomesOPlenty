@@ -13,6 +13,7 @@ plugins {
     id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
+apply plugin: 'maven-publish'
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
 
@@ -151,4 +152,57 @@ artifacts {
     archives jar
     archives deobfJar
     archives apiJar
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact deobfJar
+            artifact apiJar
+            pom {
+                name = 'BiomesOPlenty'
+                description = "Adds over 50 new biomes, blocks, and more!"
+                url = 'https://github.com/Glitchfiend/BiomesOPlenty'
+                scm {
+                    url = 'https://github.com/Glitchfiend/BiomesOPlenty'
+                    connection = 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+                    developerConnection = 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+                }
+                issueManagement {
+                    system = 'github'
+                    url = 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+                }
+
+                licenses {
+                    license {
+                        name = 'All Rights Reserved'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'adubbz'
+                        name = 'Adubbz'
+                    }
+                    developer {
+                        id = 'forstride'
+                        name = 'Forstride'
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url "https://maven.minecraftforge.net/releases/"
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = System.env.MAVEN_USER ?:'fake'
+                password = System.env.MAVEN_PASSWORD ?:'news'
+            }
+        }
+    }
 }

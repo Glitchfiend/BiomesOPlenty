@@ -50,6 +50,9 @@ pipeline {
                 CURSE_API_KEY = credentials('curse-api-key')
             }
             steps {
+                withCredentials([usernamePassword(credentialsId: 'maven-adubbz-user', usernameVariable: 'MAVEN_USER', passwordVariable: 'MAVEN_PASSWORD')]) {
+                    sh './gradlew ${GRADLE_ARGS} publish'
+                }
                 withGradle {
                     sh './gradlew ${GRADLE_ARGS} curseforge -PcurseApiKey=${CURSE_API_KEY}'
                 }
