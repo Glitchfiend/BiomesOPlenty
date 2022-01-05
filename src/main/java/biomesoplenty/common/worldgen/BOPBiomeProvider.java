@@ -50,11 +50,11 @@ public class BOPBiomeProvider extends BiomeProvider
         this.addVanillaBiome(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.375F, Biomes.WARPED_FOREST);
         this.addVanillaBiome(mapper, Climate.Parameter.point(-0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.175F, Biomes.BASALT_DELTAS);
 
-        this.addBiome(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.WITHERED_ABYSS, Biomes.NETHER_WASTES));
-        this.addBiome(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(-0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.CRYSTALLINE_CHASM, Biomes.SOUL_SAND_VALLEY));
-        this.addBiome(mapper, Climate.Parameter.point(0.4F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.UNDERGROWTH, Biomes.CRIMSON_FOREST));
-        this.addBiome(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.375F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.VISCERAL_HEAP, Biomes.WARPED_FOREST));
-        this.addBiome(mapper, Climate.Parameter.point(-0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.175F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.ERUPTING_INFERNO, Biomes.BASALT_DELTAS));
+        this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.WITHERED_ABYSS, Biomes.NETHER_WASTES));
+        this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(-0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.CRYSTALLINE_CHASM, Biomes.SOUL_SAND_VALLEY));
+        this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(0.4F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.UNDERGROWTH, Biomes.CRIMSON_FOREST));
+        this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.375F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.VISCERAL_HEAP, Biomes.WARPED_FOREST));
+        this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(-0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.175F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.ERUPTING_INFERNO, Biomes.BASALT_DELTAS));
     }
 
     @Override
@@ -73,6 +73,14 @@ public class BOPBiomeProvider extends BiomeProvider
     public List<TBClimate.ParameterPoint> getSpawnTargets()
     {
         return (new BOPOverworldBiomeBuilder()).spawnTarget();
+    }
+
+    protected final void addBiomeRareAndCommon(Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> biome)
+    {
+        Climate.Parameter bopUniqueness = BiomeProviderUtils.getUniquenessParameter(BiomeProviders.getIndex(LOCATION));
+        Climate.Parameter rareUniqueness = BiomeProviderUtils.getUniquenessParameter(BiomeProviders.getIndex(RARE_LOCATION));
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, bopUniqueness, offset), biome));
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, rareUniqueness, offset), biome));
     }
 
     private final void addVanillaBiome(Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> biome)

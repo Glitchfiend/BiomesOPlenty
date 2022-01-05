@@ -33,24 +33,6 @@ public class ModConfig
     private static Map<String, Boolean> biomeToggles;
     private static final TreeMap<String, Boolean> defaultBiomeToggles = Maps.newTreeMap();
 
-    public static class ClientConfig
-    {
-        public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-        public static final ForgeConfigSpec SPEC;
-
-        public static final ForgeConfigSpec.BooleanValue useWorldType;
-
-        static
-        {
-            BUILDER.comment("Client-related options.");
-            BUILDER.push("gui");
-            useWorldType = BUILDER.comment("Select the Biomes O' Plenty world type by default.").define("use_world_type", true);
-            BUILDER.pop();
-
-            SPEC = BUILDER.build();
-        }
-    }
-
     public static class GenerationConfig
     {
         public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
@@ -74,7 +56,6 @@ public class ModConfig
     {
         createConfigDirectoryIfNecessary();
         ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, GenerationConfig.SPEC, "biomesoplenty/generation.toml");
-        ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.CLIENT, ClientConfig.SPEC, "biomesoplenty/client.toml");
     }
 
     public static boolean isBiomeEnabled(ResourceKey<Biome> key)
