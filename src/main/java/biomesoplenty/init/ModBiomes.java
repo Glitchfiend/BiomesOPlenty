@@ -9,32 +9,22 @@ import biomesoplenty.common.biome.BOPNetherBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
 import biomesoplenty.common.worldgen.BOPBiomeProvider;
 import biomesoplenty.common.worldgen.BOPSurfaceRuleData;
-import biomesoplenty.common.worldgen.BOPWorldType;
-import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
-import terrablender.api.BiomeProvider;
-import terrablender.api.BiomeProviders;
+import terrablender.api.*;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.common.world.ForgeWorldPreset;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.GameData;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Logger;
-import terrablender.api.BiomeStructures;
-import terrablender.api.GenerationSettings;
+import terrablender.core.TerraBlender;
 import terrablender.worldgen.TBNoiseGeneratorSettings;
 
 import java.util.Set;
@@ -43,19 +33,15 @@ import java.util.function.BiConsumer;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBiomes
 {
-    public static BOPWorldType bopWorldType = new BOPWorldType();
-
     public static void setup()
     {
-        Registry.register(BuiltinRegistries.NOISE_GENERATOR_SETTINGS, TBNoiseGeneratorSettings.NETHER, TBNoiseGeneratorSettings.nether());
-
         // Remove the Vanilla provider and replace it with a dummy as we manage it ourselves
         BiomeProviders.remove(BiomeProviders.DEFAULT_PROVIDER_LOCATION);
-        BiomeProviders.register(BiomeProviders.DEFAULT_PROVIDER_LOCATION, new BiomeProvider(BiomeProviders.DEFAULT_PROVIDER_LOCATION, 10){});
+        BiomeProviders.register(BiomeProviders.DEFAULT_PROVIDER_LOCATION, new BiomeProvider(BiomeProviders.DEFAULT_PROVIDER_LOCATION, TerraBlender.CONFIG.vanillaRegionWeight){});
 
         // Register our biome providers
-        BiomeProviders.register(BOPBiomeProvider.LOCATION, new BOPBiomeProvider(10));
-        BiomeProviders.register(BOPBiomeProvider.RARE_LOCATION, new BiomeProvider(BOPBiomeProvider.RARE_LOCATION, 5){});
+        BiomeProviders.register(BOPBiomeProvider.LOCATION, new BOPBiomeProvider(ModConfig.GenerationConfig.bopRegionWeight.get()));
+        BiomeProviders.register(BOPBiomeProvider.RARE_LOCATION, new BiomeProvider(BOPBiomeProvider.RARE_LOCATION, ModConfig.GenerationConfig.bopRareRegionWeight.get()){});
 
         // Set default surface rules
         GenerationSettings.setDefaultOverworldSurfaceRules(BOPSurfaceRuleData.overworld());
@@ -63,25 +49,6 @@ public class ModBiomes
 
         // Register structures
         BiomeStructures.addRegisterStructuresCallback(ModBiomes::registerStructuresBOP);
-    }
-
-    @SubscribeEvent
-    public static void registerLevelTypes(RegistryEvent.Register<ForgeWorldPreset> event)
-    {
-        // Obtain the game data logger and disable it temporarily
-        Logger gameDataLogger = (Logger) LogManager.getLogger(GameData.class);
-        Level oldLevel = gameDataLogger.getLevel();
-        gameDataLogger.setLevel(Level.OFF);
-
-        // Register our world type
-        // We intentionally use the minecraft namespace so we continue using "biomesoplenty" in server.properties
-        // This is markedly better than the alternative of biomesoplenty:biomesoplenty.
-        // We do this with GameData logging disabled to prevent people whining at us.
-        bopWorldType.setRegistryName(new ResourceLocation("biomesoplenty"));
-        event.getRegistry().register(bopWorldType);
-
-        // Re-enable the game data logger
-        gameDataLogger.setLevel(oldLevel);
     }
 
     @SubscribeEvent

@@ -5,7 +5,6 @@
 package biomesoplenty.common.data;
 
 import biomesoplenty.common.util.config.JsonUtil;
-import biomesoplenty.init.ModBiomes;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -34,6 +33,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.fml.loading.FMLPaths;
+import terrablender.api.WorldPresetUtils;
 
 import java.nio.file.Path;
 import java.util.Iterator;
@@ -52,7 +52,8 @@ public class DataGenerator
     {
         RegistryAccess.RegistryHolder newRegistryAccess = RegistryAccess.builtin();
         Registry<DimensionType> dimensionTypeRegistry = registryAccess.registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
-        WorldGenSettings settings = ModBiomes.bopWorldType.createSettings(newRegistryAccess, 0, true, false, "");
+        long seed = 0;
+        WorldGenSettings settings = WorldPresetUtils.settings(registryAccess, seed, true, false, WorldPresetUtils.dimensions(registryAccess, seed), WorldPresetUtils.amplifiedChunkGenerator(registryAccess, seed));
 
         ImmutableSet<Pair<Registry, Codec>> registryCodecs = ImmutableSet.<Pair<Registry, Codec>>builder()
             .add(Pair.of(settings.dimensions(), LevelStem.CODEC))

@@ -56,17 +56,14 @@ public class ModConfig
         public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
         public static final ForgeConfigSpec SPEC;
 
-        public static final ForgeConfigSpec.BooleanValue useBopNether;
-        public static final ForgeConfigSpec.BooleanValue largeBiomes;
-        public static final ForgeConfigSpec.BooleanValue amplified;
-
+        public static final ForgeConfigSpec.IntValue bopRegionWeight;
+        public static final ForgeConfigSpec.IntValue bopRareRegionWeight;
         static
         {
             BUILDER.comment("World generation related options.");
             BUILDER.push("overworld");
-            useBopNether = BUILDER.comment("Enable nether generation from Biomes O' Plenty.").define("use_bop_nether", true);
-            largeBiomes = BUILDER.comment("Generate large biomes.").define("large_biomes", false);
-            amplified = BUILDER.comment("Generate amplified terrain.").define("amplified", false);
+            bopRegionWeight = BUILDER.comment("The weighting of bop biome regions.").defineInRange("bop_region_weight", 10, 0, Integer.MAX_VALUE);
+            bopRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions.").defineInRange("bop_rare_region_weight", 5, 0, Integer.MAX_VALUE);
             BUILDER.pop();
 
             SPEC = BUILDER.build();
