@@ -9,6 +9,7 @@ import net.minecraft.sounds.SoundEvent;
 public class BOPSounds
 {
 	public static SoundEvent MUSIC_DISC_WANDERER;
+	public static SoundEvent MUSIC_BIOME_ORIGIN_VALLEY;
 	public static SoundEvent MUSIC_BIOME_CRYSTALLINE_CHASM;
 	public static SoundEvent MUSIC_BIOME_ERUPTING_INFERNO;
 	public static SoundEvent MUSIC_BIOME_UNDERGROWTH;

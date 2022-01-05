@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.biome;
 
+import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.worldgen.carver.BOPConfiguredCarvers;
 import biomesoplenty.common.worldgen.placement.BOPCavePlacements;
 import biomesoplenty.common.worldgen.placement.BOPMiscOverworldPlacements;
@@ -928,7 +929,7 @@ public class BOPOverworldBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_ORIGIN_VALLEY);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_ORIGIN_VALLEY);
 
-        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.NONE, 0.6F, 0.6F, 0x0E31FF, 0x070059, 0xB0CFFF, 0x9AFF5F, 0x3AFF00, 0x8CBDFF, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(Biome.Precipitation.RAIN, Biome.BiomeCategory.NONE, 0.6F, 0.6F, 0x0E31FF, 0x070059, 0xB0CFFF, 0x9AFF5F, 0x3AFF00, 0x8CBDFF, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_ORIGIN_VALLEY));
     }
 
     public static Biome pasture()

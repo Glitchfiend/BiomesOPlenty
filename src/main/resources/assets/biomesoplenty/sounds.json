@@ -7,6 +7,22 @@
       }
     ]
   },
+  "music.overworld.origin_valley": {
+    "sounds": [
+	  {
+        "name": "minecraft:music/game/calm1",
+        "stream": true
+      },
+	  {
+        "name": "minecraft:music/game/calm2",
+        "stream": true
+      },
+	  {
+        "name": "minecraft:music/game/calm3",
+        "stream": true
+      }
+    ]
+  },
   "music.nether.crystalline_chasm": {
     "sounds": [
 	  {

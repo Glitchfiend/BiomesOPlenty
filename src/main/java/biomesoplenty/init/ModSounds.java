@@ -22,6 +22,7 @@ public class ModSounds
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event)
     {
         MUSIC_DISC_WANDERER = registerSound("music_disc.wanderer");
+        MUSIC_BIOME_ORIGIN_VALLEY = registerSound("music.overworld.origin_valley");
         MUSIC_BIOME_CRYSTALLINE_CHASM = registerSound("music.nether.crystalline_chasm");
         MUSIC_BIOME_ERUPTING_INFERNO = registerSound("music.nether.erupting_inferno");
         MUSIC_BIOME_UNDERGROWTH = registerSound("music.nether.undergrowth");
