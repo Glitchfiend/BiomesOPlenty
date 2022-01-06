@@ -814,6 +814,7 @@ public class BOPOverworldBiomes
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
         globalOverworldGenerationNoLavaLakes(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_CLAY);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BOPMiscOverworldPlacements.DISK_WHITE_SAND);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
