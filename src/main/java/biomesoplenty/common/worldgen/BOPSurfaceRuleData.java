@@ -380,7 +380,11 @@ public class BOPSurfaceRuleData
             ORANGE_SAND
         );
 
+
+
+
         // Sandstone linings
+        SurfaceRules.RuleSource sandstoneLinedSand = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SANDSTONE), SAND);
         SurfaceRules.RuleSource lushDesertSandstoneLinedOrangeSand = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE), mixedLushDesertSurface);
         SurfaceRules.RuleSource blackSandstoneLining = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, BLACK_SANDSTONE), BLACK_SAND);
 
@@ -397,6 +401,9 @@ public class BOPSurfaceRuleData
                     SurfaceRules.ifTrue(
                         SurfaceRules.UNDER_FLOOR,
                         SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), sandstoneLinedSand)
+                            ),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT), lushDesertSandstoneLinedOrangeSand),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.VOLCANIC_PLAINS), blackSandstoneLining)
                         )
@@ -404,6 +411,9 @@ public class BOPSurfaceRuleData
                     SurfaceRules.ifTrue(
                         SurfaceRules.stoneDepthCheck(0, true, true, CaveSurface.FLOOR),
                         SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SANDSTONE)
+                            ),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT), ORANGE_SANDSTONE),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.VOLCANIC_PLAINS), BLACK_SANDSTONE)
                         )
@@ -462,9 +472,6 @@ public class BOPSurfaceRuleData
                 )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), STONE),
-            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
-                SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SAND)
-            ),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.VOLCANO),
                 SurfaceRules.sequence(
