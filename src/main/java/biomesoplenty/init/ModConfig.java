@@ -44,8 +44,8 @@ public class ModConfig
         {
             BUILDER.comment("World generation related options.");
             BUILDER.push("overworld");
-            bopRegionWeight = BUILDER.comment("The weighting of bop biome regions.").defineInRange("bop_region_weight", 10, 0, Integer.MAX_VALUE);
-            bopRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions.").defineInRange("bop_rare_region_weight", 5, 0, Integer.MAX_VALUE);
+            bopRegionWeight = BUILDER.comment("The weighting of bop biome regions.").defineInRange("bop_region_weight", 13, 0, Integer.MAX_VALUE);
+            bopRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions.").defineInRange("bop_rare_region_weight", 2, 0, Integer.MAX_VALUE);
             BUILDER.pop();
 
             SPEC = BUILDER.build();
