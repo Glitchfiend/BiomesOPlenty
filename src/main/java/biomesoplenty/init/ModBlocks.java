@@ -315,8 +315,6 @@ public class ModBlocks
         WILLOW_VINE = registerBlock(new VineBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().strength(0.2F).sound(SoundType.GRASS)), "willow_vine");
         SPANISH_MOSS = registerBlock(new SpanishMossBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss");
         SPANISH_MOSS_PLANT = registerBlockNoGroup(new SpanishMossBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss_plant");
-        TREE_ROOTS = registerBlock(new TreeRootsBottomBlock(BlockBehaviour.Properties.of(Material.WOOD).randomTicks().noCollission().strength(0.3F).sound(SoundType.WOOD)), "tree_roots");
-        TREE_ROOTS_STEM = registerBlockNoGroup(new TreeRootsBlock(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(0.3F).sound(SoundType.WOOD)), "tree_roots_stem");
         GLOWWORM_SILK = registerBlock(new GlowwormSilkBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk");
         GLOWWORM_SILK_STRAND = registerBlockNoGroup(new GlowwormSilkBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk_strand");
         HANGING_COBWEB = registerBlock(new HangingCobwebBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb");
@@ -451,8 +449,6 @@ public class ModBlocks
             ItemBlockRenderTypes.setRenderLayer(WILLOW_VINE, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(SPANISH_MOSS, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(SPANISH_MOSS_PLANT, cutoutRenderType);
-            ItemBlockRenderTypes.setRenderLayer(TREE_ROOTS, cutoutRenderType);
-            ItemBlockRenderTypes.setRenderLayer(TREE_ROOTS_STEM, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(GLOWWORM_SILK, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(GLOWWORM_SILK_STRAND, cutoutRenderType);
             ItemBlockRenderTypes.setRenderLayer(HANGING_COBWEB, cutoutRenderType);

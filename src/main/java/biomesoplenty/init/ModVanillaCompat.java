@@ -137,8 +137,6 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.WILLOW_VINE, 15, 100);
         registerFlammable(BOPBlocks.SPANISH_MOSS, 60, 100);
         registerFlammable(BOPBlocks.SPANISH_MOSS_PLANT, 60, 100);
-        registerFlammable(BOPBlocks.TREE_ROOTS, 15, 20);
-        registerFlammable(BOPBlocks.TREE_ROOTS_STEM, 15, 20);
         registerFlammable(BOPBlocks.GLOWWORM_SILK, 60, 100);
         registerFlammable(BOPBlocks.GLOWWORM_SILK_STRAND, 60, 100);
         registerFlammable(BOPBlocks.HANGING_COBWEB, 60, 100);
