@@ -29,16 +29,16 @@ public class BiomeUtil
     {
         for (ResourceKey<Biome> key : biomes)
         {
-            if (key == null)
-                continue;
-
-            Biome biome = biomeRegistry.get(key);
-
-            if (biome != null)
+            if (isKeyRegistered(biomeRegistry, key))
                 return key;
         }
 
         throw new RuntimeException("Failed to find fallback for biome!");
+    }
+
+    public static boolean isKeyRegistered(Registry<Biome> registry, ResourceKey<Biome> key)
+    {
+        return key != null && registry.get(key) != null;
     }
 
     private static List<Level> worldList = Lists.newArrayList();

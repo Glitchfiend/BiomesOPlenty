@@ -217,7 +217,7 @@ public final class BOPOverworldBiomeBuilder
         {
             this.addOffCoastBiomes(biomeRegistry, mapper);
             this.addInlandBiomes(biomeRegistry, mapper);
-            this.addUndergroundBiomes(biomeRegistry, mapper);
+            this.addUndergroundBiomeVanilla(biomeRegistry, mapper);
         }
     }
 
@@ -525,10 +525,13 @@ public final class BOPOverworldBiomeBuilder
         }
     }
 
-    private void addUndergroundBiomes(Registry<Biome> biomeRegistry, Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper)
+    private void addUndergroundBiomeVanilla(Registry<Biome> biomeRegistry, Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper)
     {
-        this.addParallelUndergroundBiomes(mapper, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.SPIDER_NEST, Biomes.DRIPSTONE_CAVES));
-        this.addParallelUndergroundBiomes(mapper, this.FULL_RANGE, Climate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.LUSH_CAVES, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.GLOWING_GROTTO, Biomes.LUSH_CAVES));
+        this.addUndergroundBiomeVanilla(mapper, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
+        this.addUndergroundBiomeVanilla(mapper, this.FULL_RANGE, Climate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.LUSH_CAVES);
+
+        this.addUndergroundBiomeBOP(biomeRegistry, mapper, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, BOPBiomes.SPIDER_NEST);
+        this.addUndergroundBiomeBOP(biomeRegistry, mapper, this.FULL_RANGE, Climate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, BOPBiomes.GLOWING_GROTTO);
     }
 
     private ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
@@ -723,10 +726,17 @@ public final class BOPOverworldBiomeBuilder
         mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, Climate.Parameter.point(1.0F), weirdness, uniqueness, offset), biome));
     }
 
-    private void addParallelUndergroundBiomes(Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome)
+    private void addUndergroundBiomeVanilla(Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> biome)
     {
-        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.vanillaUniqueness, offset), vanillaBiome));
-        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.bopUniqueness, offset), bopBiome));
-        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.rareUniqueness, offset), bopBiome));
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.vanillaUniqueness, offset), biome));
+    }
+
+    private void addUndergroundBiomeBOP(Registry<Biome> biomeRegistry, Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> biome)
+    {
+        if (!BiomeUtil.isKeyRegistered(biomeRegistry, biome))
+            return;
+
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.bopUniqueness, offset), biome));
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.rareUniqueness, offset), biome));
     }
 }
