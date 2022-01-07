@@ -21,7 +21,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
-import net.minecraft.world.level.biome.TerrainShaper;
 
 public final class BOPOverworldBiomeBuilder
 {
@@ -528,14 +527,8 @@ public final class BOPOverworldBiomeBuilder
 
     private void addUndergroundBiomes(Registry<Biome> biomeRegistry, Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper)
     {
-        this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES);
-        this.addUndergroundBiome(mapper, this.FULL_RANGE, Climate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.LUSH_CAVES);
-
-        if (biomeRegistry.get(BOPBiomes.GLOWING_GROTTO) != null)
-            this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(-1.0F, -0.8F), this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, BOPBiomes.GLOWING_GROTTO);
-
-        if (biomeRegistry.get(BOPBiomes.SPIDER_NEST) != null)
-            this.addUndergroundBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, BOPBiomes.SPIDER_NEST);
+        this.addParallelUndergroundBiomes(mapper, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.DRIPSTONE_CAVES, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.SPIDER_NEST, Biomes.DRIPSTONE_CAVES));
+        this.addParallelUndergroundBiomes(mapper, this.FULL_RANGE, Climate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, Biomes.LUSH_CAVES, BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.GLOWING_GROTTO, Biomes.LUSH_CAVES));
     }
 
     private ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
@@ -730,8 +723,10 @@ public final class BOPOverworldBiomeBuilder
         mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, Climate.Parameter.point(1.0F), weirdness, uniqueness, offset), biome));
     }
 
-    private void addUndergroundBiome(Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> biome)
+    private void addParallelUndergroundBiomes(Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> vanillaBiome, ResourceKey<Biome> bopBiome)
     {
-        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.FULL_RANGE, offset), biome));
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.vanillaUniqueness, offset), vanillaBiome));
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.bopUniqueness, offset), bopBiome));
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, this.rareUniqueness, offset), bopBiome));
     }
 }

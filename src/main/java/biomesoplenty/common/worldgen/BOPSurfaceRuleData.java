@@ -380,9 +380,6 @@ public class BOPSurfaceRuleData
             ORANGE_SAND
         );
 
-
-
-
         // Sandstone linings
         SurfaceRules.RuleSource sandstoneLinedSand = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SANDSTONE), SAND);
         SurfaceRules.RuleSource lushDesertSandstoneLinedOrangeSand = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE), mixedLushDesertSurface);
@@ -537,18 +534,18 @@ public class BOPSurfaceRuleData
     {
         SurfaceRules.ConditionSource isAbove31 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(31), 0);
         SurfaceRules.ConditionSource surfacerules$conditionsource1 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(32), 0);
-        SurfaceRules.ConditionSource isAbove30 = SurfaceRules.yStartCheck(VerticalAnchor.absolute(30), 0);
+        SurfaceRules.ConditionSource yStart30 = SurfaceRules.yStartCheck(VerticalAnchor.absolute(30), 0);
         SurfaceRules.ConditionSource isBelow35 = SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(35), 0));
         SurfaceRules.ConditionSource isTop5Blocks = SurfaceRules.yBlockCheck(VerticalAnchor.belowTop(5), 0);
         SurfaceRules.ConditionSource isHole = SurfaceRules.hole();
         SurfaceRules.ConditionSource isSuitableSoulSandNoise = SurfaceRules.noiseCondition(Noises.SOUL_SAND_LAYER, -0.012D);
         SurfaceRules.ConditionSource surfacerules$conditionsource7 = SurfaceRules.noiseCondition(Noises.GRAVEL_LAYER, -0.012D);
         SurfaceRules.ConditionSource isSuitablePatchNoise = SurfaceRules.noiseCondition(Noises.PATCH, -0.012D);
-        SurfaceRules.ConditionSource surfacerules$conditionsource9 = SurfaceRules.noiseCondition(Noises.NETHERRACK, 0.54D);
+        SurfaceRules.ConditionSource isSuitableNetherrackNoise = SurfaceRules.noiseCondition(Noises.NETHERRACK, 0.54D);
         SurfaceRules.ConditionSource surfacerules$conditionsource10 = SurfaceRules.noiseCondition(Noises.NETHER_WART, 1.17D);
         SurfaceRules.ConditionSource isStateSelectorNoiseSuitable = SurfaceRules.noiseCondition(Noises.NETHER_STATE_SELECTOR, 0.0D);
 
-        SurfaceRules.RuleSource gravelPatchRules = SurfaceRules.ifTrue(isSuitablePatchNoise, SurfaceRules.ifTrue(isAbove30, SurfaceRules.ifTrue(isBelow35, GRAVEL)));
+        SurfaceRules.RuleSource gravelPatchRules = SurfaceRules.ifTrue(isSuitablePatchNoise, SurfaceRules.ifTrue(yStart30, SurfaceRules.ifTrue(isBelow35, GRAVEL)));
 
         return SurfaceRules.sequence(
             SurfaceRules.ifTrue(
@@ -570,7 +567,60 @@ public class BOPSurfaceRuleData
                         )
                     )
                 )
-            ), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.SOUL_SAND_VALLEY), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, SurfaceRules.sequence(SurfaceRules.ifTrue(isStateSelectorNoiseSuitable, SOUL_SAND), SOUL_SOIL)), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.sequence(gravelPatchRules, SurfaceRules.ifTrue(isStateSelectorNoiseSuitable, SOUL_SAND), SOUL_SOIL)))), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.not(surfacerules$conditionsource1), SurfaceRules.ifTrue(isHole, LAVA)), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.WARPED_FOREST), SurfaceRules.ifTrue(SurfaceRules.not(surfacerules$conditionsource9), SurfaceRules.ifTrue(isAbove31, SurfaceRules.sequence(SurfaceRules.ifTrue(surfacerules$conditionsource10, WARPED_WART_BLOCK), WARPED_NYLIUM)))), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.CRIMSON_FOREST), SurfaceRules.ifTrue(SurfaceRules.not(surfacerules$conditionsource9), SurfaceRules.ifTrue(isAbove31, SurfaceRules.sequence(SurfaceRules.ifTrue(surfacerules$conditionsource10, NETHER_WART_BLOCK), CRIMSON_NYLIUM)))))), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.NETHER_WASTES), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.ifTrue(isSuitableSoulSandNoise, SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.not(isHole), SurfaceRules.ifTrue(isAbove30, SurfaceRules.ifTrue(isBelow35, SOUL_SAND))), NETHERRACK))), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(isAbove31, SurfaceRules.ifTrue(isBelow35, SurfaceRules.ifTrue(surfacerules$conditionsource7, SurfaceRules.sequence(SurfaceRules.ifTrue(surfacerules$conditionsource1, GRAVEL), SurfaceRules.ifTrue(SurfaceRules.not(isHole), GRAVEL)))))))), NETHERRACK);
+            ),
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(Biomes.SOUL_SAND_VALLEY),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.UNDER_CEILING,
+                        SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(isStateSelectorNoiseSuitable, SOUL_SAND), SOUL_SOIL
+                        )
+                    ),
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.UNDER_FLOOR,
+                        SurfaceRules.sequence(
+                            gravelPatchRules,
+                            SurfaceRules.ifTrue(isStateSelectorNoiseSuitable, SOUL_SAND),
+                            SOUL_SOIL
+                        )
+                    )
+                )
+            ),
+            SurfaceRules.ifTrue(
+                SurfaceRules.ON_FLOOR,
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.not(surfacerules$conditionsource1),
+                        SurfaceRules.ifTrue(isHole, LAVA)
+                    ),
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.isBiome(Biomes.WARPED_FOREST),
+                        SurfaceRules.ifTrue(
+                            SurfaceRules.not(isSuitableNetherrackNoise),
+                            SurfaceRules.ifTrue(
+                                isAbove31,
+                                SurfaceRules.sequence(
+                                    SurfaceRules.ifTrue(surfacerules$conditionsource10, WARPED_WART_BLOCK),
+                                    WARPED_NYLIUM
+                                )
+                            )
+                        )
+                    ),
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.isBiome(Biomes.CRIMSON_FOREST),
+                        SurfaceRules.ifTrue(
+                            SurfaceRules.not(isSuitableNetherrackNoise),
+                            SurfaceRules.ifTrue(isAbove31,
+                                SurfaceRules.sequence(
+                                    SurfaceRules.ifTrue(surfacerules$conditionsource10, NETHER_WART_BLOCK),
+                                    CRIMSON_NYLIUM
+                                )
+                            )
+                        )
+                    )
+                )
+            ), SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.NETHER_WASTES), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.ifTrue(isSuitableSoulSandNoise, SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.not(isHole), SurfaceRules.ifTrue(yStart30, SurfaceRules.ifTrue(isBelow35, SOUL_SAND))), NETHERRACK))), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(isAbove31, SurfaceRules.ifTrue(isBelow35, SurfaceRules.ifTrue(surfacerules$conditionsource7, SurfaceRules.sequence(SurfaceRules.ifTrue(surfacerules$conditionsource1, GRAVEL), SurfaceRules.ifTrue(SurfaceRules.not(isHole), GRAVEL)))))))), NETHERRACK);
     }
 
     private static SurfaceRules.ConditionSource surfaceNoiseAbove(double p_194809_) {
