@@ -601,7 +601,7 @@ public final class BOPOverworldBiomeBuilder
     {
         if (temperatureIndex == 0)
             return Biomes.SNOWY_BEACH;
-        else if (temperatureIndex == 2 && humidityIndex <= 2)
+        else if (temperatureIndex == 2 && humidityIndex < 2)
         {
             return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.DUNE_BEACH, Biomes.BEACH);
         }
