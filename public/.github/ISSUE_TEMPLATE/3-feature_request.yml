@@ -1,0 +1,28 @@
+name: 1.18.1 Feature Request
+description: Request a new feature
+labels: [feature]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests for Minecraft 1.18.1. Older versions are not supported.
+        If any section does not apply, replace its contents with "N/A".
+        
+        Please search for existing feature requests before you make your own request.
+        Duplicate requests will be marked as such and you will be referred to the original request.
+  - type: markdown
+    attributes:
+      value: "## What feature are you suggesting?"
+  - type: textarea
+    attributes:
+      label: Overview
+      description: Provide an overview of the feature being suggested.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Why would this feature be useful?
+      description: |
+        Describe the benefits of implementing this feature.
+    validations:
+      required: true
