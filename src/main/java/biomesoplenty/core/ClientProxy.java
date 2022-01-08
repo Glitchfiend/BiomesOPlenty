@@ -5,11 +5,15 @@
 package biomesoplenty.core;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlockEntities;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.SignBlockEntityBOP;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -22,6 +26,7 @@ import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.awt.*;
@@ -34,7 +39,7 @@ public class ClientProxy extends CommonProxy
     }
 
     @Override
-    public void init()
+    public void registerRenderers()
     {
         BlockColors blockColors = Minecraft.getInstance().getBlockColors();
         ItemColors itemColors = Minecraft.getInstance().getItemColors();
@@ -61,6 +66,9 @@ public class ClientProxy extends CommonProxy
             return blockColors.getColor(state, null, null, tintIndex); },
         	BOPBlocks.SPROUT, BOPBlocks.BUSH, BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.FLOWERING_OAK_LEAVES,
             BOPBlocks.MAHOGANY_LEAVES, BOPBlocks.PALM_LEAVES, BOPBlocks.WILLOW_LEAVES, BOPBlocks.WILLOW_VINE);
+
+        // Register block entity renderers
+        BlockEntityRenderers.register((BlockEntityType< SignBlockEntityBOP>)BOPBlockEntities.SIGN, SignRenderer::new);
     }
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)

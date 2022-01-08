@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.common.item.MusicDiscItemBOP;
 import biomesoplenty.common.util.CreativeModeTabBOP;
@@ -11,6 +12,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.base.Suppliers;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.event.RegistryEvent;
@@ -39,6 +41,18 @@ public class ModItems
 
         Supplier<? extends FlowingFluid> BLOOD_SUPPLIER = Suppliers.memoize(() -> BOPFluids.BLOOD);
         BLOOD_BUCKET = registerItem(new BucketItem(BLOOD_SUPPLIER, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "blood_bucket");
+
+        FIR_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.FIR_SIGN, BOPBlocks.FIR_WALL_SIGN), "fir_sign");
+        REDWOOD_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.REDWOOD_SIGN, BOPBlocks.REDWOOD_WALL_SIGN), "redwood_sign");
+        CHERRY_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.CHERRY_SIGN, BOPBlocks.CHERRY_WALL_SIGN), "cherry_sign");
+        MAHOGANY_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.MAHOGANY_SIGN, BOPBlocks.MAHOGANY_WALL_SIGN), "mahogany_sign");
+        JACARANDA_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.JACARANDA_SIGN, BOPBlocks.JACARANDA_WALL_SIGN), "jacaranda_sign");
+        PALM_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.PALM_SIGN, BOPBlocks.PALM_WALL_SIGN), "palm_sign");
+        WILLOW_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.WILLOW_SIGN, BOPBlocks.WILLOW_WALL_SIGN), "willow_sign");
+        DEAD_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.DEAD_SIGN, BOPBlocks.DEAD_WALL_SIGN), "dead_sign");
+        MAGIC_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.MAGIC_SIGN, BOPBlocks.MAGIC_WALL_SIGN), "magic_sign");
+        UMBRAN_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.UMBRAN_SIGN, BOPBlocks.UMBRAN_WALL_SIGN), "umbran_sign");
+        HELLBARK_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.HELLBARK_SIGN, BOPBlocks.HELLBARK_WALL_SIGN), "hellbark_sign");
 
         FIR_BOAT = registerItem(new BoatItem(Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "fir_boat");
         REDWOOD_BOAT = registerItem(new BoatItem(Boat.Type.OAK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "redwood_boat");

@@ -36,10 +36,9 @@ public class BiomesOPlenty
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 
         ModParticles.PARTICLES.register(FMLJavaModLoadingContext.get().getModEventBus());
-
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         MinecraftForge.EVENT_BUS.register(new DataPackManager());
 
         if (FMLEnvironment.dist == Dist.CLIENT)
@@ -61,12 +60,16 @@ public class BiomesOPlenty
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
+        event.enqueueWork(() ->
+        {
+            ModBlocks.registerWoodTypes();
+        });
 //        NoiseSimulator.run();
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event)
     {
-        proxy.init();
+        proxy.registerRenderers();
         ModTags.setup();
     }
 }

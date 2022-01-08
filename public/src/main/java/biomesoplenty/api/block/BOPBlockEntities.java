@@ -2,14 +2,11 @@
  * Copyright 2021, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
-package biomesoplenty.core;
+package biomesoplenty.api.block;
 
-public class CommonProxy
+import net.minecraft.world.level.block.entity.BlockEntityType;
+
+public class BOPBlockEntities
 {
-    public CommonProxy()
-    {
-
-    }
-
-    public void registerRenderers() {}
+    public static BlockEntityType<?> SIGN;
 }

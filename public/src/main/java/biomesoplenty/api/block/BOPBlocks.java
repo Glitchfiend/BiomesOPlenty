@@ -5,6 +5,8 @@
 package biomesoplenty.api.block;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.minecraft.world.level.material.FlowingFluid;
 
 public class BOPBlocks

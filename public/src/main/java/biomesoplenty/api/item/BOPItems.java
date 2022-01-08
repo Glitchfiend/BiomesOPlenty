@@ -15,6 +15,18 @@ public class BOPItems
 
     public static Item ROSE_QUARTZ_SHARD;
 
+    public static Item FIR_SIGN;
+    public static Item REDWOOD_SIGN;
+    public static Item CHERRY_SIGN;
+    public static Item MAHOGANY_SIGN;
+    public static Item JACARANDA_SIGN;
+    public static Item PALM_SIGN;
+    public static Item WILLOW_SIGN;
+    public static Item DEAD_SIGN;
+    public static Item MAGIC_SIGN;
+    public static Item UMBRAN_SIGN;
+    public static Item HELLBARK_SIGN;
+
     public static Item FIR_BOAT;
     public static Item REDWOOD_BOAT;
     public static Item CHERRY_BOAT;
