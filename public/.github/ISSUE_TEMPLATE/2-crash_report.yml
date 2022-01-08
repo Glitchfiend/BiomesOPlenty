@@ -1,0 +1,48 @@
+name: 1.18.1 Crash Report
+description: File a crash report
+labels: [crash]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For crashes experienced with Minecraft 1.18.1. Older versions are not supported.
+        If any section does not apply, replace its content with "N/A".
+
+        Please search for existing crash reports before making your own report.
+        Duplicate reports will be marked as such and you will be referred to the original report.
+  - type: textarea
+    attributes:
+      label: What's the issue you encountered?
+      description: |
+        Describe the issue in detail and what you were doing beforehand.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: How can the issue be reproduced?
+      description: Include a detailed step by step process for recreating your issue.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Logs
+      description: |
+        Logs can be found in your Minecraft directory under `/logs/latest.log`.
+        If your issue caused Minecraft to crash, include the crash report by creating a [gist](https://gist.github.com/) and pasting the link here.
+        If your don't include logs in instances of crash related issues, we will ask you to provide one.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Mod Version
+      description: |
+        Replace ×'s with the mod version you are using.
+        You can find your mod version by checking the ``Mods`` menu on the title screen.
+      placeholder: ×.×.×.×
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: |
+        Any other information relevant to your issue.
