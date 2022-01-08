@@ -5,6 +5,8 @@
 package biomesoplenty.api.block;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.minecraft.world.level.material.FlowingFluid;
 
 public class BOPBlocks
@@ -276,8 +278,6 @@ public class BOPBlocks
     public static Block WILLOW_VINE;
     public static Block SPANISH_MOSS;
     public static Block SPANISH_MOSS_PLANT;
-    public static Block TREE_ROOTS;
-    public static Block TREE_ROOTS_STEM;
     public static Block GLOWWORM_SILK;
     public static Block GLOWWORM_SILK_STRAND;
     public static Block HANGING_COBWEB;
