@@ -95,7 +95,7 @@ jar {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
-    implementation 'com.github.glitchfiend:TerraBlender:1.18.1-1.0.0.24:deobf'
+    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.18.1-1.1.0.39')
 }
 
 task deobfJar(type: Jar) {
