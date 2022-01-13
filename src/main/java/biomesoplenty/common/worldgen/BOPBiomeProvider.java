@@ -30,9 +30,9 @@ public class BOPBiomeProvider extends BiomeProvider
     public static final ResourceLocation LOCATION = new ResourceLocation(BiomesOPlenty.MOD_ID, "biome_provider");
     public static final ResourceLocation RARE_LOCATION = new ResourceLocation(BiomesOPlenty.MOD_ID, "rare_biome_provider");
 
-    public BOPBiomeProvider(int weight)
+    public BOPBiomeProvider(int overworldWeight, int netherWeight)
     {
-        super(LOCATION, weight);
+        super(LOCATION, overworldWeight, netherWeight);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class BOPBiomeProvider extends BiomeProvider
         this.addVanillaBiome(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.375F, Biomes.WARPED_FOREST);
         this.addVanillaBiome(mapper, Climate.Parameter.point(-0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.175F, Biomes.BASALT_DELTAS);
 
-        this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.WITHERED_ABYSS, Biomes.NETHER_WASTES));
+        this.addBiomeRare(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.WITHERED_ABYSS, Biomes.NETHER_WASTES));
         this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(-0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.CRYSTALLINE_CHASM, Biomes.SOUL_SAND_VALLEY));
         this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(0.4F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.0F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.UNDERGROWTH, Biomes.CRIMSON_FOREST));
         this.addBiomeRareAndCommon(mapper, Climate.Parameter.point(0.0F), Climate.Parameter.point(0.5F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), Climate.Parameter.point(0.0F), 0.375F, BiomeUtil.biomeOrFallback(registry, BOPBiomes.VISCERAL_HEAP, Biomes.WARPED_FOREST));
@@ -73,6 +73,12 @@ public class BOPBiomeProvider extends BiomeProvider
     public List<TBClimate.ParameterPoint> getSpawnTargets()
     {
         return (new BOPOverworldBiomeBuilder()).spawnTarget();
+    }
+
+    protected final void addBiomeRare(Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> biome)
+    {
+        Climate.Parameter rareUniqueness = BiomeProviderUtils.getUniquenessParameter(BiomeProviders.getIndex(RARE_LOCATION));
+        mapper.accept(Pair.of(TBClimate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, rareUniqueness, offset), biome));
     }
 
     protected final void addBiomeRareAndCommon(Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, Climate.Parameter depth, float offset, ResourceKey<Biome> biome)

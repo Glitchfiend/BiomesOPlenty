@@ -7,7 +7,6 @@ package biomesoplenty.init;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.util.config.JsonUtil;
 import biomesoplenty.core.BiomesOPlenty;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.gson.reflect.TypeToken;
 import net.minecraft.resources.ResourceKey;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,14 +36,18 @@ public class ModConfig
         public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
         public static final ForgeConfigSpec SPEC;
 
-        public static final ForgeConfigSpec.IntValue bopRegionWeight;
-        public static final ForgeConfigSpec.IntValue bopRareRegionWeight;
+        public static final ForgeConfigSpec.IntValue bopOverworldRegionWeight;
+        public static final ForgeConfigSpec.IntValue bopNetherRegionWeight;
+        public static final ForgeConfigSpec.IntValue bopOverworldRareRegionWeight;
+        public static final ForgeConfigSpec.IntValue bopNetherRareRegionWeight;
         static
         {
             BUILDER.comment("World generation related options.");
             BUILDER.push("overworld");
-            bopRegionWeight = BUILDER.comment("The weighting of bop biome regions.").defineInRange("bop_region_weight", 13, 0, Integer.MAX_VALUE);
-            bopRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions.").defineInRange("bop_rare_region_weight", 2, 0, Integer.MAX_VALUE);
+            bopOverworldRegionWeight = BUILDER.comment("The weighting of bop biome regions in the overworld.").defineInRange("bop_overworld_region_weight", 13, 0, Integer.MAX_VALUE);
+            bopNetherRegionWeight = BUILDER.comment("The weighting of bop biome regions in the nether.").defineInRange("bop_nether_region_weight", 13, 0, Integer.MAX_VALUE);
+            bopOverworldRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions in the overworld.").defineInRange("bop_overworld_rare_region_weight", 2, 0, Integer.MAX_VALUE);
+            bopNetherRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions in the nether.").defineInRange("bop_nether_rare_region_weight", 2, 0, Integer.MAX_VALUE);
             BUILDER.pop();
 
             SPEC = BUILDER.build();

@@ -13,8 +13,6 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import terrablender.api.*;
-import net.minecraft.core.Registry;
-import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
@@ -25,7 +23,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import terrablender.core.TerraBlender;
-import terrablender.worldgen.TBNoiseGeneratorSettings;
 
 import java.util.Set;
 import java.util.function.BiConsumer;
@@ -37,11 +34,11 @@ public class ModBiomes
     {
         // Remove the Vanilla provider and replace it with a dummy as we manage it ourselves
         BiomeProviders.remove(BiomeProviders.DEFAULT_PROVIDER_LOCATION);
-        BiomeProviders.register(BiomeProviders.DEFAULT_PROVIDER_LOCATION, new BiomeProvider(BiomeProviders.DEFAULT_PROVIDER_LOCATION, TerraBlender.CONFIG.vanillaRegionWeight){});
+        BiomeProviders.register(BiomeProviders.DEFAULT_PROVIDER_LOCATION, new BiomeProvider(BiomeProviders.DEFAULT_PROVIDER_LOCATION, TerraBlender.CONFIG.vanillaOverworldRegionWeight, TerraBlender.CONFIG.vanillaNetherRegionWeight){});
 
         // Register our biome providers
-        BiomeProviders.register(BOPBiomeProvider.LOCATION, new BOPBiomeProvider(ModConfig.GenerationConfig.bopRegionWeight.get()));
-        BiomeProviders.register(BOPBiomeProvider.RARE_LOCATION, new BiomeProvider(BOPBiomeProvider.RARE_LOCATION, ModConfig.GenerationConfig.bopRareRegionWeight.get()){});
+        BiomeProviders.register(BOPBiomeProvider.LOCATION, new BOPBiomeProvider(ModConfig.GenerationConfig.bopOverworldRegionWeight.get(), ModConfig.GenerationConfig.bopNetherRegionWeight.get()));
+        BiomeProviders.register(BOPBiomeProvider.RARE_LOCATION, new BiomeProvider(BOPBiomeProvider.RARE_LOCATION, ModConfig.GenerationConfig.bopOverworldRareRegionWeight.get(), ModConfig.GenerationConfig.bopNetherRareRegionWeight.get()){});
 
         // Set default surface rules
         GenerationSettings.setDefaultOverworldSurfaceRules(BOPSurfaceRuleData.overworld());

@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 
@@ -16,6 +17,7 @@ plugins {
 apply plugin: 'maven-publish'
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
+apply plugin: 'org.spongepowered.mixin'
 
 repositories { mavenLocal() }
 
@@ -95,7 +97,7 @@ jar {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
-    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.18.1-1.1.0.39')
+    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.18.1-1.1.0.44')
 }
 
 task deobfJar(type: Jar) {
