@@ -13,6 +13,8 @@
 	"biomesoplenty:hellbark_fence_gate",
 	"biomesoplenty:hellbark_stairs",
 	"biomesoplenty:hellbark_button",
-	"biomesoplenty:hellbark_door"
+	"biomesoplenty:hellbark_door",
+    "biomesoplenty:hellbark_sign",
+    "biomesoplenty:hellbark_wall_sign"
   ]
 }
