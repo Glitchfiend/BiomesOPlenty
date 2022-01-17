@@ -34,7 +34,7 @@ public class ModBiomes
     {
         // Remove the Vanilla provider and replace it with a dummy as we manage it ourselves
         BiomeProviders.remove(BiomeProviders.DEFAULT_PROVIDER_LOCATION);
-        BiomeProviders.register(BiomeProviders.DEFAULT_PROVIDER_LOCATION, new BiomeProvider(BiomeProviders.DEFAULT_PROVIDER_LOCATION, TerraBlender.CONFIG.vanillaOverworldRegionWeight, TerraBlender.CONFIG.vanillaNetherRegionWeight){});
+        BiomeProviders.register(BiomeProviders.DEFAULT_PROVIDER_LOCATION, 0, new BiomeProvider(BiomeProviders.DEFAULT_PROVIDER_LOCATION, TerraBlender.CONFIG.vanillaOverworldRegionWeight, TerraBlender.CONFIG.vanillaNetherRegionWeight){});
 
         // Register our biome providers
         BiomeProviders.register(BOPBiomeProvider.LOCATION, new BOPBiomeProvider(ModConfig.GenerationConfig.bopOverworldRegionWeight.get(), ModConfig.GenerationConfig.bopNetherRegionWeight.get()));
