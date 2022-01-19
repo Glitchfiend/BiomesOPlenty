@@ -109,7 +109,7 @@ public class BOPVegetationPlacements
     public static final PlacedFeature FLOWER_WETLAND = register("flower_wetland", BOPVegetationFeatures.FLOWER_WETLAND.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
     // Large flowers
-    public static final PlacedFeature GOLDENROD_NORMAL = register("goldenrod_normal", BOPVegetationFeatures.GOLDENROD.placed(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature GOLDENROD_NORMAL = register("goldenrod_normal", BOPVegetationFeatures.GOLDENROD.placed(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature GOLDENROD_EXTRA = register("goldenrod_extra", BOPVegetationFeatures.GOLDENROD.placed(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature LILAC_NORMAL = register("patch_lilac_normal", BOPVegetationFeatures.PATCH_LILAC.placed(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature LILAC_EXTRA = register("patch_lilac_extra", BOPVegetationFeatures.PATCH_LILAC.placed(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
