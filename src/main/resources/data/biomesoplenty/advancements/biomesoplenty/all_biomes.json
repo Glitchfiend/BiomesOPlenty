@@ -201,12 +201,6 @@
                 "biome": "biomesoplenty:mediterranean_forest"
             }
         },
-		"mediterranean_lakes": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:mediterranean_lakes"
-            }
-        },
 		"muskeg": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -279,16 +273,16 @@
                 "biome": "biomesoplenty:rainforest"
             }
         },
-		"rainforest_cliffs": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "biome": "biomesoplenty:rainforest_cliffs"
-            }
-        },
 		"redwood_forest": {
             "trigger": "minecraft:location",
             "conditions": {
                 "biome": "biomesoplenty:redwood_forest"
+            }
+        },
+        "rocky_rainforest": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "biome": "biomesoplenty:rocky_rainforest"
             }
         },
 		"rocky_shrubland": {

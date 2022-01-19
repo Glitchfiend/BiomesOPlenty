@@ -15,7 +15,6 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -26,8 +25,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 
-import java.util.List;
-
 public class BOPVegetationFeatures
 {
     public static final ConfiguredFeature<?, ?> BIG_DRIPLEAF = register("big_dripleaf", BOPBaseFeatures.BIG_DRIPLEAF.configured(NoneFeatureConfiguration.INSTANCE));
@@ -36,7 +33,7 @@ public class BOPVegetationFeatures
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> GOLDENROD = register("goldenrod", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GOLDENROD))))));
     public static final ConfiguredFeature<?, ?> HUGE_CLOVER = register("huge_clover", BOPBaseFeatures.HUGE_CLOVER.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> HUGE_TOADSTOOL = register("huge_toadstool", BOPBaseFeatures.HUGE_TOADSTOOL.configured(NoneFeatureConfiguration.INSTANCE));
-    public static final ConfiguredFeature<?, ?> HUGE_GLOWSHROOM = register("huge_glowshroom", BOPBaseFeatures.HUGE_GLOWSHROOM.configured(NoneFeatureConfiguration.INSTANCE));
+    public static final ConfiguredFeature<NoneFeatureConfiguration, ?> DRIPSTONE_SPLATTER = register("dripstone_splatter", BOPBaseFeatures.DRIPSTONE_SPLATTER.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<NoneFeatureConfiguration, ?> MOSS_SPLATTER = register("moss_splatter", BOPBaseFeatures.MOSS_SPLATTER.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<NoneFeatureConfiguration, ?> MYCELIUM_SPLATTER = register("mycelium_splatter", BOPBaseFeatures.MYCELIUM_SPLATTER.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_BARLEY = register("patch_barley", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BARLEY))))));
@@ -53,7 +50,6 @@ public class BOPVegetationFeatures
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_REED = register("patch_reed", Feature.RANDOM_PATCH.configured(waterPatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.REED))))));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_SEA_OATS = register("patch_sea_oats", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SEA_OATS))))));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_SPROUTS = register("patch_sprouts", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT))))));
-    public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_GLOWSHROOM = register("patch_glowshroom", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GLOWSHROOM))))));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> PATCH_WATERGRASS = register("patch_watergrass", Feature.RANDOM_PATCH.configured(waterPatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS))))));
     public static final ConfiguredFeature<?, ?> PUMPKIN_PATCH = register("pumpkin_patch", BOPBaseFeatures.PUMPKIN_PATCH.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> RAINFOREST_CLIFFS_VINES = register("rainforest_cliffs_vines", BOPBaseFeatures.RAINFOREST_CLIFFS_VINES.configured(NoneFeatureConfiguration.INSTANCE));
@@ -63,7 +59,6 @@ public class BOPVegetationFeatures
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> SUNFLOWER = register("sunflower", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.SUNFLOWER))))));
     public static final ConfiguredFeature<?, ?> SHORT_BAMBOO = register("short_bamboo", BOPBaseFeatures.SHORT_BAMBOO.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> SMALL_DRIPLEAF = register("small_dripleaf", BOPBaseFeatures.SMALL_DRIPLEAF.configured(NoneFeatureConfiguration.INSTANCE));
-    public static final ConfiguredFeature<?, ?> SMALL_GLOWSHROOM = register("small_glowshroom", BOPBaseFeatures.SMALL_GLOWSHROOM.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> SMALL_RED_MUSHROOM = register("small_red_mushroom", BOPBaseFeatures.SMALL_RED_MUSHROOM.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<?, ?> SMALL_TOADSTOOL = register("small_toadstool", BOPBaseFeatures.SMALL_TOADSTOOL.configured(NoneFeatureConfiguration.INSTANCE));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> TOADSTOOL_NORMAL = register("toadstool_normal", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TOADSTOOL))))));
@@ -103,7 +98,7 @@ public class BOPVegetationFeatures
     public static final ConfiguredFeature<?, ?> TREES_DRYLAND = register("trees_dryland", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.TWIGLET_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(BOPTreePlacements.SPARSE_OAK_TREE_CHECKED, 0.2F)), BOPTreePlacements.ACACIA_TWIGLET_SMALL_CHECKED)));
     public static final ConfiguredFeature<?, ?> TREES_FIELD = register("trees_field", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.TALL_SPRUCE_TREE_BEES_CHECKED, 0.1F)), BOPTreePlacements.OAK_BUSH_CHECKED)));
     public static final ConfiguredFeature<?, ?> TREES_FIELD_FOREST = register("trees_field_forest", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.OAK_BUSH_CHECKED, 0.25F)), BOPTreePlacements.TALL_SPRUCE_TREE_CHECKED)));
-    public static final ConfiguredFeature<?, ?> TREES_FUNGAL_JUNGLE = register("trees_fungal_jungle", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TreePlacements.OAK_CHECKED, 0.2F), new WeightedPlacedFeature(BOPTreePlacements.BIG_OAK_TREE_CHECKED, 0.1F)), BOPTreePlacements.OAK_BUSH_CHECKED)));
+    public static final ConfiguredFeature<?, ?> TREES_FUNGAL_JUNGLE = register("trees_fungal_jungle", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TreePlacements.OAK_CHECKED, 0.1F), new WeightedPlacedFeature(BOPTreePlacements.BIG_OAK_TREE_CHECKED, 0.05F)), BOPTreePlacements.JUNGLE_BUSH_CHECKED)));
     public static final ConfiguredFeature<?, ?> TREES_JADE_CLIFFS = register("trees_jade_cliffs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.TALL_SPRUCE_TREE_CHECKED, 0.075F), new WeightedPlacedFeature(TreePlacements.PINE_CHECKED, 0.075F)), BOPTreePlacements.SPRUCE_BUSH_CHECKED)));
     public static final ConfiguredFeature<?, ?> TREES_LAVENDER_FIELD = register("trees_lavender_field", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.FLOWERING_OAK_TREE_BEES_CHECKED, 0.2F), new WeightedPlacedFeature(BOPTreePlacements.BIG_FLOWERING_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BOPTreePlacements.BIG_JACARANDA_TREE_CHECKED, 0.1F)), BOPTreePlacements.JACARANDA_TREE_BEES_CHECKED)));
     public static final ConfiguredFeature<?, ?> TREES_LAVENDER_FOREST = register("trees_lavender_forest", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BOPTreePlacements.FLOWERING_OAK_TREE_BEES_CHECKED, 0.1F), new WeightedPlacedFeature(BOPTreePlacements.BIG_FLOWERING_TREE_CHECKED, 0.05F), new WeightedPlacedFeature(BOPTreePlacements.BIG_JACARANDA_TREE_CHECKED, 0.1F)), BOPTreePlacements.JACARANDA_TREE_BEES_CHECKED)));

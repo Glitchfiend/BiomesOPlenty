@@ -79,7 +79,6 @@ public class ModBiomes
         registerBiome(BOPBiomes.MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(false));
         registerBiome(BOPBiomes.MARSH, BOPOverworldBiomes.marsh());
         registerBiome(BOPBiomes.MEDITERRANEAN_FOREST, BOPOverworldBiomes.mediterraneanForest());
-        registerBiome(BOPBiomes.MEDITERRANEAN_LAKES, BOPOverworldBiomes.mediterraneanLakes());
         registerBiome(BOPBiomes.MUSKEG, BOPOverworldBiomes.muskeg());
         registerBiome(BOPBiomes.MYSTIC_GROVE, BOPOverworldBiomes.mysticGrove());
         registerBiome(BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPOverworldBiomes.oldGrowthDeadForest());
@@ -92,8 +91,8 @@ public class ModBiomes
         registerBiome(BOPBiomes.PUMPKIN_PATCH, BOPOverworldBiomes.pumpkinPatch());
         registerBiome(BOPBiomes.RAINBOW_HILLS, BOPOverworldBiomes.rainbowHills());
         registerBiome(BOPBiomes.RAINFOREST, BOPOverworldBiomes.rainforest());
-        registerBiome(BOPBiomes.RAINFOREST_CLIFFS, BOPOverworldBiomes.rainforestCliffs());
         registerBiome(BOPBiomes.REDWOOD_FOREST, BOPOverworldBiomes.redwoodForest());
+        registerBiome(BOPBiomes.ROCKY_RAINFOREST, BOPOverworldBiomes.rockyRainforest());
         registerBiome(BOPBiomes.ROCKY_SHRUBLAND, BOPOverworldBiomes.rockyShrubland());
         registerBiome(BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland(false));
         registerBiome(BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest());
@@ -145,7 +144,7 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.FIELD, Type.OVERWORLD, Type.WET, Type.CONIFEROUS, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.FLOODPLAIN, Type.OVERWORLD, Type.HOT, Type.WET, Type.JUNGLE, Type.LUSH, Type.SWAMP);
         registerBiomeToDictionary(BOPBiomes.FORESTED_FIELD, Type.OVERWORLD, Type.WET, Type.CONIFEROUS, Type.FOREST);
-        registerBiomeToDictionary(BOPBiomes.FUNGAL_JUNGLE, Type.OVERWORLD, Type.HOT, Type.WET, Type.JUNGLE, Type.LUSH, Type.MUSHROOM, Type.RARE);
+        registerBiomeToDictionary(BOPBiomes.FUNGAL_JUNGLE, Type.OVERWORLD, Type.HOT, Type.WET, Type.JUNGLE, Type.LUSH, Type.MUSHROOM, Type.MAGICAL, Type.RARE);
         registerBiomeToDictionary(BOPBiomes.GRASSLAND, Type.OVERWORLD, Type.SPARSE, Type.PLAINS, Type.WET);
         registerBiomeToDictionary(BOPBiomes.HIGHLAND, Type.OVERWORLD, Type.SPARSE, Type.MOUNTAIN, Type.PLAINS);
         registerBiomeToDictionary(BOPBiomes.HIGHLAND_MOOR, Type.OVERWORLD, Type.SPARSE, Type.WET, Type.MOUNTAIN, Type.SWAMP);
@@ -157,7 +156,6 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.MAPLE_WOODS, Type.OVERWORLD, Type.COLD, Type.DENSE, Type.CONIFEROUS, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.MARSH, Type.OVERWORLD, Type.SPARSE, Type.WET, Type.SWAMP);
         registerBiomeToDictionary(BOPBiomes.MEDITERRANEAN_FOREST, Type.OVERWORLD, Type.FOREST, Type.HILLS);
-        registerBiomeToDictionary(BOPBiomes.MEDITERRANEAN_LAKES, Type.OVERWORLD, Type.SPARSE);
         registerBiomeToDictionary(BOPBiomes.MUSKEG, Type.OVERWORLD, Type.COLD, Type.SPARSE, Type.WET, Type.DEAD, Type.RARE, Type.SWAMP, Type.SNOWY);
         registerBiomeToDictionary(BOPBiomes.MYSTIC_GROVE, Type.OVERWORLD, Type.WET, Type.LUSH, Type.MAGICAL, Type.RARE, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.OLD_GROWTH_DEAD_FOREST, Type.OVERWORLD, Type.COLD, Type.DEAD, Type.RARE, Type.FOREST);
@@ -170,8 +168,8 @@ public class ModBiomes
         registerBiomeToDictionary(BOPBiomes.PUMPKIN_PATCH, Type.OVERWORLD, Type.SPARSE, Type.FOREST);
         registerBiomeToDictionary(BOPBiomes.RAINBOW_HILLS, Type.OVERWORLD, Type.COLD, Type.DENSE, Type.MAGICAL, Type.FOREST, Type.SNOWY);
         registerBiomeToDictionary(BOPBiomes.RAINFOREST, Type.OVERWORLD, Type.HOT, Type.DENSE, Type.WET, Type.JUNGLE, Type.LUSH, Type.FOREST);
-        registerBiomeToDictionary(BOPBiomes.RAINFOREST_CLIFFS, Type.OVERWORLD, Type.HOT, Type.DENSE, Type.WET, Type.JUNGLE, Type.LUSH, Type.PLATEAU);
         registerBiomeToDictionary(BOPBiomes.REDWOOD_FOREST, Type.OVERWORLD, Type.DENSE, Type.FOREST);
+        registerBiomeToDictionary(BOPBiomes.ROCKY_RAINFOREST, Type.OVERWORLD, Type.HOT, Type.DENSE, Type.WET, Type.JUNGLE, Type.LUSH, Type.PLATEAU);
         registerBiomeToDictionary(BOPBiomes.ROCKY_SHRUBLAND, Type.OVERWORLD, Type.PLAINS, Type.HILLS);
         registerBiomeToDictionary(BOPBiomes.SCRUBLAND, Type.OVERWORLD, Type.HOT, Type.SPARSE, Type.DRY, Type.SAVANNA);
         registerBiomeToDictionary(BOPBiomes.SEASONAL_FOREST, Type.OVERWORLD, Type.FOREST);
@@ -230,7 +228,6 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.MAPLE_WOODS, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.MARSH, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.MEDITERRANEAN_FOREST, VillagerType.PLAINS);
-        registerVillagerType(BOPBiomes.MEDITERRANEAN_LAKES, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.MUSKEG, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.MYSTIC_GROVE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.OLD_GROWTH_DEAD_FOREST, VillagerType.TAIGA);
@@ -243,7 +240,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.PUMPKIN_PATCH, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.RAINBOW_HILLS, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.RAINFOREST, VillagerType.JUNGLE);
-        registerVillagerType(BOPBiomes.RAINFOREST_CLIFFS, VillagerType.JUNGLE);
+        registerVillagerType(BOPBiomes.ROCKY_RAINFOREST, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.REDWOOD_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.ROCKY_SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SCRUBLAND, VillagerType.SAVANNA);
@@ -278,9 +275,9 @@ public class ModBiomes
         Set<ResourceKey<Biome>> taigaVillageBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CONIFEROUS_FOREST).add(BOPBiomes.DEAD_FOREST).add(BOPBiomes.FIELD).add(BOPBiomes.MAPLE_WOODS).add(BOPBiomes.TUNDRA).build();
 
         Set<ResourceKey<Biome>> ruinedPortalDesertBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.COLD_DESERT).add(BOPBiomes.DRYLAND).add(BOPBiomes.DUNE_BEACH).add(BOPBiomes.LUSH_DESERT).add(BOPBiomes.LUSH_SAVANNA).add(BOPBiomes.VOLCANIC_PLAINS).add(BOPBiomes.WASTELAND).add(BOPBiomes.WOODED_WASTELAND).build();
-        Set<ResourceKey<Biome>> ruinedPortalJungleBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.FUNGAL_JUNGLE).add(BOPBiomes.RAINFOREST).add(BOPBiomes.RAINFOREST_CLIFFS).add(BOPBiomes.TROPICS).build();
+        Set<ResourceKey<Biome>> ruinedPortalJungleBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.FUNGAL_JUNGLE).add(BOPBiomes.RAINFOREST).add(BOPBiomes.ROCKY_RAINFOREST).add(BOPBiomes.TROPICS).build();
         Set<ResourceKey<Biome>> ruinedPortalMountainBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRAG).add(BOPBiomes.HIGHLAND).add(BOPBiomes.HIGHLAND_MOOR).add(BOPBiomes.JADE_CLIFFS).add(BOPBiomes.VOLCANO).build();
-        Set<ResourceKey<Biome>> ruinedPortalStandardBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAMBOO_GROVE).add(BOPBiomes.BOREAL_FOREST).add(BOPBiomes.CHERRY_BLOSSOM_GROVE).add(BOPBiomes.CLOVER_PATCH).add(BOPBiomes.CONIFEROUS_FOREST).add(BOPBiomes.DEAD_FOREST).add(BOPBiomes.OLD_GROWTH_WOODLAND).add(BOPBiomes.FIELD).add(BOPBiomes.FIR_CLEARING).add(BOPBiomes.FORESTED_FIELD).add(BOPBiomes.GRASSLAND).add(BOPBiomes.PASTURE).add(BOPBiomes.LAVENDER_FIELD).add(BOPBiomes.LAVENDER_FOREST).add(BOPBiomes.MAPLE_WOODS).add(BOPBiomes.MEDITERRANEAN_FOREST).add(BOPBiomes.MEDITERRANEAN_LAKES).add(BOPBiomes.MUSKEG).add(BOPBiomes.MYSTIC_GROVE).add(BOPBiomes.OLD_GROWTH_DEAD_FOREST).add(BOPBiomes.OMINOUS_WOODS).add(BOPBiomes.ORCHARD).add(BOPBiomes.PRAIRIE).add(BOPBiomes.REDWOOD_FOREST).add(BOPBiomes.ROCKY_SHRUBLAND).add(BOPBiomes.SCRUBLAND).add(BOPBiomes.SHRUBLAND).add(BOPBiomes.SEASONAL_FOREST).add(BOPBiomes.PUMPKIN_PATCH).add(BOPBiomes.SNOWY_CONIFEROUS_FOREST).add(BOPBiomes.SNOWY_FIR_CLEARING).add(BOPBiomes.SNOWY_MAPLE_WOODS).add(BOPBiomes.TUNDRA).add(BOPBiomes.WOODED_SCRUBLAND).add(BOPBiomes.WOODLAND).build();
+        Set<ResourceKey<Biome>> ruinedPortalStandardBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAMBOO_GROVE).add(BOPBiomes.BOREAL_FOREST).add(BOPBiomes.CHERRY_BLOSSOM_GROVE).add(BOPBiomes.CLOVER_PATCH).add(BOPBiomes.CONIFEROUS_FOREST).add(BOPBiomes.DEAD_FOREST).add(BOPBiomes.OLD_GROWTH_WOODLAND).add(BOPBiomes.FIELD).add(BOPBiomes.FIR_CLEARING).add(BOPBiomes.FORESTED_FIELD).add(BOPBiomes.GRASSLAND).add(BOPBiomes.PASTURE).add(BOPBiomes.LAVENDER_FIELD).add(BOPBiomes.LAVENDER_FOREST).add(BOPBiomes.MAPLE_WOODS).add(BOPBiomes.MEDITERRANEAN_FOREST).add(BOPBiomes.MUSKEG).add(BOPBiomes.MYSTIC_GROVE).add(BOPBiomes.OLD_GROWTH_DEAD_FOREST).add(BOPBiomes.OMINOUS_WOODS).add(BOPBiomes.ORCHARD).add(BOPBiomes.PRAIRIE).add(BOPBiomes.REDWOOD_FOREST).add(BOPBiomes.ROCKY_SHRUBLAND).add(BOPBiomes.SCRUBLAND).add(BOPBiomes.SHRUBLAND).add(BOPBiomes.SEASONAL_FOREST).add(BOPBiomes.PUMPKIN_PATCH).add(BOPBiomes.SNOWY_CONIFEROUS_FOREST).add(BOPBiomes.SNOWY_FIR_CLEARING).add(BOPBiomes.SNOWY_MAPLE_WOODS).add(BOPBiomes.TUNDRA).add(BOPBiomes.WOODED_SCRUBLAND).add(BOPBiomes.WOODLAND).build();
         Set<ResourceKey<Biome>> ruinedPortalSwampBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.BAYOU).add(BOPBiomes.BOG).add(BOPBiomes.MARSH).add(BOPBiomes.FLOODPLAIN).add(BOPBiomes.WETLAND).build();
 
         Set<ResourceKey<Biome>> ruinedPortalNetherBiomes = ImmutableSet.<ResourceKey<Biome>>builder().add(BOPBiomes.CRYSTALLINE_CHASM).add(BOPBiomes.ERUPTING_INFERNO).add(BOPBiomes.UNDERGROWTH).add(BOPBiomes.VISCERAL_HEAP).build();

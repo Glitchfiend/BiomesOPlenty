@@ -56,7 +56,7 @@ public class HugeToadstoolFeature extends Feature<NoneFeatureConfiguration>
 
         BlockPos pos = startPos.above();
 
-        int height = 2 + rand.nextInt(3);
+        int height = 2 + rand.nextInt(13);
         int radius = 2;
 
         for (int y = 0; y < height; y++) {
