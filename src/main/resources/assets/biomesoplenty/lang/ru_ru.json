@@ -39,7 +39,6 @@
   "biome.biomesoplenty.maple_woods": "Кленовый лес",
   "biome.biomesoplenty.marsh": "Топь",
   "biome.biomesoplenty.mediterranean_forest": "Средиземноморский лес",
-  "biome.biomesoplenty.mediterranean_lakes": "Средиземноморские озёра",
   "biome.biomesoplenty.muskeg": "Сфагновое болото",
   "biome.biomesoplenty.mystic_grove": "Мистическая роща",
   "biome.biomesoplenty.old_growth_dead_forest": "Старый мёртвый лес",
@@ -52,8 +51,8 @@
   "biome.biomesoplenty.pumpkin_patch": "Тыквенное поле",
   "biome.biomesoplenty.rainbow_hills": "Радужные холмы",
   "biome.biomesoplenty.rainforest": "Дождевой лес",
-  "biome.biomesoplenty.rainforest_cliffs": "Скалы дождевого леса",
   "biome.biomesoplenty.redwood_forest": "Красный лес",
+  "biome.biomesoplenty.rocky_rainforest": "Скалистый дождевой лес",
   "biome.biomesoplenty.rocky_shrubland": "Скалистая большая кустарниковая степь",
   "biome.biomesoplenty.scrubland": "Малая кустарниковая степь",
   "biome.biomesoplenty.seasonal_forest": "Сезонный лес",
@@ -429,5 +428,5 @@
   "block.biomesoplenty.yellow_autumn_leaves": "Жёлтые осенние листья",
   "block.biomesoplenty.yellow_autumn_sapling": "Саженец осенней берёзы",
 
-  "entity.biomesoplenty.boat_bop": "Барка"
+  "entity.biomesoplenty.boat_bop": "Лодка"
 }
