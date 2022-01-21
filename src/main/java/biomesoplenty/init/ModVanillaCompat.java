@@ -20,6 +20,7 @@ public class ModVanillaCompat
         //Flammability
         registerFlammable(BOPBlocks.ORIGIN_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.FLOWERING_OAK_LEAVES, 30, 60);
+        registerFlammable(BOPBlocks.RAINBOW_BIRCH_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.YELLOW_AUTUMN_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.ORANGE_AUTUMN_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.MAPLE_LEAVES, 30, 60);
@@ -189,6 +190,8 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.ORIGIN_LEAVES);
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_SAPLING);
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_LEAVES);
+        registerCompostable(0.3F, BOPBlocks.RAINBOW_BIRCH_SAPLING);
+        registerCompostable(0.3F, BOPBlocks.RAINBOW_BIRCH_LEAVES);
         registerCompostable(0.3F, BOPBlocks.YELLOW_AUTUMN_SAPLING);
         registerCompostable(0.3F, BOPBlocks.YELLOW_AUTUMN_LEAVES);
         registerCompostable(0.3F, BOPBlocks.ORANGE_AUTUMN_SAPLING);
