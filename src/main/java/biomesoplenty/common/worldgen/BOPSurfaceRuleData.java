@@ -324,7 +324,7 @@ public class BOPSurfaceRuleData
                     SurfaceRules.ifTrue(
                         isSandstoneLiningBiome,
                         SurfaceRules.ifTrue(
-                            SurfaceRules.stoneDepthCheck(0, true, true, CaveSurface.FLOOR),
+                            SurfaceRules.DEEP_UNDER_FLOOR,
                             SANDSTONE
                         )
                     )
@@ -406,7 +406,7 @@ public class BOPSurfaceRuleData
                         )
                     ),
                     SurfaceRules.ifTrue(
-                        SurfaceRules.stoneDepthCheck(0, true, true, CaveSurface.FLOOR),
+                        SurfaceRules.DEEP_UNDER_FLOOR,
                         SurfaceRules.sequence(
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SANDSTONE)

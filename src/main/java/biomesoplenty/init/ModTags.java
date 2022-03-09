@@ -1,8 +1,11 @@
 package biomesoplenty.init;
 
+import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
@@ -18,13 +21,13 @@ public class ModTags
     {
         private static void setup() {}
 
-        public static final Tag.Named<Block> FLESH = BlockTags.bind("biomesoplenty:flesh");
+        public static final TagKey<Block> FLESH = BlockTags.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "flesh"));
     }
 
     public static class Fluids
     {
         private static void setup() {}
 
-        public static final Tag.Named<Fluid> BLOOD = FluidTags.bind("biomesoplenty:blood");
+        public static final TagKey<Fluid> BLOOD = FluidTags.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "blood"));
     }
 }

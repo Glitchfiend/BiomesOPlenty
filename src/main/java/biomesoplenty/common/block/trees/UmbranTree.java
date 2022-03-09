@@ -1,6 +1,7 @@
 package biomesoplenty.common.block.trees;
 
 import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
+import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.grower.AbstractMegaTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -12,14 +13,14 @@ import java.util.Random;
 public class UmbranTree extends AbstractMegaTreeGrower
 {
    @Override
-   protected ConfiguredFeature<?, ?> getConfiguredFeature(Random random, boolean flowers)
+   protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random random, boolean flowers)
    {
       return BOPTreeFeatures.UMBRAN_TREE;
    }
 
    @Nullable
    @Override
-   protected ConfiguredFeature<?, ?> getConfiguredMegaFeature(Random p_60004_)
+   protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredMegaFeature(Random p_60004_)
    {
       return BOPTreeFeatures.TALL_UMBRAN_TREE;
    }

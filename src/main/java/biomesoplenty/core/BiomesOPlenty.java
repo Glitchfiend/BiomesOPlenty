@@ -6,7 +6,6 @@
 package biomesoplenty.core;
 
 import biomesoplenty.client.handler.FluidFogHandler;
-import terrablender.data.DataPackManager;
 import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -39,7 +38,6 @@ public class BiomesOPlenty
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 
         ModParticles.PARTICLES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        MinecraftForge.EVENT_BUS.register(new DataPackManager());
 
         if (FMLEnvironment.dist == Dist.CLIENT)
         {
@@ -64,7 +62,6 @@ public class BiomesOPlenty
         {
             ModBlocks.registerWoodTypes();
         });
-//        NoiseSimulator.run();
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event)

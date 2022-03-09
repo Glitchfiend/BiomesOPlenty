@@ -6,6 +6,8 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.worldgen.feature.BOPBaseFeatures;
+import biomesoplenty.common.worldgen.feature.BOPCaveFeatures;
+import biomesoplenty.common.worldgen.feature.BOPVegetationFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -50,7 +52,7 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
         ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature;
         if (this == BOPBlocks.GLOWSHROOM)
         {
-            configuredfeature = BOPBaseFeatures.HUGE_GLOWSHROOM.configured(FeatureConfiguration.NONE);
+            configuredfeature = BOPCaveFeatures.HUGE_GLOWSHROOM_CAVE.value();
         }
         else
         {
@@ -60,7 +62,7 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
                 return false;
             }
 
-            configuredfeature = BOPBaseFeatures.HUGE_TOADSTOOL.configured(FeatureConfiguration.NONE);
+            configuredfeature = BOPVegetationFeatures.HUGE_TOADSTOOL.value();
         }
 
         if (configuredfeature.place(world, world.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))

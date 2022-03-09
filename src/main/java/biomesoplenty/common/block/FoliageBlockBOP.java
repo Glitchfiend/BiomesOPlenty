@@ -6,6 +6,7 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.worldgen.feature.BOPBaseFeatures;
+import biomesoplenty.common.worldgen.feature.BOPVegetationFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -138,7 +139,7 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
     public boolean growHugeClover(ServerLevel world, Random rand, BlockPos pos, BlockState state)
     {
         world.removeBlock(pos, false);
-        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature = BOPBaseFeatures.HUGE_CLOVER.configured(FeatureConfiguration.NONE);
+        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature = BOPVegetationFeatures.HUGE_CLOVER.value();
 
         if (configuredfeature.place(world, world.getChunkSource().getGenerator(), rand, pos))
         {
