@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+	"biomesoplenty:cold_desert",
+	"biomesoplenty:dryland",
+	"biomesoplenty:glowing_grotto",
+	"biomesoplenty:grassland",
+	"biomesoplenty:lavender_field",
+	"biomesoplenty:lush_desert",
+	"biomesoplenty:lush_savanna",
+	"biomesoplenty:pasture",
+	"biomesoplenty:prairie",
+	"biomesoplenty:rocky_shrubland",
+	"biomesoplenty:scrubland",
+	"biomesoplenty:shrubland",
+	"biomesoplenty:snowy_coniferous_forest",
+	"biomesoplenty:snowy_fir_clearing",
+	"biomesoplenty:snowy_maple_woods",
+	"biomesoplenty:spider_nest",
+	"biomesoplenty:volcanic_plains",
+	"biomesoplenty:volcano",
+	"biomesoplenty:wasteland",
+	"biomesoplenty:wooded_wasteland"
+  ]
+}

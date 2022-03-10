@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+	"biomesoplenty:dryland",
+	"biomesoplenty:scrubland",
+	"biomesoplenty:grassland",
+	"biomesoplenty:lavender_field",
+	"biomesoplenty:pasture",
+	"biomesoplenty:prairie",
+	"biomesoplenty:rocky_shrubland",
+	"biomesoplenty:shrubland",
+	"biomesoplenty:rainbow_hills",
+	"biomesoplenty:snowy_coniferous_forest",
+	"biomesoplenty:snowy_fir_clearing",
+	"biomesoplenty:snowy_maple_woods"
+  ]
+}

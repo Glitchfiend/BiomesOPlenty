@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:bamboo_grove",
+	"biomesoplenty:boreal_forest",
+	"biomesoplenty:cherry_blossom_grove",
+	"biomesoplenty:mediterranean_forest",
+	"biomesoplenty:mystic_grove",
+	"biomesoplenty:orchard",
+	"biomesoplenty:pumpkin_patch",
+	"biomesoplenty:redwood_forest",
+	"biomesoplenty:seasonal_forest",
+	"biomesoplenty:woodland"
+  ]
+}

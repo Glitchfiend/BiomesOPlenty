@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+	"biomesoplenty:lush_desert",
+	"biomesoplenty:grassland",
+	"biomesoplenty:mediterranean_forest",
+	"biomesoplenty:prairie",
+	"biomesoplenty:shrubland",
+	"biomesoplenty:dryland",
+	"biomesoplenty:cold_desert",
+	"biomesoplenty:snowy_coniferous_forest",
+	"biomesoplenty:coniferous_forest",
+	"biomesoplenty:dead_forest",
+	"biomesoplenty:field",
+	"biomesoplenty:maple_woods",
+	"biomesoplenty:tundra"
+  ]
+}

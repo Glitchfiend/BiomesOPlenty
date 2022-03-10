@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:bog",
+	"biomesoplenty:bayou",
+	"biomesoplenty:marsh",
+	"biomesoplenty:wetland"
+  ]
+}

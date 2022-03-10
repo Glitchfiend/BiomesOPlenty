@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:grassland",
+	"biomesoplenty:mediterranean_forest",
+	"biomesoplenty:prairie",
+	"biomesoplenty:shrubland"
+  ]
+}

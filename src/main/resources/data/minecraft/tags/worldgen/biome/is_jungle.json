@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:floodplain",
+	"biomesoplenty:fungal_jungle",
+	"biomesoplenty:rainforest",
+	"biomesoplenty:rocky_rainforest"
+  ]
+}
