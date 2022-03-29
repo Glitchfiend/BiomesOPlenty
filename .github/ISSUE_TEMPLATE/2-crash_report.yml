@@ -1,11 +1,11 @@
-name: 1.18.1 Crash Report
+name: 1.18.2+ Crash Report
 description: File a crash report
 labels: [crash]
 body:
   - type: markdown
     attributes:
       value: |
-        For crashes experienced with Minecraft 1.18.1. Older versions are not supported.
+        For crashes experienced with Minecraft 1.18.2+. Older versions are not supported.
         If any section does not apply, replace its content with "N/A".
 
         Please search for existing crash reports before making your own report.
