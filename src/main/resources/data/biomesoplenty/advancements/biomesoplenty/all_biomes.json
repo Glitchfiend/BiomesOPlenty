@@ -324,7 +324,7 @@
 		"snowy_maple_woods": {
             "trigger": "minecraft:location",
             "conditions": {
-                "biome": "biomesoplenty:snowy_maple_forest"
+                "biome": "biomesoplenty:snowy_maple_woods"
             }
         },
 		"spider_nest": {
