@@ -1,8 +1,17 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:dead_forest",
-	"biomesoplenty:ominous_woods",
-	"biomesoplenty:woodland"
+    {
+      "id": "biomesoplenty:dead_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:ominous_woods",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:woodland",
+      "required": false
+    }
   ]
 }

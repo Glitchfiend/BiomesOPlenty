@@ -1,15 +1,45 @@
 {
-  "replace": false,
-  "values": [
-    "biomesoplenty:bamboo_grove",
-	"biomesoplenty:boreal_forest",
-	"biomesoplenty:cherry_blossom_grove",
-	"biomesoplenty:mediterranean_forest",
-	"biomesoplenty:mystic_grove",
-	"biomesoplenty:orchard",
-	"biomesoplenty:pumpkin_patch",
-	"biomesoplenty:redwood_forest",
-	"biomesoplenty:seasonal_forest",
-	"biomesoplenty:woodland"
-  ]
+    "replace": false,
+    "values": [
+        {
+            "id": "biomesoplenty:bamboo_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:boreal_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:cherry_blossom_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:mediterranean_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:mystic_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:orchard",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:pumpkin_patch",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:redwood_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:seasonal_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:woodland",
+            "required": false
+        }
+    ]
 }

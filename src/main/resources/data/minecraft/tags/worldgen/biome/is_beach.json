@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:dune_beach"
+    {
+      "id": "biomesoplenty:dune_beach",
+      "required": false
+    }
   ]
 }

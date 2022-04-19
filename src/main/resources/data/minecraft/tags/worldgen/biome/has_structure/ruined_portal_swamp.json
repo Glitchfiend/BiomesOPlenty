@@ -1,9 +1,21 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:bayou",
-	"biomesoplenty:bog",
-	"biomesoplenty:marsh",
-	"biomesoplenty:wetland"
+    {
+      "id": "biomesoplenty:bayou",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:bog",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:marsh",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:wetland",
+      "required": false
+    }
   ]
 }

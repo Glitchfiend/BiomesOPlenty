@@ -1,14 +1,41 @@
 {
-  "replace": false,
-  "values": [
-    "biomesoplenty:bog",
-	"biomesoplenty:coniferous_forest",
-	"biomesoplenty:dead_forest",
-	"biomesoplenty:field",
-	"biomesoplenty:fir_clearing",
-	"biomesoplenty:maple_woods",
-	"biomesoplenty:old_growth_dead_forest",
-	"biomesoplenty:ominous_woods",
-	"biomesoplenty:tundra"
-  ]
+    "replace": false,
+    "values": [
+        {
+            "id": "biomesoplenty:bog",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dead_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:old_growth_dead_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:ominous_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tundra",
+            "required": false
+        }
+    ]
 }

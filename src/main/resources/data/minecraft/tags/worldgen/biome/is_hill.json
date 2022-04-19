@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-	"biomesoplenty:highland"
+    {
+      "id": "biomesoplenty:highland",
+      "required": false
+    }
   ]
 }

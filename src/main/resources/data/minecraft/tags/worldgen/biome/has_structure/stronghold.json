@@ -1,51 +1,189 @@
 {
-  "replace": false,
-  "values": [
-	"biomesoplenty:bamboo_grove",
-	"biomesoplenty:bog",
-	"biomesoplenty:boreal_forest",
-	"biomesoplenty:cherry_blossom_grove",
-	"biomesoplenty:cold_desert",
-	"biomesoplenty:coniferous_forest",
-	"biomesoplenty:crag",
-	"biomesoplenty:dead_forest",
-	"biomesoplenty:dryland",
-	"biomesoplenty:field",
-	"biomesoplenty:fir_clearing",
-	"biomesoplenty:floodplain",
-	"biomesoplenty:fungal_jungle",
-	"biomesoplenty:glowing_grotto",
-	"biomesoplenty:grassland",
-	"biomesoplenty:highland",
-	"biomesoplenty:jade_cliffs",
-	"biomesoplenty:lavender_field",
-	"biomesoplenty:lush_desert",
-	"biomesoplenty:lush_savanna",
-	"biomesoplenty:maple_woods",
-	"biomesoplenty:mediterranean_forest",
-	"biomesoplenty:mystic_grove",
-	"biomesoplenty:old_growth_dead_forest",
-	"biomesoplenty:ominous_woods",
-	"biomesoplenty:orchard",
-	"biomesoplenty:pasture",
-	"biomesoplenty:prairie",
-	"biomesoplenty:pumpkin_patch",
-	"biomesoplenty:rainforest",
-	"biomesoplenty:redwood_forest",
-	"biomesoplenty:rocky_rainforest",
-	"biomesoplenty:rocky_shrubland",
-	"biomesoplenty:scrubland",
-	"biomesoplenty:seasonal_forest",
-	"biomesoplenty:shrubland",
-	"biomesoplenty:snowy_coniferous_forest",
-	"biomesoplenty:snowy_fir_clearing",
-	"biomesoplenty:snowy_maple_woods",
-	"biomesoplenty:spider_nest",
-	"biomesoplenty:tundra",
-	"biomesoplenty:volcanic_plains",
-	"biomesoplenty:volcano",
-	"biomesoplenty:wasteland",
-	"biomesoplenty:wooded_wasteland",
-	"biomesoplenty:woodland"
-  ]
+    "replace": false,
+    "values": [
+        {
+            "id": "biomesoplenty:bamboo_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:bog",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:boreal_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:cherry_blossom_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:cold_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:crag",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dead_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dryland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:floodplain",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fungal_jungle",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:glowing_grotto",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:grassland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:highland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:jade_cliffs",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lavender_field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lush_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lush_savanna",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:mediterranean_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:mystic_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:old_growth_dead_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:ominous_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:orchard",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:pasture",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:prairie",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:pumpkin_patch",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:redwood_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rocky_rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rocky_shrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:scrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:seasonal_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:shrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:spider_nest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tundra",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcanic_plains",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcano",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wasteland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wooded_wasteland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:woodland",
+            "required": false
+        }
+    ]
 }

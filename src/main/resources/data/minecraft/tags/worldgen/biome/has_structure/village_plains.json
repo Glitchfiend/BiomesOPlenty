@@ -1,9 +1,21 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:grassland",
-	"biomesoplenty:mediterranean_forest",
-	"biomesoplenty:prairie",
-	"biomesoplenty:shrubland"
+    {
+      "id": "biomesoplenty:grassland",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:mediterranean_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:prairie",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:shrubland",
+      "required": false
+    }
   ]
 }

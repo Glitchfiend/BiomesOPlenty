@@ -1,7 +1,13 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:cold_desert",
-	"biomesoplenty:snowy_coniferous_forest"
+    {
+      "id": "biomesoplenty:cold_desert",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:snowy_coniferous_forest",
+      "required": false
+    }
   ]
 }

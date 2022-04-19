@@ -1,9 +1,21 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:floodplain",
-	"biomesoplenty:fungal_jungle",
-	"biomesoplenty:rainforest",
-	"biomesoplenty:rocky_rainforest"
+    {
+      "id": "biomesoplenty:floodplain",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:fungal_jungle",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rainforest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rocky_rainforest",
+      "required": false
+    }
   ]
 }

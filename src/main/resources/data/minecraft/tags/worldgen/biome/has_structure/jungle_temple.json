@@ -1,7 +1,13 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:rainforest",
-	"biomesoplenty:floodplain"
+    {
+      "id": "biomesoplenty:rainforest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:floodplain",
+      "required": false
+    }
   ]
 }
