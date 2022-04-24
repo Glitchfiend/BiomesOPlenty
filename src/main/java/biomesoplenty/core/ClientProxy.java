@@ -51,32 +51,6 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerRenderers()
     {
-        BlockColors blockColors = Minecraft.getInstance().getBlockColors();
-        ItemColors itemColors = Minecraft.getInstance().getItemColors();
-
-        //Grass Coloring
-        blockColors.register((state, world, pos, tintIndex) ->
-            world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D),
-            BOPBlocks.SPROUT, BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.WATERGRASS, BOPBlocks.POTTED_SPROUT, BOPBlocks.POTTED_CLOVER);
-        
-        //Foliage Coloring
-        blockColors.register((state, world, pos, tintIndex) ->
-	        world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
-	        BOPBlocks.BUSH, BOPBlocks.FLOWERING_OAK_LEAVES, BOPBlocks.MAHOGANY_LEAVES, BOPBlocks.PALM_LEAVES,
-	        BOPBlocks.WILLOW_LEAVES, BOPBlocks.WILLOW_VINE);
-
-        //Rainbow Birch Leaf Coloring
-        blockColors.register((state, world, pos, tintIndex) ->
-            world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColor.getDefaultColor(),
-            BOPBlocks.RAINBOW_BIRCH_LEAVES);
-        
-        //Item Coloring
-        itemColors.register((stack, tintIndex) -> {
-            BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
-            return blockColors.getColor(state, null, null, tintIndex); },
-        	BOPBlocks.SPROUT, BOPBlocks.BUSH, BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.FLOWERING_OAK_LEAVES,
-            BOPBlocks.MAHOGANY_LEAVES, BOPBlocks.PALM_LEAVES, BOPBlocks.WILLOW_LEAVES, BOPBlocks.WILLOW_VINE);
-
         // Register block entity renderers
         BlockEntityRenderers.register((BlockEntityType< SignBlockEntityBOP>)BOPBlockEntities.SIGN, SignRenderer::new);
 
@@ -89,22 +63,5 @@ public class ClientProxy extends CommonProxy
         {
             ForgeHooksClient.registerLayerDefinition(BoatRendererBOP.createBoatModelName(type), () -> boatLayerDefinition);
         }
-    }
-
-    public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
-    {
-        float saturation;
-        if (world.getBlockState(pos.above()).is(BlockTags.SNOW))
-        {
-            saturation = 0.25F;
-        }
-        else
-        {
-            saturation = 0.5F;
-        }
-
-        Color foliage = Color.getHSBColor((((float)pos.getX() + Mth.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, saturation, 1.0F);
-
-        return foliage.getRGB();
     }
 }

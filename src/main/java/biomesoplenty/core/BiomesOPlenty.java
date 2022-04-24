@@ -5,10 +5,12 @@
 
 package biomesoplenty.core;
 
+import biomesoplenty.client.handler.ColorHandler;
 import biomesoplenty.client.handler.FluidFogHandler;
 import biomesoplenty.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -33,14 +35,16 @@ public class BiomesOPlenty
     {
         instance = this;
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        bus.addListener(this::commonSetup);
+        bus.addListener(this::clientSetup);
+        bus.addListener(this::loadComplete);
 
         ModParticles.PARTICLES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         if (FMLEnvironment.dist == Dist.CLIENT)
         {
+            bus.register(new ColorHandler());
             MinecraftForge.EVENT_BUS.register(new FluidFogHandler());
         }
 
