@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
+import org.stringtemplate.v4.ST;
 
 public class BOPSurfaceRuleData
 {
@@ -380,10 +381,16 @@ public class BOPSurfaceRuleData
             ORANGE_SAND
         );
 
+        SurfaceRules.RuleSource mixedColdDesertSurface = SurfaceRules.sequence(
+            SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), powderedSnowSurface),
+            GRAVEL
+        );
+
         // Sandstone linings
         SurfaceRules.RuleSource sandstoneLinedSand = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SANDSTONE), SAND);
         SurfaceRules.RuleSource lushDesertSandstoneLinedOrangeSand = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, ORANGE_SANDSTONE), mixedLushDesertSurface);
         SurfaceRules.RuleSource blackSandstoneLining = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, BLACK_SANDSTONE), BLACK_SAND);
+        SurfaceRules.RuleSource coldDesertStoneLinedGravelSnow = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, STONE), mixedColdDesertSurface);
 
         return SurfaceRules.sequence(
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG),
@@ -401,6 +408,7 @@ public class BOPSurfaceRuleData
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), sandstoneLinedSand)
                             ),
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.COLD_DESERT), coldDesertStoneLinedGravelSnow),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT), lushDesertSandstoneLinedOrangeSand),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.VOLCANIC_PLAINS), blackSandstoneLining)
                         )
@@ -411,6 +419,7 @@ public class BOPSurfaceRuleData
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.DRYLAND),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), SANDSTONE)
                             ),
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.COLD_DESERT), STONE),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.LUSH_DESERT), ORANGE_SANDSTONE),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.VOLCANIC_PLAINS), BLACK_SANDSTONE)
                         )
