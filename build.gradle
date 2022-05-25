@@ -57,6 +57,10 @@ sourceSets {
     }
 }
 
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
 dependencies {
     minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
@@ -76,6 +80,7 @@ task apiJar(type: Jar) {
         include "${mod_id}/api/**"
     }
 
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     classifier = 'api'
 }
 
