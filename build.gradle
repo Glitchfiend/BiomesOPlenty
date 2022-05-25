@@ -23,8 +23,9 @@ repositories { mavenLocal() }
 
 group = "com.github.glitchfiend"
 archivesBaseName = "${mod_name}"
-
 version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
