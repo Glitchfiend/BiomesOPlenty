@@ -22,47 +22,27 @@ apply plugin: 'org.spongepowered.mixin'
 repositories { mavenLocal() }
 
 group = "com.github.glitchfiend"
-archivesBaseName = "BiomesOPlenty"
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-def getGitHash = {
-    def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'rev-parse', '--short', 'HEAD'
-        standardOutput = stdout
-    }
-    return stdout.toString().trim()
-}
+archivesBaseName = "${mod_name}"
 
 version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
-
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         client = {
-            workingDirectory = project.file("run").canonicalPath
+            workingDirectory = project.file("run")
             source sourceSets.main
         }
         server = {
-            workingDirectory = project.file("run").canonicalPath
+            workingDirectory = project.file("run")
             source sourceSets.main
         }
     }
 }
 
-allprojects {
-    gradle.projectsEvaluated {
-        tasks.withType(JavaCompile) {
-            options.compilerArgs << "-Xmaxerrs" << "10000"
-        }
-    }
-}
-
-// configure  the source folders
+// Configure  the source folders
 sourceSets {
     main {
         java {
@@ -76,28 +56,9 @@ sourceSets {
     }
 }
 
-processResources {
-	duplicatesStrategy = DuplicatesStrategy.INCLUDE
-}
-
-jar {
-    classifier = 'universal'
-    manifest {
-        attributes([
-            "Specification-Title": "biomesoplenty",
-            "Specification-Vendor": "Biomes O' Plenty",
-            "Specification-Version": "1.1",
-            "Implementation-Title": project.name,
-            "Implementation-Version": project.version,
-            "Implementation-Vendor" :"biomesoplenty",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-        ])
-    }
-}
-
 dependencies {
     minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
-    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.18.2-1.1.0.91')
+    implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
 }
 
 task deobfJar(type: Jar) {
@@ -107,42 +68,41 @@ task deobfJar(type: Jar) {
 
 task apiJar(type: Jar) {
     from(sourceSets.main.allJava) {
-        include 'biomesoplenty/api/**'
+        include "${mod_id}/api/**"
     }
     from (sourceSets.main.output) {
         include 'LICENSE.txt'
-        include 'biomesoplenty/api/**'
+        include "${mod_id}/api/**"
     }
 
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     classifier = 'api'
 }
 
-def changelog_file = rootProject.file("build/BiomesOPlenty-${version}-changelog.txt")
+def changelog_file = rootProject.file("build/${mod_name}-${version}-changelog.txt")
 
 curseforge {
     if (project.hasProperty('curseApiKey')) {
         apiKey = project.getProperty('curseApiKey')
-        project {
-            id = '220318'
+    }
+    project {
+        id = mod_curseforge_id
 
-            if (changelog_file.exists()) {
-                changelog = changelog_file
-            }
+        if (changelog_file.exists()) {
+            changelog = changelog_file
+        }
 
-            releaseType = 'beta'
-            addGameVersion minecraft_version
+        releaseType = 'beta'
+        addGameVersion minecraft_version
 
-            mainArtifact(jar) {
-                displayName = "Biomes O' Plenty ${version}"
-            }
+        mainArtifact(jar) {
+            displayName = "${mod_display_name} ${version}"
+        }
 
-            addArtifact deobfJar
-            addArtifact apiJar
+        addArtifact deobfJar
+        addArtifact apiJar
 
-            relations {
-                requiredDependency 'terrablender'
-            }
+        relations {
+            requiredDependency 'terrablender'
         }
     }
 }
@@ -159,29 +119,32 @@ artifacts {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            from components.java
+            // We must use artifact jar to ensure the Forge dependency is excluded from the pom, breaking fg.deobf()
+            artifact jar
             artifact deobfJar
             artifact apiJar
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+
             pom {
-                name = 'BiomesOPlenty'
-                description = "Adds over 50 new biomes, blocks, and more!"
-                url = 'https://github.com/Glitchfiend/BiomesOPlenty'
+                name = project.mod_name
+                description = project.mod_description
+                url = project.mod_git_url
                 scm {
-                    url = 'https://github.com/Glitchfiend/BiomesOPlenty'
-                    connection = 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-                    developerConnection = 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+                    url = project.mod_git_url
+                    connection = project.mod_scm_url
+                    developerConnection = project.mod_scm_url
                 }
                 issueManagement {
                     system = 'github'
-                    url = 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+                    url = project.mod_issues_url
                 }
-
                 licenses {
                     license {
                         name = 'All Rights Reserved'
                     }
                 }
-
                 developers {
                     developer {
                         id = 'adubbz'
