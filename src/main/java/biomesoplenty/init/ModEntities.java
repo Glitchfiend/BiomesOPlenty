@@ -9,24 +9,24 @@ import biomesoplenty.common.entity.BoatBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+import java.util.function.Supplier;
+
 public class ModEntities
 {
-    @SubscribeEvent
-    public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event)
+    public static void setup()
     {
-        BOPEntities.BOAT = registerEntity(EntityType.Builder.<BoatBOP>of(BoatBOP::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(BiomesOPlenty.MOD_ID + ":boat"), "boat");
+        registerEntities();
     }
 
-    public static EntityType<?> registerEntity(EntityType<?> entity, String name)
+    public static void registerEntities()
     {
-        entity.setRegistryName(name);
-        ForgeRegistries.ENTITIES.register(entity);
-        return entity;
+        BOPEntities.BOAT = registerEntity(() -> EntityType.Builder.<BoatBOP>of(BoatBOP::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(BiomesOPlenty.MOD_ID + ":boat"), "boat");
+    }
+
+    public static RegistryObject<EntityType<?>> registerEntity(Supplier<EntityType<?>> typeSupplier, String name)
+    {
+        return BiomesOPlenty.ENTITY_TYPE_REGISTER.register(name, typeSupplier);
     }
 }

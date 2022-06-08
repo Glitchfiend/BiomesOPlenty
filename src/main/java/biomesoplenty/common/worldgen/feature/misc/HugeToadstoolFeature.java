@@ -8,7 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
@@ -19,8 +19,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class HugeToadstoolFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -37,7 +35,7 @@ public class HugeToadstoolFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel world = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos startPos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {
@@ -67,17 +65,17 @@ public class HugeToadstoolFeature extends Feature<NoneFeatureConfiguration>
         {
             for (int z = -(radius-1); z <= (radius-1); z++)
             {
-                this.setBlock(world, pos.offset(x, height, z), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-                this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-                this.setBlock(world, pos.offset(x, height+2, z), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+                this.setBlock(world, pos.offset(x, height, z), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+                this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+                this.setBlock(world, pos.offset(x, height+2, z), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
             }
         }
 
-        this.setBlock(world, pos.offset(0, height+3, 0), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        this.setBlock(world, pos.offset(1, height+3, 0), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        this.setBlock(world, pos.offset(-1, height+3, 0), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        this.setBlock(world, pos.offset(0, height+3, 1), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
-        this.setBlock(world, pos.offset(0, height+3, -1), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+        this.setBlock(world, pos.offset(0, height+3, 0), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+        this.setBlock(world, pos.offset(1, height+3, 0), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+        this.setBlock(world, pos.offset(-1, height+3, 0), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+        this.setBlock(world, pos.offset(0, height+3, 1), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+        this.setBlock(world, pos.offset(0, height+3, -1), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
 
         return true;
     }

@@ -43,21 +43,6 @@ public class BiomeUtil
 
     private static List<Level> worldList = Lists.newArrayList();
 
-    public static ResourceKey<Biome> getBiomeKey(Biome biome)
-    {
-        if (biome == null) throw new RuntimeException("Cannot get registry key for null biome");
-
-        if (biome.delegate.name() == null)
-        {
-            if (FMLEnvironment.dist == Dist.CLIENT)
-                return getClientKey(biome);
-            else
-                throw new RuntimeException("Failed to get registry key for biome!");
-        }
-
-        return ResourceKey.create(Registry.BIOME_REGISTRY, biome.delegate.name());
-    }
-
     public static Biome getBiome(ResourceKey<Biome> key)
     {
         Biome biome = ForgeRegistries.BIOMES.getValue(key.location());
@@ -75,7 +60,7 @@ public class BiomeUtil
                 }
                 catch (Exception e)
                 {
-                    BiomesOPlenty.logger.error(e.getMessage());
+                    BiomesOPlenty.LOGGER.error(e.getMessage());
                 }
 
                 // No more fallbacks. If we fail here it's game over.
@@ -103,7 +88,7 @@ public class BiomeUtil
     {
         if (biome == null) throw new RuntimeException("Attempted to get id of null biome");
         int id = ((ForgeRegistry<Biome>)ForgeRegistries.BIOMES).getID(biome);
-        if (id == -1) throw new RuntimeException("Biome id is -1 for biome " + biome.delegate.name());
+        if (id == -1) throw new RuntimeException("Biome id is -1");
         return id;
     }
 

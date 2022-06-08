@@ -55,10 +55,4 @@ public class BlackstoneDecorationBlock extends Block
     {
         return PushReaction.DESTROY;
     }
-
-    @Override
-    public OffsetType getOffsetType()
-    {
-        return OffsetType.XZ;
-    }
 }

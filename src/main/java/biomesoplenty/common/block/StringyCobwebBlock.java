@@ -78,7 +78,7 @@ public class StringyCobwebBlock extends Block
         BlockState aboveState = level.getBlockState(abovePos);
         BlockState belowState = level.getBlockState(belowPos);
 
-        if ((aboveState.getMaterial().isSolid() || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB) && (belowState.getMaterial().isSolid() || belowState.getBlock() == BOPBlocks.STRINGY_COBWEB))
+        if ((aboveState.getMaterial().isSolid() || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.getMaterial().isSolid() || belowState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
             return true;
 
         return false;
@@ -95,10 +95,10 @@ public class StringyCobwebBlock extends Block
         BlockState aboveState = level.getBlockState(abovePos);
         BlockState belowState = level.getBlockState(belowPos);
 
-        if (aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB)
+        if (aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get())
             level.destroyBlock(abovePos, false);
 
-        if (belowState.getBlock() == BOPBlocks.STRINGY_COBWEB)
+        if (belowState.getBlock() == BOPBlocks.STRINGY_COBWEB.get())
             level.destroyBlock(belowPos, false);
     }
 

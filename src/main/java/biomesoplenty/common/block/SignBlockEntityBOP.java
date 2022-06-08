@@ -20,6 +20,6 @@ public class SignBlockEntityBOP extends SignBlockEntity
     @Override
     public BlockEntityType<?> getType()
     {
-        return BOPBlockEntities.SIGN;
+        return BOPBlockEntities.SIGN.get();
     }
 }

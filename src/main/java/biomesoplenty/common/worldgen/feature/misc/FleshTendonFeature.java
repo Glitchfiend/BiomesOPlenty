@@ -12,7 +12,7 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -22,16 +22,13 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.registries.GameData;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 
-import java.util.Random;
-
 public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ROSE_QUARTZ_CLUSTER || world.getBlockState(pos).getBlock() == BOPBlocks.LARGE_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.SMALL_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS_STRAND || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR || world.getBlockState(pos).getBlock() == BOPBlocks.BLOOD;
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ROSE_QUARTZ_CLUSTER.get() || world.getBlockState(pos).getBlock() == BOPBlocks.LARGE_ROSE_QUARTZ_BUD.get() || world.getBlockState(pos).getBlock() == BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD.get() || world.getBlockState(pos).getBlock() == BOPBlocks.SMALL_ROSE_QUARTZ_BUD.get() || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS_STRAND.get() || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS.get() || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE.get() || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR.get() || world.getBlockState(pos).getBlock() == BOPBlocks.BLOOD.get();
 
     private static final int MIN_DISTANCE = 8;
     private static final int MAX_DISTANCE = 32;
@@ -54,7 +51,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context)
     {
         WorldGenLevel world = context.level();
-        Random rand = context.random();
+        RandomSource rand = context.random();
         BlockPos pos = context.origin();
 
         BlockState below = world.getBlockState(pos.below());
@@ -93,10 +90,10 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 
             if (curPos.getY() < 126)
             {
-                BlockState fleshBlock = BOPBlocks.FLESH.defaultBlockState();
+                BlockState fleshBlock = BOPBlocks.FLESH.get().defaultBlockState();
                 if (rand.nextInt(5) == 0)
                 {
-                    fleshBlock = BOPBlocks.POROUS_FLESH.defaultBlockState();
+                    fleshBlock = BOPBlocks.POROUS_FLESH.get().defaultBlockState();
                 }
 
                 this.setBlock(world, curPos, fleshBlock);
@@ -122,36 +119,36 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         return true;
     }
 
-    public boolean generateFleshBall(WorldGenLevel world, BlockPos pos, Random rand)
+    public boolean generateFleshBall(WorldGenLevel world, BlockPos pos, RandomSource rand)
     {
-        this.setBlock(world, pos, BOPBlocks.POROUS_FLESH.defaultBlockState());
+        this.setBlock(world, pos, BOPBlocks.POROUS_FLESH.get().defaultBlockState());
         this.setBlock(world, pos.north(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
         this.setBlock(world, pos.south(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
         this.setBlock(world, pos.east(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
         this.setBlock(world, pos.west(), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
-        this.setBlock(world, pos.north().west(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.south().west(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.north().east(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.south().east(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.north().west(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.south().west(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.north().east(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.south().east(), BOPBlocks.FLESH.get().defaultBlockState());
 
-        this.setBlock(world, pos.above(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.above().north(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.above().south(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.above().east(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.above().west(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.above(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.above().north(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.above().south(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.above().east(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.above().west(), BOPBlocks.FLESH.get().defaultBlockState());
 
-        this.setBlock(world, pos.below(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.below().north(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.below().south(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.below().east(), BOPBlocks.FLESH.defaultBlockState());
-        this.setBlock(world, pos.below().west(), BOPBlocks.FLESH.defaultBlockState());
+        this.setBlock(world, pos.below(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.below().north(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.below().south(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.below().east(), BOPBlocks.FLESH.get().defaultBlockState());
+        this.setBlock(world, pos.below().west(), BOPBlocks.FLESH.get().defaultBlockState());
 
         this.placeFleshTendonColumn(world, rand, pos.below(2));
 
         return true;
     }
 
-    public void placeFleshTendonColumn(WorldGenLevel p_67377_, Random p_67378_, BlockPos p_67379_)
+    public void placeFleshTendonColumn(WorldGenLevel p_67377_, RandomSource p_67378_, BlockPos p_67379_)
     {
         BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
         blockpos$mutable.set(p_67379_);
@@ -166,7 +163,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
             for(int i = 0; i <= height; ++i)
             {
                 Block fleshCheck = p_67377_.getBlockState(blockpos$mutable.below()).getBlock();
-                if (fleshCheck == BOPBlocks.FLESH_TENDONS || fleshCheck == BOPBlocks.FLESH_TENDONS_STRAND)
+                if (fleshCheck == BOPBlocks.FLESH_TENDONS.get() || fleshCheck == BOPBlocks.FLESH_TENDONS_STRAND.get())
                 {
                     break;
                 }
@@ -175,11 +172,11 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
                 {
                     if (i == height || !p_67377_.isEmptyBlock(blockpos$mutable.below()))
                     {
-                        this.setBlock(p_67377_, blockpos$mutable, BOPBlocks.FLESH_TENDONS.defaultBlockState(), 2);
+                        this.setBlock(p_67377_, blockpos$mutable, BOPBlocks.FLESH_TENDONS.get().defaultBlockState(), 2);
                         break;
                     }
 
-                    this.setBlock(p_67377_, blockpos$mutable, BOPBlocks.FLESH_TENDONS_STRAND.defaultBlockState(), 2);
+                    this.setBlock(p_67377_, blockpos$mutable, BOPBlocks.FLESH_TENDONS_STRAND.get().defaultBlockState(), 2);
                 }
 
                 blockpos$mutable.move(Direction.DOWN);

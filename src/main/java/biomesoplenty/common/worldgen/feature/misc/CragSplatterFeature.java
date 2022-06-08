@@ -7,15 +7,15 @@ package biomesoplenty.common.worldgen.feature.misc;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class CragSplatterFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -29,7 +29,7 @@ public class CragSplatterFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel worldIn = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos pos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         BlockPos.MutableBlockPos mutable = pos.mutable();
@@ -79,7 +79,7 @@ public class CragSplatterFeature extends Feature<NoneFeatureConfiguration>
                                     break;
 
                                 case 10:
-                                    if (this.isAir(worldIn, mutable.move(Direction.UP)))
+                                    if (worldIn.isStateAtPosition(mutable.move(Direction.UP), BlockBehaviour.BlockStateBase::isAir))
                                     {
                                         worldIn.setBlock(mutable, Blocks.GRASS.defaultBlockState(), 2);
                                         worldIn.setBlock(mutable.move(Direction.DOWN), Blocks.GRASS_BLOCK.defaultBlockState(), 2);

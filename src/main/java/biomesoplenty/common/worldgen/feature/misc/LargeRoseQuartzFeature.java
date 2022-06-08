@@ -10,6 +10,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.AmethystClusterBlock;
@@ -25,7 +26,6 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
-import java.util.Random;
 
 public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
 {
@@ -39,7 +39,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
         WorldGenLevel worldgenlevel = p_159967_.level();
         BlockPos blockpos = p_159967_.origin();
         LargeDripstoneConfiguration largedripstoneconfiguration = p_159967_.config();
-        Random random = p_159967_.random();
+        RandomSource random = p_159967_.random();
         if (!RoseQuartzUtils.isEmptyOrWater(worldgenlevel, blockpos))
         {
             return false;
@@ -92,7 +92,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
         }
     }
 
-    private static LargeRoseQuartzFeature.LargeRoseQuartz makeRoseQuartz(BlockPos p_159969_, boolean p_159970_, Random p_159971_, int p_159972_, FloatProvider p_159973_, FloatProvider p_159974_)
+    private static LargeRoseQuartzFeature.LargeRoseQuartz makeRoseQuartz(BlockPos p_159969_, boolean p_159970_, RandomSource p_159971_, int p_159972_, FloatProvider p_159973_, FloatProvider p_159974_)
     {
         return new LargeRoseQuartzFeature.LargeRoseQuartz(p_159969_, p_159970_, p_159972_, (double)p_159973_.sample(p_159971_), (double)p_159974_.sample(p_159971_));
     }
@@ -160,7 +160,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
             return (int) RoseQuartzUtils.getRoseQuartzHeight((double)p_159988_, (double)this.radius, this.scale, this.bluntness);
         }
 
-        void placeBlocks(WorldGenLevel p_159993_, Random p_159994_, LargeRoseQuartzFeature.WindOffsetter p_159995_)
+        void placeBlocks(WorldGenLevel p_159993_, RandomSource p_159994_, LargeRoseQuartzFeature.WindOffsetter p_159995_)
         {
             for(int i = -this.radius; i <= this.radius; ++i)
             {
@@ -186,7 +186,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
                                 if (RoseQuartzUtils.isEmptyOrWaterOrLava(p_159993_, blockpos) || p_159993_.getBlockState(blockpos).getMaterial() == Material.AMETHYST)
                                 {
                                     flag = true;
-                                    Block block = BOPBlocks.ROSE_QUARTZ_BLOCK;
+                                    Block block = BOPBlocks.ROSE_QUARTZ_BLOCK.get();
                                     p_159993_.setBlock(blockpos, block.defaultBlockState(), 2);
 
                                     for (Direction direction : Direction.values())
@@ -197,20 +197,20 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
                                             switch (p_159994_.nextInt(6))
                                             {
                                                 case 3:
-                                                    cluster_state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState();
+                                                    cluster_state = BOPBlocks.ROSE_QUARTZ_CLUSTER.get().defaultBlockState();
                                                     break;
 
                                                 case 2:
                                                 default:
-                                                    cluster_state = BOPBlocks.LARGE_ROSE_QUARTZ_BUD.defaultBlockState();
+                                                    cluster_state = BOPBlocks.LARGE_ROSE_QUARTZ_BUD.get().defaultBlockState();
                                                     break;
 
                                                 case 1:
-                                                    cluster_state = BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD.defaultBlockState();
+                                                    cluster_state = BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD.get().defaultBlockState();
                                                     break;
 
                                                 case 0:
-                                                    cluster_state = BOPBlocks.SMALL_ROSE_QUARTZ_BUD.defaultBlockState();
+                                                    cluster_state = BOPBlocks.SMALL_ROSE_QUARTZ_BUD.get().defaultBlockState();
                                                     break;
                                             }
 
@@ -246,7 +246,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
         @Nullable
         private final Vec3 windSpeed;
 
-        WindOffsetter(int p_160004_, Random p_160005_, FloatProvider p_160006_) {
+        WindOffsetter(int p_160004_, RandomSource p_160005_, FloatProvider p_160006_) {
             this.originY = p_160004_;
             float f = p_160006_.sample(p_160005_);
             float f1 = Mth.randomBetween(p_160005_, 0.0F, (float)Math.PI);

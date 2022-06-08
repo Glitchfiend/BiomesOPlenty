@@ -8,7 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -17,12 +17,10 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-import java.util.Random;
-
 public class LargeFumaroleFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE;
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_CLUSTER;
+    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE.get();
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_BUD.get() || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_CLUSTER.get();
 
     public LargeFumaroleFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -34,7 +32,7 @@ public class LargeFumaroleFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel world = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos pos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         if (!world.isEmptyBlock(pos))
@@ -60,7 +58,7 @@ public class LargeFumaroleFeature extends Feature<NoneFeatureConfiguration>
                         {
                             for (int y = 0; y <= height; y++)
                             {
-                                this.setBlock(world, pos.offset(x, y, z), BOPBlocks.BRIMSTONE.defaultBlockState());
+                                this.setBlock(world, pos.offset(x, y, z), BOPBlocks.BRIMSTONE.get().defaultBlockState());
                             }
                         }
 
@@ -68,20 +66,20 @@ public class LargeFumaroleFeature extends Feature<NoneFeatureConfiguration>
                         {
                             if (height > -1)
                             {
-                                this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.BRIMSTONE_BUD.defaultBlockState());
+                                this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.BRIMSTONE_BUD.get().defaultBlockState());
                             }
                         }
                         else
                         {
-                            this.setBlock(world, pos.offset(x, -1, z), BOPBlocks.BRIMSTONE.defaultBlockState());
-                            this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.BRIMSTONE.defaultBlockState());
-                            this.setBlock(world, pos.offset(x, height+2, z), BOPBlocks.BRIMSTONE_BUD.defaultBlockState());
+                            this.setBlock(world, pos.offset(x, -1, z), BOPBlocks.BRIMSTONE.get().defaultBlockState());
+                            this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.BRIMSTONE.get().defaultBlockState());
+                            this.setBlock(world, pos.offset(x, height+2, z), BOPBlocks.BRIMSTONE_BUD.get().defaultBlockState());
                         }
                     }
                 }
 
-                this.setBlock(world, pos.offset(0, height+2, 0), BOPBlocks.BRIMSTONE.defaultBlockState());
-                this.setBlock(world, pos.above(height+3), BOPBlocks.BRIMSTONE_FUMAROLE.defaultBlockState());
+                this.setBlock(world, pos.offset(0, height+2, 0), BOPBlocks.BRIMSTONE.get().defaultBlockState());
+                this.setBlock(world, pos.above(height+3), BOPBlocks.BRIMSTONE_FUMAROLE.get().defaultBlockState());
 
                 return true;
             }

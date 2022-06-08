@@ -129,7 +129,7 @@ public class BOPVegetationPlacements
     public static final Holder<PlacedFeature> TREES_FIELD = register("trees_field", BOPVegetationFeatures.TREES_FIELD, treePlacement(PlacementUtils.countExtra(3, 0.1F, 1)));
     public static final Holder<PlacedFeature> TREES_FIELD_FOREST = register("trees_field_forest", BOPVegetationFeatures.TREES_FIELD_FOREST, treePlacement(PlacementUtils.countExtra(9, 0.1F, 1)));
     public static final Holder<PlacedFeature> TREES_FUNGAL_JUNGLE = register("trees_fungal_jungle", BOPVegetationFeatures.TREES_FUNGAL_JUNGLE, treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
-    public static final Holder<PlacedFeature> TREES_FIR_CLEARING = register("trees_fir_clearing", BOPTreeFeatures.FIR_TREE_SMALL, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BOPBlocks.FIR_SAPLING));
+    public static final Holder<PlacedFeature> TREES_FIR_CLEARING = register("trees_fir_clearing", BOPTreeFeatures.FIR_TREE_SMALL, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BOPBlocks.FIR_SAPLING.get()));
     public static final Holder<PlacedFeature> TREES_JADE_CLIFFS = register("trees_jade_cliffs", BOPVegetationFeatures.TREES_JADE_CLIFFS, treePlacement(PlacementUtils.countExtra(25, 0.1F, 1)));
     public static final Holder<PlacedFeature> TREES_LAVENDER_FIELD = register("trees_lavender_field", BOPVegetationFeatures.TREES_LAVENDER_FIELD, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
     public static final Holder<PlacedFeature> TREES_LAVENDER_FOREST = register("trees_lavender_forest", BOPVegetationFeatures.TREES_LAVENDER_FOREST, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));

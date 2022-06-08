@@ -3,17 +3,18 @@ package biomesoplenty.common.worldgen.feature.misc;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class MossSplatterFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -27,7 +28,7 @@ public class MossSplatterFeature extends Feature<NoneFeatureConfiguration>
    {
       WorldGenLevel worldIn = featurePlaceContext.level();
       ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-      Random rand = featurePlaceContext.random();
+      RandomSource rand = featurePlaceContext.random();
       BlockPos pos = featurePlaceContext.origin();
       NoneFeatureConfiguration config = featurePlaceContext.config();
       int i = 0;
@@ -80,5 +81,10 @@ public class MossSplatterFeature extends Feature<NoneFeatureConfiguration>
       }
 
       return i > 0;
+   }
+
+   public static boolean isAir(LevelSimulatedReader level, BlockPos pos)
+   {
+      return level.isStateAtPosition(pos, BlockBehaviour.BlockStateBase::isAir);
    }
 }

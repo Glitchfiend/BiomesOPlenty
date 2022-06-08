@@ -4,11 +4,11 @@
  ******************************************************************************/
 package biomesoplenty.common.util.biome;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class GeneratorUtil
 {
-    public static int nextIntBetween(Random rand, int a, int b)
+    public static int nextIntBetween(RandomSource rand, int a, int b)
     {
         if (a == b) {return a;}
         int min = a < b ? a : b;

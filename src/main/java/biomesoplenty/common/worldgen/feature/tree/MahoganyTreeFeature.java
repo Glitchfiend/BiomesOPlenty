@@ -8,6 +8,7 @@ import biomesoplenty.common.worldgen.feature.configurations.MahoganyTreeConfigur
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguration>
@@ -26,7 +26,7 @@ public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguratio
     }
 
     @Override
-    public boolean doPlace(WorldGenLevel world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
     {
         MahoganyTreeConfiguration config = (MahoganyTreeConfiguration)configBase;
 

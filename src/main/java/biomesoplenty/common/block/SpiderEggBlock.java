@@ -59,9 +59,9 @@ public class SpiderEggBlock extends Block
     }
 
     @Override
-    public void spawnAfterBreak(BlockState p_54188_, ServerLevel p_54189_, BlockPos p_54190_, ItemStack p_54191_)
+    public void spawnAfterBreak(BlockState p_54188_, ServerLevel p_54189_, BlockPos p_54190_, ItemStack p_54191_, boolean p_222953_)
     {
-        super.spawnAfterBreak(p_54188_, p_54189_, p_54190_, p_54191_);
+        super.spawnAfterBreak(p_54188_, p_54189_, p_54190_, p_54191_, p_222953_);
         if (p_54189_.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, p_54191_) == 0)
         {
             this.spawnSpider(p_54189_, p_54190_);

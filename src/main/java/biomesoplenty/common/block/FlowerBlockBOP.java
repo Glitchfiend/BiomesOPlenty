@@ -7,6 +7,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,8 +20,6 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Random;
 
 public class FlowerBlockBOP extends FlowerBlock
 {
@@ -45,7 +44,7 @@ public class FlowerBlockBOP extends FlowerBlock
     {
     	Block block = state.getBlock();
         
-        if (block == BOPBlocks.LAVENDER || block == BOPBlocks.PINK_HIBISCUS)
+        if (block == BOPBlocks.LAVENDER.get() || block == BOPBlocks.PINK_HIBISCUS.get())
         {
         	return LARGE;
         }
@@ -58,11 +57,11 @@ public class FlowerBlockBOP extends FlowerBlock
     {
         Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
-        if (this == BOPBlocks.WILDFLOWER)
+        if (this == BOPBlocks.WILDFLOWER.get())
         {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || super.canSurvive(state, worldIn, pos);
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND.get() || ground == BOPBlocks.ORANGE_SAND.get() || ground == BOPBlocks.BLACK_SAND.get() || super.canSurvive(state, worldIn, pos);
         }
-        if (this == BOPBlocks.BURNING_BLOSSOM)
+        if (this == BOPBlocks.BURNING_BLOSSOM.get())
         {
             return ground == Blocks.NETHERRACK || ground == Blocks.SOUL_SAND ||  ground == Blocks.SOUL_SOIL ||  ground == Blocks.CRIMSON_NYLIUM ||  ground == Blocks.WARPED_NYLIUM || super.canSurvive(state, worldIn, pos);
         }
@@ -77,7 +76,7 @@ public class FlowerBlockBOP extends FlowerBlock
     	
     	if (entityIn instanceof LivingEntity)
     	{
-	    	if (block == BOPBlocks.BURNING_BLOSSOM)
+	    	if (block == BOPBlocks.BURNING_BLOSSOM.get())
 	    	{
 	    		(entityIn).setSecondsOnFire(1);
 	    	}
@@ -85,12 +84,12 @@ public class FlowerBlockBOP extends FlowerBlock
     }
     
     @Override
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
        super.animateTick(stateIn, worldIn, pos, rand);
        Block block = stateIn.getBlock();
        
-       if (block == BOPBlocks.BURNING_BLOSSOM)
+       if (block == BOPBlocks.BURNING_BLOSSOM.get())
        {
 	       if (rand.nextInt(8) == 0)
 	       {

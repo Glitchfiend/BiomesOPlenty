@@ -7,6 +7,7 @@ package biomesoplenty.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -15,8 +16,6 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Random;
 
 public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
 {
@@ -50,7 +49,7 @@ public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public void randomTick(BlockState p_225542_1_, ServerLevel p_225542_2_, BlockPos p_225542_3_, Random p_225542_4_)
+    public void randomTick(BlockState p_225542_1_, ServerLevel p_225542_2_, BlockPos p_225542_3_, RandomSource p_225542_4_)
     {
     }
 
@@ -61,7 +60,7 @@ public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    protected int getBlocksToGrowWhenBonemealed(Random p_230332_1_)
+    protected int getBlocksToGrowWhenBonemealed(RandomSource p_230332_1_)
     {
         return 0;
     }
@@ -73,13 +72,13 @@ public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public boolean isBonemealSuccess(Level p_180670_1_, Random p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_)
+    public boolean isBonemealSuccess(Level p_180670_1_, RandomSource p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_)
     {
         return false;
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_)
+    public void performBonemeal(ServerLevel p_225535_1_, RandomSource p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_)
     {
     }
 }

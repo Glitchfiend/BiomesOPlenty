@@ -5,7 +5,6 @@
 package biomesoplenty.common.util;
 
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
@@ -16,7 +15,7 @@ public class CreativeModeTabBOP extends CreativeModeTab
         @Override
         public ItemStack makeIcon()
         {
-            return new ItemStack(BOPItems.BOP_ICON);
+            return new ItemStack(BOPItems.BOP_ICON.get());
         }
     };
 
@@ -28,6 +27,6 @@ public class CreativeModeTabBOP extends CreativeModeTab
     @Override
     public ItemStack makeIcon()
     {
-        return new ItemStack(BOPItems.BOP_ICON);
+        return new ItemStack(BOPItems.BOP_ICON.get());
     }
 }

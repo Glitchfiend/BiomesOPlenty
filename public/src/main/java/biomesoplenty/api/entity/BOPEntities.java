@@ -5,8 +5,9 @@
 package biomesoplenty.api.entity;
 
 import net.minecraft.world.entity.EntityType;
+import net.minecraftforge.registries.RegistryObject;
 
 public class BOPEntities
 {
-    public static EntityType<?> BOAT;
+    public static RegistryObject<EntityType<?>> BOAT;
 }

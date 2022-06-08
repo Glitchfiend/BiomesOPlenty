@@ -9,6 +9,7 @@ import biomesoplenty.common.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
@@ -19,8 +20,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -37,7 +36,7 @@ public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel world = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos startPos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
@@ -56,10 +55,10 @@ public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
 
         BlockPos pos = startPos.above();
 
-        this.setBlock(world, pos, BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH));
-        this.setBlock(world, pos.south(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.WEST));
-        this.setBlock(world, pos.east(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.EAST));
-        this.setBlock(world, pos.south().east(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.SOUTH));
+        this.setBlock(world, pos, BOPBlocks.HUGE_CLOVER_PETAL.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH));
+        this.setBlock(world, pos.south(), BOPBlocks.HUGE_CLOVER_PETAL.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.WEST));
+        this.setBlock(world, pos.east(), BOPBlocks.HUGE_CLOVER_PETAL.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.EAST));
+        this.setBlock(world, pos.south().east(), BOPBlocks.HUGE_CLOVER_PETAL.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.SOUTH));
 
         return true;
     }

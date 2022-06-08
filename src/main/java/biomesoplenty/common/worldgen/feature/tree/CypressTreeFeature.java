@@ -6,12 +6,12 @@ package biomesoplenty.common.worldgen.feature.tree;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.biome.GeneratorUtil;
-import biomesoplenty.common.worldgen.feature.configurations.BasicTreeConfiguration;
 import biomesoplenty.common.worldgen.feature.configurations.CypressTreeConfiguration;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
@@ -20,7 +20,6 @@ import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.material.Material;
 
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration>
@@ -60,7 +59,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
     }
 
     // generates a layer of leaves
-    public void generateLeafLayer(LevelAccessor world, Random rand, BlockPos pos, int leavesRadius, BiConsumer<BlockPos, BlockState> leaves, CypressTreeConfiguration config)
+    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, BiConsumer<BlockPos, BlockState> leaves, CypressTreeConfiguration config)
     {
         int start = -leavesRadius;
         int end = leavesRadius;
@@ -86,7 +85,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
         }
     }
 
-    public void generateBranch(LevelAccessor world, Random rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, CypressTreeConfiguration config)
+    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, CypressTreeConfiguration config)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.getClockWise();
@@ -113,7 +112,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
 
 
     @Override
-    public boolean doPlace(WorldGenLevel world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
     {
         CypressTreeConfiguration config = (CypressTreeConfiguration)configBase;
 
@@ -246,7 +245,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
         return true;
     }
 
-    private void placeSpanishMoss(LevelAccessor p_236429_1_, Random p_236429_2_, BlockPos p_236429_3_)
+    private void placeSpanishMoss(LevelAccessor p_236429_1_, RandomSource p_236429_2_, BlockPos p_236429_3_)
     {
         BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
@@ -256,7 +255,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
             if (p_236429_1_.isEmptyBlock(blockpos$mutable))
             {
                 BlockState blockstate = p_236429_1_.getBlockState(blockpos$mutable.above());
-                if (blockstate.getBlock() == BOPBlocks.WILLOW_LEAVES)
+                if (blockstate.getBlock() == BOPBlocks.WILLOW_LEAVES.get())
                 {
                     int j = Mth.nextInt(p_236429_2_, 1, 3);
 
@@ -271,7 +270,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
         }
     }
 
-    public static void placeSpanishMossColumn(LevelAccessor p_236427_0_, Random p_236427_1_, BlockPos.MutableBlockPos p_236427_2_, int p_236427_3_, int p_236427_4_, int p_236427_5_)
+    public static void placeSpanishMossColumn(LevelAccessor p_236427_0_, RandomSource p_236427_1_, BlockPos.MutableBlockPos p_236427_2_, int p_236427_3_, int p_236427_4_, int p_236427_5_)
     {
         for(int i = 0; i <= p_236427_3_; ++i)
         {
@@ -279,11 +278,11 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
             {
                 if (i == p_236427_3_ || !p_236427_0_.isEmptyBlock(p_236427_2_.below()))
                 {
-                    p_236427_0_.setBlock(p_236427_2_, BOPBlocks.SPANISH_MOSS.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(Mth.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
+                    p_236427_0_.setBlock(p_236427_2_, BOPBlocks.SPANISH_MOSS.get().defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(Mth.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
                     break;
                 }
 
-                p_236427_0_.setBlock(p_236427_2_, BOPBlocks.SPANISH_MOSS_PLANT.defaultBlockState(), 2);
+                p_236427_0_.setBlock(p_236427_2_, BOPBlocks.SPANISH_MOSS_PLANT.get().defaultBlockState(), 2);
             }
 
             p_236427_2_.move(Direction.DOWN);

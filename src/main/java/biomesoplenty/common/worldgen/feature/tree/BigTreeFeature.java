@@ -1,12 +1,12 @@
 package biomesoplenty.common.worldgen.feature.tree;
 
-import biomesoplenty.common.worldgen.feature.configurations.BasicTreeConfiguration;
 import biomesoplenty.common.worldgen.feature.configurations.BigTreeConfiguration;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -15,7 +15,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
@@ -40,7 +39,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     // radius is the radius of the section from the center
     // direction is the direction the cross section is pointed, 0 for x, 1
     // for y, 2 for z material is the index number for the material to use
-    private void crossSection(LevelAccessor world, BlockPos pos, float radius, Random random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
+    private void crossSection(LevelAccessor world, BlockPos pos, float radius, RandomSource random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
     {
         final int r = (int)((double)radius + trunkHeightScale);
 
@@ -143,7 +142,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     // Generate a cluster of foliage, with the base at blockPos
     // The shape of the cluster is derived from foliageShape
     // crossection is called to make each level.
-    private void foliageCluster(LevelAccessor world, BlockPos pos, Random random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
+    private void foliageCluster(LevelAccessor world, BlockPos pos, RandomSource random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
     {
         for (int y = 0; y < config.foliageHeight; y++)
         {
@@ -229,7 +228,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
         return axis;
     }
 
-    private void makeFoliage(LevelAccessor worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, Random random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
+    private void makeFoliage(LevelAccessor worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, RandomSource random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
@@ -285,7 +284,8 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
         }
     }
 
-    public boolean doPlace(WorldGenLevel world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    @Override
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
     {
         BigTreeConfiguration config = (BigTreeConfiguration)configBase;
 

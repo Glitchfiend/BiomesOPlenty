@@ -5,21 +5,20 @@
 package biomesoplenty.init;
 
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import static biomesoplenty.api.sound.BOPSounds.*;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModSounds
 {
-    @SubscribeEvent
-    public static void registerSounds(RegistryEvent.Register<SoundEvent> event)
+    public static void setup()
+    {
+        registerSounds();
+    }
+
+    public static void registerSounds()
     {
         MUSIC_DISC_WANDERER = registerSound("music_disc.wanderer");
         MUSIC_BIOME_ORIGIN_VALLEY = registerSound("music.overworld.origin_valley");
@@ -30,12 +29,10 @@ public class ModSounds
         MUSIC_BIOME_WITHERED_ABYSS = registerSound("music.nether.withered_abyss");
     }
 
-    private static SoundEvent registerSound(String soundName)
+    private static RegistryObject<SoundEvent> registerSound(String name)
     {
-        ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, soundName);
+        ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, name);
         SoundEvent event = new SoundEvent(location);
-        event.setRegistryName(location);
-        ForgeRegistries.SOUND_EVENTS.register(event);
-        return event;
+        return BiomesOPlenty.SOUND_EVENT_REGISTER.register(name, () -> event);
     }
 }

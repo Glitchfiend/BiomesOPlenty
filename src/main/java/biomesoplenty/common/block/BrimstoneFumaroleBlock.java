@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,8 +24,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Random;
 
 public class BrimstoneFumaroleBlock extends Block
 {
@@ -48,7 +47,7 @@ public class BrimstoneFumaroleBlock extends Block
     }
 
     @Override
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
         super.animateTick(stateIn, worldIn, pos, rand);
         if (worldIn.getBlockState(pos.above()).isAir())
@@ -75,7 +74,7 @@ public class BrimstoneFumaroleBlock extends Block
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
-        return groundState.getBlock() == BOPBlocks.BRIMSTONE;
+        return groundState.getBlock() == BOPBlocks.BRIMSTONE.get();
     }
 
     @Override

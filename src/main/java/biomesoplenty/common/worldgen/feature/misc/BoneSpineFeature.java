@@ -9,9 +9,11 @@ import biomesoplenty.common.util.SimpleBlockPredicate;
 import biomesoplenty.init.ModTags;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -20,12 +22,10 @@ import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Material;
 
-import java.util.Random;
-
 public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).is(ModTags.Blocks.FLESH) || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
-    protected SimpleBlockPredicate replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR;
+    protected SimpleBlockPredicate replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE.get() || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR.get();
     private int maxHeight = 3;
 
     public BoneSpineFeature(Codec<NoneFeatureConfiguration> deserializer)
@@ -38,7 +38,7 @@ public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel world = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos startPos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
@@ -94,5 +94,10 @@ public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
             }
         }
         return true;
+    }
+
+    public static boolean isAir(LevelSimulatedReader level, BlockPos pos)
+    {
+        return level.isStateAtPosition(pos, BlockBehaviour.BlockStateBase::isAir);
     }
 }

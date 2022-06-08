@@ -8,7 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
@@ -19,8 +19,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class SmallToadstoolFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -37,7 +35,7 @@ public class SmallToadstoolFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel world = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos startPos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {
@@ -62,7 +60,7 @@ public class SmallToadstoolFeature extends Feature<NoneFeatureConfiguration>
             this.setBlock(world, pos.above(y), Blocks.MUSHROOM_STEM.defaultBlockState());
         }
 
-        this.setBlock(world, pos.offset(0, height, 0), BOPBlocks.TOADSTOOL_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+        this.setBlock(world, pos.offset(0, height, 0), BOPBlocks.TOADSTOOL_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
 
         return true;
     }

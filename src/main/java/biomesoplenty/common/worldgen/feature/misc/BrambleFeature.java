@@ -11,6 +11,7 @@ import biomesoplenty.common.util.biome.GeneratorUtil;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -21,8 +22,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Material;
-
-import java.util.Random;
 
 public class BrambleFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -44,7 +43,7 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel world = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos startPos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         for (int i = 0; i < 128; ++i)
@@ -61,13 +60,13 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
                 {
                     //if (BrambleBlock.canPlaceBlockAt(world, genPos))
                     //{
-                    world.setBlock(genPos, ((BrambleBlock) BOPBlocks.BRAMBLE).makeConnections(world, genPos), 2);
+                    world.setBlock(genPos, ((BrambleBlock) BOPBlocks.BRAMBLE.get()).makeConnections(world, genPos), 2);
 
                     for (Direction face : Direction.values())
                     {
-                        if (world.getBlockState(genPos.relative(face)).getBlock() == BOPBlocks.BRAMBLE)
+                        if (world.getBlockState(genPos.relative(face)).getBlock() == BOPBlocks.BRAMBLE.get())
                         {
-                            world.setBlock(genPos.relative(face), ((BrambleBlock)BOPBlocks.BRAMBLE).makeConnections(world, genPos.relative(face)), 2);
+                            world.setBlock(genPos.relative(face), ((BrambleBlock)BOPBlocks.BRAMBLE.get()).makeConnections(world, genPos.relative(face)), 2);
                         }
                     }
 
@@ -85,9 +84,9 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
                             world.setBlock(leafPos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 19);
                             for (Direction face : Direction.values())
                             {
-                                if (world.getBlockState(leafPos.relative(face)).getBlock() == BOPBlocks.BRAMBLE)
+                                if (world.getBlockState(leafPos.relative(face)).getBlock() == BOPBlocks.BRAMBLE.get())
                                 {
-                                    world.setBlock(leafPos.relative(face), ((BrambleBlock)BOPBlocks.BRAMBLE).makeConnections(world, leafPos.relative(face)), 2);
+                                    world.setBlock(leafPos.relative(face), ((BrambleBlock)BOPBlocks.BRAMBLE.get()).makeConnections(world, leafPos.relative(face)), 2);
                                 }
                             }
                         }

@@ -7,8 +7,6 @@ package biomesoplenty.common.worldgen.feature.configurations;
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
@@ -42,8 +40,8 @@ public class PalmTreeConfiguration extends BOPTreeConfiguration
         {
             this.minHeight = 10;
             this.maxHeight = 14;
-            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.PALM_LOG);
-            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.PALM_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.PALM_LOG.get());
+            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.PALM_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
         }
 
         public PalmTreeConfiguration build()

@@ -56,10 +56,4 @@ public class HairBlock extends Block
     {
         return PushReaction.DESTROY;
     }
-
-    @Override
-    public OffsetType getOffsetType()
-    {
-        return OffsetType.XYZ;
-    }
 }

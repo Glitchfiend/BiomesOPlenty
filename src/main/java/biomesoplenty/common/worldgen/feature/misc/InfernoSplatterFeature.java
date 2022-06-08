@@ -6,6 +6,7 @@ package biomesoplenty.common.worldgen.feature.misc;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -14,8 +15,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class InfernoSplatterFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -29,7 +28,7 @@ public class InfernoSplatterFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel worldIn = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos pos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         int i = 0;

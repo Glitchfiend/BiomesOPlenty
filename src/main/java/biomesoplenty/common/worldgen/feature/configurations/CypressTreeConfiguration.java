@@ -46,9 +46,9 @@ public class CypressTreeConfiguration extends BOPTreeConfiguration
         {
             this.minHeight = 8;
             this.maxHeight = 15;
-            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LOG.defaultBlockState());
-            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LEAVES.defaultBlockState());
-            this.vineProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_VINE.defaultBlockState());
+            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LOG.get().defaultBlockState());
+            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LEAVES.get().defaultBlockState());
+            this.vineProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_VINE.get().defaultBlockState());
             this.trunkWidth = 1;
         }
 

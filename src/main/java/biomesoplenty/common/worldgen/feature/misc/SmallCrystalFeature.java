@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,8 +16,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class SmallCrystalFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -30,7 +29,7 @@ public class SmallCrystalFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel world = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos pos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         int i = 0;
@@ -43,20 +42,20 @@ public class SmallCrystalFeature extends Feature<NoneFeatureConfiguration>
             switch (rand.nextInt(6))
             {
                 case 3:
-                    cluster_state = BOPBlocks.ROSE_QUARTZ_CLUSTER.defaultBlockState();
+                    cluster_state = BOPBlocks.ROSE_QUARTZ_CLUSTER.get().defaultBlockState();
                     break;
 
                 case 2:
                 default:
-                    cluster_state = BOPBlocks.LARGE_ROSE_QUARTZ_BUD.defaultBlockState();
+                    cluster_state = BOPBlocks.LARGE_ROSE_QUARTZ_BUD.get().defaultBlockState();
                     break;
 
                 case 1:
-                    cluster_state = BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD.defaultBlockState();
+                    cluster_state = BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD.get().defaultBlockState();
                     break;
 
                 case 0:
-                    cluster_state = BOPBlocks.SMALL_ROSE_QUARTZ_BUD.defaultBlockState();
+                    cluster_state = BOPBlocks.SMALL_ROSE_QUARTZ_BUD.get().defaultBlockState();
                     break;
             }
 

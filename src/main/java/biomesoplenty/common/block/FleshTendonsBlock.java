@@ -21,7 +21,7 @@ public class FleshTendonsBlock extends HangingStrandBlock
     @Override
     protected GrowingPlantHeadBlock getHeadBlock()
     {
-        return (GrowingPlantHeadBlock) BOPBlocks.FLESH_TENDONS;
+        return (GrowingPlantHeadBlock) BOPBlocks.FLESH_TENDONS.get();
     }
 
     @Override

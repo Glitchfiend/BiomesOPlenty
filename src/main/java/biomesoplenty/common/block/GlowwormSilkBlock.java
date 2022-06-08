@@ -20,7 +20,7 @@ public class GlowwormSilkBlock extends HangingStrandBlock
 
     @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BOPBlocks.GLOWWORM_SILK;
+        return (GrowingPlantHeadBlock) BOPBlocks.GLOWWORM_SILK.get();
     }
 
     @Override

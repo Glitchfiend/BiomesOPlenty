@@ -6,73 +6,69 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPFluids;
+import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.entity.BoatBOP;
 import biomesoplenty.common.item.BoatItemBOP;
 import biomesoplenty.common.item.MusicDiscItemBOP;
 import biomesoplenty.common.util.CreativeModeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.base.Suppliers;
-import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.FlowingFluid;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SignItem;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
 import static biomesoplenty.api.item.BOPItems.*;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModItems
 {
-    @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event)
+    public static void setup()
     {
-        BOP_ICON = registerItem(new Item(new Item.Properties()), "bop_icon");
-
-        MUD_BALL = registerItem(new Item(new Item.Properties().tab(CreativeModeTabBOP.INSTANCE)), "mud_ball");
-        MUD_BRICK = registerItem(new Item(new Item.Properties().tab(CreativeModeTabBOP.INSTANCE)), "mud_brick");
-
-        ROSE_QUARTZ_SHARD = registerItem(new Item(new Item.Properties().tab(CreativeModeTabBOP.INSTANCE)), "rose_quartz_shard");
-
-        MUSIC_DISC_WANDERER = registerItem(new MusicDiscItemBOP("music_disc.wanderer"), "music_disc_wanderer");
-
-        Supplier<? extends FlowingFluid> BLOOD_SUPPLIER = Suppliers.memoize(() -> BOPFluids.BLOOD);
-        BLOOD_BUCKET = registerItem(new BucketItem(BLOOD_SUPPLIER, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "blood_bucket");
-
-        FIR_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.FIR_SIGN, BOPBlocks.FIR_WALL_SIGN), "fir_sign");
-        REDWOOD_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.REDWOOD_SIGN, BOPBlocks.REDWOOD_WALL_SIGN), "redwood_sign");
-        CHERRY_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.CHERRY_SIGN, BOPBlocks.CHERRY_WALL_SIGN), "cherry_sign");
-        MAHOGANY_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.MAHOGANY_SIGN, BOPBlocks.MAHOGANY_WALL_SIGN), "mahogany_sign");
-        JACARANDA_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.JACARANDA_SIGN, BOPBlocks.JACARANDA_WALL_SIGN), "jacaranda_sign");
-        PALM_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.PALM_SIGN, BOPBlocks.PALM_WALL_SIGN), "palm_sign");
-        WILLOW_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.WILLOW_SIGN, BOPBlocks.WILLOW_WALL_SIGN), "willow_sign");
-        DEAD_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.DEAD_SIGN, BOPBlocks.DEAD_WALL_SIGN), "dead_sign");
-        MAGIC_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.MAGIC_SIGN, BOPBlocks.MAGIC_WALL_SIGN), "magic_sign");
-        UMBRAN_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.UMBRAN_SIGN, BOPBlocks.UMBRAN_WALL_SIGN), "umbran_sign");
-        HELLBARK_SIGN = registerItem(new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.HELLBARK_SIGN, BOPBlocks.HELLBARK_WALL_SIGN), "hellbark_sign");
-
-        FIR_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "fir_boat");
-        REDWOOD_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "redwood_boat");
-        CHERRY_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.CHERRY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "cherry_boat");
-        MAHOGANY_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "mahogany_boat");
-        JACARANDA_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.JACARANDA, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "jacaranda_boat");
-        PALM_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.PALM, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "palm_boat");
-        WILLOW_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.WILLOW, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "willow_boat");
-        DEAD_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.DEAD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "dead_boat");
-        MAGIC_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.MAGIC, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "magic_boat");
-        UMBRAN_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.UMBRAN, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "umbran_boat");
-        HELLBARK_BOAT = registerItem(new BoatItemBOP(BoatBOP.ModelType.HELLBARK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "hellbark_boat");
+        registerItems();
     }
 
-    public static Item registerItem(Item item, String name)
+    private static void registerItems()
     {
-        item.setRegistryName(name);
-        ForgeRegistries.ITEMS.register(item);
-        return item;
+        BOP_ICON = registerItem(() -> new Item(new Item.Properties()), "bop_icon");
+
+        ROSE_QUARTZ_SHARD = registerItem(() -> new Item(new Item.Properties().tab(CreativeModeTabBOP.INSTANCE)), "rose_quartz_shard");
+
+        MUSIC_DISC_WANDERER = registerItem(() -> new MusicDiscItemBOP(() -> BOPSounds.MUSIC_DISC_WANDERER.get()), "music_disc_wanderer");
+
+        Supplier<? extends Fluid> BLOOD_SUPPLIER = Suppliers.memoize(() -> BOPFluids.BLOOD.get());
+        BLOOD_BUCKET = registerItem(() -> new BucketItem(BLOOD_SUPPLIER, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "blood_bucket");
+
+        FIR_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.FIR_SIGN.get(), BOPBlocks.FIR_WALL_SIGN.get()), "fir_sign");
+        REDWOOD_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.REDWOOD_SIGN.get(), BOPBlocks.REDWOOD_WALL_SIGN.get()), "redwood_sign");
+        CHERRY_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.CHERRY_SIGN.get(), BOPBlocks.CHERRY_WALL_SIGN.get()), "cherry_sign");
+        MAHOGANY_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.MAHOGANY_SIGN.get(), BOPBlocks.MAHOGANY_WALL_SIGN.get()), "mahogany_sign");
+        JACARANDA_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.JACARANDA_SIGN.get(), BOPBlocks.JACARANDA_WALL_SIGN.get()), "jacaranda_sign");
+        PALM_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.PALM_SIGN.get(), BOPBlocks.PALM_WALL_SIGN.get()), "palm_sign");
+        WILLOW_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.WILLOW_SIGN.get(), BOPBlocks.WILLOW_WALL_SIGN.get()), "willow_sign");
+        DEAD_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.DEAD_SIGN.get(), BOPBlocks.DEAD_WALL_SIGN.get()), "dead_sign");
+        MAGIC_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.MAGIC_SIGN.get(), BOPBlocks.MAGIC_WALL_SIGN.get()), "magic_sign");
+        UMBRAN_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.UMBRAN_SIGN.get(), BOPBlocks.UMBRAN_WALL_SIGN.get()), "umbran_sign");
+        HELLBARK_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.HELLBARK_SIGN.get(), BOPBlocks.HELLBARK_WALL_SIGN.get()), "hellbark_sign");
+
+        FIR_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "fir_boat");
+        REDWOOD_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "redwood_boat");
+        CHERRY_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.CHERRY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "cherry_boat");
+        MAHOGANY_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "mahogany_boat");
+        JACARANDA_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.JACARANDA, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "jacaranda_boat");
+        PALM_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.PALM, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "palm_boat");
+        WILLOW_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.WILLOW, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "willow_boat");
+        DEAD_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.DEAD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "dead_boat");
+        MAGIC_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.MAGIC, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "magic_boat");
+        UMBRAN_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.UMBRAN, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "umbran_boat");
+        HELLBARK_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.HELLBARK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "hellbark_boat");
+    }
+
+    public static RegistryObject<Item> registerItem(Supplier<Item> itemSupplier, String name)
+    {
+        return BiomesOPlenty.ITEM_REGISTER.register(name, itemSupplier);
     }
 }

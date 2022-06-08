@@ -24,9 +24,9 @@ public class BoatRendererBOP extends BoatRenderer
 
     public BoatRendererBOP(EntityRendererProvider.Context context)
     {
-        super(context);
+        super(context, false);
         this.boatResources = Stream.of(BoatBOP.ModelType.values()).collect(ImmutableMap.toImmutableMap((key) -> key, (model) -> {
-            return Pair.of(new ResourceLocation(BiomesOPlenty.MOD_ID, "textures/entity/boat/" + model.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(model))));
+            return Pair.of(new ResourceLocation(BiomesOPlenty.MOD_ID, "textures/entity/boat/" + model.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(model)), false));
         }));
     }
 

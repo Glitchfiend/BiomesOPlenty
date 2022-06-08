@@ -6,17 +6,15 @@ package biomesoplenty.common.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.StringyCobwebBlock;
-import biomesoplenty.core.BiomesOPlenty;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -46,7 +44,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
                 break;
             }
 
-            if (place) this.setBlock(level, pos, BOPBlocks.STRINGY_COBWEB.defaultBlockState().setValue(StringyCobwebBlock.FACING, direction));
+            if (place) this.setBlock(level, pos, BOPBlocks.STRINGY_COBWEB.get().defaultBlockState().setValue(StringyCobwebBlock.FACING, direction));
         }
 
         if (distance < MIN_DISTANCE || distance >= MAX_DISTANCE) return false;
@@ -57,7 +55,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context)
     {
         WorldGenLevel level = context.level();
-        Random rand = context.random();
+        RandomSource rand = context.random();
         BlockPos origin = context.origin();
         Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
 

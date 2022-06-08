@@ -37,8 +37,8 @@ public class MahoganyTreeConfiguration extends BOPTreeConfiguration
     {
         public Builder()
         {
-            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.MAHOGANY_LOG.defaultBlockState());
-            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.MAHOGANY_LEAVES.defaultBlockState());
+            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.MAHOGANY_LOG.get().defaultBlockState());
+            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.MAHOGANY_LEAVES.get().defaultBlockState());
             this.minHeight = 8;
             this.maxHeight = 14;
         }

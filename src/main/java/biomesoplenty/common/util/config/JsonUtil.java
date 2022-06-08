@@ -32,7 +32,7 @@ public class JsonUtil
         }
         catch (Exception e)
         {
-            BiomesOPlenty.logger.error("Error parsing config from json: " + configFile.toString(), e);
+            BiomesOPlenty.LOGGER.error("Error parsing config from json: " + configFile.toString(), e);
         }
 
         return null;
@@ -47,7 +47,7 @@ public class JsonUtil
         }
         catch (Exception e)
         {
-            BiomesOPlenty.logger.error("Error writing config file " + outputFile.getAbsolutePath() + ": " + e.getMessage());
+            BiomesOPlenty.LOGGER.error("Error writing config file " + outputFile.getAbsolutePath() + ": " + e.getMessage());
             return false;
         }
     }

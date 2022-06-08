@@ -21,7 +21,7 @@ public class HangingCobwebBlock extends HangingStrandBlock
     @Override
     protected GrowingPlantHeadBlock getHeadBlock()
     {
-        return (GrowingPlantHeadBlock) BOPBlocks.HANGING_COBWEB;
+        return (GrowingPlantHeadBlock) BOPBlocks.HANGING_COBWEB.get();
     }
 
     @Override

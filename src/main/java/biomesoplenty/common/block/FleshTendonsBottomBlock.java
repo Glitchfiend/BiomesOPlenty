@@ -8,13 +8,11 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.init.ModParticles;
 import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.Random;
 
 public class FleshTendonsBottomBlock extends HangingStrandBottomBlock {
 
@@ -24,7 +22,7 @@ public class FleshTendonsBottomBlock extends HangingStrandBottomBlock {
 
     @Override
     protected Block getBodyBlock() {
-        return BOPBlocks.FLESH_TENDONS_STRAND;
+        return BOPBlocks.FLESH_TENDONS_STRAND.get();
     }
 
     @Override
@@ -40,7 +38,7 @@ public class FleshTendonsBottomBlock extends HangingStrandBottomBlock {
     }
 
     @Override
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
         super.animateTick(stateIn, worldIn, pos, rand);
         if (rand.nextInt(7) == 0)

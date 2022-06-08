@@ -3,18 +3,19 @@ package biomesoplenty.common.worldgen.feature.misc;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PointedDripstoneBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class DripstoneSplatterFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -28,7 +29,7 @@ public class DripstoneSplatterFeature extends Feature<NoneFeatureConfiguration>
    {
       WorldGenLevel worldIn = featurePlaceContext.level();
       ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-      Random rand = featurePlaceContext.random();
+      RandomSource rand = featurePlaceContext.random();
       BlockPos pos = featurePlaceContext.origin();
       NoneFeatureConfiguration config = featurePlaceContext.config();
       int i = 0;
@@ -92,5 +93,10 @@ public class DripstoneSplatterFeature extends Feature<NoneFeatureConfiguration>
 
    private static boolean isPointedDripstoneWithDirection(BlockState p_154208_, Direction p_154209_) {
       return p_154208_.is(Blocks.POINTED_DRIPSTONE) && p_154208_.getValue(PointedDripstoneBlock.TIP_DIRECTION) == p_154209_;
+   }
+
+   public static boolean isAir(LevelSimulatedReader level, BlockPos pos)
+   {
+      return level.isStateAtPosition(pos, BlockBehaviour.BlockStateBase::isAir);
    }
 }

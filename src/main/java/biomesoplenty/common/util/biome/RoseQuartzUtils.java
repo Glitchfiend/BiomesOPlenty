@@ -102,7 +102,7 @@ public class RoseQuartzUtils
         BlockState blockstate = p_159637_.getBlockState(p_159638_);
         if (blockstate.is(Blocks.NETHERRACK))
         {
-            p_159637_.setBlock(p_159638_, BOPBlocks.ROSE_QUARTZ_BLOCK.defaultBlockState(), 2);
+            p_159637_.setBlock(p_159638_, BOPBlocks.ROSE_QUARTZ_BLOCK.get().defaultBlockState(), 2);
             return true;
         }
         else
@@ -123,7 +123,7 @@ public class RoseQuartzUtils
 
     public static boolean isRoseQuartzBase(BlockState p_159663_)
     {
-        return p_159663_.is(BOPBlocks.ROSE_QUARTZ_BLOCK) || p_159663_.is(Blocks.NETHERRACK);
+        return p_159663_.is(BOPBlocks.ROSE_QUARTZ_BLOCK.get()) || p_159663_.is(Blocks.NETHERRACK);
     }
 
     public static boolean isEmptyOrWater(BlockState p_159665_)

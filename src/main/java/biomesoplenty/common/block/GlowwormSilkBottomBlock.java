@@ -7,13 +7,12 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.init.ModParticles;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
-
-import java.util.Random;
 
 public class GlowwormSilkBottomBlock extends HangingStrandBottomBlock {
 
@@ -24,7 +23,7 @@ public class GlowwormSilkBottomBlock extends HangingStrandBottomBlock {
     @Override
     protected Block getBodyBlock()
     {
-        return BOPBlocks.GLOWWORM_SILK_STRAND;
+        return BOPBlocks.GLOWWORM_SILK_STRAND.get();
     }
 
     @Override
@@ -40,7 +39,7 @@ public class GlowwormSilkBottomBlock extends HangingStrandBottomBlock {
     }
 
     @Override
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
         super.animateTick(stateIn, worldIn, pos, rand);
         if (rand.nextInt(6) == 0)

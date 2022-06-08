@@ -35,17 +35,17 @@ public abstract class BloodFluid extends FlowingFluid
 {
     @Override
     public Fluid getFlowing() {
-        return BOPFluids.FLOWING_BLOOD;
+        return BOPFluids.FLOWING_BLOOD.get();
     }
 
     @Override
     public Fluid getSource() {
-        return BOPFluids.BLOOD;
+        return BOPFluids.BLOOD.get();
     }
 
     @Override
     public Item getBucket() {
-        return BOPItems.BLOOD_BUCKET;
+        return BOPItems.BLOOD_BUCKET.get();
     }
 
     @Override
@@ -86,12 +86,12 @@ public abstract class BloodFluid extends FlowingFluid
     @Override
     public BlockState createLegacyBlock(FluidState p_76466_)
     {
-        return BOPBlocks.BLOOD.defaultBlockState().setValue(LiquidBlock.LEVEL, Integer.valueOf(getLegacyLevel(p_76466_)));
+        return BOPBlocks.BLOOD.get().defaultBlockState().setValue(LiquidBlock.LEVEL, Integer.valueOf(getLegacyLevel(p_76466_)));
     }
 
     @Override
     public boolean isSame(Fluid p_76456_) {
-        return p_76456_ == BOPFluids.BLOOD || p_76456_ == BOPFluids.FLOWING_BLOOD;
+        return p_76456_ == BOPFluids.BLOOD.get() || p_76456_ == BOPFluids.FLOWING_BLOOD.get();
     }
 
     @Override

@@ -5,9 +5,6 @@
 package biomesoplenty.client.handler;
 
 import biomesoplenty.api.block.BOPBlocks;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -30,8 +27,8 @@ public class ColorHandler
         event.getItemColors().register((stack, tintIndex) -> {
                     BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
                     return event.getBlockColors().getColor(state, null, null, tintIndex); },
-                BOPBlocks.SPROUT, BOPBlocks.BUSH, BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.FLOWERING_OAK_LEAVES,
-                BOPBlocks.MAHOGANY_LEAVES, BOPBlocks.PALM_LEAVES, BOPBlocks.WILLOW_LEAVES, BOPBlocks.WILLOW_VINE);
+                BOPBlocks.SPROUT.get(), BOPBlocks.BUSH.get(), BOPBlocks.CLOVER.get(), BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(),
+                BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(), BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get());
     }
 
     @SubscribeEvent
@@ -40,18 +37,18 @@ public class ColorHandler
         //Grass Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D),
-                BOPBlocks.SPROUT, BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.WATERGRASS, BOPBlocks.POTTED_SPROUT, BOPBlocks.POTTED_CLOVER);
+                BOPBlocks.SPROUT.get(), BOPBlocks.CLOVER.get(), BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.WATERGRASS.get(), BOPBlocks.POTTED_SPROUT.get(), BOPBlocks.POTTED_CLOVER.get());
 
         //Foliage Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
-                BOPBlocks.BUSH, BOPBlocks.FLOWERING_OAK_LEAVES, BOPBlocks.MAHOGANY_LEAVES, BOPBlocks.PALM_LEAVES,
-                BOPBlocks.WILLOW_LEAVES, BOPBlocks.WILLOW_VINE);
+                BOPBlocks.BUSH.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(), BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(),
+                BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get());
 
         //Rainbow Birch Leaf Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColor.getDefaultColor(),
-                BOPBlocks.RAINBOW_BIRCH_LEAVES);
+                BOPBlocks.RAINBOW_BIRCH_LEAVES.get());
     }
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)

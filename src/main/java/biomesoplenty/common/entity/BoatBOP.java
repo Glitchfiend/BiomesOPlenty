@@ -35,7 +35,7 @@ public class BoatBOP extends Boat
 
     public BoatBOP(Level level, double x, double y, double z)
     {
-        this((EntityType<BoatBOP>)BOPEntities.BOAT, level);
+        this((EntityType<BoatBOP>)BOPEntities.BOAT.get(), level);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
@@ -114,27 +114,27 @@ public class BoatBOP extends Boat
         switch (ModelType.byId(this.entityData.get(DATA_ID_TYPE)))
         {
             case FIR:
-                return BOPItems.FIR_BOAT;
+                return BOPItems.FIR_BOAT.get();
             case REDWOOD:
-                return BOPItems.REDWOOD_BOAT;
+                return BOPItems.REDWOOD_BOAT.get();
             case CHERRY:
-                return BOPItems.CHERRY_BOAT;
+                return BOPItems.CHERRY_BOAT.get();
             case MAHOGANY:
-                return BOPItems.MAHOGANY_BOAT;
+                return BOPItems.MAHOGANY_BOAT.get();
             case JACARANDA:
-                return BOPItems.JACARANDA_BOAT;
+                return BOPItems.JACARANDA_BOAT.get();
             case PALM:
-                return BOPItems.PALM_BOAT;
+                return BOPItems.PALM_BOAT.get();
             case WILLOW:
-                return BOPItems.WILLOW_BOAT;
+                return BOPItems.WILLOW_BOAT.get();
             case DEAD:
-                return BOPItems.DEAD_BOAT;
+                return BOPItems.DEAD_BOAT.get();
             case MAGIC:
-                return BOPItems.MAGIC_BOAT;
+                return BOPItems.MAGIC_BOAT.get();
             case UMBRAN:
-                return BOPItems.UMBRAN_BOAT;
+                return BOPItems.UMBRAN_BOAT.get();
             case HELLBARK:
-                return BOPItems.HELLBARK_BOAT;
+                return BOPItems.HELLBARK_BOAT.get();
         }
         return Items.OAK_BOAT;
     }
@@ -162,17 +162,17 @@ public class BoatBOP extends Boat
 
     public enum ModelType
     {
-        FIR("fir", BOPBlocks.FIR_PLANKS),
-        REDWOOD("redwood", BOPBlocks.REDWOOD_PLANKS),
-        CHERRY("cherry", BOPBlocks.CHERRY_PLANKS),
-        MAHOGANY("mahogany", BOPBlocks.MAHOGANY_PLANKS),
-        JACARANDA("jacaranda", BOPBlocks.JACARANDA_PLANKS),
-        PALM("palm", BOPBlocks.PALM_PLANKS),
-        WILLOW("willow", BOPBlocks.WILLOW_PLANKS),
-        DEAD("dead", BOPBlocks.DEAD_PLANKS),
-        MAGIC("magic", BOPBlocks.MAGIC_PLANKS),
-        UMBRAN("umbran", BOPBlocks.UMBRAN_PLANKS),
-        HELLBARK("hellbark", BOPBlocks.HELLBARK_PLANKS);
+        FIR("fir", BOPBlocks.FIR_PLANKS.get()),
+        REDWOOD("redwood", BOPBlocks.REDWOOD_PLANKS.get()),
+        CHERRY("cherry", BOPBlocks.CHERRY_PLANKS.get()),
+        MAHOGANY("mahogany", BOPBlocks.MAHOGANY_PLANKS.get()),
+        JACARANDA("jacaranda", BOPBlocks.JACARANDA_PLANKS.get()),
+        PALM("palm", BOPBlocks.PALM_PLANKS.get()),
+        WILLOW("willow", BOPBlocks.WILLOW_PLANKS.get()),
+        DEAD("dead", BOPBlocks.DEAD_PLANKS.get()),
+        MAGIC("magic", BOPBlocks.MAGIC_PLANKS.get()),
+        UMBRAN("umbran", BOPBlocks.UMBRAN_PLANKS.get()),
+        HELLBARK("hellbark", BOPBlocks.HELLBARK_PLANKS.get());
 
         private final String name;
         private final Block planks;

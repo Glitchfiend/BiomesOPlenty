@@ -15,8 +15,6 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.Random;
-
 public class SpanishMossBlock extends GrowingPlantBodyBlock
 {
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
@@ -27,7 +25,7 @@ public class SpanishMossBlock extends GrowingPlantBodyBlock
 
     @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BOPBlocks.SPANISH_MOSS;
+        return (GrowingPlantHeadBlock) BOPBlocks.SPANISH_MOSS.get();
     }
 
     @Override

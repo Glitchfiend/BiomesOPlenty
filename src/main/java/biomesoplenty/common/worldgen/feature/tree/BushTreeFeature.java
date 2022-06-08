@@ -4,14 +4,13 @@ import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.worldgen.feature.configurations.BasicTreeConfiguration;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.material.Material;
 
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class BushTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
@@ -21,7 +20,8 @@ public class BushTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
         super(codec);
     }
 
-    public boolean doPlace(WorldGenLevel world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    @Override
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
     {
         BasicTreeConfiguration config = (BasicTreeConfiguration)configBase;
         // Move down until we reach the ground

@@ -1,18 +1,20 @@
 package biomesoplenty.common.worldgen.feature.tree;
 
 import biomesoplenty.common.worldgen.feature.configurations.BasicTreeConfiguration;
-import biomesoplenty.common.worldgen.feature.configurations.TaigaTreeConfiguration;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CocoaBlock;
+import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.material.Material;
 
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
@@ -22,7 +24,8 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
         super(codec);
     }
 
-    public boolean doPlace(WorldGenLevel world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    @Override
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
     {
         BasicTreeConfiguration config = (BasicTreeConfiguration)configBase;
 
@@ -222,7 +225,7 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
         }
     }
 
-    protected void generateHanging(LevelAccessor world, BlockPos start, Random rand, int height, BasicTreeConfiguration config)
+    protected void generateHanging(LevelAccessor world, BlockPos start, RandomSource rand, int height, BasicTreeConfiguration config)
     {
         //Generate below the bottom layer of leaves
         int y = start.getY() + (height - config.leafLayers);
@@ -241,7 +244,7 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
         }
     }
 
-    private void generateTrunkFruit(LevelAccessor world, Random random, int age, BlockPos pos, Direction direction, BasicTreeConfiguration config)
+    private void generateTrunkFruit(LevelAccessor world, RandomSource random, int age, BlockPos pos, Direction direction, BasicTreeConfiguration config)
     {
         if (config.trunkFruitProvider.getState(random, pos) == Blocks.COCOA.defaultBlockState())
         {
@@ -253,12 +256,12 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
         }
     }
 
-    private BlockState getVineStateForSide(Random random, BlockPos pos, Direction side, BasicTreeConfiguration config)
+    private BlockState getVineStateForSide(RandomSource random, BlockPos pos, Direction side, BasicTreeConfiguration config)
     {
         return config.vineProvider.getState(random, pos).getBlock() instanceof VineBlock ? config.vineProvider.getState(random, pos).setValue(VineBlock.getPropertyForFace(side), Boolean.valueOf(true)) : config.vineProvider.getState(random, pos);
     }
 
-    private void extendVines(LevelAccessor world, Random random, BlockPos pos, Direction side, BasicTreeConfiguration config)
+    private void extendVines(LevelAccessor world, RandomSource random, BlockPos pos, Direction side, BasicTreeConfiguration config)
     {
         BlockState vineState = this.getVineStateForSide(random, pos, side, config);
         this.setBlock(world, pos, vineState);

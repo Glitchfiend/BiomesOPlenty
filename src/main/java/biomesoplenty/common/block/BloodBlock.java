@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -30,7 +31,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 public class BloodBlock extends LiquidBlock implements BucketPickup
 {
@@ -56,7 +56,7 @@ public class BloodBlock extends LiquidBlock implements BucketPickup
         this.stateCache.add(p_54694_.getFlowing(8, true));
         this.registerDefaultState(this.stateDefinition.any().setValue(LEVEL, Integer.valueOf(0)));
         fluidStateCacheInitialized = true;
-        supplier = p_54694_.delegate;
+        supplier = net.minecraftforge.registries.ForgeRegistries.FLUIDS.getDelegateOrThrow(p_54694_);
     }
 
     public BloodBlock(java.util.function.Supplier<? extends FlowingFluid> p_54694_, BlockBehaviour.Properties p_54695_)
@@ -79,7 +79,7 @@ public class BloodBlock extends LiquidBlock implements BucketPickup
     }
 
     @Override
-    public void randomTick(BlockState p_54740_, ServerLevel p_54741_, BlockPos p_54742_, Random p_54743_) {
+    public void randomTick(BlockState p_54740_, ServerLevel p_54741_, BlockPos p_54742_, RandomSource p_54743_) {
         p_54740_.getFluidState().randomTick(p_54741_, p_54742_, p_54743_);
     }
 
@@ -153,7 +153,7 @@ public class BloodBlock extends LiquidBlock implements BucketPickup
             BlockPos blockpos = p_54698_.relative(direction.getOpposite());
             if (p_54697_.getFluidState(blockpos) != Fluids.EMPTY.defaultFluidState() && !p_54697_.getFluidState(blockpos).is(ModTags.Fluids.BLOOD))
             {
-                Block block = BOPBlocks.FLESH;
+                Block block = BOPBlocks.FLESH.get();
                 p_54697_.setBlockAndUpdate(p_54698_, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(p_54697_, p_54698_, p_54698_, block.defaultBlockState()));
                 return false;
             }

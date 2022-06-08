@@ -7,15 +7,16 @@ package biomesoplenty.common.worldgen.feature.misc;
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.Random;
 
 public class BlackSandSplatterFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -29,7 +30,7 @@ public class BlackSandSplatterFeature extends Feature<NoneFeatureConfiguration>
     {
         WorldGenLevel worldIn = featurePlaceContext.level();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        Random rand = featurePlaceContext.random();
+        RandomSource rand = featurePlaceContext.random();
         BlockPos pos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
         int i = 0;
@@ -51,7 +52,7 @@ public class BlackSandSplatterFeature extends Feature<NoneFeatureConfiguration>
 
                         if (blockstate.getBlock() == Blocks.GRASS_BLOCK && this.isAir(worldIn, blockpos.above()))
                         {
-                            worldIn.setBlock(blockpos, BOPBlocks.BLACK_SAND.defaultBlockState(), 2);
+                            worldIn.setBlock(blockpos, BOPBlocks.BLACK_SAND.get().defaultBlockState(), 2);
                             if (rand.nextInt(4) == 0)
                             {
                                 worldIn.setBlock(blockpos.above(), Blocks.DEAD_BUSH.defaultBlockState(), 2);
@@ -66,5 +67,9 @@ public class BlackSandSplatterFeature extends Feature<NoneFeatureConfiguration>
         }
 
         return i > 0;
+    }
+
+    public static boolean isAir(LevelSimulatedReader p_65811_, BlockPos p_65812_) {
+        return p_65811_.isStateAtPosition(p_65812_, BlockBehaviour.BlockStateBase::isAir);
     }
 }

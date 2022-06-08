@@ -8,15 +8,14 @@ import biomesoplenty.common.worldgen.feature.configurations.*;
 import biomesoplenty.common.worldgen.feature.misc.*;
 import biomesoplenty.common.worldgen.feature.tree.*;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.LargeDripstoneConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BOPBaseFeatures
 {
+
     public static final BOPTreeFeature<BasicTreeConfiguration> BASIC_TREE = register("basic_tree", new BasicTreeFeature(BasicTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> BIG_DRIPLEAF = register("big_dripleaf", new BigDripleafFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> BIG_PUMPKIN = register("big_pumpkin", new BigPumpkinFeature(NoneFeatureConfiguration.CODEC));
@@ -67,8 +66,7 @@ public class BOPBaseFeatures
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(String key, F value)
     {
-        value.setRegistryName(new ResourceLocation(BiomesOPlenty.MOD_ID, key));
-        ForgeRegistries.FEATURES.register(value);
+        BiomesOPlenty.FEATURE_REGISTER.register(key, () -> value);
         return value;
     }
 }

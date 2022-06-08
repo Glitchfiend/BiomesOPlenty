@@ -67,7 +67,7 @@ public class DeadBranchBlock extends Block
         Direction direction = state.getValue(FACING);
         BlockPos blockpos = pos.relative(direction.getOpposite());
         BlockState blockstate = worldIn.getBlockState(blockpos);
-        return blockstate.getBlock() == BOPBlocks.DEAD_LOG || blockstate.getBlock() == BOPBlocks.DEAD_WOOD;
+        return blockstate.getBlock() == BOPBlocks.DEAD_LOG.get() || blockstate.getBlock() == BOPBlocks.DEAD_WOOD.get();
     }
 
     @Override

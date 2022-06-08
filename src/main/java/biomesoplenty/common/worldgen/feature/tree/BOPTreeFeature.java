@@ -10,15 +10,19 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.material.Material;
 
 import java.util.Collection;
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends TreeFeature
@@ -69,7 +73,7 @@ public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends Tr
         return false;
     }
 
-    public boolean setVine(LevelAccessor world, Random rand, BlockPos pos, Direction side, int length, FC config)
+    public boolean setVine(LevelAccessor world, RandomSource rand, BlockPos pos, Direction side, int length, FC config)
     {
         BlockState vine = config.vineProvider.getState(rand, pos);
         BlockState directedVine = vine.getBlock() instanceof VineBlock ? vine.setValue(VineBlock.NORTH, Boolean.valueOf(side == Direction.NORTH)).setValue(VineBlock.EAST, Boolean.valueOf(side == Direction.EAST)).setValue(VineBlock.SOUTH, Boolean.valueOf(side == Direction.SOUTH)).setValue(VineBlock.WEST, Boolean.valueOf(side == Direction.WEST)) : vine;
@@ -115,7 +119,7 @@ public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends Tr
         return TreeFeature.isAirOrLeaves(level, pos) || level.isStateAtPosition(pos, (state) -> {
             Material material = state.getMaterial();
             Block block = state.getBlock();
-            return material == Material.REPLACEABLE_PLANT || state.is(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE || block == BOPBlocks.DEAD_BRANCH || block == Blocks.MOSS_CARPET || block == BOPBlocks.SPANISH_MOSS || block instanceof BushBlock;
+            return material == Material.REPLACEABLE_PLANT || state.is(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE.get() || block == BOPBlocks.DEAD_BRANCH.get() || block == Blocks.MOSS_CARPET || block == BOPBlocks.SPANISH_MOSS.get() || block instanceof BushBlock;
         });
     }
 
@@ -132,5 +136,12 @@ public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends Tr
             }
         }
         return null;
+    }
+
+    public static boolean isFree(LevelSimulatedReader level, BlockPos pos)
+    {
+        return validTreePos(level, pos) || level.isStateAtPosition(pos, (state) -> {
+            return state.is(BlockTags.LOGS);
+        });
     }
 }

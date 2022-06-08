@@ -8,14 +8,13 @@ import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Random;
 
 public class SpanishMossBottomBlock extends GrowingPlantHeadBlock
 {
@@ -25,13 +24,14 @@ public class SpanishMossBottomBlock extends GrowingPlantHeadBlock
         super(p_i241194_1_, Direction.DOWN, SHAPE, false, 0.01D);
     }
 
-    protected int getBlocksToGrowWhenBonemealed(Random p_230332_1_) {
+    @Override
+    protected int getBlocksToGrowWhenBonemealed(RandomSource p_230332_1_) {
         return NetherVines.getBlocksToGrowWhenBonemealed(p_230332_1_);
     }
 
     @Override
     protected Block getBodyBlock() {
-        return BOPBlocks.SPANISH_MOSS_PLANT;
+        return BOPBlocks.SPANISH_MOSS_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState p_230334_1_) {

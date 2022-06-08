@@ -5,12 +5,12 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.worldgen.feature.BOPBaseFeatures;
 import biomesoplenty.common.worldgen.feature.BOPVegetationFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -24,14 +24,12 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPlantable
 {
@@ -48,7 +46,7 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
     {
         Block block = state.getBlock();
 
-        if (block == BOPBlocks.DESERT_GRASS || block == BOPBlocks.CLOVER)
+        if (block == BOPBlocks.DESERT_GRASS.get() || block == BOPBlocks.CLOVER.get())
         {
             return SHORT;
         }
@@ -77,26 +75,20 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
         BlockState groundState = worldIn.getBlockState(pos.below());
         Block ground = groundState.getBlock();
 
-        if (this == BOPBlocks.SPROUT)
+        if (this == BOPBlocks.SPROUT.get())
         {
             return groundState.isFaceSturdy(worldIn, pos.below(), Direction.UP) || super.canSurvive(state, worldIn, pos);
         }
-        if (this == BOPBlocks.DUNE_GRASS)
+        if (this == BOPBlocks.DUNE_GRASS.get())
         {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == BOPBlocks.ROOTED_SAND;
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND.get() || ground == BOPBlocks.ORANGE_SAND.get() || ground == BOPBlocks.BLACK_SAND.get() || ground == BOPBlocks.ROOTED_SAND.get();
         }
-        if (this == BOPBlocks.DESERT_GRASS || this == BOPBlocks.DEAD_GRASS)
+        if (this == BOPBlocks.DESERT_GRASS.get() || this == BOPBlocks.DEAD_GRASS.get())
         {
-            return ground == BOPBlocks.DRIED_SALT || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == BOPBlocks.ROOTED_SAND || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
+            return ground == BOPBlocks.DRIED_SALT.get() || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND.get() || ground == BOPBlocks.ORANGE_SAND.get() || ground == BOPBlocks.BLACK_SAND.get() || ground == BOPBlocks.ROOTED_SAND.get() || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);
-    }
-
-    @Override
-    public Block.OffsetType getOffsetType()
-    {
-        return Block.OffsetType.XYZ;
     }
 
 //    @Override
@@ -110,7 +102,7 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
     {
         Block block = state.getBlock();
 
-        if (block == BOPBlocks.CLOVER)
+        if (block == BOPBlocks.CLOVER.get())
         {
             return true;
         }
@@ -119,24 +111,24 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
     }
 
     @Override
-    public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state)
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state)
     {
         Block block = state.getBlock();
 
-        if (block == BOPBlocks.CLOVER) { return (double)rand.nextFloat() < 0.4D; }
+        if (block == BOPBlocks.CLOVER.get()) { return (double)rand.nextFloat() < 0.4D; }
 
         return false;
     }
 
     @Override
-    public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state)
+    public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state)
     {
         Block block = state.getBlock();
 
-        if (block == BOPBlocks.CLOVER) { this.growHugeClover(world, rand, pos, state); }
+        if (block == BOPBlocks.CLOVER.get()) { this.growHugeClover(world, rand, pos, state); }
     }
 
-    public boolean growHugeClover(ServerLevel world, Random rand, BlockPos pos, BlockState state)
+    public boolean growHugeClover(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state)
     {
         world.removeBlock(pos, false);
         ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature = BOPVegetationFeatures.HUGE_CLOVER.value();

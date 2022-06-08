@@ -37,7 +37,7 @@ public class BrimstoneBudBlock extends Block
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
-        return groundState.getBlock() == BOPBlocks.BRIMSTONE;
+        return groundState.getBlock() == BOPBlocks.BRIMSTONE.get();
     }
 
     @Override
@@ -55,11 +55,5 @@ public class BrimstoneBudBlock extends Block
     public PushReaction getPistonPushReaction(BlockState p_54173_)
     {
         return PushReaction.DESTROY;
-    }
-
-    @Override
-    public Block.OffsetType getOffsetType()
-    {
-        return OffsetType.XZ;
     }
 }

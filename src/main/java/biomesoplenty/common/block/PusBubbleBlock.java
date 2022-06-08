@@ -9,6 +9,7 @@ import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -22,8 +23,6 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Random;
 
 public class PusBubbleBlock extends Block
 {
@@ -88,7 +87,7 @@ public class PusBubbleBlock extends Block
 
     public static void spawnParticles(Level p_55480_, BlockPos pos)
     {
-        Random rand = p_55480_.random;
+        RandomSource rand = p_55480_.random;
 
         for (int i = 0; i < 10; i++)
         {

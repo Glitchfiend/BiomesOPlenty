@@ -7,6 +7,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -21,8 +22,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Random;
 
 public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
 {
@@ -44,7 +43,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    }
 
    @Override
-   public void tick(BlockState state, ServerLevel world, BlockPos pos, Random random)
+   public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random)
    {
       super.tick(state, world, pos, random);
       if (!world.isAreaLoaded(pos, 1)) return;
@@ -55,7 +54,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    }
 
    @Override
-   public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state)
+   public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state)
    {
       if (state.getValue(STAGE) == 0)
       {
@@ -79,13 +78,13 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    }
 
    @Override
-   public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state)
+   public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state)
    {
       return (double)worldIn.random.nextFloat() < 0.45D;
    }
 
    @Override
-   public void advanceTree(ServerLevel world, BlockPos pos, BlockState state, Random rand)
+   public void advanceTree(ServerLevel world, BlockPos pos, BlockState state, RandomSource rand)
    {
       this.performBonemeal(world, rand, pos, state);
    }
@@ -95,11 +94,11 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    {
        Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
-       if (this == BOPBlocks.PALM_SAPLING)
+       if (this == BOPBlocks.PALM_SAPLING.get())
        {
-           return ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == BOPBlocks.ROOTED_SAND || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
+           return ground == BOPBlocks.WHITE_SAND.get() || ground == BOPBlocks.ORANGE_SAND.get() || ground == BOPBlocks.BLACK_SAND.get() || ground == BOPBlocks.ROOTED_SAND.get() || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
        }
-       if (this == BOPBlocks.HELLBARK_SAPLING)
+       if (this == BOPBlocks.HELLBARK_SAPLING.get())
        {
            return ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
        }

@@ -9,13 +9,13 @@ import biomesoplenty.common.worldgen.feature.configurations.PalmTreeConfiguratio
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.material.Material;
 
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
@@ -26,7 +26,7 @@ public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
     }
 
     @Override
-    public boolean doPlace(WorldGenLevel world, Random random, BlockPos startPos, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
     {
         PalmTreeConfiguration config = (PalmTreeConfiguration)configBase;
 

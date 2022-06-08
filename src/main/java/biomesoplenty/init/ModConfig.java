@@ -113,7 +113,7 @@ public class ModConfig
         }
         catch (IOException e)
         {
-            BiomesOPlenty.logger.error("Failed to create biomesoplenty config directory", e);
+            BiomesOPlenty.LOGGER.error("Failed to create biomesoplenty config directory", e);
         }
     }
 

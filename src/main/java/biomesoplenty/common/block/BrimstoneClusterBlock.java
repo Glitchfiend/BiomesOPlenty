@@ -9,7 +9,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.PushReaction;
@@ -52,7 +51,7 @@ public class BrimstoneClusterBlock extends DoublePlantBlockBOP
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER)
         {
             BlockState soil = worldReader.getBlockState(pos.below());
-            if (soil.getBlock() == BOPBlocks.BRIMSTONE)
+            if (soil.getBlock() == BOPBlocks.BRIMSTONE.get())
             {
                 return true;
             }
@@ -70,11 +69,6 @@ public class BrimstoneClusterBlock extends DoublePlantBlockBOP
     public PushReaction getPistonPushReaction(BlockState p_54173_)
     {
         return PushReaction.DESTROY;
-    }
-
-    @Override
-    public BlockBehaviour.OffsetType getOffsetType() {
-        return BlockBehaviour.OffsetType.NONE;
     }
 
     @Override

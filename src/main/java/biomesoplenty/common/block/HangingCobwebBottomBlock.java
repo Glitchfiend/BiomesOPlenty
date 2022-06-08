@@ -19,7 +19,7 @@ public class HangingCobwebBottomBlock extends HangingStrandBottomBlock {
 
     @Override
     protected Block getBodyBlock() {
-        return BOPBlocks.HANGING_COBWEB_STRAND;
+        return BOPBlocks.HANGING_COBWEB_STRAND.get();
     }
 
     @Override
