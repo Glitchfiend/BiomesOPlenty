@@ -22,7 +22,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class MediumGlowshroomFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM || world.getBlockState(pos).getBlock() == Blocks.STONE || world.getBlockState(pos).getBlock() == Blocks.DEEPSLATE || world.getBlockState(pos).getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK.get() || world.getBlockState(pos).getBlock() == BOPBlocks.MUD.get();
+    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.MYCELIUM || world.getBlockState(pos).getBlock() == Blocks.STONE || world.getBlockState(pos).getBlock() == Blocks.DEEPSLATE || world.getBlockState(pos).getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK.get() || world.getBlockState(pos).getBlock() == Blocks.MUD;
     protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).getBlock() == BOPBlocks.GLOWING_MOSS_CARPET.get() || world.getBlockState(pos).getBlock() == Blocks.MOSS_CARPET;
 
     public MediumGlowshroomFeature(Codec<NoneFeatureConfiguration> deserializer)

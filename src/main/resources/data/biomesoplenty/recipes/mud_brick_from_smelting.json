@@ -1,9 +1,0 @@
-{
-  "type": "smelting",
-  "ingredient": {
-    "item": "biomesoplenty:mud_ball"
-  },
-  "result": "biomesoplenty:mud_brick",
-  "experience": 0.3,
-  "cookingtime": 200
-}

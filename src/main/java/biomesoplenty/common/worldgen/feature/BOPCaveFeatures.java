@@ -14,6 +14,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -40,7 +41,7 @@ public class BOPCaveFeatures
     public static final Holder<ConfiguredFeature<VegetationPatchConfiguration, ?>>  GLOWING_MOSS_PATCH_BONEMEAL = register("glowing_moss_patch_bonemeal", Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(GLOWING_GROTTO_FLOOR_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.4F, UniformInt.of(1, 2), 0.75F));
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> MUD_PLANTS = register("mud_plants", Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_CARPET.get())));
-    public static final Holder<ConfiguredFeature<VegetationPatchConfiguration, ?>>  MUD_PATCH = register("mud_patch", Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(BOPBlocks.MUD.get()), PlacementUtils.inlinePlaced(MUD_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.05F, UniformInt.of(4, 7), 0.3F));
+    public static final Holder<ConfiguredFeature<VegetationPatchConfiguration, ?>>  MUD_PATCH = register("mud_patch", Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(Blocks.MUD), PlacementUtils.inlinePlaced(MUD_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.05F, UniformInt.of(4, 7), 0.3F));
 
     public static final Holder<ConfiguredFeature<BlockColumnConfiguration, ?>> GLOWWORM_SILK = register("glowworm_silk", Feature.BLOCK_COLUMN, new BlockColumnConfiguration(List.of(BlockColumnConfiguration.layer(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder().add(UniformInt.of(0, 11), 2).add(UniformInt.of(0, 5), 3).add(UniformInt.of(0, 2), 10).build()), BlockStateProvider.simple(BOPBlocks.GLOWWORM_SILK_STRAND.get())), BlockColumnConfiguration.layer(ConstantInt.of(1), BlockStateProvider.simple(BOPBlocks.GLOWWORM_SILK.get()))), Direction.DOWN, BlockPredicate.ONLY_IN_AIR_PREDICATE, true));
 

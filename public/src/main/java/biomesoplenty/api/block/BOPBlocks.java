@@ -42,11 +42,6 @@ public class BOPBlocks
     public static RegistryObject<Block> BLACK_SANDSTONE_SLAB;
     public static RegistryObject<Block> BLACK_SANDSTONE_STAIRS;
     public static RegistryObject<Block> BLACK_SANDSTONE_WALL;
-    public static RegistryObject<Block> MUD;
-    public static RegistryObject<Block> MUD_BRICKS;
-    public static RegistryObject<Block> MUD_BRICK_SLAB;
-    public static RegistryObject<Block> MUD_BRICK_STAIRS;
-    public static RegistryObject<Block> MUD_BRICK_WALL;
     public static RegistryObject<Block> ORIGIN_GRASS_BLOCK;
     public static RegistryObject<Block> ROOTED_SAND;
     public static RegistryObject<Block> DRIED_SALT;

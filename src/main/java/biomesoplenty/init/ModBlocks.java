@@ -86,12 +86,6 @@ public class ModBlocks
         CUT_BLACK_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(CUT_BLACK_SANDSTONE.get())), "cut_black_sandstone_slab");
         CHISELED_BLACK_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(0.8F)), "chiseled_black_sandstone");
 
-        MUD = registerBlock(() -> new MudBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.TERRACOTTA_BROWN).strength(0.6F).sound(new SoundType(1.0F, 0.5F, SoundEvents.SLIME_BLOCK_BREAK, SoundEvents.SLIME_BLOCK_STEP, SoundEvents.SLIME_BLOCK_PLACE, SoundEvents.SLIME_BLOCK_HIT, SoundEvents.SLIME_BLOCK_FALL))), "mud");
-        MUD_BRICKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BROWN).strength(1.0F)), "mud_bricks");
-        MUD_BRICK_STAIRS = registerBlock(() -> new StairBlock(MUD_BRICKS.get().defaultBlockState(), Block.Properties.copy(MUD_BRICKS.get())), "mud_brick_stairs");
-        MUD_BRICK_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(MUD_BRICKS.get())), "mud_brick_slab");
-        MUD_BRICK_WALL = registerBlock(() -> new WallBlock(Block.Properties.copy(MUD_BRICKS.get())), "mud_brick_wall");
-
         ORIGIN_GRASS_BLOCK = registerBlock(() -> new GrassBlock(BlockBehaviour.Properties.of(Material.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)), "origin_grass_block");
         ROOTED_SAND = registerBlock(() -> new RootedSandBlock(BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).strength(0.7F).sound(SoundType.SAND)), "rooted_sand");
         DRIED_SALT = registerBlock(() -> new DriedSaltBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
