@@ -11,6 +11,6 @@ public class WhiteCherryTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_WHITE_CHERRY_TREE : BOPTreeFeatures.WHITE_CHERRY_TREE);
+      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_WHITE_CHERRY_TREE.getHolder().orElseThrow() : BOPTreeFeatures.WHITE_CHERRY_TREE.getHolder().orElseThrow());
    }
 }

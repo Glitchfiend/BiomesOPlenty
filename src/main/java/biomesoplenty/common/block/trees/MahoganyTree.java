@@ -11,6 +11,6 @@ public class MahoganyTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return BOPTreeFeatures.MAHOGANY_TREE;
+      return BOPTreeFeatures.MAHOGANY_TREE.getHolder().orElseThrow();
    }
 }

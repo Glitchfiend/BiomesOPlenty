@@ -49,7 +49,7 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
         ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature;
         if (this == BOPBlocks.GLOWSHROOM.get())
         {
-            configuredfeature = BOPCaveFeatures.HUGE_GLOWSHROOM_CAVE.value();
+            configuredfeature = BOPCaveFeatures.HUGE_GLOWSHROOM_CAVE.get();
         }
         else
         {
@@ -59,7 +59,7 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
                 return false;
             }
 
-            configuredfeature = BOPVegetationFeatures.HUGE_TOADSTOOL.value();
+            configuredfeature = BOPVegetationFeatures.HUGE_TOADSTOOL.get();
         }
 
         if (configuredfeature.place(world, world.getChunkSource().getGenerator(), p_226940_4_, p_226940_2_))

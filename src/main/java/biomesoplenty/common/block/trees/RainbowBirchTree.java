@@ -11,6 +11,6 @@ public class RainbowBirchTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_RAINBOW_BIRCH_TREE : BOPTreeFeatures.RAINBOW_BIRCH_TREE);
+      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_RAINBOW_BIRCH_TREE.getHolder().orElseThrow() : BOPTreeFeatures.RAINBOW_BIRCH_TREE.getHolder().orElseThrow());
    }
 }

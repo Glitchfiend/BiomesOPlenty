@@ -11,6 +11,6 @@ public class OrangeAutumnTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_ORANGE_AUTUMN_TREE : BOPTreeFeatures.ORANGE_AUTUMN_TREE);
+      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_ORANGE_AUTUMN_TREE.getHolder().orElseThrow() : BOPTreeFeatures.ORANGE_AUTUMN_TREE.getHolder().orElseThrow());
    }
 }

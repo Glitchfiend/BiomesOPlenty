@@ -13,13 +13,13 @@ public class RedwoodTree extends AbstractMegaTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource random)
    {
-      return BOPTreeFeatures.REDWOOD_TREE_MEDIUM;
+      return BOPTreeFeatures.REDWOOD_TREE_MEDIUM.getHolder().orElseThrow();
    }
 
    @Nullable
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return BOPTreeFeatures.REDWOOD_TREE;
+      return BOPTreeFeatures.REDWOOD_TREE.getHolder().orElseThrow();
    }
 }

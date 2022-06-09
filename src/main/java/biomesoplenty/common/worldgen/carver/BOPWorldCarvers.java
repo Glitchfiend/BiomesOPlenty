@@ -8,16 +8,20 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.level.levelgen.carver.CarverConfiguration;
 import net.minecraft.world.level.levelgen.carver.CaveCarverConfiguration;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
+import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Supplier;
 
 public class BOPWorldCarvers
 {
     //Carvers
 
-    public static final WorldCarver<CaveCarverConfiguration> ORIGIN_CAVE = register("origin_cave", new OriginCaveWorldCarver(CaveCarverConfiguration.CODEC));
+    public static final RegistryObject<WorldCarver<CaveCarverConfiguration>> ORIGIN_CAVE = register("origin_cave", () -> new OriginCaveWorldCarver(CaveCarverConfiguration.CODEC));
 
-    private static <C extends CarverConfiguration, F extends WorldCarver<C>> F register(String key, F carver)
+    private static <C extends CarverConfiguration, F extends WorldCarver<C>> RegistryObject<F> register(String key, Supplier<F> carverSupplier)
     {
-        BiomesOPlenty.CARVER_REGISTER.register(key, () -> carver);
-        return carver;
+        return BiomesOPlenty.CARVER_REGISTER.register(key, carverSupplier);
     }
+
+    public static void setup() {}
 }

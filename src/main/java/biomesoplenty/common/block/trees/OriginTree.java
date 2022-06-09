@@ -11,6 +11,6 @@ public class OriginTree extends AbstractTreeGrower
 	@Override
 	protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
 	{
-		return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_ORIGIN_TREE : BOPTreeFeatures.ORIGIN_TREE);
+		return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_ORIGIN_TREE.getHolder().orElseThrow() : BOPTreeFeatures.ORIGIN_TREE.getHolder().orElseThrow());
 	}
 }

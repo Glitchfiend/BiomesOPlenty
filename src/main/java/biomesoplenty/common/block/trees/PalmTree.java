@@ -11,6 +11,6 @@ public class PalmTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return BOPTreeFeatures.PALM_TREE;
+      return BOPTreeFeatures.PALM_TREE.getHolder().orElseThrow();
    }
 }

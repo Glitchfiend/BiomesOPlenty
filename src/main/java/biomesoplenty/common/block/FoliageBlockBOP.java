@@ -131,7 +131,7 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
     public boolean growHugeClover(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state)
     {
         world.removeBlock(pos, false);
-        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature = BOPVegetationFeatures.HUGE_CLOVER.value();
+        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature = BOPVegetationFeatures.HUGE_CLOVER.get();
 
         if (configuredfeature.place(world, world.getChunkSource().getGenerator(), rand, pos))
         {

@@ -13,6 +13,6 @@ public class HellbarkTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_HELLBARK_TREE : BOPTreeFeatures.HELLBARK_TREE);
+      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_HELLBARK_TREE.getHolder().orElseThrow() : BOPTreeFeatures.HELLBARK_TREE.getHolder().orElseThrow());
    }
 }

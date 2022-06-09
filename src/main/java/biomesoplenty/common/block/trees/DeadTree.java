@@ -13,6 +13,6 @@ public class DeadTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return random.nextInt(10) == 0 ? BOPTreeFeatures.DYING_TREE : BOPTreeFeatures.SMALL_DEAD_TREE;
+      return random.nextInt(10) == 0 ? BOPTreeFeatures.DYING_TREE.getHolder().orElseThrow() : BOPTreeFeatures.SMALL_DEAD_TREE.getHolder().orElseThrow();
    }
 }

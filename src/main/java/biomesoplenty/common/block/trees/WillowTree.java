@@ -11,6 +11,6 @@ public class WillowTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return BOPTreeFeatures.WILLOW_TREE;
+      return BOPTreeFeatures.WILLOW_TREE.getHolder().orElseThrow();
    }
 }

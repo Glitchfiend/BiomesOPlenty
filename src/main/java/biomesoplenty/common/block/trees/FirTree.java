@@ -13,13 +13,13 @@ public class FirTree extends AbstractMegaTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource random)
    {
-      return BOPTreeFeatures.FIR_TREE_LARGE;
+      return BOPTreeFeatures.FIR_TREE_LARGE.getHolder().orElseThrow();
    }
 
    @Nullable
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return BOPTreeFeatures.FIR_TREE;
+      return BOPTreeFeatures.FIR_TREE.getHolder().orElseThrow();
    }
 }

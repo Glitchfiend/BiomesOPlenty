@@ -12,13 +12,13 @@ public class UmbranTree extends AbstractMegaTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return BOPTreeFeatures.UMBRAN_TREE;
+      return BOPTreeFeatures.UMBRAN_TREE.getHolder().orElseThrow();
    }
 
    @Nullable
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource p_60004_)
    {
-      return BOPTreeFeatures.TALL_UMBRAN_TREE;
+      return BOPTreeFeatures.TALL_UMBRAN_TREE.getHolder().orElseThrow();
    }
 }

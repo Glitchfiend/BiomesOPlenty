@@ -4,17 +4,18 @@
  ******************************************************************************/
 package biomesoplenty.common.util.worldgen;
 
-import biomesoplenty.common.util.BOPRegistryUtils;
-import net.minecraft.core.Holder;
-import net.minecraft.data.BuiltinRegistries;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Supplier;
 
 public class BOPFeatureUtils
 {
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> register(String key, F feature, FC configuration)
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> RegistryObject<ConfiguredFeature<FC, ?>> register(String key, F feature, Supplier<FC> configurationSupplier)
     {
-        return BOPRegistryUtils.registerExact(BuiltinRegistries.CONFIGURED_FEATURE, key, new ConfiguredFeature<>(feature, configuration));
+        return BiomesOPlenty.CONFIGURED_FEATURE_REGISTER.register(key, () -> new ConfiguredFeature<>(feature, configurationSupplier.get()));
     }
 }

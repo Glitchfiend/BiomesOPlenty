@@ -69,4 +69,6 @@ public class BOPBaseFeatures
         BiomesOPlenty.FEATURE_REGISTER.register(key, () -> value);
         return value;
     }
+
+    public static void setup() {}
 }

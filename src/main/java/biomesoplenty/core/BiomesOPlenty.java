@@ -18,8 +18,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -44,11 +47,14 @@ public class BiomesOPlenty
     public static final DeferredRegister<Block> BLOCK_REGISTER = DeferredRegister.create(Registry.BLOCK_REGISTRY, MOD_ID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_REGISTER = DeferredRegister.create(Registry.BLOCK_ENTITY_TYPE_REGISTRY, MOD_ID);
     public static final DeferredRegister<WorldCarver<?>> CARVER_REGISTER = DeferredRegister.create(Registry.CARVER_REGISTRY, MOD_ID);
+    public static final DeferredRegister<ConfiguredWorldCarver<?>> CONFIGURED_CARVER_REGISTER = DeferredRegister.create(Registry.CONFIGURED_CARVER_REGISTRY, MOD_ID);
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURE_REGISTER = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, MOD_ID);
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPE_REGISTER = DeferredRegister.create(Registry.ENTITY_TYPE_REGISTRY, MOD_ID);
     public static final DeferredRegister<Feature<?>> FEATURE_REGISTER = DeferredRegister.create(Registry.FEATURE_REGISTRY, MOD_ID);
     public static final DeferredRegister<Fluid> FLUID_REGISTER = DeferredRegister.create(Registry.FLUID_REGISTRY, MOD_ID);
     public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(Registry.ITEM_REGISTRY, MOD_ID);
-    public static final  DeferredRegister<PaintingVariant> PAINTING_VARIANT_REGISTER = DeferredRegister.create(Registry.PAINTING_VARIANT_REGISTRY, MOD_ID);
+    public static final DeferredRegister<PaintingVariant> PAINTING_VARIANT_REGISTER = DeferredRegister.create(Registry.PAINTING_VARIANT_REGISTRY, MOD_ID);
+    public static final DeferredRegister<PlacedFeature> PLACED_FEATURE_REGISTER = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, MOD_ID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENT_REGISTER = DeferredRegister.create(Registry.SOUND_EVENT_REGISTRY, MOD_ID);
 
     public static BiomesOPlenty instance;
@@ -68,16 +74,20 @@ public class BiomesOPlenty
         BLOCK_REGISTER.register(bus);
         BLOCK_ENTITY_REGISTER.register(bus);
         CARVER_REGISTER.register(bus);
+        CONFIGURED_CARVER_REGISTER.register(bus);
+        CONFIGURED_FEATURE_REGISTER.register(bus);
         ENTITY_TYPE_REGISTER.register(bus);
         FEATURE_REGISTER.register(bus);
         FLUID_REGISTER.register(bus);
         ITEM_REGISTER.register(bus);
+        PLACED_FEATURE_REGISTER.register(bus);
         SOUND_EVENT_REGISTER.register(bus);
 
         ModBlocks.setup();
         ModItems.setup();
         ModFluids.setup();
         ModEntities.setup();
+        ModFeatures.setup();
         ModBiomes.setup();
         ModPaintings.setup();
         ModSounds.setup();

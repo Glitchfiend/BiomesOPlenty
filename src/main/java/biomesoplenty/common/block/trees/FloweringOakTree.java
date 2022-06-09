@@ -13,6 +13,6 @@ public class FloweringOakTree extends AbstractTreeGrower
    @Override
    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_FLOWERING_OAK_TREE : BOPTreeFeatures.FLOWERING_OAK_TREE);
+      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_FLOWERING_OAK_TREE.getHolder().orElseThrow() : BOPTreeFeatures.FLOWERING_OAK_TREE.getHolder().orElseThrow());
    }
 }
