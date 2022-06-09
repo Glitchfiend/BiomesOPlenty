@@ -26,16 +26,27 @@ public class BOPItems
     public static RegistryObject<Item> HELLBARK_SIGN;
 
     public static RegistryObject<Item> FIR_BOAT;
+    public static RegistryObject<Item> FIR_CHEST_BOAT;
     public static RegistryObject<Item> REDWOOD_BOAT;
+    public static RegistryObject<Item> REDWOOD_CHEST_BOAT;
     public static RegistryObject<Item> CHERRY_BOAT;
+    public static RegistryObject<Item> CHERRY_CHEST_BOAT;
     public static RegistryObject<Item> MAHOGANY_BOAT;
+    public static RegistryObject<Item> MAHOGANY_CHEST_BOAT;
     public static RegistryObject<Item> JACARANDA_BOAT;
+    public static RegistryObject<Item> JACARANDA_CHEST_BOAT;
     public static RegistryObject<Item> PALM_BOAT;
+    public static RegistryObject<Item> PALM_CHEST_BOAT;
     public static RegistryObject<Item> WILLOW_BOAT;
+    public static RegistryObject<Item> WILLOW_CHEST_BOAT;
     public static RegistryObject<Item> DEAD_BOAT;
+    public static RegistryObject<Item> DEAD_CHEST_BOAT;
     public static RegistryObject<Item> MAGIC_BOAT;
+    public static RegistryObject<Item> MAGIC_CHEST_BOAT;
     public static RegistryObject<Item> UMBRAN_BOAT;
+    public static RegistryObject<Item> UMBRAN_CHEST_BOAT;
     public static RegistryObject<Item> HELLBARK_BOAT;
+    public static RegistryObject<Item> HELLBARK_CHEST_BOAT;
 
     public static RegistryObject<Item> MUSIC_DISC_WANDERER;
 
