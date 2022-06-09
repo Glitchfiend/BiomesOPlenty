@@ -1,11 +1,11 @@
-name: 1.18.2+ Bug Report
+name: 1.19+ Bug Report
 description: File a bug report
 labels: [bug]
 body:
   - type: markdown
     attributes:
       value: |
-        For bugs experienced with Minecraft 1.18.2+. Older versions are not supported.
+        For bugs experienced with Minecraft 1.19+. Older versions are not supported.
         If any section does not apply, replace its content with "N/A".
 
         Please search for existing bug reports before making your own report.

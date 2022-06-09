@@ -5,8 +5,9 @@
 package biomesoplenty.api.block;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.registries.RegistryObject;
 
 public class BOPBlockEntities
 {
-    public static BlockEntityType<?> SIGN;
+    public static RegistryObject<BlockEntityType<?>> SIGN;
 }

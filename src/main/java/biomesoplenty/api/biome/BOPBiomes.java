@@ -50,7 +50,6 @@ public class BOPBiomes
     public static final ResourceKey<Biome> MAPLE_WOODS = registerOverworld("maple_woods");
     public static final ResourceKey<Biome> MARSH = registerOverworld("marsh");
     public static final ResourceKey<Biome> MEDITERRANEAN_FOREST = registerOverworld("mediterranean_forest");
-    public static final ResourceKey<Biome> MEDITERRANEAN_LAKES = registerOverworld("mediterranean_lakes");
     public static final ResourceKey<Biome> MUSKEG = registerOverworld("muskeg");
     public static final ResourceKey<Biome> MYSTIC_GROVE = registerOverworld("mystic_grove");
     public static final ResourceKey<Biome> OLD_GROWTH_DEAD_FOREST = registerOverworld("old_growth_dead_forest");
@@ -63,8 +62,8 @@ public class BOPBiomes
     public static final ResourceKey<Biome> PUMPKIN_PATCH = registerOverworld("pumpkin_patch");
     public static final ResourceKey<Biome> RAINBOW_HILLS = registerOverworld("rainbow_hills");
     public static final ResourceKey<Biome> RAINFOREST = registerOverworld("rainforest");
-    public static final ResourceKey<Biome> RAINFOREST_CLIFFS = registerOverworld("rainforest_cliffs");
     public static final ResourceKey<Biome> REDWOOD_FOREST = registerOverworld("redwood_forest");
+    public static final ResourceKey<Biome> ROCKY_RAINFOREST = registerOverworld("rocky_rainforest");
     public static final ResourceKey<Biome> ROCKY_SHRUBLAND = registerOverworld("rocky_shrubland");
     public static final ResourceKey<Biome> SCRUBLAND = registerOverworld("scrubland");
     public static final ResourceKey<Biome> SEASONAL_FOREST = registerOverworld("seasonal_forest");
