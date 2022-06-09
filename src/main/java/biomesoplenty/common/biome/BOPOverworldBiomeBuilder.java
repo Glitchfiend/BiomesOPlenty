@@ -31,7 +31,6 @@ public class BOPOverworldBiomeBuilder
     public static final float EROSION_INDEX_2_START = -0.375F;
 
     protected final Climate.Parameter FULL_RANGE = Climate.Parameter.span(-1.0F, 1.0F);
-    protected final Climate.Parameter DEFAULT_DEPTH_RANGE = Climate.Parameter.span(0.2F, 0.9F);
 
     /* Terminology:
         Continentalness: Low to generate near coasts, far to generate away from coasts
@@ -469,8 +468,9 @@ public class BOPOverworldBiomeBuilder
 
     protected void addUndergroundBiomes(Registry<Biome> biomeRegistry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper)
     {
-        this.addUndergroundBiome(biomeRegistry, mapper, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, BOPBiomes.SPIDER_NEST);
-        this.addUndergroundBiome(biomeRegistry, mapper, this.FULL_RANGE, Climate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.DEFAULT_DEPTH_RANGE, 0.0F, BOPBiomes.GLOWING_GROTTO);
+        this.addUndergroundBiome(biomeRegistry, mapper, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, BOPBiomes.SPIDER_NEST);
+        this.addUndergroundBiome(biomeRegistry, mapper, this.FULL_RANGE, Climate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, BOPBiomes.GLOWING_GROTTO);
+        this.addBottomBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.erosions[0], this.erosions[1]), this.FULL_RANGE, 0.0F, Biomes.DEEP_DARK);
     }
 
     protected ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
@@ -612,5 +612,10 @@ public class BOPOverworldBiomeBuilder
             return;
 
         mapper.accept(Pair.of(Climate.parameters(temperature, humidity, continentalness, erosion, depth, weirdness, offset), biome));
+    }
+
+    private void addBottomBiome(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
+    {
+        mapper.accept(Pair.of(Climate.parameters(temperature, humidity, continentalness, erosion, Climate.Parameter.point(1.1F), weirdness, offset), biome));
     }
 }
