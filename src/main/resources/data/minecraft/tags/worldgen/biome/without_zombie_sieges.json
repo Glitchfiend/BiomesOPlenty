@@ -1,0 +1,16 @@
+{
+  "values": [
+	{
+      "id": "biomesoplenty:origin_valley",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rainbow_hills",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:tropics",
+      "required": false
+    }
+  ]
+}
