@@ -10,4 +10,5 @@ import net.minecraftforge.registries.RegistryObject;
 public class BOPEntities
 {
     public static RegistryObject<EntityType<?>> BOAT;
+    public static RegistryObject<EntityType<?>> CHEST_BOAT;
 }

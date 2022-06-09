@@ -6,6 +6,7 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.common.entity.BoatBOP;
+import biomesoplenty.common.entity.ChestBoatBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -23,6 +24,7 @@ public class ModEntities
     public static void registerEntities()
     {
         BOPEntities.BOAT = registerEntity(() -> EntityType.Builder.<BoatBOP>of(BoatBOP::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(BiomesOPlenty.MOD_ID + ":boat"), "boat");
+        BOPEntities.CHEST_BOAT = registerEntity(() -> EntityType.Builder.<ChestBoatBOP>of(ChestBoatBOP::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(BiomesOPlenty.MOD_ID + ":chest_boat"), "chest_boat");
     }
 
     public static RegistryObject<EntityType<?>> registerEntity(Supplier<EntityType<?>> typeSupplier, String name)

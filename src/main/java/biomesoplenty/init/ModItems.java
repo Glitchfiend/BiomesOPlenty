@@ -54,28 +54,28 @@ public class ModItems
         UMBRAN_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.UMBRAN_SIGN.get(), BOPBlocks.UMBRAN_WALL_SIGN.get()), "umbran_sign");
         HELLBARK_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTabBOP.INSTANCE), BOPBlocks.HELLBARK_SIGN.get(), BOPBlocks.HELLBARK_WALL_SIGN.get()), "hellbark_sign");
 
-        FIR_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "fir_boat");
-        FIR_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "fir_chest_boat");
-        REDWOOD_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "redwood_boat");
-        REDWOOD_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "redwood_chest_boat");
-        CHERRY_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.CHERRY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "cherry_boat");
-        CHERRY_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.CHERRY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "cherry_chest_boat");
-        MAHOGANY_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "mahogany_boat");
-        MAHOGANY_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "mahogany_chest_boat");
-        JACARANDA_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.JACARANDA, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "jacaranda_boat");
-        JACARANDA_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.JACARANDA, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "jacaranda_chest_boat");
-        PALM_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.PALM, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "palm_boat");
-        PALM_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.PALM, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "palm_chest_boat");
-        WILLOW_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.WILLOW, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "willow_boat");
-        WILLOW_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.WILLOW, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "willow_chest_boat");
-        DEAD_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.DEAD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "dead_boat");
-        DEAD_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.DEAD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "dead_chest_boat");
-        MAGIC_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.MAGIC, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "magic_boat");
-        MAGIC_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.MAGIC, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "magic_chest_boat");
-        UMBRAN_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.UMBRAN, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "umbran_boat");
-        UMBRAN_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.UMBRAN, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "umbran_chest_boat");
-        HELLBARK_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.HELLBARK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "hellbark_boat");
-        HELLBARK_CHEST_BOAT = registerItem(() -> new BoatItemBOP(BoatBOP.ModelType.HELLBARK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "hellbark_chest_boat");
+        FIR_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "fir_boat");
+        FIR_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "fir_chest_boat");
+        REDWOOD_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "redwood_boat");
+        REDWOOD_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "redwood_chest_boat");
+        CHERRY_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.CHERRY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "cherry_boat");
+        CHERRY_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.CHERRY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "cherry_chest_boat");
+        MAHOGANY_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "mahogany_boat");
+        MAHOGANY_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "mahogany_chest_boat");
+        JACARANDA_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.JACARANDA, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "jacaranda_boat");
+        JACARANDA_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.JACARANDA, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "jacaranda_chest_boat");
+        PALM_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.PALM, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "palm_boat");
+        PALM_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.PALM, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "palm_chest_boat");
+        WILLOW_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.WILLOW, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "willow_boat");
+        WILLOW_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.WILLOW, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "willow_chest_boat");
+        DEAD_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.DEAD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "dead_boat");
+        DEAD_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.DEAD, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "dead_chest_boat");
+        MAGIC_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.MAGIC, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "magic_boat");
+        MAGIC_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.MAGIC, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "magic_chest_boat");
+        UMBRAN_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.UMBRAN, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "umbran_boat");
+        UMBRAN_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.UMBRAN, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "umbran_chest_boat");
+        HELLBARK_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.HELLBARK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "hellbark_boat");
+        HELLBARK_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.HELLBARK, (new Item.Properties()).stacksTo(1).tab(CreativeModeTabBOP.INSTANCE)), "hellbark_chest_boat");
     }
 
     public static RegistryObject<Item> registerItem(Supplier<Item> itemSupplier, String name)

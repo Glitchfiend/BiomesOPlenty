@@ -5,12 +5,14 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.common.entity.BoatBOP;
+import biomesoplenty.common.entity.ChestBoatBOP;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
@@ -28,12 +30,14 @@ public class BoatItemBOP extends Item
 {
     private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
     private final BoatBOP.ModelType type;
+    private final boolean hasChest;
 
-    public BoatItemBOP(BoatBOP.ModelType type, Item.Properties properties)
+    public BoatItemBOP(boolean hasChest, BoatBOP.ModelType type, Item.Properties properties)
     {
         super(properties);
         this.type = type;
-        DispenserBlock.registerBehavior(this, new BoatDispenseItemBehaviourBOP(type));
+        this.hasChest = hasChest;
+        DispenserBlock.registerBehavior(this, new BoatDispenseItemBehaviourBOP(hasChest, type));
     }
 
     @Override
@@ -66,9 +70,21 @@ public class BoatItemBOP extends Item
 
             if (hitresult.getType() == HitResult.Type.BLOCK)
             {
-                BoatBOP boat = new BoatBOP(level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z);
-                boat.setModel(this.type);
+                Boat boat;
+
+                if (this.hasChest)
+                {
+                    boat = new ChestBoatBOP(level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z);
+                    ((ChestBoatBOP)boat).setModel(this.type);
+                }
+                else
+                {
+                    boat = new BoatBOP(level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z);
+                    ((BoatBOP)boat).setModel(this.type);
+                }
+
                 boat.setYRot(player.getYRot());
+
                 if (!level.noCollision(boat, boat.getBoundingBox()))
                 {
                     return InteractionResultHolder.fail(itemstack);

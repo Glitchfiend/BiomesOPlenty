@@ -129,9 +129,12 @@ public class BiomesOPlenty
 
             // Register boat layer definitions
             LayerDefinition boatLayerDefinition = BoatModel.createBodyModel(false);
+            LayerDefinition chestBoatLayerDefinition = BoatModel.createBodyModel(true);
+
             for (BoatBOP.ModelType type : BoatBOP.ModelType.values())
             {
                 ForgeHooksClient.registerLayerDefinition(BoatRendererBOP.createBoatModelName(type), () -> boatLayerDefinition);
+                ForgeHooksClient.registerLayerDefinition(BoatRendererBOP.createChestBoatModelName(type), () -> chestBoatLayerDefinition);
             }
         });
     }

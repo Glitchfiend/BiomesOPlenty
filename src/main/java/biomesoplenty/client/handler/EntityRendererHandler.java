@@ -9,6 +9,7 @@ import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.client.renderer.BoatRendererBOP;
 import biomesoplenty.common.block.SignBlockEntityBOP;
 import biomesoplenty.common.entity.BoatBOP;
+import biomesoplenty.common.entity.ChestBoatBOP;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -24,12 +25,7 @@ public class EntityRendererHandler
         event.registerBlockEntityRenderer((BlockEntityType<SignBlockEntityBOP>)BOPBlockEntities.SIGN.get(), SignRenderer::new);
 
         // Register entity renderers
-        event.registerEntityRenderer((EntityType<BoatBOP>) BOPEntities.BOAT.get(), BoatRendererBOP::new);
-    }
-
-    @SubscribeEvent
-    public void onAddLayers(EntityRenderersEvent.AddLayers event)
-    {
-
+        event.registerEntityRenderer((EntityType<BoatBOP>) BOPEntities.BOAT.get(), context -> new BoatRendererBOP(context, false));
+        event.registerEntityRenderer((EntityType<ChestBoatBOP>) BOPEntities.CHEST_BOAT.get(), context -> new BoatRendererBOP(context, true));
     }
 }

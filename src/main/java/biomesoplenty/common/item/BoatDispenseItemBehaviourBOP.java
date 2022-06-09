@@ -5,6 +5,7 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.common.entity.BoatBOP;
+import biomesoplenty.common.entity.ChestBoatBOP;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
@@ -19,10 +20,12 @@ public class BoatDispenseItemBehaviourBOP extends DefaultDispenseItemBehavior
 {
     private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
     private final BoatBOP.ModelType type;
+    private final boolean hasChest;
 
-    public BoatDispenseItemBehaviourBOP(BoatBOP.ModelType type)
+    public BoatDispenseItemBehaviourBOP(boolean hasChest, BoatBOP.ModelType type)
     {
         this.type = type;
+        this.hasChest = hasChest;
     }
 
     @Override
@@ -49,10 +52,23 @@ public class BoatDispenseItemBehaviourBOP extends DefaultDispenseItemBehavior
             d3 = 0.0D;
         }
 
-        BoatBOP boat = new BoatBOP(level, d0, d1 + d3, d2);
-        boat.setModel(this.type);
+        Boat boat;
+
+        if (this.hasChest)
+        {
+            boat = new ChestBoatBOP(level, d0, d1 + d3, d2);
+            ((ChestBoatBOP)boat).setModel(this.type);
+
+        }
+        else
+        {
+            boat = new BoatBOP(level, d0, d1 + d3, d2);
+            ((BoatBOP)boat).setModel(this.type);
+        }
+
         boat.setYRot(direction.toYRot());
         level.addFreshEntity(boat);
+
         stack.shrink(1);
         return stack;
     }
