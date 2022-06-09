@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "biomesoplenty:redwood_boat"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:redwood_chest_boat"
+  }
+}
