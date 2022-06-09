@@ -5,14 +5,12 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.common.entity.BoatBOP;
-import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
@@ -80,7 +78,7 @@ public class BoatItemBOP extends Item
                     if (!level.isClientSide)
                     {
                         level.addFreshEntity(boat);
-                        level.gameEvent(player, GameEvent.ENTITY_PLACE, new BlockPos(hitresult.getLocation()));
+                        level.gameEvent(player, GameEvent.ENTITY_PLACE, hitresult.getLocation());
                         if (!player.getAbilities().instabuild)
                         {
                             itemstack.shrink(1);

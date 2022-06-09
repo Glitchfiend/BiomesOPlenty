@@ -102,9 +102,8 @@ public class BoatBOP extends Boat
             }
             else if (!this.level.getFluidState(this.blockPosition().below()).is(FluidTags.WATER) && y < 0.0D)
             {
-                this.fallDistance = (float) ((double) this.fallDistance - y);
+                this.fallDistance -= (float)y;
             }
-
         }
     }
 
