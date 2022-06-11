@@ -5,12 +5,10 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.client.handler.ColorHandler;
-import biomesoplenty.client.handler.EntityRendererHandler;
-import biomesoplenty.client.handler.FluidFogHandler;
 import biomesoplenty.common.worldgen.BOPSurfaceRuleData;
 import biomesoplenty.init.*;
 import net.minecraft.core.Registry;
+import net.minecraft.core.particles.ParticleType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.PaintingVariant;
@@ -24,16 +22,14 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import terrablender.api.SurfaceRuleManager;
@@ -53,6 +49,7 @@ public class BiomesOPlenty
     public static final DeferredRegister<Feature<?>> FEATURE_REGISTER = DeferredRegister.create(Registry.FEATURE_REGISTRY, MOD_ID);
     public static final DeferredRegister<Fluid> FLUID_REGISTER = DeferredRegister.create(Registry.FLUID_REGISTRY, MOD_ID);
     public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(Registry.ITEM_REGISTRY, MOD_ID);
+    public static final DeferredRegister<ParticleType<?>> PARTICLES_REGISTER = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MOD_ID);
     public static final DeferredRegister<PaintingVariant> PAINTING_VARIANT_REGISTER = DeferredRegister.create(Registry.PAINTING_VARIANT_REGISTRY, MOD_ID);
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURE_REGISTER = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, MOD_ID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENT_REGISTER = DeferredRegister.create(Registry.SOUND_EVENT_REGISTRY, MOD_ID);
@@ -80,6 +77,7 @@ public class BiomesOPlenty
         FEATURE_REGISTER.register(bus);
         FLUID_REGISTER.register(bus);
         ITEM_REGISTER.register(bus);
+        PARTICLES_REGISTER.register(bus);
         PLACED_FEATURE_REGISTER.register(bus);
         SOUND_EVENT_REGISTER.register(bus);
 
@@ -89,17 +87,10 @@ public class BiomesOPlenty
         ModEntities.setup();
         ModFeatures.setup();
         ModBiomes.setup();
+        ModParticles.setup();
         ModPaintings.setup();
         ModSounds.setup();
         ModConfig.setup();
-        ModParticles.PARTICLES.register(FMLJavaModLoadingContext.get().getModEventBus());
-
-        if (FMLEnvironment.dist == Dist.CLIENT)
-        {
-            bus.register(new ColorHandler());
-            bus.register(new EntityRendererHandler());
-            MinecraftForge.EVENT_BUS.register(new FluidFogHandler());
-        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)

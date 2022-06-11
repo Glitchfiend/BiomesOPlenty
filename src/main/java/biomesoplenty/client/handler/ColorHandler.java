@@ -5,6 +5,7 @@
 package biomesoplenty.client.handler;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -14,15 +15,18 @@ import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 import java.awt.*;
 
+@Mod.EventBusSubscriber(modid = BiomesOPlenty.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ColorHandler
 {
     @SubscribeEvent
-    public void registerItemColors(ColorHandlerEvent.Item event)
+    public static void registerItemColors(ColorHandlerEvent.Item event)
     {
         event.getItemColors().register((stack, tintIndex) -> {
                     BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
@@ -32,7 +36,7 @@ public class ColorHandler
     }
 
     @SubscribeEvent
-    public void registerBlockColors(ColorHandlerEvent.Block event)
+    public static void registerBlockColors(ColorHandlerEvent.Block event)
     {
         //Grass Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->

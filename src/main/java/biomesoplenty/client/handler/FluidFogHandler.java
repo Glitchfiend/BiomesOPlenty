@@ -1,20 +1,19 @@
 package biomesoplenty.client.handler;
 
+import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModTags;
 import net.minecraft.client.Camera;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = BiomesOPlenty.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class FluidFogHandler
 {
-    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public void getFogColor(EntityViewRenderEvent.FogColors event)
+    public static void getFogColor(EntityViewRenderEvent.FogColors event)
     {
         Camera camera = event.getCamera();
 
