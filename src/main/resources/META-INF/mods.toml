@@ -23,6 +23,6 @@ logoFile="bop_logo.png"
 [[dependencies.biomesoplenty]]
     modId="terrablender"
     mandatory=true
-    versionRange="[1.19-2.0.0.108,)"
+    versionRange="[1.19-2.0.0.111,)"
     ordering="NONE"
     side="BOTH"
