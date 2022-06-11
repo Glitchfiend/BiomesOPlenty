@@ -8,12 +8,8 @@ package biomesoplenty.core;
 import biomesoplenty.client.handler.ColorHandler;
 import biomesoplenty.client.handler.EntityRendererHandler;
 import biomesoplenty.client.handler.FluidFogHandler;
-import biomesoplenty.client.renderer.BoatRendererBOP;
-import biomesoplenty.common.entity.BoatBOP;
 import biomesoplenty.common.worldgen.BOPSurfaceRuleData;
 import biomesoplenty.init.*;
-import net.minecraft.client.model.BoatModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.core.Registry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -29,7 +25,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -126,16 +121,6 @@ public class BiomesOPlenty
         {
             ModBlocks.registerWoodTypes();
             ModBlocks.setRenderTypes();
-
-            // Register boat layer definitions
-            LayerDefinition boatLayerDefinition = BoatModel.createBodyModel(false);
-            LayerDefinition chestBoatLayerDefinition = BoatModel.createBodyModel(true);
-
-            for (BoatBOP.ModelType type : BoatBOP.ModelType.values())
-            {
-                ForgeHooksClient.registerLayerDefinition(BoatRendererBOP.createBoatModelName(type), () -> boatLayerDefinition);
-                ForgeHooksClient.registerLayerDefinition(BoatRendererBOP.createChestBoatModelName(type), () -> chestBoatLayerDefinition);
-            }
         });
     }
 
