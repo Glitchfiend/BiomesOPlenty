@@ -12,7 +12,6 @@ import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
@@ -46,17 +45,6 @@ public abstract class BloodFluid extends FlowingFluid
     @Override
     public Item getBucket() {
         return BOPItems.BLOOD_BUCKET.get();
-    }
-
-    @Override
-    protected net.minecraftforge.fluids.FluidAttributes createAttributes()
-    {
-        return net.minecraftforge.fluids.FluidAttributes.builder(
-            new ResourceLocation("biomesoplenty:block/blood_still"),
-            new ResourceLocation("biomesoplenty:block/blood_flow"))
-            .translationKey("block.biomesoplenty.blood").density(2000).viscosity(3500)
-            .sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY)
-            .build(this);
     }
 
     @Nullable
@@ -118,6 +106,12 @@ public abstract class BloodFluid extends FlowingFluid
     @Override
     public Optional<SoundEvent> getPickupSound() {
         return Optional.of(SoundEvents.BUCKET_FILL);
+    }
+
+    @Override
+    public net.minecraftforge.fluids.FluidType getFluidType()
+    {
+        return BOPFluids.BLOOD_TYPE.get();
     }
 
     public static class Flowing extends BloodFluid

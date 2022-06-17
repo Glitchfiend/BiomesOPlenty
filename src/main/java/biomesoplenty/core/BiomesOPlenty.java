@@ -23,6 +23,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -48,6 +49,7 @@ public class BiomesOPlenty
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPE_REGISTER = DeferredRegister.create(Registry.ENTITY_TYPE_REGISTRY, MOD_ID);
     public static final DeferredRegister<Feature<?>> FEATURE_REGISTER = DeferredRegister.create(Registry.FEATURE_REGISTRY, MOD_ID);
     public static final DeferredRegister<Fluid> FLUID_REGISTER = DeferredRegister.create(Registry.FLUID_REGISTRY, MOD_ID);
+    public static final DeferredRegister<FluidType> FORGE_FLUID_REGISTER = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, MOD_ID);
     public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(Registry.ITEM_REGISTRY, MOD_ID);
     public static final DeferredRegister<ParticleType<?>> PARTICLES_REGISTER = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MOD_ID);
     public static final DeferredRegister<PaintingVariant> PAINTING_VARIANT_REGISTER = DeferredRegister.create(Registry.PAINTING_VARIANT_REGISTRY, MOD_ID);
@@ -76,6 +78,7 @@ public class BiomesOPlenty
         ENTITY_TYPE_REGISTER.register(bus);
         FEATURE_REGISTER.register(bus);
         FLUID_REGISTER.register(bus);
+        FORGE_FLUID_REGISTER.register(bus);
         ITEM_REGISTER.register(bus);
         PARTICLES_REGISTER.register(bus);
         PLACED_FEATURE_REGISTER.register(bus);
