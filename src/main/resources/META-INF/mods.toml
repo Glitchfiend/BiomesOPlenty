@@ -24,5 +24,5 @@ logoFile="bop_logo.png"
     modId="terrablender"
     mandatory=true
     versionRange="[1.19-2.0.0.112,)"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"
