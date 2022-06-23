@@ -5,7 +5,6 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.common.worldgen.BOPSurfaceRuleData;
 import biomesoplenty.init.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
@@ -33,7 +32,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import terrablender.api.SurfaceRuleManager;
 
 @Mod(value = BiomesOPlenty.MOD_ID)
 public class BiomesOPlenty
@@ -84,6 +82,9 @@ public class BiomesOPlenty
         PLACED_FEATURE_REGISTER.register(bus);
         SOUND_EVENT_REGISTER.register(bus);
 
+        // Initialize the config file first so other things can rely on it
+        ModConfig.setup();
+
         ModBlocks.setup();
         ModItems.setup();
         ModFluids.setup();
@@ -93,18 +94,13 @@ public class BiomesOPlenty
         ModParticles.setup();
         ModPaintings.setup();
         ModSounds.setup();
-        ModConfig.setup();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         event.enqueueWork(() ->
         {
-            // Register our surface rules
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.overworld());
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.nether());
-
-            // Setup Vanilla compat
+            ModBiomes.setupTerraBlender();
             ModVanillaCompat.setup();
         });
     }

@@ -7,15 +7,13 @@ package biomesoplenty.init;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.biome.BOPNetherBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
-import biomesoplenty.common.worldgen.BOPNetherRegionCommon;
-import biomesoplenty.common.worldgen.BOPNetherRegionRare;
-import biomesoplenty.common.worldgen.BOPOverworldRegionCommon;
-import biomesoplenty.common.worldgen.BOPOverworldRegionRare;
+import biomesoplenty.common.worldgen.*;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
 import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 import java.util.function.Supplier;
 
@@ -26,12 +24,19 @@ public class ModBiomes
         // Register our biomes
         registerBiomes();
         registerVillagerTypes();
+    }
 
+    public static void setupTerraBlender()
+    {
         // Register our regions
         Regions.register(new BOPOverworldRegionCommon(ModConfig.GenerationConfig.bopOverworldRegionWeight.get()));
         Regions.register(new BOPOverworldRegionRare(ModConfig.GenerationConfig.bopOverworldRareRegionWeight.get()));
         Regions.register(new BOPNetherRegionCommon(ModConfig.GenerationConfig.bopNetherRegionWeight.get()));
         Regions.register(new BOPNetherRegionRare(ModConfig.GenerationConfig.bopNetherRareRegionWeight.get()));
+
+        // Register our surface rules
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.overworld());
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.nether());
     }
 
     public static void registerBiomes()
