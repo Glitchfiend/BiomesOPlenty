@@ -24,6 +24,7 @@ repositories { mavenLocal() }
 group = "com.github.glitchfiend"
 archivesBaseName = "${mod_name}"
 version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
+def mod_build_version = "${mod_version}.${System.getenv().BUILD_NUMBER}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -64,6 +65,23 @@ processResources {
 dependencies {
     minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
+}
+
+jar {
+    manifest {
+        attributes([
+            'Specification-Title'     : mod_name,
+            'Specification-Vendor'    : mod_author,
+            'Specification-Version'   : mod_build_version,
+            'Implementation-Title'    : project.name,
+            'Implementation-Version'  : mod_build_version,
+            'Implementation-Vendor'   : mod_author,
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            'Timestampe'              : System.currentTimeMillis(),
+            'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+            'Build-On-Minecraft'      : minecraft_version
+        ])
+    }
 }
 
 task deobfJar(type: Jar) {
