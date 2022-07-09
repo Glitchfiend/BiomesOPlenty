@@ -16,7 +16,7 @@ import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -26,7 +26,7 @@ import java.awt.*;
 public class ColorHandler
 {
     @SubscribeEvent
-    public static void registerItemColors(ColorHandlerEvent.Item event)
+    public static void registerItemColors(RegisterColorHandlersEvent.Item event)
     {
         event.getItemColors().register((stack, tintIndex) -> {
                     BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
@@ -36,7 +36,7 @@ public class ColorHandler
     }
 
     @SubscribeEvent
-    public static void registerBlockColors(ColorHandlerEvent.Block event)
+    public static void registerBlockColors(RegisterColorHandlersEvent.Block event)
     {
         //Grass Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->

@@ -10,7 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.minecraftforge.client.IFluidTypeRenderProperties;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.RegistryObject;
@@ -51,9 +51,9 @@ public class ModFluids
                     }
 
                     @Override
-                    public void initializeClient(Consumer<IFluidTypeRenderProperties> consumer)
+                    public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer)
                     {
-                        consumer.accept(new IFluidTypeRenderProperties()
+                        consumer.accept(new IClientFluidTypeExtensions()
                         {
                             private static final ResourceLocation UNDERWATER_LOCATION = new ResourceLocation("textures/misc/underwater.png"),
                                 BLOOD_STILL = new ResourceLocation("biomesoplenty:block/blood_still"),

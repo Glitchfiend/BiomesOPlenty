@@ -5,7 +5,7 @@ import biomesoplenty.init.ModTags;
 import net.minecraft.client.Camera;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 public class FluidFogHandler
 {
     @SubscribeEvent
-    public static void getFogColor(EntityViewRenderEvent.FogColors event)
+    public static void getFogColor(ViewportEvent.ComputeFogColor event)
     {
         Camera camera = event.getCamera();
 

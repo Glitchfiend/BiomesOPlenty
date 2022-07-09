@@ -5,9 +5,8 @@ import biomesoplenty.client.particle.GlowwormParticle;
 import biomesoplenty.client.particle.PusParticle;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModParticles;
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -15,12 +14,12 @@ import net.minecraftforge.fml.common.Mod;
 public class ParticleFactoryHandler
 {
     @SubscribeEvent
-    public static void registerParticleFactories(ParticleFactoryRegisterEvent event)
+    public static void registerParticleFactories(RegisterParticleProvidersEvent event)
     {
-        Minecraft.getInstance().particleEngine.register(ModParticles.DRIPPING_BLOOD.get(), DripParticleBOP.BloodHangProvider::new);
-        Minecraft.getInstance().particleEngine.register(ModParticles.FALLING_BLOOD.get(), DripParticleBOP.BloodFallProvider::new);
-        Minecraft.getInstance().particleEngine.register(ModParticles.LANDING_BLOOD.get(), DripParticleBOP.BloodLandProvider::new);
-        Minecraft.getInstance().particleEngine.register(ModParticles.PUS.get(), PusParticle.Provider::new);
-        Minecraft.getInstance().particleEngine.register(ModParticles.GLOWWORM.get(), GlowwormParticle.Provider::new);
+        event.register(ModParticles.DRIPPING_BLOOD.get(), DripParticleBOP.BloodHangProvider::new);
+        event.register(ModParticles.FALLING_BLOOD.get(), DripParticleBOP.BloodFallProvider::new);
+        event.register(ModParticles.LANDING_BLOOD.get(), DripParticleBOP.BloodLandProvider::new);
+        event.register(ModParticles.PUS.get(), PusParticle.Provider::new);
+        event.register(ModParticles.GLOWWORM.get(), GlowwormParticle.Provider::new);
     }
 }
