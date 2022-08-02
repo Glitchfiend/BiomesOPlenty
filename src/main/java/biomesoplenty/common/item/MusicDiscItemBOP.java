@@ -16,6 +16,6 @@ public class MusicDiscItemBOP extends RecordItem
 {
     public MusicDiscItemBOP(Supplier<SoundEvent> soundSupplier)
     {
-        super(0, soundSupplier, new Item.Properties().tab(CreativeModeTabBOP.INSTANCE).rarity(Rarity.RARE).stacksTo(1));
+        super(0, soundSupplier, new Item.Properties().tab(CreativeModeTabBOP.INSTANCE).rarity(Rarity.RARE).stacksTo(1), 289*20);
     }
 }
