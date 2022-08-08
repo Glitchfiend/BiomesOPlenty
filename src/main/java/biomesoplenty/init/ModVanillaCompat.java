@@ -222,6 +222,7 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.UMBRAN_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.HELLBARK_SAPLING.get());
         registerCompostable(0.3F, BOPBlocks.HELLBARK_LEAVES.get());
+        registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_CARPET.get());
 
         registerCompostable(0.65F, BOPBlocks.ROSE.get());
         registerCompostable(0.65F, BOPBlocks.VIOLET.get());
@@ -259,6 +260,7 @@ public class ModVanillaCompat
 
         registerCompostable(0.65F, BOPBlocks.TOADSTOOL.get());
         registerCompostable(0.65F, BOPBlocks.GLOWSHROOM.get());
+        registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_BLOCK.get());
     }
 
     public static void registerStrippable(Block log, Block stripped_log) {

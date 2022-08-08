@@ -8,29 +8,20 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "minecraft:block_state_property",
-              "block": "biomesoplenty:brimstone_cluster",
-              "properties": {
-                "half": "lower"
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "enchantments": [
+                  {
+                    "enchantment": "minecraft:silk_touch",
+                    "levels": {
+                      "min": 1
+                    }
+                  }
+                ]
               }
             }
           ],
           "name": "biomesoplenty:brimstone_cluster"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:match_tool",
-          "predicate": {
-            "enchantments": [
-              {
-                "enchantment": "minecraft:silk_touch",
-                "levels": {
-                  "min": 1
-                }
-              }
-            ]
-          }
         }
       ]
     }
