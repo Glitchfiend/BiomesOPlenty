@@ -11,6 +11,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.material.Material;
 
@@ -195,10 +196,11 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
 
                 heightHere += random.nextInt(2);
 
+                boolean didPlace = false;
                 for (int y = 0; y < heightHere; y++)
                 {
                     BlockPos local = startPos.offset(x, y, z);
-                    this.placeLog(world, local, logs, config);
+                    didPlace |= this.placeLog(world, local, logs, config);
 
                     if (dist > 0 && y > 4 && y < (baseHeight - 2) && random.nextInt(10) == 0) {
                         double theta;
@@ -226,6 +228,18 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                         }
 
                         this.generateBush(logs, leaves, world, random, branchPos, config);
+                    }
+                }
+
+                if (didPlace) {
+                    // Place dirt 3 blocks below the trunk if no solid block is found
+                    for (int y = 1; y < 4; y++)
+                    {
+                        BlockPos local = startPos.offset(x, -y, z);
+                        BlockState state = world.getBlockState(local);
+                        if (!state.getMaterial().isSolid() || Feature.isDirt(state)) {
+                            world.setBlock(local, Blocks.DIRT.defaultBlockState(), 3);
+                        }
                     }
                 }
             }

@@ -13,6 +13,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.material.Material;
@@ -189,6 +190,11 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
             {
                 for (int z = trunkStart; z <= trunkEnd; z++)
                 {
+                    if (y == 1)
+                    {
+                        world.setBlock(startPos.offset(x, y - 1, z), Blocks.DIRT.defaultBlockState(), 3);
+                    }
+
                     this.placeLog(world, startPos.offset(x, y, z), logs, config);
                 }
             }
