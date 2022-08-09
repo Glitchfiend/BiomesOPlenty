@@ -1,6 +1,6 @@
 modLoader="javafml"
 license="All Rights Reserved"
-loaderVersion="[42,)"
+loaderVersion="[43,)"
 issueTrackerURL="https://github.com/Glitchfiend/BiomesOPlenty/issues"
 displayURL="https://minecraft.curseforge.com/projects/biomes-o-plenty"
 logoFile="bop_logo.png"
@@ -16,13 +16,13 @@ logoFile="bop_logo.png"
 [[dependencies.biomesoplenty]]
     modId="forge"
     mandatory=true
-    versionRange="[42.0.1,)"
+    versionRange="[43.0.2,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.biomesoplenty]]
     modId="terrablender"
     mandatory=true
-    versionRange="[2.0.0.121,)"
+    versionRange="[2.0.1.123,)"
     ordering="AFTER"
     side="BOTH"
