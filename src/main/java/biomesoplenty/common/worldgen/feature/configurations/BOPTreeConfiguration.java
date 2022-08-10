@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen.feature.configurations;
 
-import biomesoplenty.common.worldgen.feature.placer.DummyTrunkPlacer;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -41,7 +40,7 @@ public class BOPTreeConfiguration extends TreeConfiguration
 
     protected BOPTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators)
     {
-        super(trunkProvider, new DummyTrunkPlacer(), foliageProvider, null, null, null, new TwoLayersFeatureSize(1, 0, 1), decorators, false, false);
+        super(trunkProvider, null, foliageProvider, null, null, null, new TwoLayersFeatureSize(1, 0, 1), decorators, false, false);
 
         this.vineProvider = vineProvider;
         this.hangingProvider = hangingProvider;
