@@ -42,6 +42,8 @@ minecraft {
             source sourceSets.main
         }
     }
+
+
 }
 
 // Configure  the source folders
