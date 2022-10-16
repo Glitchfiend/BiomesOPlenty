@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/icy_iris_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/icy_iris_top" }
+    }
+}

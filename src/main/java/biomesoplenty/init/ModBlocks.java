@@ -332,6 +332,7 @@ public class ModBlocks
         //Tall Flowers
         BLUE_HYDRANGEA = registerBlock(() -> new TallFlowerBlockBOP(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "blue_hydrangea");
         GOLDENROD = registerBlock(() -> new TallFlowerBlockBOP(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "goldenrod");
+        ICY_IRIS = registerBlock(() -> new TallFlowerBlockBOP(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "icy_iris");
 
         //Vines
         WILLOW_VINE = registerBlock(() -> new VineBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().strength(0.2F).sound(SoundType.GRASS)), "willow_vine");
@@ -486,6 +487,7 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(BURNING_BLOSSOM.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BLUE_HYDRANGEA.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(GOLDENROD.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(ICY_IRIS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(WILLOW_VINE.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(SPANISH_MOSS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(SPANISH_MOSS_PLANT.get(), cutoutRenderType);

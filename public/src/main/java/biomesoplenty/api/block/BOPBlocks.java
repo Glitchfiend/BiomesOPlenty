@@ -268,6 +268,7 @@ public class BOPBlocks
     public static RegistryObject<Block> BURNING_BLOSSOM;
     public static RegistryObject<Block> BLUE_HYDRANGEA;
     public static RegistryObject<Block> GOLDENROD;
+    public static RegistryObject<Block> ICY_IRIS;
     public static RegistryObject<Block> WILLOW_VINE;
     public static RegistryObject<Block> SPANISH_MOSS;
     public static RegistryObject<Block> SPANISH_MOSS_PLANT;

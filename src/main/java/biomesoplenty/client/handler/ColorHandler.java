@@ -57,17 +57,7 @@ public class ColorHandler
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
     {
-        float saturation;
-        if (world.getBlockState(pos.above()).is(BlockTags.SNOW))
-        {
-            saturation = 0.25F;
-        }
-        else
-        {
-            saturation = 0.5F;
-        }
-
-        Color foliage = Color.getHSBColor((((float)pos.getX() + Mth.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, saturation, 1.0F);
+        Color foliage = Color.getHSBColor((((float)pos.getX() + Mth.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
 
         return foliage.getRGB();
     }
