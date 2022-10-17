@@ -45,11 +45,11 @@ public class ModConfig
         {
             BUILDER.comment("World generation related options.");
             BUILDER.push("overworld");
-            bopPrimaryOverworldRegionWeight = BUILDER.comment("The weighting of primary bop biome regions in the overworld.").defineInRange("bop_primary_overworld_region_weight", 8, 0, Integer.MAX_VALUE);
-            bopSecondaryOverworldRegionWeight = BUILDER.comment("The weighting of secondary bop biome regions in the overworld.").defineInRange("bop_secondary_overworld_region_weight", 6, 0, Integer.MAX_VALUE);
+            bopPrimaryOverworldRegionWeight = BUILDER.comment("The weighting of primary bop biome regions in the overworld.").defineInRange("bop_primary_overworld_region_weight", 10, 0, Integer.MAX_VALUE);
+            bopSecondaryOverworldRegionWeight = BUILDER.comment("The weighting of secondary bop biome regions in the overworld.").defineInRange("bop_secondary_overworld_region_weight", 8, 0, Integer.MAX_VALUE);
             bopNetherRegionWeight = BUILDER.comment("The weighting of bop biome regions in the nether.").defineInRange("bop_nether_region_weight", 13, 0, Integer.MAX_VALUE);
             bopOverworldRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions in the overworld.").defineInRange("bop_overworld_rare_region_weight", 2, 0, Integer.MAX_VALUE);
-            bopNetherRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions in the nether.").defineInRange("bop_nether_rare_region_weight", 1, 0, Integer.MAX_VALUE);
+            bopNetherRareRegionWeight = BUILDER.comment("The weighting of rare bop biome regions in the nether.").defineInRange("bop_nether_rare_region_weight", 2, 0, Integer.MAX_VALUE);
             BUILDER.pop();
 
             SPEC = BUILDER.build();
