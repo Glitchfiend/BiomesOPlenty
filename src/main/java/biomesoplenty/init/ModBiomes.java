@@ -80,13 +80,13 @@ public class ModBiomes
         registerBiome(BOPBiomes.PASTURE, () -> BOPOverworldBiomes.pasture());
         registerBiome(BOPBiomes.PRAIRIE, () -> BOPOverworldBiomes.prairie());
         registerBiome(BOPBiomes.PUMPKIN_PATCH, () -> BOPOverworldBiomes.pumpkinPatch());
-        registerBiome(BOPBiomes.RAINBOW_HILLS, () -> BOPOverworldBiomes.rainbowHills());
         registerBiome(BOPBiomes.RAINFOREST, () -> BOPOverworldBiomes.rainforest());
         registerBiome(BOPBiomes.REDWOOD_FOREST, () -> BOPOverworldBiomes.redwoodForest());
         registerBiome(BOPBiomes.ROCKY_RAINFOREST, () -> BOPOverworldBiomes.rockyRainforest());
         registerBiome(BOPBiomes.ROCKY_SHRUBLAND, () -> BOPOverworldBiomes.rockyShrubland());
         registerBiome(BOPBiomes.SCRUBLAND, () -> BOPOverworldBiomes.scrubland(false));
         registerBiome(BOPBiomes.SEASONAL_FOREST, () -> BOPOverworldBiomes.seasonalForest());
+        registerBiome(BOPBiomes.SEASONAL_ORCHARD, () -> BOPOverworldBiomes.seasonalOrchard());
         registerBiome(BOPBiomes.SHRUBLAND, () -> BOPOverworldBiomes.shrubland());
         registerBiome(BOPBiomes.SNOWY_CONIFEROUS_FOREST, () -> BOPOverworldBiomes.coniferousForest(true));
         registerBiome(BOPBiomes.SNOWY_FIR_CLEARING, () -> BOPOverworldBiomes.firClearing(true));
@@ -118,7 +118,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.BAMBOO_GROVE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.BAYOU, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.BOG, VillagerType.SWAMP);
-        registerVillagerType(BOPBiomes.BOREAL_FOREST, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.BOREAL_FOREST, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.CHERRY_BLOSSOM_GROVE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.CLOVER_PATCH, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.COLD_DESERT, VillagerType.SNOW);
@@ -153,13 +153,13 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.PASTURE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.PRAIRIE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.PUMPKIN_PATCH, VillagerType.PLAINS);
-        registerVillagerType(BOPBiomes.RAINBOW_HILLS, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.RAINFOREST, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.ROCKY_RAINFOREST, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.REDWOOD_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.ROCKY_SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SCRUBLAND, VillagerType.SAVANNA);
         registerVillagerType(BOPBiomes.SEASONAL_FOREST, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.SEASONAL_ORCHARD, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SNOWY_CONIFEROUS_FOREST, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.SNOWY_FIR_CLEARING, VillagerType.SNOW);

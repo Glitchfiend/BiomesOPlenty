@@ -2,6 +2,10 @@
     "replace": false,
     "values": [
         {
+            "id": "biomesoplenty:boreal_forest",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:dryland",
             "required": false
         },
@@ -31,10 +35,6 @@
         },
         {
             "id": "biomesoplenty:shrubland",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:rainbow_hills",
             "required": false
         },
         {

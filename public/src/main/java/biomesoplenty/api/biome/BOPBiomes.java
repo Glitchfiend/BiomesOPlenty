@@ -60,13 +60,13 @@ public class BOPBiomes
     public static final ResourceKey<Biome> PASTURE = registerOverworld("pasture");
     public static final ResourceKey<Biome> PRAIRIE = registerOverworld("prairie");
     public static final ResourceKey<Biome> PUMPKIN_PATCH = registerOverworld("pumpkin_patch");
-    public static final ResourceKey<Biome> RAINBOW_HILLS = registerOverworld("rainbow_hills");
     public static final ResourceKey<Biome> RAINFOREST = registerOverworld("rainforest");
     public static final ResourceKey<Biome> REDWOOD_FOREST = registerOverworld("redwood_forest");
     public static final ResourceKey<Biome> ROCKY_RAINFOREST = registerOverworld("rocky_rainforest");
     public static final ResourceKey<Biome> ROCKY_SHRUBLAND = registerOverworld("rocky_shrubland");
     public static final ResourceKey<Biome> SCRUBLAND = registerOverworld("scrubland");
     public static final ResourceKey<Biome> SEASONAL_FOREST = registerOverworld("seasonal_forest");
+    public static final ResourceKey<Biome> SEASONAL_ORCHARD = registerOverworld("seasonal_orchard");
     public static final ResourceKey<Biome> SHRUBLAND = registerOverworld("shrubland");
     public static final ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = registerOverworld("snowy_coniferous_forest");
     public static final ResourceKey<Biome> SNOWY_FIR_CLEARING = registerOverworld("snowy_fir_clearing");

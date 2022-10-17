@@ -9,40 +9,41 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 
 public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
 {
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
-            {BOPBiomes.COLD_DESERT,          BOPBiomes.MUSKEG,               BOPBiomes.MUSKEG,           BOPBiomes.MAPLE_WOODS,          BOPBiomes.MAPLE_WOODS},
-            {BOPBiomes.TUNDRA,               BOPBiomes.TUNDRA,               BOPBiomes.DEAD_FOREST,      BOPBiomes.DEAD_FOREST,          BOPBiomes.SEASONAL_FOREST},
+            {BOPBiomes.TUNDRA,               BOPBiomes.TUNDRA,               BOPBiomes.MUSKEG,           BOPBiomes.SNOWY_MAPLE_WOODS,    BOPBiomes.MAPLE_WOODS},
+            {BOPBiomes.SEASONAL_FOREST,      BOPBiomes.SEASONAL_FOREST,      BOPBiomes.SEASONAL_FOREST,  BOPBiomes.DEAD_FOREST,          BOPBiomes.DEAD_FOREST},
             {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.REDWOOD_FOREST,   BOPBiomes.CHERRY_BLOSSOM_GROVE, BOPBiomes.CHERRY_BLOSSOM_GROVE},
             {BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,         BOPBiomes.RAINFOREST,           BOPBiomes.RAINFOREST},
             {BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,            BOPBiomes.WOODED_WASTELAND, BOPBiomes.VOLCANIC_PLAINS,      BOPBiomes.VOLCANIC_PLAINS}
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null, null,                       null,                          BOPBiomes.SNOWY_MAPLE_WOODS,      null},
-            {null, null,                       null,                          BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPBiomes.BOREAL_FOREST},
-            {null, BOPBiomes.LAVENDER_FOREST,  BOPBiomes.ORCHARD,             null,                             BOPBiomes.BAMBOO_GROVE},
-            {null, null,                       BOPBiomes.OLD_GROWTH_WOODLAND, BOPBiomes.ROCKY_RAINFOREST,       BOPBiomes.FLOODPLAIN},
-            {null, BOPBiomes.WOODED_WASTELAND, BOPBiomes.WASTELAND,           null,                             null}
+            {null,              null,                       null,                          null,                       BOPBiomes.SNOWY_MAPLE_WOODS},
+            {null,              BOPBiomes.SEASONAL_ORCHARD, BOPBiomes.PUMPKIN_PATCH,       null,                       BOPBiomes.OLD_GROWTH_DEAD_FOREST},
+            {null,              BOPBiomes.LAVENDER_FOREST,  BOPBiomes.ORCHARD,             null,                       BOPBiomes.BAMBOO_GROVE},
+            {null,              null,                       BOPBiomes.OLD_GROWTH_WOODLAND, BOPBiomes.ROCKY_RAINFOREST, null},
+            {null,              BOPBiomes.WOODED_WASTELAND, BOPBiomes.WASTELAND,           null,                       null}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_BOP = new ResourceKey[][]{
-            {BOPBiomes.COLD_DESERT,          BOPBiomes.MUSKEG,               BOPBiomes.MUSKEG,         BOPBiomes.SNOWY_MAPLE_WOODS, BOPBiomes.MAPLE_WOODS},
-            {BOPBiomes.TUNDRA,               BOPBiomes.TUNDRA,               BOPBiomes.DEAD_FOREST,    BOPBiomes.DEAD_FOREST,       BOPBiomes.BOREAL_FOREST},
-            {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.REDWOOD_FOREST, BOPBiomes.HIGHLAND,          BOPBiomes.HIGHLAND},
-            {BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,       BOPBiomes.ROCKY_RAINFOREST,  BOPBiomes.RAINFOREST},
-            {BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,      BOPBiomes.VOLCANIC_PLAINS,   BOPBiomes.VOLCANO}
+            {BOPBiomes.TUNDRA,               BOPBiomes.TUNDRA,               BOPBiomes.MUSKEG,          BOPBiomes.SNOWY_MAPLE_WOODS, BOPBiomes.MAPLE_WOODS},
+            {BOPBiomes.SEASONAL_FOREST,      BOPBiomes.SEASONAL_ORCHARD,     Biomes.MEADOW,             Biomes.MEADOW,               Biomes.MEADOW},
+            {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.HIGHLAND,        BOPBiomes.HIGHLAND,          BOPBiomes.HIGHLAND},
+            {BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,        BOPBiomes.ROCKY_RAINFOREST,  BOPBiomes.RAINFOREST},
+            {Biomes.BADLANDS,                Biomes.BADLANDS,                Biomes.WOODED_BADLANDS,    BOPBiomes.VOLCANO,           BOPBiomes.VOLCANO}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null,                      null, null,                             null,                   BOPBiomes.SNOWY_MAPLE_WOODS},
-            {null,                      null, BOPBiomes.OLD_GROWTH_DEAD_FOREST, null,                   null},
-            {BOPBiomes.LAVENDER_FOREST, null, BOPBiomes.ORCHARD,                BOPBiomes.BAMBOO_GROVE, BOPBiomes.HIGHLAND_MOOR},
-            {null,                      null, BOPBiomes.OLD_GROWTH_WOODLAND,    null,                   BOPBiomes.ROCKY_RAINFOREST},
-            {null,                      null, BOPBiomes.WOODED_WASTELAND,       BOPBiomes.VOLCANO,      null}
+            {null,                      null,                      null,                          null, BOPBiomes.SNOWY_MAPLE_WOODS},
+            {null,                      null,                      null,                          null, null},
+            {null,                      BOPBiomes.LAVENDER_FOREST, null,                          null, BOPBiomes.HIGHLAND_MOOR},
+            {null,                      null,                      BOPBiomes.OLD_GROWTH_WOODLAND, null, BOPBiomes.ROCKY_RAINFOREST},
+            {Biomes.ERODED_BADLANDS,    null,                      BOPBiomes.WOODED_WASTELAND,    null, null}
     };
 
     @Override

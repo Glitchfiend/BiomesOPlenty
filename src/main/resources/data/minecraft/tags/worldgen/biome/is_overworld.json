@@ -157,10 +157,6 @@
       "required": false
     },
     {
-      "id": "biomesoplenty:rainbow_hills",
-      "required": false
-    },
-    {
       "id": "biomesoplenty:rainforest",
       "required": false
     },
@@ -182,6 +178,10 @@
     },
     {
       "id": "biomesoplenty:seasonal_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:seasonal_orchard",
       "required": false
     },
     {

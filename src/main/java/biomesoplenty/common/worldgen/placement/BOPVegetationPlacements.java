@@ -49,7 +49,7 @@ public class BOPVegetationPlacements
     public static final RegistryObject<PlacedFeature> PATCH_GRASS_6 = register("patch_grass_6", VegetationFeatures.PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(6));
     public static final RegistryObject<PlacedFeature> PATCH_GRASS_12 = register("patch_grass_12", VegetationFeatures.PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(12));
     public static final RegistryObject<PlacedFeature> PATCH_GRASS_24 = register("patch_grass_24", VegetationFeatures.PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(24));
-    public static final RegistryObject<PlacedFeature> PATCH_ICY_IRIS = register("patch_icy_iris", BOPVegetationFeatures.PATCH_ICY_IRIS, () -> List.of(RarityFilter.onAverageOnceEvery(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final RegistryObject<PlacedFeature> PATCH_ICY_IRIS = register("patch_icy_iris", BOPVegetationFeatures.PATCH_ICY_IRIS, () -> List.of(RarityFilter.onAverageOnceEvery(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final RegistryObject<PlacedFeature> PATCH_LARGE_FERN_NORMAL = register("patch_large_fern_normal", VegetationFeatures.PATCH_LARGE_FERN, RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
     public static final RegistryObject<PlacedFeature> PATCH_LARGE_FERN_EXTRA = register("patch_large_fern_extra", VegetationFeatures.PATCH_LARGE_FERN, RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
     public static final RegistryObject<PlacedFeature> PATCH_SEA_OATS = register("patch_sea_oats", BOPVegetationFeatures.PATCH_SEA_OATS, () -> VegetationPlacements.worldSurfaceSquaredWithCount(3));
@@ -121,7 +121,7 @@ public class BOPVegetationPlacements
     public static final RegistryObject<PlacedFeature> TREES_BAMBOO_GROVE = register("trees_bamboo_grove", BOPVegetationFeatures.TREES_BAMBOO_GROVE, () -> treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_BAYOU = register("trees_bayou", BOPVegetationFeatures.TREES_BAYOU, () -> waterTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_BOG = register("trees_bog", BOPVegetationFeatures.TREES_BOG, () -> treePlacement(PlacementUtils.countExtra(16, 0.2F, 1)));
-    public static final RegistryObject<PlacedFeature> TREES_BOREAL_FOREST = register("trees_boreal_forest", BOPVegetationFeatures.TREES_BOREAL_FOREST, () -> treePlacement(PlacementUtils.countExtra(3, 0.2F, 1)));
+    public static final RegistryObject<PlacedFeature> TREES_BOREAL_FOREST = register("trees_boreal_forest", BOPVegetationFeatures.TREES_BOREAL_FOREST, () -> treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_CHERRY_BLOSSOM_GROVE = register("trees_cherry_blossom_grove", BOPVegetationFeatures.TREES_CHERRY_BLOSSOM_GROVE, () -> treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_CONIFEROUS_FOREST = register("trees_coniferous_forest", BOPVegetationFeatures.TREES_CONIFEROUS_FOREST, () -> treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_DEAD_FOREST = register("trees_dead_forest", BOPVegetationFeatures.TREES_DEAD_FOREST, () -> treePlacement(PlacementUtils.countExtra(2, 0.1F, 1)));
@@ -148,7 +148,6 @@ public class BOPVegetationPlacements
     public static final RegistryObject<PlacedFeature> TREES_WETLAND = register("trees_wetland", BOPVegetationFeatures.TREES_WETLAND, () -> treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_WOODED_SCRUBLAND = register("trees_wooded_scrubland", BOPVegetationFeatures.TREES_WOODED_SCRUBLAND, () -> treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_WOODLAND = register("trees_woodland", TreeFeatures.OAK, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1), Blocks.OAK_SAPLING));
-    public static final RegistryObject<PlacedFeature> TREES_RAINBOW_HILLS = register("trees_rainbow_hills", BOPVegetationFeatures.TREES_RAINBOW_HILLS, () -> treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_RAINFOREST = register("trees_rainforest", BOPVegetationFeatures.TREES_RAINFOREST, () -> treePlacement(PlacementUtils.countExtra(12, 0.2F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_RAINFOREST_CLIFFS = register("trees_rainforest_cliffs", BOPVegetationFeatures.TREES_RAINFOREST_CLIFFS, () -> treePlacement(PlacementUtils.countExtra(20, 0.2F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_RAINFOREST_FLOODPLAIN = register("trees_rainforest_floodplain", BOPVegetationFeatures.TREES_RAINFOREST_FLOODPLAIN, () -> treePlacement(PlacementUtils.countExtra(3, 0.1F, 1)));
@@ -156,6 +155,7 @@ public class BOPVegetationPlacements
     public static final RegistryObject<PlacedFeature> TREES_ROCKY_SHRUBLAND = register("trees_rocky_shrubland", BOPTreeFeatures.OAK_BUSH, () -> treePlacement(PlacementUtils.countExtra(4, 0.05F, 1), Blocks.OAK_SAPLING));
     public static final RegistryObject<PlacedFeature> TREES_SHRUBLAND = register("trees_shrubland", BOPTreeFeatures.OAK_BUSH, () -> treePlacement(PlacementUtils.countExtra(8, 0.1F, 1), Blocks.OAK_SAPLING));
     public static final RegistryObject<PlacedFeature> TREES_SEASONAL_FOREST = register("trees_seasonal_forest", BOPVegetationFeatures.TREES_SEASONAL_FOREST, () -> treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
+    public static final RegistryObject<PlacedFeature> TREES_SEASONAL_ORCHARD = register("trees_seasonal_orchard", BOPVegetationFeatures.TREES_SEASONAL_ORCHARD, () -> treePlacement(PlacementUtils.countExtra(3, 0.2F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_SEASONAL_PUMPKIN_PATCH = register("trees_seasonal_pumpkin_patch", BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH, () -> treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_SNOWY_CONIFEROUS_FOREST = register("trees_snowy_coniferous_forest", BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST, () -> treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
     public static final RegistryObject<PlacedFeature> TREES_SNOWY_MAPLE_FOREST = register("trees_snowy_maple_forest", BOPVegetationFeatures.TREES_SNOWY_MAPLE_FOREST, () -> treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));

@@ -1,11 +1,11 @@
 {
   "values": [
-	{
-      "id": "biomesoplenty:origin_valley",
+    {
+      "id": "biomesoplenty:boreal_forest",
       "required": false
     },
-    {
-      "id": "biomesoplenty:rainbow_hills",
+	{
+      "id": "biomesoplenty:origin_valley",
       "required": false
     },
     {

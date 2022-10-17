@@ -1,15 +1,15 @@
 {
   "values": [
     {
+      "id": "biomesoplenty:boreal_forest",
+      "required": false
+    },
+    {
       "id": "biomesoplenty:cold_desert",
       "required": false
     },
     {
       "id": "biomesoplenty:muskeg",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:rainbow_hills",
       "required": false
     },
     {

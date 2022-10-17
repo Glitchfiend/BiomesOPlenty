@@ -670,22 +670,6 @@
 			]
 		  }
         },
-		"rainbow_hills": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:rainbow_hills"
-				  }
-				}
-			  }
-			]
-		  }
-        },
 		"rainforest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -782,6 +766,22 @@
 			]
 		  }
         },
+		"seasonal_orchard": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "biomesoplenty:seasonal_orchard"
+							}
+						}
+					}
+				]
+			}
+		},
 		"shrubland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1098,13 +1098,13 @@
 		"pasture",
 		"prairie",
 		"pumpkin_patch",
-		"rainbow_hills",
 		"rainforest",
 		"redwood_forest",
 		"rocky_rainforest",
 		"rocky_shrubland",
 		"scrubland",
 		"seasonal_forest",
+		"seasonal_orchard",
 		"shrubland",
 		"snowy_coniferous_forest",
 		"snowy_fir_clearing",
