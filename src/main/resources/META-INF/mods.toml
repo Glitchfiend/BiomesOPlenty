@@ -16,13 +16,13 @@ logoFile="bop_logo.png"
 [[dependencies.biomesoplenty]]
     modId="forge"
     mandatory=true
-    versionRange="[43.0.2,)"
+    versionRange="[43.1.1,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.biomesoplenty]]
     modId="terrablender"
     mandatory=true
-    versionRange="[2.0.1.123,)"
+    versionRange="[2.0.1.128,)"
     ordering="AFTER"
     side="BOTH"

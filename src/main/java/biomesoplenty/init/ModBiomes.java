@@ -29,7 +29,8 @@ public class ModBiomes
     public static void setupTerraBlender()
     {
         // Register our regions
-        Regions.register(new BOPOverworldRegionCommon(ModConfig.GenerationConfig.bopOverworldRegionWeight.get()));
+        Regions.register(new BOPOverworldRegionPrimary(ModConfig.GenerationConfig.bopPrimaryOverworldRegionWeight.get()));
+        Regions.register(new BOPOverworldRegionSecondary(ModConfig.GenerationConfig.bopSecondaryOverworldRegionWeight.get()));
         Regions.register(new BOPOverworldRegionRare(ModConfig.GenerationConfig.bopOverworldRareRegionWeight.get()));
         Regions.register(new BOPNetherRegionCommon(ModConfig.GenerationConfig.bopNetherRegionWeight.get()));
         Regions.register(new BOPNetherRegionRare(ModConfig.GenerationConfig.bopNetherRareRegionWeight.get()));

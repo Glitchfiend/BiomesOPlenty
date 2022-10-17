@@ -90,7 +90,7 @@ public class BOPOverworldBiomeBuilder
             {BOPBiomes.TROPICS,               BOPBiomes.TROPICS,               BOPBiomes.TROPICS,       BOPBiomes.TROPICS,       BOPBiomes.TROPICS}
     };
 
-    private final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{
             {Biomes.SNOWY_PLAINS,  Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA,  Biomes.TAIGA},
             {Biomes.PLAINS,        Biomes.PLAINS,       Biomes.FOREST,       Biomes.TAIGA,        Biomes.OLD_GROWTH_SPRUCE_TAIGA},
             {Biomes.FLOWER_FOREST, Biomes.PLAINS,       Biomes.FOREST,       Biomes.BIRCH_FOREST, Biomes.DARK_FOREST},
@@ -107,19 +107,19 @@ public class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
-            {BOPBiomes.COLD_DESERT,     BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPBiomes.MAPLE_WOODS, BOPBiomes.DEAD_FOREST},
-            {BOPBiomes.SEASONAL_FOREST, BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.CONIFEROUS_FOREST,       BOPBiomes.FIELD,       BOPBiomes.FIELD},
-            {BOPBiomes.PRAIRIE,         BOPBiomes.SHRUBLAND,            BOPBiomes.SHRUBLAND,               BOPBiomes.GRASSLAND,   BOPBiomes.GRASSLAND},
-            {BOPBiomes.SCRUBLAND,       BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,                BOPBiomes.RAINFOREST,  BOPBiomes.RAINFOREST},
-            {BOPBiomes.WASTELAND,       BOPBiomes.WASTELAND,            BOPBiomes.DRYLAND,                 BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT}
+            {BOPBiomes.COLD_DESERT,     BOPBiomes.COLD_DESERT,          BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPBiomes.SNOWY_CONIFEROUS_FOREST},
+            {BOPBiomes.SEASONAL_FOREST, BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.CONIFEROUS_FOREST,       BOPBiomes.FIELD,                   BOPBiomes.FIELD},
+            {BOPBiomes.PRAIRIE,         BOPBiomes.SHRUBLAND,            BOPBiomes.SHRUBLAND,               BOPBiomes.GRASSLAND,               BOPBiomes.GRASSLAND},
+            {BOPBiomes.SCRUBLAND,       BOPBiomes.SCRUBLAND,            BOPBiomes.WOODLAND,                BOPBiomes.RAINFOREST,              BOPBiomes.RAINFOREST},
+            {BOPBiomes.DRYLAND,         BOPBiomes.DRYLAND,              BOPBiomes.LUSH_DESERT,             BOPBiomes.LUSH_DESERT,             BOPBiomes.LUSH_DESERT}
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null,                    null,                         BOPBiomes.SNOWY_FIR_CLEARING,   BOPBiomes.SNOWY_MAPLE_WOODS,  BOPBiomes.OLD_GROWTH_DEAD_FOREST},
+            {null,                    null,                         BOPBiomes.SNOWY_FIR_CLEARING,   BOPBiomes.SNOWY_FIR_CLEARING, null},
             {BOPBiomes.PUMPKIN_PATCH, BOPBiomes.FIR_CLEARING,       null,                           null,                         BOPBiomes.FORESTED_FIELD},
-            {BOPBiomes.PASTURE,       BOPBiomes.LAVENDER_FIELD,     BOPBiomes.REDWOOD_FOREST,       BOPBiomes.CLOVER_PATCH,       BOPBiomes.CHERRY_BLOSSOM_GROVE},
+            {BOPBiomes.PASTURE,       null,                         null,                           null,                         BOPBiomes.CLOVER_PATCH},
             {null,                    null,                         BOPBiomes.OLD_GROWTH_WOODLAND,  null,                         BOPBiomes.ROCKY_RAINFOREST},
-            {null,                    BOPBiomes.WOODED_WASTELAND,   null,                           BOPBiomes.LUSH_SAVANNA,       BOPBiomes.VOLCANIC_PLAINS}
+            {null,                    null,                         null,                           BOPBiomes.LUSH_SAVANNA,       BOPBiomes.LUSH_SAVANNA}
     };
 
     private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
@@ -131,7 +131,7 @@ public class BOPOverworldBiomeBuilder
             {null,            null,            null,              null,                 null}
     };
 
-    private final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
             {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
             {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.FOREST,       Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
             {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.MEADOW,       Biomes.MEADOW,          Biomes.DARK_FOREST},
@@ -148,19 +148,19 @@ public class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_BOP = new ResourceKey[][]{
-            {BOPBiomes.COLD_DESERT,      BOPBiomes.TUNDRA,               BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.MAPLE_WOODS, BOPBiomes.DEAD_FOREST},
+            {BOPBiomes.COLD_DESERT,      BOPBiomes.COLD_DESERT,          BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_CONIFEROUS_FOREST},
             {BOPBiomes.SEASONAL_FOREST,  BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.HIGHLAND,           BOPBiomes.HIGHLAND,    BOPBiomes.FIELD},
             {BOPBiomes.ORCHARD,          BOPBiomes.ROCKY_SHRUBLAND,      BOPBiomes.ROCKY_SHRUBLAND,    BOPBiomes.HIGHLAND,    BOPBiomes.HIGHLAND},
-            {BOPBiomes.WOODED_SCRUBLAND, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  BOPBiomes.ROCKY_RAINFOREST},
-            {BOPBiomes.WASTELAND,        BOPBiomes.WASTELAND,            BOPBiomes.DRYLAND,            BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT}
+            {BOPBiomes.SCRUBLAND,        BOPBiomes.WOODED_SCRUBLAND,     BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  BOPBiomes.ROCKY_RAINFOREST},
+            {BOPBiomes.DRYLAND,          BOPBiomes.DRYLAND,              BOPBiomes.LUSH_DESERT,        BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT}
     };
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null,                    null,                      null, BOPBiomes.SNOWY_MAPLE_WOODS,  null},
-            {BOPBiomes.BOREAL_FOREST, null,                      null, null,                         null},
-            {null,                    BOPBiomes.LAVENDER_FOREST, null, BOPBiomes.HIGHLAND_MOOR,      BOPBiomes.BAMBOO_GROVE},
-            {null,                    null,                      null, BOPBiomes.ROCKY_RAINFOREST,   null},
-            {null,                    null,                      null, BOPBiomes.LUSH_SAVANNA,       BOPBiomes.VOLCANO}
+            {null,                    null, null, null,                       null},
+            {BOPBiomes.BOREAL_FOREST, null, null, null,                       null},
+            {null,                    null, null, BOPBiomes.HIGHLAND_MOOR,    null},
+            {null,                    null, null, BOPBiomes.ROCKY_RAINFOREST, null},
+            {null,                    null, null, null,                       BOPBiomes.LUSH_SAVANNA}
     };
 
     private final ResourceKey<Biome>[][] EXTREME_HILLS = new ResourceKey[][]{
