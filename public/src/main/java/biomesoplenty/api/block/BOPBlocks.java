@@ -297,6 +297,7 @@ public class BOPBlocks
     public static RegistryObject<Block> PUS_BUBBLE;
     public static RegistryObject<Block> FLESH_TENDONS;
     public static RegistryObject<Block> FLESH_TENDONS_STRAND;
+    public static RegistryObject<Block> EYEBULB;
     public static RegistryObject<Block> HAIR;
     public static RegistryObject<Block> BRIMSTONE_BUD;
     public static RegistryObject<Block> BRIMSTONE_CLUSTER;

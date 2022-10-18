@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/eyebulb_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/eyebulb_top" }
+    }
+}

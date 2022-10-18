@@ -369,6 +369,7 @@ public class ModBlocks
         PUS_BUBBLE = registerBlock(() -> new PusBubbleBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_PINK).noCollission().instabreak().sound(new SoundType(1.0F, 1.0F, SoundEvents.LAVA_POP, SoundEvents.LAVA_POP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.LAVA_POP, SoundEvents.LAVA_POP))), "pus_bubble");
         FLESH_TENDONS = registerBlock(() -> new FleshTendonsBottomBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh_tendons");
         FLESH_TENDONS_STRAND = registerBlockNoGroup(() -> new FleshTendonsBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh_tendons_strand");
+        EYEBULB = registerBlock(() -> new EyebulbBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL)).offsetType(BlockBehaviour.OffsetType.NONE)), "eyebulb");
         HAIR = registerBlock(() -> new HairBlock(BlockBehaviour.Properties.of(Material.WOOL, MaterialColor.RAW_IRON).noCollission().instabreak().sound(SoundType.WOOL).offsetType(BlockBehaviour.OffsetType.XYZ)), "hair");
         BRIMSTONE_BUD = registerBlock(() -> new BrimstoneBudBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).noCollission().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ)), "brimstone_bud");
         BRIMSTONE_CLUSTER = registerBlock(() -> new BrimstoneClusterBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.NONE)), "brimstone_cluster");
@@ -516,6 +517,7 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(PUS_BUBBLE.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(FLESH_TENDONS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(FLESH_TENDONS_STRAND.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(EYEBULB.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(HAIR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_BUD.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_CLUSTER.get(), cutoutRenderType);
