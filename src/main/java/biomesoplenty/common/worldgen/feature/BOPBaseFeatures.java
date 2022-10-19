@@ -42,6 +42,7 @@ public class BOPBaseFeatures
     public static final BOPTreeFeature<MahoganyTreeConfiguration> MAHOGANY_TREE = register("mahogany_tree", new MahoganyTreeFeature(MahoganyTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> MEDIUM_GLOWSHROOM = register("medium_glowshroom", new MediumGlowshroomFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> MOSS_SPLATTER = register("moss_splatter", new MossSplatterFeature(NoneFeatureConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> MUD_SPLATTER = register("mud_splatter", new MudSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> MYCELIUM_SPLATTER = register("mycelium_splatter", new MyceliumSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> NETHER_VINES = register("nether_vines", new NetherVinesFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> OBSIDIAN_SPLATTER = register("obsidian_splatter", new ObsidianSplatterFeature(NoneFeatureConfiguration.CODEC));

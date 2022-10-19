@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen.feature.misc;
 
-import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -18,9 +17,9 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class GrassSplatterFeature extends Feature<NoneFeatureConfiguration>
+public class MudSplatterFeature extends Feature<NoneFeatureConfiguration>
 {
-    public GrassSplatterFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public MudSplatterFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
@@ -50,15 +49,15 @@ public class GrassSplatterFeature extends Feature<NoneFeatureConfiguration>
                         BlockState blockstate = worldIn.getBlockState(blockpos);
                         BlockState blockstate1 = worldIn.getBlockState(blockpos.above());
 
-                        if (blockstate.getBlock() == BOPBlocks.BLACK_SAND.get() && this.isAir(worldIn, blockpos.above()))
+                        if (blockstate.getBlock() == Blocks.GRASS_BLOCK)
                         {
-                            if (rand.nextInt(2) == 0)
+                            if (rand.nextInt(3) == 0)
                             {
-                                worldIn.setBlock(blockpos, Blocks.GRASS_BLOCK.defaultBlockState(), 2);
+                                worldIn.setBlock(blockpos, Blocks.MUD.defaultBlockState(), 2);
 
-                                if (rand.nextInt(3) == 0)
+                                if (rand.nextInt(15) == 0)
                                 {
-                                    worldIn.setBlock(blockpos.above(), Blocks.FERN.defaultBlockState(), 2);
+                                    worldIn.setBlock(blockpos.above(), Blocks.DEAD_BUSH.defaultBlockState(), 2);
                                 }
                             }
 
