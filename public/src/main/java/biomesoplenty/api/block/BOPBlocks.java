@@ -45,6 +45,7 @@ public class BOPBlocks
     public static RegistryObject<Block> ORIGIN_GRASS_BLOCK;
     public static RegistryObject<Block> ROOTED_SAND;
     public static RegistryObject<Block> DRIED_SALT;
+
     public static RegistryObject<Block> FLESH;
     public static RegistryObject<Block> POROUS_FLESH;
     public static RegistryObject<Block> BRIMSTONE;
@@ -55,6 +56,7 @@ public class BOPBlocks
     public static RegistryObject<Block> GLOWING_MOSS_CARPET;
     public static RegistryObject<Block> GLOWING_MOSS_BLOCK;
     public static RegistryObject<Block> SPIDER_EGG;
+
     public static RegistryObject<Block> ORIGIN_SAPLING;
     public static RegistryObject<Block> ORIGIN_LEAVES;
     public static RegistryObject<Block> FLOWERING_OAK_SAPLING;
@@ -256,6 +258,7 @@ public class BOPBlocks
     public static RegistryObject<Block> HELLBARK_BUTTON;
     public static RegistryObject<Block> HELLBARK_SIGN;
     public static RegistryObject<Block> HELLBARK_WALL_SIGN;
+
     public static RegistryObject<Block> ROSE;
     public static RegistryObject<Block> VIOLET;
     public static RegistryObject<Block> LAVENDER;
@@ -266,6 +269,7 @@ public class BOPBlocks
     public static RegistryObject<Block> GLOWFLOWER;
     public static RegistryObject<Block> WILTED_LILY;
     public static RegistryObject<Block> BURNING_BLOSSOM;
+    public static RegistryObject<Block> TALL_LAVENDER;
     public static RegistryObject<Block> BLUE_HYDRANGEA;
     public static RegistryObject<Block> GOLDENROD;
     public static RegistryObject<Block> ICY_IRIS;
@@ -278,6 +282,7 @@ public class BOPBlocks
     public static RegistryObject<Block> HANGING_COBWEB_STRAND;
     public static RegistryObject<Block> STRINGY_COBWEB;
     public static RegistryObject<Block> WEBBING;
+
     public static RegistryObject<Block> SPROUT;
     public static RegistryObject<Block> BUSH;
     public static RegistryObject<Block> CLOVER;
@@ -294,6 +299,7 @@ public class BOPBlocks
     public static RegistryObject<Block> BRAMBLE;
     public static RegistryObject<Block> TOADSTOOL;
     public static RegistryObject<Block> GLOWSHROOM;
+
     public static RegistryObject<Block> PUS_BUBBLE;
     public static RegistryObject<Block> FLESH_TENDONS;
     public static RegistryObject<Block> FLESH_TENDONS_STRAND;

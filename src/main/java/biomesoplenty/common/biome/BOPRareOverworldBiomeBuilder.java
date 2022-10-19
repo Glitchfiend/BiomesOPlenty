@@ -18,11 +18,11 @@ import java.util.function.Consumer;
 public class BOPRareOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
 {
     private final ResourceKey<Biome>[][] RARE_BIOMES_BOP = new ResourceKey[][]{
-            {null, null, null,                    null,                    null},
-            {null, null, BOPBiomes.OMINOUS_WOODS, null,                    null},
-            {null, null, null,                    null,                    BOPBiomes.MYSTIC_GROVE},
-            {null, null, null,                    BOPBiomes.FUNGAL_JUNGLE, null},
-            {null, null, null,                    null,                    null}
+            {null, null, null,                    BOPBiomes.AURORAL_GARDEN, null},
+            {null, null, BOPBiomes.OMINOUS_WOODS, null,                     null},
+            {null, null, null,                    BOPBiomes.MYSTIC_GROVE,   null},
+            {null, null, null,                    null,                     BOPBiomes.FUNGAL_JUNGLE},
+            {null, null, null,                    null,                     null}
     };
 
     @Override

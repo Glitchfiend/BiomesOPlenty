@@ -14,6 +14,22 @@
         "announce_to_chat": false
     },
     "criteria": {
+		"auroral_garden": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "biomesoplenty:auroral_garden"
+							}
+						}
+					}
+				]
+			}
+		},
 		"bamboo_grove": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -56,22 +72,6 @@
 				"predicate": {
 				  "location": {
 					"biome": "biomesoplenty:bog"
-				  }
-				}
-			  }
-			]
-		  }
-        },
-        "boreal_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:boreal_forest"
 				  }
 				}
 			  }
@@ -1057,10 +1057,10 @@
     },
 	"requirements": [
         [
+		"auroral_garden",
 		"bamboo_grove",
 		"bayou",
 		"bog",
-		"boreal_forest",
 		"cherry_blossom_grove",
 		"clover_patch",
 		"cold_desert",

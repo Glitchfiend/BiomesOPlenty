@@ -330,6 +330,7 @@ public class ModBlocks
         BURNING_BLOSSOM = registerBlock(() -> new FlowerBlockBOP(MobEffects.FIRE_RESISTANCE, 7, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 7)), "burning_blossom");
 
         //Tall Flowers
+        TALL_LAVENDER = registerBlock(() -> new TallFlowerBlockBOP(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "tall_lavender");
         BLUE_HYDRANGEA = registerBlock(() -> new TallFlowerBlockBOP(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "blue_hydrangea");
         GOLDENROD = registerBlock(() -> new TallFlowerBlockBOP(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "goldenrod");
         ICY_IRIS = registerBlock(() -> new TallFlowerBlockBOP(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "icy_iris");
@@ -486,6 +487,7 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(GLOWFLOWER.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(WILTED_LILY.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BURNING_BLOSSOM.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(TALL_LAVENDER.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BLUE_HYDRANGEA.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(GOLDENROD.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(ICY_IRIS.get(), cutoutRenderType);

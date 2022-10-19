@@ -42,10 +42,10 @@ public class ModBiomes
 
     public static void registerBiomes()
     {
+        registerBiome(BOPBiomes.AURORAL_GARDEN, () -> BOPOverworldBiomes.auroralGarden());
         registerBiome(BOPBiomes.BAMBOO_GROVE, () -> BOPOverworldBiomes.bambooGrove());
         registerBiome(BOPBiomes.BAYOU, () -> BOPOverworldBiomes.bayou());
         registerBiome(BOPBiomes.BOG, () -> BOPOverworldBiomes.bog());
-        registerBiome(BOPBiomes.BOREAL_FOREST, () -> BOPOverworldBiomes.borealForest());
         registerBiome(BOPBiomes.CHERRY_BLOSSOM_GROVE, () -> BOPOverworldBiomes.cherryBlossomGrove());
         registerBiome(BOPBiomes.CLOVER_PATCH, () -> BOPOverworldBiomes.cloverPatch());
         registerBiome(BOPBiomes.COLD_DESERT, () -> BOPOverworldBiomes.coldDesert());
@@ -60,8 +60,8 @@ public class ModBiomes
         registerBiome(BOPBiomes.FORESTED_FIELD, () -> BOPOverworldBiomes.field(true));
         registerBiome(BOPBiomes.FUNGAL_JUNGLE, () -> BOPOverworldBiomes.fungalJungle());
         registerBiome(BOPBiomes.GRASSLAND, () -> BOPOverworldBiomes.grassland());
-        registerBiome(BOPBiomes.HIGHLAND, () -> BOPOverworldBiomes.highland(false));
-        registerBiome(BOPBiomes.HIGHLAND_MOOR, () -> BOPOverworldBiomes.highland(true));
+        registerBiome(BOPBiomes.HIGHLAND, () -> BOPOverworldBiomes.highland());
+        registerBiome(BOPBiomes.HIGHLAND_MOOR, () -> BOPOverworldBiomes.highlandMoor());
         registerBiome(BOPBiomes.JADE_CLIFFS, () -> BOPOverworldBiomes.jadeCliffs());
         registerBiome(BOPBiomes.LAVENDER_FIELD, () -> BOPOverworldBiomes.lavenderField(false));
         registerBiome(BOPBiomes.LAVENDER_FOREST, () -> BOPOverworldBiomes.lavenderField(true));
@@ -115,10 +115,10 @@ public class ModBiomes
 
     private static void registerVillagerTypes()
     {
+        registerVillagerType(BOPBiomes.AURORAL_GARDEN, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.BAMBOO_GROVE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.BAYOU, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.BOG, VillagerType.SWAMP);
-        registerVillagerType(BOPBiomes.BOREAL_FOREST, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.CHERRY_BLOSSOM_GROVE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.CLOVER_PATCH, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.COLD_DESERT, VillagerType.SNOW);

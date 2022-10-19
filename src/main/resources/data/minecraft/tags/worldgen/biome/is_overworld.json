@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "biomesoplenty:auroral_garden",
+      "required": false
+    },
+    {
       "id": "biomesoplenty:bamboo_grove",
       "required": false
     },
@@ -10,10 +14,6 @@
     },
     {
       "id": "biomesoplenty:bog",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:boreal_forest",
       "required": false
     },
     {

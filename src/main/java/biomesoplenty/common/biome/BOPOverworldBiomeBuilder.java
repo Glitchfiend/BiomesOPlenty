@@ -83,7 +83,7 @@ public class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] ISLAND_BIOMES_BOP = new ResourceKey[][]{
-            {BOPBiomes.BOREAL_FOREST,         BOPBiomes.BOREAL_FOREST,         BOPBiomes.BOREAL_FOREST, BOPBiomes.BOREAL_FOREST, BOPBiomes.BOREAL_FOREST},
+            {null,                            null,                            null,                    null,                    null},
             {null,                            null,                            null,                    null,                    null},
             {BOPBiomes.ORIGIN_VALLEY,         BOPBiomes.ORIGIN_VALLEY,         BOPBiomes.ORIGIN_VALLEY, BOPBiomes.ORIGIN_VALLEY, BOPBiomes.ORIGIN_VALLEY},
             {BOPBiomes.TROPICS,               BOPBiomes.TROPICS,               BOPBiomes.TROPICS,       BOPBiomes.TROPICS,       BOPBiomes.TROPICS},

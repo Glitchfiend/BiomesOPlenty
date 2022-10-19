@@ -19,10 +19,10 @@ public class BOPBiomes
     private static List<ResourceKey<Biome>> overworldBiomes = Lists.newArrayList();
     private static List<ResourceKey<Biome>> allBiomes = Lists.newArrayList();
 
+    public static final ResourceKey<Biome> AURORAL_GARDEN = registerOverworld("auroral_garden");
     public static final ResourceKey<Biome> BAMBOO_GROVE = registerOverworld("bamboo_grove");
     public static final ResourceKey<Biome> BAYOU = registerOverworld("bayou");
     public static final ResourceKey<Biome> BOG = registerOverworld("bog");
-    public static final ResourceKey<Biome> BOREAL_FOREST = registerOverworld("boreal_forest");
     public static final ResourceKey<Biome> CHERRY_BLOSSOM_GROVE = registerOverworld("cherry_blossom_grove");
     public static final ResourceKey<Biome> CLOVER_PATCH = registerOverworld("clover_patch");
     public static final ResourceKey<Biome> COLD_DESERT = registerOverworld("cold_desert");

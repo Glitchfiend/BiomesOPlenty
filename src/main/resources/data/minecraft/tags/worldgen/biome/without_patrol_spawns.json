@@ -1,9 +1,5 @@
 {
   "values": [
-    {
-      "id": "biomesoplenty:boreal_forest",
-      "required": false
-    },
 	{
       "id": "biomesoplenty:origin_valley",
       "required": false
