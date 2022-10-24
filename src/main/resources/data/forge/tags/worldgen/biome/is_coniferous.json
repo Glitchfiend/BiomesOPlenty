@@ -1,14 +1,45 @@
 {
-  "values": [
-    "biomesoplenty:coniferous_forest",
-    "biomesoplenty:fir_clearing",
-    "biomesoplenty:field",
-    "biomesoplenty:forested_field",
-    "biomesoplenty:jade_cliffs",
-    "biomesoplenty:maple_woods",
-    "biomesoplenty:ominous_woods",
-    "biomesoplenty:snowy_coniferous_forest",
-    "biomesoplenty:snowy_fir_clearing",
-    "biomesoplenty:snowy_maple_woods"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:forested_field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:jade_cliffs",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:ominous_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_maple_woods",
+            "required": false
+        }
+	]
 }

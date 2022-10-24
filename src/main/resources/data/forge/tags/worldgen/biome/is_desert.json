@@ -1,6 +1,13 @@
 {
-  "values": [
-    "biomesoplenty:lush_desert",
-    "biomesoplenty:cold_desert"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:lush_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:cold_desert",
+            "required": false
+        }
+	]
 }

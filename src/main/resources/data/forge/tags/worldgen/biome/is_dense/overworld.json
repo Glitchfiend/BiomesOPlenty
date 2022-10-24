@@ -1,13 +1,41 @@
 {
-  "values": [
-    "biomesoplenty:auroral_garden",
-    "biomesoplenty:coniferous_forest",
-    "biomesoplenty:lavender_forest",
-    "biomesoplenty:maple_woods",
-    "biomesoplenty:old_growth_woodland",
-    "biomesoplenty:rainforest",
-    "biomesoplenty:redwood_forest",
-    "biomesoplenty:rocky_rainforest",
-    "biomesoplenty:snowy_maple_woods"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:auroral_garden",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lavender_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:old_growth_woodland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:redwood_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rocky_rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_maple_woods",
+            "required": false
+        }
+	]
 }

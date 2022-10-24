@@ -1,7 +1,17 @@
 {
-  "values": [
-    "biomesoplenty:dune_beach",
-    "biomesoplenty:lush_desert",
-    "biomesoplenty:dryland"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:dune_beach",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lush_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dryland",
+            "required": false
+        }
+	]
 }

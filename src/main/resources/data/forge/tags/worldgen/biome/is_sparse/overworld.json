@@ -1,29 +1,105 @@
 {
-  "values": [
-    "biomesoplenty:bog",
-    "biomesoplenty:clover_patch",
-    "biomesoplenty:cold_desert",
-    "biomesoplenty:crag",
-    "biomesoplenty:dead_forest",
-    "biomesoplenty:dryland",
-    "biomesoplenty:fir_clearing",
-    "biomesoplenty:grassland",
-    "biomesoplenty:highland",
-    "biomesoplenty:highland_moor",
-    "biomesoplenty:lush_desert",
-    "biomesoplenty:lush_savanna",
-    "biomesoplenty:marsh",
-    "biomesoplenty:muskeg",
-    "biomesoplenty:orchard",
-    "biomesoplenty:prairie",
-    "biomesoplenty:pumpkin_patch",
-    "biomesoplenty:shrubland",
-    "biomesoplenty:snowy_fir_clearing",
-    "biomesoplenty:tundra",
-    "biomesoplenty:volcanic_plains",
-    "biomesoplenty:volcano",
-    "biomesoplenty:wasteland",
-    "biomesoplenty:wooded_scrubland",
-    "biomesoplenty:wooded_wasteland"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:bog",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:clover_patch",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:cold_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:crag",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dead_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dryland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:grassland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:highland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:highland_moor",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lush_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lush_savanna",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:marsh",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:muskeg",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:orchard",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:prairie",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:pumpkin_patch",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:shrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tundra",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcanic_plains",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcano",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wasteland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wooded_scrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wooded_wasteland",
+            "required": false
+        }
+	]
 }

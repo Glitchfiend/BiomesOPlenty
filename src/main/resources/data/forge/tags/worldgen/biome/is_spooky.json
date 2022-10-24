@@ -1,6 +1,13 @@
 {
-  "values": [
-    "biomesoplenty:ominous_woods",
-    "biomesoplenty:spider_nest"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:ominous_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:spider_nest",
+            "required": false
+        }
+	]
 }

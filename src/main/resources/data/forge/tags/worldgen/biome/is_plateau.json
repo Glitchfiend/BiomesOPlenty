@@ -1,5 +1,9 @@
 {
-  "values": [
-    "biomesoplenty:rocky_rainforest"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:rocky_rainforest",
+            "required": false
+        }
+	]
 }

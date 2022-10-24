@@ -1,9 +1,25 @@
 {
-  "values": [
-    "biomesoplenty:crag",
-    "biomesoplenty:volcanic_plains",
-    "biomesoplenty:volcano",
-    "biomesoplenty:wasteland",
-    "biomesoplenty:wooded_wasteland"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:crag",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcanic_plains",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcano",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wasteland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wooded_wasteland",
+            "required": false
+        }
+	]
 }

@@ -1,16 +1,53 @@
 {
-  "values": [
-    "biomesoplenty:auroral_garden",
-    "biomesoplenty:bog",
-    "biomesoplenty:cold_desert",
-    "biomesoplenty:dead_forest",
-    "biomesoplenty:maple_woods",
-    "biomesoplenty:muskeg",
-    "biomesoplenty:old_growth_dead_forest",
-    "biomesoplenty:ominous_woods",
-    "biomesoplenty:snowy_coniferous_forest",
-    "biomesoplenty:snowy_fir_clearing",
-    "biomesoplenty:snowy_maple_woods",
-    "biomesoplenty:tundra"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:auroral_garden",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:bog",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:cold_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dead_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:muskeg",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:old_growth_dead_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:ominous_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tundra",
+            "required": false
+        }
+	]
 }

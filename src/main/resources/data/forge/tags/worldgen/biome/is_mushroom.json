@@ -1,6 +1,13 @@
 {
-  "values": [
-    "biomesoplenty:fungal_jungle",
-	"biomesoplenty:glowing_grotto"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:fungal_jungle",
+            "required": false
+        },
+	    {
+            "id": "biomesoplenty:glowing_grotto",
+            "required": false
+        }
+	]
 }

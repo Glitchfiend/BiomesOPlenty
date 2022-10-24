@@ -1,19 +1,65 @@
 {
-  "values": [
-    "biomesoplenty:bayou",
-    "biomesoplenty:dryland",
-    "biomesoplenty:floodplain",
-    "biomesoplenty:fungal_jungle",
-    "biomesoplenty:lush_desert",
-    "biomesoplenty:lush_savanna",
-    "biomesoplenty:rainforest",
-    "biomesoplenty:rocky_rainforest",
-    "biomesoplenty:shrubland",
-    "biomesoplenty:tropics",
-    "biomesoplenty:volcanic_plains",
-    "biomesoplenty:volcano",
-    "biomesoplenty:wasteland",
-    "biomesoplenty:wooded_scrubland",
-    "biomesoplenty:wooded_wasteland"
-  ]
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:bayou",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dryland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:floodplain",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fungal_jungle",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lush_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:lush_savanna",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rocky_rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:shrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tropics",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcanic_plains",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcano",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wasteland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wooded_scrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wooded_wasteland",
+            "required": false
+        }
+	]
 }
