@@ -52,11 +52,11 @@ public class ModBlocks
         //Terrain
         WHITE_SAND = registerBlock(() -> new SandBlockBOP(0xF3F1E4, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.QUARTZ).strength(0.5F).sound(SoundType.SAND)), "white_sand");
         WHITE_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(0.8F)), "white_sandstone");
-        WHITE_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(WHITE_SANDSTONE.get().defaultBlockState(), Block.Properties.copy(WHITE_SANDSTONE.get())), "white_sandstone_stairs");
+        WHITE_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(WHITE_SANDSTONE.get()::defaultBlockState, Block.Properties.copy(WHITE_SANDSTONE.get())), "white_sandstone_stairs");
         WHITE_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(WHITE_SANDSTONE.get())), "white_sandstone_slab");
         WHITE_SANDSTONE_WALL = registerBlock(() -> new WallBlock(Block.Properties.copy(WHITE_SANDSTONE.get())), "white_sandstone_wall");
         SMOOTH_WHITE_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(2.0F, 6.0F)), "smooth_white_sandstone");
-        SMOOTH_WHITE_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(WHITE_SANDSTONE.get().defaultBlockState(), Block.Properties.copy(SMOOTH_WHITE_SANDSTONE.get())), "smooth_white_sandstone_stairs");
+        SMOOTH_WHITE_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(WHITE_SANDSTONE.get()::defaultBlockState, Block.Properties.copy(SMOOTH_WHITE_SANDSTONE.get())), "smooth_white_sandstone_stairs");
         SMOOTH_WHITE_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(SMOOTH_WHITE_SANDSTONE.get())), "smooth_white_sandstone_slab");
         CUT_WHITE_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.QUARTZ).strength(0.8F)), "cut_white_sandstone");
         CUT_WHITE_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(CUT_WHITE_SANDSTONE.get())), "cut_white_sandstone_slab");
@@ -64,11 +64,11 @@ public class ModBlocks
 
         ORANGE_SAND = registerBlock(() -> new SandBlockBOP(0xCC9A61, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.COLOR_ORANGE).strength(0.5F).sound(SoundType.SAND)), "orange_sand");
         ORANGE_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).strength(0.8F)), "orange_sandstone");
-        ORANGE_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(ORANGE_SANDSTONE.get().defaultBlockState(), Block.Properties.copy(ORANGE_SANDSTONE.get())), "orange_sandstone_stairs");
+        ORANGE_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(ORANGE_SANDSTONE.get()::defaultBlockState, Block.Properties.copy(ORANGE_SANDSTONE.get())), "orange_sandstone_stairs");
         ORANGE_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(ORANGE_SANDSTONE.get())), "orange_sandstone_slab");
         ORANGE_SANDSTONE_WALL = registerBlock(() -> new WallBlock(Block.Properties.copy(ORANGE_SANDSTONE.get())), "orange_sandstone_wall");
         SMOOTH_ORANGE_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).strength(2.0F, 6.0F)), "smooth_orange_sandstone");
-        SMOOTH_ORANGE_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(ORANGE_SANDSTONE.get().defaultBlockState(), Block.Properties.copy(SMOOTH_ORANGE_SANDSTONE.get())), "smooth_orange_sandstone_stairs");
+        SMOOTH_ORANGE_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(ORANGE_SANDSTONE.get()::defaultBlockState, Block.Properties.copy(SMOOTH_ORANGE_SANDSTONE.get())), "smooth_orange_sandstone_stairs");
         SMOOTH_ORANGE_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(SMOOTH_ORANGE_SANDSTONE.get())), "smooth_orange_sandstone_slab");
         CUT_ORANGE_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).strength(0.8F)), "cut_orange_sandstone");
         CUT_ORANGE_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(CUT_ORANGE_SANDSTONE.get())), "cut_orange_sandstone_slab");
@@ -76,11 +76,11 @@ public class ModBlocks
 
         BLACK_SAND = registerBlock(() -> new SandBlockBOP(0x2D2C2F, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.COLOR_BLACK).strength(0.5F).sound(SoundType.SAND)), "black_sand");
         BLACK_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(0.8F)), "black_sandstone");
-        BLACK_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(BLACK_SANDSTONE.get().defaultBlockState(), Block.Properties.copy(BLACK_SANDSTONE.get())), "black_sandstone_stairs");
+        BLACK_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(BLACK_SANDSTONE.get()::defaultBlockState, Block.Properties.copy(BLACK_SANDSTONE.get())), "black_sandstone_stairs");
         BLACK_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(BLACK_SANDSTONE.get())), "black_sandstone_slab");
         BLACK_SANDSTONE_WALL = registerBlock(() -> new WallBlock(Block.Properties.copy(BLACK_SANDSTONE.get())), "black_sandstone_wall");
         SMOOTH_BLACK_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(2.0F, 6.0F)), "smooth_black_sandstone");
-        SMOOTH_BLACK_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(BLACK_SANDSTONE.get().defaultBlockState(), Block.Properties.copy(SMOOTH_BLACK_SANDSTONE.get())), "smooth_black_sandstone_stairs");
+        SMOOTH_BLACK_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(BLACK_SANDSTONE.get()::defaultBlockState, Block.Properties.copy(SMOOTH_BLACK_SANDSTONE.get())), "smooth_black_sandstone_stairs");
         SMOOTH_BLACK_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(SMOOTH_BLACK_SANDSTONE.get())), "smooth_black_sandstone_slab");
         CUT_BLACK_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).strength(0.8F)), "cut_black_sandstone");
         CUT_BLACK_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(CUT_BLACK_SANDSTONE.get())), "cut_black_sandstone_slab");
@@ -124,7 +124,7 @@ public class ModBlocks
         STRIPPED_FIR_LOG = registerBlock(() -> Blocks.log(MaterialColor.TERRACOTTA_WHITE, MaterialColor.TERRACOTTA_WHITE), "stripped_fir_log");
         STRIPPED_FIR_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F).sound(SoundType.WOOD)), "stripped_fir_wood");
         FIR_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_planks");
-        FIR_STAIRS = registerBlock(() -> new StairBlock(FIR_PLANKS.get().defaultBlockState(), Block.Properties.copy(FIR_PLANKS.get())), "fir_stairs");
+        FIR_STAIRS = registerBlock(() -> new StairBlock(FIR_PLANKS.get()::defaultBlockState, Block.Properties.copy(FIR_PLANKS.get())), "fir_stairs");
         FIR_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_slab");
         FIR_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, FIR_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence");
         FIR_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, FIR_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence_gate");
@@ -142,7 +142,7 @@ public class ModBlocks
         STRIPPED_REDWOOD_LOG = registerBlock(() -> Blocks.log(MaterialColor.TERRACOTTA_ORANGE, MaterialColor.TERRACOTTA_ORANGE), "stripped_redwood_log");
         STRIPPED_REDWOOD_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_ORANGE).strength(2.0F).sound(SoundType.WOOD)), "stripped_redwood_wood");
         REDWOOD_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_ORANGE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_planks");
-        REDWOOD_STAIRS = registerBlock(() -> new StairBlock(REDWOOD_PLANKS.get().defaultBlockState(), Block.Properties.copy(REDWOOD_PLANKS.get())), "redwood_stairs");
+        REDWOOD_STAIRS = registerBlock(() -> new StairBlock(REDWOOD_PLANKS.get()::defaultBlockState, Block.Properties.copy(REDWOOD_PLANKS.get())), "redwood_stairs");
         REDWOOD_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_ORANGE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_slab");
         REDWOOD_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_fence");
         REDWOOD_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "redwood_fence_gate");
@@ -162,7 +162,7 @@ public class ModBlocks
         STRIPPED_CHERRY_LOG = registerBlock(() -> log(MaterialColor.COLOR_RED, MaterialColor.COLOR_RED), "stripped_cherry_log");
         STRIPPED_CHERRY_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F).sound(SoundType.WOOD)), "stripped_cherry_wood");
         CHERRY_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_planks");
-        CHERRY_STAIRS = registerBlock(() -> new StairBlock(CHERRY_PLANKS.get().defaultBlockState(), Block.Properties.copy(CHERRY_PLANKS.get())), "cherry_stairs");
+        CHERRY_STAIRS = registerBlock(() -> new StairBlock(CHERRY_PLANKS.get()::defaultBlockState, Block.Properties.copy(CHERRY_PLANKS.get())), "cherry_stairs");
         CHERRY_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_slab");
         CHERRY_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, CHERRY_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_fence");
         CHERRY_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, CHERRY_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "cherry_fence_gate");
@@ -180,7 +180,7 @@ public class ModBlocks
         STRIPPED_MAHOGANY_LOG = registerBlock(() -> log(MaterialColor.TERRACOTTA_PINK, MaterialColor.TERRACOTTA_PINK), "stripped_mahogany_log");
         STRIPPED_MAHOGANY_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_PINK).strength(2.0F).sound(SoundType.WOOD)), "stripped_mahogany_wood");
         MAHOGANY_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_PINK).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_planks");
-        MAHOGANY_STAIRS = registerBlock(() -> new StairBlock(MAHOGANY_PLANKS.get().defaultBlockState(), Block.Properties.copy(MAHOGANY_PLANKS.get())), "mahogany_stairs");
+        MAHOGANY_STAIRS = registerBlock(() -> new StairBlock(MAHOGANY_PLANKS.get()::defaultBlockState, Block.Properties.copy(MAHOGANY_PLANKS.get())), "mahogany_stairs");
         MAHOGANY_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_PINK).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_slab");
         MAHOGANY_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, MAHOGANY_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_fence");
         MAHOGANY_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, MAHOGANY_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "mahogany_fence_gate");
@@ -198,7 +198,7 @@ public class ModBlocks
         STRIPPED_JACARANDA_LOG = registerBlock(() -> Blocks.log(MaterialColor.TERRACOTTA_WHITE, MaterialColor.TERRACOTTA_WHITE), "stripped_jacaranda_log");
         STRIPPED_JACARANDA_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F).sound(SoundType.WOOD)), "stripped_jacaranda_wood");
         JACARANDA_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_planks");
-        JACARANDA_STAIRS = registerBlock(() -> new StairBlock(JACARANDA_PLANKS.get().defaultBlockState(), Block.Properties.copy(JACARANDA_PLANKS.get())), "jacaranda_stairs");
+        JACARANDA_STAIRS = registerBlock(() -> new StairBlock(JACARANDA_PLANKS.get()::defaultBlockState, Block.Properties.copy(JACARANDA_PLANKS.get())), "jacaranda_stairs");
         JACARANDA_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_slab");
         JACARANDA_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, JACARANDA_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_fence");
         JACARANDA_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, JACARANDA_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "jacaranda_fence_gate");
@@ -216,7 +216,7 @@ public class ModBlocks
         STRIPPED_PALM_LOG = registerBlock(() -> Blocks.log(MaterialColor.TERRACOTTA_YELLOW, MaterialColor.TERRACOTTA_YELLOW), "stripped_palm_log");
         STRIPPED_PALM_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_YELLOW).strength(2.0F).sound(SoundType.WOOD)), "stripped_palm_wood");
         PALM_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_YELLOW).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_planks");
-        PALM_STAIRS = registerBlock(() -> new StairBlock(PALM_PLANKS.get().defaultBlockState(), Block.Properties.copy(PALM_PLANKS.get())), "palm_stairs");
+        PALM_STAIRS = registerBlock(() -> new StairBlock(PALM_PLANKS.get()::defaultBlockState, Block.Properties.copy(PALM_PLANKS.get())), "palm_stairs");
         PALM_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_YELLOW).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_slab");
         PALM_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, PALM_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence");
         PALM_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, PALM_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence_gate");
@@ -234,7 +234,7 @@ public class ModBlocks
         STRIPPED_WILLOW_LOG = registerBlock(() -> Blocks.log(MaterialColor.TERRACOTTA_LIGHT_GREEN, MaterialColor.TERRACOTTA_LIGHT_GREEN), "stripped_willow_log");
         STRIPPED_WILLOW_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_LIGHT_GREEN).strength(2.0F).sound(SoundType.WOOD)), "stripped_willow_wood");
         WILLOW_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_LIGHT_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_planks");
-        WILLOW_STAIRS = registerBlock(() -> new StairBlock(WILLOW_PLANKS.get().defaultBlockState(), Block.Properties.copy(WILLOW_PLANKS.get())), "willow_stairs");
+        WILLOW_STAIRS = registerBlock(() -> new StairBlock(WILLOW_PLANKS.get()::defaultBlockState, Block.Properties.copy(WILLOW_PLANKS.get())), "willow_stairs");
         WILLOW_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_LIGHT_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_slab");
         WILLOW_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, WILLOW_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_fence");
         WILLOW_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, WILLOW_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_fence_gate");
@@ -252,7 +252,7 @@ public class ModBlocks
         STRIPPED_DEAD_LOG = registerBlock(() -> Blocks.log(MaterialColor.STONE, MaterialColor.STONE), "stripped_dead_log");
         STRIPPED_DEAD_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.STONE).strength(2.0F).sound(SoundType.WOOD)), "stripped_dead_wood");
         DEAD_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.STONE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_planks");
-        DEAD_STAIRS = registerBlock(() -> new StairBlock(DEAD_PLANKS.get().defaultBlockState(), Block.Properties.copy(DEAD_PLANKS.get())), "dead_stairs");
+        DEAD_STAIRS = registerBlock(() -> new StairBlock(DEAD_PLANKS.get()::defaultBlockState, Block.Properties.copy(DEAD_PLANKS.get())), "dead_stairs");
         DEAD_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.STONE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_slab");
         DEAD_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, DEAD_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_fence");
         DEAD_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, DEAD_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "dead_fence_gate");
@@ -270,7 +270,7 @@ public class ModBlocks
         STRIPPED_MAGIC_LOG = registerBlock(() -> Blocks.log(MaterialColor.COLOR_BLUE, MaterialColor.COLOR_BLUE), "stripped_magic_log");
         STRIPPED_MAGIC_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(2.0F).sound(SoundType.WOOD)), "stripped_magic_wood");
         MAGIC_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_planks");
-        MAGIC_STAIRS = registerBlock(() -> new StairBlock(MAGIC_PLANKS.get().defaultBlockState(), Block.Properties.copy(MAGIC_PLANKS.get())), "magic_stairs");
+        MAGIC_STAIRS = registerBlock(() -> new StairBlock(MAGIC_PLANKS.get()::defaultBlockState, Block.Properties.copy(MAGIC_PLANKS.get())), "magic_stairs");
         MAGIC_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_slab");
         MAGIC_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, MAGIC_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_fence");
         MAGIC_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, MAGIC_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "magic_fence_gate");
@@ -288,7 +288,7 @@ public class ModBlocks
         STRIPPED_UMBRAN_LOG = registerBlock(() -> Blocks.log(MaterialColor.TERRACOTTA_BLUE, MaterialColor.TERRACOTTA_BLUE), "stripped_umbran_log");
         STRIPPED_UMBRAN_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_BLUE).strength(2.0F).sound(SoundType.WOOD)), "stripped_umbran_wood");
         UMBRAN_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_BLUE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_planks");
-        UMBRAN_STAIRS = registerBlock(() -> new StairBlock(UMBRAN_PLANKS.get().defaultBlockState(), Block.Properties.copy(UMBRAN_PLANKS.get())), "umbran_stairs");
+        UMBRAN_STAIRS = registerBlock(() -> new StairBlock(UMBRAN_PLANKS.get()::defaultBlockState, Block.Properties.copy(UMBRAN_PLANKS.get())), "umbran_stairs");
         UMBRAN_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_BLUE).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_slab");
         UMBRAN_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, UMBRAN_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_fence");
         UMBRAN_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, UMBRAN_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "umbran_fence_gate");
@@ -306,7 +306,7 @@ public class ModBlocks
         STRIPPED_HELLBARK_LOG = registerBlock(() -> Blocks.log(MaterialColor.TERRACOTTA_GRAY, MaterialColor.TERRACOTTA_GRAY), "stripped_hellbark_log");
         STRIPPED_HELLBARK_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_GRAY).strength(2.0F).sound(SoundType.WOOD)), "stripped_hellbark_wood");
         HELLBARK_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_GRAY).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_planks");
-        HELLBARK_STAIRS = registerBlock(() -> new StairBlock(HELLBARK_PLANKS.get().defaultBlockState(), Block.Properties.copy(HELLBARK_PLANKS.get())), "hellbark_stairs");
+        HELLBARK_STAIRS = registerBlock(() -> new StairBlock(HELLBARK_PLANKS.get()::defaultBlockState, Block.Properties.copy(HELLBARK_PLANKS.get())), "hellbark_stairs");
         HELLBARK_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_GRAY).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_slab");
         HELLBARK_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD, HELLBARK_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_fence");
         HELLBARK_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD, HELLBARK_PLANKS.get().defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "hellbark_fence_gate");
