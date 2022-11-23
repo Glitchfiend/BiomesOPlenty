@@ -1,5 +1,6 @@
 {
     "ambientocclusion": false,
+    "render_type": "minecraft:cutout",
     "textures": {
         "particle": "minecraft:block/flower_pot",
         "flowerpot": "minecraft:block/flower_pot",
