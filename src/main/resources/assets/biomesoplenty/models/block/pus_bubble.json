@@ -1,5 +1,6 @@
 {
     "parent": "block/cross",
+    "render_type": "minecraft:cutout",
     "textures": {
         "cross": "biomesoplenty:block/pus_bubble"
     }

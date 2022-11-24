@@ -1,5 +1,6 @@
 {
     "parent": "biomesoplenty:block/leaves_overlay",
+    "render_type": "minecraft:cutout_mipped",
     "textures": {
         "leaves": "biomesoplenty:block/flowering_oak_leaves",
         "overlay": "biomesoplenty:block/flowering_oak_leaves_overlay"

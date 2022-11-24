@@ -107,11 +107,7 @@ public class BiomesOPlenty
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        event.enqueueWork(() ->
-        {
-            ModBlocks.registerWoodTypes();
-            ModBlocks.setRenderTypes();
-        });
+        event.enqueueWork(ModBlocks::registerWoodTypes);
     }
 
     private void loadComplete(final FMLLoadCompleteEvent event)

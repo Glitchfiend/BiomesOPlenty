@@ -12,8 +12,6 @@ import biomesoplenty.common.block.trees.*;
 import biomesoplenty.common.util.CreativeModeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.base.Suppliers;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -133,7 +131,7 @@ public class ModBlocks
         FIR_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, FIR_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "fir_pressure_plate");
         FIR_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "fir_button");
         FIR_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.FIR), "fir_sign");
-        FIR_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(FIR_SIGN.get()), BOPWoodTypes.FIR), "fir_wall_sign");
+        FIR_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(FIR_SIGN), BOPWoodTypes.FIR), "fir_wall_sign");
 
         REDWOOD_SAPLING = registerBlock(() -> new SaplingBlockBOP(new RedwoodTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "redwood_sapling");
         REDWOOD_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "redwood_leaves");
@@ -151,7 +149,7 @@ public class ModBlocks
         REDWOOD_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, REDWOOD_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "redwood_pressure_plate");
         REDWOOD_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "redwood_button");
         REDWOOD_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.REDWOOD), "redwood_sign");
-        REDWOOD_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(REDWOOD_SIGN.get()), BOPWoodTypes.REDWOOD), "redwood_wall_sign");
+        REDWOOD_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(REDWOOD_SIGN), BOPWoodTypes.REDWOOD), "redwood_wall_sign");
 
         WHITE_CHERRY_SAPLING = registerBlock(() -> new SaplingBlockBOP(new WhiteCherryTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "white_cherry_sapling");
         WHITE_CHERRY_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.SNOW).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "white_cherry_leaves");
@@ -171,7 +169,7 @@ public class ModBlocks
         CHERRY_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, CHERRY_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "cherry_pressure_plate");
         CHERRY_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "cherry_button");
         CHERRY_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.CHERRY), "cherry_sign");
-        CHERRY_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(CHERRY_SIGN.get()), BOPWoodTypes.CHERRY), "cherry_wall_sign");
+        CHERRY_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(CHERRY_SIGN), BOPWoodTypes.CHERRY), "cherry_wall_sign");
 
         MAHOGANY_SAPLING = registerBlock(() -> new SaplingBlockBOP(new MahoganyTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "mahogany_sapling");
         MAHOGANY_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "mahogany_leaves");
@@ -189,7 +187,7 @@ public class ModBlocks
         MAHOGANY_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, MAHOGANY_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "mahogany_pressure_plate");
         MAHOGANY_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "mahogany_button");
         MAHOGANY_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.MAHOGANY), "mahogany_sign");
-        MAHOGANY_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(MAHOGANY_SIGN.get()), BOPWoodTypes.MAHOGANY), "mahogany_wall_sign");
+        MAHOGANY_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(MAHOGANY_SIGN), BOPWoodTypes.MAHOGANY), "mahogany_wall_sign");
 
         JACARANDA_SAPLING = registerBlock(() -> new SaplingBlockBOP(new JacarandaTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "jacaranda_sapling");
         JACARANDA_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.COLOR_PURPLE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "jacaranda_leaves");
@@ -207,7 +205,7 @@ public class ModBlocks
         JACARANDA_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, JACARANDA_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "jacaranda_pressure_plate");
         JACARANDA_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "jacaranda_button");
         JACARANDA_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.JACARANDA), "jacaranda_sign");
-        JACARANDA_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(JACARANDA_SIGN.get()), BOPWoodTypes.JACARANDA), "jacaranda_wall_sign");
+        JACARANDA_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(JACARANDA_SIGN), BOPWoodTypes.JACARANDA), "jacaranda_wall_sign");
 
         PALM_SAPLING = registerBlock(() -> new SaplingBlockBOP(new PalmTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "palm_sapling");
         PALM_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "palm_leaves");
@@ -225,7 +223,7 @@ public class ModBlocks
         PALM_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, PALM_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "palm_pressure_plate");
         PALM_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "palm_button");
         PALM_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.PALM), "palm_sign");
-        PALM_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PALM_SIGN.get()), BOPWoodTypes.PALM), "palm_wall_sign");
+        PALM_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(PALM_SIGN), BOPWoodTypes.PALM), "palm_wall_sign");
 
         WILLOW_SAPLING = registerBlock(() -> new SaplingBlockBOP(new WillowTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "willow_sapling");
         WILLOW_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "willow_leaves");
@@ -243,7 +241,7 @@ public class ModBlocks
         WILLOW_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, WILLOW_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "willow_pressure_plate");
         WILLOW_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "willow_button");
         WILLOW_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.WILLOW), "willow_sign");
-        WILLOW_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(WILLOW_SIGN.get()), BOPWoodTypes.WILLOW), "willow_wall_sign");
+        WILLOW_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(WILLOW_SIGN), BOPWoodTypes.WILLOW), "willow_wall_sign");
 
         DEAD_SAPLING = registerBlock(() -> new SaplingBlockBOP(new DeadTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "dead_sapling");
         DEAD_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.WOOD).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "dead_leaves");
@@ -261,7 +259,7 @@ public class ModBlocks
         DEAD_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, DEAD_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "dead_pressure_plate");
         DEAD_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "dead_button");
         DEAD_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.DEAD), "dead_sign");
-        DEAD_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(DEAD_SIGN.get()), BOPWoodTypes.DEAD), "dead_wall_sign");
+        DEAD_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(DEAD_SIGN), BOPWoodTypes.DEAD), "dead_wall_sign");
 
         MAGIC_SAPLING = registerBlock(() -> new SaplingBlockBOP(new MagicTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "magic_sapling");
         MAGIC_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.COLOR_CYAN).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "magic_leaves");
@@ -279,7 +277,7 @@ public class ModBlocks
         MAGIC_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, MAGIC_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "magic_pressure_plate");
         MAGIC_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "magic_button");
         MAGIC_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.MAGIC), "magic_sign");
-        MAGIC_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(MAGIC_SIGN.get()), BOPWoodTypes.MAGIC), "magic_wall_sign");
+        MAGIC_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(MAGIC_SIGN), BOPWoodTypes.MAGIC), "magic_wall_sign");
 
         UMBRAN_SAPLING = registerBlock(() -> new SaplingBlockBOP(new UmbranTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "umbran_sapling");
         UMBRAN_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.TERRACOTTA_BLUE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "umbran_leaves");
@@ -297,7 +295,7 @@ public class ModBlocks
         UMBRAN_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, UMBRAN_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "umbran_pressure_plate");
         UMBRAN_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "umbran_button");
         UMBRAN_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.UMBRAN), "umbran_sign");
-        UMBRAN_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(UMBRAN_SIGN.get()), BOPWoodTypes.UMBRAN), "umbran_wall_sign");
+        UMBRAN_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(UMBRAN_SIGN), BOPWoodTypes.UMBRAN), "umbran_wall_sign");
 
         HELLBARK_SAPLING = registerBlock(() -> new SaplingBlockBOP(new HellbarkTree(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "hellbark_sapling");
         HELLBARK_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.TERRACOTTA_PURPLE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion()), "hellbark_leaves");
@@ -315,7 +313,7 @@ public class ModBlocks
         HELLBARK_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, HELLBARK_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)), "hellbark_pressure_plate");
         HELLBARK_BUTTON = registerBlock(() -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)), "hellbark_button");
         HELLBARK_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.HELLBARK), "hellbark_sign");
-        HELLBARK_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(HELLBARK_SIGN.get()), BOPWoodTypes.HELLBARK), "hellbark_wall_sign");
+        HELLBARK_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(HELLBARK_SIGN), BOPWoodTypes.HELLBARK), "hellbark_wall_sign");
 
         //Flowers
         ROSE = registerBlock(() -> new FlowerBlockBOP(MobEffects.MOVEMENT_SPEED, 7, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "rose");
@@ -434,108 +432,6 @@ public class ModBlocks
         Sheets.addWoodType(BOPWoodTypes.HELLBARK);
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public static void setRenderTypes()
-    {
-        RenderType transparentRenderType = RenderType.cutoutMipped();
-        RenderType cutoutRenderType = RenderType.cutout();
-        RenderType translucentRenderType = RenderType.translucent();
-
-        ItemBlockRenderTypes.setRenderLayer(ORIGIN_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(FLOWERING_OAK_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(RAINBOW_BIRCH_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(YELLOW_AUTUMN_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(ORANGE_AUTUMN_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAPLE_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(FIR_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(REDWOOD_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WHITE_CHERRY_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(PINK_CHERRY_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAHOGANY_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(JACARANDA_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(PALM_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WILLOW_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(DEAD_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAGIC_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(UMBRAN_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(HELLBARK_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(ROSE.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(VIOLET.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(LAVENDER.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WILDFLOWER.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(ORANGE_COSMOS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(PINK_DAFFODIL.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(PINK_HIBISCUS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(GLOWFLOWER.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WILTED_LILY.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BURNING_BLOSSOM.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(TALL_LAVENDER.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BLUE_HYDRANGEA.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(GOLDENROD.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(ICY_IRIS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WILLOW_VINE.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(SPANISH_MOSS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(SPANISH_MOSS_PLANT.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(GLOWWORM_SILK.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(GLOWWORM_SILK_STRAND.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(HANGING_COBWEB.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(HANGING_COBWEB_STRAND.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(STRINGY_COBWEB.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WEBBING.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(SPROUT.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BUSH.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(CLOVER.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(HUGE_CLOVER_PETAL.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(DUNE_GRASS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(DESERT_GRASS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(DEAD_GRASS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(CATTAIL.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BARLEY.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(SEA_OATS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(REED.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WATERGRASS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(DEAD_BRANCH.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BRAMBLE.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(TOADSTOOL.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(GLOWSHROOM.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(PUS_BUBBLE.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(FLESH_TENDONS.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(FLESH_TENDONS_STRAND.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(EYEBULB.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(HAIR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_BUD.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BRIMSTONE_CLUSTER.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(ROSE_QUARTZ_CLUSTER.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(LARGE_ROSE_QUARTZ_BUD.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MEDIUM_ROSE_QUARTZ_BUD.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(SMALL_ROSE_QUARTZ_BUD.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BLACKSTONE_SPINES.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(BLACKSTONE_BULB.get(), cutoutRenderType);
-
-        ItemBlockRenderTypes.setRenderLayer(FIR_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(REDWOOD_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(CHERRY_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAHOGANY_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(JACARANDA_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(PALM_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WILLOW_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(DEAD_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAGIC_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(UMBRAN_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(HELLBARK_DOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(FIR_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(REDWOOD_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(CHERRY_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAHOGANY_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(JACARANDA_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(PALM_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(WILLOW_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(DEAD_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAGIC_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(UMBRAN_TRAPDOOR.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(HELLBARK_TRAPDOOR.get(), cutoutRenderType);
-    }
-
     public static void registerBlockEntities()
     {
         BOPBlockEntities.SIGN = registerBlockEntityType("sign", SignBlockEntityBOP::new,
@@ -544,9 +440,7 @@ public class ModBlocks
     }
 
     private static RotatedPillarBlock log(MaterialColor materialColor, MaterialColor materialColor2) {
-        return new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (blockState) -> {
-            return blockState.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? materialColor : materialColor2;
-        }).strength(2.0F).sound(SoundType.WOOD));
+        return new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (blockState) -> blockState.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? materialColor : materialColor2).strength(2.0F).sound(SoundType.WOOD));
     }
 
     public static RegistryObject<Block> registerBlock(Supplier<Block> blockSupplier, String name)

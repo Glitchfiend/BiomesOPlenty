@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_left_open",
+  "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "biomesoplenty:block/cherry_door_bottom",
     "top": "biomesoplenty:block/cherry_door_top"

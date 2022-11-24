@@ -1,4 +1,5 @@
 {
+	"render_type": "minecraft:cutout",
 	"ambientocclusion": false,
     "textures": {
 		"petal": "biomesoplenty:block/huge_clover_petal",
