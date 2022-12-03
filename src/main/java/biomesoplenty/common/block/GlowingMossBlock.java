@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * Copyright 2022, the Glitchfiend Team.
+ * All rights reserved.
+ ******************************************************************************/
 package biomesoplenty.common.block;
 
 import biomesoplenty.common.worldgen.feature.BOPCaveFeatures;
@@ -10,8 +14,6 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.MossBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 public class GlowingMossBlock extends MossBlock implements BonemealableBlock
 {

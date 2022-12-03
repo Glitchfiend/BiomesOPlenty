@@ -1,15 +1,13 @@
 /*******************************************************************************
- * Copyright 2021, the Glitchfiend Team.
+ * Copyright 2022, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
 package biomesoplenty.common.worldgen.feature.configurations;
 
-import biomesoplenty.common.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
-import net.minecraft.world.level.material.Material;
 
 import java.util.List;
 

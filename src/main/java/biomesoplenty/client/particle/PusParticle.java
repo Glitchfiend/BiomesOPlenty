@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * Copyright 2022, the Glitchfiend Team.
+ * All rights reserved.
+ ******************************************************************************/
 package biomesoplenty.client.particle;
 
 import net.minecraft.client.multiplayer.ClientLevel;

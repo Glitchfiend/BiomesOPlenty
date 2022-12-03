@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * Copyright 2022, the Glitchfiend Team.
+ * All rights reserved.
+ ******************************************************************************/
 package biomesoplenty.common.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
