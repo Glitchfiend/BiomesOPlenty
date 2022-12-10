@@ -10,6 +10,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.*;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -129,25 +130,12 @@ public class BiomesOPlenty
     private void registerTab(CreativeModeTabEvent.Register event)
     {
         List<RegistryObject<Item>> itemBlacklist = List.of(BOPItems.BOP_ICON);
-        List<RegistryObject<Item>> blockBlacklist = List.of();
+        List<RegistryObject<Block>> blockBlacklist = List.of(BOPBlocks.BLOOD);
 
         event.registerCreativeModeTab(new ResourceLocation(BiomesOPlenty.MOD_ID, "main"), builder -> {
             builder.icon(() -> new ItemStack(BOPItems.BOP_ICON.get()))
+            .title(Component.translatable("itemGroup.biomesoplenty"))
             .displayItems((featureFlags, output, hasOp) -> {
-                // Add items
-                for (Field field : BOPItems.class.getFields())
-                {
-                    if (field.getType() != RegistryObject.class) continue;
-
-                    try
-                    {
-                        RegistryObject<Item> item = (RegistryObject)field.get(null);
-                        if (!itemBlacklist.contains(item))
-                            output.accept(new ItemStack(item.get()));
-                    }
-                    catch (IllegalAccessException e) {}
-                }
-
                 // Add blocks
                 for (Field field : BOPBlocks.class.getFields())
                 {
@@ -161,6 +149,20 @@ public class BiomesOPlenty
                         RegistryObject<Block> block = (RegistryObject)field.get(null);
                         if (!blockBlacklist.contains(block))
                             output.accept(new ItemStack(block.get()));
+                    }
+                    catch (IllegalAccessException e) {}
+                }
+
+                // Add items
+                for (Field field : BOPItems.class.getFields())
+                {
+                    if (field.getType() != RegistryObject.class) continue;
+
+                    try
+                    {
+                        RegistryObject<Item> item = (RegistryObject)field.get(null);
+                        if (!itemBlacklist.contains(item))
+                            output.accept(new ItemStack(item.get()));
                     }
                     catch (IllegalAccessException e) {}
                 }

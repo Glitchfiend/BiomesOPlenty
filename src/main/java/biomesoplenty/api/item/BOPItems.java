@@ -12,7 +12,8 @@ public class BOPItems
     public static RegistryObject<Item> BOP_ICON;
 
     public static RegistryObject<Item> ROSE_QUARTZ_SHARD;
-
+    public static RegistryObject<Item> BLOOD_BUCKET;
+    public static RegistryObject<Item> MUSIC_DISC_WANDERER;
     public static RegistryObject<Item> FIR_SIGN;
     public static RegistryObject<Item> REDWOOD_SIGN;
     public static RegistryObject<Item> CHERRY_SIGN;
@@ -47,8 +48,4 @@ public class BOPItems
     public static RegistryObject<Item> UMBRAN_CHEST_BOAT;
     public static RegistryObject<Item> HELLBARK_BOAT;
     public static RegistryObject<Item> HELLBARK_CHEST_BOAT;
-
-    public static RegistryObject<Item> MUSIC_DISC_WANDERER;
-
-    public static RegistryObject<Item> BLOOD_BUCKET;
 }
