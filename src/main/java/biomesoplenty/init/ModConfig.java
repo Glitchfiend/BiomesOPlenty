@@ -64,11 +64,14 @@ public class ModConfig
 
     public static boolean isBiomeEnabled(ResourceKey<Biome> key)
     {
+        if (key == null || !key.location().getNamespace().equals(BiomesOPlenty.MOD_ID))
+            return false;
+
         String optionName = getBiomeConfigOptionName(key);
         Map<String, Boolean> biomeToggles = getBiomeToggles();
 
         // Add the biome toggle if it is missing
-        if (!biomeToggles.containsKey(optionName) && key.location().getNamespace().equals("biomesoplenty"))
+        if (!biomeToggles.containsKey(optionName))
         {
             addBiomeToggle(key);
         }

@@ -7,6 +7,7 @@ package biomesoplenty.common.datagen;
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.util.worldgen.BOPFeatureUtils;
 import biomesoplenty.common.util.worldgen.BOPPlacementUtils;
+import biomesoplenty.common.worldgen.carver.BOPConfiguredCarvers;
 import biomesoplenty.common.worldgen.feature.*;
 import biomesoplenty.common.worldgen.placement.*;
 import biomesoplenty.core.BiomesOPlenty;
@@ -26,6 +27,7 @@ import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -50,6 +52,7 @@ public class DataGenerationHandler
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
         HolderLookup.Provider lookupProvider = new RegistrySetBuilder()
+                .add(Registries.CONFIGURED_CARVER, (RegistrySetBuilder.RegistryBootstrap) BOPConfiguredCarvers::bootstrap)
                 .add(Registries.CONFIGURED_FEATURE, (RegistrySetBuilder.RegistryBootstrap) BOPFeatureUtils::bootstrap)
                 .add(Registries.PLACED_FEATURE, (RegistrySetBuilder.RegistryBootstrap) BOPPlacementUtils::bootstrap)
                 .add(Registries.BIOME, ModBiomes::bootstrapBiomes)
@@ -57,10 +60,12 @@ public class DataGenerationHandler
 
         RegistryOps<JsonElement> registryOps = RegistryOps.create(JsonOps.INSTANCE, lookupProvider);
 
+        Map<ResourceLocation, ConfiguredWorldCarver<?>> configuredWorldCarverMap = createMap(Registries.CONFIGURED_CARVER, lookupProvider, BOPConfiguredCarvers.class);
         Map<ResourceLocation, ConfiguredFeature<?, ?>> configuredFeatureMap = createMap(Registries.CONFIGURED_FEATURE, lookupProvider, BOPCaveFeatures.class, BOPMiscOverworldFeatures.class, BOPNetherFeatures.class, BOPTreeFeatures.class, BOPVegetationFeatures.class);
         Map<ResourceLocation, PlacedFeature> placedFeatureMap = createMap(Registries.PLACED_FEATURE, lookupProvider, BOPCavePlacements.class, BOPMiscOverworldPlacements.class, BOPNetherPlacements.class, BOPTreePlacements.class, BOPVegetationPlacements.class);
         Map<ResourceLocation, Biome> biomeMap = createMap(Registries.BIOME, lookupProvider, BOPBiomes.class);
 
+        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(generator, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.CONFIGURED_CARVER, configuredWorldCarverMap));
         generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(generator, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.CONFIGURED_FEATURE, configuredFeatureMap));
         generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(generator, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.PLACED_FEATURE, placedFeatureMap));
         generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(generator, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.BIOME, biomeMap));

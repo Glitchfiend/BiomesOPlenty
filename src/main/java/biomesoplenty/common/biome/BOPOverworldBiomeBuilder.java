@@ -6,6 +6,7 @@ package biomesoplenty.common.biome;
 
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.common.util.biome.BiomeUtil;
+import biomesoplenty.init.ModConfig;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -608,7 +609,7 @@ public class BOPOverworldBiomeBuilder
 
     protected void addUndergroundBiome(Registry<Biome> biomeRegistry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
     {
-        if (!BiomeUtil.isKeyRegistered(biomeRegistry, biome))
+        if (!ModConfig.isBiomeEnabled(biome))
             return;
 
         mapper.accept(Pair.of(Climate.parameters(temperature, humidity, continentalness, erosion, Climate.Parameter.span(0.2F, 0.9F), weirdness, offset), biome));

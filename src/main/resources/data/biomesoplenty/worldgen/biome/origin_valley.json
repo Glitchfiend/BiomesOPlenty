@@ -1,5 +1,7 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": "biomesoplenty:origin_cave"
+  },
   "downfall": 0.6,
   "effects": {
     "fog_color": 11587583,

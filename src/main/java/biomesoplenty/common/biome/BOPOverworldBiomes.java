@@ -5,6 +5,7 @@
 package biomesoplenty.common.biome;
 
 import biomesoplenty.api.sound.BOPSounds;
+import biomesoplenty.common.worldgen.carver.BOPConfiguredCarvers;
 import biomesoplenty.common.worldgen.placement.BOPCavePlacements;
 import biomesoplenty.common.worldgen.placement.BOPMiscOverworldPlacements;
 import biomesoplenty.common.worldgen.placement.BOPVegetationPlacements;
@@ -27,7 +28,6 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
 
@@ -76,11 +76,6 @@ public class BOPOverworldBiomes
     private static Biome biomeWithColorOverridesAndParticles(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, ParticleOptions particleOptions, float particleProbability, @Nullable Music music)
     {
         return (new Biome.BiomeBuilder()).precipitation(precipitation).temperature(temperature).downfall(downfall).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).waterFogColor(waterFogColor).fogColor(fogColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).skyColor(skyColor).ambientParticle(new AmbientParticleSettings(particleOptions, particleProbability)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
-    }
-    
-    private static void addFeature(BiomeGenerationSettings.Builder builder, GenerationStep.Decoration step, RegistryObject<PlacedFeature> feature)
-    {
-        builder.addFeature(step, feature.getHolder().orElseThrow());
     }
 
     private static void addFeature(BiomeGenerationSettings.Builder builder, GenerationStep.Decoration step, ResourceKey<PlacedFeature> feature)
@@ -921,7 +916,7 @@ public class BOPOverworldBiomes
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        // TODO: biomeBuilder.addCarver(GenerationStep.Carving.AIR, BOPConfiguredCarvers.ORIGIN_CAVE.getHolder().orElseThrow());
+        biomeBuilder.addCarver(GenerationStep.Carving.AIR, BOPConfiguredCarvers.ORIGIN_CAVE);
         BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder);
         BiomeDefaultFeatures.addDefaultSprings(biomeBuilder);
         BiomeDefaultFeatures.addSurfaceFreezing(biomeBuilder);

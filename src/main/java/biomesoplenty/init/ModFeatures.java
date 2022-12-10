@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.common.worldgen.carver.BOPConfiguredCarvers;
 import biomesoplenty.common.worldgen.carver.BOPWorldCarvers;
 import biomesoplenty.common.worldgen.feature.BOPBaseFeatures;
 
@@ -19,6 +18,5 @@ public class ModFeatures
 
         // Carvers
         BOPWorldCarvers.setup();
-        BOPConfiguredCarvers.setup();
     }
 }

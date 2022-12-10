@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.util.biome;
 
+import biomesoplenty.init.ModConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -16,15 +17,13 @@ public class BiomeUtil
     {
         for (ResourceKey<Biome> key : biomes)
         {
-            if (isKeyRegistered(biomeRegistry, key))
+            if (key == null)
+                continue;
+
+            if (ModConfig.isBiomeEnabled(key) || key.location().getNamespace().equals("minecraft"))
                 return key;
         }
 
         throw new RuntimeException("Failed to find fallback for biome!");
-    }
-
-    public static boolean isKeyRegistered(Registry<Biome> registry, ResourceKey<Biome> key)
-    {
-        return key != null && registry.get(key) != null;
     }
 }
