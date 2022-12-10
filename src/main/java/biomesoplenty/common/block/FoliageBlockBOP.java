@@ -8,6 +8,8 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.worldgen.feature.BOPVegetationFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
@@ -24,7 +26,6 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.IPlantable;
@@ -98,7 +99,7 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
 //    }
 
     @Override
-    public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient)
+    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient)
     {
         Block block = state.getBlock();
 
@@ -128,18 +129,19 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
         if (block == BOPBlocks.CLOVER.get()) { this.growHugeClover(world, rand, pos, state); }
     }
 
-    public boolean growHugeClover(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state)
+    public boolean growHugeClover(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state)
     {
-        world.removeBlock(pos, false);
-        ConfiguredFeature<NoneFeatureConfiguration, ?> configuredfeature = BOPVegetationFeatures.HUGE_CLOVER.get();
+        level.removeBlock(pos, false);
+        Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry = level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE);
+        ConfiguredFeature<?, ?> configuredfeature = configuredFeatureRegistry.get(BOPVegetationFeatures.HUGE_CLOVER);
 
-        if (configuredfeature.place(world, world.getChunkSource().getGenerator(), rand, pos))
+        if (configuredfeature.place(level, level.getChunkSource().getGenerator(), rand, pos))
         {
             return true;
         }
         else
         {
-            world.setBlock(pos, state, 3);
+            level.setBlock(pos, state, 3);
             return false;
         }
     }

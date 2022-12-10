@@ -11,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
@@ -43,7 +44,7 @@ public class BoatBOP extends Boat
     }
 
     @Override
-    public Packet<?> getAddEntityPacket()
+    public Packet<ClientGamePacketListener> getAddEntityPacket()
     {
         return new ClientboundAddEntityPacket(this);
     }
@@ -150,11 +151,11 @@ public class BoatBOP extends Boat
 
     @Deprecated
     @Override
-    public void setType(Type vanillaType) {}
+    public void setVariant(Type vanillaType) {}
 
     @Deprecated
     @Override
-    public Type getBoatType()
+    public Type getVariant()
     {
         return Type.OAK;
     }

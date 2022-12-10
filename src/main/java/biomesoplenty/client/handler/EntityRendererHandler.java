@@ -12,6 +12,7 @@ import biomesoplenty.common.entity.BoatBOP;
 import biomesoplenty.common.entity.ChestBoatBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.entity.EntityType;
@@ -29,8 +30,8 @@ public class EntityRendererHandler
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event)
     {
         // Register boat layer definitions
-        LayerDefinition boatLayerDefinition = BoatModel.createBodyModel(false);
-        LayerDefinition chestBoatLayerDefinition = BoatModel.createBodyModel(true);
+        LayerDefinition boatLayerDefinition = BoatModel.createBodyModel();
+        LayerDefinition chestBoatLayerDefinition = ChestBoatModel.createBodyModel();
 
         for (BoatBOP.ModelType type : BoatBOP.ModelType.values())
         {

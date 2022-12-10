@@ -1,0 +1,415 @@
+{
+  "carvers": {
+    "air": [
+      {
+        "type": "minecraft:cave",
+        "config": {
+          "debug_settings": {
+            "air_state": {
+              "Name": "minecraft:crimson_button",
+              "Properties": {
+                "face": "wall",
+                "facing": "north",
+                "powered": "false"
+              }
+            },
+            "barrier_state": {
+              "Name": "minecraft:glass"
+            },
+            "lava_state": {
+              "Name": "minecraft:orange_stained_glass"
+            },
+            "water_state": {
+              "Name": "minecraft:candle",
+              "Properties": {
+                "candles": "1",
+                "lit": "false",
+                "waterlogged": "false"
+              }
+            }
+          },
+          "floor_level": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": -0.4,
+              "min_inclusive": -1.0
+            }
+          },
+          "horizontal_radius_multiplier": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": 1.4,
+              "min_inclusive": 0.7
+            }
+          },
+          "lava_level": {
+            "above_bottom": 8
+          },
+          "probability": 0.15,
+          "replaceable": "#minecraft:overworld_carver_replaceables",
+          "vertical_radius_multiplier": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": 1.3,
+              "min_inclusive": 0.8
+            }
+          },
+          "y": {
+            "type": "minecraft:uniform",
+            "max_inclusive": {
+              "absolute": 180
+            },
+            "min_inclusive": {
+              "above_bottom": 8
+            }
+          },
+          "yScale": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": 0.9,
+              "min_inclusive": 0.1
+            }
+          }
+        }
+      },
+      {
+        "type": "minecraft:cave",
+        "config": {
+          "debug_settings": {
+            "air_state": {
+              "Name": "minecraft:oak_button",
+              "Properties": {
+                "face": "wall",
+                "facing": "north",
+                "powered": "false"
+              }
+            },
+            "barrier_state": {
+              "Name": "minecraft:glass"
+            },
+            "lava_state": {
+              "Name": "minecraft:orange_stained_glass"
+            },
+            "water_state": {
+              "Name": "minecraft:candle",
+              "Properties": {
+                "candles": "1",
+                "lit": "false",
+                "waterlogged": "false"
+              }
+            }
+          },
+          "floor_level": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": -0.4,
+              "min_inclusive": -1.0
+            }
+          },
+          "horizontal_radius_multiplier": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": 1.4,
+              "min_inclusive": 0.7
+            }
+          },
+          "lava_level": {
+            "above_bottom": 8
+          },
+          "probability": 0.07,
+          "replaceable": "#minecraft:overworld_carver_replaceables",
+          "vertical_radius_multiplier": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": 1.3,
+              "min_inclusive": 0.8
+            }
+          },
+          "y": {
+            "type": "minecraft:uniform",
+            "max_inclusive": {
+              "absolute": 47
+            },
+            "min_inclusive": {
+              "above_bottom": 8
+            }
+          },
+          "yScale": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": 0.9,
+              "min_inclusive": 0.1
+            }
+          }
+        }
+      },
+      {
+        "type": "minecraft:canyon",
+        "config": {
+          "debug_settings": {
+            "air_state": {
+              "Name": "minecraft:warped_button",
+              "Properties": {
+                "face": "wall",
+                "facing": "north",
+                "powered": "false"
+              }
+            },
+            "barrier_state": {
+              "Name": "minecraft:glass"
+            },
+            "lava_state": {
+              "Name": "minecraft:orange_stained_glass"
+            },
+            "water_state": {
+              "Name": "minecraft:candle",
+              "Properties": {
+                "candles": "1",
+                "lit": "false",
+                "waterlogged": "false"
+              }
+            }
+          },
+          "lava_level": {
+            "above_bottom": 8
+          },
+          "probability": 0.01,
+          "replaceable": "#minecraft:overworld_carver_replaceables",
+          "shape": {
+            "distance_factor": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_exclusive": 1.0,
+                "min_inclusive": 0.75
+              }
+            },
+            "horizontal_radius_factor": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_exclusive": 1.0,
+                "min_inclusive": 0.75
+              }
+            },
+            "thickness": {
+              "type": "minecraft:trapezoid",
+              "value": {
+                "max": 6.0,
+                "min": 0.0,
+                "plateau": 2.0
+              }
+            },
+            "vertical_radius_center_factor": 0.0,
+            "vertical_radius_default_factor": 1.0,
+            "width_smoothness": 3
+          },
+          "vertical_rotation": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_exclusive": 0.125,
+              "min_inclusive": -0.125
+            }
+          },
+          "y": {
+            "type": "minecraft:uniform",
+            "max_inclusive": {
+              "absolute": 67
+            },
+            "min_inclusive": {
+              "absolute": 10
+            }
+          },
+          "yScale": 3.0
+        }
+      }
+    ]
+  },
+  "downfall": 0.7,
+  "effects": {
+    "fog_color": 12638463,
+    "foliage_color": 6533741,
+    "grass_color": 6533741,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2.0,
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000
+    },
+    "sky_color": 8168703,
+    "water_color": 4159204,
+    "water_fog_color": 329011
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [
+      "minecraft:amethyst_geode"
+    ],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
+    [],
+    [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_andesite_lower",
+      "minecraft:ore_tuff",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_iron_small",
+      "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
+      "minecraft:ore_redstone",
+      "minecraft:ore_redstone_lower",
+      "minecraft:ore_diamond",
+      "minecraft:ore_diamond_large",
+      "minecraft:ore_diamond_buried",
+      "minecraft:ore_lapis",
+      "minecraft:ore_lapis_buried",
+      "minecraft:ore_copper",
+      "minecraft:underwater_magma",
+      "minecraft:disk_sand",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel"
+    ],
+    [],
+    [
+      "minecraft:spring_water",
+      "minecraft:spring_lava"
+    ],
+    [
+      "minecraft:glow_lichen",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal",
+      "minecraft:patch_pumpkin",
+      "minecraft:patch_berry_rare",
+      "biomesoplenty:flower_field_1",
+      "biomesoplenty:patch_lilac_normal",
+      "biomesoplenty:rose_bush_normal",
+      "biomesoplenty:trees_field_forest",
+      "biomesoplenty:patch_sprouts_15",
+      "biomesoplenty:patch_grass_6"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ],
+  "precipitation": "rain",
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [
+      {
+        "type": "minecraft:bat",
+        "maxCount": 8,
+        "minCount": 8,
+        "weight": 10
+      }
+    ],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "minecraft:sheep",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 12
+      },
+      {
+        "type": "minecraft:pig",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:chicken",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:cow",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 8
+      },
+      {
+        "type": "minecraft:fox",
+        "maxCount": 4,
+        "minCount": 2,
+        "weight": 8
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:spider",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:zombie",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 95
+      },
+      {
+        "type": "minecraft:zombie_villager",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 5
+      },
+      {
+        "type": "minecraft:skeleton",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:creeper",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:slime",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:enderman",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:witch",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 5
+      }
+    ],
+    "underground_water_creature": [
+      {
+        "type": "minecraft:glow_squid",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 10
+      }
+    ],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.4
+}

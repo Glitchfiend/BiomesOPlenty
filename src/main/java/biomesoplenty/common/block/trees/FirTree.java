@@ -5,7 +5,7 @@
 package biomesoplenty.common.block.trees;
 
 import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
-import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractMegaTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -15,15 +15,15 @@ public class FirTree extends AbstractMegaTreeGrower
 {
    @Nullable
    @Override
-   protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource random)
+   protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource random)
    {
-      return BOPTreeFeatures.FIR_TREE_LARGE.getHolder().orElseThrow();
+      return BOPTreeFeatures.FIR_TREE_LARGE;
    }
 
    @Nullable
    @Override
-   protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
+   protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return BOPTreeFeatures.FIR_TREE.getHolder().orElseThrow();
+      return BOPTreeFeatures.FIR_TREE;
    }
 }

@@ -6,34 +6,77 @@ package biomesoplenty.common.worldgen.placement;
 
 import biomesoplenty.common.worldgen.feature.BOPCaveFeatures;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
-import static biomesoplenty.common.util.worldgen.BOPPlacementUtils.register;
+import static biomesoplenty.common.util.worldgen.BOPPlacementUtils.createKey;
 
 public class BOPCavePlacements
 {
-    // Glowing grotto
-    public static final RegistryObject<PlacedFeature> GLOWING_GROTTO_VEGETATION = register("glowing_grotto_vegetation", BOPCaveFeatures.GLOWING_MOSS_PATCH, () -> List.of(CountPlacement.of(16), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> GLOWING_GROTTO_MUD = register("glowing_grotto_mud", BOPCaveFeatures.MUD_PATCH, () -> List.of(CountPlacement.of(24), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> GLOWWORM_SILK_STRANDS = register("glowworm_silk_strands", BOPCaveFeatures.GLOWWORM_SILK, () -> List.of(CountPlacement.of(150), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> GIANT_GLOWSHROOM_CAVE = register("giant_glowshroom_cave", BOPCaveFeatures.GIANT_GLOWSHROOM_CAVE, () -> List.of(CountPlacement.of(50), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> HUGE_GLOWSHROOM_CAVE = register("huge_glowshroom_cave", BOPCaveFeatures.HUGE_GLOWSHROOM_CAVE, () -> List.of(CountPlacement.of(75), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> MEDIUM_GLOWSHROOM_CAVE = register("medium_glowshroom_cave", BOPCaveFeatures.MEDIUM_GLOWSHROOM_CAVE, () -> List.of(CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> SMALL_GLOWSHROOM_CAVE = register("small_glowshroom_cave", BOPCaveFeatures.SMALL_GLOWSHROOM_CAVE, () -> List.of(CountPlacement.of(125), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> EXTRA_GLOW_LICHEN = register("extra_glow_lichen", BOPCaveFeatures.EXTRA_GLOW_LICHEN, () -> List.of(CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, BiomeFilter.biome()));
+    public static final ResourceKey<PlacedFeature> GLOWING_GROTTO_VEGETATION = createKey("glowing_grotto_vegetation");
+    public static final ResourceKey<PlacedFeature> GLOWING_GROTTO_MUD = createKey("glowing_grotto_mud");
+    public static final ResourceKey<PlacedFeature> GLOWWORM_SILK_STRANDS = createKey("glowworm_silk_strands");
+    public static final ResourceKey<PlacedFeature> GIANT_GLOWSHROOM_CAVE = createKey("giant_glowshroom_cave");
+    public static final ResourceKey<PlacedFeature> HUGE_GLOWSHROOM_CAVE = createKey("huge_glowshroom_cave");
+    public static final ResourceKey<PlacedFeature> MEDIUM_GLOWSHROOM_CAVE = createKey("medium_glowshroom_cave");
+    public static final ResourceKey<PlacedFeature> SMALL_GLOWSHROOM_CAVE = createKey("small_glowshroom_cave");
+    public static final ResourceKey<PlacedFeature> EXTRA_GLOW_LICHEN = createKey("extra_glow_lichen");
+    public static final ResourceKey<PlacedFeature> HANGING_COBWEBS = createKey("hanging_cobwebs");
+    public static final ResourceKey<PlacedFeature> CORNER_COBWEBS = createKey("corner_cobwebs");
+    public static final ResourceKey<PlacedFeature> SPIDER_EGGS = createKey("spider_eggs");
+    public static final ResourceKey<PlacedFeature> STRINGY_COBWEB = createKey("stringy_cobweb");
+    public static final ResourceKey<PlacedFeature> WEBBING = createKey("webbing");
 
-    // Spider nest
-    public static final RegistryObject<PlacedFeature> HANGING_COBWEBS = register("hanging_cobwebs", BOPCaveFeatures.HANGING_COBWEB, () -> List.of(CountPlacement.of(200), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> CORNER_COBWEBS = register("corner_cobwebs", BOPCaveFeatures.CORNER_COBWEBS, () -> List.of(CountPlacement.of(40), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 24), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> SPIDER_EGGS = register("spider_eggs", BOPCaveFeatures.SPIDER_EGG, () -> List.of(CountPlacement.of(35), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> STRINGY_COBWEB = register("stringy_cobweb", BOPCaveFeatures.STRINGY_COBWEB, () -> List.of(CountPlacement.of(90), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
-    public static final RegistryObject<PlacedFeature> WEBBING = register("webbing", BOPCaveFeatures.WEBBING, () -> List.of(CountPlacement.of(18), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, BiomeFilter.biome()));
+    public static void bootstrap(BootstapContext<PlacedFeature> context)
+    {
+        HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
-    public static void setup() {}
+        final Holder<ConfiguredFeature<?, ?>> WEBBING = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.WEBBING);
+        final Holder<ConfiguredFeature<?, ?>> STRINGY_COBWEB = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.STRINGY_COBWEB);
+        final Holder<ConfiguredFeature<?, ?>> SPIDER_EGG = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.SPIDER_EGG);
+        final Holder<ConfiguredFeature<?, ?>> CORNER_COBWEBS = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.CORNER_COBWEBS);
+        final Holder<ConfiguredFeature<?, ?>> HANGING_COBWEB = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.HANGING_COBWEB);
+        final Holder<ConfiguredFeature<?, ?>> EXTRA_GLOW_LICHEN = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.EXTRA_GLOW_LICHEN);
+        final Holder<ConfiguredFeature<?, ?>> SMALL_GLOWSHROOM_CAVE = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.SMALL_GLOWSHROOM_CAVE);
+        final Holder<ConfiguredFeature<?, ?>> MEDIUM_GLOWSHROOM_CAVE = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.MEDIUM_GLOWSHROOM_CAVE);
+        final Holder<ConfiguredFeature<?, ?>> HUGE_GLOWSHROOM_CAVE = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.HUGE_GLOWSHROOM_CAVE);
+        final Holder<ConfiguredFeature<?, ?>> GIANT_GLOWSHROOM_CAVE = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.GIANT_GLOWSHROOM_CAVE);
+        final Holder<ConfiguredFeature<?, ?>> GLOWWORM_SILK = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.GLOWWORM_SILK);
+        final Holder<ConfiguredFeature<?, ?>> MUD_PATCH = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.MUD_PATCH);
+        final Holder<ConfiguredFeature<?, ?>> GLOWING_MOSS_PATCH = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.GLOWING_MOSS_PATCH);
+
+        register(context, BOPCavePlacements.GLOWING_GROTTO_VEGETATION, GLOWING_MOSS_PATCH, List.of(CountPlacement.of(16), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.GLOWING_GROTTO_MUD, MUD_PATCH, List.of(CountPlacement.of(24), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.GLOWWORM_SILK_STRANDS, GLOWWORM_SILK, List.of(CountPlacement.of(150), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.GIANT_GLOWSHROOM_CAVE, GIANT_GLOWSHROOM_CAVE, List.of(CountPlacement.of(50), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.HUGE_GLOWSHROOM_CAVE, HUGE_GLOWSHROOM_CAVE, List.of(CountPlacement.of(75), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.MEDIUM_GLOWSHROOM_CAVE, MEDIUM_GLOWSHROOM_CAVE, List.of(CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.SMALL_GLOWSHROOM_CAVE, SMALL_GLOWSHROOM_CAVE, List.of(CountPlacement.of(125), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.EXTRA_GLOW_LICHEN, EXTRA_GLOW_LICHEN, List.of(CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, BiomeFilter.biome()));
+        register(context, BOPCavePlacements.HANGING_COBWEBS, HANGING_COBWEB, List.of(CountPlacement.of(200), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.CORNER_COBWEBS, CORNER_COBWEBS, List.of(CountPlacement.of(40), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 24), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.SPIDER_EGGS, SPIDER_EGG, List.of(CountPlacement.of(35), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.STRINGY_COBWEB, STRINGY_COBWEB, List.of(CountPlacement.of(90), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome()));
+        register(context, BOPCavePlacements.WEBBING, WEBBING, List.of(CountPlacement.of(18), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, BiomeFilter.biome()));
+    }
+
+    protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)
+    {
+        register(context, placedFeatureKey, configuredFeature, List.of(modifiers));
+    }
+
+    protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> modifiers)
+    {
+        context.register(placedFeatureKey, new PlacedFeature(configuredFeature, modifiers));
+    }
 }

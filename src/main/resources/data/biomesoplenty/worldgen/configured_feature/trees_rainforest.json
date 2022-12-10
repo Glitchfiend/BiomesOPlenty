@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:mahogany_tree",
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": "minecraft:jungle_tree"
+      }
+    ]
+  }
+}

@@ -32,7 +32,7 @@ public class ModSounds
     private static RegistryObject<SoundEvent> registerSound(String name)
     {
         ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, name);
-        SoundEvent event = new SoundEvent(location);
+        SoundEvent event = SoundEvent.createVariableRangeEvent(location);
         return BiomesOPlenty.SOUND_EVENT_REGISTER.register(name, () -> event);
     }
 }

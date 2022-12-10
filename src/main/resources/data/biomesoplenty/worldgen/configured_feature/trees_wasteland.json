@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:dying_tree_wasteland",
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": "biomesoplenty:dead_tree_wasteland"
+      }
+    ]
+  }
+}

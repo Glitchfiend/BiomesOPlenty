@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:rainbow_birch_tree",
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": "biomesoplenty:oak_bush"
+      },
+      {
+        "chance": 0.1,
+        "feature": "biomesoplenty:fir_tree_small"
+      },
+      {
+        "chance": 0.025,
+        "feature": "biomesoplenty:fir_tree"
+      },
+      {
+        "chance": 0.4,
+        "feature": "biomesoplenty:big_rainbow_birch_tree"
+      }
+    ]
+  }
+}

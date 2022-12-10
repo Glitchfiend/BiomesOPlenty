@@ -41,9 +41,12 @@ minecraft {
             workingDirectory = project.file("run")
             source sourceSets.main
         }
+        data {
+            workingDirectory = project.file("run")
+            source sourceSets.main
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+        }
     }
-
-
 }
 
 // Configure  the source folders

@@ -9,20 +9,22 @@ import biomesoplenty.common.biome.BOPNetherBiomes;
 import biomesoplenty.common.biome.BOPOverworldBiomes;
 import biomesoplenty.common.worldgen.*;
 import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
-
-import java.util.function.Supplier;
 
 public class ModBiomes
 {
     public static void setup()
     {
         // Register our biomes
-        registerBiomes();
         registerVillagerTypes();
     }
 
@@ -40,79 +42,82 @@ public class ModBiomes
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.nether());
     }
 
-    public static void registerBiomes()
+    public static void bootstrapBiomes(BootstapContext<Biome> context)
     {
-        registerBiome(BOPBiomes.AURORAL_GARDEN, () -> BOPOverworldBiomes.auroralGarden());
-        registerBiome(BOPBiomes.BAMBOO_GROVE, () -> BOPOverworldBiomes.bambooGrove());
-        registerBiome(BOPBiomes.BAYOU, () -> BOPOverworldBiomes.bayou());
-        registerBiome(BOPBiomes.BOG, () -> BOPOverworldBiomes.bog());
-        registerBiome(BOPBiomes.CHERRY_BLOSSOM_GROVE, () -> BOPOverworldBiomes.cherryBlossomGrove());
-        registerBiome(BOPBiomes.CLOVER_PATCH, () -> BOPOverworldBiomes.cloverPatch());
-        registerBiome(BOPBiomes.COLD_DESERT, () -> BOPOverworldBiomes.coldDesert());
-        registerBiome(BOPBiomes.CONIFEROUS_FOREST, () -> BOPOverworldBiomes.coniferousForest(false));
-        registerBiome(BOPBiomes.CRAG, () -> BOPOverworldBiomes.crag());
-        registerBiome(BOPBiomes.DEAD_FOREST, () -> BOPOverworldBiomes.deadForest());
-        registerBiome(BOPBiomes.DRYLAND, () -> BOPOverworldBiomes.dryland());
-        registerBiome(BOPBiomes.DUNE_BEACH, () -> BOPOverworldBiomes.duneBeach());
-        registerBiome(BOPBiomes.FIELD, () -> BOPOverworldBiomes.field(false));
-        registerBiome(BOPBiomes.FIR_CLEARING, () -> BOPOverworldBiomes.firClearing(false));
-        registerBiome(BOPBiomes.FLOODPLAIN, () -> BOPOverworldBiomes.floodplain());
-        registerBiome(BOPBiomes.FORESTED_FIELD, () -> BOPOverworldBiomes.field(true));
-        registerBiome(BOPBiomes.FUNGAL_JUNGLE, () -> BOPOverworldBiomes.fungalJungle());
-        registerBiome(BOPBiomes.GRASSLAND, () -> BOPOverworldBiomes.grassland());
-        registerBiome(BOPBiomes.HIGHLAND, () -> BOPOverworldBiomes.highland());
-        registerBiome(BOPBiomes.HIGHLAND_MOOR, () -> BOPOverworldBiomes.highlandMoor());
-        registerBiome(BOPBiomes.JADE_CLIFFS, () -> BOPOverworldBiomes.jadeCliffs());
-        registerBiome(BOPBiomes.LAVENDER_FIELD, () -> BOPOverworldBiomes.lavenderField(false));
-        registerBiome(BOPBiomes.LAVENDER_FOREST, () -> BOPOverworldBiomes.lavenderField(true));
-        registerBiome(BOPBiomes.LUSH_DESERT, () -> BOPOverworldBiomes.lushDesert());
-        registerBiome(BOPBiomes.LUSH_SAVANNA, () -> BOPOverworldBiomes.lushSavanna());
-        registerBiome(BOPBiomes.MAPLE_WOODS, () -> BOPOverworldBiomes.mapleWoods(false));
-        registerBiome(BOPBiomes.MARSH, () -> BOPOverworldBiomes.marsh());
-        registerBiome(BOPBiomes.MEDITERRANEAN_FOREST, () -> BOPOverworldBiomes.mediterraneanForest());
-        registerBiome(BOPBiomes.MUSKEG, () -> BOPOverworldBiomes.muskeg());
-        registerBiome(BOPBiomes.MYSTIC_GROVE, () -> BOPOverworldBiomes.mysticGrove());
-        registerBiome(BOPBiomes.OLD_GROWTH_DEAD_FOREST, () -> BOPOverworldBiomes.oldGrowthDeadForest());
-        registerBiome(BOPBiomes.OLD_GROWTH_WOODLAND, () -> BOPOverworldBiomes.woodland(true));
-        registerBiome(BOPBiomes.OMINOUS_WOODS, () -> BOPOverworldBiomes.ominousWoods());
-        registerBiome(BOPBiomes.ORCHARD, () -> BOPOverworldBiomes.orchard());
-        registerBiome(BOPBiomes.ORIGIN_VALLEY, () -> BOPOverworldBiomes.originValley());
-        registerBiome(BOPBiomes.PASTURE, () -> BOPOverworldBiomes.pasture());
-        registerBiome(BOPBiomes.PRAIRIE, () -> BOPOverworldBiomes.prairie());
-        registerBiome(BOPBiomes.PUMPKIN_PATCH, () -> BOPOverworldBiomes.pumpkinPatch());
-        registerBiome(BOPBiomes.RAINFOREST, () -> BOPOverworldBiomes.rainforest());
-        registerBiome(BOPBiomes.REDWOOD_FOREST, () -> BOPOverworldBiomes.redwoodForest());
-        registerBiome(BOPBiomes.ROCKY_RAINFOREST, () -> BOPOverworldBiomes.rockyRainforest());
-        registerBiome(BOPBiomes.ROCKY_SHRUBLAND, () -> BOPOverworldBiomes.rockyShrubland());
-        registerBiome(BOPBiomes.SCRUBLAND, () -> BOPOverworldBiomes.scrubland(false));
-        registerBiome(BOPBiomes.SEASONAL_FOREST, () -> BOPOverworldBiomes.seasonalForest());
-        registerBiome(BOPBiomes.SEASONAL_ORCHARD, () -> BOPOverworldBiomes.seasonalOrchard());
-        registerBiome(BOPBiomes.SHRUBLAND, () -> BOPOverworldBiomes.shrubland());
-        registerBiome(BOPBiomes.SNOWY_CONIFEROUS_FOREST, () -> BOPOverworldBiomes.coniferousForest(true));
-        registerBiome(BOPBiomes.SNOWY_FIR_CLEARING, () -> BOPOverworldBiomes.firClearing(true));
-        registerBiome(BOPBiomes.SNOWY_MAPLE_WOODS, () -> BOPOverworldBiomes.mapleWoods(true));
-        registerBiome(BOPBiomes.TROPICS, () -> BOPOverworldBiomes.tropics());
-        registerBiome(BOPBiomes.TUNDRA, () -> BOPOverworldBiomes.tundra());
-        registerBiome(BOPBiomes.VOLCANIC_PLAINS, () -> BOPOverworldBiomes.volcanicPlains());
-        registerBiome(BOPBiomes.VOLCANO, () -> BOPOverworldBiomes.volcano());
-        registerBiome(BOPBiomes.WASTELAND, () -> BOPOverworldBiomes.wasteland(false));
-        registerBiome(BOPBiomes.WETLAND, () -> BOPOverworldBiomes.wetland());
-        registerBiome(BOPBiomes.WOODED_SCRUBLAND, () -> BOPOverworldBiomes.scrubland(true));
-        registerBiome(BOPBiomes.WOODED_WASTELAND, () -> BOPOverworldBiomes.wasteland(true));
-        registerBiome(BOPBiomes.WOODLAND, () -> BOPOverworldBiomes.woodland(false));
+        HolderGetter<ConfiguredWorldCarver<?>> carverGetter = context.lookup(Registries.CONFIGURED_CARVER);
+        HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
+
+        register(context, BOPBiomes.AURORAL_GARDEN, BOPOverworldBiomes.auroralGarden(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.BAMBOO_GROVE, BOPOverworldBiomes.bambooGrove(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.BAYOU, BOPOverworldBiomes.bayou(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.BOG, BOPOverworldBiomes.bog(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.CHERRY_BLOSSOM_GROVE, BOPOverworldBiomes.cherryBlossomGrove(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.CLOVER_PATCH, BOPOverworldBiomes.cloverPatch(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.COLD_DESERT, BOPOverworldBiomes.coldDesert(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.CRAG, BOPOverworldBiomes.crag(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.DEAD_FOREST, BOPOverworldBiomes.deadForest(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.DRYLAND, BOPOverworldBiomes.dryland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.DUNE_BEACH, BOPOverworldBiomes.duneBeach(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.FIELD, BOPOverworldBiomes.field(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.FIR_CLEARING, BOPOverworldBiomes.firClearing(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.FLOODPLAIN, BOPOverworldBiomes.floodplain(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.FORESTED_FIELD, BOPOverworldBiomes.field(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.FUNGAL_JUNGLE, BOPOverworldBiomes.fungalJungle(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.HIGHLAND_MOOR, BOPOverworldBiomes.highlandMoor(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.JADE_CLIFFS, BOPOverworldBiomes.jadeCliffs(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.LUSH_SAVANNA, BOPOverworldBiomes.lushSavanna(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.MARSH, BOPOverworldBiomes.marsh(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.MEDITERRANEAN_FOREST, BOPOverworldBiomes.mediterraneanForest(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.MUSKEG, BOPOverworldBiomes.muskeg(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.MYSTIC_GROVE, BOPOverworldBiomes.mysticGrove(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPOverworldBiomes.oldGrowthDeadForest(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.OLD_GROWTH_WOODLAND, BOPOverworldBiomes.woodland(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.OMINOUS_WOODS, BOPOverworldBiomes.ominousWoods(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.ORCHARD, BOPOverworldBiomes.orchard(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.ORIGIN_VALLEY, BOPOverworldBiomes.originValley(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.PASTURE, BOPOverworldBiomes.pasture(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.PUMPKIN_PATCH, BOPOverworldBiomes.pumpkinPatch(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.RAINFOREST, BOPOverworldBiomes.rainforest(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.REDWOOD_FOREST, BOPOverworldBiomes.redwoodForest(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.ROCKY_RAINFOREST, BOPOverworldBiomes.rockyRainforest(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.ROCKY_SHRUBLAND, BOPOverworldBiomes.rockyShrubland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.SEASONAL_ORCHARD, BOPOverworldBiomes.seasonalOrchard(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.SHRUBLAND, BOPOverworldBiomes.shrubland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.SNOWY_MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.TROPICS, BOPOverworldBiomes.tropics(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.VOLCANO, BOPOverworldBiomes.volcano(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.WETLAND, BOPOverworldBiomes.wetland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.WOODED_WASTELAND, BOPOverworldBiomes.wasteland(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland(placedFeatureGetter, carverGetter, false));
 
         // Cave biomes
-        registerBiome(BOPBiomes.GLOWING_GROTTO, () -> BOPOverworldBiomes.glowingGrotto());
-        registerBiome(BOPBiomes.SPIDER_NEST, () -> BOPOverworldBiomes.spiderNest());
+        register(context, BOPBiomes.GLOWING_GROTTO, BOPOverworldBiomes.glowingGrotto(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.SPIDER_NEST, BOPOverworldBiomes.spiderNest(placedFeatureGetter, carverGetter));
 
         // Nether biomes
-        registerBiome(BOPBiomes.CRYSTALLINE_CHASM, () -> BOPNetherBiomes.crystallineChasm());
-        registerBiome(BOPBiomes.ERUPTING_INFERNO, () -> BOPNetherBiomes.eruptingInferno());
-        registerBiome(BOPBiomes.UNDERGROWTH, () -> BOPNetherBiomes.undergrowth());
-        registerBiome(BOPBiomes.VISCERAL_HEAP, () -> BOPNetherBiomes.visceralHeap());
-        registerBiome(BOPBiomes.WITHERED_ABYSS, () -> BOPNetherBiomes.witheredAbyss());
+        register(context, BOPBiomes.CRYSTALLINE_CHASM, BOPNetherBiomes.crystallineChasm(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.ERUPTING_INFERNO, BOPNetherBiomes.eruptingInferno(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.UNDERGROWTH, BOPNetherBiomes.undergrowth(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.VISCERAL_HEAP, BOPNetherBiomes.visceralHeap(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.WITHERED_ABYSS, BOPNetherBiomes.witheredAbyss(placedFeatureGetter, carverGetter));
     }
-
+    
     private static void registerVillagerTypes()
     {
         registerVillagerType(BOPBiomes.AURORAL_GARDEN, VillagerType.SNOW);
@@ -175,12 +180,9 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.WOODLAND, VillagerType.PLAINS);
     }
 
-    public static void registerBiome(ResourceKey<Biome> key, Supplier<Biome> biomeSupplier)
+    private static void register(BootstapContext<Biome> context, ResourceKey<Biome> key, Biome biome)
     {
-        if (ModConfig.isBiomeEnabled(key))
-        {
-            BiomesOPlenty.BIOME_REGISTER.register(key.location().getPath(), biomeSupplier);
-        }
+        context.register(key, biome);
     }
 
     private static void registerVillagerType(ResourceKey<Biome> key, VillagerType type)

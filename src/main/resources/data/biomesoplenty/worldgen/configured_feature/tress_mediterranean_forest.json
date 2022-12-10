@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:oak_bush",
+    "features": [
+      {
+        "chance": 0.05,
+        "feature": "biomesoplenty:sparse_oak_tree"
+      },
+      {
+        "chance": 0.2,
+        "feature": "biomesoplenty:dark_oak_poplar_tree"
+      },
+      {
+        "chance": 0.4,
+        "feature": "biomesoplenty:spruce_poplar_tree"
+      },
+      {
+        "chance": 0.1,
+        "feature": "biomesoplenty:flowering_oak_bush"
+      }
+    ]
+  }
+}

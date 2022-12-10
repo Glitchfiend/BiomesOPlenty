@@ -1,0 +1,17 @@
+{
+  "feature": "biomesoplenty:sparse_acacia_tree",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "biomesoplenty:orange_sand",
+        "offset": [
+          0,
+          -1,
+          0
+        ]
+      }
+    }
+  ]
+}

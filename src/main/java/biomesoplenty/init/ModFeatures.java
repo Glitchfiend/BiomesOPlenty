@@ -6,8 +6,7 @@ package biomesoplenty.init;
 
 import biomesoplenty.common.worldgen.carver.BOPConfiguredCarvers;
 import biomesoplenty.common.worldgen.carver.BOPWorldCarvers;
-import biomesoplenty.common.worldgen.feature.*;
-import biomesoplenty.common.worldgen.placement.*;
+import biomesoplenty.common.worldgen.feature.BOPBaseFeatures;
 
 public class ModFeatures
 {
@@ -17,18 +16,6 @@ public class ModFeatures
 
         // Features
         BOPBaseFeatures.setup();
-        BOPCaveFeatures.setup();
-        BOPMiscOverworldFeatures.setup();
-        BOPNetherFeatures.setup();
-        BOPTreeFeatures.setup();
-        BOPVegetationFeatures.setup();
-
-        // Placements
-        BOPCavePlacements.setup();
-        BOPMiscOverworldPlacements.setup();
-        BOPNetherPlacements.setup();
-        BOPTreePlacements.setup();
-        BOPVegetationPlacements.setup();
 
         // Carvers
         BOPWorldCarvers.setup();

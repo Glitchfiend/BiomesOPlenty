@@ -5,7 +5,7 @@
 package biomesoplenty.common.block.trees;
 
 import biomesoplenty.common.worldgen.feature.BOPTreeFeatures;
-import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -15,8 +15,8 @@ public class FloweringOakTree extends AbstractTreeGrower
 {
    @Nullable
    @Override
-   protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
+   protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_FLOWERING_OAK_TREE.getHolder().orElseThrow() : BOPTreeFeatures.FLOWERING_OAK_TREE.getHolder().orElseThrow());
+      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_FLOWERING_OAK_TREE : BOPTreeFeatures.FLOWERING_OAK_TREE);
    }
 }

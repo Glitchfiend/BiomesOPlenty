@@ -7,7 +7,7 @@ package biomesoplenty.api.biome;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -97,7 +97,7 @@ public class BOPBiomes
 
     private static ResourceKey<Biome> registerOverworld(String name)
     {
-        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        ResourceKey<Biome> key = ResourceKey.create(Registries.BIOME, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
         overworldBiomes.add(key);
         allBiomes.add(key);
         return key;
@@ -105,7 +105,7 @@ public class BOPBiomes
 
     private static ResourceKey<Biome> register(String name)
     {
-        ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        ResourceKey<Biome> key = ResourceKey.create(Registries.BIOME, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
         allBiomes.add(key);
         return key;
     }

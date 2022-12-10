@@ -11,6 +11,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
@@ -47,7 +48,7 @@ public class RootedSandBlock extends Block implements BonemealableBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(BlockGetter p_154366_, BlockPos p_154367_, BlockState p_154368_, boolean p_154369_) {
+    public boolean isValidBonemealTarget(LevelReader p_154366_, BlockPos p_154367_, BlockState p_154368_, boolean p_154369_) {
         return p_154366_.getBlockState(p_154367_.below()).isAir();
     }
 

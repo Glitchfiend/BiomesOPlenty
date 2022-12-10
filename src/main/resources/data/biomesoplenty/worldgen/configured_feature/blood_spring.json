@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:spring_feature",
+  "config": {
+    "hole_count": 1,
+    "requires_block_below": false,
+    "rock_count": 4,
+    "state": {
+      "Name": "biomesoplenty:blood",
+      "Properties": {
+        "falling": "true"
+      }
+    },
+    "valid_blocks": [
+      "minecraft:netherrack",
+      "biomesoplenty:flesh",
+      "biomesoplenty:porous_flesh"
+    ]
+  }
+}

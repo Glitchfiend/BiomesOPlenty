@@ -1,0 +1,60 @@
+{
+  "type": "biomesoplenty:cypress_tree",
+  "config": {
+    "alt_foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "decorators": [],
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomesoplenty:willow_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "hanging_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "max_height": 25,
+    "min_height": 18,
+    "trunk_fruit_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomesoplenty:willow_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "trunk_width": 2,
+    "vine_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomesoplenty:willow_vine",
+        "Properties": {
+          "east": "false",
+          "north": "false",
+          "south": "false",
+          "up": "false",
+          "west": "false"
+        }
+      }
+    }
+  }
+}

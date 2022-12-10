@@ -1,0 +1,55 @@
+{
+  "type": "biomesoplenty:big_tree",
+  "config": {
+    "alt_foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "decorators": [],
+    "foliage_density": 1.0,
+    "foliage_height": 5,
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomesoplenty:jacaranda_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "hanging_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "max_height": 12,
+    "min_height": 5,
+    "trunk_fruit_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomesoplenty:jacaranda_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "trunk_width": 1,
+    "vine_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    }
+  }
+}

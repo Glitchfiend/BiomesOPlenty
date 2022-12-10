@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:maple_twiglet_tree",
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": "biomesoplenty:dead_twiglet_tree_small"
+      }
+    ]
+  }
+}

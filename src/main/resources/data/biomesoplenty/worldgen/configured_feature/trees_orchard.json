@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:flowering_oak_tree",
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": "biomesoplenty:big_flowering_tree"
+      }
+    ]
+  }
+}

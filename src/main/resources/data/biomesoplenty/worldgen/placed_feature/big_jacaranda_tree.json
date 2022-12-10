@@ -1,0 +1,17 @@
+{
+  "feature": "biomesoplenty:big_jacaranda_tree",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "biomesoplenty:jacaranda_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    }
+  ]
+}

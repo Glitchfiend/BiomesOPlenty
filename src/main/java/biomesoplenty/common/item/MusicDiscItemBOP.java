@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.item;
 
-import biomesoplenty.common.util.CreativeModeTabBOP;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -16,6 +15,6 @@ public class MusicDiscItemBOP extends RecordItem
 {
     public MusicDiscItemBOP(Supplier<SoundEvent> soundSupplier)
     {
-        super(0, soundSupplier, new Item.Properties().tab(CreativeModeTabBOP.INSTANCE).rarity(Rarity.RARE).stacksTo(1), 289*20);
+        super(0, soundSupplier, new Item.Properties().rarity(Rarity.RARE).stacksTo(1), 289*20);
     }
 }

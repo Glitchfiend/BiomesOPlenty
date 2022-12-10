@@ -10,7 +10,10 @@ import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ChestBoatModel;
+import net.minecraft.client.model.ListModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +24,7 @@ import java.util.stream.Stream;
 
 public class BoatRendererBOP extends BoatRenderer
 {
-    private final Map<BoatBOP.ModelType, Pair<ResourceLocation, BoatModel>> boatResources;
+    private final Map<BoatBOP.ModelType, Pair<ResourceLocation, ListModel<Boat>>> boatResources;
 
     public BoatRendererBOP(EntityRendererProvider.Context context, boolean hasChest)
     {
@@ -32,7 +35,7 @@ public class BoatRendererBOP extends BoatRenderer
     }
 
     @Override
-    public Pair<ResourceLocation, BoatModel> getModelWithLocation(Boat boat)
+    public Pair<ResourceLocation, ListModel<Boat>> getModelWithLocation(Boat boat)
     {
         if (boat instanceof ChestBoatBOP)
             return this.boatResources.get(((ChestBoatBOP)boat).getModel());
@@ -63,6 +66,7 @@ public class BoatRendererBOP extends BoatRenderer
     private BoatModel createBoatModel(EntityRendererProvider.Context context, BoatBOP.ModelType model, boolean hasChest)
     {
         ModelLayerLocation modellayerlocation = hasChest ? createChestBoatModelName(model) : createBoatModelName(model);
-        return new BoatModel(context.bakeLayer(modellayerlocation), hasChest);
+        ModelPart baked = context.bakeLayer(modellayerlocation);
+        return hasChest ? new ChestBoatModel(baked) : new BoatModel(baked);
     }
 }

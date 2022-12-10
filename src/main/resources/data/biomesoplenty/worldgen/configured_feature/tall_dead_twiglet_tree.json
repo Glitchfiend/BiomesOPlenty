@@ -1,0 +1,57 @@
+{
+  "type": "biomesoplenty:twiglet_tree",
+  "config": {
+    "alt_foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "decorators": [],
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomesoplenty:dead_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "hanging_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "leaf_chance_even": 0.15,
+    "leaf_chance_odd": 0.6,
+    "max_height": 18,
+    "min_height": 12,
+    "trunk_fruit_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomesoplenty:dead_branch",
+        "Properties": {
+          "facing": "north"
+        }
+      }
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomesoplenty:dead_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "vine_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    }
+  }
+}

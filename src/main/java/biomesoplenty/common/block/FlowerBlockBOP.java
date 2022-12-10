@@ -103,7 +103,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
 
     @Override
-    public MobEffect getSuspiciousStewEffect() {
+    public MobEffect getSuspiciousEffect() {
         return this.stewEffect;
     }
 
