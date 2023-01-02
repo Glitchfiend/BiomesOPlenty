@@ -8,8 +8,4 @@
 
 -----------------
 
-**Note:** To use the mod on a **server**, you must set the **level-type** setting in your server's config file to **biomesoplenty**
-
------------------
-
 © 2022 Glitchfiend. All rights reserved.
