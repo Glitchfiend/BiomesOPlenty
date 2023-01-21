@@ -632,7 +632,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:pasure"
+					"biome": "biomesoplenty:pasture"
 				  }
 				}
 			  }
