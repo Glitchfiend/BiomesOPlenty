@@ -20,6 +20,9 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.function.Supplier;
 
 public class FlowerBlockBOP extends FlowerBlock
 {
@@ -28,11 +31,11 @@ public class FlowerBlockBOP extends FlowerBlock
     private final MobEffect stewEffect;
     private final int stewEffectDuration;
 	
-    public FlowerBlockBOP(MobEffect p_i49984_1_, int effectDuration, Block.Properties properties)
+    public FlowerBlockBOP(Supplier<MobEffect> effectSupplier, int effectDuration, Block.Properties properties)
     {
-        super(p_i49984_1_, 0, properties);
-        this.stewEffect = p_i49984_1_;
-        if (p_i49984_1_.isInstantenous()) {
+        super(effectSupplier, 0, properties);
+        this.stewEffect = effectSupplier.get();
+        if (effectSupplier.get().isInstantenous()) {
             this.stewEffectDuration = effectDuration;
         } else {
             this.stewEffectDuration = effectDuration * 20;
@@ -40,7 +43,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull CollisionContext selectionContext)
     {
     	Block block = state.getBlock();
         
@@ -53,7 +56,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
     
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
+    public boolean canSurvive(@NotNull BlockState state, LevelReader worldIn, BlockPos pos)
     {
         Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
@@ -70,7 +73,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
     
     @Override
-    public void entityInside(BlockState stateIn, Level worldIn, BlockPos pos, Entity entityIn)
+    public void entityInside(BlockState stateIn, @NotNull Level worldIn, @NotNull BlockPos pos, @NotNull Entity entityIn)
     {
     	Block block = stateIn.getBlock();
     	
@@ -84,7 +87,7 @@ public class FlowerBlockBOP extends FlowerBlock
     }
     
     @Override
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
+    public void animateTick(@NotNull BlockState stateIn, @NotNull Level worldIn, @NotNull BlockPos pos, @NotNull RandomSource rand)
     {
        super.animateTick(stateIn, worldIn, pos, rand);
        Block block = stateIn.getBlock();
@@ -93,17 +96,17 @@ public class FlowerBlockBOP extends FlowerBlock
        {
 	       if (rand.nextInt(8) == 0)
 	       {
-	    	   worldIn.addParticle(ParticleTypes.FLAME, (double)(pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D)), (double)(pos.getY() + 0.75D), (double)(pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D)), 0.0D, 0.0D, 0.0D);
+	    	   worldIn.addParticle(ParticleTypes.FLAME, pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D), pos.getY() + 0.75D, pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D), 0.0D, 0.0D, 0.0D);
 	       }
 	       if (rand.nextInt(4) == 0)
 	       {
-	    	   worldIn.addParticle(ParticleTypes.SMOKE, (double)(pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D)), (double)(pos.getY() + 0.75D), (double)(pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D)), 0.0D, 0.0D, 0.0D);
+	    	   worldIn.addParticle(ParticleTypes.SMOKE, pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D), pos.getY() + 0.75D, pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D), 0.0D, 0.0D, 0.0D);
 	       }
 	   }
     }
 
     @Override
-    public MobEffect getSuspiciousEffect() {
+    public @NotNull MobEffect getSuspiciousEffect() {
         return this.stewEffect;
     }
 

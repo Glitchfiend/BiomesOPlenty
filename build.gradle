@@ -87,16 +87,16 @@ jar {
     }
 }
 
-task deobfJar(type: Jar) {
+tasks.register('deobfJar', Jar) {
     from sourceSets.main.output
     classifier = 'deobf'
 }
 
-task apiJar(type: Jar) {
+tasks.register('apiJar', Jar) {
     from(sourceSets.main.allJava) {
         include "${mod_id}/api/**"
     }
-    from (sourceSets.main.output) {
+    from(sourceSets.main.output) {
         include 'LICENSE.txt'
         include "${mod_id}/api/**"
     }
