@@ -37,7 +37,7 @@ public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
         int height = GeneratorUtil.nextIntBetween(random, config.minHeight, config.maxHeight);
         int leavesRadius = 2;
         int heightMinusTop = height - leavesRadius - 1;
-        boolean slant = false;
+        boolean slant = true;
         Direction direction = Direction.getRandom(random); //The direction the palm tree curves towards
         if (direction == Direction.DOWN || direction == Direction.UP)
         {
