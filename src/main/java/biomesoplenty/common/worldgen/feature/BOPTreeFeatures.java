@@ -36,6 +36,7 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE = createKey("willow_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_AUTUMN_TREE = createKey("yellow_autumn_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_FLOWERING_OAK_TREE = createKey("big_flowering_oak_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_HELLBARK_TREE = createKey("big_hellbark_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_JACARANDA_TREE = createKey("big_jacaranda_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_MAPLE_TREE = createKey("big_maple_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_OAK_TREE = createKey("big_oak_tree");
@@ -70,7 +71,6 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_BUSH = createKey("spruce_bush");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ACACIA_TWIGLET = createKey("acacia_twiglet");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ACACIA_TWIGLET_SMALL = createKey("acacia_twiglet_small");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_HELLBARK_TREE = createKey("big_hellbark_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_TREE_WASTELAND = createKey("dead_tree_wasteland");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE = createKey("dead_twiglet_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_SMALL = createKey("dead_twiglet_tree_small");
@@ -106,6 +106,7 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.WILLOW_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.WILLOW_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.WILLOW_LEAVES.get())).vine(BlockStateProvider.simple(BOPBlocks.WILLOW_VINE.get())).minHeight(6).maxHeight(10).leavesOffset(0).maxLeavesRadius(2).build());
         register(context, BOPTreeFeatures.YELLOW_AUTUMN_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.BIRCH_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.YELLOW_AUTUMN_LEAVES.get())).minHeight(5).maxHeight(8).build());
         register(context, BOPTreeFeatures.BIG_FLOWERING_OAK_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES.get())).build());
+        register(context, BOPTreeFeatures.BIG_HELLBARK_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.HELLBARK_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.HELLBARK_LEAVES.get())).maxHeight(10).foliageHeight(2).build());
         register(context, BOPTreeFeatures.BIG_JACARANDA_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.JACARANDA_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.JACARANDA_LEAVES.get())).build());
         register(context, BOPTreeFeatures.BIG_MAPLE_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().foliage(BlockStateProvider.simple(BOPBlocks.MAPLE_LEAVES.get())).build());
         register(context, BOPTreeFeatures.BIG_OAK_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().build());
@@ -140,11 +141,10 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.SPRUCE_BUSH, BOPBaseFeatures.BUSH_TREE, new BasicTreeConfiguration.Builder().maxHeight(2).minHeight(2).trunk(BlockStateProvider.simple(Blocks.SPRUCE_LOG)).foliage(BlockStateProvider.simple(Blocks.SPRUCE_LEAVES)).build());
         register(context, BOPTreeFeatures.ACACIA_TWIGLET, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.ACACIA_LOG)).foliage(BlockStateProvider.simple(Blocks.ACACIA_LEAVES)).build());
         register(context, BOPTreeFeatures.ACACIA_TWIGLET_SMALL, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.ACACIA_LOG)).foliage(BlockStateProvider.simple(Blocks.ACACIA_LEAVES)).minHeight(1).maxHeight(2).build());
-        register(context, BOPTreeFeatures.BIG_HELLBARK_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.HELLBARK_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.HELLBARK_LEAVES.get())).minHeight(3).maxHeight(7).build());
         register(context, BOPTreeFeatures.DEAD_TREE_WASTELAND, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH.get())).leafChance(0.0F, 0.0F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG.get())).foliage(BlockStateProvider.simple(Blocks.AIR)).minHeight(6).maxHeight(10).build());
         register(context, BOPTreeFeatures.DEAD_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH.get())).leafChance(0.05F, 0.25F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES.get())).minHeight(6).maxHeight(10).build());
         register(context, BOPTreeFeatures.DEAD_TWIGLET_TREE_SMALL, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES.get())).minHeight(1).maxHeight(2).build());
-        register(context, BOPTreeFeatures.HELLBARK_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.HELLBARK_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.HELLBARK_LEAVES.get())).build());
+        register(context, BOPTreeFeatures.HELLBARK_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.HELLBARK_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.HELLBARK_LEAVES.get())).minHeight(3).maxHeight(7).leafChance(0.75F,1.0F).build());
         register(context, BOPTreeFeatures.JUNGLE_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.JUNGLE_LOG)).foliage(BlockStateProvider.simple(Blocks.JUNGLE_LEAVES)).trunkFruit(BlockStateProvider.simple(Blocks.COCOA)).minHeight(1).maxHeight(2).build());
         register(context, BOPTreeFeatures.MAPLE_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().foliage(BlockStateProvider.simple(BOPBlocks.MAPLE_LEAVES.get())).minHeight(1).maxHeight(2).build());
         register(context, BOPTreeFeatures.SPRUCE_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.SPRUCE_LOG)).foliage(BlockStateProvider.simple(Blocks.SPRUCE_LEAVES)).minHeight(1).maxHeight(2).build());

@@ -27,6 +27,9 @@ public class ModSounds
         MUSIC_BIOME_UNDERGROWTH = registerSound("music.nether.undergrowth");
         MUSIC_BIOME_VISCERAL_HEAP = registerSound("music.nether.visceral_heap");
         MUSIC_BIOME_WITHERED_ABYSS = registerSound("music.nether.withered_abyss");
+
+        FLESH_TENDON_DRIP = registerSound("block.flesh_tendon.drip");
+        PUS_BUBBLE_POP = registerSound("block.pus_bubble.pop");
     }
 
     private static RegistryObject<SoundEvent> registerSound(String name)

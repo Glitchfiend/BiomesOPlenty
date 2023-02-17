@@ -436,5 +436,8 @@
   "block.biomesoplenty.yellow_autumn_sapling": "Yellow Autumn Sapling",
 
   "entity.biomesoplenty.boat": "Boat",
-  "entity.biomesoplenty.chest_boat": "Boat with Chest"
+  "entity.biomesoplenty.chest_boat": "Boat with Chest",
+  
+  "subtitles.block.flesh_tendon.drip": "Blood drips",
+  "subtitles.block.pus_bubble.pop": "Pus Bubble pops"
 }

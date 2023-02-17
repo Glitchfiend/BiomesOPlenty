@@ -1,4 +1,87 @@
 {
+  "block.pus_bubble.pop": {
+    "sounds": [
+      "minecraft:liquid/lavapop"
+    ],
+    "subtitle": "subtitles.block.pus_bubble.pop"
+  },
+  "block.flesh_tendon.drip": {
+    "sounds": [
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip1",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip1",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip2",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip2",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip3",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip3",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip4",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip4",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip5",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip5",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip6",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "attenuation_distance": 8,
+        "name": "minecraft:block/beehive/drip6",
+        "pitch": 0.9,
+        "volume": 0.3
+      }
+    ],
+    "subtitle": "subtitles.block.flesh_tendon.drip"
+  },
   "music_disc.wanderer": {
     "sounds": [
       {

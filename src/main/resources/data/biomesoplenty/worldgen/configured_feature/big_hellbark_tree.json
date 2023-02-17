@@ -1,5 +1,5 @@
 {
-  "type": "biomesoplenty:twiglet_tree",
+  "type": "biomesoplenty:big_tree",
   "config": {
     "alt_foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -8,6 +8,8 @@
       }
     },
     "decorators": [],
+    "foliage_density": 1.0,
+    "foliage_height": 2,
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -25,10 +27,8 @@
         "Name": "minecraft:air"
       }
     },
-    "leaf_chance_even": 0.2,
-    "leaf_chance_odd": 0.9,
-    "max_height": 7,
-    "min_height": 3,
+    "max_height": 10,
+    "min_height": 5,
     "trunk_fruit_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -44,6 +44,7 @@
         }
       }
     },
+    "trunk_width": 1,
     "vine_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

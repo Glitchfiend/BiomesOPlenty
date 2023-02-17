@@ -4,13 +4,13 @@
  ******************************************************************************/
 package biomesoplenty.client.particle;
 
+import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.init.ModParticles;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.material.Fluid;
@@ -178,7 +178,7 @@ public class DripParticleBOP extends TextureSheetParticle
                 this.remove();
                 this.level.addParticle(this.landParticle, this.x, this.y, this.z, 0.0D, 0.0D, 0.0D);
                 float f = Mth.randomBetween(this.random, 0.3F, 1.0F);
-                this.level.playLocalSound(this.x, this.y, this.z, SoundEvents.BEEHIVE_DRIP, SoundSource.BLOCKS, f, 1.0F, false);
+                this.level.playLocalSound(this.x, this.y, this.z, BOPSounds.FLESH_TENDON_DRIP.get(), SoundSource.BLOCKS, f, 1.0F, false);
             }
         }
     }

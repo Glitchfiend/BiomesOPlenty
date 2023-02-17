@@ -4,7 +4,7 @@
     "default": "biomesoplenty:hellbark_tree",
     "features": [
       {
-        "chance": 0.1,
+        "chance": 0.4,
         "feature": "biomesoplenty:big_hellbark_tree"
       }
     ]
