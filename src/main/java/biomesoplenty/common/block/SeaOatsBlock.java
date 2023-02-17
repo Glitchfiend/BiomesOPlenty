@@ -35,7 +35,7 @@ public class SeaOatsBlock extends DoublePlantBlockBOP
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER)
         {
             BlockState soil = worldReader.getBlockState(pos.below());
-            if (soil.getBlock() == Blocks.SAND || soil.getBlock() == BOPBlocks.ROOTED_SAND.get())
+            if (soil.getBlock() == Blocks.SAND)
             {
                 return true;
             }
@@ -47,34 +47,5 @@ public class SeaOatsBlock extends DoublePlantBlockBOP
         }
 
         return false;
-    }
-
-    @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand)
-    {
-        for (int i = 1; i < 5; i++)
-        {
-            if (world.getBlockState(pos.below(i)).getBlock() != Blocks.SAND && world.getBlockState(pos.below(i)).getBlock() != BOPBlocks.ROOTED_SAND.get())
-            {
-                break;
-            }
-
-            if (world.getBlockState(pos.below(i)).getBlock() == BOPBlocks.ROOTED_SAND.get() && world.getBlockState(pos.below(i+1)).isAir())
-            {
-                if (rand.nextInt(10) == 0)
-                {
-                    world.setBlockAndUpdate(pos.below(i+1), Blocks.HANGING_ROOTS.defaultBlockState());
-                }
-            }
-
-            if (world.getBlockState(pos.below(i)).getBlock() == Blocks.SAND)
-            {
-                if (rand.nextInt(10) == 0)
-                {
-                    world.setBlockAndUpdate(pos.below(i), BOPBlocks.ROOTED_SAND.get().defaultBlockState());
-                }
-                break;
-            }
-        }
     }
 }

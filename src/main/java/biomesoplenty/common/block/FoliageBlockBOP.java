@@ -82,11 +82,11 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
         }
         if (this == BOPBlocks.DUNE_GRASS.get())
         {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND.get() || ground == BOPBlocks.ORANGE_SAND.get() || ground == BOPBlocks.BLACK_SAND.get() || ground == BOPBlocks.ROOTED_SAND.get();
+            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND.get() || ground == BOPBlocks.ORANGE_SAND.get() || ground == BOPBlocks.BLACK_SAND.get();
         }
         if (this == BOPBlocks.DESERT_GRASS.get() || this == BOPBlocks.DEAD_GRASS.get())
         {
-            return ground == BOPBlocks.DRIED_SALT.get() || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND.get() || ground == BOPBlocks.ORANGE_SAND.get() || ground == BOPBlocks.BLACK_SAND.get() || ground == BOPBlocks.ROOTED_SAND.get() || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
+            return ground == BOPBlocks.DRIED_SALT.get() || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND.get() || ground == BOPBlocks.ORANGE_SAND.get() || ground == BOPBlocks.BLACK_SAND.get() || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);

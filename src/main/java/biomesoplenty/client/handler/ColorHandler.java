@@ -31,8 +31,9 @@ public class ColorHandler
         event.getItemColors().register((stack, tintIndex) -> {
                     BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
                     return event.getBlockColors().getColor(state, null, null, tintIndex); },
-                BOPBlocks.SPROUT.get(), BOPBlocks.BUSH.get(), BOPBlocks.CLOVER.get(), BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(),
-                BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(), BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get());
+                BOPBlocks.OVERGROWN_BLACK_SAND.get(), BOPBlocks.SPROUT.get(), BOPBlocks.BUSH.get(), BOPBlocks.CLOVER.get(),
+                BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(), BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(),
+                BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get());
     }
 
     @SubscribeEvent
@@ -41,7 +42,8 @@ public class ColorHandler
         //Grass Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D),
-                BOPBlocks.SPROUT.get(), BOPBlocks.CLOVER.get(), BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.WATERGRASS.get(), BOPBlocks.POTTED_SPROUT.get(), BOPBlocks.POTTED_CLOVER.get());
+                BOPBlocks.OVERGROWN_BLACK_SAND.get(), BOPBlocks.SPROUT.get(), BOPBlocks.CLOVER.get(), BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.WATERGRASS.get(),
+                BOPBlocks.POTTED_SPROUT.get(), BOPBlocks.POTTED_CLOVER.get());
 
         //Foliage Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->

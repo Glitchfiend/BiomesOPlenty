@@ -32,7 +32,7 @@ public class BOPMiscOverworldPlacements
     public static final ResourceKey<PlacedFeature> DISK_WHITE_SAND = createKey("disk_white_sand");
     public static final ResourceKey<PlacedFeature> DISK_WHITE_SAND_EXTRA = createKey("disk_white_sand_extra");
     public static final ResourceKey<PlacedFeature> DISK_MUD = createKey("disk_mud");
-    public static final ResourceKey<PlacedFeature> GRASS_SPLATTER = createKey("grass_splatter");
+    public static final ResourceKey<PlacedFeature> OVERGROWN_BLACK_SAND_SPLATTER = createKey("overgrown_black_sand_splatter");
     public static final ResourceKey<PlacedFeature> MUD_SPLATTER = createKey("mud_splatter");
     public static final ResourceKey<PlacedFeature> LAKE_LAVA_SURFACE_EXTRA = createKey("lake_lava_surface_extra");
     public static final ResourceKey<PlacedFeature> SPRING_LAVA_VOLCANO = createKey("spring_lava_volcano");
@@ -50,7 +50,7 @@ public class BOPMiscOverworldPlacements
         final Holder<ConfiguredFeature<?, ?>> DISK_ORANGE_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_ORANGE_SAND);
         final Holder<ConfiguredFeature<?, ?>> DISK_WHITE_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SAND);
         final Holder<ConfiguredFeature<?, ?>> DISK_WHITE_SAND_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SAND_EXTRA);
-        final Holder<ConfiguredFeature<?, ?>> GRASS_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.GRASS_SPLATTER);
+        final Holder<ConfiguredFeature<?, ?>> OVERGROWN_BLACK_SAND_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.OVERGROWN_BLACK_SAND_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> MUD_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.MUD_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> LAKE_LAVA = configuredFeatureGetter.getOrThrow(MiscOverworldFeatures.LAKE_LAVA);
         final Holder<ConfiguredFeature<?, ?>> SPRING_LAVA_VOLCANO = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO);
@@ -64,7 +64,7 @@ public class BOPMiscOverworldPlacements
         register(context, BOPMiscOverworldPlacements.DISK_ORANGE_SAND, DISK_ORANGE_SAND, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.DISK_WHITE_SAND, DISK_WHITE_SAND, List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.DISK_WHITE_SAND_EXTRA, DISK_WHITE_SAND_EXTRA, List.of(CountPlacement.of(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
-        register(context, BOPMiscOverworldPlacements.GRASS_SPLATTER, GRASS_SPLATTER, List.of(CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+        register(context, BOPMiscOverworldPlacements.OVERGROWN_BLACK_SAND_SPLATTER, OVERGROWN_BLACK_SAND_SPLATTER, List.of(CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.MUD_SPLATTER, MUD_SPLATTER, List.of(CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.LAKE_LAVA_SURFACE_EXTRA, LAKE_LAVA, CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.SPRING_LAVA_VOLCANO, SPRING_LAVA_VOLCANO, List.of(CountPlacement.of(128), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));

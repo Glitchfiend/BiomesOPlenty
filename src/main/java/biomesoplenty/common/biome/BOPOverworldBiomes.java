@@ -1312,7 +1312,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.FLUID_SPRINGS, BOPMiscOverworldPlacements.SPRING_LAVA_VOLCANO);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_VOLCANIC_PLAINS);
-        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPMiscOverworldPlacements.GRASS_SPLATTER);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPMiscOverworldPlacements.OVERGROWN_BLACK_SAND_SPLATTER);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_10);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 

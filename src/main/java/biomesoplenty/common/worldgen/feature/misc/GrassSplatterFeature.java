@@ -52,9 +52,9 @@ public class GrassSplatterFeature extends Feature<NoneFeatureConfiguration>
 
                         if (blockstate.getBlock() == BOPBlocks.BLACK_SAND.get() && this.isAir(worldIn, blockpos.above()))
                         {
-                            if (rand.nextInt(2) == 0)
+                            if (rand.nextInt(2) > 0)
                             {
-                                worldIn.setBlock(blockpos, Blocks.GRASS_BLOCK.defaultBlockState(), 2);
+                                worldIn.setBlock(blockpos, BOPBlocks.OVERGROWN_BLACK_SAND.get().defaultBlockState(), 2);
 
                                 if (rand.nextInt(3) == 0)
                                 {
