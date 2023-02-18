@@ -49,7 +49,7 @@ public class ModBlocks
     {
         //Fluids
         Supplier<? extends FlowingFluid> BLOOD_SUPPLIER = Suppliers.memoize(() -> (FlowingFluid) BOPFluids.BLOOD.get());
-        BLOOD = registerBlockNoGroup(() -> new BloodBlock(BLOOD_SUPPLIER, BlockBehaviour.Properties.of(ModMaterials.BLOOD).noCollission().randomTicks().strength(100.0F)), "blood");
+        BLOOD = registerBlock(() -> new BloodBlock(BLOOD_SUPPLIER, BlockBehaviour.Properties.of(ModMaterials.BLOOD).noCollission().randomTicks().strength(100.0F)), "blood");
 
         //Terrain
         WHITE_SAND = registerBlock(() -> new SandBlockBOP(0xF3F1E4, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.QUARTZ).strength(0.5F).sound(SoundType.SAND)), "white_sand");
@@ -340,11 +340,11 @@ public class ModBlocks
         //Vines
         WILLOW_VINE = registerBlock(() -> new VineBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().strength(0.2F).sound(SoundType.GRASS)), "willow_vine");
         SPANISH_MOSS = registerBlock(() -> new SpanishMossBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).randomTicks().noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss");
-        SPANISH_MOSS_PLANT = registerBlockNoGroup(() -> new SpanishMossBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss_plant");
+        SPANISH_MOSS_PLANT = registerBlock(() -> new SpanishMossBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "spanish_moss_plant");
         GLOWWORM_SILK = registerBlock(() -> new GlowwormSilkBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk");
-        GLOWWORM_SILK_STRAND = registerBlockNoGroup(() -> new GlowwormSilkBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk_strand");
+        GLOWWORM_SILK_STRAND = registerBlock(() -> new GlowwormSilkBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk_strand");
         HANGING_COBWEB = registerBlock(() -> new HangingCobwebBottomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb");
-        HANGING_COBWEB_STRAND = registerBlockNoGroup(() -> new HangingCobwebBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb_strand");
+        HANGING_COBWEB_STRAND = registerBlock(() -> new HangingCobwebBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb_strand");
         STRINGY_COBWEB = registerBlock(() -> new StringyCobwebBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "stringy_cobweb");
         WEBBING = registerBlock(() -> new WebbingBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.WOOL)), "webbing");
 
@@ -371,7 +371,7 @@ public class ModBlocks
 
         PUS_BUBBLE = registerBlock(() -> new PusBubbleBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_PINK).noCollission().instabreak().sound(new SoundType(1.0F, 1.0F, BOPSounds.PUS_BUBBLE_POP.get(), BOPSounds.PUS_BUBBLE_POP.get(), SoundEvents.CORAL_BLOCK_PLACE, BOPSounds.PUS_BUBBLE_POP.get(), BOPSounds.PUS_BUBBLE_POP.get()))), "pus_bubble");
         FLESH_TENDONS = registerBlock(() -> new FleshTendonsBottomBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh_tendons");
-        FLESH_TENDONS_STRAND = registerBlockNoGroup(() -> new FleshTendonsBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh_tendons_strand");
+        FLESH_TENDONS_STRAND = registerBlock(() -> new FleshTendonsBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh_tendons_strand");
         EYEBULB = registerBlock(() -> new EyebulbBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).noCollission().strength(0.2F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL)).offsetType(BlockBehaviour.OffsetType.NONE)), "eyebulb");
         HAIR = registerBlock(() -> new HairBlock(BlockBehaviour.Properties.of(Material.WOOL, MaterialColor.RAW_IRON).noCollission().instabreak().sound(SoundType.WOOL).offsetType(BlockBehaviour.OffsetType.XYZ)), "hair");
         BRIMSTONE_BUD = registerBlock(() -> new BrimstoneBudBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).noCollission().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ)), "brimstone_bud");
@@ -386,38 +386,38 @@ public class ModBlocks
         BLACKSTONE_BULB = registerBlock(() -> new BlackstoneDecorationBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).noCollission().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "blackstone_bulb");
 
         //Potted Plants
-        POTTED_ORIGIN_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(ORIGIN_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_origin_sapling");
-        POTTED_FLOWERING_OAK_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(FLOWERING_OAK_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_flowering_oak_sapling");
-        POTTED_RAINBOW_BIRCH_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(RAINBOW_BIRCH_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_rainbow_birch_sapling");
-        POTTED_YELLOW_AUTUMN_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(YELLOW_AUTUMN_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_yellow_autumn_sapling");
-        POTTED_ORANGE_AUTUMN_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(ORANGE_AUTUMN_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_orange_autumn_sapling");
-        POTTED_MAPLE_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(MAPLE_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_maple_sapling");
-        POTTED_FIR_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(FIR_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_fir_sapling");
-        POTTED_REDWOOD_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(REDWOOD_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_redwood_sapling");
-        POTTED_WHITE_CHERRY_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(WHITE_CHERRY_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_white_cherry_sapling");
-        POTTED_PINK_CHERRY_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(PINK_CHERRY_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_pink_cherry_sapling");
-        POTTED_MAHOGANY_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(MAHOGANY_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_mahogany_sapling");
-        POTTED_JACARANDA_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(JACARANDA_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_jacaranda_sapling");
-        POTTED_PALM_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(PALM_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_palm_sapling");
-        POTTED_WILLOW_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(WILLOW_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_willow_sapling");
-        POTTED_DEAD_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(DEAD_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_dead_sapling");
-        POTTED_MAGIC_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(MAGIC_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_magic_sapling");
-        POTTED_UMBRAN_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(UMBRAN_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_umbran_sapling");
-        POTTED_HELLBARK_SAPLING = registerBlockNoGroup(() -> new FlowerPotBlock(HELLBARK_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_hellbark_sapling");
-        POTTED_ROSE = registerBlockNoGroup(() -> new FlowerPotBlock(ROSE.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_rose");
-        POTTED_VIOLET = registerBlockNoGroup(() -> new FlowerPotBlock(VIOLET.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_violet");
-        POTTED_LAVENDER = registerBlockNoGroup(() -> new FlowerPotBlock(LAVENDER.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_lavender");
-        POTTED_WILDFLOWER = registerBlockNoGroup(() -> new FlowerPotBlock(WILDFLOWER.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_wildflower");
-        POTTED_ORANGE_COSMOS = registerBlockNoGroup(() -> new FlowerPotBlock(ORANGE_COSMOS.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_orange_cosmos");
-        POTTED_PINK_DAFFODIL = registerBlockNoGroup(() -> new FlowerPotBlock(PINK_DAFFODIL.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_pink_daffodil");
-        POTTED_PINK_HIBISCUS = registerBlockNoGroup(() -> new FlowerPotBlock(PINK_HIBISCUS.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_pink_hibiscus");
-        POTTED_GLOWFLOWER = registerBlockNoGroup(() -> new FlowerPotBlock(GLOWFLOWER.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().lightLevel((state) -> 9)), "potted_glowflower");
-        POTTED_WILTED_LILY = registerBlockNoGroup(() -> new FlowerPotBlock(WILTED_LILY.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_wilted_lily");
-        POTTED_BURNING_BLOSSOM = registerBlockNoGroup(() -> new FlowerPotBlock(BURNING_BLOSSOM.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().lightLevel((state) -> 7)), "potted_burning_blossom");
-        POTTED_SPROUT = registerBlockNoGroup(() -> new FlowerPotBlock(SPROUT.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_sprout");
-        POTTED_CLOVER = registerBlockNoGroup(() -> new FlowerPotBlock(CLOVER.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_clover");
-        POTTED_TOADSTOOL = registerBlockNoGroup(() -> new FlowerPotBlock(TOADSTOOL.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_toadstool");
-        POTTED_GLOWSHROOM = registerBlockNoGroup(() -> new FlowerPotBlock(GLOWSHROOM.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().lightLevel((state) -> 6)), "potted_glowshroom");
+        POTTED_ORIGIN_SAPLING = registerBlock(() -> new FlowerPotBlock(ORIGIN_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_origin_sapling");
+        POTTED_FLOWERING_OAK_SAPLING = registerBlock(() -> new FlowerPotBlock(FLOWERING_OAK_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_flowering_oak_sapling");
+        POTTED_RAINBOW_BIRCH_SAPLING = registerBlock(() -> new FlowerPotBlock(RAINBOW_BIRCH_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_rainbow_birch_sapling");
+        POTTED_YELLOW_AUTUMN_SAPLING = registerBlock(() -> new FlowerPotBlock(YELLOW_AUTUMN_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_yellow_autumn_sapling");
+        POTTED_ORANGE_AUTUMN_SAPLING = registerBlock(() -> new FlowerPotBlock(ORANGE_AUTUMN_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_orange_autumn_sapling");
+        POTTED_MAPLE_SAPLING = registerBlock(() -> new FlowerPotBlock(MAPLE_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_maple_sapling");
+        POTTED_FIR_SAPLING = registerBlock(() -> new FlowerPotBlock(FIR_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_fir_sapling");
+        POTTED_REDWOOD_SAPLING = registerBlock(() -> new FlowerPotBlock(REDWOOD_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_redwood_sapling");
+        POTTED_WHITE_CHERRY_SAPLING = registerBlock(() -> new FlowerPotBlock(WHITE_CHERRY_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_white_cherry_sapling");
+        POTTED_PINK_CHERRY_SAPLING = registerBlock(() -> new FlowerPotBlock(PINK_CHERRY_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_pink_cherry_sapling");
+        POTTED_MAHOGANY_SAPLING = registerBlock(() -> new FlowerPotBlock(MAHOGANY_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_mahogany_sapling");
+        POTTED_JACARANDA_SAPLING = registerBlock(() -> new FlowerPotBlock(JACARANDA_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_jacaranda_sapling");
+        POTTED_PALM_SAPLING = registerBlock(() -> new FlowerPotBlock(PALM_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_palm_sapling");
+        POTTED_WILLOW_SAPLING = registerBlock(() -> new FlowerPotBlock(WILLOW_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_willow_sapling");
+        POTTED_DEAD_SAPLING = registerBlock(() -> new FlowerPotBlock(DEAD_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_dead_sapling");
+        POTTED_MAGIC_SAPLING = registerBlock(() -> new FlowerPotBlock(MAGIC_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_magic_sapling");
+        POTTED_UMBRAN_SAPLING = registerBlock(() -> new FlowerPotBlock(UMBRAN_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_umbran_sapling");
+        POTTED_HELLBARK_SAPLING = registerBlock(() -> new FlowerPotBlock(HELLBARK_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_hellbark_sapling");
+        POTTED_ROSE = registerBlock(() -> new FlowerPotBlock(ROSE.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_rose");
+        POTTED_VIOLET = registerBlock(() -> new FlowerPotBlock(VIOLET.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_violet");
+        POTTED_LAVENDER = registerBlock(() -> new FlowerPotBlock(LAVENDER.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_lavender");
+        POTTED_WILDFLOWER = registerBlock(() -> new FlowerPotBlock(WILDFLOWER.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_wildflower");
+        POTTED_ORANGE_COSMOS = registerBlock(() -> new FlowerPotBlock(ORANGE_COSMOS.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_orange_cosmos");
+        POTTED_PINK_DAFFODIL = registerBlock(() -> new FlowerPotBlock(PINK_DAFFODIL.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_pink_daffodil");
+        POTTED_PINK_HIBISCUS = registerBlock(() -> new FlowerPotBlock(PINK_HIBISCUS.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_pink_hibiscus");
+        POTTED_GLOWFLOWER = registerBlock(() -> new FlowerPotBlock(GLOWFLOWER.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().lightLevel((state) -> 9)), "potted_glowflower");
+        POTTED_WILTED_LILY = registerBlock(() -> new FlowerPotBlock(WILTED_LILY.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_wilted_lily");
+        POTTED_BURNING_BLOSSOM = registerBlock(() -> new FlowerPotBlock(BURNING_BLOSSOM.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().lightLevel((state) -> 7)), "potted_burning_blossom");
+        POTTED_SPROUT = registerBlock(() -> new FlowerPotBlock(SPROUT.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_sprout");
+        POTTED_CLOVER = registerBlock(() -> new FlowerPotBlock(CLOVER.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_clover");
+        POTTED_TOADSTOOL = registerBlock(() -> new FlowerPotBlock(TOADSTOOL.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak()), "potted_toadstool");
+        POTTED_GLOWSHROOM = registerBlock(() -> new FlowerPotBlock(GLOWSHROOM.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().lightLevel((state) -> 6)), "potted_glowshroom");
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -448,13 +448,6 @@ public class ModBlocks
     }
 
     public static RegistryObject<Block> registerBlock(Supplier<Block> blockSupplier, String name)
-    {
-        RegistryObject<Block> blockRegistryObject = BiomesOPlenty.BLOCK_REGISTER.register(name, blockSupplier);
-        BiomesOPlenty.ITEM_REGISTER.register(name, () -> new BlockItem(blockRegistryObject.get(), new Item.Properties()));
-        return blockRegistryObject;
-    }
-
-    public static RegistryObject<Block> registerBlockNoGroup(Supplier<Block> blockSupplier, String name)
     {
         RegistryObject<Block> blockRegistryObject = BiomesOPlenty.BLOCK_REGISTER.register(name, blockSupplier);
         BiomesOPlenty.ITEM_REGISTER.register(name, () -> new BlockItem(blockRegistryObject.get(), new Item.Properties()));

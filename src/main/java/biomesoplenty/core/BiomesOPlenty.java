@@ -130,7 +130,16 @@ public class BiomesOPlenty
     private void registerTab(CreativeModeTabEvent.Register event)
     {
         List<RegistryObject<Item>> itemBlacklist = List.of(BOPItems.BOP_ICON);
-        List<RegistryObject<Block>> blockBlacklist = List.of(BOPBlocks.BLOOD);
+        List<RegistryObject<Block>> blockBlacklist = List.of(BOPBlocks.BLOOD, BOPBlocks.SPANISH_MOSS_PLANT, BOPBlocks.GLOWWORM_SILK_STRAND,
+                BOPBlocks.HANGING_COBWEB_STRAND, BOPBlocks.FLESH_TENDONS_STRAND, BOPBlocks.POTTED_ORIGIN_SAPLING, BOPBlocks.POTTED_FLOWERING_OAK_SAPLING,
+                BOPBlocks.POTTED_RAINBOW_BIRCH_SAPLING, BOPBlocks.POTTED_YELLOW_AUTUMN_SAPLING, BOPBlocks.POTTED_ORANGE_AUTUMN_SAPLING,
+                BOPBlocks.POTTED_MAPLE_SAPLING, BOPBlocks.POTTED_FIR_SAPLING, BOPBlocks.POTTED_REDWOOD_SAPLING, BOPBlocks.POTTED_WHITE_CHERRY_SAPLING,
+                BOPBlocks.POTTED_PINK_CHERRY_SAPLING, BOPBlocks.POTTED_MAHOGANY_SAPLING, BOPBlocks.POTTED_JACARANDA_SAPLING, BOPBlocks.POTTED_PALM_SAPLING,
+                BOPBlocks.POTTED_WILLOW_SAPLING, BOPBlocks.POTTED_DEAD_SAPLING, BOPBlocks.POTTED_MAGIC_SAPLING, BOPBlocks.POTTED_UMBRAN_SAPLING,
+                BOPBlocks.POTTED_HELLBARK_SAPLING, BOPBlocks.POTTED_ROSE, BOPBlocks.POTTED_VIOLET, BOPBlocks.POTTED_LAVENDER, BOPBlocks.POTTED_WILDFLOWER,
+                BOPBlocks.POTTED_ORANGE_COSMOS, BOPBlocks.POTTED_PINK_DAFFODIL, BOPBlocks.POTTED_PINK_HIBISCUS, BOPBlocks.POTTED_GLOWFLOWER,
+                BOPBlocks.POTTED_WILTED_LILY, BOPBlocks.POTTED_BURNING_BLOSSOM, BOPBlocks.POTTED_SPROUT, BOPBlocks.POTTED_CLOVER, BOPBlocks.POTTED_TOADSTOOL,
+                BOPBlocks.POTTED_GLOWSHROOM);
 
         event.registerCreativeModeTab(new ResourceLocation(BiomesOPlenty.MOD_ID, "main"), builder -> {
             builder.icon(() -> new ItemStack(BOPItems.BOP_ICON.get()))
@@ -140,9 +149,6 @@ public class BiomesOPlenty
                 for (Field field : BOPBlocks.class.getFields())
                 {
                     if (field.getType() != RegistryObject.class) continue;
-
-                    // Don't add potted things to our tab
-                    if (field.getName().startsWith("POTTED_")) continue;
 
                     try
                     {

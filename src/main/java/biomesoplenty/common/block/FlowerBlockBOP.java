@@ -19,12 +19,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class FlowerBlockBOP extends FlowerBlock
 {
+    protected static final VoxelShape SHORT = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 6.0D, 14.0D);
 	protected static final VoxelShape NORMAL = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape MEDIUM = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 12.0D, 13.0D);
 	protected static final VoxelShape LARGE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
     private final MobEffect stewEffect;
     private final int stewEffectDuration;
@@ -44,13 +47,23 @@ public class FlowerBlockBOP extends FlowerBlock
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
     {
     	Block block = state.getBlock();
+        VoxelShape shape = NORMAL;
         
         if (block == BOPBlocks.LAVENDER.get() || block == BOPBlocks.PINK_HIBISCUS.get())
         {
-        	return LARGE;
+        	shape = LARGE;
         }
-        
-        return NORMAL;
+        if (block == BOPBlocks.PINK_DAFFODIL.get() || block == BOPBlocks.WILDFLOWER.get() || block == BOPBlocks.GLOWFLOWER.get() || block == BOPBlocks.WILTED_LILY.get())
+        {
+            shape = MEDIUM;
+        }
+        if (block == BOPBlocks.VIOLET.get())
+        {
+            shape = SHORT;
+        }
+
+        Vec3 vec3 = state.getOffset(worldIn, pos);
+        return shape.move(vec3.x, vec3.y, vec3.z);
     }
     
     @Override
