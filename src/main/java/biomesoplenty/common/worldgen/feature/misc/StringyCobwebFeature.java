@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
 {
-    private static final int MIN_DISTANCE = 7;
+    private static final int MIN_DISTANCE = 3;
     private static final int MAX_DISTANCE = 16;
 
     public StringyCobwebFeature(Codec<NoneFeatureConfiguration> deserializer)
@@ -29,9 +29,15 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
     private boolean moveDiagnonally(WorldGenLevel level, BlockPos origin, Direction direction, boolean place)
     {
         int distance;
+        boolean connected = true;
 
         for (distance = 0; distance < MAX_DISTANCE; distance++)
         {
+            if (distance > 0)
+            {
+                connected = false;
+            }
+
             BlockPos pos = origin.relative(direction, distance).above(distance);
             BlockState state = level.getBlockState(pos);
 
@@ -44,7 +50,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
                 break;
             }
 
-            if (place) this.setBlock(level, pos, BOPBlocks.STRINGY_COBWEB.get().defaultBlockState().setValue(StringyCobwebBlock.FACING, direction));
+            if (place) this.setBlock(level, pos, BOPBlocks.STRINGY_COBWEB.get().defaultBlockState().setValue(StringyCobwebBlock.FACING, direction).setValue(StringyCobwebBlock.CONNECTED, connected));
         }
 
         if (distance < MIN_DISTANCE || distance >= MAX_DISTANCE) return false;

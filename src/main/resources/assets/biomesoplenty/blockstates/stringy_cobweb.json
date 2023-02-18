@@ -1,8 +1,28 @@
 {
     "variants": {
-        "facing=east": { "model": "biomesoplenty:block/stringy_cobweb", "y": 90 },
-        "facing=south": { "model": "biomesoplenty:block/stringy_cobweb", "y": 180 },
-        "facing=west": { "model": "biomesoplenty:block/stringy_cobweb", "y": 270 },
-        "facing=north": { "model": "biomesoplenty:block/stringy_cobweb", "y": 0 }
+        "facing=east,connected=false": [
+			{ "model": "biomesoplenty:block/stringy_cobweb", "y": 90 },
+			{ "model": "biomesoplenty:block/stringy_cobweb", "y": 90 },
+			{ "model": "biomesoplenty:block/stringy_cobweb_alt", "y": 90 }
+		],
+        "facing=south,connected=false": [
+			{ "model": "biomesoplenty:block/stringy_cobweb", "y": 180 },
+			{ "model": "biomesoplenty:block/stringy_cobweb", "y": 180 },
+			{ "model": "biomesoplenty:block/stringy_cobweb_alt", "y": 180 }
+		],
+        "facing=west,connected=false": [
+			{ "model": "biomesoplenty:block/stringy_cobweb", "y": 270 },
+			{ "model": "biomesoplenty:block/stringy_cobweb", "y": 270 },
+			{ "model": "biomesoplenty:block/stringy_cobweb_alt", "y": 270 }
+		],
+        "facing=north,connected=false": [
+			{ "model": "biomesoplenty:block/stringy_cobweb", "y": 0 },
+			{ "model": "biomesoplenty:block/stringy_cobweb", "y": 0 },
+			{ "model": "biomesoplenty:block/stringy_cobweb_alt", "y": 0 }
+		],
+		"facing=east,connected=true": { "model": "biomesoplenty:block/stringy_cobweb_connected", "y": 90 },
+        "facing=south,connected=true": { "model": "biomesoplenty:block/stringy_cobweb_connected", "y": 180 },
+        "facing=west,connected=true": { "model": "biomesoplenty:block/stringy_cobweb_connected", "y": 270 },
+        "facing=north,connected=true": { "model": "biomesoplenty:block/stringy_cobweb_connected", "y": 0 }
     }
 }

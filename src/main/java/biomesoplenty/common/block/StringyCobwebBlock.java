@@ -15,7 +15,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -24,13 +24,14 @@ import javax.annotation.Nullable;
 public class StringyCobwebBlock extends Block
 {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final BooleanProperty CONNECTED = BooleanProperty.create("connected");
     protected static final VoxelShape SHAPE_X = Block.box(0.0D, 0.0D, 7.0D, 16.0D, 16.0D, 9.0D);
     protected static final VoxelShape SHAPE_Z = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 16.0D, 16.0D);
 
     public StringyCobwebBlock(Properties properties)
     {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(CONNECTED, false));
     }
 
     @Override
@@ -45,7 +46,7 @@ public class StringyCobwebBlock extends Block
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, CONNECTED);
     }
 
     @Override
@@ -74,11 +75,14 @@ public class StringyCobwebBlock extends Block
     {
         Direction direction = state.getValue(FACING);
         BlockPos abovePos = pos.relative(direction).above();
-        BlockPos belowPos = pos.relative(direction.getOpposite()).below();
+        BlockPos belowPos = pos.below();
         BlockState aboveState = level.getBlockState(abovePos);
         BlockState belowState = level.getBlockState(belowPos);
 
-        if ((aboveState.getMaterial().isSolid() || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.getMaterial().isSolid() || belowState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
+        BlockPos belowDirPos = pos.relative(direction.getOpposite()).below();
+        BlockState belowDirState = level.getBlockState(belowDirPos);
+
+        if ((aboveState.getMaterial().isSolid() || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.getMaterial().isSolid() || belowDirState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
             return true;
 
         return false;
@@ -111,10 +115,13 @@ public class StringyCobwebBlock extends Block
         BlockPos blockpos = context.getClickedPos();
         Direction[] adirection = context.getNearestLookingDirections();
 
-        for (Direction direction : adirection) {
-            if (direction.getAxis().isHorizontal()) {
+        for (Direction direction : adirection)
+        {
+            if (direction.getAxis().isHorizontal())
+            {
                 blockstate = blockstate.setValue(FACING, direction.getOpposite());
-                if (blockstate.canSurvive(LevelReader, blockpos)) {
+                if (blockstate.canSurvive(LevelReader, blockpos))
+                {
                     return blockstate;
                 }
             }

@@ -2,8 +2,8 @@
 	"render_type": "minecraft:cutout",
 	"ambientocclusion": false,
 	"textures": {
-		"string": "biomesoplenty:block/stringy_cobweb",
-		"particle": "biomesoplenty:block/stringy_cobweb"
+		"string": "biomesoplenty:block/stringy_cobweb_alt",
+		"particle": "biomesoplenty:block/stringy_cobweb_alt"
 	},
 	"elements": [
 		{
