@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "biomesoplenty:block/hanging_cobweb_alt"
+    "cross": "biomesoplenty:block/hanging_cobweb_single"
   }
 }

@@ -290,6 +290,7 @@ public class BOPBlocks
     public static RegistryObject<Block> DUNE_GRASS;
     public static RegistryObject<Block> DESERT_GRASS;
     public static RegistryObject<Block> DEAD_GRASS;
+    public static RegistryObject<Block> TUNDRA_SHRUB;
     public static RegistryObject<Block> CATTAIL;
     public static RegistryObject<Block> BARLEY;
     public static RegistryObject<Block> SEA_OATS;

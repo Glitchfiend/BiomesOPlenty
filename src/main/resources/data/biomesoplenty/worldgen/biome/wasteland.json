@@ -76,6 +76,8 @@
     ],
     [
       "minecraft:glow_lichen",
+	  "biomesoplenty:trees_wasteland",
+      "biomesoplenty:flower_wasteland",
       "biomesoplenty:wasteland_grass_2"
     ],
     [

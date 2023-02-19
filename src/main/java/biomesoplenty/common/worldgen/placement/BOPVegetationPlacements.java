@@ -65,6 +65,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_TALL_GRASS_64 = createKey("patch_tall_grass_64");
     public static final ResourceKey<PlacedFeature> PATCH_TALL_GRASS_250 = createKey("patch_tall_grass_250");
     public static final ResourceKey<PlacedFeature> PATCH_TALL_LAVENDER = createKey("patch_tall_lavender");
+    public static final ResourceKey<PlacedFeature> PATCH_TUNDRA_SHRUBS = createKey("patch_tundra_shrubs");
     public static final ResourceKey<PlacedFeature> RAINFOREST_CLIFFS_VINES = createKey("rainforest_cliffs_vines");
     public static final ResourceKey<PlacedFeature> SMALL_TOADSTOOL = createKey("small_toadstool");
     public static final ResourceKey<PlacedFeature> SMALL_RED_MUSHROOM = createKey("small_red_mushroom");
@@ -190,6 +191,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> PATCH_SPROUTS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_SPROUTS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_TALL_GRASS = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_TALL_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_TALL_LAVENDER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_TALL_LAVENDER);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_TUNDRA_SHRUBS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_TUNDRA_SHRUBS);
         final Holder<ConfiguredFeature<?, ?>> RAINFOREST_CLIFFS_VINES = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES);
         final Holder<ConfiguredFeature<?, ?>> SMALL_TOADSTOOL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_TOADSTOOL);
         final Holder<ConfiguredFeature<?, ?>> SMALL_RED_MUSHROOM = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_RED_MUSHROOM);
@@ -315,6 +317,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_TALL_GRASS_64, PATCH_TALL_GRASS, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_TALL_GRASS_250, PATCH_TALL_GRASS, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_TALL_LAVENDER, PATCH_TALL_LAVENDER, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_TUNDRA_SHRUBS, PATCH_TUNDRA_SHRUBS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.RAINFOREST_CLIFFS_VINES, RAINFOREST_CLIFFS_VINES, VegetationPlacements.worldSurfaceSquaredWithCount(10));
         register(context, BOPVegetationPlacements.SMALL_TOADSTOOL, SMALL_TOADSTOOL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.SMALL_RED_MUSHROOM, SMALL_RED_MUSHROOM, List.of(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -365,7 +368,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_AURORAL_GARDEN, TREES_AURORAL_GARDEN, treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_BAMBOO_GROVE, TREES_BAMBOO_GROVE, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_BAYOU, TREES_BAYOU, waterTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
-        register(context, BOPVegetationPlacements.TREES_BOG, TREES_BOG, treePlacement(PlacementUtils.countExtra(16, 0.2F, 1)));
+        register(context, BOPVegetationPlacements.TREES_BOG, TREES_BOG, treePlacement(PlacementUtils.countExtra(12, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_CHERRY_BLOSSOM_GROVE, TREES_CHERRY_BLOSSOM_GROVE, treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_CONIFEROUS_FOREST, TREES_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_DEAD_FOREST, TREES_DEAD_FOREST, treePlacement(PlacementUtils.countExtra(2, 0.1F, 1)));

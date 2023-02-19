@@ -157,6 +157,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.DUNE_GRASS.get(), 60, 100);
         registerFlammable(BOPBlocks.DESERT_GRASS.get(), 60, 100);
         registerFlammable(BOPBlocks.DEAD_GRASS.get(), 60, 100);
+        registerFlammable(BOPBlocks.TUNDRA_SHRUB.get(), 60, 100);
         registerFlammable(BOPBlocks.DEAD_BRANCH.get(), 60, 100);
         registerFlammable(BOPBlocks.BARLEY.get(), 60, 100);
 
@@ -257,6 +258,7 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.DUNE_GRASS.get());
         registerCompostable(0.5F, BOPBlocks.DESERT_GRASS.get());
         registerCompostable(0.5F, BOPBlocks.DEAD_GRASS.get());
+        registerCompostable(0.5F, BOPBlocks.TUNDRA_SHRUB.get());
 
         registerCompostable(0.5F, BOPBlocks.CATTAIL.get());
         registerCompostable(0.5F, BOPBlocks.BARLEY.get());

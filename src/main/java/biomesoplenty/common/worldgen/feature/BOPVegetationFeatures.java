@@ -57,6 +57,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SEA_OATS = createKey("patch_sea_oats");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SPROUTS = createKey("patch_sprouts");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TALL_LAVENDER = createKey("patch_tall_lavender");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TUNDRA_SHRUBS = createKey("patch_tunda_shrubs");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_WATERGRASS = createKey("patch_watergrass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PUMPKIN_PATCH = createKey("pumpkin_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINFOREST_CLIFFS_VINES = createKey("rainforest_cliffs_vines");
@@ -226,6 +227,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_SEA_OATS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SEA_OATS.get()))));
         register(context, BOPVegetationFeatures.PATCH_SPROUTS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT.get()))));
         register(context, BOPVegetationFeatures.PATCH_TALL_LAVENDER, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TALL_LAVENDER.get()))));
+        register(context, BOPVegetationFeatures.PATCH_TUNDRA_SHRUBS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TUNDRA_SHRUB.get()))));
         register(context, BOPVegetationFeatures.PATCH_WATERGRASS, Feature.RANDOM_PATCH, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS.get()))));
         register(context, BOPVegetationFeatures.PUMPKIN_PATCH, BOPBaseFeatures.PUMPKIN_PATCH, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES, BOPBaseFeatures.RAINFOREST_CLIFFS_VINES, NoneFeatureConfiguration.INSTANCE);

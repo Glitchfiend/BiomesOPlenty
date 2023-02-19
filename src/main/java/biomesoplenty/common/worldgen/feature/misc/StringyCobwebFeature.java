@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
 {
-    private static final int MIN_DISTANCE = 3;
+    private static final int MIN_DISTANCE = 2;
     private static final int MAX_DISTANCE = 16;
 
     public StringyCobwebFeature(Codec<NoneFeatureConfiguration> deserializer)

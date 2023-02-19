@@ -72,9 +72,10 @@
     [
       "minecraft:glow_lichen",
       "biomesoplenty:trees_tundra",
-      "biomesoplenty:patch_fern_4",
+      "biomesoplenty:patch_fern_2",
       "biomesoplenty:patch_reed_5",
       "biomesoplenty:patch_grass_6",
+	  "biomesoplenty:patch_tundra_shrubs",
       "biomesoplenty:scattered_rocks"
     ],
     [
