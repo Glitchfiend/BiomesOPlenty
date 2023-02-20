@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:lake_lava",
+  "feature": "biomesoplenty:lava_lake_volcano",
   "placement": [
     {
       "type": "minecraft:count",
