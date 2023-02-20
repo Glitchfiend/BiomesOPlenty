@@ -17,11 +17,11 @@ import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModVillagerTrades
 {
     @SubscribeEvent
-    public void addWanderingVillagerTrades(WandererTradesEvent event)
+    public static void addWanderingVillagerTrades(WandererTradesEvent event)
     {
         //Cost, Amount, Trades Until Disabled, Villager XP
         VillagerTrades.ItemListing[] WANDERING_TRADER_GENERIC = new VillagerTrades.ItemListing[]{

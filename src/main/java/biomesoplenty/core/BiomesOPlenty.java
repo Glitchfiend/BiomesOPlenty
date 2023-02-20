@@ -26,7 +26,6 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fluids.FluidType;
@@ -106,8 +105,6 @@ public class BiomesOPlenty
         ModParticles.setup();
         ModPaintings.setup();
         ModSounds.setup();
-
-        MinecraftForge.EVENT_BUS.register(new ModVillagerTrades());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)

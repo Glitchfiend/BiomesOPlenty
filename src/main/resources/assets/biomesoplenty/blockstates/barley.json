@@ -1,6 +1,12 @@
 {
     "variants": {
-        "half=lower": { "model": "biomesoplenty:block/barley_bottom" },
-        "half=upper": { "model": "biomesoplenty:block/barley_top" }
+        "half=lower": [
+			{ "model": "biomesoplenty:block/barley_bottom" },
+			{ "model": "biomesoplenty:block/barley_bottom_alt" }
+		],
+        "half=upper": [
+			{ "model": "biomesoplenty:block/barley_top" },
+			{ "model": "biomesoplenty:block/barley_top_alt" }
+		]
     }
 }

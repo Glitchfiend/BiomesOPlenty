@@ -1,0 +1,7 @@
+{
+    "parent": "block/cross",
+    "render_type": "minecraft:cutout",
+    "textures": {
+        "cross": "biomesoplenty:block/barley_top_alt"
+    }
+}
