@@ -11,10 +11,6 @@
     {
       "id": "biomesoplenty:scrubland",
       "required": false
-    },
-    {
-      "id": "biomesoplenty:wooded_scrubland",
-      "required": false
     }
   ]
 }

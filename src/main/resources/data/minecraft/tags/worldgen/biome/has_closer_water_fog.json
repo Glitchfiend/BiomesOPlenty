@@ -49,11 +49,11 @@
       "required": false
     },
     {
-      "id": "biomesoplenty:wetland",
+      "id": "biomesoplenty:wasteland_steppe",
       "required": false
     },
     {
-      "id": "biomesoplenty:wooded_wasteland",
+      "id": "biomesoplenty:wetland",
       "required": false
     }
   ]

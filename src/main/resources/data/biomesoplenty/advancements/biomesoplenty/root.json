@@ -974,6 +974,22 @@
 			]
 		  }
         },
+		"wasteland_steppe": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "biomesoplenty:wasteland_steppe"
+							}
+						}
+					}
+				]
+			}
+		},
 		"wetland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1000,38 +1016,6 @@
 				"predicate": {
 				  "location": {
 					"biome": "biomesoplenty:withered_abyss"
-				  }
-				}
-			  }
-			]
-		  }
-        },
-		"wooded_scrubland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:wooded_scrubland"
-				  }
-				}
-			  }
-			]
-		  }
-        },
-		"wooded_wasteland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:wooded_wasteland"
 				  }
 				}
 			  }
@@ -1117,10 +1101,9 @@
 		"volcanic_plains",
 		"volcano",
 		"wasteland",
+		"wasteland_steppe",
 		"wetland",
 		"withered_abyss",
-		"wooded_scrubland",
-		"wooded_wasteland",
 		"woodland"
         ]
     ]

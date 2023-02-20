@@ -1,5 +1,5 @@
 {
-  "feature": "biomesoplenty:trees_wooded_scrubland",
+  "feature": "biomesoplenty:trees_scrubland",
   "placement": [
     {
       "type": "minecraft:count",
@@ -7,11 +7,11 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 6,
-            "weight": 9
+            "data": 0,
+            "weight": 4
           },
           {
-            "data": 7,
+            "data": 6,
             "weight": 1
           }
         ]

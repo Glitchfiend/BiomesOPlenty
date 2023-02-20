@@ -225,15 +225,11 @@
       "required": false
     },
     {
+      "id": "biomesoplenty:wasteland_steppe",
+      "required": false
+    },
+    {
       "id": "biomesoplenty:wetland",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:wooded_scrubland",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:wooded_wasteland",
       "required": false
     },
     {

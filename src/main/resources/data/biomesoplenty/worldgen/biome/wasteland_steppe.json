@@ -8,24 +8,18 @@
   },
   "downfall": 0.0,
   "effects": {
-    "fog_color": 14409153,
-    "foliage_color": 11904876,
-    "grass_color": 11375460,
+    "fog_color": 13490911,
+    "foliage_color": 13091727,
+    "grass_color": 13220230,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
-    "particle": {
-      "options": {
-        "type": "minecraft:mycelium"
-      },
-      "probability": 0.00357
-    },
-    "sky_color": 7384559,
-    "water_color": 4405025,
-    "water_fog_color": 789507
+    "sky_color": 7319286,
+    "water_color": 4216450,
+    "water_fog_color": 526363
   },
   "features": [
     [],
@@ -76,9 +70,9 @@
     ],
     [
       "minecraft:glow_lichen",
-      "biomesoplenty:trees_wasteland",
-      "biomesoplenty:flower_wasteland",
-      "biomesoplenty:wasteland_grass_2"
+      "biomesoplenty:patch_dead_grass",
+      "biomesoplenty:patch_desert_grass",
+      "biomesoplenty:patch_grass_6"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -146,12 +140,6 @@
         "maxCount": 1,
         "minCount": 1,
         "weight": 5
-      },
-      {
-        "type": "minecraft:husk",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 80
       }
     ],
     "underground_water_creature": [

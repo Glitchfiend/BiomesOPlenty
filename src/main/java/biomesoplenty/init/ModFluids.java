@@ -6,6 +6,12 @@ package biomesoplenty.init;
 
 import biomesoplenty.common.block.BloodFluid;
 import biomesoplenty.core.BiomesOPlenty;
+import com.mojang.blaze3d.shaders.FogShape;
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.Camera;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -19,6 +25,7 @@ import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3f;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -59,7 +66,7 @@ public class ModFluids
                     {
                         consumer.accept(new IClientFluidTypeExtensions()
                         {
-                            private static final ResourceLocation UNDERWATER_LOCATION = new ResourceLocation("textures/misc/underwater.png"),
+                            private static final ResourceLocation BLOOD_UNDERWATER = new ResourceLocation("biomesoplenty:textures/block/blood_underwater.png"),
                                 BLOOD_STILL = new ResourceLocation("biomesoplenty:block/blood_still"),
                                 BLOOD_FLOW = new ResourceLocation("biomesoplenty:block/blood_flow");
 
@@ -70,9 +77,22 @@ public class ModFluids
                             }
 
                             @Override
-                            public ResourceLocation getFlowingTexture()
+                            public ResourceLocation getFlowingTexture() { return BLOOD_FLOW; }
+
+                            @Override
+                            public ResourceLocation getRenderOverlayTexture(Minecraft mc) { return BLOOD_UNDERWATER; }
+
+                            @Override
+                            public Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor)
                             {
-                                return BLOOD_FLOW;
+                                return new Vector3f(0.407F, 0.121F, 0.137F);
+                            }
+
+                            @Override
+                            public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape)
+                            {
+                                RenderSystem.setShaderFogStart(0.125F);
+                                RenderSystem.setShaderFogEnd(1.5F);
                             }
                         });
                     }

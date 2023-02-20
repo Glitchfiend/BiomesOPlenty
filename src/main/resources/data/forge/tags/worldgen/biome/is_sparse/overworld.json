@@ -70,6 +70,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:scrubland",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:shrubland",
             "required": false
         },
@@ -94,11 +98,7 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:wooded_scrubland",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:wooded_wasteland",
+            "id": "biomesoplenty:wasteland_steppe",
             "required": false
         }
 	]

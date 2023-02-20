@@ -5,8 +5,8 @@
         "particle": "biomesoplenty:block/black_sand",
         "bottom": "biomesoplenty:block/black_sand",
         "top": "biomesoplenty:block/overgrown_black_sand_top",
-        "side": "biomesoplenty:block/overgrown_black_sand_side",
-        "overlay": "biomesoplenty:block/overgrown_black_sand_side_overlay"
+        "side": "biomesoplenty:block/black_sand",
+        "overlay": "biomesoplenty:block/overgrown_black_sand_side"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

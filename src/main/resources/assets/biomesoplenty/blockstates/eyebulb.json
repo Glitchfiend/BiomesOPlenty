@@ -1,6 +1,16 @@
 {
     "variants": {
-        "half=lower": { "model": "biomesoplenty:block/eyebulb_bottom" },
-        "half=upper": { "model": "biomesoplenty:block/eyebulb_top" }
+        "half=lower": [
+			{ "model": "biomesoplenty:block/eyebulb_bottom" },
+			{ "model": "biomesoplenty:block/eyebulb_bottom_closed" },
+			{ "model": "biomesoplenty:block/eyebulb_bottom" },
+			{ "model": "biomesoplenty:block/eyebulb_bottom_closed" }
+		],
+        "half=upper": [
+			{ "model": "biomesoplenty:block/eyebulb_top" },
+			{ "model": "biomesoplenty:block/eyebulb_top_closed" },
+			{ "model": "biomesoplenty:block/eyebulb_top_closed" },
+			{ "model": "biomesoplenty:block/eyebulb_top" }
+		]
     }
 }

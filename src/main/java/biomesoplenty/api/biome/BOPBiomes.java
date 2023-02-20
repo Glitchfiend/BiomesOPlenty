@@ -79,10 +79,9 @@ public class BOPBiomes
     public static final ResourceKey<Biome> VOLCANO = registerOverworld("volcano");
     public static final ResourceKey<Biome> VOLCANIC_PLAINS = registerOverworld("volcanic_plains");
     public static final ResourceKey<Biome> WASTELAND = registerOverworld("wasteland");
+    public static final ResourceKey<Biome> WASTELAND_STEPPE = registerOverworld("wasteland_steppe");
     public static final ResourceKey<Biome> WETLAND = registerOverworld("wetland");
     public static final ResourceKey<Biome> WITHERED_ABYSS = register("withered_abyss");
-    public static final ResourceKey<Biome> WOODED_SCRUBLAND = registerOverworld("wooded_scrubland");
-    public static final ResourceKey<Biome> WOODED_WASTELAND = registerOverworld("wooded_wasteland");
     public static final ResourceKey<Biome> WOODLAND = registerOverworld("woodland");
 
     public static List<ResourceKey<Biome>> getOverworldBiomes()

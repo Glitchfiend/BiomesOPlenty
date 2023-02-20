@@ -1,0 +1,7 @@
+{
+    "parent": "block/cross",
+    "render_type": "minecraft:cutout",
+    "textures": {
+        "cross": "biomesoplenty:block/eyebulb_bottom_closed"
+    }
+}

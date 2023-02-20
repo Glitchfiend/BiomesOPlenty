@@ -492,7 +492,7 @@ public class BOPSurfaceRuleData
                 SurfaceRules.isBiome(BOPBiomes.ROCKY_SHRUBLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), STONE)
             ),
-            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND, BOPBiomes.WOODED_WASTELAND), DRIED_SALT)
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND), DRIED_SALT)
         );
     }
 

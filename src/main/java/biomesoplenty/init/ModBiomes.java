@@ -89,7 +89,7 @@ public class ModBiomes
         register(context, BOPBiomes.REDWOOD_FOREST, BOPOverworldBiomes.redwoodForest(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.ROCKY_RAINFOREST, BOPOverworldBiomes.rockyRainforest(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.ROCKY_SHRUBLAND, BOPOverworldBiomes.rockyShrubland(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.SEASONAL_ORCHARD, BOPOverworldBiomes.seasonalOrchard(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.SHRUBLAND, BOPOverworldBiomes.shrubland(placedFeatureGetter, carverGetter));
@@ -100,10 +100,9 @@ public class ModBiomes
         register(context, BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.VOLCANO, BOPOverworldBiomes.volcano(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.WASTELAND_STEPPE, BOPOverworldBiomes.wastelandSteppe(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.WETLAND, BOPOverworldBiomes.wetland(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.WOODED_SCRUBLAND, BOPOverworldBiomes.scrubland(placedFeatureGetter, carverGetter, true));
-        register(context, BOPBiomes.WOODED_WASTELAND, BOPOverworldBiomes.wasteland(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland(placedFeatureGetter, carverGetter, false));
 
         // Cave biomes
@@ -174,9 +173,8 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.VOLCANIC_PLAINS, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.VOLCANO, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.WASTELAND, VillagerType.DESERT);
+        registerVillagerType(BOPBiomes.WASTELAND_STEPPE, VillagerType.DESERT);
         registerVillagerType(BOPBiomes.WETLAND, VillagerType.SWAMP);
-        registerVillagerType(BOPBiomes.WOODED_SCRUBLAND, VillagerType.SAVANNA);
-        registerVillagerType(BOPBiomes.WOODED_WASTELAND, VillagerType.DESERT);
         registerVillagerType(BOPBiomes.WOODLAND, VillagerType.PLAINS);
     }
 

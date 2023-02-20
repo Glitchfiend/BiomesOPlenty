@@ -152,7 +152,7 @@ public class BOPOverworldBiomeBuilder
             {BOPBiomes.COLD_DESERT,       BOPBiomes.COLD_DESERT,          BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_CONIFEROUS_FOREST},
             {BOPBiomes.CONIFEROUS_FOREST, BOPBiomes.CONIFEROUS_FOREST,    BOPBiomes.HIGHLAND,           BOPBiomes.HIGHLAND,    BOPBiomes.FIELD},
             {BOPBiomes.ORCHARD,           BOPBiomes.ROCKY_SHRUBLAND,      BOPBiomes.ROCKY_SHRUBLAND,    BOPBiomes.HIGHLAND,    BOPBiomes.HIGHLAND},
-            {BOPBiomes.SCRUBLAND,         BOPBiomes.WOODED_SCRUBLAND,     BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  BOPBiomes.ROCKY_RAINFOREST},
+            {BOPBiomes.SCRUBLAND,         BOPBiomes.SCRUBLAND,            BOPBiomes.WOODLAND,           BOPBiomes.RAINFOREST,  BOPBiomes.ROCKY_RAINFOREST},
             {BOPBiomes.DRYLAND,           BOPBiomes.DRYLAND,              BOPBiomes.LUSH_DESERT,        BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT}
     };
 
@@ -176,8 +176,8 @@ public class BOPOverworldBiomeBuilder
             {null,                            null,                            null,                   null,           null},
             {null,                            null,                            null,                   null,           null},
             {null,                            null,                            null,                   null,           null},
-            {null,                            null,                            null,                   null,           BOPBiomes.ROCKY_RAINFOREST},
-            {null,                            null,                            null,                   null,           BOPBiomes.VOLCANO}
+            {null,                            null,                            null,                   null,           BOPBiomes.VOLCANO},
+            {null,                            null,                            null,                   null,           null}
     };
 
     public void addBiomes(Registry<Biome> biomeRegistry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper)
@@ -574,8 +574,7 @@ public class BOPOverworldBiomeBuilder
 
         if (temperatureIndex == 1) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.CRAG, peakBiome);
         else if (temperatureIndex == 2) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.JADE_CLIFFS, peakBiome);
-        else if (temperatureIndex == 3 && humidityIndex >= 3) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.ROCKY_RAINFOREST, peakBiome);
-        else if (temperatureIndex == 4 && humidityIndex == 4) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.VOLCANO, peakBiome);
+        else if (temperatureIndex == 3 && humidityIndex >= 3) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.VOLCANO, peakBiome);
         else return peakBiome;
     }
 
@@ -585,8 +584,7 @@ public class BOPOverworldBiomeBuilder
 
         if (temperatureIndex == 1) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.CRAG, plateauBiome);
         else if (temperatureIndex == 2) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.JADE_CLIFFS, plateauBiome);
-        else if (temperatureIndex == 3 && humidityIndex >= 3) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.ROCKY_RAINFOREST, plateauBiome);
-        else if (temperatureIndex == 4 && humidityIndex == 4) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.VOLCANO, plateauBiome);
+        else if (temperatureIndex == 3 && humidityIndex >= 3) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.VOLCANO, plateauBiome);
         else return plateauBiome;
     }
 
