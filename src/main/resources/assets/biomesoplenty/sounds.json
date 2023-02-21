@@ -103,6 +103,18 @@
 	  {
         "name": "minecraft:music/game/calm3",
         "stream": true
+      },
+	  {
+        "name": "minecraft:music/game/piano1",
+        "stream": true
+      },
+	  {
+        "name": "minecraft:music/game/piano2",
+        "stream": true
+      },
+	  {
+        "name": "minecraft:music/game/piano3",
+        "stream": true
       }
     ]
   },
