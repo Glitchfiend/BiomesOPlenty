@@ -67,6 +67,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_TALL_LAVENDER = createKey("patch_tall_lavender");
     public static final ResourceKey<PlacedFeature> PATCH_TUNDRA_SHRUBS = createKey("patch_tundra_shrubs");
     public static final ResourceKey<PlacedFeature> RAINFOREST_CLIFFS_VINES = createKey("rainforest_cliffs_vines");
+    public static final ResourceKey<PlacedFeature> SMALL_BROWN_MUSHROOM = createKey("small_brown_mushroom");
     public static final ResourceKey<PlacedFeature> SMALL_TOADSTOOL = createKey("small_toadstool");
     public static final ResourceKey<PlacedFeature> SMALL_RED_MUSHROOM = createKey("small_red_mushroom");
     public static final ResourceKey<PlacedFeature> WASTELAND_GRASS_1 = createKey("wasteland_grass_1");
@@ -193,6 +194,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> PATCH_TALL_LAVENDER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_TALL_LAVENDER);
         final Holder<ConfiguredFeature<?, ?>> PATCH_TUNDRA_SHRUBS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_TUNDRA_SHRUBS);
         final Holder<ConfiguredFeature<?, ?>> RAINFOREST_CLIFFS_VINES = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES);
+        final Holder<ConfiguredFeature<?, ?>> SMALL_BROWN_MUSHROOM = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_BROWN_MUSHROOM);
         final Holder<ConfiguredFeature<?, ?>> SMALL_TOADSTOOL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_TOADSTOOL);
         final Holder<ConfiguredFeature<?, ?>> SMALL_RED_MUSHROOM = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_RED_MUSHROOM);
         final Holder<ConfiguredFeature<?, ?>> WASTELAND_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.WASTELAND_GRASS);
@@ -319,6 +321,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_TALL_LAVENDER, PATCH_TALL_LAVENDER, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_TUNDRA_SHRUBS, PATCH_TUNDRA_SHRUBS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.RAINFOREST_CLIFFS_VINES, RAINFOREST_CLIFFS_VINES, VegetationPlacements.worldSurfaceSquaredWithCount(10));
+        register(context, BOPVegetationPlacements.SMALL_BROWN_MUSHROOM, SMALL_BROWN_MUSHROOM, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SMALL_TOADSTOOL, SMALL_TOADSTOOL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.SMALL_RED_MUSHROOM, SMALL_RED_MUSHROOM, List.of(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.WASTELAND_GRASS_1, WASTELAND_GRASS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

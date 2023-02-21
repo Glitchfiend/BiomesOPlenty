@@ -804,6 +804,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_GRAVEL);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, BOPMiscOverworldPlacements.DISK_MUD);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_MUSKEG);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SMALL_BROWN_MUSHROOM);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPMiscOverworldPlacements.MUD_SPLATTER);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_1);
 

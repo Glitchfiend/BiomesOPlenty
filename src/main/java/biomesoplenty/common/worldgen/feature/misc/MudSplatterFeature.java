@@ -55,9 +55,18 @@ public class MudSplatterFeature extends Feature<NoneFeatureConfiguration>
                             {
                                 worldIn.setBlock(blockpos, Blocks.MUD.defaultBlockState(), 2);
 
-                                if (rand.nextInt(15) == 0)
+                                if (rand.nextInt(18) == 0)
                                 {
                                     worldIn.setBlock(blockpos.above(), Blocks.DEAD_BUSH.defaultBlockState(), 2);
+                                }
+                            }
+                            else
+                            {
+                                worldIn.setBlock(blockpos, Blocks.PODZOL.defaultBlockState(), 2);
+
+                                if (rand.nextInt(9) == 0)
+                                {
+                                    worldIn.setBlock(blockpos.above(), Blocks.BROWN_MUSHROOM.defaultBlockState(), 2);
                                 }
                             }
 
