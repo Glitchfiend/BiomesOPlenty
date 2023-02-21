@@ -5,22 +5,44 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItems;
 import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.ShovelItem;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.dispenser.DispenseItemBehavior;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraft.world.level.block.FireBlock;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 
 public class ModVanillaCompat
 {
     public static void setup()
     {
+        //Dispenser Behavior
+        DispenseItemBehavior dispenseBucketBehavior = new DefaultDispenseItemBehavior() {
+            private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
+
+            public ItemStack execute(BlockSource p_123561_, ItemStack p_123562_) {
+                DispensibleContainerItem dispensiblecontaineritem = (DispensibleContainerItem)p_123562_.getItem();
+                BlockPos blockpos = p_123561_.getPos().relative(p_123561_.getBlockState().getValue(DispenserBlock.FACING));
+                Level level = p_123561_.getLevel();
+                if (dispensiblecontaineritem.emptyContents((Player)null, level, blockpos, (BlockHitResult)null)) {
+                    dispensiblecontaineritem.checkExtraContent((Player)null, level, p_123562_, blockpos);
+                    return new ItemStack(Items.BUCKET);
+                } else {
+                    return this.defaultDispenseItemBehavior.dispense(p_123561_, p_123562_);
+                }
+            }
+        };
+
+        DispenserBlock.registerBehavior(BOPItems.BLOOD_BUCKET.get(), dispenseBucketBehavior);
+
         //Flammability
         registerFlammable(BOPBlocks.ORIGIN_LEAVES.get(), 30, 60);
         registerFlammable(BOPBlocks.FLOWERING_OAK_LEAVES.get(), 30, 60);
