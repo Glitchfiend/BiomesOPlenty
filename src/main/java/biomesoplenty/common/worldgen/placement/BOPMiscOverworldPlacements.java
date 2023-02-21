@@ -34,6 +34,9 @@ public class BOPMiscOverworldPlacements
     public static final ResourceKey<PlacedFeature> DISK_MUD = createKey("disk_mud");
     public static final ResourceKey<PlacedFeature> OVERGROWN_BLACK_SAND_SPLATTER = createKey("overgrown_black_sand_splatter");
     public static final ResourceKey<PlacedFeature> MUD_SPLATTER = createKey("mud_splatter");
+    public static final ResourceKey<PlacedFeature> LAKE_WATER = createKey("lake_water");
+    public static final ResourceKey<PlacedFeature> LAKE_WATER_EXTRA = createKey("lake_water_extra");
+    public static final ResourceKey<PlacedFeature> LAKE_WATER_MARSH = createKey("lake_water_marsh");
     public static final ResourceKey<PlacedFeature> LAKE_LAVA_SURFACE_EXTRA = createKey("lake_lava_surface_extra");
     public static final ResourceKey<PlacedFeature> SPRING_LAVA_VOLCANO = createKey("spring_lava_volcano");
     public static final ResourceKey<PlacedFeature> SPRING_WATER_EXTRA = createKey("spring_water_extra");
@@ -52,6 +55,7 @@ public class BOPMiscOverworldPlacements
         final Holder<ConfiguredFeature<?, ?>> DISK_WHITE_SAND_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SAND_EXTRA);
         final Holder<ConfiguredFeature<?, ?>> OVERGROWN_BLACK_SAND_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.OVERGROWN_BLACK_SAND_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> MUD_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.MUD_SPLATTER);
+        final Holder<ConfiguredFeature<?, ?>> LAKE_WATER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.WATER_LAKE);
         final Holder<ConfiguredFeature<?, ?>> LAKE_LAVA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.LAVA_LAKE_VOLCANO);
         final Holder<ConfiguredFeature<?, ?>> SPRING_LAVA_VOLCANO = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO);
         final Holder<ConfiguredFeature<?, ?>> SPRING_WATER_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_WATER_EXTRA);
@@ -66,6 +70,9 @@ public class BOPMiscOverworldPlacements
         register(context, BOPMiscOverworldPlacements.DISK_WHITE_SAND_EXTRA, DISK_WHITE_SAND_EXTRA, List.of(CountPlacement.of(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.OVERGROWN_BLACK_SAND_SPLATTER, OVERGROWN_BLACK_SAND_SPLATTER, List.of(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.MUD_SPLATTER, MUD_SPLATTER, List.of(CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+        register(context, BOPMiscOverworldPlacements.LAKE_WATER, LAKE_WATER, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+        register(context, BOPMiscOverworldPlacements.LAKE_WATER_EXTRA, LAKE_WATER, CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+        register(context, BOPMiscOverworldPlacements.LAKE_WATER_MARSH, LAKE_WATER, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.LAKE_LAVA_SURFACE_EXTRA, LAKE_LAVA, CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.SPRING_LAVA_VOLCANO, SPRING_LAVA_VOLCANO, List.of(CountPlacement.of(128), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.SPRING_WATER_EXTRA, SPRING_WATER_EXTRA, List.of(CountPlacement.of(128), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(192)), BiomeFilter.biome()));

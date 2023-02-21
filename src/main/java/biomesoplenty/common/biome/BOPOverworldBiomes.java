@@ -201,6 +201,7 @@ public class BOPOverworldBiomes
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         globalOverworldGeneration(biomeBuilder);
+        addFeature(biomeBuilder, GenerationStep.Decoration.LAKES, BOPMiscOverworldPlacements.LAKE_WATER);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         BiomeDefaultFeatures.addSwampClayDisk(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
@@ -477,6 +478,7 @@ public class BOPOverworldBiomes
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         globalOverworldGeneration(biomeBuilder);
+        addFeature(biomeBuilder, GenerationStep.Decoration.LAKES, BOPMiscOverworldPlacements.LAKE_WATER_EXTRA);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_RAINFOREST_FLOODPLAIN);
@@ -753,6 +755,7 @@ public class BOPOverworldBiomes
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         globalOverworldGeneration(biomeBuilder);
+        addFeature(biomeBuilder, GenerationStep.Decoration.LAKES, BOPMiscOverworldPlacements.LAKE_WATER_MARSH);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_250);
