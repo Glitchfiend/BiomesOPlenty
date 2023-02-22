@@ -76,6 +76,7 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_SMALL = createKey("dead_twiglet_tree_small");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HELLBARK_TREE = createKey("hellbark_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> JUNGLE_TWIGLET_TREE = createKey("jungle_twiglet_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MANGROVE_TWIGLET_TREE = createKey("mangrove_twiglet_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TWIGLET_TREE = createKey("maple_twiglet_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TWIGLET_TREE = createKey("spruce_twiglet_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_DEAD_TWIGLET_TREE = createKey("tall_dead_twiglet_tree");
@@ -146,6 +147,7 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.DEAD_TWIGLET_TREE_SMALL, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES.get())).minHeight(1).maxHeight(2).build());
         register(context, BOPTreeFeatures.HELLBARK_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.HELLBARK_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.HELLBARK_LEAVES.get())).minHeight(3).maxHeight(7).leafChance(0.75F,1.0F).build());
         register(context, BOPTreeFeatures.JUNGLE_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.JUNGLE_LOG)).foliage(BlockStateProvider.simple(Blocks.JUNGLE_LEAVES)).trunkFruit(BlockStateProvider.simple(Blocks.COCOA)).minHeight(1).maxHeight(2).build());
+        register(context, BOPTreeFeatures.MANGROVE_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.MANGROVE_LOG)).foliage(BlockStateProvider.simple(Blocks.MANGROVE_LEAVES)).minHeight(1).maxHeight(2).build());
         register(context, BOPTreeFeatures.MAPLE_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().foliage(BlockStateProvider.simple(BOPBlocks.MAPLE_LEAVES.get())).minHeight(1).maxHeight(2).build());
         register(context, BOPTreeFeatures.SPRUCE_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.SPRUCE_LOG)).foliage(BlockStateProvider.simple(Blocks.SPRUCE_LEAVES)).minHeight(1).maxHeight(2).build());
         register(context, BOPTreeFeatures.TALL_DEAD_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH.get())).leafChance(0.15F, 0.6F).trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES.get())).minHeight(12).maxHeight(18).build());

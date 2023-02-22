@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "biomesoplenty:twiglet_tree",
+    "default": "biomesoplenty:mangrove_twiglet_tree",
     "features": [
       {
         "chance": 0.4,
