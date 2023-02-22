@@ -437,5 +437,8 @@
   "block.biomesoplenty.yellow_autumn_sapling": "Sazenice žlutého podzimního stromu",
 
   "entity.biomesoplenty.boat": "Loď",
-  "entity.biomesoplenty.chest_boat": "Loď s truhlou"
+  "entity.biomesoplenty.chest_boat": "Loď s truhlou",
+  
+  "subtitles.block.flesh_tendon.drip": "Krev kape",
+  "subtitles.block.pus_bubble.pop": "Hnisavá bublina praská"
 }
