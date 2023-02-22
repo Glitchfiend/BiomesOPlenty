@@ -25,6 +25,10 @@
       "required": false
     },
 	{
+      "id": "biomesoplenty:mediterranean_forest",
+      "required": false
+    },
+	{
       "id": "biomesoplenty:rainforest",
       "required": false
     },

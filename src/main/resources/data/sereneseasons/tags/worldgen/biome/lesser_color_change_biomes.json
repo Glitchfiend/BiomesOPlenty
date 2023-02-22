@@ -5,39 +5,11 @@
       "required": false
     },
 	{
-      "id": "biomesoplenty:boreal_forest",
-      "required": false
-    },
-	{
-      "id": "biomesoplenty:dead_forest",
-      "required": false
-    },
-	{
-      "id": "biomesoplenty:mediterranean_forest",
-      "required": false
-    },
-	{
-      "id": "biomesoplenty:muskeg",
-      "required": false
-    },
-	{
       "id": "biomesoplenty:mystic_grove",
       "required": false
     },
 	{
-      "id": "biomesoplenty:old_growth_dead_forest",
-      "required": false
-    },
-	{
       "id": "biomesoplenty:ominous_woods",
-      "required": false
-    },
-	{
-      "id": "biomesoplenty:pumpkin_patch",
-      "required": false
-    },
-	{
-      "id": "biomesoplenty:seasonal_forest",
       "required": false
     },
 	{
