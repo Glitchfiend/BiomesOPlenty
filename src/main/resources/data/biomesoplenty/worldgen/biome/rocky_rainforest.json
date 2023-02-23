@@ -68,12 +68,9 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
-      "biomesoplenty:disk_orange_sand",
-      "minecraft:ore_emerald"
+      "biomesoplenty:disk_orange_sand"
     ],
-    [
-      "minecraft:ore_infested"
-    ],
+    [],
     [
       "minecraft:spring_water",
       "minecraft:spring_lava"
