@@ -71,8 +71,7 @@
   "biome.biomesoplenty.wasteland": "Pustina",
   "biome.biomesoplenty.wetland": "Mokřad",
   "biome.biomesoplenty.withered_abyss": "Uschlá propast",
-  "biome.biomesoplenty.wooded_scrubland": "Zalesněný křovinný porost",
-  "biome.biomesoplenty.wooded_wasteland": "Zalesněná pustina",
+  "biome.biomesoplenty.wasteland_steppe": "Pustinná step",
   "biome.biomesoplenty.woodland": "Les",
 
   "item.biomesoplenty.blood_bucket": "Kbelík krve",
@@ -274,6 +273,7 @@
   "block.biomesoplenty.origin_grass_block": "Původní trávník",
   "block.biomesoplenty.origin_leaves": "Původní listy",
   "block.biomesoplenty.origin_sapling": "Původní sazenice",
+  "block.biomesoplenty.overgrown_black_sand": "Obrostlý černý písek",
   "block.biomesoplenty.palm_button": "Palmové tlačítko",
   "block.biomesoplenty.palm_door": "Palmové dveře",
   "block.biomesoplenty.palm_fence": "Palmový plot",
@@ -345,7 +345,6 @@
   "block.biomesoplenty.redwood_wall_sign": "Sekvojovcová nástěnná cedule",
   "block.biomesoplenty.redwood_wood": "Sekvojovcové dřevo",
   "block.biomesoplenty.reed": "Rákos",
-  "block.biomesoplenty.rooted_sand": "Kořenový písek",
   "block.biomesoplenty.rose": "Růže",
   "block.biomesoplenty.rose_quartz_block": "Blok růžového křemene",
   "block.biomesoplenty.rose_quartz_cluster": "Drůza růžového křemene",
@@ -390,6 +389,7 @@
   "block.biomesoplenty.tall_lavender": "Vysoká levandule",
   "block.biomesoplenty.toadstool": "Houba",
   "block.biomesoplenty.toadstool_block": "Houbový blok",
+  "block.biomesoplenty.tundra_shrub": "Tundrové křoví",
   "block.biomesoplenty.umbran_button": "Temné tlačítko",
   "block.biomesoplenty.umbran_door": "Temné dveře",
   "block.biomesoplenty.umbran_fence": "Temný plot",
@@ -437,5 +437,8 @@
   "block.biomesoplenty.yellow_autumn_sapling": "Sazenice žlutého podzimního stromu",
 
   "entity.biomesoplenty.boat": "Loď",
-  "entity.biomesoplenty.chest_boat": "Loď s truhlou"
+  "entity.biomesoplenty.chest_boat": "Loď s truhlou",
+  
+  "subtitles.block.flesh_tendon.drip": "Krev kape",
+  "subtitles.block.pus_bubble.pop": "Hnisavá bublina praská"
 }
