@@ -378,6 +378,11 @@ public class BOPSurfaceRuleData
             SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, POWDER_SNOW)
         );
 
+        SurfaceRules.RuleSource gravelStoneSurface = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, GRAVEL),
+                SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, STONE)
+        );
+
         SurfaceRules.RuleSource mixedLushDesertSurface = SurfaceRules.sequence(
             SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), ORANGE_SANDSTONE),
             ORANGE_SAND
@@ -385,7 +390,12 @@ public class BOPSurfaceRuleData
 
         SurfaceRules.RuleSource mixedColdDesertSurface = SurfaceRules.sequence(
             SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), powderedSnowSurface),
-            GRAVEL
+            gravelStoneSurface
+        );
+
+        SurfaceRules.RuleSource volcanoSurface = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, BASALT),
+                SMOOTH_BASALT
         );
 
         // Sandstone linings
@@ -477,15 +487,15 @@ public class BOPSurfaceRuleData
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.COLD_DESERT),
                 SurfaceRules.sequence(
                     SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), powderedSnowSurface),
-                    GRAVEL
+                    gravelStoneSurface
                 )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), STONE),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.VOLCANO),
                 SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(surfaceNoiseAbove(2.7D), MAGMA),
-                    SMOOTH_BASALT
+                    SurfaceRules.ifTrue(surfaceNoiseAbove(2.8D), MAGMA),
+                    volcanoSurface
                 )
             ),
             SurfaceRules.ifTrue(
