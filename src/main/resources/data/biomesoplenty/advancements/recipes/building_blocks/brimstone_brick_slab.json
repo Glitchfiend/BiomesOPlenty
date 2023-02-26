@@ -1,0 +1,33 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:brimstone_brick_slab"
+    ]
+  },
+  "criteria": {
+    "has_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+               "biomesoplenty:brimstone_bricks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:brimstone_brick_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -93,16 +93,19 @@ public class ModBlocks
         DRIED_SALT = registerBlock(() -> new DriedSaltBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
         FLESH = registerBlock(() -> new FleshBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
         POROUS_FLESH = registerBlock(() -> new FleshBlock(BlockBehaviour.Properties.of(Material.SPONGE, MaterialColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "porous_flesh");
-        BRIMSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(0.5F)), "brimstone");
-        BRIMSTONE_FUMAROLE = registerBlock(() -> new BrimstoneFumaroleBlock(BlockBehaviour.Properties.copy(BRIMSTONE.get())), "brimstone_fumarole");
-        ROSE_QUARTZ_BLOCK = registerBlock(() -> new AmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().lightLevel((state) -> 10)), "rose_quartz_block");
 
+        BRIMSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(0.5F)), "brimstone");
+        BRIMSTONE_BRICKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F)), "brimstone_bricks");
+        BRIMSTONE_BRICK_STAIRS = registerBlock(() -> new StairBlock(BRIMSTONE_BRICKS.get()::defaultBlockState, Block.Properties.copy(BRIMSTONE_BRICKS.get())), "brimstone_brick_stairs");
+        BRIMSTONE_BRICK_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(BRIMSTONE_BRICKS.get())), "brimstone_brick_slab");
+        BRIMSTONE_BRICK_WALL = registerBlock(() -> new WallBlock(Block.Properties.copy(BRIMSTONE_BRICKS.get())), "brimstone_brick_wall");
+        BRIMSTONE_FUMAROLE = registerBlock(() -> new BrimstoneFumaroleBlock(BlockBehaviour.Properties.copy(BRIMSTONE.get())), "brimstone_fumarole");
+
+        ROSE_QUARTZ_BLOCK = registerBlock(() -> new AmethystBlock(BlockBehaviour.Properties.of(Material.AMETHYST, MaterialColor.CRIMSON_STEM).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().lightLevel((state) -> 10)), "rose_quartz_block");
         TOADSTOOL_BLOCK = registerBlock(() -> new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
         GLOWSHROOM_BLOCK = registerBlock(() -> new HugeMushroomBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10).emissiveRendering((state, world, pos) -> true)), "glowshroom_block");
-
         GLOWING_MOSS_CARPET = registerBlock(() -> new CarpetBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS_CARPET).lightLevel((state) -> 6)), "glowing_moss_carpet");
         GLOWING_MOSS_BLOCK = registerBlock(() -> new GlowingMossBlock(BlockBehaviour.Properties.of(Material.MOSS, MaterialColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS).lightLevel((state) -> 6)), "glowing_moss_block");
-
         SPIDER_EGG = registerBlock(() -> new SpiderEggBlock(BlockBehaviour.Properties.of(Material.EGG).strength(0.1F).sound(SoundType.METAL).lightLevel((state) -> 5)), "spider_egg");
 
         //Trees

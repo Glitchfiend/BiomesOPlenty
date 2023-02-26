@@ -49,6 +49,10 @@ public class BOPBlocks
     public static RegistryObject<Block> FLESH;
     public static RegistryObject<Block> POROUS_FLESH;
     public static RegistryObject<Block> BRIMSTONE;
+    public static RegistryObject<Block> BRIMSTONE_BRICKS;
+    public static RegistryObject<Block> BRIMSTONE_BRICK_SLAB;
+    public static RegistryObject<Block> BRIMSTONE_BRICK_STAIRS;
+    public static RegistryObject<Block> BRIMSTONE_BRICK_WALL;
     public static RegistryObject<Block> BRIMSTONE_FUMAROLE;
     public static RegistryObject<Block> ROSE_QUARTZ_BLOCK;
     public static RegistryObject<Block> TOADSTOOL_BLOCK;
