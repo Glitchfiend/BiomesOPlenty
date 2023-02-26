@@ -7,6 +7,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.init.ModParticles;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -31,10 +32,13 @@ public class GlowwormSilkBottomBlock extends HangingStrandBottomBlock {
         BlockPos blockpos = p_196260_3_.relative(this.growthDirection.getOpposite());
         BlockState blockstate = p_196260_2_.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (!this.canAttachTo(blockstate)) {
+        if (!this.canAttachTo(blockstate))
+        {
             return false;
-        } else {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getMaterial() == Material.STONE;
+        }
+        else
+        {
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK.get() || (blockstate.getMaterial() == Material.STONE && blockstate.isFaceSturdy(p_196260_2_, blockpos, Direction.DOWN));
         }
     }
 

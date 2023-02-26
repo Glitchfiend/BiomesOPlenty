@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.sound.BOPSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -45,7 +46,7 @@ public class SpiderEggBlock extends Block
     @Override
     public void onProjectileHit(Level p_57381_, BlockState p_57382_, BlockHitResult p_57383_, Projectile p_57384_)
     {
-        p_57381_.playSound((Player)null, p_57383_.getBlockPos(), SoundEvents.TURTLE_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + p_57381_.random.nextFloat() * 0.2F);
+        p_57381_.playSound((Player)null, p_57383_.getBlockPos(), BOPSounds.SPIDER_EGG_BREAK.get(), SoundSource.BLOCKS, 0.7F, 0.9F + p_57381_.random.nextFloat() * 0.2F);
         p_57381_.destroyBlock(p_57383_.getBlockPos(), false);
         this.spawnSpider(p_57381_, p_57383_.getBlockPos());
     }
@@ -53,7 +54,7 @@ public class SpiderEggBlock extends Block
     @Override
     public void fallOn(Level p_154567_, BlockState p_154568_, BlockPos p_154569_, Entity p_154570_, float p_154571_)
     {
-        p_154567_.playSound((Player)null, p_154569_, SoundEvents.TURTLE_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + p_154567_.random.nextFloat() * 0.2F);
+        p_154567_.playSound((Player)null, p_154569_, BOPSounds.SPIDER_EGG_BREAK.get(), SoundSource.BLOCKS, 0.7F, 0.9F + p_154567_.random.nextFloat() * 0.2F);
         p_154567_.destroyBlock(p_154569_, false);
         this.spawnSpider(p_154567_, p_154569_);
     }

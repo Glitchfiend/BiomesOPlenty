@@ -37,7 +37,7 @@ public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
         if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getMaterial() == Material.STONE;
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || (blockstate.getMaterial() == Material.STONE && blockstate.isFaceSturdy(p_196260_2_, blockpos, Direction.DOWN));
         }
     }
 

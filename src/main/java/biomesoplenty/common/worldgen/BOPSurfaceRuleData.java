@@ -511,7 +511,7 @@ public class BOPSurfaceRuleData
         SurfaceRules.ConditionSource isAbove30 = SurfaceRules.yStartCheck(VerticalAnchor.absolute(30), 0);
         SurfaceRules.ConditionSource isBelow35 = SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(35), 0));
         SurfaceRules.ConditionSource isSuitablePatchNoise = SurfaceRules.noiseCondition(Noises.PATCH, -0.012D);
-        SurfaceRules.ConditionSource isStateSelectorNoiseSuitable = SurfaceRules.noiseCondition(Noises.NETHER_STATE_SELECTOR, 0.0D);
+        SurfaceRules.ConditionSource isStateSelectorNoiseSuitable = SurfaceRules.noiseCondition(Noises.NETHER_STATE_SELECTOR, 0.2D);
 
         SurfaceRules.RuleSource obsidianPatchRules = SurfaceRules.ifTrue(isSuitablePatchNoise, SurfaceRules.ifTrue(isAbove30, SurfaceRules.ifTrue(isBelow35, OBSIDIAN)));
         SurfaceRules.RuleSource tuffPatchRules = SurfaceRules.ifTrue(isSuitablePatchNoise, SurfaceRules.ifTrue(isAbove30, SurfaceRules.ifTrue(isBelow35, TUFF)));
@@ -524,8 +524,8 @@ public class BOPSurfaceRuleData
                     SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
                         SurfaceRules.sequence(
                             tuffPatchRules,
-                            SurfaceRules.ifTrue(isStateSelectorNoiseSuitable, BRIMSTONE),
-                            NETHERRACK
+                            SurfaceRules.ifTrue(isStateSelectorNoiseSuitable, NETHERRACK),
+                            BRIMSTONE
                         )
                     )
                 )

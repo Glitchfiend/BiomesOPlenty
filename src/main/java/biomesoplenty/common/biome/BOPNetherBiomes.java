@@ -85,7 +85,7 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, OrePlacements.ORE_MAGMA);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, NetherPlacements.SPRING_CLOSED);
         BiomeDefaultFeatures.addNetherDefaultOres(biomeBuilder);
-        addFeature(biomeBuilder, GenerationStep.Decoration.SURFACE_STRUCTURES, BOPNetherPlacements.INFERNO_DELTA);
+        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.INFERNO_LAVA_LAKE);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.INFERNO_LAVA_SPRING);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.INFERNO_SPLATTER);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.LARGE_FUMAROLE);

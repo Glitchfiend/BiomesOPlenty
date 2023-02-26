@@ -5,6 +5,13 @@
     ],
     "subtitle": "subtitles.block.pus_bubble.pop"
   },
+  "block.spider_egg.break": {
+    "sounds": [
+	  "minecraft:mob/turtle/egg/egg_break1",
+      "minecraft:mob/turtle/egg/egg_break2"
+    ],
+    "subtitle": "subtitles.block.spider_egg.break"
+  },
   "block.flesh_tendon.drip": {
     "sounds": [
       {

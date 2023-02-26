@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:blackstone",
+	"minecraft:netherrack",
+	"minecraft:deepslate",
+	"minecraft:basalt",
+	"minecraft:smooth_basalt",
+	"minecraft:obsidian"
+  ]
+}

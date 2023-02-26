@@ -30,6 +30,7 @@ public class ModSounds
 
         FLESH_TENDON_DRIP = registerSound("block.flesh_tendon.drip");
         PUS_BUBBLE_POP = registerSound("block.pus_bubble.pop");
+        SPIDER_EGG_BREAK = registerSound("block.spider_egg.break");
     }
 
     private static RegistryObject<SoundEvent> registerSound(String name)

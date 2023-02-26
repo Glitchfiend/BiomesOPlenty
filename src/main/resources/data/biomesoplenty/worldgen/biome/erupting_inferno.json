@@ -37,9 +37,7 @@
     [],
     [],
     [],
-    [
-      "biomesoplenty:inferno_delta"
-    ],
+    [],
     [],
     [],
     [
@@ -56,6 +54,7 @@
       "minecraft:ore_quartz_nether",
       "minecraft:ore_ancient_debris_large",
       "minecraft:ore_debris_small",
+      "biomesoplenty:inferno_lava_lake",
       "biomesoplenty:inferno_lava_spring",
       "biomesoplenty:inferno_splatter",
       "biomesoplenty:large_fumarole",

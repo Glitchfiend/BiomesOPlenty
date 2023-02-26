@@ -36,7 +36,7 @@ public class BOPNetherPlacements
     public static final ResourceKey<PlacedFeature> FLOWER_UNDERGROWTH = createKey("flower_undergrowth");
     public static final ResourceKey<PlacedFeature> HAIR = createKey("hair");
     public static final ResourceKey<PlacedFeature> HANGING_FLESH_TENDONS = createKey("hanging_flesh_tendons");
-    public static final ResourceKey<PlacedFeature> INFERNO_DELTA = createKey("inferno_delta");
+    public static final ResourceKey<PlacedFeature> INFERNO_LAVA_LAKE = createKey("inferno_lava_lake");
     public static final ResourceKey<PlacedFeature> INFERNO_LAVA_SPRING = createKey("inferno_lava_spring");
     public static final ResourceKey<PlacedFeature> INFERNO_SPLATTER = createKey("inferno_splatter");
     public static final ResourceKey<PlacedFeature> LARGE_FUMAROLE = createKey("large_fumarole");
@@ -68,7 +68,7 @@ public class BOPNetherPlacements
         final Holder<ConfiguredFeature<?, ?>> UNDERGROWTH_FLOWERS = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.UNDERGROWTH_FLOWERS);
         final Holder<ConfiguredFeature<?, ?>> HAIR = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.HAIR);
         final Holder<ConfiguredFeature<?, ?>> HANGING_FLESH_TENDON = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.HANGING_FLESH_TENDON);
-        final Holder<ConfiguredFeature<?, ?>> INFERNO_DELTA = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.INFERNO_DELTA);
+        final Holder<ConfiguredFeature<?, ?>> INFERNO_LAVA_LAKE = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.INFERNO_LAVA_LAKE);
         final Holder<ConfiguredFeature<?, ?>> INFERNO_LAVA_SPRING = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.INFERNO_LAVA_SPRING);
         final Holder<ConfiguredFeature<?, ?>> INFERNO_SPLATTER = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.INFERNO_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> LARGE_FUMAROLE = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.LARGE_FUMAROLE);
@@ -89,14 +89,14 @@ public class BOPNetherPlacements
         register(context, BOPNetherPlacements.BLOOD_LAKE, BLOOD_LAKE, List.of(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.BLOOD_SPRING, BLOOD_SPRING, List.of(CountPlacement.of(12), InSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.BRIMSTONE_BUD, BRIMSTONE_BUD, List.of(CountPlacement.of(175), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
-        register(context, BOPNetherPlacements.BRIMSTONE_CLUSTER, BRIMSTONE_CLUSTER, List.of(CountPlacement.of(16), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
+        register(context, BOPNetherPlacements.BRIMSTONE_CLUSTER, BRIMSTONE_CLUSTER, List.of(CountPlacement.of(14), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.DEAD_GRASS_45, DEAD_GRASS, List.of(CountPlacement.of(45), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.EYEBULB, EYEBULB, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.RANGE_10_10, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.FLESH_TENDON, FLESH_TENDON, List.of(CountPlacement.of(50), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.FLOWER_UNDERGROWTH, UNDERGROWTH_FLOWERS, List.of(CountPlacement.of(8), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.HAIR, HAIR, List.of(CountPlacement.of(22), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.HANGING_FLESH_TENDONS, HANGING_FLESH_TENDON, List.of(CountPlacement.of(85), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
-        register(context, BOPNetherPlacements.INFERNO_DELTA, INFERNO_DELTA, List.of(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+        register(context, BOPNetherPlacements.INFERNO_LAVA_LAKE, INFERNO_LAVA_LAKE, List.of(CountOnEveryLayerPlacement.of(3), BiomeFilter.biome()));
         register(context, BOPNetherPlacements.INFERNO_LAVA_SPRING, INFERNO_LAVA_SPRING, List.of(CountPlacement.of(20), InSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.INFERNO_SPLATTER, INFERNO_SPLATTER, List.of(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.LARGE_FUMAROLE, LARGE_FUMAROLE, List.of(CountPlacement.of(125), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
@@ -108,7 +108,7 @@ public class BOPNetherPlacements
         register(context, BOPNetherPlacements.POROUS_FLESH, POROUS_FLESH, List.of(CountPlacement.of(80), InSquarePlacement.spread(), PlacementUtils.RANGE_10_10, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.PUS_BUBBLES, PUS_BUBBLES, List.of(CountPlacement.of(12), InSquarePlacement.spread(), PlacementUtils.RANGE_10_10, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.SMALL_CRYSTAL, SMALL_CRYSTAL, List.of(CountPlacement.of(90), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
-        register(context, BOPNetherPlacements.SMALL_FUMAROLE, SMALL_FUMAROLE, List.of(CountPlacement.of(50), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
+        register(context, BOPNetherPlacements.SMALL_FUMAROLE, SMALL_FUMAROLE, List.of(CountPlacement.of(40), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.SPROUTS_UNDERGROWTH, SPROUTS_UNDERGROWTH, List.of(CountPlacement.of(75), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.TREES_UNDERGROWTH, TREES_UNDERGROWTH, netherTreePlacement(PlacementUtils.countExtra(40, 0.2F, 1)));
     }

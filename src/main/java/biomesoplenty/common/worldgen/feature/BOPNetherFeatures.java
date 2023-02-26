@@ -45,7 +45,7 @@ public class BOPNetherFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLESH_TENDON = createKey("flesh_tendon");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HAIR = createKey("hair");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_FLESH_TENDON = createKey("hanging_flesh_tendon");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> INFERNO_DELTA = createKey("inferno_delta");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> INFERNO_LAVA_LAKE = createKey("inferno_lava_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> INFERNO_LAVA_SPRING = createKey("inferno_lava_spring");
     public static final ResourceKey<ConfiguredFeature<?, ?>> INFERNO_SPLATTER = createKey("inferno_splatter");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_FUMAROLE = createKey("large_fumarole");
@@ -80,7 +80,7 @@ public class BOPNetherFeatures
         register(context, BOPNetherFeatures.FLESH_TENDON, BOPBaseFeatures.FLESH_TENDON, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.HAIR, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.HAIR.get()))));
         register(context, BOPNetherFeatures.HANGING_FLESH_TENDON, BOPBaseFeatures.HANGING_FLESH_TENDON, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPNetherFeatures.INFERNO_DELTA, Feature.DELTA_FEATURE, new DeltaFeatureConfiguration(Blocks.LAVA.defaultBlockState(), BOPBlocks.BRIMSTONE.get().defaultBlockState(), UniformInt.of(5, 8), UniformInt.of(2, 3)));
+        register(context, BOPNetherFeatures.INFERNO_LAVA_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.LAVA), BlockStateProvider.simple(BOPBlocks.BRIMSTONE.get())));
         register(context, BOPNetherFeatures.INFERNO_LAVA_SPRING, Feature.SPRING, new SpringConfiguration(Fluids.LAVA.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.NETHERRACK)));
         register(context, BOPNetherFeatures.INFERNO_SPLATTER, BOPBaseFeatures.INFERNO_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.LARGE_FUMAROLE, BOPBaseFeatures.LARGE_FUMAROLE, NoneFeatureConfiguration.INSTANCE);

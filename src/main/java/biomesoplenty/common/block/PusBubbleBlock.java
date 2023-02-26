@@ -43,7 +43,7 @@ public class PusBubbleBlock extends Block
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
-        return groundState.is(ModTags.Blocks.FLESH);
+        return groundState.is(ModTags.Blocks.FLESH_DECORATION_PLACEABLE) && groundState.isFaceSturdy(worldIn, pos.below(), Direction.UP);
     }
 
     @Override

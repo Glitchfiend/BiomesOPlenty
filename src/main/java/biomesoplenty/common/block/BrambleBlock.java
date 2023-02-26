@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import biomesoplenty.init.ModDamageSources;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.damagesource.DamageSource;
@@ -64,7 +65,7 @@ public class BrambleBlock extends PipeBlock
          if (entityIn instanceof Player)
          {
              Player playerEntity = (Player) entityIn;
-             playerEntity.hurt(DamageSource.CACTUS, 1.0F);
+             playerEntity.hurt(ModDamageSources.BRAMBLE, 1.0F);
          }
       }
 

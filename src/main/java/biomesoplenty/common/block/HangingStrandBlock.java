@@ -40,7 +40,7 @@ public class HangingStrandBlock extends GrowingPlantBodyBlock
         if (!this.canAttachTo(blockstate)) {
             return false;
         } else {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getMaterial() == Material.STONE;
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || (blockstate.getMaterial() == Material.STONE && blockstate.isFaceSturdy(levelReader, blockpos, Direction.DOWN));
         }
     }
 

@@ -5,12 +5,16 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -51,7 +55,7 @@ public class BrimstoneClusterBlock extends DoublePlantBlockBOP
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER)
         {
             BlockState soil = worldReader.getBlockState(pos.below());
-            if (soil.getBlock() == BOPBlocks.BRIMSTONE.get())
+            if (soil.is(ModTags.Blocks.BRIMSTONE_DECORATION_PLACEABLE) && soil.isFaceSturdy(worldReader, pos.below(), Direction.UP))
             {
                 return true;
             }

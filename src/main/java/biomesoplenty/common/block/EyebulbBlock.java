@@ -6,6 +6,7 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -45,7 +46,7 @@ public class EyebulbBlock extends DoublePlantBlockBOP
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER)
         {
             BlockState soil = worldReader.getBlockState(pos.below());
-            if (soil.is(ModTags.Blocks.FLESH))
+            if (soil.is(ModTags.Blocks.FLESH_DECORATION_PLACEABLE) && soil.isFaceSturdy(worldReader, pos.below(), Direction.UP))
             {
                 return true;
             }

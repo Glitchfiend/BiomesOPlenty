@@ -24,7 +24,10 @@ public class ModTags
     {
         private static void setup() {}
 
+        public static final TagKey<Block> BLACKSTONE_DECORATION_PLACEABLE = BlockTags.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "blackstone_decoration_placeable"));
+        public static final TagKey<Block> BRIMSTONE_DECORATION_PLACEABLE = BlockTags.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "brimstone_decoration_placeable"));
         public static final TagKey<Block> FLESH = BlockTags.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "flesh"));
+        public static final TagKey<Block> FLESH_DECORATION_PLACEABLE = BlockTags.create(new ResourceLocation(BiomesOPlenty.MOD_ID, "flesh_decoration_placeable"));
     }
 
     public static class Fluids

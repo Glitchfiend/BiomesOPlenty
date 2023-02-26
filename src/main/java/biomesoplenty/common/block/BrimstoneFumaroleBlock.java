@@ -5,6 +5,8 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.init.ModDamageSources;
+import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -20,6 +22,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -40,7 +43,7 @@ public class BrimstoneFumaroleBlock extends Block
     public void stepOn(Level p_153777_, BlockPos p_153778_, BlockState p_153779_, Entity p_153780_)
     {
         if (!p_153780_.fireImmune() && p_153780_ instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)p_153780_)) {
-            p_153780_.hurt(DamageSource.HOT_FLOOR, 1.0F);
+            p_153780_.hurt(ModDamageSources.FUMAROLE, 1.0F);
         }
 
         super.stepOn(p_153777_, p_153778_, p_153779_, p_153780_);
@@ -74,7 +77,7 @@ public class BrimstoneFumaroleBlock extends Block
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
-        return groundState.getBlock() == BOPBlocks.BRIMSTONE.get();
+        return groundState.is(ModTags.Blocks.BRIMSTONE_DECORATION_PLACEABLE) && groundState.isFaceSturdy(worldIn, pos.below(), Direction.UP);
     }
 
     @Override

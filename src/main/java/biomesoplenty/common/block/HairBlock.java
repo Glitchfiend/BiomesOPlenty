@@ -14,6 +14,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -37,7 +38,7 @@ public class HairBlock extends Block
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos)
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
-        return groundState.is(ModTags.Blocks.FLESH);
+        return groundState.is(ModTags.Blocks.FLESH_DECORATION_PLACEABLE) && groundState.isFaceSturdy(worldIn, pos.below(), Direction.UP);
     }
 
     @Override
