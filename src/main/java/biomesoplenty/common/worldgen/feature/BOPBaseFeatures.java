@@ -29,6 +29,7 @@ public class BOPBaseFeatures
     public static final Feature<NoneFeatureConfiguration> DRIPSTONE_SPLATTER = register("dripstone_splatter", new DripstoneSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> BONE_SPINE = register("bone_spine", new BoneSpineFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> EXTRA_GLOW_LICHEN = register("extra_glow_lichen", new ExtraGlowLichenFeature(NoneFeatureConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> FALLEN_LOG = register("fallen_log", new FallenLogFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> FLESH_TENDON = register("flesh_tendon", new FleshTendonFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> GIANT_GLOWSHROOM = register("giant_glowshroom", new GiantGlowshroomFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> OVERGROWN_BLACK_SAND_SPLATTER = register("overgrown_black_sand_splatter", new GrassSplatterFeature(NoneFeatureConfiguration.CODEC));
