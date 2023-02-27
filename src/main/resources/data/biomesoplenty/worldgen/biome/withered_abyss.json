@@ -56,13 +56,13 @@
         "type": "minecraft:enderman",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 1
+        "weight": 50
       },
       {
         "type": "minecraft:wither_skeleton",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 1
+        "weight": 50
       }
     ],
     "underground_water_creature": [],

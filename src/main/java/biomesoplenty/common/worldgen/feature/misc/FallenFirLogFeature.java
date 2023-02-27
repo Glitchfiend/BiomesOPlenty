@@ -12,7 +12,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -20,12 +22,12 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class FallenLogFeature extends Feature<NoneFeatureConfiguration>
+public class FallenFirLogFeature extends Feature<NoneFeatureConfiguration>
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).getBlock() == Blocks.SNOW;
 
-    public FallenLogFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public FallenFirLogFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
@@ -42,7 +44,7 @@ public class FallenLogFeature extends Feature<NoneFeatureConfiguration>
             startPos = startPos.below();
         }
 
-        int length = 4 + rand.nextInt(4);
+        int length = 5 + rand.nextInt(5);
         Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
 
         int groundCheck = 0;
@@ -92,23 +94,23 @@ public class FallenLogFeature extends Feature<NoneFeatureConfiguration>
 
         for (int i = 0; i < length; i++)
         {
-            this.setBlock(world, pos.relative(direction, i), Blocks.OAK_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
+            this.setBlock(world, pos.relative(direction, i), BOPBlocks.FIR_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
 
             BlockState blockAbove = world.getBlockState(pos.above().relative(direction, i));
-            if (blockAbove.isAir() || blockAbove.getBlock() instanceof BushBlock)
+            if (blockAbove.isAir() || blockAbove.getBlock() instanceof BushBlock || blockAbove.getBlock() == Blocks.SNOW)
             {
-                if (rand.nextInt(4) == 0)
+                if (rand.nextInt(5) == 0)
                 {
                     this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.TOADSTOOL.get().defaultBlockState());
                 }
-                else
+                else if (rand.nextInt(4) == 0)
                 {
-                    this.setBlock(world, pos.above().relative(direction, i), Blocks.MOSS_CARPET.defaultBlockState());
+                    this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.SPROUT.get().defaultBlockState());
                 }
             }
 
             BlockState blockBelow = world.getBlockState(pos.below().relative(direction, i));
-            if (blockBelow.isAir() || blockBelow.getBlock() instanceof BushBlock)
+            if (blockBelow.isAir() || blockBelow.getBlock() instanceof BushBlock || blockBelow.getBlock() == Blocks.SNOW)
             {
                 this.setBlock(world, pos.below().relative(direction, i), Blocks.HANGING_ROOTS.defaultBlockState());
             }

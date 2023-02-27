@@ -46,6 +46,9 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.PINK_DAFFODIL.get(), 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.PINK_HIBISCUS.get(), 1, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.WILTED_LILY.get(), 1, 1, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.TALL_LAVENDER.get(), 2, 1, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.BLUE_HYDRANGEA.get(), 2, 1, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.GOLDENROD.get(), 2, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.CLOVER.get(), 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.TOADSTOOL.get(), 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.GLOWSHROOM.get(), 2, 1, 6, 1),
@@ -80,6 +83,7 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.ROSE.get(), 1, 1, 6, 1),
             new ItemsForEmeralds(BOPBlocks.GLOWFLOWER.get(), 1, 1, 6, 1),
             new ItemsForEmeralds(BOPBlocks.BURNING_BLOSSOM.get(), 1, 1, 6, 1),
+            new ItemsForEmeralds(BOPBlocks.ICY_IRIS.get(), 2, 1, 4, 1),
             new ItemsForEmeralds(BOPBlocks.GLOWWORM_SILK.get(), 6, 1, 2, 1),
             new ItemsForEmeralds(BOPBlocks.SPIDER_EGG.get(), 6, 1, 1, 1)};
 

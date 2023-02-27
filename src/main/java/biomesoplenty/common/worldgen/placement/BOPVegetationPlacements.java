@@ -169,6 +169,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> SHORT_BAMBOO = createKey("short_bamboo");
     public static final ResourceKey<PlacedFeature> SMALL_DRIPLEAF = createKey("small_dripleaf");
     public static final ResourceKey<PlacedFeature> FALLEN_LOG = createKey("fallen_log");
+    public static final ResourceKey<PlacedFeature> FALLEN_FIR_LOG = createKey("fallen_fir_log");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context)
     {
@@ -283,6 +284,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> SHORT_BAMBOO = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SHORT_BAMBOO);
         final Holder<ConfiguredFeature<?, ?>> SMALL_DRIPLEAF = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_DRIPLEAF);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_LOG);
+        final Holder<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_FIR_LOG);
 
         register(context, BOPVegetationPlacements.CLOVER_NORMAL, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.CLOVER_EXTRA, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(4));
@@ -425,6 +427,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.SHORT_BAMBOO, SHORT_BAMBOO, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.SMALL_DRIPLEAF, SMALL_DRIPLEAF, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_LOG, FALLEN_LOG, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FALLEN_FIR_LOG, FALLEN_FIR_LOG, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     }
 
     private static List<PlacementModifier> waterTreePlacement(PlacementModifier modifier)

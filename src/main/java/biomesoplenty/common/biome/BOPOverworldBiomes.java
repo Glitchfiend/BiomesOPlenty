@@ -452,6 +452,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_PUMPKIN);
         BiomeDefaultFeatures.addRareBerryBushes(biomeBuilder);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_FIR_CLEARING);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FALLEN_FIR_LOG);
 
         if (!snowy)
         {
@@ -579,8 +580,8 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
         BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
 
-        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
-        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_24);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_64);
 
         return biome(Biome.Precipitation.RAIN, 0.6F, 0.6F, spawnBuilder, biomeBuilder, MOUNTAIN_MUSIC);
     }
@@ -606,8 +607,8 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_MOOR);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_VIOLET);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SCRUB_NORMAL);
-        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_6);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_12);
 
         return biomeWithColorOverrides(Biome.Precipitation.RAIN, 0.6F, 0.6F, 0x71AA70, 0x78C46D, spawnBuilder, biomeBuilder, MOUNTAIN_MUSIC);
     }

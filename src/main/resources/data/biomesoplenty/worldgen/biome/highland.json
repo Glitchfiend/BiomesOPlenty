@@ -80,8 +80,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "biomesoplenty:patch_grass_12",
-      "biomesoplenty:patch_tall_grass_24"
+      "biomesoplenty:patch_grass_24",
+      "biomesoplenty:patch_tall_grass_64"
     ],
     [
       "minecraft:freeze_top_layer"

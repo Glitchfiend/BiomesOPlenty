@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:block/sea_oats_top"
+        "layer0": "biomesoplenty:item/sea_oats"
     }
 }
