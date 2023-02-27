@@ -106,8 +106,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> FLOWER_VIOLET = createKey("flower_violet");
     public static final ResourceKey<PlacedFeature> FLOWER_WASTELAND = createKey("flower_wasteland");
     public static final ResourceKey<PlacedFeature> FLOWER_WETLAND = createKey("flower_wetland");
-    public static final ResourceKey<PlacedFeature> GOLDENROD_NORMAL = createKey("goldenrod_normal");
-    public static final ResourceKey<PlacedFeature> GOLDENROD_EXTRA = createKey("goldenrod_extra");
+    public static final ResourceKey<PlacedFeature> GOLDENROD = createKey("goldenrod");
     public static final ResourceKey<PlacedFeature> LILAC_NORMAL = createKey("patch_lilac_normal");
     public static final ResourceKey<PlacedFeature> LILAC_EXTRA = createKey("patch_lilac_extra");
     public static final ResourceKey<PlacedFeature> PEONY = createKey("patch_peony");
@@ -364,8 +363,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.FLOWER_VIOLET, FLOWER_VIOLET, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.FLOWER_WASTELAND, FLOWER_WASTELAND, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_WETLAND, FLOWER_WETLAND, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.GOLDENROD_NORMAL, GOLDENROD, List.of(RarityFilter.onAverageOnceEvery(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.GOLDENROD_EXTRA, GOLDENROD, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.GOLDENROD, GOLDENROD, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.LILAC_NORMAL, PATCH_LILAC, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.LILAC_EXTRA, PATCH_LILAC, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PEONY, PATCH_PEONY, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -397,7 +395,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_OMINOUS_WOODS, TREES_OMINOUS_WOODS, treePlacement(PlacementUtils.countExtra(6, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_ORCHARD, TREES_ORCHARD, treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_ORIGIN_VALLEY, TREES_ORIGIN_VALLEY, treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
-        register(context, BOPVegetationPlacements.TREES_PRAIRIE, TREES_PRAIRIE, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
+        register(context, BOPVegetationPlacements.TREES_PRAIRIE, TREES_PRAIRIE, treePlacement(PlacementUtils.countExtra(0, 0.5F, 1)));
         register(context, BOPVegetationPlacements.TREES_WASTELAND, TREES_WASTELAND, treePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_WETLAND, TREES_WETLAND, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_WOODLAND, OAK, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1), Blocks.OAK_SAPLING));

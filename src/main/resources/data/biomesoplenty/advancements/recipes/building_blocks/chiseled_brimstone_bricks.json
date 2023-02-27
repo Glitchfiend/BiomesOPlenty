@@ -1,0 +1,33 @@
+{
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:chiseled_brimstone_bricks"
+    ]
+  },
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:chiseled_brimstone_bricks"
+      }
+    },
+    "has_brimstone_brick_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+               "biomesoplenty:brimstone_brick_slab"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_brimstone_brick_slab"
+    ]
+  ]
+}

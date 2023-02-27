@@ -96,6 +96,7 @@ public class ModBlocks
 
         BRIMSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(0.5F)), "brimstone");
         BRIMSTONE_BRICKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F)), "brimstone_bricks");
+        CHISELED_BRIMSTONE_BRICKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F)), "chiseled_brimstone_bricks");
         BRIMSTONE_BRICK_STAIRS = registerBlock(() -> new StairBlock(BRIMSTONE_BRICKS.get()::defaultBlockState, Block.Properties.copy(BRIMSTONE_BRICKS.get())), "brimstone_brick_stairs");
         BRIMSTONE_BRICK_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(BRIMSTONE_BRICKS.get())), "brimstone_brick_slab");
         BRIMSTONE_BRICK_WALL = registerBlock(() -> new WallBlock(Block.Properties.copy(BRIMSTONE_BRICKS.get())), "brimstone_brick_wall");
