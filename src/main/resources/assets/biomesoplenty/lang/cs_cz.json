@@ -114,6 +114,11 @@
   "block.biomesoplenty.blue_hydrangea": "Modrá hortenzie",
   "block.biomesoplenty.bramble": "Ostružiní",
   "block.biomesoplenty.brimstone": "Síra",
+  "block.biomesoplenty.brimstone_bricks": "Sirné cihly",
+  "block.biomesoplenty.chiseled_brimstone_bricks": "Opracované sirné cihly",
+  "block.biomesoplenty.brimstone_brick_slab": "Půlblok sirných cihel",
+  "block.biomesoplenty.brimstone_brick_stairs": "Schody z sirných cihel",
+  "block.biomesoplenty.brimstone_brick_wall": "Stěna ze sirných cihel",
   "block.biomesoplenty.brimstone_bud": "Velký trs síry",
   "block.biomesoplenty.brimstone_cluster": "Sirná drůza",
   "block.biomesoplenty.brimstone_fumarole": "Sirná fumarola",
@@ -436,9 +441,16 @@
   "block.biomesoplenty.yellow_autumn_leaves": "Žluté podzimní listy",
   "block.biomesoplenty.yellow_autumn_sapling": "Sazenice žlutého podzimního stromu",
 
+  
+  "death.attack.bramble": "%1$s byl popíchán k smrti",
+  "death.attack.bramble.player": "%1$s se zachytil v ostružiní při pokusu pro útěk před hráčem %2$s",
+  "death.attack.fumarole": "%1$s byl opařen zaživa",
+  "death.attack.fumarole.player": "%1$s dostal smrtelenou parní koupel od hráče %2$s",
+
   "entity.biomesoplenty.boat": "Loď",
   "entity.biomesoplenty.chest_boat": "Loď s truhlou",
   
   "subtitles.block.flesh_tendon.drip": "Krev kape",
-  "subtitles.block.pus_bubble.pop": "Hnisavá bublina praská"
+  "subtitles.block.pus_bubble.pop": "Hnisavá bublina praská",
+  "subtitles.block.spider_egg.break": "Pavoučí vejce praská"
 }
