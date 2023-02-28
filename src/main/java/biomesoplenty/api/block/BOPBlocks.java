@@ -50,17 +50,16 @@ public class BOPBlocks
     public static RegistryObject<Block> POROUS_FLESH;
     public static RegistryObject<Block> BRIMSTONE;
     public static RegistryObject<Block> BRIMSTONE_BRICKS;
-    public static RegistryObject<Block> CHISELED_BRIMSTONE_BRICKS;
     public static RegistryObject<Block> BRIMSTONE_BRICK_SLAB;
     public static RegistryObject<Block> BRIMSTONE_BRICK_STAIRS;
     public static RegistryObject<Block> BRIMSTONE_BRICK_WALL;
+    public static RegistryObject<Block> CHISELED_BRIMSTONE_BRICKS;
     public static RegistryObject<Block> BRIMSTONE_FUMAROLE;
     public static RegistryObject<Block> ROSE_QUARTZ_BLOCK;
     public static RegistryObject<Block> TOADSTOOL_BLOCK;
     public static RegistryObject<Block> GLOWSHROOM_BLOCK;
     public static RegistryObject<Block> GLOWING_MOSS_CARPET;
     public static RegistryObject<Block> GLOWING_MOSS_BLOCK;
-    public static RegistryObject<Block> SPIDER_EGG;
 
     public static RegistryObject<Block> ORIGIN_SAPLING;
     public static RegistryObject<Block> ORIGIN_LEAVES;
@@ -319,6 +318,9 @@ public class BOPBlocks
     public static RegistryObject<Block> SMALL_ROSE_QUARTZ_BUD;
     public static RegistryObject<Block> BLACKSTONE_SPINES;
     public static RegistryObject<Block> BLACKSTONE_BULB;
+
+    public static RegistryObject<Block> SPIDER_EGG;
+
     public static RegistryObject<Block> BLOOD;
 
     public static RegistryObject<Block> POTTED_ORIGIN_SAPLING;

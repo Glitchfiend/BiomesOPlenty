@@ -1,8 +1,60 @@
 {
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "top": "biomesoplenty:block/spider_egg_top",
+	"parent": "block/block",
+	"render_type": "minecraft:cutout",
+	"ambientocclusion": false,
+	"textures": {
+		"top": "biomesoplenty:block/spider_egg_top",
+		"side": "biomesoplenty:block/spider_egg_side",
 		"bottom": "biomesoplenty:block/spider_egg_bottom",
-        "side": "biomesoplenty:block/spider_egg_side"
-    }
+		"particle": "biomesoplenty:block/spider_egg_side"
+	},
+	"elements": [
+		{
+			"from": [0, 14, 0],
+			"to": [16, 14, 16],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#top"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [16, 0, 16],
+			"faces": {
+				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom"}
+			}
+		},
+		{
+			"from": [0, 0, 2],
+			"to": [16, 16, 2],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"south": {"uv": [16, 0, 0, 16], "texture": "#side"}
+			}
+		},
+		{
+			"from": [0, 0, 14],
+			"to": [16, 16, 14],
+			"faces": {
+				"north": {"uv": [16, 0, 0, 16], "texture": "#side"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#side"}
+			}
+		},
+		{
+			"from": [2, 0, 0],
+			"to": [2, 16, 16],
+			"faces": {
+				"east": {"uv": [16, 0, 0, 16], "texture": "#side"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#side"}
+			}
+		},
+		{
+			"from": [14, 0, 0],
+			"to": [14, 16, 16],
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"west": {"uv": [16, 0, 0, 16], "texture": "#side"}
+			}
+		}
+	]
 }
