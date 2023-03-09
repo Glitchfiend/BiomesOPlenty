@@ -71,6 +71,7 @@ dependencies {
 }
 
 jar {
+    exclude "${mod_id}/common/datagen"
     manifest {
         attributes([
             'Specification-Title'     : mod_name,
@@ -88,6 +89,7 @@ jar {
 }
 
 task deobfJar(type: Jar) {
+    exclude "${mod_id}/common/datagen"
     from sourceSets.main.output
     classifier = 'deobf'
 }
