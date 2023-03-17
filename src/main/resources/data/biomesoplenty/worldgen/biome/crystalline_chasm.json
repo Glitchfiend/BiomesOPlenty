@@ -55,7 +55,7 @@
       "biomesoplenty:small_crystal"
     ]
   ],
-  "precipitation": "none",
+  "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
     "ambient": [],

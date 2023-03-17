@@ -61,7 +61,7 @@ public class GlowwormParticle extends TextureSheetParticle
                 this.xd *= (double)0.98F;
                 this.yd *= (double)0.98F;
                 this.zd *= (double)0.98F;
-                BlockPos blockpos = new BlockPos(this.x, this.y, this.z);
+                BlockPos blockpos = BlockPos.containing(this.x, this.y, this.z);
                 FluidState fluidstate = this.level.getFluidState(blockpos);
                 if (fluidstate.getType() == this.type && this.y < (double)((float)blockpos.getY() + fluidstate.getHeight(this.level, blockpos))) {
                     this.remove();

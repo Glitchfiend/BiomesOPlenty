@@ -16,6 +16,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     // radius is the radius of the section from the center
     // direction is the direction the cross section is pointed, 0 for x, 1
     // for y, 2 for z material is the index number for the material to use
-    private void crossSection(LevelAccessor world, BlockPos pos, float radius, RandomSource random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
+    private void crossSection(LevelAccessor world, BlockPos pos, float radius, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
     {
         final int r = (int)((double)radius + trunkHeightScale);
 
@@ -146,7 +147,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     // Generate a cluster of foliage, with the base at blockPos
     // The shape of the cluster is derived from foliageShape
     // crossection is called to make each level.
-    private void foliageCluster(LevelAccessor world, BlockPos pos, RandomSource random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
+    private void foliageCluster(LevelAccessor world, BlockPos pos, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
     {
         for (int y = 0; y < config.foliageHeight; y++)
         {
@@ -180,7 +181,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
             //Iterates over all values between the start pos and end pos
             for (int j = 0; j <= steps; ++j)
             {
-                BlockPos deltaPos = startPos.offset((double)(0.5F + (float)j * dx), (double)(0.5F + (float)j * dy), (double)(0.5F + (float)j * dz));
+                BlockPos deltaPos = startPos.offset(Mth.floor((double)(0.5F + (float)j * dx)), Mth.floor((double)(0.5F + (float)j * dy)), Mth.floor((double)(0.5F + (float)j * dz)));
                 if (set)
                 {
                     this.placeLog(world, deltaPos, this.getLogAxis(startPos, deltaPos), logs, config);
@@ -232,7 +233,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
         return axis;
     }
 
-    private void makeFoliage(LevelAccessor worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, RandomSource random, BiConsumer<BlockPos, BlockState> leaves, BigTreeConfiguration config)
+    private void makeFoliage(LevelAccessor worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
@@ -289,7 +290,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     }
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
     {
         BigTreeConfiguration config = (BigTreeConfiguration)configBase;
 
@@ -332,8 +333,8 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
                     final double radius = 1.0D * treeShape * (random.nextFloat() + 0.328D);
                     final double angle = random.nextFloat() * 2.0F * Math.PI;
 
-                    final double x = radius * Math.sin(angle) + 0.5D;
-                    final double z = radius * Math.cos(angle) + 0.5D;
+                    final int x = Mth.floor(radius * Math.sin(angle) + 0.5D);
+                    final int z = Mth.floor(radius * Math.cos(angle) + 0.5D);
 
                     final BlockPos checkStart = pos.offset(x, relativeY - 1, z);
                     final BlockPos checkEnd = checkStart.above(5);

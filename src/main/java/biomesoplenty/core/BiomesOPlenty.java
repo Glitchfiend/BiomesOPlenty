@@ -13,6 +13,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.item.Item;
@@ -63,6 +64,7 @@ public class BiomesOPlenty
     public static final DeferredRegister<PaintingVariant> PAINTING_VARIANT_REGISTER = DeferredRegister.create(Registries.PAINTING_VARIANT, MOD_ID);
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURE_REGISTER = DeferredRegister.create(Registries.PLACED_FEATURE, MOD_ID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENT_REGISTER = DeferredRegister.create(Registries.SOUND_EVENT, MOD_ID);
+    public static final DeferredRegister<DamageType> DAMAGE_TYPE_REGISTER = DeferredRegister.create(Registries.DAMAGE_TYPE, MOD_ID);
 
     public static BiomesOPlenty instance;
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
@@ -92,6 +94,7 @@ public class BiomesOPlenty
         PARTICLES_REGISTER.register(bus);
         PLACED_FEATURE_REGISTER.register(bus);
         SOUND_EVENT_REGISTER.register(bus);
+        DAMAGE_TYPE_REGISTER.register(bus);
 
         // Initialize the config file first so other things can rely on it
         ModConfig.setup();
@@ -144,7 +147,7 @@ public class BiomesOPlenty
         event.registerCreativeModeTab(new ResourceLocation(BiomesOPlenty.MOD_ID, "main"), builder -> {
             builder.icon(() -> new ItemStack(BOPItems.BOP_ICON.get()))
             .title(Component.translatable("itemGroup.biomesoplenty"))
-            .displayItems((featureFlags, output, hasOp) -> {
+            .displayItems((displayParameters, output) -> {
                 // Add blocks
                 for (Field field : BOPBlocks.class.getFields())
                 {

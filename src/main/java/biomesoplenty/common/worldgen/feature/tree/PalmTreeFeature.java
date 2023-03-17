@@ -14,6 +14,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.material.Material;
 
 import java.util.function.BiConsumer;
@@ -26,7 +27,7 @@ public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
     }
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
     {
         PalmTreeConfiguration config = (PalmTreeConfiguration)configBase;
 
@@ -107,7 +108,7 @@ public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
     }
 
     // generate the top of the tree (3 blocks)
-    public void generateLeavesTop(LevelAccessor world, BlockPos pos, int maxRadius, BiConsumer<BlockPos, BlockState> leaves, PalmTreeConfiguration config)
+    public void generateLeavesTop(LevelAccessor world, BlockPos pos, int maxRadius, FoliagePlacer.FoliageSetter leaves, PalmTreeConfiguration config)
     {
         placeLeaves(world, pos.offset(2, -1, 0), leaves, config);
         placeLeaves(world, pos.offset(-2, -1, 0), leaves, config);

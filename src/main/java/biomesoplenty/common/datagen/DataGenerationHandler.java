@@ -13,6 +13,7 @@ import biomesoplenty.common.worldgen.placement.*;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModBiomes;
 import com.google.gson.JsonElement;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
@@ -23,9 +24,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.registries.VanillaRegistries;
+import net.minecraft.resources.RegistryDataLoader;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -35,6 +38,7 @@ import net.minecraftforge.common.data.JsonCodecProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DataPackRegistriesHooks;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -65,10 +69,10 @@ public class DataGenerationHandler
         Map<ResourceLocation, PlacedFeature> placedFeatureMap = createMap(Registries.PLACED_FEATURE, lookupProvider, BOPCavePlacements.class, BOPMiscOverworldPlacements.class, BOPNetherPlacements.class, BOPTreePlacements.class, BOPVegetationPlacements.class);
         Map<ResourceLocation, Biome> biomeMap = createMap(Registries.BIOME, lookupProvider, BOPBiomes.class);
 
-        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(generator, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.CONFIGURED_CARVER, configuredWorldCarverMap));
-        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(generator, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.CONFIGURED_FEATURE, configuredFeatureMap));
-        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(generator, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.PLACED_FEATURE, placedFeatureMap));
-        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(generator, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.BIOME, biomeMap));
+        generator.addProvider(event.includeServer(), forDatapackRegistry(packOutput, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.CONFIGURED_CARVER, configuredWorldCarverMap));
+        generator.addProvider(event.includeServer(), forDatapackRegistry(packOutput, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.CONFIGURED_FEATURE, configuredFeatureMap));
+        generator.addProvider(event.includeServer(), forDatapackRegistry(packOutput, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.PLACED_FEATURE, placedFeatureMap));
+        generator.addProvider(event.includeServer(), forDatapackRegistry(packOutput, existingFileHelper, BiomesOPlenty.MOD_ID, registryOps, Registries.BIOME, biomeMap));
     }
 
     private static <T> Map<ResourceLocation, T> createMap(ResourceKey<? extends Registry<? extends T>> registry, HolderLookup.Provider lookupProvider, Class... classes)
@@ -92,5 +96,19 @@ public class DataGenerationHandler
             }
         });
         return map;
+    }
+
+    private static <T> JsonCodecProvider<T> forDatapackRegistry(PackOutput output, ExistingFileHelper existingFileHelper, String modid,
+                                                               RegistryOps<JsonElement> registryOps, ResourceKey<Registry<T>> registryKey, Map<ResourceLocation, T> entries)
+    {
+        final ResourceLocation registryId = registryKey.location();
+        // Minecraft datapack registry folders are in data/json-namespace/registry-name/
+        // Non-vanilla registry folders are data/json-namespace/registry-namespace/registry-name/
+        final String registryFolder = registryId.getNamespace().equals("minecraft")
+                ? registryId.getPath()
+                : registryId.getNamespace() + "/" + registryId.getPath();
+        RegistryDataLoader.RegistryData<?> registryData = DataPackRegistriesHooks.getDataPackRegistries().stream().filter(data -> data.key() == registryKey).findAny().orElseThrow();
+        final Codec<T> codec = (Codec<T>) registryData.elementCodec();
+        return new JsonCodecProvider<>(output, existingFileHelper, modid, registryOps, PackType.SERVER_DATA, registryFolder, codec, entries);
     }
 }

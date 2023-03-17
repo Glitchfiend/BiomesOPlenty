@@ -4,10 +4,9 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import biomesoplenty.init.ModDamageSources;
+import biomesoplenty.api.damagesource.BOPDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -60,12 +59,12 @@ public class BrambleBlock extends PipeBlock
      }
 
      @Override
-     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn)
+     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn)
      {
          if (entityIn instanceof Player)
          {
              Player playerEntity = (Player) entityIn;
-             playerEntity.hurt(ModDamageSources.BRAMBLE, 1.0F);
+             playerEntity.hurt(level.damageSources().source(BOPDamageTypes.BRAMBLE), 1.0F);
          }
       }
 

@@ -8,7 +8,6 @@ import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -99,7 +98,7 @@ public class FlowerBlockBOP extends FlowerBlock
                 }
             }
 
-            entityIn.hurt(DamageSource.IN_FIRE, 1.0F);
+            entityIn.hurt(worldIn.damageSources().inFire(), 1.0F);
         }
 
         super.entityInside(stateIn, worldIn, pos, entityIn);

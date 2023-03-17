@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.function.BiConsumer;
 
@@ -26,7 +27,7 @@ public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguratio
     }
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
     {
         MahoganyTreeConfiguration config = (MahoganyTreeConfiguration)configBase;
 
@@ -102,7 +103,7 @@ public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguratio
         }
     }
 
-    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, LevelAccessor world, BlockPos start, int height, MahoganyTreeConfiguration config)
+    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos start, int height, MahoganyTreeConfiguration config)
     {
         int endHeight = height;
 
@@ -125,7 +126,7 @@ public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguratio
         generateBranch(logs, leaves, world, branchStartPos, Direction.WEST, config);
     }
 
-    private void generateBranch(BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, LevelAccessor world, BlockPos middle, Direction direction, MahoganyTreeConfiguration config)
+    private void generateBranch(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos middle, Direction direction, MahoganyTreeConfiguration config)
     {
         BlockPos pos = middle;
         int length = 1 + world.getRandom().nextInt(2);

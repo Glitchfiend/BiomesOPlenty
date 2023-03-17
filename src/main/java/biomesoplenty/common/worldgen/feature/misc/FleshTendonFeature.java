@@ -43,7 +43,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
     {
         float dt = 1f - t;
         Vec3 v = new Vec3(v0.getX(), v0.getY(), v0.getZ()).scale(dt * dt).add(new Vec3(v1.getX(), v1.getY(), v1.getZ()).scale(2 * dt * t)).add(new Vec3(v2.getX(), v2.getY(), v2.getZ()).scale(t * t));
-        return new BlockPos(v.x, v.y, v.z);
+        return BlockPos.containing(v.x, v.y, v.z);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
             return false;
         }
 
-        BlockPos midPos = endPos.offset(0, -(endPos.getY() - pos.getY()) * MID_POS_MULTIPLIER, 0);
+        BlockPos midPos = endPos.offset(0, Mth.floor(-(endPos.getY() - pos.getY()) * MID_POS_MULTIPLIER), 0);
 
         for (float d = 0.0f; d < 1.0f; d += TENDON_STEP)
         {

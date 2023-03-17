@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.material.Material;
 
 import java.util.function.BiConsumer;
@@ -59,7 +60,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
     }
 
     // generates a layer of leaves
-    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, BiConsumer<BlockPos, BlockState> leaves, CypressTreeConfiguration config)
+    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, FoliagePlacer.FoliageSetter leaves, CypressTreeConfiguration config)
     {
         int start = -leavesRadius;
         int end = leavesRadius;
@@ -85,7 +86,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
         }
     }
 
-    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, CypressTreeConfiguration config)
+    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, CypressTreeConfiguration config)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.getClockWise();
@@ -112,7 +113,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
 
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, BiConsumer<BlockPos, BlockState> leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
     {
         CypressTreeConfiguration config = (CypressTreeConfiguration)configBase;
 
@@ -204,7 +205,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
                             BlockPos branchPos = null;
                             for (int i = 0; i < length; i++)
                             {
-                                branchPos = local.offset(Math.cos(theta) * i, i / 2, Math.sin(theta) * i);
+                                branchPos = local.offset(Mth.floor(Math.cos(theta) * i), i / 2, Mth.floor(Math.sin(theta) * i));
 
                                 this.placeLog(world, branchPos, logs, config);
                             }
@@ -291,11 +292,11 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
     }
 
     @Override
-    public boolean placeLeaves(LevelAccessor level, BlockPos pos, BiConsumer<BlockPos, BlockState> leaves, CypressTreeConfiguration config)
+    public boolean placeLeaves(LevelAccessor level, BlockPos pos, FoliagePlacer.FoliageSetter leaves, CypressTreeConfiguration config)
     {
         if (TreeFeature.isAirOrLeaves(level, pos))
         {
-            leaves.accept(pos, config.foliageProvider.getState(level.getRandom(), pos));
+            leaves.set(pos, config.foliageProvider.getState(level.getRandom(), pos));
             return true;
         }
         return false;
