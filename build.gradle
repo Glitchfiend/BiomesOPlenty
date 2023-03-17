@@ -44,7 +44,7 @@ minecraft {
         data {
             workingDirectory = project.file("run")
             source sourceSets.main
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'),  '--existing', file('src/generated/resources/')
         }
     }
 }
@@ -57,6 +57,7 @@ sourceSets {
         }
         resources {
             srcDir "src/main/resources"
+            srcDir 'src/generated/resources'
         }
     }
 }
@@ -71,7 +72,6 @@ dependencies {
 }
 
 jar {
-    exclude "${mod_id}/common/datagen"
     manifest {
         attributes([
             'Specification-Title'     : mod_name,
@@ -89,7 +89,6 @@ jar {
 }
 
 task deobfJar(type: Jar) {
-    exclude "${mod_id}/common/datagen"
     from sourceSets.main.output
     classifier = 'deobf'
 }
