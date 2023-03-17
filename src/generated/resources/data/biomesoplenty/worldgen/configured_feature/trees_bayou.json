@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:cypress_tree",
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": "biomesoplenty:cypress_tree_medium"
+      }
+    ]
+  }
+}

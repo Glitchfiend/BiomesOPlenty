@@ -1,0 +1,48 @@
+{
+  "type": "biomesoplenty:origin_cave",
+  "config": {
+    "debug_settings": {
+      "air_state": {
+        "Name": "minecraft:crimson_button",
+        "Properties": {
+          "face": "wall",
+          "facing": "north",
+          "powered": "false"
+        }
+      },
+      "barrier_state": {
+        "Name": "minecraft:glass"
+      },
+      "lava_state": {
+        "Name": "minecraft:orange_stained_glass"
+      },
+      "water_state": {
+        "Name": "minecraft:candle",
+        "Properties": {
+          "candles": "1",
+          "lit": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "floor_level": -0.7,
+    "horizontal_radius_multiplier": 1.0,
+    "lava_level": {
+      "above_bottom": 10
+    },
+    "probability": 0.14285715,
+    "replaceable": "#minecraft:overworld_carver_replaceables",
+    "vertical_radius_multiplier": 1.0,
+    "y": {
+      "type": "minecraft:biased_to_bottom",
+      "inner": 8,
+      "max_inclusive": {
+        "absolute": 127
+      },
+      "min_inclusive": {
+        "absolute": 0
+      }
+    },
+    "yScale": 0.5
+  }
+}

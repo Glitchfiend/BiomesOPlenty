@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:spruce_bush",
+    "features": [
+      {
+        "chance": 0.075,
+        "feature": "biomesoplenty:tall_spruce_tree"
+      },
+      {
+        "chance": 0.075,
+        "feature": "minecraft:pine_checked"
+      }
+    ]
+  }
+}

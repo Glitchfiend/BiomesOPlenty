@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:hellbark_tree",
+    "features": [
+      {
+        "chance": 0.4,
+        "feature": "biomesoplenty:big_hellbark_tree"
+      }
+    ]
+  }
+}

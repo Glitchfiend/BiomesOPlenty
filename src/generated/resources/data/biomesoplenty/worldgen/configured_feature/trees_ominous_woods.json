@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:umbran_tree",
+    "features": [
+      {
+        "chance": 0.05,
+        "feature": "biomesoplenty:dead_twiglet_tree"
+      },
+      {
+        "chance": 0.15,
+        "feature": "biomesoplenty:dying_tree"
+      },
+      {
+        "chance": 0.7,
+        "feature": "biomesoplenty:tall_umbran_tree"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:oak_bush",
+    "features": [
+      {
+        "chance": 0.4,
+        "feature": "biomesoplenty:jungle_twiglet_tree"
+      },
+      {
+        "chance": 0.05,
+        "feature": "biomesoplenty:mahogany_tree"
+      }
+    ]
+  }
+}

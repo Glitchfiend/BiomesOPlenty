@@ -1,0 +1,44 @@
+{
+  "type": "biomesoplenty:large_rose_quartz",
+  "config": {
+    "column_radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 7,
+        "min_inclusive": 3
+      }
+    },
+    "floor_to_ceiling_search_range": 30,
+    "height_scale": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 1.8,
+        "min_inclusive": 0.3
+      }
+    },
+    "max_column_radius_to_cave_height_ratio": 0.33,
+    "min_bluntness_for_wind": 0.6,
+    "min_radius_for_wind": 4,
+    "stalactite_bluntness": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 0.9,
+        "min_inclusive": 0.3
+      }
+    },
+    "stalagmite_bluntness": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 1.0,
+        "min_inclusive": 0.4
+      }
+    },
+    "wind_speed": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 0.3,
+        "min_inclusive": 0.0
+      }
+    }
+  }
+}

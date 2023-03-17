@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:fir_tree_large",
+    "features": [
+      {
+        "chance": 0.4,
+        "feature": "biomesoplenty:fir_tree"
+      }
+    ]
+  }
+}

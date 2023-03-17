@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "minecraft:oak_checked",
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": "biomesoplenty:dying_tree"
+      },
+      {
+        "chance": 0.3,
+        "feature": "biomesoplenty:tall_spruce_tree"
+      },
+      {
+        "chance": 0.3,
+        "feature": "biomesoplenty:small_dead_tree"
+      },
+      {
+        "chance": 0.2,
+        "feature": "biomesoplenty:dead_twiglet_tree"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "biomesoplenty:tall_spruce_tree",
+    "features": [
+      {
+        "chance": 0.25,
+        "feature": "biomesoplenty:willow_tree"
+      }
+    ]
+  }
+}

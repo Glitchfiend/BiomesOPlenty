@@ -10,7 +10,6 @@
 /.settings/
 /.classpath
 /.project
-/src/generated/
 
 # OS generated files
 *.DS_Store

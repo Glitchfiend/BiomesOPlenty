@@ -1,0 +1,12 @@
+{
+  "feature": "biomesoplenty:inferno_lava_lake",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 3
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
