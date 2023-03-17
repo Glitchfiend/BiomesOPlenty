@@ -1,0 +1,36 @@
+{
+  "values": [
+	{
+      "id": "biomesoplenty:bayou",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:floodplain",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:fungal_jungle",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rainforest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rocky_rainforest",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:tropics",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:crag",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:jade_cliffs",
+      "required": false
+    }
+  ]
+}
