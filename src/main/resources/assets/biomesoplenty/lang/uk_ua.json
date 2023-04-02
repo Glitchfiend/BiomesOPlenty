@@ -113,9 +113,13 @@
   "block.biomesoplenty.blue_hydrangea": "Блакитна гортензія",
   "block.biomesoplenty.bramble": "Шиповий корінь",
   "block.biomesoplenty.brimstone": "Сірка",
+  "block.biomesoplenty.brimstone_bricks": "Сірчана цегла",
+  "block.biomesoplenty.brimstone_brick_slab": "Плита зі сірчаної цегли",
+  "block.biomesoplenty.brimstone_brick_stairs": "Сходи зі сірчаної цегли",
+  "block.biomesoplenty.brimstone_brick_wall": "Стіна зі сірчаної цегли",
   "block.biomesoplenty.brimstone_bud": "Сірковий бутон",
-  "block.biomesoplenty.brimstone_cluster": "Сіркова друза",
-  "block.biomesoplenty.brimstone_fumarole": "Сіркова фумарола",
+  "block.biomesoplenty.brimstone_cluster": "Сірчана друза",
+  "block.biomesoplenty.brimstone_fumarole": "Сірчана фумарола",
   "block.biomesoplenty.burning_blossom": "Вогнецвіт",
   "block.biomesoplenty.bush": "Кущ",
   "block.biomesoplenty.cattail": "Рогіз",
@@ -132,6 +136,7 @@
   "block.biomesoplenty.cherry_trapdoor": "Вишневий люк",
   "block.biomesoplenty.cherry_wall_sign": "Вишнева настінна табличка",
   "block.biomesoplenty.cherry_wood": "Вишнена деревина",
+  "block.biomesoplenty.chiseled_brimstone_bricks": "Точена сірчана цегла",
   "block.biomesoplenty.chiseled_black_sandstone": "Точений чорний пісковик",
   "block.biomesoplenty.chiseled_orange_sandstone": "Точений помаранчевий пісковик",
   "block.biomesoplenty.chiseled_white_sandstone": "Точений білий пісковик",
@@ -186,8 +191,8 @@
   "block.biomesoplenty.glowflower": "Світлоцвіт",
   "block.biomesoplenty.glowing_moss_block": "Блок сяючого моху",
   "block.biomesoplenty.glowing_moss_carpet": "Килим із сяючого моху",
-  "block.biomesoplenty.glowshroom": "Світлогриб",
-  "block.biomesoplenty.glowshroom_block": "Блок світлогриба",
+  "block.biomesoplenty.glowshroom": "Сяйвогриб",
+  "block.biomesoplenty.glowshroom_block": "Блок сяйвогриба",
   "block.biomesoplenty.glowworm_silk": "Шовк світлячка",
   "block.biomesoplenty.glowworm_silk_strand": "Шовкове пасмо світлячка",
   "block.biomesoplenty.goldenrod": "Золотарник",
@@ -438,6 +443,12 @@
   "entity.biomesoplenty.boat": "Човен",
   "entity.biomesoplenty.chest_boat": "Човен зі скринею",
   
+  "death.attack.bramble": "%1$s був проткнутий на смерть",
+  "death.attack.bramble.player": "%1$s застряг у чагарнику, намагаючись втекти %2$s",
+  "death.attack.fumarole": "%1$s заживо зварили на пару",
+  "death.attack.fumarole.player": "%1$s прийняв смертельну парову ванну через %2$s",
+  
   "subtitles.block.flesh_tendon.drip": "Кров капає",
-  "subtitles.block.pus_bubble.pop": "Гнійна бульбашка лопається"
+  "subtitles.block.pus_bubble.pop": "Гнійна бульбашка лопається",
+  "subtitles.block.spider_egg.break": "Павуче яйце розбивається"
 }
