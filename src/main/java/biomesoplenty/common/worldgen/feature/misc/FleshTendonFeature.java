@@ -11,8 +11,11 @@ import com.mojang.serialization.Codec;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.SectionPos;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -77,11 +80,6 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
             return false;
         }
 
-        // Temporarily disable the util logger to prevent whining about chunk boundaries
-        Logger utilLogger = (Logger) LogManager.getLogger(Util.class);
-        Level oldLevel = utilLogger.getLevel();
-        utilLogger.setLevel(Level.OFF);
-
         BlockPos midPos = endPos.offset(0, -(endPos.getY() - pos.getY()) * MID_POS_MULTIPLIER, 0);
 
         for (float d = 0.0f; d < 1.0f; d += TENDON_STEP)
@@ -112,9 +110,6 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
                 break;
             }
         }
-
-        // Re-enable the util logger
-        utilLogger.setLevel(oldLevel);
 
         return true;
     }
@@ -186,7 +181,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 
     public boolean setBlock(WorldGenLevel world, BlockPos pos, BlockState state)
     {
-        if (this.replace.matches(world, pos))
+        if (this.respectsCutoff((WorldGenRegion)world, pos) && this.replace.matches(world, pos))
         {
             super.setBlock(world, pos, state);
             return true;
@@ -196,11 +191,27 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 
     public boolean setBlock(WorldGenLevel world, BlockPos pos, BlockState state, int flags)
     {
-        if (this.replace.matches(world, pos))
+        if (this.respectsCutoff((WorldGenRegion)world, pos) && this.replace.matches(world, pos))
         {
             world.setBlock(pos, state, flags);
             return true;
         }
+        return false;
+    }
+
+    private boolean respectsCutoff(WorldGenRegion region, BlockPos pos)
+    {
+        int i = SectionPos.blockToSectionCoord(pos.getX());
+        int j = SectionPos.blockToSectionCoord(pos.getZ());
+        ChunkPos chunkpos = region.getCenter();
+        int k = Math.abs(chunkpos.x - i);
+        int l = Math.abs(chunkpos.z - j);
+
+        if (k <= region.writeRadiusCutoff && l <= region.writeRadiusCutoff)
+        {
+            return true;
+        }
+
         return false;
     }
 }
