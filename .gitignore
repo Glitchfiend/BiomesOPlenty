@@ -26,3 +26,6 @@ mappings/build/
 mappings/*.csv
 mappings/.project
 mappings/last_updated.json
+
+#Datagen Cache
+src/generated/resources/.cache
