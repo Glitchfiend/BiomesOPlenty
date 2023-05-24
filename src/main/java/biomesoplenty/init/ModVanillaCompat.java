@@ -328,6 +328,38 @@ public class ModVanillaCompat
         MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries = event.getEntries();
         CreativeModeTab tab = event.getTab();
         if (tab == CreativeModeTabs.BUILDING_BLOCKS) {
+            registerAfter(Items.CUT_RED_SANDSTONE_SLAB, BOPBlocks.WHITE_SANDSTONE.get().asItem(), entries);
+            registerAfter(BOPBlocks.WHITE_SANDSTONE.get(), BOPBlocks.WHITE_SANDSTONE_STAIRS.get(), entries);
+            registerAfter(BOPBlocks.WHITE_SANDSTONE_STAIRS.get(), BOPBlocks.WHITE_SANDSTONE_SLAB.get(), entries);
+            registerAfter(BOPBlocks.WHITE_SANDSTONE_SLAB.get(), BOPBlocks.WHITE_SANDSTONE_WALL.get(), entries);
+            registerAfter(BOPBlocks.WHITE_SANDSTONE_WALL.get(), BOPBlocks.CHISELED_WHITE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.CHISELED_WHITE_SANDSTONE.get(), BOPBlocks.SMOOTH_WHITE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_WHITE_SANDSTONE.get(), BOPBlocks.SMOOTH_WHITE_SANDSTONE_STAIRS.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_WHITE_SANDSTONE_STAIRS.get(), BOPBlocks.SMOOTH_WHITE_SANDSTONE_SLAB.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_WHITE_SANDSTONE_SLAB.get(), BOPBlocks.CUT_WHITE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.CUT_WHITE_SANDSTONE.get(), BOPBlocks.CUT_WHITE_SANDSTONE_SLAB.get(), entries);
+
+            registerAfter(BOPBlocks.CUT_WHITE_SANDSTONE_SLAB.get(), BOPBlocks.ORANGE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.ORANGE_SANDSTONE.get(), BOPBlocks.ORANGE_SANDSTONE_STAIRS.get(), entries);
+            registerAfter(BOPBlocks.ORANGE_SANDSTONE_STAIRS.get(), BOPBlocks.ORANGE_SANDSTONE_SLAB.get(), entries);
+            registerAfter(BOPBlocks.ORANGE_SANDSTONE_SLAB.get(), BOPBlocks.ORANGE_SANDSTONE_WALL.get(), entries);
+            registerAfter(BOPBlocks.ORANGE_SANDSTONE_WALL.get(), BOPBlocks.CHISELED_ORANGE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.CHISELED_ORANGE_SANDSTONE.get(), BOPBlocks.SMOOTH_ORANGE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_ORANGE_SANDSTONE.get(), BOPBlocks.SMOOTH_ORANGE_SANDSTONE_STAIRS.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_ORANGE_SANDSTONE_STAIRS.get(), BOPBlocks.SMOOTH_ORANGE_SANDSTONE_SLAB.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_ORANGE_SANDSTONE_SLAB.get(), BOPBlocks.CUT_ORANGE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.CUT_ORANGE_SANDSTONE.get(), BOPBlocks.CUT_ORANGE_SANDSTONE_SLAB.get(), entries);
+
+            registerAfter(BOPBlocks.CUT_ORANGE_SANDSTONE_SLAB.get(), BOPBlocks.BLACK_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.BLACK_SANDSTONE.get(), BOPBlocks.BLACK_SANDSTONE_STAIRS.get(), entries);
+            registerAfter(BOPBlocks.BLACK_SANDSTONE_STAIRS.get(), BOPBlocks.BLACK_SANDSTONE_SLAB.get(), entries);
+            registerAfter(BOPBlocks.BLACK_SANDSTONE_SLAB.get(), BOPBlocks.BLACK_SANDSTONE_WALL.get(), entries);
+            registerAfter(BOPBlocks.BLACK_SANDSTONE_WALL.get(), BOPBlocks.CHISELED_BLACK_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.CHISELED_BLACK_SANDSTONE.get(), BOPBlocks.SMOOTH_BLACK_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_BLACK_SANDSTONE.get(), BOPBlocks.SMOOTH_BLACK_SANDSTONE_STAIRS.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_BLACK_SANDSTONE_STAIRS.get(), BOPBlocks.SMOOTH_BLACK_SANDSTONE_SLAB.get(), entries);
+            registerAfter(BOPBlocks.SMOOTH_BLACK_SANDSTONE_SLAB.get(), BOPBlocks.CUT_BLACK_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.CUT_BLACK_SANDSTONE.get(), BOPBlocks.CUT_BLACK_SANDSTONE_SLAB.get(), entries);
             boolean b = false;
             Item previous = Items.WARPED_BUTTON;
             for (RegistryObject<Block> entry : BiomesOPlenty.BLOCK_REGISTER.getEntries()) {
@@ -369,10 +401,61 @@ public class ModVanillaCompat
             registerAfter(BOPItems.UMBRAN_CHEST_BOAT.get(), BOPItems.HELLBARK_BOAT.get(), entries);
             registerAfter(BOPItems.HELLBARK_BOAT.get(), BOPItems.HELLBARK_CHEST_BOAT.get(), entries);
             registerAfter(Items.MUSIC_DISC_PIGSTEP, BOPItems.MUSIC_DISC_WANDERER.get(), entries);
+        } else if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
+            registerAfter(Items.RED_SANDSTONE, BOPBlocks.WHITE_SAND.get().asItem(), entries);
+            registerAfter(BOPBlocks.WHITE_SAND.get(), BOPBlocks.WHITE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.WHITE_SANDSTONE.get(), BOPBlocks.ORANGE_SAND.get(), entries);
+            registerAfter(BOPBlocks.ORANGE_SAND.get(), BOPBlocks.ORANGE_SANDSTONE.get(), entries);
+            registerAfter(BOPBlocks.ORANGE_SANDSTONE.get(), BOPBlocks.BLACK_SAND.get(), entries);
+            registerAfter(BOPBlocks.BLACK_SAND.get(), BOPBlocks.BLACK_SANDSTONE.get(), entries);
+
+            registerAfter(Items.CHERRY_LOG, BOPBlocks.FIR_LOG.get().asItem(), entries);
+            registerAfter(BOPBlocks.FIR_LOG.get(), BOPBlocks.REDWOOD_LOG.get(), entries);
+            registerAfter(BOPBlocks.REDWOOD_LOG.get(), BOPBlocks.CHERRY_LOG.get(), entries);
+            registerAfter(BOPBlocks.CHERRY_LOG.get(), BOPBlocks.MAHOGANY_LOG.get(), entries);
+            registerAfter(BOPBlocks.MAHOGANY_LOG.get(), BOPBlocks.JACARANDA_LOG.get(), entries);
+            registerAfter(BOPBlocks.JACARANDA_LOG.get(), BOPBlocks.PALM_LOG.get(), entries);
+            registerAfter(BOPBlocks.PALM_LOG.get(), BOPBlocks.WILLOW_LOG.get(), entries);
+            registerAfter(BOPBlocks.WILLOW_LOG.get(), BOPBlocks.DEAD_LOG.get(), entries);
+            registerAfter(BOPBlocks.DEAD_LOG.get(), BOPBlocks.MAGIC_LOG.get(), entries);
+            registerAfter(BOPBlocks.MAGIC_LOG.get(), BOPBlocks.UMBRAN_LOG.get(), entries);
+            registerAfter(BOPBlocks.UMBRAN_LOG.get(), BOPBlocks.HELLBARK_LOG.get(), entries);
+
+            registerAfter(Items.FLOWERING_AZALEA_LEAVES, BOPBlocks.FIR_LEAVES.get().asItem(), entries);
+            registerAfter(BOPBlocks.FIR_LEAVES.get(), BOPBlocks.REDWOOD_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.REDWOOD_LEAVES.get(), BOPBlocks.WHITE_CHERRY_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.WHITE_CHERRY_LEAVES.get(), BOPBlocks.PINK_CHERRY_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.PINK_CHERRY_LEAVES.get(), BOPBlocks.MAHOGANY_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.JACARANDA_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.JACARANDA_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.PALM_LEAVES.get(), BOPBlocks.WILLOW_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.DEAD_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.DEAD_LEAVES.get(), BOPBlocks.MAGIC_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.MAGIC_LEAVES.get(), BOPBlocks.UMBRAN_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.UMBRAN_LEAVES.get(), BOPBlocks.HELLBARK_LEAVES.get(), entries);
+
+            registerAfter(Items.CHERRY_SAPLING, BOPBlocks.FIR_SAPLING.get().asItem(), entries);
+            registerAfter(BOPBlocks.FIR_SAPLING.get(), BOPBlocks.REDWOOD_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.REDWOOD_SAPLING.get(), BOPBlocks.WHITE_CHERRY_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.WHITE_CHERRY_SAPLING.get(), BOPBlocks.PINK_CHERRY_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.PINK_CHERRY_SAPLING.get(), BOPBlocks.MAHOGANY_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.MAHOGANY_SAPLING.get(), BOPBlocks.JACARANDA_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.JACARANDA_SAPLING.get(), BOPBlocks.PALM_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.PALM_SAPLING.get(), BOPBlocks.WILLOW_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.WILLOW_SAPLING.get(), BOPBlocks.DEAD_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.DEAD_SAPLING.get(), BOPBlocks.MAGIC_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.MAGIC_SAPLING.get(), BOPBlocks.UMBRAN_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.UMBRAN_SAPLING.get(), BOPBlocks.HELLBARK_SAPLING.get(), entries);
+
+            registerAfter(Items.MILK_BUCKET, BOPItems.BLOOD_BUCKET.get(), entries);
         }
     }
 
     private static void registerAfter(Item after, Item item, MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries) {
         entries.putAfter(after.getDefaultInstance(), item.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+    }
+
+    private static void registerAfter(Block after, Block item, MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries) {
+        entries.putAfter(after.asItem().getDefaultInstance(), item.asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
 }
