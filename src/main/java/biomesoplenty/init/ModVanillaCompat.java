@@ -371,6 +371,11 @@ public class ModVanillaCompat
                     b = !(block instanceof ButtonBlock);
                 }
             }
+
+            registerAfter(Items.BRICK_WALL, BOPBlocks.BRIMSTONE_BRICKS.get().asItem(), entries);
+            registerAfter(BOPBlocks.BRIMSTONE_BRICKS.get().asItem(), BOPBlocks.BRIMSTONE_BRICK_STAIRS.get().asItem(), entries);
+            registerAfter(BOPBlocks.BRIMSTONE_BRICK_STAIRS.get().asItem(), BOPBlocks.BRIMSTONE_BRICK_SLAB.get().asItem(), entries);
+            registerAfter(BOPBlocks.BRIMSTONE_BRICK_SLAB.get().asItem(), BOPBlocks.BRIMSTONE_BRICK_WALL.get().asItem(), entries);
         } else if (tab == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             registerAfter(Items.WARPED_SIGN, BOPItems.FIR_SIGN.get(), entries);
             registerAfter(BOPItems.FIR_SIGN.get(), BOPItems.REDWOOD_SIGN.get(), entries);
@@ -401,6 +406,8 @@ public class ModVanillaCompat
             registerAfter(BOPItems.UMBRAN_CHEST_BOAT.get(), BOPItems.HELLBARK_BOAT.get(), entries);
             registerAfter(BOPItems.HELLBARK_BOAT.get(), BOPItems.HELLBARK_CHEST_BOAT.get(), entries);
             registerAfter(Items.MUSIC_DISC_PIGSTEP, BOPItems.MUSIC_DISC_WANDERER.get(), entries);
+
+            registerAfter(Items.MILK_BUCKET, BOPItems.BLOOD_BUCKET.get(), entries);
         } else if (tab == CreativeModeTabs.NATURAL_BLOCKS) {
             registerAfter(Items.RED_SANDSTONE, BOPBlocks.WHITE_SAND.get().asItem(), entries);
             registerAfter(BOPBlocks.WHITE_SAND.get(), BOPBlocks.WHITE_SANDSTONE.get(), entries);
@@ -421,6 +428,12 @@ public class ModVanillaCompat
             registerAfter(BOPBlocks.MAGIC_LOG.get(), BOPBlocks.UMBRAN_LOG.get(), entries);
             registerAfter(BOPBlocks.UMBRAN_LOG.get(), BOPBlocks.HELLBARK_LOG.get(), entries);
 
+            registerAfter(Items.FLOWERING_AZALEA_LEAVES, BOPBlocks.ORIGIN_LEAVES.get().asItem(), entries);
+            registerAfter(BOPBlocks.ORIGIN_LEAVES.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.FLOWERING_OAK_LEAVES.get(), BOPBlocks.RAINBOW_BIRCH_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.RAINBOW_BIRCH_LEAVES.get(), BOPBlocks.YELLOW_AUTUMN_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.YELLOW_AUTUMN_LEAVES.get(), BOPBlocks.ORANGE_AUTUMN_LEAVES.get(), entries);
+            registerAfter(BOPBlocks.ORANGE_AUTUMN_LEAVES.get(), BOPBlocks.MAPLE_LEAVES.get(), entries);
             registerAfter(Items.FLOWERING_AZALEA_LEAVES, BOPBlocks.FIR_LEAVES.get().asItem(), entries);
             registerAfter(BOPBlocks.FIR_LEAVES.get(), BOPBlocks.REDWOOD_LEAVES.get(), entries);
             registerAfter(BOPBlocks.REDWOOD_LEAVES.get(), BOPBlocks.WHITE_CHERRY_LEAVES.get(), entries);
@@ -434,7 +447,12 @@ public class ModVanillaCompat
             registerAfter(BOPBlocks.MAGIC_LEAVES.get(), BOPBlocks.UMBRAN_LEAVES.get(), entries);
             registerAfter(BOPBlocks.UMBRAN_LEAVES.get(), BOPBlocks.HELLBARK_LEAVES.get(), entries);
 
-            registerAfter(Items.CHERRY_SAPLING, BOPBlocks.FIR_SAPLING.get().asItem(), entries);
+            registerAfter(Items.CHERRY_SAPLING, BOPBlocks.FLOWERING_OAK_SAPLING.get().asItem(), entries);
+            registerAfter(BOPBlocks.FLOWERING_OAK_SAPLING.get(), BOPBlocks.RAINBOW_BIRCH_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.RAINBOW_BIRCH_SAPLING.get(), BOPBlocks.YELLOW_AUTUMN_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.YELLOW_AUTUMN_SAPLING.get(), BOPBlocks.ORANGE_AUTUMN_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.ORANGE_AUTUMN_SAPLING.get(), BOPBlocks.MAPLE_SAPLING.get(), entries);
+            registerAfter(BOPBlocks.MAPLE_SAPLING.get(), BOPBlocks.FIR_SAPLING.get(), entries);
             registerAfter(BOPBlocks.FIR_SAPLING.get(), BOPBlocks.REDWOOD_SAPLING.get(), entries);
             registerAfter(BOPBlocks.REDWOOD_SAPLING.get(), BOPBlocks.WHITE_CHERRY_SAPLING.get(), entries);
             registerAfter(BOPBlocks.WHITE_CHERRY_SAPLING.get(), BOPBlocks.PINK_CHERRY_SAPLING.get(), entries);
@@ -446,8 +464,6 @@ public class ModVanillaCompat
             registerAfter(BOPBlocks.DEAD_SAPLING.get(), BOPBlocks.MAGIC_SAPLING.get(), entries);
             registerAfter(BOPBlocks.MAGIC_SAPLING.get(), BOPBlocks.UMBRAN_SAPLING.get(), entries);
             registerAfter(BOPBlocks.UMBRAN_SAPLING.get(), BOPBlocks.HELLBARK_SAPLING.get(), entries);
-
-            registerAfter(Items.MILK_BUCKET, BOPItems.BLOOD_BUCKET.get(), entries);
         }
     }
 
