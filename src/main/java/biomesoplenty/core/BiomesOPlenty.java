@@ -16,10 +16,11 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.PaintingVariant;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
@@ -27,6 +28,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.util.MutableHashedLinkedMap;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fluids.FluidType;
@@ -78,6 +80,7 @@ public class BiomesOPlenty
         bus.addListener(this::clientSetup);
         bus.addListener(this::loadComplete);
         bus.addListener(this::registerTab);
+        bus.addListener(this::registerItemsInVanillaTabs);
 
         // Register events for deferred registers
         BIOME_REGISTER.register(bus);
@@ -173,9 +176,31 @@ public class BiomesOPlenty
                         if (!itemBlacklist.contains(item))
                             output.accept(new ItemStack(item.get()));
                     }
-                    catch (IllegalAccessException e) {}
+                    catch (IllegalAccessException ignored) {}
                 }
             });
         });
+    }
+
+    private void registerItemsInVanillaTabs(CreativeModeTabEvent.BuildContents event) {
+        MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries = event.getEntries();
+        CreativeModeTab tab = event.getTab();
+        if (tab == CreativeModeTabs.BUILDING_BLOCKS) {
+            boolean b = false;
+            Item previous = Items.WARPED_BUTTON;
+            for (RegistryObject<Block> entry : BLOCK_REGISTER.getEntries()) {
+                Block block = entry.get();
+                if (block instanceof RotatedPillarBlock || b) {
+                    Item item = block.asItem();
+                    registerAfter(item, previous, entries);
+                    previous = item;
+                    b = !(block instanceof ButtonBlock);
+                }
+            }
+        }
+    }
+
+    private void registerAfter(Item item, Item after, MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries) {
+        entries.putAfter(item.getDefaultInstance(), after.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
 }
