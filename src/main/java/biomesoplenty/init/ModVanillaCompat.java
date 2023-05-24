@@ -6,6 +6,7 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
@@ -19,6 +20,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.common.util.MutableHashedLinkedMap;
+import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModVanillaCompat
 {
@@ -318,5 +322,57 @@ public class ModVanillaCompat
     {
         FireBlock fireblock = (FireBlock)Blocks.FIRE;
         fireblock.setFlammable(blockIn, encouragement, flammability);
+    }
+
+    public static void registerItemsInVanillaTabs(CreativeModeTabEvent.BuildContents event) {
+        MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries = event.getEntries();
+        CreativeModeTab tab = event.getTab();
+        if (tab == CreativeModeTabs.BUILDING_BLOCKS) {
+            boolean b = false;
+            Item previous = Items.WARPED_BUTTON;
+            for (RegistryObject<Block> entry : BiomesOPlenty.BLOCK_REGISTER.getEntries()) {
+                Block block = entry.get();
+                if (block instanceof RotatedPillarBlock || b) {
+                    Item item = block.asItem();
+                    registerAfter(previous, item, entries);
+                    previous = item;
+                    b = !(block instanceof ButtonBlock);
+                }
+            }
+        } else if (tab == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            registerAfter(Items.WARPED_SIGN, BOPItems.FIR_SIGN.get(), entries);
+            registerAfter(BOPItems.FIR_SIGN.get(), BOPItems.REDWOOD_SIGN.get(), entries);
+            registerAfter(BOPItems.REDWOOD_SIGN.get(), BOPItems.CHERRY_SIGN.get(), entries);
+            registerAfter(BOPItems.CHERRY_SIGN.get(), BOPItems.MAHOGANY_SIGN.get(), entries);
+            registerAfter(BOPItems.MAHOGANY_SIGN.get(), BOPItems.JACARANDA_SIGN.get(), entries);
+            registerAfter(BOPItems.JACARANDA_SIGN.get(), BOPItems.PALM_SIGN.get(), entries);
+            registerAfter(BOPItems.PALM_SIGN.get(), BOPItems.WILLOW_SIGN.get(), entries);
+            registerAfter(BOPItems.WILLOW_SIGN.get(), BOPItems.DEAD_SIGN.get(), entries);
+            registerAfter(BOPItems.DEAD_SIGN.get(), BOPItems.MAGIC_SIGN.get(), entries);
+            registerAfter(BOPItems.MAGIC_SIGN.get(), BOPItems.UMBRAN_SIGN.get(), entries);
+            registerAfter(BOPItems.UMBRAN_SIGN.get(), BOPItems.HELLBARK_SIGN.get(), entries);
+        } else if (tab == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            registerAfter(Items.CHERRY_CHEST_BOAT, BOPItems.FIR_BOAT.get(), entries);
+            registerAfter(BOPItems.FIR_BOAT.get(), BOPItems.FIR_CHEST_BOAT.get(), entries);
+            registerAfter(BOPItems.FIR_CHEST_BOAT.get(), BOPItems.REDWOOD_BOAT.get(), entries);
+            registerAfter(BOPItems.REDWOOD_BOAT.get(), BOPItems.REDWOOD_CHEST_BOAT.get(), entries);
+            registerAfter(BOPItems.REDWOOD_CHEST_BOAT.get(), BOPItems.PALM_BOAT.get(), entries);
+            registerAfter(BOPItems.PALM_BOAT.get(), BOPItems.PALM_CHEST_BOAT.get(), entries);
+            registerAfter(BOPItems.PALM_CHEST_BOAT.get(), BOPItems.WILLOW_BOAT.get(), entries);
+            registerAfter(BOPItems.WILLOW_BOAT.get(), BOPItems.WILLOW_CHEST_BOAT.get(), entries);
+            registerAfter(BOPItems.WILLOW_CHEST_BOAT.get(), BOPItems.DEAD_BOAT.get(), entries);
+            registerAfter(BOPItems.DEAD_BOAT.get(), BOPItems.DEAD_CHEST_BOAT.get(), entries);
+            registerAfter(BOPItems.DEAD_CHEST_BOAT.get(), BOPItems.MAGIC_BOAT.get(), entries);
+            registerAfter(BOPItems.MAGIC_BOAT.get(), BOPItems.MAGIC_CHEST_BOAT.get(), entries);
+            registerAfter(BOPItems.MAGIC_CHEST_BOAT.get(), BOPItems.UMBRAN_BOAT.get(), entries);
+            registerAfter(BOPItems.UMBRAN_BOAT.get(), BOPItems.UMBRAN_CHEST_BOAT.get(), entries);
+            registerAfter(BOPItems.UMBRAN_CHEST_BOAT.get(), BOPItems.HELLBARK_BOAT.get(), entries);
+            registerAfter(BOPItems.HELLBARK_BOAT.get(), BOPItems.HELLBARK_CHEST_BOAT.get(), entries);
+            registerAfter(Items.MUSIC_DISC_PIGSTEP, BOPItems.MUSIC_DISC_WANDERER.get(), entries);
+        }
+    }
+
+    private static void registerAfter(Item after, Item item, MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries) {
+        entries.putAfter(after.getDefaultInstance(), item.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
 }
