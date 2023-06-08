@@ -75,6 +75,7 @@ public class BiomesOPlenty
         BLOCK_REGISTER.register(bus);
         BLOCK_ENTITY_REGISTER.register(bus);
         CARVER_REGISTER.register(bus);
+        CREATIVE_TAB_REGISTER.register(bus);
         CONFIGURED_CARVER_REGISTER.register(bus);
         CONFIGURED_FEATURE_REGISTER.register(bus);
         ENTITY_TYPE_REGISTER.register(bus);
