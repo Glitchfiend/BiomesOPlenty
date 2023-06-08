@@ -6,11 +6,9 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.9,
+  "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 6537062,
-    "grass_color": 8769137,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -21,9 +19,9 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.jungle"
+      "sound": "minecraft:music.overworld.cherry_grove"
     },
-    "sky_color": 8037887,
+    "sky_color": 8495103,
     "water_color": 4159204,
     "water_fog_color": 329011
   },
@@ -81,13 +79,8 @@
       "minecraft:glow_lichen",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane",
-      "minecraft:seagrass_cold",
-      "biomesoplenty:flower_cherry_blossom_grove",
-      "biomesoplenty:patch_clover_normal",
-      "biomesoplenty:patch_lilac_extra",
-      "biomesoplenty:patch_peony",
-      "biomesoplenty:patch_grass_12"
+      "biomesoplenty:flower_snowblossom_grove",
+      "biomesoplenty:patch_grass_3"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -193,5 +186,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.6
+  "temperature": -0.25
 }

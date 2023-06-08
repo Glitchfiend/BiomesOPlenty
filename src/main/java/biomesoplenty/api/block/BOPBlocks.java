@@ -31,7 +31,7 @@ public class BOPBlocks
     public static RegistryObject<Block> ORANGE_SANDSTONE_SLAB;
     public static RegistryObject<Block> ORANGE_SANDSTONE_STAIRS;
     public static RegistryObject<Block> ORANGE_SANDSTONE_WALL;
-    public static RegistryObject<Block> OVERGROWN_BLACK_SAND;
+    public static RegistryObject<Block> MOSSY_BLACK_SAND;
     public static RegistryObject<Block> BLACK_SAND;
     public static RegistryObject<Block> BLACK_SANDSTONE;
     public static RegistryObject<Block> CUT_BLACK_SANDSTONE;

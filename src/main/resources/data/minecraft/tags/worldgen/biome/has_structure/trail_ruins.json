@@ -1,0 +1,20 @@
+{
+  "values": [
+	{
+		"id": "biomesoplenty:mediterranean_forest",
+		"required": false
+	},
+	{
+		"id": "biomesoplenty:old_growth_dead_forest",
+		"required": false
+	},
+	{
+		"id": "biomesoplenty:old_growth_woodland",
+		"required": false
+	},
+	{
+		"id": "biomesoplenty:rainforest",
+		"required": false
+	}
+  ]
+}

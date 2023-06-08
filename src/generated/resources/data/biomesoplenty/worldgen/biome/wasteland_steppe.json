@@ -21,7 +21,7 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.jagged_peaks"
+      "sound": "minecraft:music.overworld.desert"
     },
     "sky_color": 7319286,
     "water_color": 4216450,

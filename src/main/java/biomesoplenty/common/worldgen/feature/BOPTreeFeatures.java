@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.worldgen.feature.configurations.*;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -144,11 +145,11 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.TALL_TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().minHeight(2).maxHeight(4).build());
         register(context, BOPTreeFeatures.TWIGLET_TREE, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().minHeight(1).maxHeight(2).build());
         register(context, BOPTreeFeatures.TWIGLET_TREE_VOLCANO, BOPBaseFeatures.TWIGLET_TREE, new TwigletTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.DARK_OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.DARK_OAK_LEAVES)).minHeight(1).maxHeight(2).build());
-        register(context, BOPTreeFeatures.REDWOOD_TREE, BOPBaseFeatures.REDWOOD_TREE, createRedwood().minHeight(10).maxHeight(30).build());
-        register(context, BOPTreeFeatures.REDWOOD_TREE_MEDIUM, BOPBaseFeatures.REDWOOD_TREE, createRedwood().minHeight(25).maxHeight(40).trunkWidth(2).build());
+        register(context, BOPTreeFeatures.REDWOOD_TREE, BOPBaseFeatures.REDWOOD_TREE, createRedwood(BOPBlocks.REDWOOD_LOG.get()).minHeight(10).maxHeight(30).build());
+        register(context, BOPTreeFeatures.REDWOOD_TREE_MEDIUM, BOPBaseFeatures.REDWOOD_TREE, createRedwood(BOPBlocks.REDWOOD_WOOD.get()).minHeight(25).maxHeight(40).trunkWidth(2).build());
         register(context, BOPTreeFeatures.MAHOGANY_TREE, BOPBaseFeatures.MAHOGANY_TREE, new MahoganyTreeConfiguration.Builder().build());
         register(context, BOPTreeFeatures.PALM_TREE, BOPBaseFeatures.PALM_TREE, new PalmTreeConfiguration.Builder().build());
-        register(context, BOPTreeFeatures.REDWOOD_TREE_LARGE, BOPBaseFeatures.REDWOOD_TREE, createRedwood().minHeight(45).maxHeight(60).trunkWidth(3).build());
+        register(context, BOPTreeFeatures.REDWOOD_TREE_LARGE, BOPBaseFeatures.REDWOOD_TREE, createRedwood(BOPBlocks.REDWOOD_WOOD.get()).minHeight(45).maxHeight(60).trunkWidth(3).build());
     }
 
     private static TaigaTreeConfiguration.Builder createFir()
@@ -156,9 +157,9 @@ public class BOPTreeFeatures
         return new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.FIR_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.FIR_LEAVES.get()));
     }
 
-    private static TaigaTreeConfiguration.Builder createRedwood()
+    private static TaigaTreeConfiguration.Builder createRedwood(Block log)
     {
-        return new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.REDWOOD_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.REDWOOD_LEAVES.get()));
+        return new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(log)).foliage(BlockStateProvider.simple(BOPBlocks.REDWOOD_LEAVES.get()));
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)
