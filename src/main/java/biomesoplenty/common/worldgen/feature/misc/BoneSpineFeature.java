@@ -20,12 +20,11 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.material.Material;
 
 public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).is(ModTags.Blocks.FLESH) || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
-    protected SimpleBlockPredicate replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getMaterial() == Material.WATER || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE.get() || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR.get();
+    protected SimpleBlockPredicate replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).liquid() || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE.get() || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR.get();
     private int maxHeight = 3;
 
     public BoneSpineFeature(Codec<NoneFeatureConfiguration> deserializer)

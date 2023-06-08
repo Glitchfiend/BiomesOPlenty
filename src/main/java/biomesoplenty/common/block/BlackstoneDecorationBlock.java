@@ -14,8 +14,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -50,11 +48,5 @@ public class BlackstoneDecorationBlock extends Block
     public boolean canBeReplaced(BlockState p_53910_, BlockPlaceContext p_53911_)
     {
         return true;
-    }
-
-    @Override
-    public PushReaction getPistonPushReaction(BlockState p_54173_)
-    {
-        return PushReaction.DESTROY;
     }
 }

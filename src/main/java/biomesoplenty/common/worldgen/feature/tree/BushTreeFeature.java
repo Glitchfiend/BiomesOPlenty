@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
-import net.minecraft.world.level.material.Material;
 
 import java.util.function.BiConsumer;
 
@@ -30,7 +29,7 @@ public class BushTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
     {
         BasicTreeConfiguration config = (BasicTreeConfiguration)configBase;
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && (world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.AIR)) {startPos = startPos.below();}
+        while (startPos.getY() > 1 && (world.isEmptyBlock(startPos) || world.getBlockState(startPos).isAir())) {startPos = startPos.below();}
 
         if (!this.canReplace(world, startPos.above()))
         {

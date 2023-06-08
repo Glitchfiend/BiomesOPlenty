@@ -62,7 +62,6 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
       }
       else
       {
-         if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
          this.tree.growTree(world, world.getChunkSource().getGenerator(), pos, state, rand);
       }
 

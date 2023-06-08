@@ -36,7 +36,7 @@ public class BOPOverworldBiomes
 {
     @Nullable
     private static final Music NORMAL_MUSIC = null;
-    private static final Music LUSH_MUSIC = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_JUNGLE_AND_FOREST);
+    private static final Music LUSH_MUSIC = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_JUNGLE);
     private static final Music CAVE_MUSIC = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_DRIPSTONE_CAVES);
     private static final Music MOUNTAIN_MUSIC = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_JAGGED_PEAKS);
 

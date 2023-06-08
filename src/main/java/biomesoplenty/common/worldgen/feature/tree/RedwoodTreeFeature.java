@@ -9,6 +9,7 @@ import biomesoplenty.common.worldgen.feature.configurations.TaigaTreeConfigurati
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
-import net.minecraft.world.level.material.Material;
 
 import java.util.function.BiConsumer;
 
@@ -113,7 +113,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
         TaigaTreeConfiguration config = (TaigaTreeConfiguration)configBase;
 
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
+        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {startPos = startPos.below();}
 
         // Choose heights
         int height = GeneratorUtil.nextIntBetween(random, config.minHeight, config.maxHeight);
@@ -242,7 +242,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                     {
                         BlockPos local = startPos.offset(x, -y, z);
                         BlockState state = world.getBlockState(local);
-                        if (!state.getMaterial().isSolid() || Feature.isDirt(state)) {
+                        if (!state.isSolid() || Feature.isDirt(state)) {
                             world.setBlock(local, Blocks.DIRT.defaultBlockState(), 3);
                         }
                     }

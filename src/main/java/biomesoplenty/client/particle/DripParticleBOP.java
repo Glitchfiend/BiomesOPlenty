@@ -211,7 +211,7 @@ public class DripParticleBOP extends TextureSheetParticle
             this.sprite = p_106184_;
         }
 
-        public Particle createParticle(SimpleParticleType p_106195_, ClientLevel p_106196_, double p_106197_, double p_106198_, double p_106199_, double p_106200_, double p_106201_, double p_106202_)
+        public TextureSheetParticle createParticle(SimpleParticleType p_106195_, ClientLevel p_106196_, double p_106197_, double p_106198_, double p_106199_, double p_106200_, double p_106201_, double p_106202_)
         {
             DripParticleBOP.DripHangParticle dripparticle$driphangparticle = new DripParticleBOP.DripHangParticle(p_106196_, p_106197_, p_106198_, p_106199_, Fluids.EMPTY, ModParticles.FALLING_BLOOD.get());
             dripparticle$driphangparticle.gravity *= 0.01F;

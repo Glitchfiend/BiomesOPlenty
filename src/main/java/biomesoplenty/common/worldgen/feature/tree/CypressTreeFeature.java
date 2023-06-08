@@ -10,6 +10,7 @@ import biomesoplenty.common.worldgen.feature.configurations.CypressTreeConfigura
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
@@ -19,7 +20,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
-import net.minecraft.world.level.material.Material;
 
 import java.util.function.BiConsumer;
 
@@ -118,7 +118,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
         CypressTreeConfiguration config = (CypressTreeConfiguration)configBase;
 
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && this.canReplace(world, startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
+        while (startPos.getY() > 1 && this.canReplace(world, startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {startPos = startPos.below();}
 
         // Choose heights
         int height = GeneratorUtil.nextIntBetween(random, config.minHeight, config.maxHeight);
@@ -306,8 +306,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
     protected boolean canReplace(LevelAccessor level, BlockPos pos)
     {
         return super.canReplace(level, pos) || level.isStateAtPosition(pos, (state) -> {
-            Material material = state.getMaterial();
-            return material == Material.WATER;
+            return state.liquid();
         });
     }
 }

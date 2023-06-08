@@ -8,6 +8,7 @@ import biomesoplenty.common.worldgen.feature.configurations.BasicTreeConfigurati
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
-import net.minecraft.world.level.material.Material;
 
 import java.util.function.BiConsumer;
 
@@ -155,7 +155,7 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                                 BlockPos blockpos3 = new BlockPos(x, y, z);
 
                                 //Surround leaves on the edge of the tree with vines and extend them downwards
-                                if (world.getBlockState(blockpos3).getMaterial() == Material.LEAVES)
+                                if (world.getBlockState(blockpos3).is(BlockTags.LEAVES))
                                 {
                                     BlockPos westPos = blockpos3.west();
                                     BlockPos eastPos = blockpos3.east();
@@ -282,7 +282,6 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
     }
 
     protected boolean canPlaceVinesOn(LevelAccessor world, BlockPos pos) {
-        Material mat = world.getBlockState(pos).getMaterial();
-        return mat == Material.AIR;
+        return world.getBlockState(pos).isAir();
     }
 }

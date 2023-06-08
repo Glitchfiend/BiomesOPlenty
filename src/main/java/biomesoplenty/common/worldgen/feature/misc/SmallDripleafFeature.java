@@ -17,7 +17,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.material.Material;
 
 public class SmallDripleafFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -39,7 +38,7 @@ public class SmallDripleafFeature extends Feature<NoneFeatureConfiguration>
         for(int j = 0; j < 64; ++j)
         {
             BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-            if (world.getBlockState(blockpos).getMaterial() == Material.WATER && world.getBlockState(blockpos.below()).is(BlockTags.DIRT))
+            if (world.getBlockState(blockpos).liquid() && world.getBlockState(blockpos.below()).is(BlockTags.DIRT))
             {
                 DoublePlantBlock.placeAt(world, Blocks.SMALL_DRIPLEAF.defaultBlockState().setValue(SmallDripleafBlock.FACING, Direction.Plane.HORIZONTAL.getRandomDirection(rand)), blockpos, 2);
 

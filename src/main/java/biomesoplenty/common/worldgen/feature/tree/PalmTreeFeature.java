@@ -9,13 +9,13 @@ import biomesoplenty.common.worldgen.feature.configurations.PalmTreeConfiguratio
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
-import net.minecraft.world.level.material.Material;
 
 import java.util.function.BiConsumer;
 
@@ -32,7 +32,7 @@ public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
         PalmTreeConfiguration config = (PalmTreeConfiguration)configBase;
 
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).getMaterial() == Material.LEAVES) {startPos = startPos.below();}
+        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {startPos = startPos.below();}
 
         // Generation settings
         int height = GeneratorUtil.nextIntBetween(random, config.minHeight, config.maxHeight);

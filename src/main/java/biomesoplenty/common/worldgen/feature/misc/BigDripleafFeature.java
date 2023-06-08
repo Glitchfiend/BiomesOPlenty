@@ -22,7 +22,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.material.Material;
 
 public class BigDripleafFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -51,9 +50,9 @@ public class BigDripleafFeature extends Feature<NoneFeatureConfiguration>
 
                 for (int k = 0; k < max_height; k++)
                 {
-                    if (this.isAir(world, blockpos.above(k)) || world.getBlockState(blockpos.above(k)).getMaterial() == Material.WATER || world.getBlockState(blockpos.above(k)).getBlock() == Blocks.BIG_DRIPLEAF || world.getBlockState(blockpos.above(k)).getBlock() instanceof BushBlock)
+                    if (this.isAir(world, blockpos.above(k)) || world.getBlockState(blockpos.above(k)).liquid() || world.getBlockState(blockpos.above(k)).getBlock() == Blocks.BIG_DRIPLEAF || world.getBlockState(blockpos.above(k)).getBlock() instanceof BushBlock)
                     {
-                        if (this.isAir(world, blockpos.above(k-1)) || world.getBlockState(blockpos.above(k-1)).getMaterial() == Material.WATER || world.getBlockState(blockpos.above(k-1)).getBlock() == Blocks.BIG_DRIPLEAF || world.getBlockState(blockpos.above(k-1)).getBlock() instanceof BushBlock)
+                        if (this.isAir(world, blockpos.above(k-1)) || world.getBlockState(blockpos.above(k-1)).liquid() || world.getBlockState(blockpos.above(k-1)).getBlock() == Blocks.BIG_DRIPLEAF || world.getBlockState(blockpos.above(k-1)).getBlock() instanceof BushBlock)
                         {
                             world.setBlock(blockpos.above(k-1), copyWaterloggedFrom(world, blockpos.above(k-1), Blocks.BIG_DRIPLEAF_STEM.defaultBlockState().setValue(SmallDripleafBlock.FACING, direction)), 2);
                         }

@@ -21,7 +21,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.material.Material;
 
 public class BrambleFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -36,7 +35,7 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
         return world.getBlockState(pos).canSustainPlant(world, pos, Direction.UP, (SaplingBlock)Blocks.OAK_SAPLING) || state.getBlock() == Blocks.NETHERRACK;
     };
 
-    protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).getMaterial() == Material.AIR;
+    protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).isAir();
 
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)

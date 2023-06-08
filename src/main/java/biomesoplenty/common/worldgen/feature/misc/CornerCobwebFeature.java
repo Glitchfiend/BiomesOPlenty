@@ -7,6 +7,7 @@ package biomesoplenty.common.worldgen.feature.misc;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.material.Material;
 
 public class CornerCobwebFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -43,8 +43,7 @@ public class CornerCobwebFeature extends Feature<NoneFeatureConfiguration>
 
                 for (Direction direction : Direction.values())
                 {
-                    Material material = world.getBlockState(blockpos.relative(direction)).getMaterial();
-                    if (material == Material.STONE)
+                    if (world.getBlockState(blockpos.relative(direction)).is(BlockTags.DRIPSTONE_REPLACEABLE))
                     {
                         k++;
                     }

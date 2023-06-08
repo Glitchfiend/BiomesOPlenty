@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
-import net.minecraft.world.level.material.Material;
 
 import java.util.Collection;
 import java.util.function.BiConsumer;
@@ -118,9 +117,8 @@ public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends Tr
     protected boolean canReplace(LevelAccessor level, BlockPos pos)
     {
         return TreeFeature.isAirOrLeaves(level, pos) || level.isStateAtPosition(pos, (state) -> {
-            Material material = state.getMaterial();
             Block block = state.getBlock();
-            return material == Material.REPLACEABLE_PLANT || state.is(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE.get() || block == BOPBlocks.DEAD_BRANCH.get() || block == Blocks.MOSS_CARPET || block == BOPBlocks.SPANISH_MOSS.get() || block instanceof BushBlock;
+            return state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE.get() || block == BOPBlocks.DEAD_BRANCH.get() || block == Blocks.MOSS_CARPET || block == BOPBlocks.SPANISH_MOSS.get() || block instanceof BushBlock;
         });
     }
 

@@ -44,7 +44,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
             if (!state.isAir())
             {
                 // Don't allow connecting to non-solid materials
-                if (!state.getMaterial().isSolid()) return false;
+                if (!state.isSolid()) return false;
 
                 // Discontinue once we hit a block
                 break;

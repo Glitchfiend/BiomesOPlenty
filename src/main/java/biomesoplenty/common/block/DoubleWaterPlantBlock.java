@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.PlantType;
 
 import javax.annotation.Nullable;
@@ -69,7 +68,7 @@ public class DoubleWaterPlantBlock extends DoublePlantBlock implements SimpleWat
             BlockPos posBelow = pos.below();
             BlockState existingState = worldIn.getBlockState(pos);
             Block existingBlock = existingState.getBlock();
-            return (existingBlock == this || existingState.getMaterial() == Material.WATER) && this.isExposed(worldIn, pos.above()) && worldIn.getBlockState(posBelow).isFaceSturdy(worldIn, posBelow, Direction.UP);
+            return (existingBlock == this || existingState.liquid()) && this.isExposed(worldIn, pos.above()) && worldIn.getBlockState(posBelow).isFaceSturdy(worldIn, posBelow, Direction.UP);
         }
         else
         {

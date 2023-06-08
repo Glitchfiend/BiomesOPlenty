@@ -27,7 +27,7 @@ import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -116,7 +116,7 @@ public class BloodBlock extends LiquidBlock implements BucketPickup
     }
 
     @Override
-    public List<ItemStack> getDrops(BlockState p_54720_, LootContext.Builder p_54721_) {
+    public List<ItemStack> getDrops(BlockState p_54720_, LootParams.Builder p_287727_) {
         return Collections.emptyList();
     }
 

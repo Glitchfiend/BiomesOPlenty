@@ -8,12 +8,12 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.init.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 
 public class GlowwormSilkBottomBlock extends HangingStrandBottomBlock {
 
@@ -38,7 +38,7 @@ public class GlowwormSilkBottomBlock extends HangingStrandBottomBlock {
         }
         else
         {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK.get() || (blockstate.getMaterial() == Material.STONE && blockstate.isFaceSturdy(p_196260_2_, blockpos, Direction.DOWN));
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK.get() || (blockstate.is(BlockTags.DRIPSTONE_REPLACEABLE) && blockstate.isFaceSturdy(p_196260_2_, blockpos, Direction.DOWN));
         }
     }
 

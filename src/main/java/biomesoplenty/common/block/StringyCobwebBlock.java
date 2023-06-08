@@ -82,7 +82,7 @@ public class StringyCobwebBlock extends Block
         BlockPos belowDirPos = pos.relative(direction.getOpposite()).below();
         BlockState belowDirState = level.getBlockState(belowDirPos);
 
-        if ((aboveState.getMaterial().isSolid() || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.getMaterial().isSolid() || belowDirState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
+        if ((aboveState.isSolid() || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.isSolid() || belowDirState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
             return true;
 
         return false;
