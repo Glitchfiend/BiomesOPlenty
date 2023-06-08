@@ -118,7 +118,6 @@ public class BiomesOPlenty
     {
         event.enqueueWork(() ->
         {
-            ModParticles.registerProviders();
             ModBlocks.registerWoodTypes();
         });
     }
