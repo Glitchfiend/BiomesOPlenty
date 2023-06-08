@@ -1,0 +1,7 @@
+{
+    "parent": "block/leaves",
+    "render_type": "minecraft:cutout_mipped",
+    "textures": {
+        "all": "biomesoplenty:block/snowblossom_leaves"
+    }
+}

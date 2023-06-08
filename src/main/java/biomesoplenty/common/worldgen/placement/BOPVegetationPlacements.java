@@ -114,10 +114,8 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> ROSE_BUSH_EXTRA = createKey("rose_bush_extra");
     public static final ResourceKey<PlacedFeature> SUNFLOWER = createKey("sunflower");
     public static final ResourceKey<PlacedFeature> TREES_AURORAL_GARDEN = createKey("trees_auroral_garden");
-    public static final ResourceKey<PlacedFeature> TREES_BAMBOO_GROVE = createKey("trees_bamboo_grove");
     public static final ResourceKey<PlacedFeature> TREES_BAYOU = createKey("trees_bayou");
     public static final ResourceKey<PlacedFeature> TREES_BOG = createKey("trees_bog");
-    public static final ResourceKey<PlacedFeature> TREES_CHERRY_BLOSSOM_GROVE = createKey("trees_cherry_blossom_grove");
     public static final ResourceKey<PlacedFeature> TREES_CONIFEROUS_FOREST = createKey("trees_coniferous_forest");
     public static final ResourceKey<PlacedFeature> TREES_DEAD_FOREST = createKey("trees_dead_forest");
     public static final ResourceKey<PlacedFeature> TREES_DENSE_WOODLAND = createKey("trees_dense_woodland");
@@ -231,10 +229,8 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> ROSE_BUSH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ROSE_BUSH);
         final Holder<ConfiguredFeature<?, ?>> SUNFLOWER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SUNFLOWER);
         final Holder<ConfiguredFeature<?, ?>> TREES_AURORAL_GARDEN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_AURORAL_GARDEN);
-        final Holder<ConfiguredFeature<?, ?>> TREES_BAMBOO_GROVE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_BAMBOO_GROVE);
         final Holder<ConfiguredFeature<?, ?>> TREES_BAYOU = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_BAYOU);
         final Holder<ConfiguredFeature<?, ?>> TREES_BOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_BOG);
-        final Holder<ConfiguredFeature<?, ?>> TREES_CHERRY_BLOSSOM_GROVE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_CHERRY_BLOSSOM_GROVE);
         final Holder<ConfiguredFeature<?, ?>> TREES_CONIFEROUS_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_CONIFEROUS_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_DEAD_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_DEAD_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_DENSE_WOODLAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_DENSE_WOODLAND);
@@ -371,10 +367,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.ROSE_BUSH_EXTRA, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SUNFLOWER, SUNFLOWER, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.TREES_AURORAL_GARDEN, TREES_AURORAL_GARDEN, treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
-        register(context, BOPVegetationPlacements.TREES_BAMBOO_GROVE, TREES_BAMBOO_GROVE, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_BAYOU, TREES_BAYOU, waterTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_BOG, TREES_BOG, treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
-        register(context, BOPVegetationPlacements.TREES_CHERRY_BLOSSOM_GROVE, TREES_CHERRY_BLOSSOM_GROVE, treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_CONIFEROUS_FOREST, TREES_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_DEAD_FOREST, TREES_DEAD_FOREST, treePlacement(PlacementUtils.countExtra(2, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_DENSE_WOODLAND, TREES_DENSE_WOODLAND, treePlacement(PlacementUtils.countExtra(12, 0.1F, 1)));

@@ -26,13 +26,12 @@ public class ModVillagerTrades
         //Cost, Amount, Trades Until Disabled, Villager XP
         VillagerTrades.ItemListing[] WANDERING_TRADER_GENERIC = new VillagerTrades.ItemListing[]{
             new ItemsForEmeralds(BOPBlocks.FLOWERING_OAK_SAPLING.get(), 5, 1, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.SNOWBLOSSOM_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.YELLOW_AUTUMN_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.ORANGE_AUTUMN_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.MAPLE_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.FIR_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.REDWOOD_SAPLING.get(), 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.PINK_CHERRY_SAPLING.get(), 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.WHITE_CHERRY_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.MAHOGANY_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.JACARANDA_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.PALM_SAPLING.get(), 5, 1, 8, 1),

@@ -17,7 +17,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.TUNDRA,               BOPBiomes.TUNDRA,               BOPBiomes.MUSKEG,           BOPBiomes.SNOWY_MAPLE_WOODS,    BOPBiomes.DEAD_FOREST},
             {BOPBiomes.SEASONAL_FOREST,      BOPBiomes.SEASONAL_FOREST,      BOPBiomes.SEASONAL_FOREST,  BOPBiomes.MAPLE_WOODS,          BOPBiomes.MAPLE_WOODS},
-            {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.REDWOOD_FOREST,   BOPBiomes.CHERRY_BLOSSOM_GROVE, BOPBiomes.CHERRY_BLOSSOM_GROVE},
+            {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.REDWOOD_FOREST,   BOPBiomes.CLOVER_PATCH,         BOPBiomes.CLOVER_PATCH},
             {BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,         BOPBiomes.RAINFOREST,           BOPBiomes.VOLCANIC_PLAINS},
             {BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,        BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND}
     };
@@ -25,7 +25,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null,              null,                       null,                          null,                             BOPBiomes.OLD_GROWTH_DEAD_FOREST},
             {null,              BOPBiomes.SEASONAL_ORCHARD, BOPBiomes.PUMPKIN_PATCH,       null,                             null},
-            {null,              BOPBiomes.LAVENDER_FOREST,  BOPBiomes.ORCHARD,             null,                             BOPBiomes.BAMBOO_GROVE},
+            {null,              BOPBiomes.LAVENDER_FOREST,  BOPBiomes.ORCHARD,             null,                             null},
             {null,              null,                       BOPBiomes.OLD_GROWTH_WOODLAND, BOPBiomes.VOLCANIC_PLAINS,        null},
             {null,              null,                       null,                          null,                             null}
     };

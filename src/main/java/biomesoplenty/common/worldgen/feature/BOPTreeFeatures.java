@@ -27,12 +27,9 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE = createKey("maple_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_AUTUMN_TREE = createKey("orange_autumn_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORIGIN_TREE = createKey("origin_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_CHERRY_TREE = createKey("pink_cherry_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_CHERRY_TREE_BEES = createKey("pink_cherry_tree_bees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINBOW_BIRCH_TREE = createKey("rainbow_birch_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_DEAD_TREE = createKey("small_dead_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_CHERRY_TREE = createKey("white_cherry_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_CHERRY_TREE_BEES = createKey("white_cherry_tree_bees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE = createKey("willow_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_AUTUMN_TREE = createKey("yellow_autumn_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_FLOWERING_OAK_TREE = createKey("big_flowering_oak_tree");
@@ -42,7 +39,6 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_OAK_TREE = createKey("big_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_ORANGE_AUTUMN_TREE = createKey("big_orange_autumn_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_ORIGIN_TREE = createKey("big_origin_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_PINK_CHERRY_TREE = createKey("big_pink_cherry_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_RAINBOW_BIRCH_TREE = createKey("big_rainbow_birch_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_WHITE_CHERRY_TREE = createKey("big_white_cherry_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_YELLOW_AUTUMN_TREE = createKey("big_yellow_autumn_tree");
@@ -98,12 +94,8 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.MAPLE_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().foliage(BlockStateProvider.simple(BOPBlocks.MAPLE_LEAVES.get())).minHeight(5).maxHeight(10).build());
         register(context, BOPTreeFeatures.ORANGE_AUTUMN_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.DARK_OAK_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.ORANGE_AUTUMN_LEAVES.get())).minHeight(5).maxHeight(8).build());
         register(context, BOPTreeFeatures.ORIGIN_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.ORIGIN_LEAVES.get())).minHeight(5).maxHeight(8).build());
-        register(context, BOPTreeFeatures.PINK_CHERRY_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.PINK_CHERRY_LEAVES.get())).build());
-        register(context, BOPTreeFeatures.PINK_CHERRY_TREE_BEES, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.PINK_CHERRY_LEAVES.get())).decorator(new BeehiveDecorator(0.05f)).build());
         register(context, BOPTreeFeatures.RAINBOW_BIRCH_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.BIRCH_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.RAINBOW_BIRCH_LEAVES.get())).build());
         register(context, BOPTreeFeatures.SMALL_DEAD_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES.get())).build());
-        register(context, BOPTreeFeatures.WHITE_CHERRY_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.WHITE_CHERRY_LEAVES.get())).build());
-        register(context, BOPTreeFeatures.WHITE_CHERRY_TREE_BEES, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.WHITE_CHERRY_LEAVES.get())).decorator(new BeehiveDecorator(0.05f)).build());
         register(context, BOPTreeFeatures.WILLOW_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.WILLOW_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.WILLOW_LEAVES.get())).vine(BlockStateProvider.simple(BOPBlocks.WILLOW_VINE.get())).minHeight(6).maxHeight(10).leavesOffset(0).maxLeavesRadius(2).build());
         register(context, BOPTreeFeatures.YELLOW_AUTUMN_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.BIRCH_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.YELLOW_AUTUMN_LEAVES.get())).minHeight(5).maxHeight(8).build());
         register(context, BOPTreeFeatures.BIG_FLOWERING_OAK_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES.get())).build());
@@ -113,9 +105,7 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.BIG_OAK_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().build());
         register(context, BOPTreeFeatures.BIG_ORANGE_AUTUMN_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.DARK_OAK_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.ORANGE_AUTUMN_LEAVES.get())).build());
         register(context, BOPTreeFeatures.BIG_ORIGIN_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.ORIGIN_LEAVES.get())).build());
-        register(context, BOPTreeFeatures.BIG_PINK_CHERRY_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.PINK_CHERRY_LEAVES.get())).build());
         register(context, BOPTreeFeatures.BIG_RAINBOW_BIRCH_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.BIRCH_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.RAINBOW_BIRCH_LEAVES.get())).build());
-        register(context, BOPTreeFeatures.BIG_WHITE_CHERRY_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.CHERRY_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.WHITE_CHERRY_LEAVES.get())).build());
         register(context, BOPTreeFeatures.BIG_YELLOW_AUTUMN_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.BIRCH_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.YELLOW_AUTUMN_LEAVES.get())).build());
         register(context, BOPTreeFeatures.DYING_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES.get())).maxHeight(10).foliageHeight(2).build());
         register(context, BOPTreeFeatures.DYING_TREE_WASTELAND, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.DEAD_LOG.get())).foliage(BlockStateProvider.simple(BOPBlocks.DEAD_LEAVES.get())).maxHeight(10).foliageHeight(1).build());

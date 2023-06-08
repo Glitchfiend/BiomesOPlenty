@@ -46,6 +46,7 @@ public class ModVanillaCompat
         //Flammability
         registerFlammable(BOPBlocks.ORIGIN_LEAVES.get(), 30, 60);
         registerFlammable(BOPBlocks.FLOWERING_OAK_LEAVES.get(), 30, 60);
+        registerFlammable(BOPBlocks.SNOWBLOSSOM_LEAVES.get(), 30, 60);
         registerFlammable(BOPBlocks.RAINBOW_BIRCH_LEAVES.get(), 30, 60);
         registerFlammable(BOPBlocks.YELLOW_AUTUMN_LEAVES.get(), 30, 60);
         registerFlammable(BOPBlocks.ORANGE_AUTUMN_LEAVES.get(), 30, 60);
@@ -70,17 +71,6 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.REDWOOD_STAIRS.get(), 5, 20);
         registerFlammable(BOPBlocks.REDWOOD_FENCE.get(), 5, 20);
         registerFlammable(BOPBlocks.REDWOOD_FENCE_GATE.get(), 5, 20);
-        registerFlammable(BOPBlocks.WHITE_CHERRY_LEAVES.get(), 30, 60);
-        registerFlammable(BOPBlocks.PINK_CHERRY_LEAVES.get(), 30, 60);
-        registerFlammable(BOPBlocks.CHERRY_LOG.get(), 5, 5);
-        registerFlammable(BOPBlocks.CHERRY_WOOD.get(), 5, 5);
-        registerFlammable(BOPBlocks.STRIPPED_CHERRY_LOG.get(), 5, 5);
-        registerFlammable(BOPBlocks.STRIPPED_CHERRY_WOOD.get(), 5, 5);
-        registerFlammable(BOPBlocks.CHERRY_PLANKS.get(), 5, 20);
-        registerFlammable(BOPBlocks.CHERRY_SLAB.get(), 5, 20);
-        registerFlammable(BOPBlocks.CHERRY_STAIRS.get(), 5, 20);
-        registerFlammable(BOPBlocks.CHERRY_FENCE.get(), 5, 20);
-        registerFlammable(BOPBlocks.CHERRY_FENCE_GATE.get(), 5, 20);
         registerFlammable(BOPBlocks.MAHOGANY_LEAVES.get(), 30, 60);
         registerFlammable(BOPBlocks.MAHOGANY_LOG.get(), 5, 5);
         registerFlammable(BOPBlocks.MAHOGANY_WOOD.get(), 5, 5);
@@ -188,8 +178,6 @@ public class ModVanillaCompat
         registerStrippable(BOPBlocks.FIR_WOOD.get(), BOPBlocks.STRIPPED_FIR_WOOD.get());
         registerStrippable(BOPBlocks.REDWOOD_LOG.get(), BOPBlocks.STRIPPED_REDWOOD_LOG.get());
         registerStrippable(BOPBlocks.REDWOOD_WOOD.get(), BOPBlocks.STRIPPED_REDWOOD_WOOD.get());
-        registerStrippable(BOPBlocks.CHERRY_LOG.get(), BOPBlocks.STRIPPED_CHERRY_LOG.get());
-        registerStrippable(BOPBlocks.CHERRY_WOOD.get(), BOPBlocks.STRIPPED_CHERRY_WOOD.get());
         registerStrippable(BOPBlocks.MAHOGANY_LOG.get(), BOPBlocks.STRIPPED_MAHOGANY_LOG.get());
         registerStrippable(BOPBlocks.MAHOGANY_WOOD.get(), BOPBlocks.STRIPPED_MAHOGANY_WOOD.get());
         registerStrippable(BOPBlocks.JACARANDA_LOG.get(), BOPBlocks.STRIPPED_JACARANDA_LOG.get());
@@ -219,6 +207,8 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.ORIGIN_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_SAPLING.get());
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_LEAVES.get());
+        registerCompostable(0.3F, BOPBlocks.SNOWBLOSSOM_SAPLING.get());
+        registerCompostable(0.3F, BOPBlocks.SNOWBLOSSOM_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.RAINBOW_BIRCH_SAPLING.get());
         registerCompostable(0.3F, BOPBlocks.RAINBOW_BIRCH_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.YELLOW_AUTUMN_SAPLING.get());
@@ -231,10 +221,6 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.FIR_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.REDWOOD_SAPLING.get());
         registerCompostable(0.3F, BOPBlocks.REDWOOD_LEAVES.get());
-        registerCompostable(0.3F, BOPBlocks.WHITE_CHERRY_SAPLING.get());
-        registerCompostable(0.3F, BOPBlocks.WHITE_CHERRY_LEAVES.get());
-        registerCompostable(0.3F, BOPBlocks.PINK_CHERRY_SAPLING.get());
-        registerCompostable(0.3F, BOPBlocks.PINK_CHERRY_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.MAHOGANY_SAPLING.get());
         registerCompostable(0.3F, BOPBlocks.MAHOGANY_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.JACARANDA_SAPLING.get());

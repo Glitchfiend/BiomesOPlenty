@@ -14,6 +14,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:snowblossom_grove",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:snowy_coniferous_forest",
             "required": false
         },

@@ -116,8 +116,6 @@ public class BoatBOP extends Boat
                 return BOPItems.FIR_BOAT.get();
             case REDWOOD:
                 return BOPItems.REDWOOD_BOAT.get();
-            case CHERRY:
-                return BOPItems.CHERRY_BOAT.get();
             case MAHOGANY:
                 return BOPItems.MAHOGANY_BOAT.get();
             case JACARANDA:
@@ -163,7 +161,6 @@ public class BoatBOP extends Boat
     {
         FIR("fir", BOPBlocks.FIR_PLANKS.get()),
         REDWOOD("redwood", BOPBlocks.REDWOOD_PLANKS.get()),
-        CHERRY("cherry", BOPBlocks.CHERRY_PLANKS.get()),
         MAHOGANY("mahogany", BOPBlocks.MAHOGANY_PLANKS.get()),
         JACARANDA("jacaranda", BOPBlocks.JACARANDA_PLANKS.get()),
         PALM("palm", BOPBlocks.PALM_PLANKS.get()),

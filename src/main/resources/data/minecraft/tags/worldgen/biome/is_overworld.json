@@ -5,19 +5,11 @@
       "required": false
     },
     {
-      "id": "biomesoplenty:bamboo_grove",
-      "required": false
-    },
-    {
       "id": "biomesoplenty:bayou",
       "required": false
     },
     {
       "id": "biomesoplenty:bog",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:cherry_blossom_grove",
       "required": false
     },
     {
@@ -186,6 +178,10 @@
     },
     {
       "id": "biomesoplenty:shrubland",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:snowblossom_grove",
       "required": false
     },
     {

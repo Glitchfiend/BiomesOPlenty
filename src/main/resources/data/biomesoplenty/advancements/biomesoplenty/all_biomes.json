@@ -31,22 +31,6 @@
 				]
 			}
 		},
-		"bamboo_grove": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:bamboo_grove"
-				  }
-				}
-			  }
-			]
-		  }
-        },
 		"bayou": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -73,22 +57,6 @@
 				"predicate": {
 				  "location": {
 					"biome": "biomesoplenty:bog"
-				  }
-				}
-			  }
-			]
-		  }
-        },
-		"cherry_blossom_grove": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:cherry_blossom_grove"
 				  }
 				}
 			  }
@@ -799,6 +767,22 @@
 			]
 		  }
         },
+		"snowblossom_grove": {
+            "trigger": "minecraft:location",
+            "conditions": {
+			"player": [
+			  {
+				"condition": "minecraft:entity_properties",
+				"entity": "this",
+				"predicate": {
+				  "location": {
+					"biome": "biomesoplenty:snowblossom_grove"
+				  }
+				}
+			  }
+			]
+		  }
+        },
 		"snowy_coniferous_forest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1045,16 +1029,10 @@
 		"auroral_garden"
 		],
 		[
-		"bamboo_grove"
-		],
-		[
 		"bayou"
 		],
 		[
 		"bog"
-		],
-		[
-		"cherry_blossom_grove"
 		],
 		[
 		"clover_patch"
@@ -1187,6 +1165,9 @@
 		],
 		[
 		"shrubland"
+		],
+		[
+		"snowblossom_grove"
 		],
 		[
 		"snowy_coniferous_forest"

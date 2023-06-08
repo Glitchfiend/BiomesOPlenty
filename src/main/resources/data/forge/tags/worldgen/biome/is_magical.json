@@ -18,6 +18,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:snowblossom_grove",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:crystalline_chasm",
             "required": false
         }

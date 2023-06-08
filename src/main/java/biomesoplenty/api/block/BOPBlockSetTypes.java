@@ -13,7 +13,6 @@ public class BOPBlockSetTypes
 {
     public static final BlockSetType FIR = register(new BlockSetType(BiomesOPlenty.MOD_ID + ":fir"));
     public static final BlockSetType REDWOOD = register(new BlockSetType(BiomesOPlenty.MOD_ID + ":redwood"));
-    public static final BlockSetType CHERRY = register(new BlockSetType(BiomesOPlenty.MOD_ID + ":cherry"));
     public static final BlockSetType MAHOGANY = register(new BlockSetType(BiomesOPlenty.MOD_ID + ":mahogany"));
     public static final BlockSetType JACARANDA = register(new BlockSetType(BiomesOPlenty.MOD_ID + ":jacaranda"));
     public static final BlockSetType PALM = register(new BlockSetType(BiomesOPlenty.MOD_ID + ":palm"));

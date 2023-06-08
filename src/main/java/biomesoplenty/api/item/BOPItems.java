@@ -16,7 +16,6 @@ public class BOPItems
     public static RegistryObject<Item> MUSIC_DISC_WANDERER;
     public static RegistryObject<Item> FIR_SIGN;
     public static RegistryObject<Item> REDWOOD_SIGN;
-    public static RegistryObject<Item> CHERRY_SIGN;
     public static RegistryObject<Item> MAHOGANY_SIGN;
     public static RegistryObject<Item> JACARANDA_SIGN;
     public static RegistryObject<Item> PALM_SIGN;
@@ -30,8 +29,6 @@ public class BOPItems
     public static RegistryObject<Item> FIR_CHEST_BOAT;
     public static RegistryObject<Item> REDWOOD_BOAT;
     public static RegistryObject<Item> REDWOOD_CHEST_BOAT;
-    public static RegistryObject<Item> CHERRY_BOAT;
-    public static RegistryObject<Item> CHERRY_CHEST_BOAT;
     public static RegistryObject<Item> MAHOGANY_BOAT;
     public static RegistryObject<Item> MAHOGANY_CHEST_BOAT;
     public static RegistryObject<Item> JACARANDA_BOAT;

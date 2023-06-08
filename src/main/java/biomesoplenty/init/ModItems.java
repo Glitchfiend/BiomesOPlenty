@@ -43,7 +43,6 @@ public class ModItems
 
         FIR_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.FIR_SIGN.get(), BOPBlocks.FIR_WALL_SIGN.get()), "fir_sign");
         REDWOOD_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.REDWOOD_SIGN.get(), BOPBlocks.REDWOOD_WALL_SIGN.get()), "redwood_sign");
-        CHERRY_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.CHERRY_SIGN.get(), BOPBlocks.CHERRY_WALL_SIGN.get()), "cherry_sign");
         MAHOGANY_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.MAHOGANY_SIGN.get(), BOPBlocks.MAHOGANY_WALL_SIGN.get()), "mahogany_sign");
         JACARANDA_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.JACARANDA_SIGN.get(), BOPBlocks.JACARANDA_WALL_SIGN.get()), "jacaranda_sign");
         PALM_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.PALM_SIGN.get(), BOPBlocks.PALM_WALL_SIGN.get()), "palm_sign");
@@ -57,8 +56,6 @@ public class ModItems
         FIR_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1)), "fir_chest_boat");
         REDWOOD_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1)), "redwood_boat");
         REDWOOD_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1)), "redwood_chest_boat");
-        CHERRY_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.CHERRY, (new Item.Properties()).stacksTo(1)), "cherry_boat");
-        CHERRY_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.CHERRY, (new Item.Properties()).stacksTo(1)), "cherry_chest_boat");
         MAHOGANY_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1)), "mahogany_boat");
         MAHOGANY_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1)), "mahogany_chest_boat");
         JACARANDA_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.JACARANDA, (new Item.Properties()).stacksTo(1)), "jacaranda_boat");
