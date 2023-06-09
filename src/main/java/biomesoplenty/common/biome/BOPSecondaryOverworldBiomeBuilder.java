@@ -41,7 +41,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null, null,                      null,                          BOPBiomes.SNOWBLOSSOM_GROVE, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
             {null, null,                      null,                          BOPBiomes.MAPLE_WOODS,       null},
-            {null, BOPBiomes.LAVENDER_FOREST, null,                          null,                        BOPBiomes.HIGHLAND_MOOR},
+            {null, BOPBiomes.LAVENDER_FOREST, null,                          null,                        BOPBiomes.MOOR},
             {null, null,                      BOPBiomes.OLD_GROWTH_WOODLAND, BOPBiomes.VOLCANO,           null},
             {null, null,                      null,                          null,                        null}
     };

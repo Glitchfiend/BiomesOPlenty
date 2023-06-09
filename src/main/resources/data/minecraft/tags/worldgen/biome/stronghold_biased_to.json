@@ -73,10 +73,6 @@
       "required": false
     },
     {
-      "id": "biomesoplenty:highland_moor",
-      "required": false
-    },
-    {
       "id": "biomesoplenty:jade_cliffs",
       "required": false
     },
@@ -106,6 +102,10 @@
     },
     {
       "id": "biomesoplenty:mediterranean_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:moor",
       "required": false
     },
     {

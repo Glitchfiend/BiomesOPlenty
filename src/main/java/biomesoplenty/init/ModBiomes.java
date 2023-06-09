@@ -64,7 +64,6 @@ public class ModBiomes
         register(context, BOPBiomes.FUNGAL_JUNGLE, BOPOverworldBiomes.fungalJungle(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.HIGHLAND_MOOR, BOPOverworldBiomes.highlandMoor(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.JADE_CLIFFS, BOPOverworldBiomes.jadeCliffs(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter, false));
         register(context, BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter, true));
@@ -73,6 +72,7 @@ public class ModBiomes
         register(context, BOPBiomes.MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(placedFeatureGetter, carverGetter, false));
         register(context, BOPBiomes.MARSH, BOPOverworldBiomes.marsh(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.MEDITERRANEAN_FOREST, BOPOverworldBiomes.mediterraneanForest(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.MOOR, BOPOverworldBiomes.moor(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.MUSKEG, BOPOverworldBiomes.muskeg(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.MYSTIC_GROVE, BOPOverworldBiomes.mysticGrove(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.OLD_GROWTH_DEAD_FOREST, BOPOverworldBiomes.oldGrowthDeadForest(placedFeatureGetter, carverGetter));
@@ -135,7 +135,6 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.FUNGAL_JUNGLE, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.GRASSLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.HIGHLAND, VillagerType.PLAINS);
-        registerVillagerType(BOPBiomes.HIGHLAND_MOOR, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.JADE_CLIFFS, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LAVENDER_FIELD, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LAVENDER_FOREST, VillagerType.PLAINS);
@@ -144,6 +143,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.MAPLE_WOODS, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.MARSH, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.MEDITERRANEAN_FOREST, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.MOOR, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.MUSKEG, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.MYSTIC_GROVE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.OLD_GROWTH_DEAD_FOREST, VillagerType.TAIGA);

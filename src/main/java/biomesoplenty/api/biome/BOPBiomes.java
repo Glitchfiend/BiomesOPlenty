@@ -39,7 +39,6 @@ public class BOPBiomes
     public static final ResourceKey<Biome> GLOWING_GROTTO = register("glowing_grotto");
     public static final ResourceKey<Biome> GRASSLAND = registerOverworld("grassland");
     public static final ResourceKey<Biome> HIGHLAND = registerOverworld("highland");
-    public static final ResourceKey<Biome> HIGHLAND_MOOR = registerOverworld("highland_moor");
     public static final ResourceKey<Biome> JADE_CLIFFS = registerOverworld("jade_cliffs");
     public static final ResourceKey<Biome> LAVENDER_FIELD = registerOverworld("lavender_field");
     public static final ResourceKey<Biome> LAVENDER_FOREST = registerOverworld("lavender_forest");
@@ -48,6 +47,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> MAPLE_WOODS = registerOverworld("maple_woods");
     public static final ResourceKey<Biome> MARSH = registerOverworld("marsh");
     public static final ResourceKey<Biome> MEDITERRANEAN_FOREST = registerOverworld("mediterranean_forest");
+    public static final ResourceKey<Biome> MOOR = registerOverworld("moor");
     public static final ResourceKey<Biome> MUSKEG = registerOverworld("muskeg");
     public static final ResourceKey<Biome> MYSTIC_GROVE = registerOverworld("mystic_grove");
     public static final ResourceKey<Biome> OLD_GROWTH_DEAD_FOREST = registerOverworld("old_growth_dead_forest");

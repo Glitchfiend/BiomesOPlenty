@@ -334,22 +334,6 @@
 			]
 		  }
         },
-        "highland_moor": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:highland_moor"
-				  }
-				}
-			  }
-			]
-		  }
-        },
 		"jade_cliffs": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -478,6 +462,22 @@
 			]
 		  }
         },
+		"moor": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "biomesoplenty:moor"
+							}
+						}
+					}
+				]
+			}
+		},
 		"muskeg": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1045,7 +1045,6 @@
 		"glowing_grotto",
 		"grassland",
 		"highland",
-		"highland_moor",
 		"jade_cliffs",
 		"lavender_field",
 		"lavender_forest",
@@ -1054,6 +1053,7 @@
 		"maple_woods",
 		"marsh",
 		"mediterranean_forest",
+		"moor",
 		"muskeg",
 		"mystic_grove",
 		"old_growth_dead_forest",

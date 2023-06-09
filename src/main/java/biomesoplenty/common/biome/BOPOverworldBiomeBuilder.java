@@ -159,7 +159,7 @@ public class BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null,                    null, null, null,                       null},
             {null,                    null, null, null,                       null},
-            {null,                    null, null, BOPBiomes.HIGHLAND_MOOR,    null},
+            {null,                    null, null, BOPBiomes.MOOR,    null},
             {null,                    null, null, BOPBiomes.ROCKY_RAINFOREST, null},
             {null,                    null, null, null,                       BOPBiomes.LUSH_SAVANNA}
     };

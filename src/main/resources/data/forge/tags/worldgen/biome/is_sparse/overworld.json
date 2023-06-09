@@ -38,10 +38,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:highland_moor",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:lush_desert",
             "required": false
         },
@@ -51,6 +47,10 @@
         },
         {
             "id": "biomesoplenty:marsh",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:moor",
             "required": false
         },
         {

@@ -34,11 +34,11 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:highland_moor",
+            "id": "biomesoplenty:marsh",
             "required": false
         },
         {
-            "id": "biomesoplenty:marsh",
+            "id": "biomesoplenty:moor",
             "required": false
         },
         {

@@ -10,11 +10,11 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:highland_moor",
+            "id": "biomesoplenty:jade_cliffs",
             "required": false
         },
         {
-            "id": "biomesoplenty:jade_cliffs",
+            "id": "biomesoplenty:moor",
             "required": false
         },
         {

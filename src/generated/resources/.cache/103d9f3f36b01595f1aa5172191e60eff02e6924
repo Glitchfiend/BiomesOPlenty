@@ -1,4 +1,4 @@
-// 1.20	2023-06-09T02:41:32.2512141	Registries
+// 1.20	2023-06-09T04:31:47.43012	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 4ac25760c06a50af708bfe2c09fd54ab50a52b60 data/biomesoplenty/worldgen/biome/auroral_garden.json
@@ -21,15 +21,15 @@ d7cbe6472a3a43b8dc8f6ef8e275a686bca95d44 data/biomesoplenty/worldgen/biome/funga
 ffe8fa5da1c1b7f736d9a6a94ff9f44b4ec935fa data/biomesoplenty/worldgen/biome/glowing_grotto.json
 6fa2d33df656435a93c66e0879510a7114d2f0df data/biomesoplenty/worldgen/biome/grassland.json
 c10a98e26ec18a338ced25cd2f9926aea1e60672 data/biomesoplenty/worldgen/biome/highland.json
-83989ee635ab3247c6095f290f2b4f018cd76709 data/biomesoplenty/worldgen/biome/highland_moor.json
 f73e1b9df71f4ffd6383f8c0c2ff35565e838433 data/biomesoplenty/worldgen/biome/jade_cliffs.json
 c055933f0d8547b4bc2df5fb1943b69d629b5c36 data/biomesoplenty/worldgen/biome/lavender_field.json
 d24e2472e63a1cbd89e4123af29cdf1b67949b3c data/biomesoplenty/worldgen/biome/lavender_forest.json
 842531dba986ba863fa91e1a894f8b7841017584 data/biomesoplenty/worldgen/biome/lush_desert.json
 33179e70bc1808ecc78a7409cb5b2dda8063bcbb data/biomesoplenty/worldgen/biome/lush_savanna.json
 aad4cf4d335db795e62a2c5ae02ef520bb3976eb data/biomesoplenty/worldgen/biome/maple_woods.json
-347419f6ba4d708dd673545822ecd040dbaf4f98 data/biomesoplenty/worldgen/biome/marsh.json
+43c40f385b65fc995a3a311a5eb0c0632cfe7001 data/biomesoplenty/worldgen/biome/marsh.json
 940baf70e9858af1f9dfd566f4f8f2ed79c2cd8c data/biomesoplenty/worldgen/biome/mediterranean_forest.json
+83989ee635ab3247c6095f290f2b4f018cd76709 data/biomesoplenty/worldgen/biome/moor.json
 80f3d3963bf76bbfa051fdd2bb40fc06e1a67104 data/biomesoplenty/worldgen/biome/muskeg.json
 51d2e0b0da9296b8c1e43cfdcfb88231711c800c data/biomesoplenty/worldgen/biome/mystic_grove.json
 dea3fe8b95b13271b316fcc75726e09bd2788575 data/biomesoplenty/worldgen/biome/old_growth_dead_forest.json
