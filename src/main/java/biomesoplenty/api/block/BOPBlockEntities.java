@@ -10,4 +10,5 @@ import net.minecraftforge.registries.RegistryObject;
 public class BOPBlockEntities
 {
     public static RegistryObject<BlockEntityType<?>> SIGN;
+    public static RegistryObject<BlockEntityType<?>> HANGING_SIGN;
 }

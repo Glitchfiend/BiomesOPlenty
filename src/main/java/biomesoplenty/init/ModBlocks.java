@@ -142,6 +142,8 @@ public class ModBlocks
         FIR_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.FIR, 30, true), "fir_button");
         FIR_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.FIR), "fir_sign");
         FIR_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(FIR_SIGN), BOPWoodTypes.FIR), "fir_wall_sign");
+        FIR_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.FIR), "fir_hanging_sign");
+        FIR_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(FIR_HANGING_SIGN), BOPWoodTypes.FIR), "fir_wall_hanging_sign");
 
         REDWOOD_SAPLING = registerBlock(() -> new SaplingBlockBOP(new RedwoodTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "redwood_sapling");
         REDWOOD_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "redwood_leaves");
@@ -160,6 +162,8 @@ public class ModBlocks
         REDWOOD_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.REDWOOD, 30, true), "redwood_button");
         REDWOOD_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.REDWOOD), "redwood_sign");
         REDWOOD_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(REDWOOD_SIGN), BOPWoodTypes.REDWOOD), "redwood_wall_sign");
+        REDWOOD_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.REDWOOD), "redwood_hanging_sign");
+        REDWOOD_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(REDWOOD_HANGING_SIGN), BOPWoodTypes.REDWOOD), "redwood_wall_hanging_sign");
 
         MAHOGANY_SAPLING = registerBlock(() -> new SaplingBlockBOP(new MahoganyTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "mahogany_sapling");
         MAHOGANY_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "mahogany_leaves");
@@ -178,6 +182,8 @@ public class ModBlocks
         MAHOGANY_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.MAHOGANY, 30, true), "mahogany_button");
         MAHOGANY_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.MAHOGANY), "mahogany_sign");
         MAHOGANY_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(MAHOGANY_SIGN), BOPWoodTypes.MAHOGANY), "mahogany_wall_sign");
+        MAHOGANY_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.MAHOGANY), "mahogany_hanging_sign");
+        MAHOGANY_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(MAHOGANY_HANGING_SIGN), BOPWoodTypes.MAHOGANY), "mahogany_wall_hanging_sign");
 
         JACARANDA_SAPLING = registerBlock(() -> new SaplingBlockBOP(new JacarandaTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "jacaranda_sapling");
         JACARANDA_LEAVES = registerBlock(() -> new JacarandaLeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "jacaranda_leaves");
@@ -196,6 +202,8 @@ public class ModBlocks
         JACARANDA_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.JACARANDA, 30, true), "jacaranda_button");
         JACARANDA_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.JACARANDA), "jacaranda_sign");
         JACARANDA_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(JACARANDA_SIGN), BOPWoodTypes.JACARANDA), "jacaranda_wall_sign");
+        JACARANDA_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.JACARANDA), "jacaranda_hanging_sign");
+        JACARANDA_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(JACARANDA_HANGING_SIGN), BOPWoodTypes.JACARANDA), "jacaranda_wall_hanging_sign");
 
         PALM_SAPLING = registerBlock(() -> new SaplingBlockBOP(new PalmTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "palm_sapling");
         PALM_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "palm_leaves");
@@ -214,6 +222,8 @@ public class ModBlocks
         PALM_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.PALM, 30, true), "palm_button");
         PALM_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.PALM), "palm_sign");
         PALM_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(PALM_SIGN), BOPWoodTypes.PALM), "palm_wall_sign");
+        PALM_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.PALM), "palm_hanging_sign");
+        PALM_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(PALM_HANGING_SIGN), BOPWoodTypes.PALM), "palm_wall_hanging_sign");
 
         WILLOW_SAPLING = registerBlock(() -> new SaplingBlockBOP(new WillowTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "willow_sapling");
         WILLOW_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "willow_leaves");
@@ -232,6 +242,8 @@ public class ModBlocks
         WILLOW_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.WILLOW, 30, true), "willow_button");
         WILLOW_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.WILLOW), "willow_sign");
         WILLOW_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(WILLOW_SIGN), BOPWoodTypes.WILLOW), "willow_wall_sign");
+        WILLOW_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.WILLOW), "willow_hanging_sign");
+        WILLOW_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(WILLOW_HANGING_SIGN), BOPWoodTypes.WILLOW), "willow_wall_hanging_sign");
 
         DEAD_SAPLING = registerBlock(() -> new SaplingBlockBOP(new DeadTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "dead_sapling");
         DEAD_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "dead_leaves");
@@ -250,6 +262,8 @@ public class ModBlocks
         DEAD_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.DEAD, 30, true), "dead_button");
         DEAD_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.DEAD), "dead_sign");
         DEAD_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(DEAD_SIGN), BOPWoodTypes.DEAD), "dead_wall_sign");
+        DEAD_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.DEAD), "dead_hanging_sign");
+        DEAD_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(DEAD_HANGING_SIGN), BOPWoodTypes.DEAD), "dead_wall_hanging_sign");
 
         MAGIC_SAPLING = registerBlock(() -> new SaplingBlockBOP(new MagicTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "magic_sapling");
         MAGIC_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "magic_leaves");
@@ -268,6 +282,8 @@ public class ModBlocks
         MAGIC_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.MAGIC, 30, true), "magic_button");
         MAGIC_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.MAGIC), "magic_sign");
         MAGIC_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(MAGIC_SIGN), BOPWoodTypes.MAGIC), "magic_wall_sign");
+        MAGIC_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.MAGIC), "magic_hanging_sign");
+        MAGIC_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(MAGIC_HANGING_SIGN), BOPWoodTypes.MAGIC), "magic_wall_hanging_sign");
 
         UMBRAN_SAPLING = registerBlock(() -> new SaplingBlockBOP(new UmbranTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "umbran_sapling");
         UMBRAN_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "umbran_leaves");
@@ -286,6 +302,8 @@ public class ModBlocks
         UMBRAN_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.UMBRAN, 30, true), "umbran_button");
         UMBRAN_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.UMBRAN), "umbran_sign");
         UMBRAN_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(UMBRAN_SIGN), BOPWoodTypes.UMBRAN), "umbran_wall_sign");
+        UMBRAN_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.UMBRAN), "umbran_hanging_sign");
+        UMBRAN_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(UMBRAN_HANGING_SIGN), BOPWoodTypes.UMBRAN), "umbran_wall_hanging_sign");
 
         HELLBARK_SAPLING = registerBlock(() -> new SaplingBlockBOP(new HellbarkTree(), BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "hellbark_sapling");
         HELLBARK_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), "hellbark_leaves");
@@ -304,6 +322,8 @@ public class ModBlocks
         HELLBARK_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.HELLBARK, 30, true), "hellbark_button");
         HELLBARK_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.HELLBARK), "hellbark_sign");
         HELLBARK_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(HELLBARK_SIGN), BOPWoodTypes.HELLBARK), "hellbark_wall_sign");
+        HELLBARK_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.HELLBARK), "hellbark_hanging_sign");
+        HELLBARK_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(HELLBARK_HANGING_SIGN), BOPWoodTypes.HELLBARK), "hellbark_wall_hanging_sign");
 
         //Flowers
         ROSE = registerBlock(() -> new FlowerBlockBOP(MobEffects.MOVEMENT_SPEED, 7, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "rose");
@@ -431,6 +451,10 @@ public class ModBlocks
         BOPBlockEntities.SIGN = registerBlockEntityType("sign", SignBlockEntityBOP::new,
                 () -> List.of(FIR_SIGN.get(), REDWOOD_SIGN.get(), MAHOGANY_SIGN.get(), JACARANDA_SIGN.get(), PALM_SIGN.get(), WILLOW_SIGN.get(), DEAD_SIGN.get(), MAGIC_SIGN.get(), UMBRAN_SIGN.get(), HELLBARK_SIGN.get(),
             FIR_WALL_SIGN.get(), REDWOOD_WALL_SIGN.get(), MAHOGANY_WALL_SIGN.get(), JACARANDA_WALL_SIGN.get(), PALM_WALL_SIGN.get(), WILLOW_WALL_SIGN.get(), DEAD_WALL_SIGN.get(), MAGIC_WALL_SIGN.get(), UMBRAN_WALL_SIGN.get(), HELLBARK_WALL_SIGN.get()));
+
+        BOPBlockEntities.HANGING_SIGN = registerBlockEntityType("hanging_sign", HangingSignBlockEntityBOP::new,
+                () -> List.of(FIR_HANGING_SIGN.get(), REDWOOD_HANGING_SIGN.get(), MAHOGANY_HANGING_SIGN.get(), JACARANDA_HANGING_SIGN.get(), PALM_HANGING_SIGN.get(), WILLOW_HANGING_SIGN.get(), DEAD_HANGING_SIGN.get(), MAGIC_HANGING_SIGN.get(), UMBRAN_HANGING_SIGN.get(), HELLBARK_HANGING_SIGN.get(),
+            FIR_WALL_HANGING_SIGN.get(), REDWOOD_WALL_HANGING_SIGN.get(), MAHOGANY_WALL_HANGING_SIGN.get(), JACARANDA_WALL_HANGING_SIGN.get(), PALM_WALL_HANGING_SIGN.get(), WILLOW_WALL_HANGING_SIGN.get(), DEAD_WALL_HANGING_SIGN.get(), MAGIC_WALL_HANGING_SIGN.get(), UMBRAN_WALL_HANGING_SIGN.get(), HELLBARK_WALL_HANGING_SIGN.get()));
     }
 
     private static RotatedPillarBlock log(MapColor MapColor, MapColor MapColor2) {

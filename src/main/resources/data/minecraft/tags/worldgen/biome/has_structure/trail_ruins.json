@@ -1,5 +1,9 @@
 {
   "values": [
+  	{
+		"id": "biomesoplenty:dryland",
+		"required": false
+	},
 	{
 		"id": "biomesoplenty:mediterranean_forest",
 		"required": false

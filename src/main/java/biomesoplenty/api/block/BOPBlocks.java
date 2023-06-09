@@ -93,7 +93,7 @@ public class BOPBlocks
     public static RegistryObject<Block> FIR_SIGN;
     public static RegistryObject<Block> FIR_WALL_SIGN;
     public static RegistryObject<Block> FIR_HANGING_SIGN;
-    public static RegistryObject<Block> FIR_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> FIR_WALL_HANGING_SIGN;
     public static RegistryObject<Block> REDWOOD_SAPLING;
     public static RegistryObject<Block> REDWOOD_LEAVES;
     public static RegistryObject<Block> REDWOOD_LOG;
@@ -112,7 +112,7 @@ public class BOPBlocks
     public static RegistryObject<Block> REDWOOD_SIGN;
     public static RegistryObject<Block> REDWOOD_WALL_SIGN;
     public static RegistryObject<Block> REDWOOD_HANGING_SIGN;
-    public static RegistryObject<Block> REDWOOD_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> REDWOOD_WALL_HANGING_SIGN;
     public static RegistryObject<Block> MAHOGANY_SAPLING;
     public static RegistryObject<Block> MAHOGANY_LEAVES;
     public static RegistryObject<Block> MAHOGANY_LOG;
@@ -131,7 +131,7 @@ public class BOPBlocks
     public static RegistryObject<Block> MAHOGANY_SIGN;
     public static RegistryObject<Block> MAHOGANY_WALL_SIGN;
     public static RegistryObject<Block> MAHOGANY_HANGING_SIGN;
-    public static RegistryObject<Block> MAHOGANY_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> MAHOGANY_WALL_HANGING_SIGN;
     public static RegistryObject<Block> JACARANDA_SAPLING;
     public static RegistryObject<Block> JACARANDA_LEAVES;
     public static RegistryObject<Block> JACARANDA_LOG;
@@ -150,7 +150,7 @@ public class BOPBlocks
     public static RegistryObject<Block> JACARANDA_SIGN;
     public static RegistryObject<Block> JACARANDA_WALL_SIGN;
     public static RegistryObject<Block> JACARANDA_HANGING_SIGN;
-    public static RegistryObject<Block> JACARANDA_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> JACARANDA_WALL_HANGING_SIGN;
     public static RegistryObject<Block> PALM_SAPLING;
     public static RegistryObject<Block> PALM_LEAVES;
     public static RegistryObject<Block> PALM_LOG;
@@ -169,7 +169,7 @@ public class BOPBlocks
     public static RegistryObject<Block> PALM_SIGN;
     public static RegistryObject<Block> PALM_WALL_SIGN;
     public static RegistryObject<Block> PALM_HANGING_SIGN;
-    public static RegistryObject<Block> PALM_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> PALM_WALL_HANGING_SIGN;
     public static RegistryObject<Block> WILLOW_SAPLING;
     public static RegistryObject<Block> WILLOW_LEAVES;
     public static RegistryObject<Block> WILLOW_LOG;
@@ -188,7 +188,7 @@ public class BOPBlocks
     public static RegistryObject<Block> WILLOW_SIGN;
     public static RegistryObject<Block> WILLOW_WALL_SIGN;
     public static RegistryObject<Block> WILLOW_HANGING_SIGN;
-    public static RegistryObject<Block> WILLOW_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> WILLOW_WALL_HANGING_SIGN;
     public static RegistryObject<Block> DEAD_SAPLING;
     public static RegistryObject<Block> DEAD_LEAVES;
     public static RegistryObject<Block> DEAD_LOG;
@@ -207,7 +207,7 @@ public class BOPBlocks
     public static RegistryObject<Block> DEAD_SIGN;
     public static RegistryObject<Block> DEAD_WALL_SIGN;
     public static RegistryObject<Block> DEAD_HANGING_SIGN;
-    public static RegistryObject<Block> DEAD_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> DEAD_WALL_HANGING_SIGN;
     public static RegistryObject<Block> MAGIC_SAPLING;
     public static RegistryObject<Block> MAGIC_LEAVES;
     public static RegistryObject<Block> MAGIC_LOG;
@@ -226,7 +226,7 @@ public class BOPBlocks
     public static RegistryObject<Block> MAGIC_SIGN;
     public static RegistryObject<Block> MAGIC_WALL_SIGN;
     public static RegistryObject<Block> MAGIC_HANGING_SIGN;
-    public static RegistryObject<Block> MAGIC_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> MAGIC_WALL_HANGING_SIGN;
     public static RegistryObject<Block> UMBRAN_SAPLING;
     public static RegistryObject<Block> UMBRAN_LEAVES;
     public static RegistryObject<Block> UMBRAN_LOG;
@@ -245,7 +245,7 @@ public class BOPBlocks
     public static RegistryObject<Block> UMBRAN_SIGN;
     public static RegistryObject<Block> UMBRAN_WALL_SIGN;
     public static RegistryObject<Block> UMBRAN_HANGING_SIGN;
-    public static RegistryObject<Block> UMBRAN_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> UMBRAN_WALL_HANGING_SIGN;
     public static RegistryObject<Block> HELLBARK_SAPLING;
     public static RegistryObject<Block> HELLBARK_LEAVES;
     public static RegistryObject<Block> HELLBARK_LOG;
@@ -264,7 +264,7 @@ public class BOPBlocks
     public static RegistryObject<Block> HELLBARK_SIGN;
     public static RegistryObject<Block> HELLBARK_WALL_SIGN;
     public static RegistryObject<Block> HELLBARK_HANGING_SIGN;
-    public static RegistryObject<Block> HELLBARK_HANGING_WALL_SIGN;
+    public static RegistryObject<Block> HELLBARK_WALL_HANGING_SIGN;
 
     public static RegistryObject<Block> ROSE;
     public static RegistryObject<Block> VIOLET;

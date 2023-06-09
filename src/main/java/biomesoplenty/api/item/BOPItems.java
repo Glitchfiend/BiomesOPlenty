@@ -15,15 +15,25 @@ public class BOPItems
     public static RegistryObject<Item> BLOOD_BUCKET;
     public static RegistryObject<Item> MUSIC_DISC_WANDERER;
     public static RegistryObject<Item> FIR_SIGN;
+    public static RegistryObject<Item> FIR_HANGING_SIGN;
     public static RegistryObject<Item> REDWOOD_SIGN;
+    public static RegistryObject<Item> REDWOOD_HANGING_SIGN;
     public static RegistryObject<Item> MAHOGANY_SIGN;
+    public static RegistryObject<Item> MAHOGANY_HANGING_SIGN;
     public static RegistryObject<Item> JACARANDA_SIGN;
+    public static RegistryObject<Item> JACARANDA_HANGING_SIGN;
     public static RegistryObject<Item> PALM_SIGN;
+    public static RegistryObject<Item> PALM_HANGING_SIGN;
     public static RegistryObject<Item> WILLOW_SIGN;
+    public static RegistryObject<Item> WILLOW_HANGING_SIGN;
     public static RegistryObject<Item> DEAD_SIGN;
+    public static RegistryObject<Item> DEAD_HANGING_SIGN;
     public static RegistryObject<Item> MAGIC_SIGN;
+    public static RegistryObject<Item> MAGIC_HANGING_SIGN;
     public static RegistryObject<Item> UMBRAN_SIGN;
+    public static RegistryObject<Item> UMBRAN_HANGING_SIGN;
     public static RegistryObject<Item> HELLBARK_SIGN;
+    public static RegistryObject<Item> HELLBARK_HANGING_SIGN;
 
     public static RegistryObject<Item> FIR_BOAT;
     public static RegistryObject<Item> FIR_CHEST_BOAT;

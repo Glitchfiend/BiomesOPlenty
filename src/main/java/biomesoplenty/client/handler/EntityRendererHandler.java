@@ -7,6 +7,7 @@ package biomesoplenty.client.handler;
 import biomesoplenty.api.block.BOPBlockEntities;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.client.renderer.BoatRendererBOP;
+import biomesoplenty.common.block.HangingSignBlockEntityBOP;
 import biomesoplenty.common.block.SignBlockEntityBOP;
 import biomesoplenty.common.entity.BoatBOP;
 import biomesoplenty.common.entity.ChestBoatBOP;
@@ -14,6 +15,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -41,6 +43,7 @@ public class EntityRendererHandler
 
         // Register block entity renderers
         event.registerBlockEntityRenderer((BlockEntityType<SignBlockEntityBOP>)BOPBlockEntities.SIGN.get(), SignRenderer::new);
+        event.registerBlockEntityRenderer((BlockEntityType<HangingSignBlockEntityBOP>)BOPBlockEntities.HANGING_SIGN.get(), HangingSignRenderer::new);
 
         // Register entity renderers
         event.registerEntityRenderer((EntityType<BoatBOP>) BOPEntities.BOAT.get(), context -> new BoatRendererBOP(context, false));

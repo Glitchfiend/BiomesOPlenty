@@ -12,10 +12,7 @@ import biomesoplenty.common.item.BoatItemBOP;
 import biomesoplenty.common.item.MusicDiscItemBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import com.google.common.base.Suppliers;
-import net.minecraft.world.item.BucketItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -42,15 +39,25 @@ public class ModItems
         BLOOD_BUCKET = registerItem(() -> new BucketItem(BLOOD_SUPPLIER, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1)), "blood_bucket");
 
         FIR_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.FIR_SIGN.get(), BOPBlocks.FIR_WALL_SIGN.get()), "fir_sign");
+        FIR_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.FIR_HANGING_SIGN.get(), BOPBlocks.FIR_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "fir_hanging_sign");
         REDWOOD_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.REDWOOD_SIGN.get(), BOPBlocks.REDWOOD_WALL_SIGN.get()), "redwood_sign");
+        REDWOOD_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.REDWOOD_HANGING_SIGN.get(), BOPBlocks.REDWOOD_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "redwood_hanging_sign");
         MAHOGANY_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.MAHOGANY_SIGN.get(), BOPBlocks.MAHOGANY_WALL_SIGN.get()), "mahogany_sign");
+        MAHOGANY_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.MAHOGANY_HANGING_SIGN.get(), BOPBlocks.MAHOGANY_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "mahogany_hanging_sign");
         JACARANDA_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.JACARANDA_SIGN.get(), BOPBlocks.JACARANDA_WALL_SIGN.get()), "jacaranda_sign");
+        JACARANDA_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.JACARANDA_HANGING_SIGN.get(), BOPBlocks.JACARANDA_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "jacaranda_hanging_sign");
         PALM_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.PALM_SIGN.get(), BOPBlocks.PALM_WALL_SIGN.get()), "palm_sign");
+        PALM_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.PALM_HANGING_SIGN.get(), BOPBlocks.PALM_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "palm_hanging_sign");
         WILLOW_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.WILLOW_SIGN.get(), BOPBlocks.WILLOW_WALL_SIGN.get()), "willow_sign");
+        WILLOW_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.WILLOW_HANGING_SIGN.get(), BOPBlocks.WILLOW_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "willow_hanging_sign");
         DEAD_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.DEAD_SIGN.get(), BOPBlocks.DEAD_WALL_SIGN.get()), "dead_sign");
+        DEAD_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.DEAD_HANGING_SIGN.get(), BOPBlocks.DEAD_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "dead_hanging_sign");
         MAGIC_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.MAGIC_SIGN.get(), BOPBlocks.MAGIC_WALL_SIGN.get()), "magic_sign");
+        MAGIC_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.MAGIC_HANGING_SIGN.get(), BOPBlocks.MAGIC_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "magic_hanging_sign");
         UMBRAN_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.UMBRAN_SIGN.get(), BOPBlocks.UMBRAN_WALL_SIGN.get()), "umbran_sign");
+        UMBRAN_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.UMBRAN_HANGING_SIGN.get(), BOPBlocks.UMBRAN_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "umbran_hanging_sign");
         HELLBARK_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.HELLBARK_SIGN.get(), BOPBlocks.HELLBARK_WALL_SIGN.get()), "hellbark_sign");
+        HELLBARK_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.HELLBARK_HANGING_SIGN.get(), BOPBlocks.HELLBARK_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "hellbark_hanging_sign");
 
         FIR_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1)), "fir_boat");
         FIR_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1)), "fir_chest_boat");
