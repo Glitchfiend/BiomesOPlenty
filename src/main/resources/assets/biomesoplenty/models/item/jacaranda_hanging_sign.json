@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomesoplenty:item/jacaranda_hanging_sign"
+  }
+}

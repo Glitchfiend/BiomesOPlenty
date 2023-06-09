@@ -151,6 +151,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> TREES_SEASONAL_FOREST = createKey("trees_seasonal_forest");
     public static final ResourceKey<PlacedFeature> TREES_SEASONAL_ORCHARD = createKey("trees_seasonal_orchard");
     public static final ResourceKey<PlacedFeature> TREES_SEASONAL_PUMPKIN_PATCH = createKey("trees_seasonal_pumpkin_patch");
+    public static final ResourceKey<PlacedFeature> TREES_SNOWBLOSSOM_GROVE = createKey("trees_snowblossom_grove");
     public static final ResourceKey<PlacedFeature> TREES_SNOWY_CONIFEROUS_FOREST = createKey("trees_snowy_coniferous_forest");
     public static final ResourceKey<PlacedFeature> TREES_SNOWY_MAPLE_FOREST = createKey("trees_snowy_maple_forest");
     public static final ResourceKey<PlacedFeature> TREES_TROPICS = createKey("trees_tropics");
@@ -266,6 +267,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> TREES_SEASONAL_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SEASONAL_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_SEASONAL_ORCHARD = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SEASONAL_ORCHARD);
         final Holder<ConfiguredFeature<?, ?>> TREES_SEASONAL_PUMPKIN_PATCH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH);
+        final Holder<ConfiguredFeature<?, ?>> TREES_SNOWBLOSSOM_GROVE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SNOWBLOSSOM_GROVE);
         final Holder<ConfiguredFeature<?, ?>> TREES_SNOWY_CONIFEROUS_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_SNOWY_MAPLE_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SNOWY_MAPLE_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_TROPICS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_TROPICS);
@@ -406,6 +408,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_SEASONAL_FOREST, TREES_SEASONAL_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_SEASONAL_ORCHARD, TREES_SEASONAL_ORCHARD, treePlacement(PlacementUtils.countExtra(3, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_SEASONAL_PUMPKIN_PATCH, TREES_SEASONAL_PUMPKIN_PATCH, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
+        register(context, BOPVegetationPlacements.TREES_SNOWBLOSSOM_GROVE, TREES_SNOWBLOSSOM_GROVE, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1), BOPBlocks.SNOWBLOSSOM_SAPLING.get()));
         register(context, BOPVegetationPlacements.TREES_SNOWY_CONIFEROUS_FOREST, TREES_SNOWY_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_SNOWY_MAPLE_FOREST, TREES_SNOWY_MAPLE_FOREST, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_TROPICS, TREES_TROPICS, treePlacement(PlacementUtils.countExtra(11, 0.2F, 1)));

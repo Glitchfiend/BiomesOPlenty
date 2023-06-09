@@ -77,8 +77,7 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
+      "biomesoplenty:trees_snowblossom_grove",
       "biomesoplenty:flower_snowblossom_grove",
       "biomesoplenty:patch_grass_3"
     ],

@@ -8,14 +8,23 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.worldgen.feature.configurations.*;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.WeightedListInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 
 import static biomesoplenty.common.util.worldgen.BOPFeatureUtils.createKey;
 
@@ -30,7 +39,7 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORIGIN_TREE = createKey("origin_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINBOW_BIRCH_TREE = createKey("rainbow_birch_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_DEAD_TREE = createKey("small_dead_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_CHERRY_TREE = createKey("white_cherry_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SNOWBLOSSOM_TREE = createKey("snowblossom_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE = createKey("willow_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_AUTUMN_TREE = createKey("yellow_autumn_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_FLOWERING_OAK_TREE = createKey("big_flowering_oak_tree");
@@ -41,7 +50,6 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_ORANGE_AUTUMN_TREE = createKey("big_orange_autumn_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_ORIGIN_TREE = createKey("big_origin_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_RAINBOW_BIRCH_TREE = createKey("big_rainbow_birch_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_WHITE_CHERRY_TREE = createKey("big_white_cherry_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_YELLOW_AUTUMN_TREE = createKey("big_yellow_autumn_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DYING_TREE = createKey("dying_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DYING_TREE_WASTELAND = createKey("dying_tree_wasteland");
@@ -149,7 +157,12 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.REDWOOD_TREE_MEDIUM, BOPBaseFeatures.REDWOOD_TREE, createRedwood(BOPBlocks.REDWOOD_WOOD.get()).minHeight(25).maxHeight(40).trunkWidth(2).build());
         register(context, BOPTreeFeatures.MAHOGANY_TREE, BOPBaseFeatures.MAHOGANY_TREE, new MahoganyTreeConfiguration.Builder().build());
         register(context, BOPTreeFeatures.PALM_TREE, BOPBaseFeatures.PALM_TREE, new PalmTreeConfiguration.Builder().build());
+        register(context, BOPTreeFeatures.SNOWBLOSSOM_TREE, Feature.TREE, snowblossom().build());
         register(context, BOPTreeFeatures.REDWOOD_TREE_LARGE, BOPBaseFeatures.REDWOOD_TREE, createRedwood(BOPBlocks.REDWOOD_WOOD.get()).minHeight(45).maxHeight(60).trunkWidth(3).build());
+    }
+
+    private static TreeConfiguration.TreeConfigurationBuilder snowblossom() {
+        return (new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.CHERRY_LOG), new CherryTrunkPlacer(7, 1, 0, new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()), UniformInt.of(2, 4), UniformInt.of(-4, -3), UniformInt.of(-1, 0)), BlockStateProvider.simple(BOPBlocks.SNOWBLOSSOM_LEAVES.get()), new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F), new TwoLayersFeatureSize(1, 0, 2))).ignoreVines();
     }
 
     private static TaigaTreeConfiguration.Builder createFir()

@@ -15,6 +15,6 @@ public class SnowblossomTree extends AbstractTreeGrower
    @Override
    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_WHITE_CHERRY_TREE : BOPTreeFeatures.WHITE_CHERRY_TREE);
+      return BOPTreeFeatures.SNOWBLOSSOM_TREE;
    }
 }

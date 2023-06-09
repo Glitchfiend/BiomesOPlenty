@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomesoplenty:item/palm_hanging_sign"
+  }
+}

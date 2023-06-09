@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "biomesoplenty:item/umbran_hanging_sign"
+  }
+}
