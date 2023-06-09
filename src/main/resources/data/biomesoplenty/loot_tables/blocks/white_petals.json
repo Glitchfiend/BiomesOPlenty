@@ -11,7 +11,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "biomesoplenty:clover",
+                  "block": "biomesoplenty:white_petals",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "flower_amount": "1"
@@ -25,7 +25,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "biomesoplenty:clover",
+                  "block": "biomesoplenty:white_petals",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "flower_amount": "2"
@@ -39,7 +39,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "biomesoplenty:clover",
+                  "block": "biomesoplenty:white_petals",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "flower_amount": "3"
@@ -53,7 +53,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "biomesoplenty:clover",
+                  "block": "biomesoplenty:white_petals",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "flower_amount": "4"
@@ -67,19 +67,11 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "biomesoplenty:clover"
-        }
-      ],
-	  "conditions": [
-        {
-          "condition": "minecraft:match_tool",
-          "predicate": {
-            "tag": "forge:shears"
-          }
+          "name": "biomesoplenty:white_petals"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "biomesoplenty:blocks/clover"
+  "random_sequence": "biomesoplenty:blocks/white_petals"
 }

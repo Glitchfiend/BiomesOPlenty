@@ -32,7 +32,7 @@ import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.Nullable;
 
-public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPlantable
+public class FoliageBlockBOP extends BushBlock implements IPlantable
 {
     protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
     protected static final VoxelShape SHORT = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
@@ -47,7 +47,7 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
     {
         Block block = state.getBlock();
 
-        if (block == BOPBlocks.DESERT_GRASS.get() || block == BOPBlocks.CLOVER.get())
+        if (block == BOPBlocks.DESERT_GRASS.get())
         {
             return SHORT;
         }
@@ -97,52 +97,4 @@ public class FoliageBlockBOP extends BushBlock implements BonemealableBlock, IPl
 //    {
 //        return PlantType.PLAINS;
 //    }
-
-    @Override
-    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient)
-    {
-        Block block = state.getBlock();
-
-        if (block == BOPBlocks.CLOVER.get())
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    @Override
-    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state)
-    {
-        Block block = state.getBlock();
-
-        if (block == BOPBlocks.CLOVER.get()) { return (double)rand.nextFloat() < 0.4D; }
-
-        return false;
-    }
-
-    @Override
-    public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state)
-    {
-        Block block = state.getBlock();
-
-        if (block == BOPBlocks.CLOVER.get()) { this.growHugeClover(world, rand, pos, state); }
-    }
-
-    public boolean growHugeClover(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state)
-    {
-        level.removeBlock(pos, false);
-        Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry = level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE);
-        ConfiguredFeature<?, ?> configuredfeature = configuredFeatureRegistry.get(BOPVegetationFeatures.HUGE_CLOVER);
-
-        if (configuredfeature.place(level, level.getChunkSource().getGenerator(), rand, pos))
-        {
-            return true;
-        }
-        else
-        {
-            level.setBlock(pos, state, 3);
-            return false;
-        }
-    }
 }

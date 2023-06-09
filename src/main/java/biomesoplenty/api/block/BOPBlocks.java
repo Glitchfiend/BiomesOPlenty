@@ -253,6 +253,7 @@ public class BOPBlocks
     public static RegistryObject<Block> ORANGE_COSMOS;
     public static RegistryObject<Block> PINK_DAFFODIL;
     public static RegistryObject<Block> PINK_HIBISCUS;
+    public static RegistryObject<Block> WHITE_PETALS;
     public static RegistryObject<Block> GLOWFLOWER;
     public static RegistryObject<Block> WILTED_LILY;
     public static RegistryObject<Block> BURNING_BLOSSOM;

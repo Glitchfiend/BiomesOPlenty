@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_1"
+        "model": "biomesoplenty:block/white_petals_1"
       },
       "when": {
         "facing": "north",
@@ -11,7 +11,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_1",
+        "model": "biomesoplenty:block/white_petals_1",
         "y": 90
       },
       "when": {
@@ -21,7 +21,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_1",
+        "model": "biomesoplenty:block/white_petals_1",
         "y": 180
       },
       "when": {
@@ -31,7 +31,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_1",
+        "model": "biomesoplenty:block/white_petals_1",
         "y": 270
       },
       "when": {
@@ -41,7 +41,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_2"
+        "model": "biomesoplenty:block/white_petals_2"
       },
       "when": {
         "facing": "north",
@@ -50,7 +50,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_2",
+        "model": "biomesoplenty:block/white_petals_2",
         "y": 90
       },
       "when": {
@@ -60,7 +60,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_2",
+        "model": "biomesoplenty:block/white_petals_2",
         "y": 180
       },
       "when": {
@@ -70,7 +70,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_2",
+        "model": "biomesoplenty:block/white_petals_2",
         "y": 270
       },
       "when": {
@@ -80,7 +80,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_3"
+        "model": "biomesoplenty:block/white_petals_3"
       },
       "when": {
         "facing": "north",
@@ -89,7 +89,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_3",
+        "model": "biomesoplenty:block/white_petals_3",
         "y": 90
       },
       "when": {
@@ -99,7 +99,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_3",
+        "model": "biomesoplenty:block/white_petals_3",
         "y": 180
       },
       "when": {
@@ -109,7 +109,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_3",
+        "model": "biomesoplenty:block/white_petals_3",
         "y": 270
       },
       "when": {
@@ -119,7 +119,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_4"
+        "model": "biomesoplenty:block/white_petals_4"
       },
       "when": {
         "facing": "north",
@@ -128,7 +128,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_4",
+        "model": "biomesoplenty:block/white_petals_4",
         "y": 90
       },
       "when": {
@@ -138,7 +138,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_4",
+        "model": "biomesoplenty:block/white_petals_4",
         "y": 180
       },
       "when": {
@@ -148,7 +148,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/clover_4",
+        "model": "biomesoplenty:block/white_petals_4",
         "y": 270
       },
       "when": {

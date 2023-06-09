@@ -10,13 +10,161 @@
             "entries": [
               {
                 "data": {
-                  "Name": "biomesoplenty:pink_daffodil"
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "1"
+                  }
                 },
                 "weight": 1
               },
               {
                 "data": {
-                  "Name": "minecraft:lily_of_the_valley"
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_petals",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "4"
+                  }
                 },
                 "weight": 1
               }
@@ -34,8 +182,8 @@
         }
       ]
     },
-    "tries": 64,
-    "xz_spread": 7,
-    "y_spread": 3
+    "tries": 96,
+    "xz_spread": 6,
+    "y_spread": 2
   }
 }

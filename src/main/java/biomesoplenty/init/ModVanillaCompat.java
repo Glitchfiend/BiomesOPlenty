@@ -147,6 +147,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.WILDFLOWER.get(), 60, 100);
         registerFlammable(BOPBlocks.PINK_DAFFODIL.get(), 60, 100);
         registerFlammable(BOPBlocks.PINK_HIBISCUS.get(), 60, 100);
+        registerFlammable(BOPBlocks.WHITE_PETALS.get(), 60, 100);
         registerFlammable(BOPBlocks.GLOWFLOWER.get(), 60, 100);
         registerFlammable(BOPBlocks.WILTED_LILY.get(), 60, 100);
         registerFlammable(BOPBlocks.TALL_LAVENDER.get(), 60, 100);
@@ -246,6 +247,7 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.ORANGE_COSMOS.get());
         registerCompostable(0.65F, BOPBlocks.PINK_DAFFODIL.get());
         registerCompostable(0.65F, BOPBlocks.PINK_HIBISCUS.get());
+        registerCompostable(0.3F, BOPBlocks.WHITE_PETALS.get());
         registerCompostable(0.65F, BOPBlocks.GLOWFLOWER.get());
         registerCompostable(0.65F, BOPBlocks.WILTED_LILY.get());
         registerCompostable(0.65F, BOPBlocks.BURNING_BLOSSOM.get());

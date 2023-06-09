@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/flowerbed_1",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "flowerbed": "biomesoplenty:block/white_petals",
+    "stem": "biomesoplenty:block/white_petals_stem"
+  }
+}

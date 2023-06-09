@@ -55,6 +55,12 @@ public class ColorHandler
         event.getBlockColors().register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColor.getDefaultColor(),
                 BOPBlocks.RAINBOW_BIRCH_LEAVES.get());
+
+        //Flowerbed Coloring
+        event.getBlockColors().register((state, world, pos, tintIndex) -> {
+            if (tintIndex != 0) { return world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(); }
+            else { return -1; }},
+                BOPBlocks.WHITE_PETALS.get());
     }
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
