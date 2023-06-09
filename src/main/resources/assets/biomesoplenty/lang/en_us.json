@@ -443,6 +443,8 @@
   "entity.biomesoplenty.boat": "Boat",
   "entity.biomesoplenty.chest_boat": "Boat with Chest",
   
+  "trim_material.biomesoplenty.rose_quartz": "Rose Quartz Material",
+  
   "death.attack.bramble": "%1$s was punctured to death",
   "death.attack.bramble.player": "%1$s got caught in bramble whilst trying to escape %2$s",
   "death.attack.fumarole": "%1$s was steamed alive",
