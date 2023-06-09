@@ -9,8 +9,8 @@
   "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 7116143,
-    "grass_color": 9022093,
+    "foliage_color": 7705454,
+    "grass_color": 9349259,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -34,7 +34,8 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "minecraft:forest_rock"
     ],
     [
       "minecraft:monster_room",
@@ -122,6 +123,18 @@
         "type": "minecraft:cow",
         "maxCount": 4,
         "minCount": 4,
+        "weight": 8
+      },
+      {
+        "type": "minecraft:rabbit",
+        "maxCount": 3,
+        "minCount": 2,
+        "weight": 4
+      },
+      {
+        "type": "minecraft:fox",
+        "maxCount": 4,
+        "minCount": 2,
         "weight": 8
       }
     ],

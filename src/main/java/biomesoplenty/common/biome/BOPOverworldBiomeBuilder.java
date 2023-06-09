@@ -142,8 +142,8 @@ public class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
             {Biomes.ICE_SPIKES,      null,                   null,          null,                null},
-            {null,                   null,                   Biomes.MEADOW, Biomes.MEADOW,       Biomes.OLD_GROWTH_PINE_TAIGA},
-            {null,                   null,                   Biomes.FOREST, Biomes.BIRCH_FOREST, null},
+            {Biomes.CHERRY_GROVE,    null,                   Biomes.MEADOW, Biomes.MEADOW,       Biomes.OLD_GROWTH_PINE_TAIGA},
+            {Biomes.CHERRY_GROVE,    Biomes.CHERRY_GROVE,    Biomes.FOREST, Biomes.BIRCH_FOREST, null},
             {null,                   null,                   null,          null,                null},
             {Biomes.ERODED_BADLANDS, Biomes.ERODED_BADLANDS, null,          null,                null}
     };

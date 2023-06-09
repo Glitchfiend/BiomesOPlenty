@@ -288,7 +288,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_FIR_LOG);
 
         register(context, BOPVegetationPlacements.CLOVER_NORMAL, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(2));
-        register(context, BOPVegetationPlacements.CLOVER_EXTRA, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(5));
+        register(context, BOPVegetationPlacements.CLOVER_EXTRA, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(7));
         register(context, BOPVegetationPlacements.HUGE_TOADSTOOL, HUGE_TOADSTOOL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.HUGE_CLOVER, HUGE_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(6));
         register(context, BOPVegetationPlacements.HUGE_RED_MUSHROOM_EXTRA, HUGE_RED_MUSHROOM, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
@@ -351,7 +351,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.FLOWER_DEFAULT_EXTENDED_15, FLOWER_DEFAULT_EXTENDED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_FIELD_1, FLOWER_FIELD_1, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_FIELD_2, FLOWER_FIELD_2, List.of(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.FLOWER_GRASSLAND, FLOWER_GRASSLAND, List.of(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FLOWER_GRASSLAND, FLOWER_GRASSLAND, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_MOOR, FLOWER_MOOR, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_MYSTIC_GROVE, FLOWER_MYSTIC_GROVE, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_OMINOUS_WOODS, FLOWER_OMINOUS_WOODS, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

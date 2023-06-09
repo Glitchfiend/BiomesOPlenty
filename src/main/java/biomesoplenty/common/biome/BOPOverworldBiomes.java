@@ -856,6 +856,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_ORCHARD);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_DEFAULT_EXTENDED_15);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.CLOVER_NORMAL);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.ROSE_BUSH_NORMAL);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_5);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
@@ -1164,10 +1165,13 @@ public class BOPOverworldBiomes
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addMossyStoneBlock(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
 
@@ -1176,7 +1180,7 @@ public class BOPOverworldBiomes
 
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
 
-        return biomeWithColorOverrides(true, -0.25F, 0.8F, 0x89AA8D, 0x6C956F, spawnBuilder, biomeBuilder, MAGICAL_MUSIC);
+        return biomeWithColorOverrides(true, -0.25F, 0.8F, 0x8EA88B, 0x75936E, spawnBuilder, biomeBuilder, MAGICAL_MUSIC);
     }
 
     public static Biome spiderNest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
