@@ -338,6 +338,8 @@ public class ModBlocks
         //Plants
         SPROUT = registerBlock(() -> new FoliageBlockBOP(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "sprout");
         BUSH = registerBlock(() -> new FoliageBlockBOP(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "bush");
+        HIGH_GRASS = registerBlock(() -> new HighGrassBlock(BlockBehaviour.Properties.of().randomTicks().noCollission().instabreak().sound(SoundType.GRASS)), "high_grass");
+        HIGH_GRASS_PLANT = registerBlock(() -> new HighGrassPlantBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS)), "high_grass_plant");
         CLOVER = registerBlock(() -> new CloverBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)), "clover");
         HUGE_CLOVER_PETAL = registerBlock(() -> new HugeCloverPetalBlock(BlockBehaviour.Properties.of().strength(0.2F).sound(SoundType.GRASS)), "huge_clover_petal");
         DUNE_GRASS = registerBlock(() -> new FoliageBlockBOP(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GREEN).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "dune_grass");

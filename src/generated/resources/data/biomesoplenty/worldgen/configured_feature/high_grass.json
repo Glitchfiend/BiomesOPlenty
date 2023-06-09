@@ -1,0 +1,8 @@
+{
+  "type": "biomesoplenty:high_grass",
+  "config": {
+    "max_height": 3,
+    "spread_height": 4,
+    "spread_width": 4
+  }
+}

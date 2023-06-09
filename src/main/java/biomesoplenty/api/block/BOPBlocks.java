@@ -293,6 +293,8 @@ public class BOPBlocks
 
     public static RegistryObject<Block> SPROUT;
     public static RegistryObject<Block> BUSH;
+    public static RegistryObject<Block> HIGH_GRASS;
+    public static RegistryObject<Block> HIGH_GRASS_PLANT;
     public static RegistryObject<Block> CLOVER;
     public static RegistryObject<Block> HUGE_CLOVER_PETAL;
     public static RegistryObject<Block> DUNE_GRASS;

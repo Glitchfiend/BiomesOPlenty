@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.TwistingVinesFeature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
@@ -43,6 +44,7 @@ import static biomesoplenty.common.util.worldgen.BOPFeatureUtils.createKey;
 
 public class BOPVegetationFeatures
 {
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HIGH_GRASS = createKey("high_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_DRIPLEAF = createKey("big_dripleaf");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_PUMPKIN = createKey("big_pumpkin");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRAMBLE = createKey("bramble");
@@ -213,6 +215,7 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> WILLOW_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.WILLOW_TREE_CHECKED);
         final Holder<PlacedFeature> YELLOW_AUTUMN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.YELLOW_AUTUMN_TREE_CHECKED);
 
+        register(context, BOPVegetationFeatures.HIGH_GRASS, BOPBaseFeatures.HIGH_GRASS, new TwistingVinesConfig(4, 4, 3));
         register(context, BOPVegetationFeatures.BIG_DRIPLEAF, BOPBaseFeatures.BIG_DRIPLEAF, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.BIG_PUMPKIN, BOPBaseFeatures.BIG_PUMPKIN, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.BRAMBLE, BOPBaseFeatures.BRAMBLE, NoneFeatureConfiguration.INSTANCE);

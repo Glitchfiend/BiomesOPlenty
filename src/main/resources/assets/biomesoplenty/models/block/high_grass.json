@@ -1,0 +1,7 @@
+{
+    "parent": "block/tinted_cross",
+    "render_type": "minecraft:cutout",
+    "textures": {
+        "cross": "minecraft:block/tall_grass_top"
+    }
+}

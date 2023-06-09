@@ -157,6 +157,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> TREES_TROPICS = createKey("trees_tropics");
     public static final ResourceKey<PlacedFeature> TREES_TUNDRA = createKey("trees_tundra");
     public static final ResourceKey<PlacedFeature> TREES_VOLCANIC_PLAINS = createKey("trees_volcanic_plains");
+    public static final ResourceKey<PlacedFeature> HIGH_GRASS = createKey("high_grass");
     public static final ResourceKey<PlacedFeature> BIG_DRIPLEAF = createKey("big_dripleaf");
     public static final ResourceKey<PlacedFeature> BIG_PUMPKIN = createKey("big_pumpkin");
     public static final ResourceKey<PlacedFeature> BRAMBLE = createKey("bramble");
@@ -273,6 +274,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> TREES_TROPICS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_TROPICS);
         final Holder<ConfiguredFeature<?, ?>> TREES_TUNDRA = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_TUNDRA);
         final Holder<ConfiguredFeature<?, ?>> TWIGLET_TREE_VOLCANO = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TWIGLET_TREE_VOLCANO);
+        final Holder<ConfiguredFeature<?, ?>> HIGH_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.HIGH_GRASS);
         final Holder<ConfiguredFeature<?, ?>> BIG_DRIPLEAF = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BIG_DRIPLEAF);
         final Holder<ConfiguredFeature<?, ?>> BIG_PUMPKIN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BIG_PUMPKIN);
         final Holder<ConfiguredFeature<?, ?>> BRAMBLE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BRAMBLE);
@@ -349,7 +351,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.FLOWER_DEFAULT_EXTENDED_15, FLOWER_DEFAULT_EXTENDED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_FIELD_1, FLOWER_FIELD_1, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_FIELD_2, FLOWER_FIELD_2, List.of(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.FLOWER_GRASSLAND, FLOWER_GRASSLAND, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FLOWER_GRASSLAND, FLOWER_GRASSLAND, List.of(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_MOOR, FLOWER_MOOR, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_MYSTIC_GROVE, FLOWER_MYSTIC_GROVE, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_OMINOUS_WOODS, FLOWER_OMINOUS_WOODS, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -414,6 +416,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_TROPICS, TREES_TROPICS, treePlacement(PlacementUtils.countExtra(11, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_TUNDRA, TREES_TUNDRA, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_VOLCANIC_PLAINS, TWIGLET_TREE_VOLCANO, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
+        register(context, BOPVegetationPlacements.HIGH_GRASS, HIGH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(30));
         register(context, BOPVegetationPlacements.BIG_DRIPLEAF, BIG_DRIPLEAF, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.BIG_PUMPKIN, BIG_PUMPKIN, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.BRAMBLE, BRAMBLE, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

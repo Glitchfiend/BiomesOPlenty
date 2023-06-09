@@ -1,0 +1,7 @@
+{
+    "parent": "block/tinted_cross",
+    "render_type": "minecraft:cutout",
+    "textures": {
+        "cross": "biomesoplenty:block/high_grass_plant"
+    }
+}

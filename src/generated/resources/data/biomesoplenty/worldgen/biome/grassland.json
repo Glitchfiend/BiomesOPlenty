@@ -72,9 +72,9 @@
       "minecraft:glow_lichen",
       "minecraft:patch_sugar_cane_desert",
       "biomesoplenty:flower_grassland",
-      "biomesoplenty:patch_clover_normal",
       "biomesoplenty:patch_grass_12",
-      "biomesoplenty:patch_tall_grass_64"
+      "biomesoplenty:patch_tall_grass_64",
+      "biomesoplenty:high_grass"
     ],
     [
       "minecraft:freeze_top_layer"
