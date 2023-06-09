@@ -1,8 +1,37 @@
 {
-  "parent": "biomesoplenty:block/flowerbed_tinted_3",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "flowerbed": "biomesoplenty:block/clover",
-    "stem": "biomesoplenty:block/clover_stem"
-  }
+	"ambientocclusion": false,
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"flowerbed": "biomesoplenty:block/clover",
+		"stem": "biomesoplenty:block/clover_stem",
+		"particle": "#flowerbed"
+	},
+	"elements": [
+		{
+			"from": [8, 2, 8],
+			"to": [16, 2, 16],
+			"faces": {
+				"up": {"uv": [8, 8, 16, 16], "texture": "#flowerbed", "tintindex": 1},
+				"down": {"uv": [8, 16, 16, 8], "texture": "#flowerbed", "tintindex": 1}
+			}
+		},
+		{
+			"from": [15.9, 0, 0.1],
+			"to": [16.9, 2, 0.1],
+			"rotation": {"angle": -45, "axis": "y", "origin": [0.5, 0, 0.5]},
+			"faces": {
+				"north": {"uv": [0, 5, 1, 7], "texture": "#stem", "tintindex": 1},
+				"south": {"uv": [0, 5, 1, 7], "texture": "#stem", "tintindex": 1}
+			}
+		},
+		{
+			"from": [16.4, 0, -0.4],
+			"to": [16.4, 2, 0.6],
+			"rotation": {"angle": -45, "axis": "y", "origin": [0.5, 0, 0.5]},
+			"faces": {
+				"east": {"uv": [0, 5, 1, 7], "texture": "#stem", "tintindex": 1},
+				"west": {"uv": [0, 5, 1, 7], "texture": "#stem", "tintindex": 1}
+			}
+		}
+	]
 }

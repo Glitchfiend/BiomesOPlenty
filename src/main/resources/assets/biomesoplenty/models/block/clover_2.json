@@ -1,8 +1,63 @@
 {
-  "parent": "biomesoplenty:block/flowerbed_tinted_2",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "flowerbed": "biomesoplenty:block/clover",
-    "stem": "biomesoplenty:block/clover_stem"
-  }
+	"ambientocclusion": false,
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"flowerbed": "biomesoplenty:block/clover",
+		"stem": "biomesoplenty:block/clover_stem",
+		"particle": "#flowerbed"
+	},
+	"elements": [
+		{
+			"from": [0, 1, 8],
+			"to": [8, 1, 16],
+			"faces": {
+				"up": {"uv": [0, 8, 8, 16], "texture": "#flowerbed", "tintindex": 1},
+				"down": {"uv": [0, 16, 8, 8], "texture": "#flowerbed", "tintindex": 1}
+			}
+		},
+		{
+			"from": [0, 1, 8],
+			"to": [8, 1, 16],
+			"faces": {
+				"up": {"uv": [0, 8, 8, 16], "texture": "#flowerbed", "tintindex": 1},
+				"down": {"uv": [0, 16, 8, 8], "texture": "#flowerbed", "tintindex": 1}
+			}
+		},
+		{
+			"from": [9.4, 0, 4.6],
+			"to": [10.4, 1, 4.6],
+			"rotation": {"angle": -45, "axis": "y", "origin": [0, 0, 1]},
+			"faces": {
+				"north": {"uv": [0, 6, 1, 7], "texture": "#stem", "tintindex": 1},
+				"south": {"uv": [0, 6, 1, 7], "texture": "#stem", "tintindex": 1}
+			}
+		},
+		{
+			"from": [9.9, 0, 4.1],
+			"to": [9.9, 1, 5.1],
+			"rotation": {"angle": -45, "axis": "y", "origin": [0, 0, 1]},
+			"faces": {
+				"east": {"uv": [0, 6, 1, 7], "texture": "#stem", "tintindex": 1},
+				"west": {"uv": [0, 6, 1, 7], "texture": "#stem", "tintindex": 1}
+			}
+		},
+		{
+			"from": [10.8, 0, 8.8],
+			"to": [11.8, 1, 8.8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [0, 0, 1]},
+			"faces": {
+				"north": {"uv": [0, 6, 1, 7], "texture": "#stem", "tintindex": 1},
+				"south": {"uv": [0, 6, 1, 7], "texture": "#stem", "tintindex": 1}
+			}
+		},
+		{
+			"from": [11.3, 0, 8.3],
+			"to": [11.3, 1, 9.3],
+			"rotation": {"angle": -45, "axis": "y", "origin": [0, 0, 1]},
+			"faces": {
+				"east": {"uv": [0, 6, 1, 7], "texture": "#stem", "tintindex": 1},
+				"west": {"uv": [0, 6, 1, 7], "texture": "#stem", "tintindex": 1}
+			}
+		}
+	]
 }
