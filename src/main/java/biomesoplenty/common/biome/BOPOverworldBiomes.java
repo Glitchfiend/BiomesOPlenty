@@ -1176,7 +1176,7 @@ public class BOPOverworldBiomes
 
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
 
-        return biome(true, -0.25F, 0.8F, spawnBuilder, biomeBuilder, MAGICAL_MUSIC);
+        return biomeWithColorOverrides(true, -0.25F, 0.8F, 0x89AA8D, 0x6C956F, spawnBuilder, biomeBuilder, MAGICAL_MUSIC);
     }
 
     public static Biome spiderNest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
