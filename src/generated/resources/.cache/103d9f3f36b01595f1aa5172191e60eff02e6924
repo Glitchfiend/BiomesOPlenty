@@ -1,4 +1,4 @@
-// 1.20	2023-06-09T21:12:53.1077514	Registries
+// 1.20	2023-06-10T18:34:40.5275724	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 4ac25760c06a50af708bfe2c09fd54ab50a52b60 data/biomesoplenty/worldgen/biome/auroral_garden.json
@@ -20,7 +20,7 @@ a89d541384f1a879bb82d9c984d98c512474d27c data/biomesoplenty/worldgen/biome/erupt
 d7cbe6472a3a43b8dc8f6ef8e275a686bca95d44 data/biomesoplenty/worldgen/biome/fungal_jungle.json
 ffe8fa5da1c1b7f736d9a6a94ff9f44b4ec935fa data/biomesoplenty/worldgen/biome/glowing_grotto.json
 d3b1556682f55e24c30cf4f87384e562325fa5f4 data/biomesoplenty/worldgen/biome/grassland.json
-c10a98e26ec18a338ced25cd2f9926aea1e60672 data/biomesoplenty/worldgen/biome/highland.json
+b3ed51e87d57c5acd3f4bb19df1fd644a31e59c4 data/biomesoplenty/worldgen/biome/highland.json
 f73e1b9df71f4ffd6383f8c0c2ff35565e838433 data/biomesoplenty/worldgen/biome/jade_cliffs.json
 c055933f0d8547b4bc2df5fb1943b69d629b5c36 data/biomesoplenty/worldgen/biome/lavender_field.json
 d24e2472e63a1cbd89e4123af29cdf1b67949b3c data/biomesoplenty/worldgen/biome/lavender_forest.json
@@ -375,6 +375,7 @@ f2fe7ca33c22cb4b6ba6ef8d0c6476b51ac4f880 data/biomesoplenty/worldgen/placed_feat
 4acd7d254c38c0a975515997c81d8ef168c69388 data/biomesoplenty/worldgen/placed_feature/hanging_cobwebs.json
 aee9567863073a9c880787322b83a369f3f30b31 data/biomesoplenty/worldgen/placed_feature/hanging_flesh_tendons.json
 94dc3d0603246e2d25fa30ad34bb0a95120071d6 data/biomesoplenty/worldgen/placed_feature/hellbark_tree.json
+0784575c98ae3022e54f7bfe6ba4441f72675802 data/biomesoplenty/worldgen/placed_feature/highland_rocks.json
 9fbe2ec32d9a2e09effe94b770066545cc16f2aa data/biomesoplenty/worldgen/placed_feature/high_grass.json
 8450478c4bde11fd1ea58eb0bb5cd1a62ab98bd7 data/biomesoplenty/worldgen/placed_feature/huge_clover.json
 a9fe5de9a722186b26e9aa0ab24497f02b22f412 data/biomesoplenty/worldgen/placed_feature/huge_glowshroom_cave.json

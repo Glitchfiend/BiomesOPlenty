@@ -17,6 +17,6 @@ public class DeadTree extends AbstractTreeGrower
    @Override
    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.DYING_TREE : BOPTreeFeatures.SMALL_DEAD_TREE);
+      return (random.nextInt(10) == 0 ? BOPTreeFeatures.DYING_TREE : (random.nextInt(5) == 0 ? BOPTreeFeatures.SMALL_DEAD_TREE : BOPTreeFeatures.DEAD_TWIGLET_TREE));
    }
 }

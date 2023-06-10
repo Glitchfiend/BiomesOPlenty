@@ -32,7 +32,8 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "biomesoplenty:highland_rocks"
     ],
     [
       "minecraft:monster_room",

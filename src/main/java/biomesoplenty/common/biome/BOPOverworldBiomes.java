@@ -523,6 +523,7 @@ public class BOPOverworldBiomes
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         globalOverworldGeneration(biomeBuilder);
+        addFeature(biomeBuilder, GenerationStep.Decoration.LOCAL_MODIFICATIONS, BOPVegetationPlacements.HIGHLAND_ROCKS);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);

@@ -12,6 +12,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.features.MiscOverworldFeatures;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -30,6 +31,7 @@ public class BOPVegetationPlacements
 {
     public static final ResourceKey<PlacedFeature> CLOVER_NORMAL = createKey("patch_clover_normal");
     public static final ResourceKey<PlacedFeature> CLOVER_EXTRA = createKey("patch_clover_extra");
+    public static final ResourceKey<PlacedFeature> HIGHLAND_ROCKS = createKey("highland_rocks");
     public static final ResourceKey<PlacedFeature> HUGE_TOADSTOOL = createKey("huge_toadstool");
     public static final ResourceKey<PlacedFeature> HUGE_CLOVER = createKey("huge_clover");
     public static final ResourceKey<PlacedFeature> HUGE_RED_MUSHROOM_EXTRA = createKey("huge_red_mushroom_extra");
@@ -286,9 +288,11 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> SMALL_DRIPLEAF = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_DRIPLEAF);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_LOG);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_FIR_LOG);
+        final Holder<ConfiguredFeature<?, ?>> HIGHLAND_ROCKS = configuredFeatureGetter.getOrThrow(MiscOverworldFeatures.FOREST_ROCK);
 
         register(context, BOPVegetationPlacements.CLOVER_NORMAL, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.CLOVER_EXTRA, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(7));
+        register(context, BOPVegetationPlacements.HIGHLAND_ROCKS, HIGHLAND_ROCKS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.HUGE_TOADSTOOL, HUGE_TOADSTOOL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.HUGE_CLOVER, HUGE_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(6));
         register(context, BOPVegetationPlacements.HUGE_RED_MUSHROOM_EXTRA, HUGE_RED_MUSHROOM, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
