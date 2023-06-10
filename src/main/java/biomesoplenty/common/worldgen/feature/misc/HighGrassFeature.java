@@ -8,49 +8,52 @@ import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.TwistingVinesConfig;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class HighGrassFeature extends Feature<TwistingVinesConfig> {
-    public HighGrassFeature(Codec<TwistingVinesConfig> p_67292_) {
+public class HighGrassFeature extends Feature<NoneFeatureConfiguration>
+{
+    public HighGrassFeature(Codec<NoneFeatureConfiguration> p_67292_)
+    {
         super(p_67292_);
     }
 
-    public boolean place(FeaturePlaceContext<TwistingVinesConfig> p_160558_) {
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_160558_)
+    {
         WorldGenLevel worldgenlevel = p_160558_.level();
         BlockPos blockpos = p_160558_.origin();
-        if (isInvalidPlacementLocation(worldgenlevel, blockpos)) {
+        if (isInvalidPlacementLocation(worldgenlevel, blockpos))
+        {
             return false;
-        } else {
+        }
+        else
+        {
             RandomSource randomsource = p_160558_.random();
-            TwistingVinesConfig twistingvinesconfig = p_160558_.config();
-            int i = twistingvinesconfig.spreadWidth();
-            int j = twistingvinesconfig.spreadHeight();
-            int k = twistingvinesconfig.maxHeight();
+            int i = 5;
+            int j = 3;
             BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
-            for (int l = 0; l < i * i; ++l) {
-                blockpos$mutableblockpos.set(blockpos).move(Mth.nextInt(randomsource, -i, i), Mth.nextInt(randomsource, -j, j), Mth.nextInt(randomsource, -i, i));
-                if (findFirstAirBlockAboveGround(worldgenlevel, blockpos$mutableblockpos) && !isInvalidPlacementLocation(worldgenlevel, blockpos$mutableblockpos)) {
-                    int i1 = Mth.nextInt(randomsource, 1, k);
-                    if (randomsource.nextInt(6) == 0) {
-                        i1 *= 2;
-                    }
+            for (int l = 0; l < i * i; ++l)
+            {
+                int xx = Mth.nextInt(randomsource, -i, i);
+                int zz = Mth.nextInt(randomsource, -i, i);
 
-                    if (randomsource.nextInt(5) == 0) {
-                        i1 = 1;
-                    }
+                blockpos$mutableblockpos.set(blockpos).move(xx, Mth.nextInt(randomsource, -j, j), zz);
+                if (findFirstAirBlockAboveGround(worldgenlevel, blockpos$mutableblockpos) && !isInvalidPlacementLocation(worldgenlevel, blockpos$mutableblockpos))
+                {
+                    int i1 = 1 + (((i+i)-(Mth.abs(xx)+Mth.abs(zz)))/2);
 
-                    int j1 = 5;
+                    int j1 = 7;
                     int k1 = 10;
+
                     placeWeepingVinesColumn(worldgenlevel, randomsource, blockpos$mutableblockpos, i1, j1, k1);
                 }
             }
@@ -94,7 +97,7 @@ public class HighGrassFeature extends Feature<TwistingVinesConfig> {
         else
         {
             BlockState blockstate = p_67297_.getBlockState(p_67298_.below());
-            return !blockstate.is(BlockTags.DIRT);
+            return !blockstate.is(Blocks.GRASS_BLOCK);
         }
     }
 }

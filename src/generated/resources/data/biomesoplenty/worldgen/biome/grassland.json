@@ -9,8 +9,8 @@
   "downfall": 0.9,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 6537062,
-    "grass_color": 8769137,
+    "foliage_color": 6537077,
+    "grass_color": 7720561,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -70,9 +70,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_sugar_cane_desert",
       "biomesoplenty:flower_grassland",
-      "biomesoplenty:patch_grass_12",
+      "biomesoplenty:patch_grass_24",
       "biomesoplenty:patch_tall_grass_64",
       "biomesoplenty:high_grass"
     ],

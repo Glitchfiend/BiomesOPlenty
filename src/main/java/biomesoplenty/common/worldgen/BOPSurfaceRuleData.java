@@ -460,7 +460,7 @@ public class BOPSurfaceRuleData
                         isAtOrAboveWaterLevel,
                         SurfaceRules.sequence(
                             SurfaceRules.ifTrue(
-                                SurfaceRules.isBiome(BOPBiomes.LUSH_SAVANNA),
+                                SurfaceRules.isBiome(BOPBiomes.GRASSLAND, BOPBiomes.LUSH_SAVANNA),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(2.1D), COARSE_DIRT)
                             ),
                             SurfaceRules.ifTrue(
