@@ -1,6 +1,5 @@
 {
     "parent": "block/cross",
-    "render_type": "minecraft:cutout",
     "textures": {
         "cross": "biomesoplenty:block/yellow_autumn_sapling"
     }

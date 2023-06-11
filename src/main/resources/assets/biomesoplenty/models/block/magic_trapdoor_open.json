@@ -1,6 +1,5 @@
 {
     "parent": "block/template_orientable_trapdoor_open",
-    "render_type": "minecraft:translucent",
     "textures": {
         "texture": "biomesoplenty:block/magic_trapdoor"
     }

@@ -1,5 +1,4 @@
 {
-    "render_type": "minecraft:cutout",
     "ambientocclusion": false,
     "textures": {
 		"branch": "biomesoplenty:block/dead_branch",

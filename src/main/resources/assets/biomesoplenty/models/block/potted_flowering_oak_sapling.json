@@ -1,6 +1,5 @@
 {
     "parent": "minecraft:block/flower_pot_cross",
-    "render_type": "minecraft:cutout",
     "textures": {
         "plant": "biomesoplenty:block/flowering_oak_sapling"
     }

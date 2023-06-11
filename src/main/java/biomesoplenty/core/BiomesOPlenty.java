@@ -119,6 +119,7 @@ public class BiomesOPlenty
         event.enqueueWork(() ->
         {
             ModBlocks.registerWoodTypes();
+            ModBlocks.setRenderTypes();
         });
     }
 

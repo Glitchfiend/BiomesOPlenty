@@ -1,6 +1,5 @@
 {
     "parent": "block/template_orientable_trapdoor_top",
-    "render_type": "minecraft:cutout",
     "textures": {
         "texture": "biomesoplenty:block/palm_trapdoor"
     }

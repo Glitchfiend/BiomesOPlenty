@@ -1,5 +1,4 @@
 {
-    "render_type": "minecraft:cutout",
     "ambientocclusion": false,
     "textures": {
         "texture": "biomesoplenty:block/bramble",

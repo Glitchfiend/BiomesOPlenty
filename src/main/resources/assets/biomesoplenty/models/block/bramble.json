@@ -1,5 +1,4 @@
 {   "parent": "block/block",
-    "render_type": "minecraft:cutout",
     "ambientocclusion": false,
     "textures": {
         "plant": "biomesoplenty:block/bramble",

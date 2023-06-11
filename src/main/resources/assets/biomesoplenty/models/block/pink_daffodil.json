@@ -1,6 +1,5 @@
 {
     "ambientocclusion": false,
-    "render_type": "minecraft:cutout",
     "textures": {
         "cross": "biomesoplenty:block/pink_daffodil",
 		"petals": "biomesoplenty:block/pink_daffodil_petals",
