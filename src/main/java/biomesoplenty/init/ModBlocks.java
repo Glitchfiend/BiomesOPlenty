@@ -429,7 +429,6 @@ public class ModBlocks
         POTTED_WILTED_LILY = registerBlock(() -> new FlowerPotBlock(WILTED_LILY.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_wilted_lily");
         POTTED_BURNING_BLOSSOM = registerBlock(() -> new FlowerPotBlock(BURNING_BLOSSOM.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 7)), "potted_burning_blossom");
         POTTED_SPROUT = registerBlock(() -> new FlowerPotBlock(SPROUT.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_sprout");
-        POTTED_CLOVER = registerBlock(() -> new FlowerPotBlock(CLOVER.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_clover");
         POTTED_TOADSTOOL = registerBlock(() -> new FlowerPotBlock(TOADSTOOL.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_toadstool");
         POTTED_GLOWSHROOM = registerBlock(() -> new FlowerPotBlock(GLOWSHROOM.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 6)), "potted_glowshroom");
     }
@@ -600,7 +599,6 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(POTTED_WILTED_LILY.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_BURNING_BLOSSOM.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_SPROUT.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(POTTED_CLOVER.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_TOADSTOOL.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_GLOWSHROOM.get(), cutoutRenderType);
     }

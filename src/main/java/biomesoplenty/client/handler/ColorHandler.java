@@ -43,7 +43,7 @@ public class ColorHandler
         event.getBlockColors().register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D),
                 BOPBlocks.MOSSY_BLACK_SAND.get(), BOPBlocks.SPROUT.get(), BOPBlocks.HIGH_GRASS.get(), BOPBlocks.HIGH_GRASS_PLANT.get(), BOPBlocks.CLOVER.get(),
-                BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.WATERGRASS.get(), BOPBlocks.POTTED_SPROUT.get(), BOPBlocks.POTTED_CLOVER.get());
+                BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.WATERGRASS.get(), BOPBlocks.POTTED_SPROUT.get());
 
         //Foliage Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->

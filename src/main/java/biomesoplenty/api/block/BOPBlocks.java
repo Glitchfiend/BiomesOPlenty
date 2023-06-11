@@ -357,7 +357,6 @@ public class BOPBlocks
     public static RegistryObject<Block> POTTED_WILTED_LILY;
     public static RegistryObject<Block> POTTED_BURNING_BLOSSOM;
     public static RegistryObject<Block> POTTED_SPROUT;
-    public static RegistryObject<Block> POTTED_CLOVER;
     public static RegistryObject<Block> POTTED_TOADSTOOL;
     public static RegistryObject<Block> POTTED_GLOWSHROOM;
 }
