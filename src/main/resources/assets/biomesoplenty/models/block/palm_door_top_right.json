@@ -1,7 +1,6 @@
 {
   "parent": "minecraft:block/door_top_right",
-  "render_type": "minecraft:cutout",
-  "textures": {
+   "textures": {
     "bottom": "biomesoplenty:block/palm_door_bottom",
     "top": "biomesoplenty:block/palm_door_top"
   }

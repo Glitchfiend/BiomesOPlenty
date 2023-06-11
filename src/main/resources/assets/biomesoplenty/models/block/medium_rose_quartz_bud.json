@@ -1,7 +1,6 @@
 {
   "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
+   "textures": {
     "cross": "biomesoplenty:block/medium_rose_quartz_bud"
   }
 }

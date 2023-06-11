@@ -1,7 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_right_open",
-  "render_type": "minecraft:translucent",
-  "textures": {
+   "textures": {
     "bottom": "biomesoplenty:block/magic_door_bottom",
     "top": "biomesoplenty:block/magic_door_top"
   }

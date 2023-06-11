@@ -1,7 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_right",
-  "render_type": "minecraft:cutout",
-  "textures": {
+   "textures": {
     "bottom": "biomesoplenty:block/hellbark_door_bottom",
     "top": "biomesoplenty:block/hellbark_door_top"
   }
