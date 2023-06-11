@@ -1,6 +1,5 @@
 {
 	"ambientocclusion": false,
-	"render_type": "minecraft:cutout",
 	"textures": {
 		"flowerbed": "biomesoplenty:block/clover",
 		"stem": "biomesoplenty:block/clover_stem",

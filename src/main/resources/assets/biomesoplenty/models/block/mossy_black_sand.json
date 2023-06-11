@@ -1,6 +1,5 @@
 {   
 	"parent": "block/block",
-	"render_type": "minecraft:cutout_mipped",
     "textures": {
         "particle": "biomesoplenty:block/black_sand",
         "bottom": "biomesoplenty:block/black_sand",

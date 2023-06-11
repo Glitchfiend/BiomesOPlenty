@@ -1,6 +1,5 @@
 {
 	"parent": "block/block",
-	"render_type": "minecraft:cutout",
 	"ambientocclusion": false,
 	"textures": {
 		"top": "biomesoplenty:block/spider_egg_top",
