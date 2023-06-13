@@ -651,6 +651,10 @@ public class ModBlocks
         return BiomesOPlenty.BLOCK_ENTITY_REGISTER.register(name, () -> BlockEntityType.Builder.of(factoryIn, validBlocks.get().toArray(new Block[0])).build(null));
     }
 
+    private static Boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+        return (boolean)true;
+    }
+
     private static Boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
         return (boolean)false;
     }

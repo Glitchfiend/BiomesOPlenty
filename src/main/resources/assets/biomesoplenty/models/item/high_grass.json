@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:block/high_grass_plant"
+        "layer0": "biomesoplenty:item/high_grass"
     }
 }

@@ -14,6 +14,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:clover_patch",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:grassland",
             "required": false
         },

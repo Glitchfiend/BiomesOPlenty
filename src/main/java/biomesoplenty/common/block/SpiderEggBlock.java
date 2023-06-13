@@ -21,6 +21,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -91,5 +92,10 @@ public class SpiderEggBlock extends Block
         CaveSpider spider = EntityType.CAVE_SPIDER.create(p_154567_);
         spider.moveTo((double)p_154569_.getX() + 0.5D, (double)p_154569_.getY(), (double)p_154569_.getZ() + 0.5D, 0.0F, 0.0F);
         p_154567_.addFreshEntity(spider);
+    }
+
+    @Override
+    public boolean isPathfindable(BlockState p_154341_, BlockGetter p_154342_, BlockPos p_154343_, PathComputationType p_154344_) {
+        return false;
     }
 }

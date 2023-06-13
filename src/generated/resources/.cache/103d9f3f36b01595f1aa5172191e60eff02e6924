@@ -1,4 +1,4 @@
-// 1.20	2023-06-10T18:34:40.5275724	Registries
+// 1.20	2023-06-13T02:22:08.391766	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 4ac25760c06a50af708bfe2c09fd54ab50a52b60 data/biomesoplenty/worldgen/biome/auroral_garden.json
@@ -19,7 +19,7 @@ a89d541384f1a879bb82d9c984d98c512474d27c data/biomesoplenty/worldgen/biome/erupt
 285b0b29c5f1f42c2a4e1d21a33c4127c690a41d data/biomesoplenty/worldgen/biome/forested_field.json
 d7cbe6472a3a43b8dc8f6ef8e275a686bca95d44 data/biomesoplenty/worldgen/biome/fungal_jungle.json
 ffe8fa5da1c1b7f736d9a6a94ff9f44b4ec935fa data/biomesoplenty/worldgen/biome/glowing_grotto.json
-d3b1556682f55e24c30cf4f87384e562325fa5f4 data/biomesoplenty/worldgen/biome/grassland.json
+9be3897814b82e11da86da22f554500b3bb624ea data/biomesoplenty/worldgen/biome/grassland.json
 b3ed51e87d57c5acd3f4bb19df1fd644a31e59c4 data/biomesoplenty/worldgen/biome/highland.json
 f73e1b9df71f4ffd6383f8c0c2ff35565e838433 data/biomesoplenty/worldgen/biome/jade_cliffs.json
 c055933f0d8547b4bc2df5fb1943b69d629b5c36 data/biomesoplenty/worldgen/biome/lavender_field.json
