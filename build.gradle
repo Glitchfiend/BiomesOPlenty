@@ -69,7 +69,7 @@ sourceSets {
 }
 
 processResources {
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 dependencies {
@@ -108,7 +108,8 @@ task apiJar(type: Jar) {
         include "${mod_id}/api/**"
     }
 
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    // TODO: Investigate why there are duplicates produced in the first place
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     classifier = 'api'
 }
 
