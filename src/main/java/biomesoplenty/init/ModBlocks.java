@@ -4,10 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.api.block.BOPBlockEntities;
-import biomesoplenty.api.block.BOPBlockSetTypes;
-import biomesoplenty.api.block.BOPFluids;
-import biomesoplenty.api.block.BOPWoodTypes;
+import biomesoplenty.api.block.*;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.block.*;
 import biomesoplenty.common.block.trees.*;
@@ -23,6 +20,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -80,7 +78,7 @@ public class ModBlocks
         CUT_ORANGE_SANDSTONE_SLAB = registerBlock(() -> new SlabBlock(Block.Properties.copy(CUT_ORANGE_SANDSTONE.get())), "cut_orange_sandstone_slab");
         CHISELED_ORANGE_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(0.8F)), "chiseled_orange_sandstone");
 
-        MOSSY_BLACK_SAND = registerBlock(() -> new OvergrownSandBlock(0x2D2C2F, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(MapColor.COLOR_GREEN).strength(0.5F).randomTicks().sound(SoundType.SAND)), "mossy_black_sand");
+        MOSSY_BLACK_SAND = registerBlock(() -> new OvergrownSandBlock(0x2D2C2F, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(MapColor.COLOR_GREEN).strength(0.5F).randomTicks().sound(SoundType.MOSS)), "mossy_black_sand");
         BLACK_SAND = registerBlock(() -> new SandBlockBOP(0x2D2C2F, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(MapColor.COLOR_BLACK).strength(0.5F).sound(SoundType.SAND)), "black_sand");
         BLACK_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(0.8F)), "black_sandstone");
         BLACK_SANDSTONE_STAIRS = registerBlock(() -> new StairBlock(BLACK_SANDSTONE.get()::defaultBlockState, Block.Properties.copy(BLACK_SANDSTONE.get())), "black_sandstone_stairs");
@@ -336,6 +334,7 @@ public class ModBlocks
         ORANGE_COSMOS = registerBlock(() -> new FlowerBlockBOP(MobEffects.ABSORPTION, 7, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "orange_cosmos");
         PINK_DAFFODIL = registerBlock(() -> new FlowerBlockBOP(MobEffects.INVISIBILITY, 7, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "pink_daffodil");
         PINK_HIBISCUS = registerBlock(() -> new FlowerBlockBOP(MobEffects.REGENERATION, 5, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "pink_hibiscus");
+        WATERLILY = registerBlock(() -> new WaterlilyBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_PINK).noOcclusion().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), () -> new PlaceOnWaterBlockItem(WATERLILY.get(), new Item.Properties()), "waterlily");
         WHITE_PETALS = registerBlock(() -> new PinkPetalsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)), "white_petals");
         GLOWFLOWER = registerBlock(() -> new FlowerBlockBOP(MobEffects.GLOWING, 10, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 9)), "glowflower");
         WILTED_LILY = registerBlock(() -> new FlowerBlockBOP(MobEffects.UNLUCK, 5, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "wilted_lily");
@@ -499,6 +498,7 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(ORANGE_COSMOS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(PINK_DAFFODIL.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(PINK_HIBISCUS.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(WATERLILY.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(WHITE_PETALS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(GLOWFLOWER.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(WILTED_LILY.get(), cutoutRenderType);

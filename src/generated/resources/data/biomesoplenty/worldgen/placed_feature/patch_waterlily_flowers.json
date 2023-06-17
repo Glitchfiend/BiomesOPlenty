@@ -1,9 +1,9 @@
 {
-  "feature": "minecraft:patch_waterlily",
+  "feature": "biomesoplenty:patch_waterlily_flower",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 15
+      "count": 3
     },
     {
       "type": "minecraft:in_square"

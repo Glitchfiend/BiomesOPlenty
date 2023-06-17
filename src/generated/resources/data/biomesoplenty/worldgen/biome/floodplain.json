@@ -81,10 +81,10 @@
       "biomesoplenty:trees_rainforest_floodplain",
       "biomesoplenty:flower_rainforest",
       "biomesoplenty:patch_lily_pad_15",
-      "biomesoplenty:small_dripleaf",
+      "biomesoplenty:patch_waterlily_flowers",
       "biomesoplenty:patch_grass_12",
       "biomesoplenty:patch_tall_grass_24",
-      "biomesoplenty:patch_watergrass_250"
+      "biomesoplenty:patch_watergrass_50"
     ],
     [
       "minecraft:freeze_top_layer"
