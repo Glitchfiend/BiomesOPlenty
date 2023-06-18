@@ -38,6 +38,7 @@ public class BOPBaseFeatures
     public static final Feature<NoneFeatureConfiguration> HANGING_FLESH_TENDON = register("hanging_flesh_tendon", new HangingFleshTendonFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> HUGE_TOADSTOOL = register("huge_toadstool", new HugeToadstoolFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> HUGE_CLOVER = register("huge_clover", new HugeCloverFeature(NoneFeatureConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> HUGE_LILY_PAD = register("huge_lily_pad", new HugeLilyPadFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> HUGE_GLOWSHROOM = register("huge_glowshroom", new HugeGlowshroomFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> INFERNO_SPLATTER = register("inferno_splatter", new InfernoSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> LARGE_FUMAROLE = register("large_fumarole", new LargeFumaroleFeature(NoneFeatureConfiguration.CODEC));

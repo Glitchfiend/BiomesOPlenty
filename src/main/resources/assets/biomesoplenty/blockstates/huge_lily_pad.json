@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "quarter=north_west,facing=east": { "model": "biomesoplenty:block/huge_lily_pad_north_west", "y": 90 },
+		"quarter=north_east,facing=east": { "model": "biomesoplenty:block/huge_lily_pad_north_east", "y": 90 },
+		"quarter=south_west,facing=east": { "model": "biomesoplenty:block/huge_lily_pad_south_west", "y": 90 },
+		"quarter=south_east,facing=east": { "model": "biomesoplenty:block/huge_lily_pad_south_east", "y": 90 },
+        "quarter=north_west,facing=south": { "model": "biomesoplenty:block/huge_lily_pad_north_west", "y": 180 },
+		"quarter=north_east,facing=south": { "model": "biomesoplenty:block/huge_lily_pad_north_east", "y": 180 },
+		"quarter=south_west,facing=south": { "model": "biomesoplenty:block/huge_lily_pad_south_west", "y": 180 },
+		"quarter=south_east,facing=south": { "model": "biomesoplenty:block/huge_lily_pad_south_east", "y": 180 },
+        "quarter=north_west,facing=west": { "model": "biomesoplenty:block/huge_lily_pad_north_west", "y": 270 },
+		"quarter=north_east,facing=west": { "model": "biomesoplenty:block/huge_lily_pad_north_east", "y": 270 },
+		"quarter=south_west,facing=west": { "model": "biomesoplenty:block/huge_lily_pad_south_west", "y": 270 },
+		"quarter=south_east,facing=west": { "model": "biomesoplenty:block/huge_lily_pad_south_east", "y": 270 },
+        "quarter=north_west,facing=north": { "model": "biomesoplenty:block/huge_lily_pad_north_west", "y": 0 },
+		"quarter=north_east,facing=north": { "model": "biomesoplenty:block/huge_lily_pad_north_east", "y": 0 },
+		"quarter=south_west,facing=north": { "model": "biomesoplenty:block/huge_lily_pad_south_west", "y": 0 },
+		"quarter=south_east,facing=north": { "model": "biomesoplenty:block/huge_lily_pad_south_east", "y": 0 }
+    }
+}

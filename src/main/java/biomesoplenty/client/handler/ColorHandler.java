@@ -8,7 +8,6 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockAndTintGetter;
@@ -32,8 +31,8 @@ public class ColorHandler
                     BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
                     return event.getBlockColors().getColor(state, null, null, tintIndex); },
                 BOPBlocks.MOSSY_BLACK_SAND.get(), BOPBlocks.SPROUT.get(), BOPBlocks.BUSH.get(), BOPBlocks.HIGH_GRASS.get(), BOPBlocks.HIGH_GRASS_PLANT.get(),
-                BOPBlocks.CLOVER.get(), BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(), BOPBlocks.MAHOGANY_LEAVES.get(),
-                BOPBlocks.PALM_LEAVES.get(), BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get());
+                BOPBlocks.CLOVER.get(), BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.HUGE_LILY_PAD.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(),
+                BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(), BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get());
     }
 
     @SubscribeEvent
@@ -61,6 +60,11 @@ public class ColorHandler
             if (tintIndex != 0) { return world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(); }
             else { return -1; }},
                 BOPBlocks.WHITE_PETALS.get());
+
+        //Lily Pad Coloring
+        event.getBlockColors().register((state, world, pos, tintIndex) -> {
+            return world != null && pos != null ? 2129968 : 7455580; },
+                BOPBlocks.HUGE_LILY_PAD.get());
     }
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)

@@ -23,7 +23,7 @@ import net.minecraftforge.common.PlantType;
 
 public class WaterlilyBlockBOP extends BushBlock
 {
-    protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 12.0D, 15.0D);
+    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
     public WaterlilyBlockBOP(BlockBehaviour.Properties p_58162_)
     {
