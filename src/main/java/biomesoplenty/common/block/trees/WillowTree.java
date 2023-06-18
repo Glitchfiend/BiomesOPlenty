@@ -15,6 +15,6 @@ public class WillowTree extends AbstractTreeGrower
    @Override
    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return BOPTreeFeatures.WILLOW_TREE;
+      return (random.nextInt(7) == 0 ? BOPTreeFeatures.CYPRESS_TREE : BOPTreeFeatures.WILLOW_TREE);
    }
 }
