@@ -173,11 +173,11 @@ public class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] EXTREME_HILLS_BOP = new ResourceKey[][]{
-            {null,                            null,                            null,                   null,           null},
-            {null,                            null,                            null,                   null,           null},
-            {null,                            null,                            null,                   null,           null},
-            {null,                            null,                            null,                   null,           BOPBiomes.VOLCANO},
-            {null,                            null,                            null,                   null,           null}
+            {null,                            null,                            null,                   null,                    null},
+            {BOPBiomes.CRAG,                  BOPBiomes.CRAG,                  BOPBiomes.HIGHLAND,     BOPBiomes.HIGHLAND,      BOPBiomes.HIGHLAND},
+            {BOPBiomes.HIGHLAND,              BOPBiomes.HIGHLAND,              BOPBiomes.HIGHLAND,     BOPBiomes.HIGHLAND,      BOPBiomes.HIGHLAND},
+            {null,                            null,                            null,                   null,                    BOPBiomes.VOLCANO},
+            {null,                            null,                            null,                   null,                    null}
     };
 
     public void addBiomes(Registry<Biome> biomeRegistry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper)
