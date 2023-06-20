@@ -92,7 +92,7 @@
   "item.biomesoplenty.palm_chest_boat": "Palm Boat with Chest",
   "item.biomesoplenty.redwood_boat": "Redwood Boat",
   "item.biomesoplenty.redwood_chest_boat": "Redwood Boat with Chest",
-  "item.biomesoplenty.rose_quartz_shard": "Rose Quartz Shard",
+  "item.biomesoplenty.rose_quartz_chunk": "Rose Quartz Chunk",
   "item.biomesoplenty.umbran_boat": "Umbran Boat",
   "item.biomesoplenty.umbran_chest_boat": "Umbran Boat with Chest",
   "item.biomesoplenty.willow_boat": "Willow Boat",
@@ -446,6 +446,7 @@
   "entity.biomesoplenty.boat": "Boat",
   "entity.biomesoplenty.chest_boat": "Boat with Chest",
   
+  "trim_material.biomesoplenty.glowworm_silk": "Glowworm Silk Material",
   "trim_material.biomesoplenty.rose_quartz": "Rose Quartz Material",
   
   "death.attack.bramble": "%1$s was punctured to death",

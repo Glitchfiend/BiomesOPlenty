@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_rose_quartz_shard": {
+    "has_rose_quartz_chunk": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "biomesoplenty:rose_quartz_shard"
+              "biomesoplenty:rose_quartz_chunk"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_rose_quartz_shard",
+      "has_rose_quartz_chunk",
       "has_the_recipe"
     ]
   ]

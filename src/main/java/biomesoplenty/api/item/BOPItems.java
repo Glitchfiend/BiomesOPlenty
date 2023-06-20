@@ -11,7 +11,7 @@ public class BOPItems
 {
     public static RegistryObject<Item> BOP_ICON;
 
-    public static RegistryObject<Item> ROSE_QUARTZ_SHARD;
+    public static RegistryObject<Item> ROSE_QUARTZ_CHUNK;
     public static RegistryObject<Item> BLOOD_BUCKET;
     public static RegistryObject<Item> MUSIC_DISC_WANDERER;
     public static RegistryObject<Item> FIR_SIGN;

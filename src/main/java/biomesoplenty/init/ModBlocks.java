@@ -128,11 +128,11 @@ public class ModBlocks
         GLOWWORM_SILK = registerBlock(() -> new GlowwormSilkBottomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk");
         GLOWWORM_SILK_STRAND = registerBlock(() -> new GlowwormSilkBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true)), "glowworm_silk_strand");
 
+        SPIDER_EGG = registerBlock(() -> new SpiderEggBlock(BlockBehaviour.Properties.of().strength(0.1F).mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).sound(SoundType.METAL).lightLevel((state) -> 5)), "spider_egg");
         HANGING_COBWEB = registerBlock(() -> new HangingCobwebBottomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb");
         HANGING_COBWEB_STRAND = registerBlock(() -> new HangingCobwebBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.WOOL)), "hanging_cobweb_strand");
         STRINGY_COBWEB = registerBlock(() -> new StringyCobwebBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.WOOL)), "stringy_cobweb");
         WEBBING = registerBlock(() -> new WebbingBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.WOOL)), "webbing");
-        SPIDER_EGG = registerBlock(() -> new SpiderEggBlock(BlockBehaviour.Properties.of().strength(0.1F).mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).sound(SoundType.METAL).lightLevel((state) -> 5)), "spider_egg");
 
         ORIGIN_GRASS_BLOCK = registerBlock(() -> new GrassBlock(BlockBehaviour.Properties.of().randomTicks().strength(0.6F).randomTicks().sound(SoundType.GRASS)), "origin_grass_block");
 

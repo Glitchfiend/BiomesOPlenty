@@ -52,7 +52,7 @@
                       "formula": "minecraft:ore_drops"
                     }
                   ],
-                  "name": "biomesoplenty:rose_quartz_shard"
+                  "name": "biomesoplenty:rose_quartz_chunk"
                 },
                 {
                   "type": "minecraft:item",
@@ -66,7 +66,7 @@
                       "function": "minecraft:explosion_decay"
                     }
                   ],
-                  "name": "biomesoplenty:rose_quartz_shard"
+                  "name": "biomesoplenty:rose_quartz_chunk"
                 }
               ]
             }

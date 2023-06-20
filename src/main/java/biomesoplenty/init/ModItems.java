@@ -31,7 +31,7 @@ public class ModItems
     {
         BOP_ICON = registerItem(() -> new Item(new Item.Properties()), "bop_icon");
 
-        ROSE_QUARTZ_SHARD = registerItem(() -> new Item(new Item.Properties()), "rose_quartz_shard");
+        ROSE_QUARTZ_CHUNK = registerItem(() -> new Item(new Item.Properties()), "rose_quartz_chunk");
 
         MUSIC_DISC_WANDERER = registerItem(() -> new MusicDiscItemBOP(() -> BOPSounds.MUSIC_DISC_WANDERER.get()), "music_disc_wanderer");
 

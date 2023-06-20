@@ -4,6 +4,6 @@
     "color": "#E33A61",
     "translate": "trim_material.biomesoplenty.rose_quartz"
   },
-  "ingredient": "biomesoplenty:rose_quartz_shard",
+  "ingredient": "biomesoplenty:rose_quartz_chunk",
   "item_model_index": 0.0
 }

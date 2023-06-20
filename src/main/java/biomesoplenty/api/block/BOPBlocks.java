@@ -81,11 +81,11 @@ public class BOPBlocks
     public static RegistryObject<Block> GLOWWORM_SILK;
     public static RegistryObject<Block> GLOWWORM_SILK_STRAND;
 
+    public static RegistryObject<Block> SPIDER_EGG;
     public static RegistryObject<Block> HANGING_COBWEB;
     public static RegistryObject<Block> HANGING_COBWEB_STRAND;
     public static RegistryObject<Block> STRINGY_COBWEB;
     public static RegistryObject<Block> WEBBING;
-    public static RegistryObject<Block> SPIDER_EGG;
 
     public static RegistryObject<Block> ORIGIN_GRASS_BLOCK;
 

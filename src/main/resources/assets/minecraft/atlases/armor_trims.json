@@ -38,7 +38,8 @@
             ],
             "palette_key": "trims/color_palettes/trim_palette",
             "permutations": {
-                "rose_quartz": "biomesoplenty:trims/color_palettes/rose_quartz"
+				"glowworm_silk": "biomesoplenty:trims/color_palettes/glowworm_silk",
+				"rose_quartz": "biomesoplenty:trims/color_palettes/rose_quartz"
             }
         }
     ]

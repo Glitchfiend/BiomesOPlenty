@@ -1,3 +1,6 @@
 {
-    "parent": "biomesoplenty:block/spider_egg"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "biomesoplenty:item/spider_egg"
+    }
 }
