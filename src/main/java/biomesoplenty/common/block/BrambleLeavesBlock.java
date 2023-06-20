@@ -64,7 +64,7 @@ public class BrambleLeavesBlock extends DirectionalBlock
         Direction direction = state.getValue(FACING);
         BlockPos blockpos = pos.relative(direction.getOpposite());
         BlockState blockstate = worldIn.getBlockState(blockpos);
-        return blockstate.getBlock() == BOPBlocks.BRAMBLE.get();
+        return blockstate.getBlock() == BOPBlocks.BRAMBLE.get() || Block.isShapeFullBlock(blockstate.getCollisionShape(worldIn, blockpos));
     }
 
     @Override
