@@ -43,11 +43,17 @@ public class BOPBlocks
     public static RegistryObject<Block> BLACK_SANDSTONE_SLAB;
     public static RegistryObject<Block> BLACK_SANDSTONE_STAIRS;
     public static RegistryObject<Block> BLACK_SANDSTONE_WALL;
-    public static RegistryObject<Block> ORIGIN_GRASS_BLOCK;
+
     public static RegistryObject<Block> DRIED_SALT;
 
     public static RegistryObject<Block> FLESH;
     public static RegistryObject<Block> POROUS_FLESH;
+    public static RegistryObject<Block> FLESH_TENDONS;
+    public static RegistryObject<Block> FLESH_TENDONS_STRAND;
+    public static RegistryObject<Block> EYEBULB;
+    public static RegistryObject<Block> HAIR;
+    public static RegistryObject<Block> PUS_BUBBLE;
+
     public static RegistryObject<Block> BRIMSTONE;
     public static RegistryObject<Block> BRIMSTONE_BRICKS;
     public static RegistryObject<Block> BRIMSTONE_BRICK_SLAB;
@@ -55,11 +61,33 @@ public class BOPBlocks
     public static RegistryObject<Block> BRIMSTONE_BRICK_WALL;
     public static RegistryObject<Block> CHISELED_BRIMSTONE_BRICKS;
     public static RegistryObject<Block> BRIMSTONE_FUMAROLE;
+    public static RegistryObject<Block> BRIMSTONE_CLUSTER;
+    public static RegistryObject<Block> BRIMSTONE_BUD;
+    public static RegistryObject<Block> BLACKSTONE_SPINES;
+    public static RegistryObject<Block> BLACKSTONE_BULB;
+
     public static RegistryObject<Block> ROSE_QUARTZ_BLOCK;
+    public static RegistryObject<Block> ROSE_QUARTZ_CLUSTER;
+    public static RegistryObject<Block> LARGE_ROSE_QUARTZ_BUD;
+    public static RegistryObject<Block> MEDIUM_ROSE_QUARTZ_BUD;
+    public static RegistryObject<Block> SMALL_ROSE_QUARTZ_BUD;
+
+    public static RegistryObject<Block> TOADSTOOL;
     public static RegistryObject<Block> TOADSTOOL_BLOCK;
+    public static RegistryObject<Block> GLOWSHROOM;
     public static RegistryObject<Block> GLOWSHROOM_BLOCK;
-    public static RegistryObject<Block> GLOWING_MOSS_CARPET;
     public static RegistryObject<Block> GLOWING_MOSS_BLOCK;
+    public static RegistryObject<Block> GLOWING_MOSS_CARPET;
+    public static RegistryObject<Block> GLOWWORM_SILK;
+    public static RegistryObject<Block> GLOWWORM_SILK_STRAND;
+
+    public static RegistryObject<Block> HANGING_COBWEB;
+    public static RegistryObject<Block> HANGING_COBWEB_STRAND;
+    public static RegistryObject<Block> STRINGY_COBWEB;
+    public static RegistryObject<Block> WEBBING;
+    public static RegistryObject<Block> SPIDER_EGG;
+
+    public static RegistryObject<Block> ORIGIN_GRASS_BLOCK;
 
     public static RegistryObject<Block> ORIGIN_SAPLING;
     public static RegistryObject<Block> ORIGIN_LEAVES;
@@ -171,6 +199,9 @@ public class BOPBlocks
     public static RegistryObject<Block> PALM_HANGING_SIGN;
     public static RegistryObject<Block> PALM_WALL_HANGING_SIGN;
     public static RegistryObject<Block> WILLOW_SAPLING;
+    public static RegistryObject<Block> WILLOW_VINE;
+    public static RegistryObject<Block> SPANISH_MOSS;
+    public static RegistryObject<Block> SPANISH_MOSS_PLANT;
     public static RegistryObject<Block> WILLOW_LEAVES;
     public static RegistryObject<Block> WILLOW_LOG;
     public static RegistryObject<Block> STRIPPED_WILLOW_LOG;
@@ -190,6 +221,7 @@ public class BOPBlocks
     public static RegistryObject<Block> WILLOW_HANGING_SIGN;
     public static RegistryObject<Block> WILLOW_WALL_HANGING_SIGN;
     public static RegistryObject<Block> DEAD_SAPLING;
+    public static RegistryObject<Block> DEAD_BRANCH;
     public static RegistryObject<Block> DEAD_LEAVES;
     public static RegistryObject<Block> DEAD_LOG;
     public static RegistryObject<Block> STRIPPED_DEAD_LOG;
@@ -269,28 +301,19 @@ public class BOPBlocks
     public static RegistryObject<Block> ROSE;
     public static RegistryObject<Block> VIOLET;
     public static RegistryObject<Block> LAVENDER;
+    public static RegistryObject<Block> TALL_LAVENDER;
+    public static RegistryObject<Block> BLUE_HYDRANGEA;
     public static RegistryObject<Block> WILDFLOWER;
+    public static RegistryObject<Block> GOLDENROD;
     public static RegistryObject<Block> ORANGE_COSMOS;
     public static RegistryObject<Block> PINK_DAFFODIL;
     public static RegistryObject<Block> PINK_HIBISCUS;
     public static RegistryObject<Block> WATERLILY;
     public static RegistryObject<Block> WHITE_PETALS;
+    public static RegistryObject<Block> ICY_IRIS;
     public static RegistryObject<Block> GLOWFLOWER;
     public static RegistryObject<Block> WILTED_LILY;
     public static RegistryObject<Block> BURNING_BLOSSOM;
-    public static RegistryObject<Block> TALL_LAVENDER;
-    public static RegistryObject<Block> BLUE_HYDRANGEA;
-    public static RegistryObject<Block> GOLDENROD;
-    public static RegistryObject<Block> ICY_IRIS;
-    public static RegistryObject<Block> WILLOW_VINE;
-    public static RegistryObject<Block> SPANISH_MOSS;
-    public static RegistryObject<Block> SPANISH_MOSS_PLANT;
-    public static RegistryObject<Block> GLOWWORM_SILK;
-    public static RegistryObject<Block> GLOWWORM_SILK_STRAND;
-    public static RegistryObject<Block> HANGING_COBWEB;
-    public static RegistryObject<Block> HANGING_COBWEB_STRAND;
-    public static RegistryObject<Block> STRINGY_COBWEB;
-    public static RegistryObject<Block> WEBBING;
 
     public static RegistryObject<Block> SPROUT;
     public static RegistryObject<Block> BUSH;
@@ -303,31 +326,13 @@ public class BOPBlocks
     public static RegistryObject<Block> DESERT_GRASS;
     public static RegistryObject<Block> DEAD_GRASS;
     public static RegistryObject<Block> TUNDRA_SHRUB;
-    public static RegistryObject<Block> CATTAIL;
+
     public static RegistryObject<Block> BARLEY;
     public static RegistryObject<Block> SEA_OATS;
+    public static RegistryObject<Block> CATTAIL;
     public static RegistryObject<Block> REED;
     public static RegistryObject<Block> WATERGRASS;
-    public static RegistryObject<Block> DEAD_BRANCH;
     public static RegistryObject<Block> BRAMBLE;
-    public static RegistryObject<Block> TOADSTOOL;
-    public static RegistryObject<Block> GLOWSHROOM;
-
-    public static RegistryObject<Block> PUS_BUBBLE;
-    public static RegistryObject<Block> FLESH_TENDONS;
-    public static RegistryObject<Block> FLESH_TENDONS_STRAND;
-    public static RegistryObject<Block> EYEBULB;
-    public static RegistryObject<Block> HAIR;
-    public static RegistryObject<Block> BRIMSTONE_BUD;
-    public static RegistryObject<Block> BRIMSTONE_CLUSTER;
-    public static RegistryObject<Block> ROSE_QUARTZ_CLUSTER;
-    public static RegistryObject<Block> LARGE_ROSE_QUARTZ_BUD;
-    public static RegistryObject<Block> MEDIUM_ROSE_QUARTZ_BUD;
-    public static RegistryObject<Block> SMALL_ROSE_QUARTZ_BUD;
-    public static RegistryObject<Block> BLACKSTONE_SPINES;
-    public static RegistryObject<Block> BLACKSTONE_BULB;
-
-    public static RegistryObject<Block> SPIDER_EGG;
 
     public static RegistryObject<Block> BLOOD;
 

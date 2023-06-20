@@ -1,9 +1,9 @@
 {
   "asset_name": "rose_quartz",
   "description": {
-    "color": "#D8455D",
+    "color": "#E33A61",
     "translate": "trim_material.biomesoplenty.rose_quartz"
   },
   "ingredient": "biomesoplenty:rose_quartz_shard",
-  "item_model_index": 0.59303
+  "item_model_index": 0.0
 }

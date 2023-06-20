@@ -249,6 +249,7 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.ORANGE_COSMOS.get());
         registerCompostable(0.65F, BOPBlocks.PINK_DAFFODIL.get());
         registerCompostable(0.65F, BOPBlocks.PINK_HIBISCUS.get());
+        registerCompostable(0.65F, BOPBlocks.WATERLILY.get());
         registerCompostable(0.3F, BOPBlocks.WHITE_PETALS.get());
         registerCompostable(0.65F, BOPBlocks.GLOWFLOWER.get());
         registerCompostable(0.65F, BOPBlocks.WILTED_LILY.get());
@@ -285,6 +286,7 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.TOADSTOOL.get());
         registerCompostable(0.65F, BOPBlocks.GLOWSHROOM.get());
         registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_BLOCK.get());
+        registerCompostable(0.65F, BOPBlocks.HUGE_LILY_PAD.get());
     }
 
     public static void registerStrippable(Block log, Block stripped_log) {
