@@ -19,6 +19,9 @@ public class ModParticles
     public static final RegistryObject<SimpleParticleType> GLOWWORM = register("glowworm", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> JACARANDA_LEAVES = register("jacaranda_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> SNOWBLOSSOM_LEAVES = register("snowblossom_leaves", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> YELLOW_AUTUMN_LEAVES = register("yellow_autumn_leaves", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> ORANGE_AUTUMN_LEAVES = register("orange_autumn_leaves", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> MAPLE_LEAVES = register("maple_leaves", () -> new SimpleParticleType(false));
 
     public static void setup() {}
 

@@ -4,10 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.client.handler;
 
-import biomesoplenty.client.particle.DripParticleBOP;
-import biomesoplenty.client.particle.GlowwormParticle;
-import biomesoplenty.client.particle.PusParticle;
-import biomesoplenty.client.particle.LeafParticle;
+import biomesoplenty.client.particle.*;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModParticles;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,6 +31,21 @@ public class ParticleFactoryHandler
         event.registerSpriteSet(ModParticles.SNOWBLOSSOM_LEAVES.get(), (p_277215_) -> {
             return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
                 return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
+        event.registerSpriteSet(ModParticles.YELLOW_AUTUMN_LEAVES.get(), (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
+        event.registerSpriteSet(ModParticles.ORANGE_AUTUMN_LEAVES.get(), (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
+        event.registerSpriteSet(ModParticles.MAPLE_LEAVES.get(), (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
             };
         });
     }
