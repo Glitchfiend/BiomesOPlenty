@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.damagesource.BOPDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -42,19 +43,19 @@ public class BrambleBlock extends PipeBlock
         BlockState block4 = reader.getBlockState(pos.south());
         BlockState block5 = reader.getBlockState(pos.west());
         return this.defaultBlockState()
-        		.setValue(DOWN, Boolean.valueOf(block.getBlock() == this || Block.isShapeFullBlock(block.getCollisionShape(reader, pos.below()))))
-        		.setValue(UP, Boolean.valueOf(block1.getBlock() == this || Block.isShapeFullBlock(block1.getCollisionShape(reader, pos.above()))))
-        		.setValue(NORTH, Boolean.valueOf(block2.getBlock() == this || Block.isShapeFullBlock(block2.getCollisionShape(reader, pos.north()))))
-        		.setValue(EAST, Boolean.valueOf(block3.getBlock() == this || Block.isShapeFullBlock(block3.getCollisionShape(reader, pos.east()))))
-        		.setValue(SOUTH, Boolean.valueOf(block4.getBlock() == this || Block.isShapeFullBlock(block4.getCollisionShape(reader, pos.south()))))
-        		.setValue(WEST, Boolean.valueOf(block5.getBlock() == this || Block.isShapeFullBlock(block5.getCollisionShape(reader, pos.west()))));
+        		.setValue(DOWN, Boolean.valueOf(block.getBlock() == this || (block.getBlock() == BOPBlocks.BRAMBLE_LEAVES.get() && block.getValue(BrambleLeavesBlock.FACING) == Direction.DOWN) || Block.isShapeFullBlock(block.getCollisionShape(reader, pos.below()))))
+        		.setValue(UP, Boolean.valueOf(block1.getBlock() == this || (block1.getBlock() == BOPBlocks.BRAMBLE_LEAVES.get() && block1.getValue(BrambleLeavesBlock.FACING) == Direction.UP) || Block.isShapeFullBlock(block1.getCollisionShape(reader, pos.above()))))
+        		.setValue(NORTH, Boolean.valueOf(block2.getBlock() == this || (block2.getBlock() == BOPBlocks.BRAMBLE_LEAVES.get() && block2.getValue(BrambleLeavesBlock.FACING) == Direction.NORTH) || Block.isShapeFullBlock(block2.getCollisionShape(reader, pos.north()))))
+        		.setValue(EAST, Boolean.valueOf(block3.getBlock() == this || (block3.getBlock() == BOPBlocks.BRAMBLE_LEAVES.get() && block3.getValue(BrambleLeavesBlock.FACING) == Direction.EAST) || Block.isShapeFullBlock(block3.getCollisionShape(reader, pos.east()))))
+        		.setValue(SOUTH, Boolean.valueOf(block4.getBlock() == this || (block4.getBlock() == BOPBlocks.BRAMBLE_LEAVES.get() && block4.getValue(BrambleLeavesBlock.FACING) == Direction.SOUTH) || Block.isShapeFullBlock(block4.getCollisionShape(reader, pos.south()))))
+        		.setValue(WEST, Boolean.valueOf(block5.getBlock() == this || (block5.getBlock() == BOPBlocks.BRAMBLE_LEAVES.get() && block5.getValue(BrambleLeavesBlock.FACING) == Direction.WEST) || Block.isShapeFullBlock(block5.getCollisionShape(reader, pos.west()))));
     }
 
      @Override
      public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos)
      {
     	Block block = facingState.getBlock();
-     	boolean flag = block == this || Block.isShapeFullBlock(facingState.getCollisionShape(worldIn, facingPos));
+     	boolean flag = block == this || (block == BOPBlocks.BRAMBLE_LEAVES.get() && facingState.getValue(BrambleLeavesBlock.FACING) == facing) || Block.isShapeFullBlock(facingState.getCollisionShape(worldIn, facingPos));
      	return stateIn.setValue(PROPERTY_BY_DIRECTION.get(facing), Boolean.valueOf(flag));
      }
 

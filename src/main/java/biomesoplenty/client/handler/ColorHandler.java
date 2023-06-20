@@ -32,7 +32,8 @@ public class ColorHandler
                     return event.getBlockColors().getColor(state, null, null, tintIndex); },
                 BOPBlocks.MOSSY_BLACK_SAND.get(), BOPBlocks.SPROUT.get(), BOPBlocks.BUSH.get(), BOPBlocks.HIGH_GRASS.get(), BOPBlocks.HIGH_GRASS_PLANT.get(),
                 BOPBlocks.CLOVER.get(), BOPBlocks.HUGE_CLOVER_PETAL.get(), BOPBlocks.HUGE_LILY_PAD.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(),
-                BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(), BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get());
+                BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(), BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get(),
+                BOPBlocks.BRAMBLE_LEAVES.get());
     }
 
     @SubscribeEvent
@@ -48,7 +49,7 @@ public class ColorHandler
         event.getBlockColors().register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
                 BOPBlocks.BUSH.get(), BOPBlocks.FLOWERING_OAK_LEAVES.get(), BOPBlocks.MAHOGANY_LEAVES.get(), BOPBlocks.PALM_LEAVES.get(),
-                BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get());
+                BOPBlocks.WILLOW_LEAVES.get(), BOPBlocks.WILLOW_VINE.get(), BOPBlocks.BRAMBLE_LEAVES.get());
 
         //Rainbow Birch Leaf Coloring
         event.getBlockColors().register((state, world, pos, tintIndex) ->

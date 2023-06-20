@@ -1,0 +1,39 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"leaves": "biomesoplenty:block/bramble_leaves",
+		"particle": "#leaves"
+	},
+	"elements": [
+		{
+			"from": [0, 4, 0],
+			"to": [16, 4, 16],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "x", "origin": [8, 4, 16]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#leaves", "tintindex": 0}
+			}
+		},
+		{
+			"from": [0, 8, 0],
+			"to": [16, 8, 16],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8, 16]},
+			"faces": {
+				"up": {"uv": [16, 0, 0, 16], "texture": "#leaves", "tintindex": 0},
+				"down": {"uv": [16, 16, 0, 0], "texture": "#leaves", "tintindex": 0}
+			}
+		},
+		{
+			"from": [0, 12, 0],
+			"to": [16, 12, 16],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 12, 16]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#leaves", "tintindex": 0}
+			}
+		}
+	]
+}

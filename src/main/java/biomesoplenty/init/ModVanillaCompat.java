@@ -282,6 +282,7 @@ public class ModVanillaCompat
 
         registerCompostable(0.3F, BOPBlocks.DEAD_BRANCH.get());
         registerCompostable(0.3F, BOPBlocks.BRAMBLE.get());
+        registerCompostable(0.3F, BOPBlocks.BRAMBLE_LEAVES.get());
 
         registerCompostable(0.65F, BOPBlocks.TOADSTOOL.get());
         registerCompostable(0.65F, BOPBlocks.GLOWSHROOM.get());

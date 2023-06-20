@@ -393,6 +393,7 @@ public class ModBlocks
         REED = registerBlock(() -> new DoubleWaterPlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIRT).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "reed");
         WATERGRASS = registerBlock(() -> new DoubleWaterPlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "watergrass");
         BRAMBLE = registerBlock(() -> new BrambleBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.NETHER).strength(0.4F).sound(SoundType.WOOD)), "bramble");
+        BRAMBLE_LEAVES = registerBlock(() -> new BrambleLeavesBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).instabreak().sound(SoundType.GRASS)), "bramble_leaves");
 
         //Potted Plants
         POTTED_ORIGIN_SAPLING = registerBlock(() -> new FlowerPotBlock(ORIGIN_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_origin_sapling");
@@ -529,6 +530,7 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(WATERGRASS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(DEAD_BRANCH.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BRAMBLE.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(BRAMBLE_LEAVES.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(TOADSTOOL.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(GLOWSHROOM.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(PUS_BUBBLE.get(), cutoutRenderType);

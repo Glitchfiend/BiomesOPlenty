@@ -14,6 +14,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -80,7 +81,7 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
                         BlockPos leafPos = genPos.relative(Direction.values()[leafDirection]);
                         if (world.isEmptyBlock(leafPos))
                         {
-                            world.setBlock(leafPos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 19);
+                            world.setBlock(leafPos, BOPBlocks.BRAMBLE_LEAVES.get().defaultBlockState().setValue(DirectionalBlock.FACING, Direction.values()[leafDirection]), 19);
                             for (Direction face : Direction.values())
                             {
                                 if (world.getBlockState(leafPos.relative(face)).getBlock() == BOPBlocks.BRAMBLE.get())

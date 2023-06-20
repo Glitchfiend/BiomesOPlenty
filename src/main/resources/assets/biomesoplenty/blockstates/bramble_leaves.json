@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "biomesoplenty:block/bramble_leaves", "x": 270 },
+		"facing=down": { "model": "biomesoplenty:block/bramble_leaves", "x": 90 },
+		"facing=east": { "model": "biomesoplenty:block/bramble_leaves", "y": 90 },
+        "facing=south": { "model": "biomesoplenty:block/bramble_leaves", "y": 180 },
+        "facing=west": { "model": "biomesoplenty:block/bramble_leaves", "y": 270 },
+        "facing=north": { "model": "biomesoplenty:block/bramble_leaves", "y": 0 }
+    }
+}

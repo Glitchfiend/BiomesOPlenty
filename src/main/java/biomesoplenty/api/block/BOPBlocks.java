@@ -332,7 +332,9 @@ public class BOPBlocks
     public static RegistryObject<Block> CATTAIL;
     public static RegistryObject<Block> REED;
     public static RegistryObject<Block> WATERGRASS;
+
     public static RegistryObject<Block> BRAMBLE;
+    public static RegistryObject<Block> BRAMBLE_LEAVES;
 
     public static RegistryObject<Block> BLOOD;
 
