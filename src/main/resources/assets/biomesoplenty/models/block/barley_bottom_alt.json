@@ -1,5 +1,5 @@
 {
-    "parent": "block/cross",
+    "parent": "block/tinted_cross",
     "textures": {
         "cross": "biomesoplenty:block/barley_bottom_alt"
     }
