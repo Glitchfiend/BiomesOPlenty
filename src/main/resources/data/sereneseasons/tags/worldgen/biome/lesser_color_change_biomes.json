@@ -5,6 +5,10 @@
       "required": false
     },
 	{
+      "id": "biomesoplenty:grassland",
+      "required": false
+    },
+	{
       "id": "biomesoplenty:mystic_grove",
       "required": false
     },

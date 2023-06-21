@@ -461,7 +461,7 @@ public class BOPSurfaceRuleData
                         SurfaceRules.sequence(
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.LUSH_SAVANNA),
-                                SurfaceRules.ifTrue(surfaceNoiseAbove(2.1D), COARSE_DIRT)
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), ORANGE_SAND)
                             ),
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.GRASSLAND),

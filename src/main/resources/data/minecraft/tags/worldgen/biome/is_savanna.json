@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "biomesoplenty:dryland",
-      "required": false
-    },
-    {
       "id": "biomesoplenty:lush_savanna",
       "required": false
     },

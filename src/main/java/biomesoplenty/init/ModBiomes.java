@@ -126,7 +126,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.CONIFEROUS_FOREST, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.CRAG, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.DEAD_FOREST, VillagerType.TAIGA);
-        registerVillagerType(BOPBiomes.DRYLAND, VillagerType.SAVANNA);
+        registerVillagerType(BOPBiomes.DRYLAND, VillagerType.DESERT);
         registerVillagerType(BOPBiomes.DUNE_BEACH, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.FIR_CLEARING, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.FIELD, VillagerType.TAIGA);
@@ -163,8 +163,8 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.SEASONAL_ORCHARD, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SNOWBLOSSOM_GROVE, VillagerType.SNOW);
-        registerVillagerType(BOPBiomes.SNOWY_CONIFEROUS_FOREST, VillagerType.SNOW);
-        registerVillagerType(BOPBiomes.SNOWY_FIR_CLEARING, VillagerType.SNOW);
+        registerVillagerType(BOPBiomes.SNOWY_CONIFEROUS_FOREST, VillagerType.TAIGA);
+        registerVillagerType(BOPBiomes.SNOWY_FIR_CLEARING, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.SNOWY_MAPLE_WOODS, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.TROPICS, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.TUNDRA, VillagerType.TAIGA);

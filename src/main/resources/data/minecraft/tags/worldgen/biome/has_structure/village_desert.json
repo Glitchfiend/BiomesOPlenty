@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     {
+      "id": "biomesoplenty:dryland",
+      "required": false
+    },
+	{
       "id": "biomesoplenty:lush_desert",
       "required": false
     }

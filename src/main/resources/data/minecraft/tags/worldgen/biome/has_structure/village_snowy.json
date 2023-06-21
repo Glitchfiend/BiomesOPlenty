@@ -4,10 +4,6 @@
     {
       "id": "biomesoplenty:cold_desert",
       "required": false
-    },
-    {
-      "id": "biomesoplenty:snowy_coniferous_forest",
-      "required": false
     }
   ]
 }

@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     {
-      "id": "biomesoplenty:dryland",
+      "id": "biomesoplenty:scrubland",
       "required": false
     }
   ]
