@@ -37,6 +37,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> HUGE_LILY_PAD = createKey("huge_lily_pad");
     public static final ResourceKey<PlacedFeature> HUGE_RED_MUSHROOM_EXTRA = createKey("huge_red_mushroom_extra");
     public static final ResourceKey<PlacedFeature> PATCH_BARLEY = createKey("patch_barley");
+    public static final ResourceKey<PlacedFeature> PATCH_BARLEY_SPARSE = createKey("patch_barley_sparse");
     public static final ResourceKey<PlacedFeature> PATCH_BLUE_HYDRANGEA = createKey("patch_blue_hydrangea");
     public static final ResourceKey<PlacedFeature> PATCH_BUSH_1 = createKey("patch_bush_1");
     public static final ResourceKey<PlacedFeature> PATCH_BUSH_4 = createKey("patch_bush_4");
@@ -303,6 +304,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.HUGE_LILY_PAD, HUGE_LILY_PAD, VegetationPlacements.worldSurfaceSquaredWithCount(10));
         register(context, BOPVegetationPlacements.HUGE_RED_MUSHROOM_EXTRA, HUGE_RED_MUSHROOM, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_BARLEY, PATCH_BARLEY, VegetationPlacements.worldSurfaceSquaredWithCount(10));
+        register(context, BOPVegetationPlacements.PATCH_BARLEY_SPARSE, PATCH_BARLEY, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_BLUE_HYDRANGEA, PATCH_BLUE_HYDRANGEA, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_BUSH_1, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.PATCH_BUSH_4, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(3));

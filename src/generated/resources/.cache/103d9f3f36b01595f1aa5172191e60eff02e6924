@@ -1,4 +1,4 @@
-// 1.20.1	2023-06-20T10:10:07.5224816	Registries
+// 1.20.1	2023-06-20T21:44:09.962356	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 4ac25760c06a50af708bfe2c09fd54ab50a52b60 data/biomesoplenty/worldgen/biome/auroral_garden.json
@@ -46,7 +46,7 @@ d9ea19540d89de3f0c068348ec3527a6a93cc2af data/biomesoplenty/worldgen/biome/rocky
 2c6f8ea89e546d32993cc39cf41bcc4375685819 data/biomesoplenty/worldgen/biome/rocky_shrubland.json
 54cbf87ad01a2efd6ec13e8d1af2963af1b057c0 data/biomesoplenty/worldgen/biome/scrubland.json
 fe58d4015ef69376fec81e9227136db9aee269ed data/biomesoplenty/worldgen/biome/seasonal_forest.json
-135ee352dfc83cbf1e571385b43eab3f56c6d986 data/biomesoplenty/worldgen/biome/seasonal_orchard.json
+01c99edc5e1e924b8601b2f078cee7b039983962 data/biomesoplenty/worldgen/biome/seasonal_orchard.json
 3b44286dc3e82410ff1db080c52df7dcf74412c3 data/biomesoplenty/worldgen/biome/shrubland.json
 bd369e92c7cfa2eaeb1986d0904f62afc1697689 data/biomesoplenty/worldgen/biome/snowblossom_grove.json
 08432a3b1e501ab39bc3bca54e096a724a7d9faf data/biomesoplenty/worldgen/biome/snowy_coniferous_forest.json
@@ -416,6 +416,7 @@ b769a2fd11d5a9394c87b20b8e44016ad51608a3 data/biomesoplenty/worldgen/placed_feat
 1cde0a46b6ec712310f3b43e560eefce76b2ed94 data/biomesoplenty/worldgen/placed_feature/origin_tree.json
 c57381ac642f9d4ab844bca8a90bf5caa3b853b7 data/biomesoplenty/worldgen/placed_feature/palm_tree.json
 00a69cee8b2d101cb84ae03d194a53e9063d94dc data/biomesoplenty/worldgen/placed_feature/patch_barley.json
+abbf0d91259286180ed4875809817e070288645c data/biomesoplenty/worldgen/placed_feature/patch_barley_sparse.json
 d14f3f84f45b351e6edc3ea65cd325edde987ac3 data/biomesoplenty/worldgen/placed_feature/patch_blue_hydrangea.json
 9b5e933e9187523be5940adcd9b31dd9d821a9a1 data/biomesoplenty/worldgen/placed_feature/patch_bush_1.json
 88c740544118f40ae9265f45490cfcdb155fe680 data/biomesoplenty/worldgen/placed_feature/patch_bush_10.json
