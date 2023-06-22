@@ -42,7 +42,7 @@ public class HugeLilyPadFeature extends Feature<NoneFeatureConfiguration>
         BlockPos startPos = featurePlaceContext.origin();
         Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
         NoneFeatureConfiguration config = featurePlaceContext.config();
-        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
+        while (startPos.getY() >= world.getMinBuildHeight()+1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
         {

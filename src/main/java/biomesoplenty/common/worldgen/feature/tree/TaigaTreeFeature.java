@@ -110,7 +110,7 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
         TaigaTreeConfiguration config = (TaigaTreeConfiguration)configBase;
 
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES))
+        while (startPos.getY() >= world.getMinBuildHeight()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES))
         {
             startPos = startPos.below();
         }

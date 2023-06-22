@@ -40,7 +40,7 @@ public class ShortBambooFeature extends Feature<NoneFeatureConfiguration>
         BlockPos pos = context.origin();
         RandomSource rand = context.random();
 
-        while (pos.getY() > 1 && this.replace.matches(world, pos)) {pos = pos.below();}
+        while (pos.getY() >= world.getMinBuildHeight()+1 && this.replace.matches(world, pos)) {pos = pos.below();}
 
         if (!this.placeOn.matches(world, pos.offset(2, 0, 2)))
         {

@@ -39,7 +39,7 @@ public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
         RandomSource rand = featurePlaceContext.random();
         BlockPos startPos = featurePlaceContext.origin();
         NoneFeatureConfiguration config = featurePlaceContext.config();
-        while (startPos.getY() > 1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
+        while (startPos.getY() >= world.getMinBuildHeight()+1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
         {

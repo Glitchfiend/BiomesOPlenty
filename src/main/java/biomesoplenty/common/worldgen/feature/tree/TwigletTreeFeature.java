@@ -34,7 +34,7 @@ public class TwigletTreeFeature extends BOPTreeFeature<TwigletTreeConfiguration>
         TwigletTreeConfiguration config = (TwigletTreeConfiguration)configBase;
 
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES))
+        while (startPos.getY() >= world.getMinBuildHeight()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES))
         {
             startPos = startPos.below();
         }

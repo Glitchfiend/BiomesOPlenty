@@ -29,7 +29,7 @@ public class BushTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
     {
         BasicTreeConfiguration config = (BasicTreeConfiguration)configBase;
         // Move down until we reach the ground
-        while (startPos.getY() > 1 && (world.isEmptyBlock(startPos) || world.getBlockState(startPos).isAir())) {startPos = startPos.below();}
+        while (startPos.getY() >= world.getMinBuildHeight()+1 && (world.isEmptyBlock(startPos) || world.getBlockState(startPos).isAir())) {startPos = startPos.below();}
 
         if (!this.canReplace(world, startPos.above()))
         {
