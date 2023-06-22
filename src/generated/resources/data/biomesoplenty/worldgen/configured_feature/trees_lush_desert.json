@@ -4,6 +4,10 @@
     "default": "biomesoplenty:acacia_twiglet",
     "features": [
       {
+        "chance": 0.1,
+        "feature": "biomesoplenty:palm_tree"
+      },
+      {
         "chance": 0.4,
         "feature": "biomesoplenty:acacia_bush_tree"
       },

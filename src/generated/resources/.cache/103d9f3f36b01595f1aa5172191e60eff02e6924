@@ -1,4 +1,4 @@
-// 1.20.1	2023-06-21T19:48:57.5113158	Registries
+// 1.20.1	2023-06-21T20:53:12.5035125	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 4ac25760c06a50af708bfe2c09fd54ab50a52b60 data/biomesoplenty/worldgen/biome/auroral_garden.json
@@ -256,7 +256,7 @@ c5a22c26fd099d67a30e64a2956cc4b5c265f431 data/biomesoplenty/worldgen/configured_
 8f53dea638ed3126428d8885cfcf616bfb17c4f6 data/biomesoplenty/worldgen/configured_feature/trees_jade_cliffs.json
 47557e3af86dd7d440314f0b782a83ae2b095416 data/biomesoplenty/worldgen/configured_feature/trees_lavender_field.json
 81ad8d0f856f91facd15fda517ccdc819a96f50b data/biomesoplenty/worldgen/configured_feature/trees_lavender_forest.json
-09b38ce04593bee8310ebe417a0ac641fe54a5d1 data/biomesoplenty/worldgen/configured_feature/trees_lush_desert.json
+5889f8d18aa98f2749e21a9b1989d48f1216f350 data/biomesoplenty/worldgen/configured_feature/trees_lush_desert.json
 458ab9b43ca57ceddb8b2d18319a9076d8d93fdd data/biomesoplenty/worldgen/configured_feature/trees_maple_forest.json
 4454b47782000d92e8ac72bae03ca931cf4aa72e data/biomesoplenty/worldgen/configured_feature/trees_muskeg.json
 717d656a3ddc6113048cf2156fd65ad00ffaa267 data/biomesoplenty/worldgen/configured_feature/trees_mystic_grove.json
