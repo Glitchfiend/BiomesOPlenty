@@ -2,11 +2,11 @@
   "advancements.biomesoplenty.root.title": "Biomas D' Montones",
   "advancements.biomesoplenty.root.description": "Explora el mundo a tu alrededor",
   "advancements.biomesoplenty.all_biomes.title": "Nómada",
-  "advancements.biomesoplenty.all_biomes.description": "Descubre cada bioma en Biomas D' Montones",
+  "advancements.biomesoplenty.all_biomes.description": "Descubre cada bioma de Biomes O' Plenty",
 
   "commands.biomesoplenty.gendata.success": "Datos generados con éxito",
-  "generator.minecraft.biomesoplenty": "Biomas D' Montones",
-  "itemGroup.biomesoplenty": "Biomas D' Montones",
+  "generator.minecraft.biomesoplenty": "Biomes O' Plenty",
+  "itemGroup.biomesoplenty": "Biomes O' Plenty",
 
   "biome.biomesoplenty.auroral_garden": "Jardín auroral",
   "biome.biomesoplenty.bamboo_grove": "Arboleda de bambú",
@@ -80,7 +80,7 @@
   "biome.biomesoplenty.woodland": "Bosque",
 
   "item.biomesoplenty.blood_bucket": "Cubo con sangre",
-  "item.biomesoplenty.bop_icon": "Icono de BDM",
+  "item.biomesoplenty.bop_icon": "Icono de BOP",
   "item.biomesoplenty.cherry_boat": "Barca de cerezo",
   "item.biomesoplenty.dead_boat": "Barca muerta",
   "item.biomesoplenty.dead_chest_boat": "Barca muerta con cofre",
@@ -97,7 +97,7 @@
   "item.biomesoplenty.mud_ball": "Bola de barro",
   "item.biomesoplenty.mud_brick": "Ladrillo de barro",
   "item.biomesoplenty.music_disc_wanderer": "Disco de música",
-  "item.biomesoplenty.music_disc_wanderer.desc": "Tim Rurkowski - Nómada",
+  "item.biomesoplenty.music_disc_wanderer.desc": "Tim Rurkowski - Wanderer",
   "item.biomesoplenty.palm_boat": "Barco de palma",
   "item.biomesoplenty.palm_chest_boat": "Barco de palma con cofre",
   "item.biomesoplenty.redwood_boat": "Barco de secuoya",
