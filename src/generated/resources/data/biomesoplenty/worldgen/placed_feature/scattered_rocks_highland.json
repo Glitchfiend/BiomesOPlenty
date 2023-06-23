@@ -1,9 +1,9 @@
 {
-  "feature": "biomesoplenty:patch_dead_grass",
+  "feature": "biomesoplenty:scattered_rocks",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 2
+      "chance": 7
     },
     {
       "type": "minecraft:in_square"

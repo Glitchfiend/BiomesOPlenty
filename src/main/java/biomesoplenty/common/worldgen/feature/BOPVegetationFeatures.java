@@ -47,6 +47,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_DRIPLEAF = createKey("big_dripleaf");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_PUMPKIN = createKey("big_pumpkin");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRAMBLE = createKey("bramble");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> COLD_DESERT_ROCKS = createKey("cold_desert_rocks");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LOG = createKey("fallen_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = createKey("fallen_fir_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDENROD = createKey("goldenrod");
@@ -216,6 +217,7 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> WILLOW_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.WILLOW_TREE_CHECKED);
         final Holder<PlacedFeature> YELLOW_AUTUMN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.YELLOW_AUTUMN_TREE_CHECKED);
 
+        register(context, BOPVegetationFeatures.COLD_DESERT_ROCKS, Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.COBBLESTONE.defaultBlockState()));
         register(context, BOPVegetationFeatures.HIGH_GRASS, BOPBaseFeatures.HIGH_GRASS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.BIG_DRIPLEAF, BOPBaseFeatures.BIG_DRIPLEAF, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.BIG_PUMPKIN, BOPBaseFeatures.BIG_PUMPKIN, NoneFeatureConfiguration.INSTANCE);

@@ -58,27 +58,28 @@ public class CragSplatterFeature extends Feature<NoneFeatureConfiguration>
                                 default:
                                 case 0:
                                 case 1:
-                                case 2:
                                     worldIn.setBlock(mutable, Blocks.COBBLESTONE.defaultBlockState(), 2);
                                     break;
 
+                                case 2:
                                 case 3:
                                 case 4:
-                                case 5:
                                     worldIn.setBlock(mutable, Blocks.GRAVEL.defaultBlockState(), 2);
                                     break;
 
+                                case 5:
                                 case 6:
-                                case 7:
                                     worldIn.setBlock(mutable, Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2);
                                     break;
 
+                                case 7:
                                 case 8:
-                                case 9:
                                     worldIn.setBlock(mutable, Blocks.ANDESITE.defaultBlockState(), 2);
                                     break;
 
+                                case 9:
                                 case 10:
+                                case 11:
                                     if (worldIn.isStateAtPosition(mutable.move(Direction.UP), BlockBehaviour.BlockStateBase::isAir))
                                     {
                                         worldIn.setBlock(mutable, Blocks.GRASS.defaultBlockState(), 2);
