@@ -1,6 +1,5 @@
 {
 	"parent": "block/block",
-	"ambientocclusion": false,
 	"textures": {
 		"top": "biomesoplenty:block/spider_egg_top",
 		"side": "biomesoplenty:block/spider_egg_side",
