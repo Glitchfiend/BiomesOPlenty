@@ -1,6 +1,6 @@
 {
     "parent": "block/tinted_cross",
     "textures": {
-        "cross": "minecraft:block/tall_grass_top"
+        "cross": "biomesoplenty:block/high_grass"
     }
 }
