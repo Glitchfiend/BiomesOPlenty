@@ -406,7 +406,7 @@ public class BOPSurfaceRuleData
 
         return SurfaceRules.sequence(
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG),
-                SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), GRAVEL)
+                SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), STONE)
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ROCKY_RAINFOREST),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), TERRACOTTA)

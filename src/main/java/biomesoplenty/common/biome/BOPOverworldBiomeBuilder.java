@@ -125,11 +125,11 @@ public class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
             // NOTE: Frozen biomes not applicable for swamp biomes
-            {null,            null,            null,              null,                 null},
-            {BOPBiomes.BOG,   BOPBiomes.BOG,   BOPBiomes.WETLAND, BOPBiomes.WETLAND,    BOPBiomes.WETLAND},
-            {BOPBiomes.MARSH, BOPBiomes.MARSH, BOPBiomes.MARSH,   BOPBiomes.MARSH,      BOPBiomes.MARSH},
-            {BOPBiomes.BAYOU, BOPBiomes.BAYOU, BOPBiomes.BAYOU,   BOPBiomes.FLOODPLAIN, BOPBiomes.FLOODPLAIN},
-            {null,            null,            null,              null,                 null}
+            {null,            null,            null,                 null,                 null},
+            {BOPBiomes.BOG,   BOPBiomes.BOG,   BOPBiomes.WETLAND,    BOPBiomes.WETLAND,    BOPBiomes.WETLAND},
+            {BOPBiomes.MARSH, BOPBiomes.MARSH, BOPBiomes.MARSH,      BOPBiomes.MARSH,      BOPBiomes.MARSH},
+            {BOPBiomes.BAYOU, BOPBiomes.BAYOU, BOPBiomes.BAYOU,      BOPBiomes.FLOODPLAIN, BOPBiomes.FLOODPLAIN},
+            {BOPBiomes.BAYOU, BOPBiomes.BAYOU, BOPBiomes.FLOODPLAIN, BOPBiomes.FLOODPLAIN, BOPBiomes.FLOODPLAIN}
     };
 
     protected final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
@@ -251,7 +251,7 @@ public class BOPOverworldBiomeBuilder
                 ResourceKey<Biome> plateauBiomeBOP                        = this.pickPlateauBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> extremeHillsBiome                      = this.pickExtremeHillsBiomeVanilla(i, j, weirdness);
                 ResourceKey<Biome> extremeHillsBiomeBOP                   = this.pickExtremeHillsBiomeBOP(biomeRegistry, i, j, weirdness);
-                ResourceKey<Biome> shatteredBiome                         = this.maybePickShatteredBiome(i, j, weirdness, extremeHillsBiome);
+                ResourceKey<Biome> shatteredBiome                         = this.maybePickShatteredBiome(biomeRegistry, i, j, weirdness, extremeHillsBiome);
                 ResourceKey<Biome> peakBiomeBOP                           = this.pickPeakBiomeBOP(biomeRegistry,  i, j, weirdness);
 
                 this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), this.erosions[0], weirdness, 0.0F, peakBiomeBOP);
@@ -286,7 +286,7 @@ public class BOPOverworldBiomeBuilder
 
                 ResourceKey<Biome> plateauBiomeBOP            = this.pickPlateauBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> extremeHillsBiomeBOP       = this.pickExtremeHillsBiomeBOP(biomeRegistry, i, j, weirdness);
-                ResourceKey<Biome> shatteredBiome             = this.maybePickShatteredBiome(i, j, weirdness, middleBiomeVanilla);
+                ResourceKey<Biome> shatteredBiome             = this.maybePickShatteredBiome(biomeRegistry, i, j, weirdness, middleBiomeVanilla);
                 ResourceKey<Biome> slopeBiomeBOP              = this.pickSlopeBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> peakBiomeBOP               = this.pickPeakBiomeBOP(biomeRegistry, i, j, weirdness);
 
@@ -327,7 +327,7 @@ public class BOPOverworldBiomeBuilder
                 ResourceKey<Biome> extremeHillsBiomeBOP       = this.pickExtremeHillsBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> plateauBiomeBOP            = this.pickPlateauBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> beachBiome                 = this.pickBeachBiome(biomeRegistry, i, j);
-                ResourceKey<Biome> shatteredBiome             = this.maybePickShatteredBiome(i, j, weirdness, middleBiomeVanilla);
+                ResourceKey<Biome> shatteredBiome             = this.maybePickShatteredBiome(biomeRegistry, i, j, weirdness, middleBiomeVanilla);
                 ResourceKey<Biome> shatteredCoastBiome        = this.pickShatteredCoastBiome(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> slopeBiomeBOP              = this.pickSlopeBiomeBOP(biomeRegistry, i, j, weirdness);
                 ResourceKey<Biome> swampBiomeBOP              = this.pickSwampBiomeBOP(biomeRegistry, i, j, weirdness);
@@ -393,7 +393,7 @@ public class BOPOverworldBiomeBuilder
                 ResourceKey<Biome> middleBadlandsOrSlopeBiomeBOP       = this.pickMiddleBiomeOrBadlandsIfHotOrSlopeIfColdBOP(biomeRegistry, i, j, weirdness);
 
                 ResourceKey<Biome> beachBiome                   = this.pickBeachBiome(biomeRegistry, i, j);
-                ResourceKey<Biome> shatteredBiome               = this.maybePickShatteredBiome(i, j, weirdness, middleBiomeVanilla);
+                ResourceKey<Biome> shatteredBiome               = this.maybePickShatteredBiome(biomeRegistry, i, j, weirdness, middleBiomeVanilla);
                 ResourceKey<Biome> shatteredCoastBiome          = this.pickShatteredCoastBiome(biomeRegistry, i, j, weirdness);
 
                 ResourceKey<Biome> swampBiomeBOP                = this.pickSwampBiomeBOP(biomeRegistry, i, j, weirdness);
@@ -513,15 +513,15 @@ public class BOPOverworldBiomeBuilder
         return BiomeUtil.biomeOrFallback(biomeRegistry, this.SWAMP_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickMiddleBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness), Biomes.SWAMP);
     }
 
-    protected ResourceKey<Biome> maybePickShatteredBiome(int temperatureIndex, int humidityIndex, Climate.Parameter weirdness, ResourceKey<Biome> extremeHillsBiome)
+    protected ResourceKey<Biome> maybePickShatteredBiome(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness, ResourceKey<Biome> extremeHillsBiome)
     {
-        return temperatureIndex > 1 && humidityIndex < 4 && weirdness.max() >= 0L ? Biomes.WINDSWEPT_SAVANNA : extremeHillsBiome;
+        return temperatureIndex > 1 && humidityIndex < 4 && weirdness.max() >= 0L ? BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.CRAG, Biomes.WINDSWEPT_SAVANNA) : extremeHillsBiome;
     }
 
     protected ResourceKey<Biome> pickShatteredCoastBiome(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
         ResourceKey<Biome> resourcekey = weirdness.max() >= 0L ? this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : this.pickBeachBiome(biomeRegistry, temperatureIndex, humidityIndex);
-        return this.maybePickShatteredBiome(temperatureIndex, humidityIndex, weirdness, resourcekey);
+        return this.maybePickShatteredBiome(biomeRegistry, temperatureIndex, humidityIndex, weirdness, resourcekey);
     }
 
     protected ResourceKey<Biome> pickBeachBiome(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
