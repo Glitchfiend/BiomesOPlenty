@@ -4,7 +4,11 @@
             { "model": "biomesoplenty:block/flesh" },
             { "model": "biomesoplenty:block/flesh", "y": 90 },
             { "model": "biomesoplenty:block/flesh", "y": 180 },
-            { "model": "biomesoplenty:block/flesh", "y": 270 }
+            { "model": "biomesoplenty:block/flesh", "y": 270 },
+			{ "model": "biomesoplenty:block/flesh_alt" },
+            { "model": "biomesoplenty:block/flesh_alt", "y": 90 },
+            { "model": "biomesoplenty:block/flesh_alt", "y": 180 },
+            { "model": "biomesoplenty:block/flesh_alt", "y": 270 }
         ]
     }
 }
