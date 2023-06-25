@@ -9,7 +9,15 @@
       "required": false
     },
 	{
+      "id": "biomesoplenty:mediterranean_forest",
+      "required": false
+    },
+	{
       "id": "biomesoplenty:mystic_grove",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:old_growth_woodland",
       "required": false
     },
 	{
@@ -17,7 +25,19 @@
       "required": false
     },
 	{
+      "id": "biomesoplenty:rocky_shrubland",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:shrubland",
+      "required": false
+    },
+	{
       "id": "biomesoplenty:tundra",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:woodland",
       "required": false
     }
   ]
