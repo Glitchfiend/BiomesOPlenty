@@ -183,7 +183,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
                             for(int l = 0; l < k; ++l)
                             {
                                 BlockPos blockpos = p_159995_.offset(blockpos$mutableblockpos);
-                                if (RoseQuartzUtils.isEmptyOrWaterOrLava(p_159993_, blockpos) || p_159993_.getBlockState(blockpos).is(BlockTags.CRYSTAL_SOUND_BLOCKS))
+                                if (RoseQuartzUtils.isEmptyOrWaterOrLava(p_159993_, blockpos) || p_159993_.getBlockState(blockpos).is(BlockTags.CRYSTAL_SOUND_BLOCKS) || p_159993_.getBlockState(blockpos).getBlock() instanceof AmethystClusterBlock)
                                 {
                                     flag = true;
                                     Block block = BOPBlocks.ROSE_QUARTZ_BLOCK.get();
@@ -191,7 +191,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
 
                                     for (Direction direction : Direction.values())
                                     {
-                                        if (p_159994_.nextInt(4) == 0)
+                                        if (p_159994_.nextInt(2) == 0)
                                         {
                                             BlockState cluster_state;
                                             switch (p_159994_.nextInt(6))
@@ -215,7 +215,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
                                             }
 
                                             BlockState state = cluster_state.setValue(AmethystClusterBlock.FACING, direction);
-                                            if (p_159993_.getBlockState(blockpos.relative(direction)).isAir() && state.canSurvive(p_159993_, blockpos.relative(direction)))
+                                            if (p_159993_.isEmptyBlock(blockpos.relative(direction)) && state.canSurvive(p_159993_, blockpos.relative(direction)))
                                             {
                                                 p_159993_.setBlock(blockpos.relative(direction), state, 2);
                                             }
