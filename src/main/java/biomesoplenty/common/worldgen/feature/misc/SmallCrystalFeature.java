@@ -11,6 +11,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.AmethystClusterBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -61,8 +63,9 @@ public class SmallCrystalFeature extends Feature<NoneFeatureConfiguration>
 
             BlockState state = cluster_state.setValue(AmethystClusterBlock.FACING, direction);
             BlockPos blockpos = pos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(4) - rand.nextInt(4));
+            Block ground = world.getBlockState(blockpos.relative(direction.getOpposite())).getBlock();
 
-            if (world.isEmptyBlock(blockpos) && state.canSurvive(world, blockpos))
+            if (world.isEmptyBlock(blockpos) && state.canSurvive(world, blockpos) && ground != Blocks.BEDROCK)
             {
                 world.setBlock(blockpos, state, 2);
 

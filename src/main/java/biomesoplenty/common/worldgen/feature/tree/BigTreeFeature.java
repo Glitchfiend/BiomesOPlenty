@@ -295,10 +295,17 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
         BigTreeConfiguration config = (BigTreeConfiguration)configBase;
 
         int height = this.checkLocation(world, pos, config.minHeight + random.nextInt(config.maxHeight), logs, config);
-        if (height == -1) {
+        if (height == -1)
+        {
             return false;
-        } else {
-            this.setBlock(world, pos.below(), Blocks.DIRT.defaultBlockState());
+        }
+        else
+        {
+            if (world.getBlockState(pos.below()).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos.below()).getBlock() == Blocks.MYCELIUM)
+            {
+                this.setBlock(world, pos.below(), Blocks.DIRT.defaultBlockState());
+            }
+
             int trunkHeight = (int)((double)height * this.trunkHeightScale);
 
             if (trunkHeight >= height) {
