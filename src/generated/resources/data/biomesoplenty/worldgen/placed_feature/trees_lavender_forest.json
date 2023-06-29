@@ -7,11 +7,11 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 9,
+            "data": 15,
             "weight": 9
           },
           {
-            "data": 10,
+            "data": 16,
             "weight": 1
           }
         ]

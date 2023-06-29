@@ -4,19 +4,15 @@
     "default": "biomesoplenty:magic_tree",
     "features": [
       {
-        "chance": 0.15,
+        "chance": 0.1,
         "feature": "biomesoplenty:big_flowering_tree"
-      },
-      {
-        "chance": 0.25,
-        "feature": "biomesoplenty:jacaranda_tree"
       },
       {
         "chance": 0.3,
         "feature": "biomesoplenty:big_magic_tree"
       },
       {
-        "chance": 0.02,
+        "chance": 0.01,
         "feature": "biomesoplenty:giant_tree"
       }
     ]

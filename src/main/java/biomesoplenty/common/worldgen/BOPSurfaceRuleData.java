@@ -468,6 +468,14 @@ public class BOPSurfaceRuleData
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), COARSE_DIRT)
                             ),
                             SurfaceRules.ifTrue(
+                                SurfaceRules.isBiome(BOPBiomes.OLD_GROWTH_WOODLAND),
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), COARSE_DIRT)
+                            ),
+                            SurfaceRules.ifTrue(
+                                SurfaceRules.isBiome(BOPBiomes.OLD_GROWTH_DEAD_FOREST),
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(2.3D), PODZOL)
+                            ),
+                            SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
                             ),

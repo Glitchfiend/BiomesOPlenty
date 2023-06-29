@@ -77,10 +77,10 @@
     [
       "minecraft:glow_lichen",
       "minecraft:patch_sugar_cane",
-      "biomesoplenty:flower_lavender",
-      "biomesoplenty:patch_tall_lavender",
       "biomesoplenty:patch_grass_24",
       "biomesoplenty:patch_tall_grass_64",
+      "biomesoplenty:flower_lavender_forest",
+      "biomesoplenty:patch_tall_lavender_forest",
       "biomesoplenty:trees_lavender_forest"
     ],
     [
