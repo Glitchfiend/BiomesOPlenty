@@ -111,6 +111,7 @@ public class BiomesOPlenty
         {
             ModBiomes.setupTerraBlender();
             ModVanillaCompat.setup();
+            ModFluids.registerFluidInteractions();
         });
     }
 

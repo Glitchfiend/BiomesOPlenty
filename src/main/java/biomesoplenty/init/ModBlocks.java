@@ -4,7 +4,10 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
-import biomesoplenty.api.block.*;
+import biomesoplenty.api.block.BOPBlockEntities;
+import biomesoplenty.api.block.BOPBlockSetTypes;
+import biomesoplenty.api.block.BOPFluids;
+import biomesoplenty.api.block.BOPWoodTypes;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.common.block.*;
 import biomesoplenty.common.block.trees.*;
