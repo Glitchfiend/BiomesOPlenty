@@ -110,29 +110,54 @@ public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
     // generate the top of the tree (3 blocks)
     public void generateLeavesTop(LevelAccessor world, BlockPos pos, int maxRadius, FoliagePlacer.FoliageSetter leaves, PalmTreeConfiguration config)
     {
+        placeLeaves(world, pos.offset(2, -2, 0), leaves, config);
+        placeLeaves(world, pos.offset(-2, -2, 0), leaves, config);
+        placeLeaves(world, pos.offset(0, -2, 2), leaves, config);
+        placeLeaves(world, pos.offset(0, -2, -2), leaves, config);
+
         placeLeaves(world, pos.offset(2, -1, 0), leaves, config);
         placeLeaves(world, pos.offset(-2, -1, 0), leaves, config);
         placeLeaves(world, pos.offset(0, -1, 2), leaves, config);
         placeLeaves(world, pos.offset(0, -1, -2), leaves, config);
+        placeLeaves(world, pos.offset(1, -1, 0), leaves, config);
+        placeLeaves(world, pos.offset(-1, -1, 0), leaves, config);
+        placeLeaves(world, pos.offset(0, -1, 1), leaves, config);
+        placeLeaves(world, pos.offset(0, -1, -1), leaves, config);
 
         placeLeaves(world, pos.offset(1, 0, 0), leaves, config);
         placeLeaves(world, pos.offset(-1, 0, 0), leaves, config);
         placeLeaves(world, pos.offset(0, 0, 1), leaves, config);
         placeLeaves(world, pos.offset(0, 0, -1), leaves, config);
+        placeLeaves(world, pos.offset(1, 0, 1), leaves, config);
+        placeLeaves(world, pos.offset(-1, 0, -1), leaves, config);
+        placeLeaves(world, pos.offset(-1, 0, 1), leaves, config);
+        placeLeaves(world, pos.offset(1, 0, -1), leaves, config);
         placeLeaves(world, pos.offset(2, 0, 2), leaves, config);
         placeLeaves(world, pos.offset(-2, 0, -2), leaves, config);
         placeLeaves(world, pos.offset(2, 0, -2), leaves, config);
         placeLeaves(world, pos.offset(-2, 0, 2), leaves, config);
 
+        placeLeaves(world, pos.offset(2, 1, 2), leaves, config);
+        placeLeaves(world, pos.offset(-2, 1, -2), leaves, config);
+        placeLeaves(world, pos.offset(2, 1, -2), leaves, config);
+        placeLeaves(world, pos.offset(-2, 1, 2), leaves, config);
         placeLeaves(world, pos.offset(1, 1, -1), leaves, config);
         placeLeaves(world, pos.offset(-1, 1, 1), leaves, config);
         placeLeaves(world, pos.offset(1, 1, 1), leaves, config);
         placeLeaves(world, pos.offset(-1, 1, -1), leaves, config);
         placeLeaves(world, pos.offset(0, 1, 0), leaves, config);
+        placeLeaves(world, pos.offset(-2, 1, 1), leaves, config);
+        placeLeaves(world, pos.offset(2, 1, 1), leaves, config);
+        placeLeaves(world, pos.offset(-2, 1, -1), leaves, config);
+        placeLeaves(world, pos.offset(2, 1, -1), leaves, config);
+        placeLeaves(world, pos.offset(-1, 1, 2), leaves, config);
+        placeLeaves(world, pos.offset(1, 1, 2), leaves, config);
+        placeLeaves(world, pos.offset(-1, 1, -2), leaves, config);
+        placeLeaves(world, pos.offset(1, 1, -2), leaves, config);
 
-        placeLeaves(world, pos.offset(2, 2, 0), leaves, config);
-        placeLeaves(world, pos.offset(-2, 2, 0), leaves, config);
-        placeLeaves(world, pos.offset(0, 2, 2), leaves, config);
-        placeLeaves(world, pos.offset(0, 2, -2), leaves, config);
+        placeLeaves(world, pos.offset(1, 2, 1), leaves, config);
+        placeLeaves(world, pos.offset(-1, 2, -1), leaves, config);
+        placeLeaves(world, pos.offset(-1, 2, 1), leaves, config);
+        placeLeaves(world, pos.offset(1, 2, -1), leaves, config);
     }
 }

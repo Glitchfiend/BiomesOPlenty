@@ -11,10 +11,10 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LightEngine;
+import net.minecraftforge.common.PlantType;
 
 public class OvergrownSandBlock extends SandBlock
 {
@@ -26,7 +26,10 @@ public class OvergrownSandBlock extends SandBlock
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable)
     {
-        return Blocks.GRASS_BLOCK.canSustainPlant(state,world,pos,facing,plantable);
+        PlantType type = plantable.getPlantType(world, pos.relative(facing));
+
+        if (type == PlantType.PLAINS) return true;
+        return false;
     }
 
     private static boolean canBeGrass(BlockState p_56824_, LevelReader p_56825_, BlockPos p_56826_)

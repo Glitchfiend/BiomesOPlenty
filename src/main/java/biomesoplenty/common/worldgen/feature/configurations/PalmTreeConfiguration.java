@@ -41,7 +41,7 @@ public class PalmTreeConfiguration extends BOPTreeConfiguration
             this.minHeight = 10;
             this.maxHeight = 14;
             this.trunkProvider = BlockStateProvider.simple(BOPBlocks.PALM_LOG.get());
-            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.PALM_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.PALM_LEAVES.get());
         }
 
         public PalmTreeConfiguration build()
