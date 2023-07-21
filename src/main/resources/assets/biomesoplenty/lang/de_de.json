@@ -108,8 +108,8 @@
   "block.biomesoplenty.blackstone_spines": "Schwarzsteinstacheln",
   "block.biomesoplenty.blood": "Blut",
   "block.biomesoplenty.blue_hydrangea": "Blaue Hortensie",
-  "block.biomesoplenty.bramble": "Brombeere",
-  "block.biomesoplenty.bramble_leaves": "Brombeerlaub",
+  "block.biomesoplenty.bramble": "Strauch",
+  "block.biomesoplenty.bramble_leaves": "Strauchlaub",
   "block.biomesoplenty.brimstone": "Schwefel",
   "block.biomesoplenty.brimstone_bricks": "Schwefelsteine",
   "block.biomesoplenty.brimstone_brick_slab": "Schwelfelziegelsteinstufe",
@@ -451,7 +451,7 @@
   "trim_material.biomesoplenty.rose_quartz": "Rosenquarz",
   
   "death.attack.bramble": "%1$s wurde zu Tode gestochen",
-  "death.attack.bramble.player": "%1$s blieb beim Versuch, %2$s zu entkommen, im Brombeergestrüpp hängen",
+  "death.attack.bramble.player": "%1$s blieb beim Versuch, %2$s zu entkommen, im Strauch hängen",
   "death.attack.fumarole": "%1$s wurde bei lebendigem Leibe gedämpft",
   "death.attack.fumarole.player": "%1$s hat wegen %2$s ein tödliches Dampfbad genommen",
   
