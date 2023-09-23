@@ -25,7 +25,7 @@ public class GlowingMossBlock extends MossBlock implements BonemealableBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_, boolean p_153800_)
+    public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_)
     {
         return p_153797_.getBlockState(p_153798_.above()).isAir();
     }

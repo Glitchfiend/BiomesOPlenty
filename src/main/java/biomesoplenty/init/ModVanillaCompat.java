@@ -9,7 +9,7 @@ import biomesoplenty.api.item.BOPItems;
 import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.world.entity.player.Player;
@@ -30,8 +30,8 @@ public class ModVanillaCompat
 
             public ItemStack execute(BlockSource p_123561_, ItemStack p_123562_) {
                 DispensibleContainerItem dispensiblecontaineritem = (DispensibleContainerItem)p_123562_.getItem();
-                BlockPos blockpos = p_123561_.getPos().relative(p_123561_.getBlockState().getValue(DispenserBlock.FACING));
-                Level level = p_123561_.getLevel();
+                BlockPos blockpos = p_123561_.pos().relative(p_123561_.state().getValue(DispenserBlock.FACING));
+                Level level = p_123561_.level();
                 if (dispensiblecontaineritem.emptyContents((Player)null, level, blockpos, (BlockHitResult)null)) {
                     dispensiblecontaineritem.checkExtraContent((Player)null, level, p_123562_, blockpos);
                     return new ItemStack(Items.BUCKET);

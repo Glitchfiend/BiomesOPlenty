@@ -65,7 +65,7 @@ public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean p_176473_4_)
+    public boolean isValidBonemealTarget(LevelReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_)
     {
         return false;
     }

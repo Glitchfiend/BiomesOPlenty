@@ -28,18 +28,10 @@ public class FlowerBlockBOP extends FlowerBlock
 	protected static final VoxelShape NORMAL = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
     protected static final VoxelShape MEDIUM = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 12.0D, 13.0D);
 	protected static final VoxelShape LARGE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
-    private final MobEffect stewEffect;
-    private final int stewEffectDuration;
 	
-    public FlowerBlockBOP(MobEffect p_i49984_1_, int effectDuration, Block.Properties properties)
+    public FlowerBlockBOP(MobEffect effect, int effectDuration, Block.Properties properties)
     {
-        super(p_i49984_1_, 0, properties);
-        this.stewEffect = p_i49984_1_;
-        if (p_i49984_1_.isInstantenous()) {
-            this.stewEffectDuration = effectDuration;
-        } else {
-            this.stewEffectDuration = effectDuration * 20;
-        }
+        super(effect, 0, properties);
     }
 
     @Override
@@ -121,15 +113,5 @@ public class FlowerBlockBOP extends FlowerBlock
 	    	   worldIn.addParticle(ParticleTypes.SMOKE, (double)(pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D)), (double)(pos.getY() + 0.75D), (double)(pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 4.0D)), 0.0D, 0.0D, 0.0D);
 	       }
 	   }
-    }
-
-    @Override
-    public MobEffect getSuspiciousEffect() {
-        return this.stewEffect;
-    }
-
-    @Override
-    public int getEffectDuration() {
-        return this.stewEffectDuration;
     }
 }

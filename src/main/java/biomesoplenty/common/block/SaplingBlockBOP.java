@@ -71,7 +71,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
     * Whether this IGrowable can grow
     */
    @Override
-   public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient)
+   public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state)
    {
       return true;
    }
