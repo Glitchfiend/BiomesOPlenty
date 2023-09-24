@@ -52,8 +52,8 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         WorldGenLevel world = context.level();
         RandomSource rand = context.random();
         BlockPos pos = context.origin();
-        final int endHeight = world.getHeight() - 2;
-
+        final int maxY = world.getMinBuildHeight() + world.getHeight() - 1;
+        
         BlockState below = world.getBlockState(pos.below());
         if (!below.is(ModTags.Blocks.FLESH))
         {
@@ -66,7 +66,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         int minZ = rand.nextBoolean() ? MIN_DISTANCE : -MIN_DISTANCE;
         BlockPos endPos = pos.offset(Math.abs(xOff) < MIN_DISTANCE ? minX : xOff, pos.getY(), Math.abs(zOff) < MIN_DISTANCE ? minZ : zOff);
 
-        while (world.isEmptyBlock(endPos) && endPos.getY() < endHeight)
+        while (world.isEmptyBlock(endPos) && endPos.getY() < maxY)
         {
             endPos = endPos.above();
         }
@@ -83,7 +83,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         {
             BlockPos curPos = quadratic(d, pos, midPos, endPos);
 
-            if (curPos.getY() < endHeight)
+            if (curPos.getY() < maxY)
             {
                 BlockState fleshBlock = BOPBlocks.FLESH.get().defaultBlockState();
                 if (rand.nextInt(5) == 0)
