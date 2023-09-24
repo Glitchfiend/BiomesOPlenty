@@ -451,7 +451,7 @@
   "trim_material.biomesoplenty.rose_quartz": "Rose Quartz Material",
   
   "death.attack.bramble": "%1$s was punctured to death",
-  "death.attack.bramble.player": "%1$s got caught in bramble whilst trying to escape %2$s",
+  "death.attack.bramble.player": "%1$s got caught in bramble while trying to escape %2$s",
   "death.attack.fumarole": "%1$s was steamed alive",
   "death.attack.fumarole.player": "%1$s took a fatal steam bath due to %2$s",
   
