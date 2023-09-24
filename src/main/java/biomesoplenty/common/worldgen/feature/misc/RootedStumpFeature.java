@@ -73,7 +73,16 @@ public class RootedStumpFeature extends Feature<NoneFeatureConfiguration>
         }
 
         BlockPos pos = startPos.above();
-        int height = rand.nextInt(3) + 1;
+        int height = 1;
+        if (rand.nextInt(4) == 0)
+        {
+            height = 2;
+
+            if (rand.nextInt(4) == 0)
+            {
+            height = 3;
+            }
+        }
 
         for (int i = 0; i < height; i++)
         {
