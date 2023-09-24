@@ -137,7 +137,7 @@ public class ModBlocks
         STRINGY_COBWEB = registerBlock(() -> new StringyCobwebBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.WOOL)), "stringy_cobweb");
         WEBBING = registerBlock(() -> new WebbingBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.WOOL)), "webbing");
 
-        ORIGIN_GRASS_BLOCK = registerBlock(() -> new GrassBlock(BlockBehaviour.Properties.of().randomTicks().strength(0.6F).randomTicks().sound(SoundType.GRASS)), "origin_grass_block");
+        ORIGIN_GRASS_BLOCK = registerBlock(() -> new OriginGrassBlock(BlockBehaviour.Properties.of().randomTicks().strength(0.6F).randomTicks().sound(SoundType.GRASS)), "origin_grass_block");
 
         //Trees
         ORIGIN_SAPLING = registerBlock(() -> new SaplingBlockBOP(new OriginTree(), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "origin_sapling");

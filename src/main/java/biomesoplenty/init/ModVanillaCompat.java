@@ -7,7 +7,6 @@ package biomesoplenty.init;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import com.google.common.collect.Maps;
-import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
@@ -198,8 +197,7 @@ public class ModVanillaCompat
         registerStrippable(BOPBlocks.HELLBARK_LOG.get(), BOPBlocks.STRIPPED_HELLBARK_LOG.get());
         registerStrippable(BOPBlocks.HELLBARK_WOOD.get(), BOPBlocks.STRIPPED_HELLBARK_WOOD.get());
 
-        //Tilling and Flattening
-        registerTillable(BOPBlocks.ORIGIN_GRASS_BLOCK.get(), Blocks.FARMLAND.defaultBlockState());
+        // Flattening
         registerFlattenable(BOPBlocks.ORIGIN_GRASS_BLOCK.get(), Blocks.DIRT_PATH.defaultBlockState());
 
         //Compostable Blocks
@@ -293,11 +291,6 @@ public class ModVanillaCompat
     public static void registerStrippable(Block log, Block stripped_log) {
         AxeItem.STRIPPABLES = Maps.newHashMap(AxeItem.STRIPPABLES);
         AxeItem.STRIPPABLES.put(log, stripped_log);
-    }
-
-    public static void registerTillable(Block block, BlockState tilled_block) {
-        HoeItem.TILLABLES = Maps.newHashMap(HoeItem.TILLABLES);
-        HoeItem.TILLABLES.put(block, Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(tilled_block)));
     }
 
     public static void registerFlattenable(Block block, BlockState flattened_block) {
