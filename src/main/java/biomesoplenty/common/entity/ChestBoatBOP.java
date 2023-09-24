@@ -109,27 +109,27 @@ public class ChestBoatBOP extends ChestBoat
         switch (BoatBOP.ModelType.byId(this.entityData.get(DATA_ID_TYPE)))
         {
             case FIR:
-                return BOPItems.FIR_BOAT.get();
+                return BOPItems.FIR_CHEST_BOAT.get();
             case REDWOOD:
-                return BOPItems.REDWOOD_BOAT.get();
+                return BOPItems.REDWOOD_CHEST_BOAT.get();
             case MAHOGANY:
-                return BOPItems.MAHOGANY_BOAT.get();
+                return BOPItems.MAHOGANY_CHEST_BOAT.get();
             case JACARANDA:
-                return BOPItems.JACARANDA_BOAT.get();
+                return BOPItems.JACARANDA_CHEST_BOAT.get();
             case PALM:
-                return BOPItems.PALM_BOAT.get();
+                return BOPItems.PALM_CHEST_BOAT.get();
             case WILLOW:
-                return BOPItems.WILLOW_BOAT.get();
+                return BOPItems.WILLOW_CHEST_BOAT.get();
             case DEAD:
-                return BOPItems.DEAD_BOAT.get();
+                return BOPItems.DEAD_CHEST_BOAT.get();
             case MAGIC:
-                return BOPItems.MAGIC_BOAT.get();
+                return BOPItems.MAGIC_CHEST_BOAT.get();
             case UMBRAN:
-                return BOPItems.UMBRAN_BOAT.get();
+                return BOPItems.UMBRAN_CHEST_BOAT.get();
             case HELLBARK:
-                return BOPItems.HELLBARK_BOAT.get();
+                return BOPItems.HELLBARK_CHEST_BOAT.get();
         }
-        return Items.OAK_BOAT;
+        return Items.OAK_CHEST_BOAT;
     }
 
     public void setModel(BoatBOP.ModelType type)
