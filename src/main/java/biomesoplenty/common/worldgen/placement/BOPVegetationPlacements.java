@@ -173,6 +173,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> BRAMBLE = createKey("bramble");
     public static final ResourceKey<PlacedFeature> MOSS_SPLATTER = createKey("moss_splatter");
     public static final ResourceKey<PlacedFeature> PUMPKIN_PATCH = createKey("pumpkin_patch");
+    public static final ResourceKey<PlacedFeature> ROOTED_STUMP = createKey("rooted_stump");
     public static final ResourceKey<PlacedFeature> SCATTERED_ROCKS = createKey("scattered_rocks");
     public static final ResourceKey<PlacedFeature> SCATTERED_ROCKS_HIGHLAND = createKey("scattered_rocks_highland");
     public static final ResourceKey<PlacedFeature> SCRUB_EXTRA = createKey("scrub_extra");
@@ -293,6 +294,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> BRAMBLE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BRAMBLE);
         final Holder<ConfiguredFeature<?, ?>> MOSS_SPLATTER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.MOSS_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> PUMPKIN_PATCH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PUMPKIN_PATCH);
+        final Holder<ConfiguredFeature<?, ?>> ROOTED_STUMP = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ROOTED_STUMP);
         final Holder<ConfiguredFeature<?, ?>> SCATTERED_ROCKS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SCATTERED_ROCKS);
         final Holder<ConfiguredFeature<?, ?>> SCRUB = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SCRUB);
         final Holder<ConfiguredFeature<?, ?>> SHORT_BAMBOO = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SHORT_BAMBOO);
@@ -420,7 +422,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_OMINOUS_WOODS, TREES_OMINOUS_WOODS, treePlacement(PlacementUtils.countExtra(6, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_ORCHARD, TREES_ORCHARD, treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_ORIGIN_VALLEY, TREES_ORIGIN_VALLEY, treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
-        register(context, BOPVegetationPlacements.TREES_PRAIRIE, TREES_PRAIRIE, treePlacement(PlacementUtils.countExtra(0, 0.5F, 1)));
+        register(context, BOPVegetationPlacements.TREES_PRAIRIE, TREES_PRAIRIE, treePlacement(PlacementUtils.countExtra(0, 0.2F, 2)));
         register(context, BOPVegetationPlacements.TREES_WASTELAND, TREES_WASTELAND, treePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_WETLAND, TREES_WETLAND, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_WOODLAND, OAK, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1), Blocks.OAK_SAPLING));
@@ -446,6 +448,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.BRAMBLE, BRAMBLE, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.MOSS_SPLATTER, MOSS_SPLATTER, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PUMPKIN_PATCH, PUMPKIN_PATCH, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.ROOTED_STUMP, ROOTED_STUMP, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.SCATTERED_ROCKS, SCATTERED_ROCKS, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SCATTERED_ROCKS_HIGHLAND, SCATTERED_ROCKS, List.of(RarityFilter.onAverageOnceEvery(7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SCRUB_EXTRA, SCRUB, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

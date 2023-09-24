@@ -56,6 +56,7 @@
       "minecraft:ore_redstone",
       "minecraft:ore_redstone_lower",
       "minecraft:ore_diamond",
+      "minecraft:ore_diamond_medium",
       "minecraft:ore_diamond_large",
       "minecraft:ore_diamond_buried",
       "minecraft:ore_lapis",
@@ -72,6 +73,7 @@
       "minecraft:glow_lichen",
       "biomesoplenty:trees_prairie",
       "biomesoplenty:flower_coniferous_forest",
+      "biomesoplenty:rooted_stump",
       "biomesoplenty:goldenrod",
       "biomesoplenty:patch_grass_24",
       "biomesoplenty:patch_tall_grass_24"

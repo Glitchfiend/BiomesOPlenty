@@ -78,6 +78,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_WATERLILY_FLOWER = createKey("patch_waterlily_flower");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PUMPKIN_PATCH = createKey("pumpkin_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINFOREST_CLIFFS_VINES = createKey("rainforest_cliffs_vines");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTED_STUMP = createKey("rooted_stump");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE_BUSH = createKey("rose_bush");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SCATTERED_ROCKS = createKey("scattered_rocks");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SCRUB = createKey("scrub");
@@ -251,6 +252,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_WATERLILY_FLOWER, Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERLILY.get())))));
         register(context, BOPVegetationFeatures.PUMPKIN_PATCH, BOPBaseFeatures.PUMPKIN_PATCH, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES, BOPBaseFeatures.RAINFOREST_CLIFFS_VINES, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.ROOTED_STUMP, BOPBaseFeatures.ROOTED_STUMP, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ROSE_BUSH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ROSE_BUSH))));
         register(context, BOPVegetationFeatures.SCATTERED_ROCKS, BOPBaseFeatures.SCATTERED_ROCKS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.SCRUB, BOPBaseFeatures.SCRUB, NoneFeatureConfiguration.INSTANCE);
