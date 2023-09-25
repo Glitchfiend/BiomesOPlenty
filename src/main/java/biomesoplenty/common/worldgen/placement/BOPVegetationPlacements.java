@@ -313,7 +313,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.HUGE_LILY_PAD, HUGE_LILY_PAD, VegetationPlacements.worldSurfaceSquaredWithCount(10));
         register(context, BOPVegetationPlacements.HUGE_RED_MUSHROOM_EXTRA, HUGE_RED_MUSHROOM, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_BARLEY, PATCH_BARLEY, VegetationPlacements.worldSurfaceSquaredWithCount(10));
-        register(context, BOPVegetationPlacements.PATCH_BARLEY_SPARSE, PATCH_BARLEY, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_BARLEY_SPARSE, PATCH_BARLEY, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_BLUE_HYDRANGEA, PATCH_BLUE_HYDRANGEA, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_BUSH_1, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.PATCH_BUSH_4, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(3));

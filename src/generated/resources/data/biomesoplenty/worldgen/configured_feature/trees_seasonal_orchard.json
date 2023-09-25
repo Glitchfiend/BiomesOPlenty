@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "biomesoplenty:yellow_autumn_tree",
+    "default": "biomesoplenty:aspen_tree",
     "features": [
       {
         "chance": 0.05,

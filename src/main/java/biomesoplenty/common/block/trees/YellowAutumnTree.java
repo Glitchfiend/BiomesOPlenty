@@ -15,6 +15,6 @@ public class YellowAutumnTree extends AbstractTreeGrower
    @Override
    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_YELLOW_AUTUMN_TREE : BOPTreeFeatures.YELLOW_AUTUMN_TREE);
+      return (random.nextInt(10) == 0 ? (random.nextInt(5) == 0 ? BOPTreeFeatures.ASPEN_TREE : BOPTreeFeatures.BIG_YELLOW_AUTUMN_TREE) : BOPTreeFeatures.YELLOW_AUTUMN_TREE);
    }
 }

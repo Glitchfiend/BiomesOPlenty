@@ -29,6 +29,7 @@ public class BOPTreePlacements
     public static final ResourceKey<PlacedFeature> ACACIA_BUSH_TREE_CHECKED = createKey("acacia_bush_tree");
     public static final ResourceKey<PlacedFeature> ACACIA_TWIGLET_CHECKED = createKey("acacia_twiglet");
     public static final ResourceKey<PlacedFeature> ACACIA_TWIGLET_SMALL_CHECKED = createKey("acacia_twiglet_small");
+    public static final ResourceKey<PlacedFeature> ASPEN_TREE_CHECKED = createKey("aspen_tree");
     public static final ResourceKey<PlacedFeature> BIG_FLOWERING_TREE_CHECKED = createKey("big_flowering_tree");
     public static final ResourceKey<PlacedFeature> BIG_HELLBARK_TREE_CHECKED = createKey("big_hellbark_tree");
     public static final ResourceKey<PlacedFeature> BIG_JACARANDA_TREE_CHECKED = createKey("big_jacaranda_tree");
@@ -95,6 +96,7 @@ public class BOPTreePlacements
         final Holder<ConfiguredFeature<?, ?>> ACACIA_BUSH_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_BUSH_TREE);
         final Holder<ConfiguredFeature<?, ?>> ACACIA_TWIGLET = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_TWIGLET);
         final Holder<ConfiguredFeature<?, ?>> ACACIA_TWIGLET_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_TWIGLET_SMALL);
+        final Holder<ConfiguredFeature<?, ?>> ASPEN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ASPEN_TREE);
         final Holder<ConfiguredFeature<?, ?>> BIG_FLOWERING_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_FLOWERING_OAK_TREE);
         final Holder<ConfiguredFeature<?, ?>> BIG_HELLBARK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_HELLBARK_TREE);
         final Holder<ConfiguredFeature<?, ?>> BIG_JACARANDA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_JACARANDA_TREE);
@@ -157,6 +159,7 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.ACACIA_BUSH_TREE_CHECKED, ACACIA_BUSH_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BOPBlocks.ORANGE_SAND.get()))));
         register(context, BOPTreePlacements.ACACIA_TWIGLET_CHECKED, ACACIA_TWIGLET, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BOPBlocks.ORANGE_SAND.get())))));
         register(context, BOPTreePlacements.ACACIA_TWIGLET_SMALL_CHECKED, ACACIA_TWIGLET_SMALL, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.SAND, BOPBlocks.ORANGE_SAND.get())))));
+        register(context, BOPTreePlacements.ASPEN_TREE_CHECKED, ASPEN_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.YELLOW_AUTUMN_SAPLING.get())));
         register(context, BOPTreePlacements.BIG_FLOWERING_TREE_CHECKED, BIG_FLOWERING_OAK_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING.get())));
         register(context, BOPTreePlacements.BIG_HELLBARK_TREE_CHECKED, BIG_HELLBARK_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.HELLBARK_SAPLING.get())));
         register(context, BOPTreePlacements.BIG_JACARANDA_TREE_CHECKED, BIG_JACARANDA_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.JACARANDA_SAPLING.get())));
