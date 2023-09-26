@@ -157,7 +157,6 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> FANCY_OAK_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.FANCY_OAK_CHECKED);
         final Holder<PlacedFeature> JUNGLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.JUNGLE_TREE_CHECKED);
         final Holder<PlacedFeature> OAK_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.OAK_CHECKED);
-        final Holder<PlacedFeature> PINE_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.PINE_CHECKED);
         final Holder<PlacedFeature> ACACIA_BUSH_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ACACIA_BUSH_TREE_CHECKED);
         final Holder<PlacedFeature> ACACIA_TWIGLET_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ACACIA_TWIGLET_CHECKED);
         final Holder<PlacedFeature> ACACIA_TWIGLET_SMALL_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ACACIA_TWIGLET_SMALL_CHECKED);
@@ -199,6 +198,7 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> ORANGE_AUTUMN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORANGE_AUTUMN_TREE_CHECKED);
         final Holder<PlacedFeature> ORIGIN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORIGIN_TREE_CHECKED);
         final Holder<PlacedFeature> PALM_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.PALM_TREE_CHECKED);
+        final Holder<PlacedFeature> PINE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.PINE_TREE_CHECKED);
         final Holder<PlacedFeature> RAINBOW_BIRCH_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.RAINBOW_BIRCH_TREE_CHECKED);
         final Holder<PlacedFeature> REDWOOD_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.REDWOOD_TREE_CHECKED);
         final Holder<PlacedFeature> REDWOOD_TREE_LARGE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.REDWOOD_TREE_LARGE_CHECKED);
@@ -316,7 +316,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_FIELD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_BEES_CHECKED, 0.1F)), OAK_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_FIELD_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.25F)), TALL_SPRUCE_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_FUNGAL_JUNGLE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_OAK_TREE_CHECKED, 0.05F)), JUNGLE_BUSH_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_JADE_CLIFFS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.075F), new WeightedPlacedFeature(PINE_CHECKED, 0.075F)), SPRUCE_BUSH_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_JADE_CLIFFS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PINE_TREE_CHECKED, 0.075F)), SPRUCE_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LAVENDER_FIELD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FLOWERING_OAK_TREE_BEES_CHECKED, 0.2F), new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_JACARANDA_TREE_CHECKED, 0.1F)), JACARANDA_TREE_BEES_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LAVENDER_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.1F)), BIG_JACARANDA_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LUSH_DESERT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PALM_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(ACACIA_BUSH_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(SPARSE_ACACIA_TREE_CHECKED, 0.2F)), ACACIA_TWIGLET_CHECKED));
