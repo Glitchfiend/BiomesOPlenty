@@ -131,6 +131,18 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                                         this.placeLeaves(world, leavesPos, leaves, config);
                                     }
                                 }
+
+                                int hanging_height = random.nextInt(2) + 1;
+                                if (config.hangingProvider.getState(random, pos) != Blocks.AIR.defaultBlockState() && random.nextInt(2) == 0)
+                                {
+                                    for (int i = 0; i < hanging_height; i++)
+                                    {
+                                        if (this.canReplace(world, leavesPos.below(i)))
+                                        {
+                                            this.setHanging(world, leavesPos.below(i), config);
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -187,9 +199,6 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                     }
                 }
 
-                //Generate fruit or any other blocks that may hang off of the tree
-                if (config.hangingProvider.getState(random, pos) != Blocks.AIR.defaultBlockState()) this.generateHanging(world, pos, random, height,config);
-
                 if (config.trunkFruitProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
                 {
                     if (random.nextInt(5) == 0 && height > 5)
@@ -226,25 +235,6 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
             if (this.canReplace(world, blockpos2))
             {
                 this.placeLog(world, start.above(layer), logs, config);
-            }
-        }
-    }
-
-    protected void generateHanging(LevelAccessor world, BlockPos start, RandomSource rand, int height, BasicTreeConfiguration config)
-    {
-        //Generate below the bottom layer of leaves
-        int y = start.getY() + (height - config.leafLayers);
-
-        for (int x = start.getX() - (config.maxLeavesRadius + 1); x <= start.getX() + (config.maxLeavesRadius + 1); x++)
-        {
-            for (int z = start.getZ() - (config.maxLeavesRadius + 1); z <= start.getZ() + (config.maxLeavesRadius + 1); z++)
-            {
-                BlockPos hangingPos = new BlockPos(x, y, z);
-
-                if (!world.isEmptyBlock(hangingPos.above()) && (world.isEmptyBlock(hangingPos)) && rand.nextFloat() <= config.hangingChance)
-                {
-                    this.setHanging(world, hangingPos, config);
-                }
             }
         }
     }

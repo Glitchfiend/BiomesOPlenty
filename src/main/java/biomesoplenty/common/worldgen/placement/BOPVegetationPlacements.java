@@ -411,8 +411,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_FUNGAL_JUNGLE, TREES_FUNGAL_JUNGLE, treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_FIR_CLEARING, FIR_TREE_SMALL, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BOPBlocks.FIR_SAPLING.get()));
         register(context, BOPVegetationPlacements.TREES_JADE_CLIFFS, TREES_JADE_CLIFFS, treePlacement(PlacementUtils.countExtra(25, 0.1F, 1)));
-        register(context, BOPVegetationPlacements.TREES_LAVENDER_FIELD, TREES_LAVENDER_FIELD, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
-        register(context, BOPVegetationPlacements.TREES_LAVENDER_FOREST, TREES_LAVENDER_FOREST, treePlacement(PlacementUtils.countExtra(15, 0.1F, 1)));
+        register(context, BOPVegetationPlacements.TREES_LAVENDER_FIELD, TREES_LAVENDER_FIELD, treePlacement(PlacementUtils.countExtra(1, 0.1F, 25)));
+        register(context, BOPVegetationPlacements.TREES_LAVENDER_FOREST, TREES_LAVENDER_FOREST, treePlacement(PlacementUtils.countExtra(7, 0.2F, 10)));
         register(context, BOPVegetationPlacements.TREES_LUSH_DESERT, TREES_LUSH_DESERT, treePlacement(PlacementUtils.countExtra(0, 0.2F, 8)));
         register(context, BOPVegetationPlacements.TREES_MAPLE_FOREST, TREES_MAPLE_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_MEDITERRANEAN_FOREST, TREES_MEDITERRANEAN_FOREST, treePlacement(PlacementUtils.countExtra(3, 0.1F, 1)));

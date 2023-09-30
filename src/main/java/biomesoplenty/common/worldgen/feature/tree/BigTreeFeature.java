@@ -76,6 +76,18 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
                             this.placeLeaves(world, blockpos, leaves, config);
                         }
                     }
+
+                    int hanging_height = random.nextInt(3) + 1;
+                    if (config.hangingProvider.getState(random, pos) != Blocks.AIR.defaultBlockState() && random.nextInt(4) == 0)
+                    {
+                        for (int i = 0; i < hanging_height; i++)
+                        {
+                            if (this.canReplace(world, blockpos.below(i)))
+                            {
+                                this.setHanging(world, blockpos.below(i), config);
+                            }
+                        }
+                    }
                 }
             }
         }
