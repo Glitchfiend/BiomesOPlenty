@@ -4,6 +4,10 @@
       "id": "biomesoplenty:bayou",
       "required": false
     },
+	{
+      "id": "biomesoplenty:dryland",
+      "required": false
+    },
     {
       "id": "biomesoplenty:floodplain",
       "required": false
@@ -18,6 +22,10 @@
     },
     {
       "id": "biomesoplenty:lush_savanna",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:tropics",
       "required": false
     },
     {
