@@ -24,6 +24,7 @@ import static biomesoplenty.common.util.worldgen.BOPPlacementUtils.createKey;
 
 public class BOPMiscOverworldPlacements
 {
+    public static final ResourceKey<PlacedFeature> CRAG_MOSS = createKey("crag_moss");
     public static final ResourceKey<PlacedFeature> CRAG_SPLATTER = createKey("crag_splatter");
     public static final ResourceKey<PlacedFeature> DISK_BLACK_SAND = createKey("disk_black_sand");
     public static final ResourceKey<PlacedFeature> DISK_CALCITE = createKey("disk_calcite");
@@ -45,6 +46,7 @@ public class BOPMiscOverworldPlacements
     {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
+        final Holder<ConfiguredFeature<?, ?>> CRAG_MOSS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.CRAG_MOSS);
         final Holder<ConfiguredFeature<?, ?>> CRAG_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.CRAG_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> DISK_BLACK_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_BLACK_SAND);
         final Holder<ConfiguredFeature<?, ?>> DISK_CALCITE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_CALCITE);
@@ -60,6 +62,7 @@ public class BOPMiscOverworldPlacements
         final Holder<ConfiguredFeature<?, ?>> SPRING_LAVA_VOLCANO = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO);
         final Holder<ConfiguredFeature<?, ?>> SPRING_WATER_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_WATER_EXTRA);
 
+        register(context, BOPMiscOverworldPlacements.CRAG_MOSS, CRAG_MOSS, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.CRAG_SPLATTER, CRAG_SPLATTER, List.of(CountPlacement.of(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.DISK_BLACK_SAND, DISK_BLACK_SAND, List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.DISK_CALCITE, DISK_CALCITE, List.of(CountPlacement.of(14), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));

@@ -25,6 +25,7 @@ public class BOPBaseFeatures
     public static final BOPTreeFeature<BigTreeConfiguration> BIG_TREE = register("big_tree", new BigTreeFeature(BigTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> BRAMBLE = register("bramble", new BrambleFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> CORNER_COBWEBS = register("corner_cobwebs", new CornerCobwebFeature(NoneFeatureConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> CRAG_MOSS = register("crag_moss", new CragMossFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> CRAG_SPLATTER = register("crag_splatter", new CragSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final BOPTreeFeature<CypressTreeConfiguration> CYPRESS_TREE = register("cypress_tree", new CypressTreeFeature(CypressTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> DRIPSTONE_SPLATTER = register("dripstone_splatter", new DripstoneSplatterFeature(NoneFeatureConfiguration.CODEC));

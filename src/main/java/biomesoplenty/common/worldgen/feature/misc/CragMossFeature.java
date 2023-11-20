@@ -17,9 +17,9 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class CragSplatterFeature extends Feature<NoneFeatureConfiguration>
+public class CragMossFeature extends Feature<NoneFeatureConfiguration>
 {
-    public CragSplatterFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public CragMossFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
@@ -44,30 +44,42 @@ public class CragSplatterFeature extends Feature<NoneFeatureConfiguration>
                 int dz = z - pos.getZ();
                 if (dx * dx + dz * dz <= radius * radius)
                 {
-                    for (int k1 = pos.getY() - 6; k1 <= pos.getY() + 6; ++k1)
+                    for (int k1 = pos.getY() - 2; k1 <= pos.getY() + 2; ++k1)
                     {
                         mutable.set(x, k1, z);
                         BlockState blockstate = worldIn.getBlockState(mutable);
                         BlockState blockstate1 = worldIn.getBlockState(mutable.move(Direction.UP));
                         mutable.move(Direction.DOWN);
 
-                        if ((blockstate.getBlock() == Blocks.STONE || blockstate.getBlock() == Blocks.GRAVEL || blockstate.getBlock() == Blocks.ANDESITE || blockstate.getBlock() == Blocks.DIORITE || blockstate.getBlock() == Blocks.GRANITE || blockstate.getBlock() == Blocks.DIRT))
+                        if (blockstate1.getBlock() == Blocks.AIR && blockstate.getBlock() == Blocks.STONE || blockstate.getBlock() == Blocks.GRAVEL || blockstate.getBlock() == Blocks.ANDESITE || blockstate.getBlock() == Blocks.DIORITE || blockstate.getBlock() == Blocks.GRANITE || blockstate.getBlock() == Blocks.DIRT)
                         {
-                            switch (rand.nextInt(5))
+                            switch (rand.nextInt(2))
                             {
                                 default:
                                 case 0:
+                                    worldIn.setBlock(mutable, Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2);
+                                    if (rand.nextInt(3) != 0 && worldIn.isStateAtPosition(mutable.move(Direction.UP), BlockBehaviour.BlockStateBase::isAir))
+                                    {
+                                        worldIn.setBlock(mutable, Blocks.MOSS_CARPET.defaultBlockState(), 2);
+                                    }
+                                    break;
+
                                 case 1:
-                                    worldIn.setBlock(mutable, Blocks.COBBLESTONE.defaultBlockState(), 2);
-                                    break;
+                                    worldIn.setBlock(mutable, Blocks.MOSS_BLOCK.defaultBlockState(), 2);
+                                    if (worldIn.isStateAtPosition(mutable.move(Direction.UP), BlockBehaviour.BlockStateBase::isAir))
+                                    {
+                                        switch (rand.nextInt(2))
+                                        {
+                                            default:
+                                            case 0:
+                                                worldIn.setBlock(mutable, Blocks.GRASS.defaultBlockState(), 2);
+                                                break;
 
-                                case 2:
-                                case 3:
-                                    worldIn.setBlock(mutable, Blocks.GRAVEL.defaultBlockState(), 2);
-                                    break;
-
-                                case 4:
-                                    worldIn.setBlock(mutable, Blocks.ANDESITE.defaultBlockState(), 2);
+                                            case 1:
+                                                worldIn.setBlock(mutable, Blocks.MOSS_CARPET.defaultBlockState(), 2);
+                                                break;
+                                        }
+                                    }
                                     break;
                             }
 

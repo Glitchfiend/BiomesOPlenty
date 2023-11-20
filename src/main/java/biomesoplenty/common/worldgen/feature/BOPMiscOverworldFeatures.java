@@ -32,6 +32,7 @@ public class BOPMiscOverworldFeatures
 {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_SAND_SPLATTER = createKey("black_sand_splatter");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BONE_SPINE = createKey("bone_spine");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_MOSS = createKey("crag_moss");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_SPLATTER = createKey("crag_splatter");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_BLACK_SAND = createKey("disk_black_sand");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_CALCITE = createKey("disk_calcite");
@@ -51,6 +52,7 @@ public class BOPMiscOverworldFeatures
     {
         register(context, BOPMiscOverworldFeatures.BLACK_SAND_SPLATTER, BOPBaseFeatures.BLACK_SAND_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.BONE_SPINE, BOPBaseFeatures.BONE_SPINE, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPMiscOverworldFeatures.CRAG_MOSS, BOPBaseFeatures.CRAG_MOSS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.CRAG_SPLATTER, BOPBaseFeatures.CRAG_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.DISK_BLACK_SAND, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.BLACK_SAND.get()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));
         register(context, BOPMiscOverworldFeatures.DISK_CALCITE, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.CALCITE), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.PODZOL, Blocks.SAND, Blocks.GRAVEL, Blocks.GRANITE, Blocks.ANDESITE, Blocks.DIORITE, Blocks.COAL_ORE, Blocks.IRON_ORE, Blocks.STONE, Blocks.CALCITE)), UniformInt.of(3, 7), 2));

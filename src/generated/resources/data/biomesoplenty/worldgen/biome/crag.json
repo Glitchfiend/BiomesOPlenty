@@ -81,6 +81,7 @@
     ],
     [
       "minecraft:glow_lichen",
+      "biomesoplenty:crag_moss",
       "biomesoplenty:crag_splatter",
       "biomesoplenty:patch_grass_12",
       "biomesoplenty:patch_tall_grass_24"
