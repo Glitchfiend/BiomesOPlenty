@@ -1,7 +1,16 @@
 {
     "variants": {
-        "axis=y": { "model": "biomesoplenty:block/pine_wood" },
-        "axis=z": { "model": "biomesoplenty:block/pine_wood", "x": 90 },
-        "axis=x": { "model": "biomesoplenty:block/pine_wood", "x": 90, "y": 90 }
+        "axis=y": [
+			{ "model": "biomesoplenty:block/pine_wood" },
+			{ "model": "biomesoplenty:block/pine_wood_knot" }
+		],
+        "axis=z": [
+			{ "model": "biomesoplenty:block/pine_wood", "x": 90  },
+			{ "model": "biomesoplenty:block/pine_wood_knot", "x": 90  }
+		],
+        "axis=x": [
+			{ "model": "biomesoplenty:block/pine_wood", "x": 90, "y": 90 },
+			{ "model": "biomesoplenty:block/pine_wood_knot", "x": 90, "y": 90 }
+		]
     }
 }

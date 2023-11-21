@@ -2,21 +2,15 @@
     "variants": {
         "axis=y": [
 			{ "model": "biomesoplenty:block/pine_log" },
-			{ "model": "biomesoplenty:block/pine_log" },
-			{ "model": "biomesoplenty:block/pine_log_knot" },
-			{ "model": "biomesoplenty:block/pine_log_knot_alt" }
+			{ "model": "biomesoplenty:block/pine_log_knot" }
 		],
         "axis=z": [
 			{ "model": "biomesoplenty:block/pine_log", "x": 90  },
-			{ "model": "biomesoplenty:block/pine_log", "x": 90  },
-			{ "model": "biomesoplenty:block/pine_log_knot", "x": 90  },
-			{ "model": "biomesoplenty:block/pine_log_knot_alt", "x": 90  }
+			{ "model": "biomesoplenty:block/pine_log_knot", "x": 90  }
 		],
         "axis=x": [
 			{ "model": "biomesoplenty:block/pine_log", "x": 90, "y": 90 },
-			{ "model": "biomesoplenty:block/pine_log", "x": 90, "y": 90 },
-			{ "model": "biomesoplenty:block/pine_log_knot", "x": 90, "y": 90 },
-			{ "model": "biomesoplenty:block/pine_log_knot_alt", "x": 90, "y": 90 }
+			{ "model": "biomesoplenty:block/pine_log_knot", "x": 90, "y": 90 }
 		]
     }
 }
