@@ -37,6 +37,10 @@
             "id": "biomesoplenty:highland",
             "required": false
         },
+		{
+            "id": "biomesoplenty:hot_springs",
+            "required": false
+        },
         {
             "id": "biomesoplenty:lush_desert",
             "required": false

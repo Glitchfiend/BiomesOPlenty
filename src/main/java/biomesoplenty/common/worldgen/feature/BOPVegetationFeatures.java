@@ -121,6 +121,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_FIELD = createKey("trees_field");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_FIELD_FOREST = createKey("trees_field_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_FUNGAL_JUNGLE = createKey("trees_fungal_jungle");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_HOT_SPRINGS = createKey("trees_hot_springs");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_JADE_CLIFFS = createKey("trees_jade_cliffs");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_LAVENDER_FIELD = createKey("trees_lavender_field");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_LAVENDER_FOREST = createKey("trees_lavender_forest");
@@ -316,6 +317,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_FIELD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_BEES_CHECKED, 0.1F)), OAK_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_FIELD_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.25F)), TALL_SPRUCE_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_FUNGAL_JUNGLE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_OAK_TREE_CHECKED, 0.05F)), JUNGLE_BUSH_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_HOT_SPRINGS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PINE_TREE_CHECKED, 0.075F)), PINE_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_JADE_CLIFFS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PINE_TREE_CHECKED, 0.075F)), SPRUCE_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LAVENDER_FIELD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FLOWERING_OAK_TREE_BEES_CHECKED, 0.2F), new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_JACARANDA_TREE_CHECKED, 0.1F)), JACARANDA_TREE_BEES_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LAVENDER_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.25F)), BIG_JACARANDA_TREE_CHECKED));

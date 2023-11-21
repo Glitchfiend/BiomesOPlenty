@@ -17,6 +17,10 @@
             "id": "biomesoplenty:dead_forest",
             "required": false
         },
+		{
+            "id": "biomesoplenty:hot_springs",
+            "required": false
+        },
         {
             "id": "biomesoplenty:maple_woods",
             "required": false

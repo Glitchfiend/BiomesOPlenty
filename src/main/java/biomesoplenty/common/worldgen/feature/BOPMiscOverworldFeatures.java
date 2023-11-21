@@ -16,10 +16,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SpringConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.material.Fluids;
@@ -40,6 +37,13 @@ public class BOPMiscOverworldFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_ORANGE_SAND = createKey("disk_orange_sand");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_WHITE_SAND = createKey("disk_white_sand");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_WHITE_SAND_EXTRA = createKey("disk_white_sand_extra");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_CALCITE = createKey("disk_hot_spring_calcite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_PACKED_MUD = createKey("disk_hot_spring_packed_mud");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_MUD = createKey("disk_hot_spring_mud");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_ORANGE = createKey("disk_hot_spring_orange");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_YELLOW = createKey("disk_hot_spring_yellow");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_MUD = createKey("disk_mud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_BLACK_SAND_SPLATTER = createKey("mossy_black_sand_splatter");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_SPLATTER = createKey("mud_splatter");
@@ -60,6 +64,13 @@ public class BOPMiscOverworldFeatures
         register(context, BOPMiscOverworldFeatures.DISK_ORANGE_SAND, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.ORANGE_SAND.get()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));
         register(context, BOPMiscOverworldFeatures.DISK_WHITE_SAND, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.WHITE_SAND.get()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));
         register(context, BOPMiscOverworldFeatures.DISK_WHITE_SAND_EXTRA, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.WHITE_SAND.get()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 1));
+
+        register(context, BOPMiscOverworldFeatures.DISK_HOT_SPRING_CALCITE, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.CALCITE), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.GRAVEL, Blocks.CLAY, Blocks.ANDESITE, Blocks.GRANITE, Blocks.DIORITE, Blocks.STONE)), UniformInt.of(8, 8), 3));
+        register(context, BOPMiscOverworldFeatures.DISK_HOT_SPRING_PACKED_MUD, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.PACKED_MUD), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.GRAVEL, Blocks.CLAY, Blocks.ANDESITE, Blocks.GRANITE, Blocks.DIORITE, Blocks.STONE, Blocks.CALCITE)), UniformInt.of(6, 6), 2));
+        register(context, BOPMiscOverworldFeatures.DISK_HOT_SPRING_MUD, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.MUD), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.GRAVEL, Blocks.CLAY, Blocks.ANDESITE, Blocks.GRANITE, Blocks.DIORITE, Blocks.STONE, Blocks.PACKED_MUD, Blocks.CALCITE)), UniformInt.of(5, 5), 2));
+        register(context, BOPMiscOverworldFeatures.DISK_HOT_SPRING_ORANGE, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.ORANGE_TERRACOTTA), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.GRAVEL, Blocks.CLAY, Blocks.ANDESITE, Blocks.GRANITE, Blocks.DIORITE, Blocks.STONE, Blocks.MUD, Blocks.PACKED_MUD, Blocks.CALCITE)), UniformInt.of(3, 4), 1));
+        register(context, BOPMiscOverworldFeatures.DISK_HOT_SPRING_YELLOW, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.YELLOW_TERRACOTTA), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.GRAVEL, Blocks.CLAY, Blocks.ANDESITE, Blocks.GRANITE, Blocks.DIORITE, Blocks.STONE, Blocks.ORANGE_TERRACOTTA, Blocks.MUD, Blocks.PACKED_MUD, Blocks.CALCITE)), UniformInt.of(1, 2), 0));
+
         register(context, BOPMiscOverworldFeatures.DISK_MUD, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.MUD), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(4, 6), 2));
         register(context, BOPMiscOverworldFeatures.MOSSY_BLACK_SAND_SPLATTER, BOPBaseFeatures.MOSSY_BLACK_SAND_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.MUD_SPLATTER, BOPBaseFeatures.MUD_SPLATTER, NoneFeatureConfiguration.INSTANCE);

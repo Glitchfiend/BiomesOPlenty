@@ -21,6 +21,10 @@
             "id": "biomesoplenty:fir_clearing",
             "required": false
         },
+		{
+            "id": "biomesoplenty:hot_springs",
+            "required": false
+        },
         {
             "id": "biomesoplenty:maple_woods",
             "required": false

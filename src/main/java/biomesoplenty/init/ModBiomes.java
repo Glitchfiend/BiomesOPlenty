@@ -64,6 +64,7 @@ public class ModBiomes
         register(context, BOPBiomes.FUNGAL_JUNGLE, BOPOverworldBiomes.fungalJungle(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.HOT_SPRINGS, BOPOverworldBiomes.hotSprings(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.JADE_CLIFFS, BOPOverworldBiomes.jadeCliffs(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter, false));
         register(context, BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter, true));
@@ -135,6 +136,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.FUNGAL_JUNGLE, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.GRASSLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.HIGHLAND, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.HOT_SPRINGS, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.JADE_CLIFFS, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LAVENDER_FIELD, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LAVENDER_FOREST, VillagerType.PLAINS);

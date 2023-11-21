@@ -116,20 +116,19 @@ public class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null,                    null,                         BOPBiomes.SNOWY_FIR_CLEARING,   BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_MAPLE_WOODS},
-            {null,                    BOPBiomes.FIR_CLEARING,       null,                           null,                         BOPBiomes.FORESTED_FIELD},
-            {BOPBiomes.PASTURE,       null,                         BOPBiomes.ROCKY_SHRUBLAND,      null,                         null},
-            {null,                    null,                         BOPBiomes.OLD_GROWTH_WOODLAND,  null,                         BOPBiomes.ROCKY_RAINFOREST},
-            {null,                    null,                         null,                           BOPBiomes.LUSH_SAVANNA,       BOPBiomes.LUSH_SAVANNA}
+            {null,                    null,                         BOPBiomes.SNOWY_FIR_CLEARING,  BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_MAPLE_WOODS},
+            {null,                    BOPBiomes.FIR_CLEARING,       null,                          null,                         BOPBiomes.FORESTED_FIELD},
+            {BOPBiomes.PASTURE,       null,                         BOPBiomes.ROCKY_SHRUBLAND,     null,                         null},
+            {null,                    null,                         BOPBiomes.OLD_GROWTH_WOODLAND, null,                         BOPBiomes.ROCKY_RAINFOREST},
+            {null,                    null,                         null,                          BOPBiomes.LUSH_SAVANNA,       BOPBiomes.LUSH_SAVANNA}
     };
 
     private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
-            // NOTE: Frozen biomes not applicable for swamp biomes
-            {null,            null,            null,                 null,                 null},
-            {BOPBiomes.BOG,   BOPBiomes.BOG,   BOPBiomes.WETLAND,    BOPBiomes.WETLAND,    BOPBiomes.WETLAND},
-            {BOPBiomes.MARSH, BOPBiomes.MARSH, BOPBiomes.MARSH,      BOPBiomes.MARSH,      BOPBiomes.MARSH},
-            {BOPBiomes.BAYOU, BOPBiomes.BAYOU, BOPBiomes.BAYOU,      BOPBiomes.FLOODPLAIN, BOPBiomes.FLOODPLAIN},
-            {BOPBiomes.BAYOU, BOPBiomes.BAYOU, BOPBiomes.FLOODPLAIN, BOPBiomes.FLOODPLAIN, BOPBiomes.FLOODPLAIN}
+            {BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS},
+            {BOPBiomes.BOG,         BOPBiomes.BOG,         BOPBiomes.WETLAND,     BOPBiomes.WETLAND,     BOPBiomes.WETLAND},
+            {BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH},
+            {BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN},
+            {BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN}
     };
 
     protected final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
@@ -159,7 +158,7 @@ public class BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null,                    null, null, null,                       null},
             {null,                    null, null, null,                       null},
-            {null,                    null, null, BOPBiomes.MOOR,    null},
+            {null,                    null, null, BOPBiomes.MOOR,             null},
             {null,                    null, null, BOPBiomes.ROCKY_RAINFOREST, null},
             {null,                    null, null, null,                       BOPBiomes.LUSH_SAVANNA}
     };
@@ -363,14 +362,7 @@ public class BOPOverworldBiomeBuilder
                     this.addSurfaceBiome(mapper, temperature, humidity, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, middleBiomeBOP);
                 }
 
-                if (i == 0)
-                {
-                    this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, middleBiomeBOP);
-                }
-                else
-                {
-                    this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, swampBiomeBOP);
-                }
+                this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, swampBiomeBOP);
             }
         }
 
@@ -418,14 +410,7 @@ public class BOPOverworldBiomeBuilder
                 // Highest erosion
                 this.addSurfaceBiome(mapper, temperature, humidity, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, beachBiome);
 
-                if (i == 0)
-                {
-                    this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, middleBiomeBOP);
-                }
-                else
-                {
-                    this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, swampBiomeBOP);
-                }
+                this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, swampBiomeBOP);
             }
         }
 
@@ -445,7 +430,9 @@ public class BOPOverworldBiomeBuilder
         this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, Biomes.RIVER);
 
         // Inland watery valleys
-        this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.FROZEN_RIVER);
+
+        //Disabled so the Frozen River doesn't cut into the Muskeg/Hot Springs
+        //this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.FROZEN_RIVER);
 
         for (int i = 0; i < this.temperatures.length; ++i)
         {
@@ -459,10 +446,7 @@ public class BOPOverworldBiomeBuilder
 
                 this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, middleBiomeBOP);
 
-                if (i != 0)
-                {
-                    this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, swampBiomeBOP);
-                }
+                this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, swampBiomeBOP);
             }
         }
     }

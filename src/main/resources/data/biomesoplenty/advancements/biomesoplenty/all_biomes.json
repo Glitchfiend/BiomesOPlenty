@@ -335,6 +335,22 @@
 			]
 		  }
         },
+		"hot_springs": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "biomesoplenty:hot_springs"
+							}
+						}
+					}
+				]
+			}
+		},
 		"jade_cliffs": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1084,6 +1100,9 @@
 		],
 		[
 		"highland"
+		],
+		[
+		"hot_springs"
 		],
 		[
 		"jade_cliffs"

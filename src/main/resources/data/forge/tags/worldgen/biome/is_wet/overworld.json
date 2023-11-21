@@ -33,6 +33,10 @@
             "id": "biomesoplenty:grassland",
             "required": false
         },
+		{
+            "id": "biomesoplenty:hot_springs",
+            "required": false
+        },
         {
             "id": "biomesoplenty:marsh",
             "required": false

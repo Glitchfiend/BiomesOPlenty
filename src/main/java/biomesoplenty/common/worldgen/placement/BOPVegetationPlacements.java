@@ -136,6 +136,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> TREES_FUNGAL_JUNGLE = createKey("trees_fungal_jungle");
     public static final ResourceKey<PlacedFeature> TREES_FIR_CLEARING = createKey("trees_fir_clearing");
     public static final ResourceKey<PlacedFeature> TREES_JADE_CLIFFS = createKey("trees_jade_cliffs");
+    public static final ResourceKey<PlacedFeature> TREES_HOT_SPRINGS = createKey("trees_hot_springs");
     public static final ResourceKey<PlacedFeature> TREES_LAVENDER_FIELD = createKey("trees_lavender_field");
     public static final ResourceKey<PlacedFeature> TREES_LAVENDER_FOREST = createKey("trees_lavender_forest");
     public static final ResourceKey<PlacedFeature> TREES_LUSH_DESERT = createKey("trees_lush_desert");
@@ -257,6 +258,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> TREES_FIELD_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_FIELD_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_FUNGAL_JUNGLE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_FUNGAL_JUNGLE);
         final Holder<ConfiguredFeature<?, ?>> FIR_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE_SMALL);
+        final Holder<ConfiguredFeature<?, ?>> TREES_HOT_SPRINGS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_HOT_SPRINGS);
         final Holder<ConfiguredFeature<?, ?>> TREES_JADE_CLIFFS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_JADE_CLIFFS);
         final Holder<ConfiguredFeature<?, ?>> TREES_LAVENDER_FIELD = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_LAVENDER_FIELD);
         final Holder<ConfiguredFeature<?, ?>> TREES_LAVENDER_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_LAVENDER_FOREST);
@@ -410,6 +412,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_FIELD_FOREST, TREES_FIELD_FOREST, treePlacement(PlacementUtils.countExtra(9, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_FUNGAL_JUNGLE, TREES_FUNGAL_JUNGLE, treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_FIR_CLEARING, FIR_TREE_SMALL, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BOPBlocks.FIR_SAPLING.get()));
+        register(context, BOPVegetationPlacements.TREES_HOT_SPRINGS, TREES_HOT_SPRINGS, treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_JADE_CLIFFS, TREES_JADE_CLIFFS, treePlacement(PlacementUtils.countExtra(25, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_LAVENDER_FIELD, TREES_LAVENDER_FIELD, treePlacement(PlacementUtils.countExtra(1, 0.1F, 25)));
         register(context, BOPVegetationPlacements.TREES_LAVENDER_FOREST, TREES_LAVENDER_FOREST, treePlacement(PlacementUtils.countExtra(7, 0.2F, 10)));
