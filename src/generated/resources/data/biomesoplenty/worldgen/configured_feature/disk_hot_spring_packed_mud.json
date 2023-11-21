@@ -5,15 +5,15 @@
     "radius": {
       "type": "minecraft:uniform",
       "value": {
-        "max_inclusive": 5,
-        "min_inclusive": 3
+        "max_inclusive": 4,
+        "min_inclusive": 4
       }
     },
     "state_provider": {
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:orange_terracotta"
+          "Name": "minecraft:packed_mud"
         }
       },
       "rules": []
@@ -32,7 +32,6 @@
         "minecraft:granite",
         "minecraft:diorite",
         "minecraft:stone",
-        "minecraft:packed_mud",
         "minecraft:smooth_basalt",
         "minecraft:calcite"
       ]
