@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 
 public class HotSpringVentBlock extends Block
@@ -28,8 +29,12 @@ public class HotSpringVentBlock extends Block
     @Override
     public void stepOn(Level level, BlockPos p_153778_, BlockState p_153779_, Entity p_153780_)
     {
-        if (!p_153780_.fireImmune() && p_153780_ instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)p_153780_)) {
-            p_153780_.hurt(level.damageSources().source(BOPDamageTypes.FUMAROLE), 1.0F);
+        if (level.getBlockState(p_153778_.above()).getFluidState().is(Fluids.WATER))
+        {
+            if (!p_153780_.fireImmune() && p_153780_ instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) p_153780_))
+            {
+                p_153780_.hurt(level.damageSources().source(BOPDamageTypes.FUMAROLE), 1.0F);
+            }
         }
 
         super.stepOn(level, p_153778_, p_153779_, p_153780_);
@@ -39,14 +44,10 @@ public class HotSpringVentBlock extends Block
     public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
         super.animateTick(stateIn, worldIn, pos, rand);
-        if (worldIn.getBlockState(pos.above()).getBlock() == Blocks.WATER)
+        if (worldIn.getBlockState(pos.above()).getFluidState().is(Fluids.WATER))
         {
             worldIn.addAlwaysVisibleParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, (double) (pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), (double) (pos.getY() + 1.0D), (double) (pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), 0.0D, 0.02D, 0.0D);
             worldIn.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_COLUMN_UP, (double) (pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), (double) (pos.getY() + 1.0D), (double) (pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), 0.0D, 0.0D, 0.0D);
-        }
-        else
-        {
-            worldIn.addAlwaysVisibleParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, (double) (pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), (double) (pos.getY() + 1.0D), (double) (pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), 0.0D, 0.02D, 0.0D);
         }
     }
 

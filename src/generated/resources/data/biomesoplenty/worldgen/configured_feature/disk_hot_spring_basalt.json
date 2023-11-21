@@ -5,7 +5,7 @@
     "radius": {
       "type": "minecraft:uniform",
       "value": {
-        "max_inclusive": 5,
+        "max_inclusive": 6,
         "min_inclusive": 5
       }
     },
@@ -13,7 +13,7 @@
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:mud"
+          "Name": "minecraft:smooth_basalt"
         }
       },
       "rules": []
@@ -32,7 +32,6 @@
         "minecraft:granite",
         "minecraft:diorite",
         "minecraft:stone",
-        "minecraft:packed_mud",
         "minecraft:calcite"
       ]
     }

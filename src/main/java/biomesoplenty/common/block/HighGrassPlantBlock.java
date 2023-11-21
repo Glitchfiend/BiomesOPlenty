@@ -50,6 +50,6 @@ public class HighGrassPlantBlock extends GrowingPlantBodyBlock
     @Override
     public void entityInside(BlockState p_58180_, Level p_58181_, BlockPos p_58182_, Entity p_58183_)
     {
-        p_58183_.makeStuckInBlock(p_58180_, new Vec3(0.75D, (double)0.95F, 0.75D));
+        p_58183_.makeStuckInBlock(p_58180_, new Vec3((double)0.95F, 2.0D, (double)0.95F));
     }
 }

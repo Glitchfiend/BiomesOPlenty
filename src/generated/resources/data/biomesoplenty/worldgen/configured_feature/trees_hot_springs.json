@@ -4,8 +4,8 @@
     "default": "biomesoplenty:pine_tree",
     "features": [
       {
-        "chance": 0.075,
-        "feature": "biomesoplenty:pine_tree"
+        "chance": 0.05,
+        "feature": "minecraft:dark_oak_checked"
       }
     ]
   }

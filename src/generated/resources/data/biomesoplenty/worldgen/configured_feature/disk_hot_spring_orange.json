@@ -5,7 +5,7 @@
     "radius": {
       "type": "minecraft:uniform",
       "value": {
-        "max_inclusive": 4,
+        "max_inclusive": 5,
         "min_inclusive": 3
       }
     },
@@ -32,8 +32,7 @@
         "minecraft:granite",
         "minecraft:diorite",
         "minecraft:stone",
-        "minecraft:mud",
-        "minecraft:packed_mud",
+        "minecraft:smooth_basalt",
         "minecraft:calcite"
       ]
     }
