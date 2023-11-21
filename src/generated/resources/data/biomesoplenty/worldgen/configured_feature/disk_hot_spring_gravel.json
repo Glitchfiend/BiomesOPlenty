@@ -6,14 +6,14 @@
       "type": "minecraft:uniform",
       "value": {
         "max_inclusive": 8,
-        "min_inclusive": 8
+        "min_inclusive": 7
       }
     },
     "state_provider": {
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:calcite"
+          "Name": "minecraft:gravel"
         }
       },
       "rules": []
@@ -26,11 +26,13 @@
         "minecraft:podzol",
         "minecraft:grass_block",
         "minecraft:sand",
+        "minecraft:gravel",
         "minecraft:clay",
         "minecraft:andesite",
         "minecraft:granite",
         "minecraft:diorite",
-        "minecraft:stone"
+        "minecraft:stone",
+        "minecraft:calcite"
       ]
     }
   }

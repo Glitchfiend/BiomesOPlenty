@@ -1,20 +1,68 @@
 {
   "values": [
-    "biomesoplenty:bayou",
-	"biomesoplenty:bog",
-	"biomesoplenty:floodplain",
-	"biomesoplenty:fungal_jungle",
-	"biomesoplenty:glowing_grotto",
-	"biomesoplenty:marsh",
-	"biomesoplenty:moor",
-	"biomesoplenty:muskeg",
-	"biomesoplenty:ominous_woods",
-	"biomesoplenty:rainforest",
-	"biomesoplenty:rocky_rainforest",
-	"biomesoplenty:volcano",
-	"biomesoplenty:volcanic_plains",
-	"biomesoplenty:wasteland",
-	"biomesoplenty:wasteland_steppe",
-	"biomesoplenty:wetland"
+    {
+      "id": "biomesoplenty:bayou",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:bog",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:floodplain",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:fungal_jungle",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:glowing_grotto",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:marsh",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:moor",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:muskeg",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:ominous_woods",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:rainforest",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:rocky_rainforest",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:volcanic_plains",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:volcano",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:wasteland",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:wasteland_steppe",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:wetland",
+      "required": false
+    }
   ]
 }

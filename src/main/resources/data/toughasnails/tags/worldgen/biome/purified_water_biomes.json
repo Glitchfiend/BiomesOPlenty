@@ -1,5 +1,8 @@
 {
   "values": [
-    "biomesoplenty:auroral_garden"
+    {
+      "id": "biomesoplenty:hot_springs",
+      "required": false
+    }
   ]
 }

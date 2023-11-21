@@ -66,6 +66,7 @@
     ],
     [
       "biomesoplenty:disk_hot_spring_calcite",
+      "biomesoplenty:disk_hot_spring_gravel",
       "biomesoplenty:disk_hot_spring_packed_mud",
       "biomesoplenty:disk_hot_spring_mud",
       "biomesoplenty:disk_hot_spring_orange",
@@ -79,6 +80,7 @@
       "minecraft:glow_lichen",
       "biomesoplenty:trees_hot_springs",
       "biomesoplenty:short_bamboo",
+      "biomesoplenty:patch_bush_1",
       "biomesoplenty:patch_fern_2",
       "biomesoplenty:patch_large_fern_normal",
       "biomesoplenty:patch_grass_6",
