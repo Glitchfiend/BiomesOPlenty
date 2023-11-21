@@ -1,7 +1,7 @@
 {
   "type": "minecraft:disk",
   "config": {
-    "half_height": 3,
+    "half_height": 4,
     "radius": {
       "type": "minecraft:uniform",
       "value": {
