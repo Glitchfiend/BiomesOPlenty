@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "minecraft:block/orange_terracotta",
+        "top": "biomesoplenty:block/hot_spring_vent",
+        "side": "minecraft:block/orange_terracotta"
+    }
+}

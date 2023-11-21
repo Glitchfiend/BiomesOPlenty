@@ -172,6 +172,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> BIG_DRIPLEAF = createKey("big_dripleaf");
     public static final ResourceKey<PlacedFeature> BIG_PUMPKIN = createKey("big_pumpkin");
     public static final ResourceKey<PlacedFeature> BRAMBLE = createKey("bramble");
+    public static final ResourceKey<PlacedFeature> HOT_SPRING_VENTS = createKey("hot_spring_vents");
     public static final ResourceKey<PlacedFeature> MOSS_SPLATTER = createKey("moss_splatter");
     public static final ResourceKey<PlacedFeature> PUMPKIN_PATCH = createKey("pumpkin_patch");
     public static final ResourceKey<PlacedFeature> ROOTED_STUMP = createKey("rooted_stump");
@@ -294,6 +295,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> BIG_DRIPLEAF = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BIG_DRIPLEAF);
         final Holder<ConfiguredFeature<?, ?>> BIG_PUMPKIN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BIG_PUMPKIN);
         final Holder<ConfiguredFeature<?, ?>> BRAMBLE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BRAMBLE);
+        final Holder<ConfiguredFeature<?, ?>> HOT_SPRING_VENTS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.HOT_SPRING_VENTS);
         final Holder<ConfiguredFeature<?, ?>> MOSS_SPLATTER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.MOSS_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> PUMPKIN_PATCH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PUMPKIN_PATCH);
         final Holder<ConfiguredFeature<?, ?>> ROOTED_STUMP = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ROOTED_STUMP);
@@ -449,6 +451,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.BIG_DRIPLEAF, BIG_DRIPLEAF, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.BIG_PUMPKIN, BIG_PUMPKIN, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.BRAMBLE, BRAMBLE, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.HOT_SPRING_VENTS, HOT_SPRING_VENTS, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.MOSS_SPLATTER, MOSS_SPLATTER, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PUMPKIN_PATCH, PUMPKIN_PATCH, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.ROOTED_STUMP, ROOTED_STUMP, VegetationPlacements.worldSurfaceSquaredWithCount(2));

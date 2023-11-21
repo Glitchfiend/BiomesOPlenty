@@ -51,6 +51,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LOG = createKey("fallen_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = createKey("fallen_fir_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDENROD = createKey("goldenrod");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HOT_SPRING_VENTS = createKey("hot_spring_vents");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_CLOVER = createKey("huge_clover");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_LILY_PAD = createKey("huge_lily_pad");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_TOADSTOOL = createKey("huge_toadstool");
@@ -228,6 +229,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.FALLEN_LOG, BOPBaseFeatures.FALLEN_LOG, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.FALLEN_FIR_LOG, BOPBaseFeatures.FALLEN_FIR_LOG, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.GOLDENROD, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GOLDENROD.get()))));
+        register(context, BOPVegetationFeatures.HOT_SPRING_VENTS, BOPBaseFeatures.HOT_SPRING_VENTS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.HUGE_CLOVER, BOPBaseFeatures.HUGE_CLOVER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.HUGE_LILY_PAD, BOPBaseFeatures.HUGE_LILY_PAD, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.HUGE_TOADSTOOL, BOPBaseFeatures.HUGE_TOADSTOOL, NoneFeatureConfiguration.INSTANCE);

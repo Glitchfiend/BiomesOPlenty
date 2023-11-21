@@ -45,6 +45,7 @@ public class BOPBlocks
     public static RegistryObject<Block> BLACK_SANDSTONE_WALL;
 
     public static RegistryObject<Block> DRIED_SALT;
+    public static RegistryObject<Block> HOT_SPRING_VENT;
 
     public static RegistryObject<Block> FLESH;
     public static RegistryObject<Block> POROUS_FLESH;

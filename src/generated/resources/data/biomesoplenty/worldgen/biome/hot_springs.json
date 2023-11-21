@@ -25,8 +25,7 @@
     [],
     [
       "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface",
-      "biomesoplenty:lake_water"
+      "minecraft:lake_lava_surface"
     ],
     [
       "minecraft:amethyst_geode"
@@ -82,7 +81,8 @@
       "biomesoplenty:short_bamboo",
       "biomesoplenty:patch_fern_2",
       "biomesoplenty:patch_large_fern_normal",
-      "biomesoplenty:patch_grass_6"
+      "biomesoplenty:patch_grass_6",
+      "biomesoplenty:hot_spring_vents"
     ],
     [
       "minecraft:freeze_top_layer"
