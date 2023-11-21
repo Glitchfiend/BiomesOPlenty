@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:pine_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:pine_boat"
+  }
+}

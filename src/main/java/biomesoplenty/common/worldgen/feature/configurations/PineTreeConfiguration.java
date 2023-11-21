@@ -38,8 +38,8 @@ public class PineTreeConfiguration extends BOPTreeConfiguration
     {
         public Builder()
         {
-            this.trunkProvider = BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState());
-            this.foliageProvider = BlockStateProvider.simple(Blocks.SPRUCE_LEAVES.defaultBlockState());
+            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.PINE_LOG.get().defaultBlockState());
+            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.PINE_LEAVES.get().defaultBlockState());
             this.minHeight = 10;
             this.maxHeight = 15;
         }

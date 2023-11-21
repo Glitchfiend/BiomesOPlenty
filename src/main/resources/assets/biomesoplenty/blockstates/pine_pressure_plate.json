@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "biomesoplenty:block/pine_pressure_plate" },
+        "powered=true": { "model": "biomesoplenty:block/pine_pressure_plate_down" }
+    }
+}

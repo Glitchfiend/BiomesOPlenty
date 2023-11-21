@@ -11,7 +11,7 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:spruce_leaves",
+        "Name": "biomesoplenty:pine_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
@@ -36,7 +36,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:spruce_log",
+        "Name": "biomesoplenty:pine_log",
         "Properties": {
           "axis": "y"
         }

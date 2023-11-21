@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:pine_planks"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:pine_trapdoor",
+    "count": 2
+  }
+}

@@ -60,6 +60,16 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.FIR_STAIRS.get(), 5, 20);
         registerFlammable(BOPBlocks.FIR_FENCE.get(), 5, 20);
         registerFlammable(BOPBlocks.FIR_FENCE_GATE.get(), 5, 20);
+        registerFlammable(BOPBlocks.PINE_LEAVES.get(), 30, 60);
+        registerFlammable(BOPBlocks.PINE_LOG.get(), 5, 5);
+        registerFlammable(BOPBlocks.PINE_WOOD.get(), 5, 5);
+        registerFlammable(BOPBlocks.STRIPPED_PINE_LOG.get(), 5, 5);
+        registerFlammable(BOPBlocks.STRIPPED_PINE_WOOD.get(), 5, 5);
+        registerFlammable(BOPBlocks.PINE_PLANKS.get(), 5, 20);
+        registerFlammable(BOPBlocks.PINE_SLAB.get(), 5, 20);
+        registerFlammable(BOPBlocks.PINE_STAIRS.get(), 5, 20);
+        registerFlammable(BOPBlocks.PINE_FENCE.get(), 5, 20);
+        registerFlammable(BOPBlocks.PINE_FENCE_GATE.get(), 5, 20);
         registerFlammable(BOPBlocks.REDWOOD_LEAVES.get(), 30, 60);
         registerFlammable(BOPBlocks.REDWOOD_LOG.get(), 5, 5);
         registerFlammable(BOPBlocks.REDWOOD_WOOD.get(), 5, 5);
@@ -178,6 +188,8 @@ public class ModVanillaCompat
         //Log Stripping
         registerStrippable(BOPBlocks.FIR_LOG.get(), BOPBlocks.STRIPPED_FIR_LOG.get());
         registerStrippable(BOPBlocks.FIR_WOOD.get(), BOPBlocks.STRIPPED_FIR_WOOD.get());
+        registerStrippable(BOPBlocks.PINE_LOG.get(), BOPBlocks.STRIPPED_PINE_LOG.get());
+        registerStrippable(BOPBlocks.PINE_WOOD.get(), BOPBlocks.STRIPPED_PINE_WOOD.get());
         registerStrippable(BOPBlocks.REDWOOD_LOG.get(), BOPBlocks.STRIPPED_REDWOOD_LOG.get());
         registerStrippable(BOPBlocks.REDWOOD_WOOD.get(), BOPBlocks.STRIPPED_REDWOOD_WOOD.get());
         registerStrippable(BOPBlocks.MAHOGANY_LOG.get(), BOPBlocks.STRIPPED_MAHOGANY_LOG.get());
@@ -220,6 +232,8 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.MAPLE_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.FIR_SAPLING.get());
         registerCompostable(0.3F, BOPBlocks.FIR_LEAVES.get());
+        registerCompostable(0.3F, BOPBlocks.PINE_SAPLING.get());
+        registerCompostable(0.3F, BOPBlocks.PINE_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.REDWOOD_SAPLING.get());
         registerCompostable(0.3F, BOPBlocks.REDWOOD_LEAVES.get());
         registerCompostable(0.3F, BOPBlocks.MAHOGANY_SAPLING.get());

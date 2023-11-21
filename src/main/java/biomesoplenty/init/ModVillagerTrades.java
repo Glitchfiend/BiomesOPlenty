@@ -31,6 +31,7 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.ORANGE_AUTUMN_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.MAPLE_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.FIR_SAPLING.get(), 5, 1, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.PINE_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.REDWOOD_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.MAHOGANY_SAPLING.get(), 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.JACARANDA_SAPLING.get(), 5, 1, 8, 1),

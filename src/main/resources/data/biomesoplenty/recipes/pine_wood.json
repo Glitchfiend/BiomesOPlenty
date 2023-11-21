@@ -1,0 +1,17 @@
+{
+  "type": "crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:pine_log"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:pine_wood",
+    "count": 3
+  }
+}

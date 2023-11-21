@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "biomesoplenty:block/stripped_pine_log" },
+        "axis=z":   { "model": "biomesoplenty:block/stripped_pine_log", "x": 90 },
+        "axis=x":   { "model": "biomesoplenty:block/stripped_pine_log", "x": 90, "y": 90 }
+    }
+}

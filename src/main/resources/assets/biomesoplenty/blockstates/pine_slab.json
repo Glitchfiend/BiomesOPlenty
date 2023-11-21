@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "biomesoplenty:block/pine_slab" },
+        "type=top": { "model": "biomesoplenty:block/pine_slab_top" },
+        "type=double": { "model": "biomesoplenty:block/pine_planks" }
+    }
+}

@@ -110,6 +110,8 @@ public class ChestBoatBOP extends ChestBoat
         {
             case FIR:
                 return BOPItems.FIR_CHEST_BOAT.get();
+            case PINE:
+                return BOPItems.PINE_CHEST_BOAT.get();
             case REDWOOD:
                 return BOPItems.REDWOOD_CHEST_BOAT.get();
             case MAHOGANY:

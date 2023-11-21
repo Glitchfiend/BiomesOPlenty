@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomesoplenty:pine_logs"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:pine_planks",
+    "count": 4
+  }
+}
