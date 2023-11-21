@@ -1,0 +1,9 @@
+{
+    "variants": {
+		"distance=1": { "model": "biomesoplenty:block/thermal_calcite" },
+		"distance=2": { "model": "biomesoplenty:block/thermal_calcite_2" },
+		"distance=3": { "model": "biomesoplenty:block/thermal_calcite_3" },
+		"distance=4": { "model": "biomesoplenty:block/thermal_calcite_4" },
+		"distance=5": { "model": "biomesoplenty:block/thermal_calcite_5" }
+    }
+}

@@ -35,9 +35,9 @@ public class HotSpringVentFeature extends Feature<NoneFeatureConfiguration>
         for(int j = 0; j < 96; ++j)
         {
             BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-            if (world.getBlockState(blockpos).getBlock() == Blocks.WATER && world.getBlockState(blockpos.below()).getBlock() == Blocks.ORANGE_TERRACOTTA)
+            if (world.getBlockState(blockpos).getBlock() == Blocks.WATER && world.getBlockState(blockpos.below()).getBlock() == BOPBlocks.THERMAL_CALCITE.get())
             {
-                world.setBlock(blockpos.below(), BOPBlocks.HOT_SPRING_VENT.get().defaultBlockState(), 2);
+                world.setBlock(blockpos.below(), BOPBlocks.THERMAL_CALCITE_VENT.get().defaultBlockState(), 2);
 
                 ++i;
             }

@@ -3,6 +3,7 @@
   "values": [
 	"biomesoplenty:brimstone_fumarole",
 	"biomesoplenty:burning_blossom",
-	"biomesoplenty:hot_spring_vent"
+    "biomesoplenty:thermal_calcite",
+	"biomesoplenty:thermal_calcite_vent"
   ]
 }

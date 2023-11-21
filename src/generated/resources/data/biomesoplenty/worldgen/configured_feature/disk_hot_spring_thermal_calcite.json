@@ -13,7 +13,10 @@
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:orange_terracotta"
+          "Name": "biomesoplenty:thermal_calcite",
+          "Properties": {
+            "distance": "5"
+          }
         }
       },
       "rules": []
