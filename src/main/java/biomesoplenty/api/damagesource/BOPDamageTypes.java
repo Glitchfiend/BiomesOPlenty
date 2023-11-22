@@ -4,7 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.api.damagesource;
 
-import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.api.BOPAPI;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +17,6 @@ public class BOPDamageTypes
 
     private static ResourceKey<DamageType> register(String name)
     {
-        return ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(BOPAPI.MOD_ID, name));
     }
 }

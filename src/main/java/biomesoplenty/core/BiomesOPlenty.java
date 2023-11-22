@@ -5,6 +5,7 @@
 
 package biomesoplenty.core;
 
+import biomesoplenty.api.BOPAPI;
 import biomesoplenty.init.*;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.Registries;
@@ -38,7 +39,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(value = BiomesOPlenty.MOD_ID)
 public class BiomesOPlenty
 {
-    public static final String MOD_ID = "biomesoplenty";
+    public static final String MOD_ID = BOPAPI.MOD_ID;
 
     public static final DeferredRegister<Biome> BIOME_REGISTER = DeferredRegister.create(Registries.BIOME, BiomesOPlenty.MOD_ID);
     public static final DeferredRegister<Block> BLOCK_REGISTER = DeferredRegister.create(Registries.BLOCK, MOD_ID);
