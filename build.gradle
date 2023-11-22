@@ -1,38 +1,47 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net/' }
-        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-    }
-
-    gradle.projectsEvaluated {
-        tasks.withType(JavaCompile) {
-            options.compilerArgs << "-Xmaxerrs" << "1000"
-        }
-    }
-}
-
 plugins {
+    id "net.minecraftforge.gradle" version "6.0.+"
+    id "org.spongepowered.mixin" version "0.7-SNAPSHOT"
     id "com.matthewprenger.cursegradle" version "1.4.0"
+    id "com.modrinth.minotaur" version "2.+"
+    id 'net.minecraftforge.gradleutils' version '2.2.0'
 }
 
-apply plugin: 'maven-publish'
-apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'maven-publish'
 
-repositories { mavenLocal() }
+ext {
+    mod_version = gradleutils.getTagOffsetVersion()
+    changelog_file = project.file("build/changelog.txt")
+}
+
+changelog {
+    fromTag '18.2.0'
+}
+
+def trimChangelog(String text) {
+    def m = text =~ /(?s) - (?:[0-9.]+) (.+?)(?=( - )|$)/
+    return '```\n' + m[0][1].replaceAll(/(?m)^ */, '')
+}
 
 group = "com.github.glitchfiend"
-archivesBaseName = "${mod_name}"
-version = "${minecraft_version}-${mod_version}.${System.getenv().BUILD_NUMBER}"
-def mod_build_version = "${mod_version}.${System.getenv().BUILD_NUMBER}"
+base.archivesName = mod_name
+version = "${minecraft_version}-${mod_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.withSourcesJar()
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release.set(17)
+}
+
+// Disables Gradle's custom module metadata from being published to maven. The
+// metadata includes mapped dependencies which are not reasonably consumable by
+// other mod developers.
+tasks.withType(GenerateModuleMetadata) {
+    enabled = false
+}
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
@@ -41,35 +50,51 @@ minecraft {
     runs {
         client = {
             workingDirectory = project.file("run")
-            source sourceSets.main
+            ideaModule "${project.name}.main"
+            taskName 'Client'
+            mods {
+                modClientRun {
+                    source sourceSets.main
+                }
+            }
         }
-        server = {
-            workingDirectory = project.file("run")
-            source sourceSets.main
+        server {
+            workingDirectory project.file('run')
+            ideaModule "${project.name}.main"
+            taskName 'Server'
+            mods {
+                modServerRun {
+                    source sourceSets.main
+                }
+            }
         }
         data {
-            workingDirectory = project.file("run")
-            source sourceSets.main
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'),  '--existing', file('src/generated/resources/')
+            workingDirectory project.file('run')
+            ideaModule "${project.name}.main"
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            taskName 'Data'
+            mods {
+                modDataRun {
+                    source sourceSets.main
+                }
+            }
         }
     }
 }
 
-// Configure  the source folders
 sourceSets {
-    main {
+    api {
         java {
-            srcDir "src/main/java"
+            compileClasspath += main.compileClasspath
+            srcDirs main.java.srcDirs
+            include "${mod_id}/api/**"
         }
+    }
+    main {
         resources {
-            srcDir "src/main/resources"
             srcDir 'src/generated/resources'
         }
     }
-}
-
-processResources {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 dependencies {
@@ -82,43 +107,33 @@ jar {
         attributes([
             'Specification-Title'     : mod_name,
             'Specification-Vendor'    : mod_author,
-            'Specification-Version'   : mod_build_version,
+            'Specification-Version'   : mod_version,
             'Implementation-Title'    : project.name,
-            'Implementation-Version'  : mod_build_version,
+            'Implementation-Version'  : mod_version,
             'Implementation-Vendor'   : mod_author,
             'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            'Timestampe'              : System.currentTimeMillis(),
+            'Timestamp'               : System.currentTimeMillis(),
             'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
             'Build-On-Minecraft'      : minecraft_version
         ])
     }
 }
 
+task apiJar(type: Jar) {
+    from sourceSets.api.allJava, sourceSets.api.output
+    archiveClassifier = 'api'
+}
+
 task deobfJar(type: Jar) {
     from sourceSets.main.output
-    classifier = 'deobf'
+    archiveClassifier = 'deobf'
 }
 
-task apiJar(type: Jar) {
-    from(sourceSets.main.allJava) {
-        include "${mod_id}/api/**"
-    }
-    from (sourceSets.main.output) {
-        include 'LICENSE.txt'
-        include "${mod_id}/api/**"
-    }
-
-    // TODO: Investigate why there are duplicates produced in the first place
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    classifier = 'api'
-}
-
-def changelog_file = rootProject.file("build/${mod_name}-${version}-changelog.txt")
+build.dependsOn apiJar
+build.dependsOn deobfJar
 
 curseforge {
-    if (project.hasProperty('curseApiKey')) {
-        apiKey = project.getProperty('curseApiKey')
-    }
+    apiKey = project.findProperty('curseApiKey') ?: 'unset'
     project {
         id = mod_curseforge_id
 
@@ -135,20 +150,26 @@ curseforge {
 
         addArtifact deobfJar
         addArtifact apiJar
-
+        
         relations {
             requiredDependency 'terrablender'
         }
     }
 }
 
-artifacts {
+modrinth {
+    token = project.findProperty('modrinthToken')
+    projectId = mod_modrinth_id
+    versionNumber = mod_version
+    versionName = version + " for Forge " + minecraft_version
+    versionType = 'beta' // can be release, beta, or alpha
+    uploadFile = jar
+    gameVersions = [minecraft_version]
+    loaders = ['forge']
+
     if (changelog_file.exists()) {
-        archives changelog_file
+        changelog = trimChangelog(changelog_file.text)
     }
-    archives jar
-    archives deobfJar
-    archives apiJar
 }
 
 publishing {
@@ -156,8 +177,8 @@ publishing {
         mavenJava(MavenPublication) {
             // We must use artifact jar to ensure the Forge dependency is excluded from the pom, breaking fg.deobf()
             artifact jar
-            artifact deobfJar
             artifact apiJar
+            artifact deobfJar
             groupId project.group
             artifactId project.archivesBaseName
             version project.version
@@ -195,13 +216,10 @@ publishing {
     }
     repositories {
         maven {
-            url "https://maven.minecraftforge.net/releases/"
-            authentication {
-                basic(BasicAuthentication)
-            }
+            url = "https://maven.minecraftforge.net/releases/"
             credentials {
-                username = System.env.MAVEN_USER ?:'fake'
-                password = System.env.MAVEN_PASSWORD ?:'news'
+                username = System.getenv("MAVEN_USER")
+                password = System.getenv("MAVEN_PASSWORD")
             }
         }
     }
