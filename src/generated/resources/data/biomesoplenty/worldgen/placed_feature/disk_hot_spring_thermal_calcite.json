@@ -10,7 +10,7 @@
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR_WG"
+      "heightmap": "OCEAN_FLOOR"
     },
     {
       "type": "minecraft:block_predicate_filter",

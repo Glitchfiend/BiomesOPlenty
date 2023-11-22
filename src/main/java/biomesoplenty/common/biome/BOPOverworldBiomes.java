@@ -550,6 +550,7 @@ public class BOPOverworldBiomes
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         globalOverworldGeneration(biomeBuilder);
+        addFeature(biomeBuilder, GenerationStep.Decoration.LAKES, BOPMiscOverworldPlacements.LAKE_HOT_SPRING);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
 
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_GRAVEL);
