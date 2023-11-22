@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "biomesoplenty:block/thermal_calcite_3",
+        "top": "biomesoplenty:block/thermal_calcite_vent_3",
+        "side": "biomesoplenty:block/thermal_calcite_3"
+    }
+}

@@ -5,6 +5,10 @@
       "required": false
     },
 	{
+      "id": "biomesoplenty:hot_springs",
+      "required": false
+    },
+	{
       "id": "biomesoplenty:floodplain",
       "required": false
     },

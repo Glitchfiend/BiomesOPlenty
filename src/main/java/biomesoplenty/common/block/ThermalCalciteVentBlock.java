@@ -13,12 +13,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 
-public class ThermalCalciteVentBlock extends Block
+public class ThermalCalciteVentBlock extends ThermalCalciteBlock
 {
     public ThermalCalciteVentBlock(Properties properties)
     {
@@ -28,7 +27,7 @@ public class ThermalCalciteVentBlock extends Block
     @Override
     public void stepOn(Level level, BlockPos p_153778_, BlockState p_153779_, Entity p_153780_)
     {
-        if (level.getBlockState(p_153778_.above()).getFluidState().is(Fluids.WATER))
+        if (level.getBlockState(p_153778_.above()).getFluidState().getType() == Fluids.WATER && level.getBlockState(p_153778_.above()).getFluidState().getAmount() == 8)
         {
             if (!p_153780_.fireImmune() && p_153780_ instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) p_153780_))
             {
