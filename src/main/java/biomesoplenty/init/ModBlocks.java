@@ -95,8 +95,14 @@ public class ModBlocks
         CHISELED_BLACK_SANDSTONE = registerBlock(() -> new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(0.8F)), "chiseled_black_sandstone");
 
         DRIED_SALT = registerBlock(() -> new DriedSaltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
-        THERMAL_CALCITE = registerBlock(() -> new ThermalCalciteBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F)), "thermal_calcite");
-        THERMAL_CALCITE_VENT = registerBlock(() -> new ThermalCalciteVentBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F)), "thermal_calcite_vent");
+
+        MapColor tc1 = MapColor.GOLD;
+        MapColor tc2 = MapColor.COLOR_YELLOW;
+        MapColor tc3 = MapColor.COLOR_ORANGE;
+        MapColor tc4 = MapColor.TERRACOTTA_ORANGE;
+        MapColor tc5 = MapColor.TERRACOTTA_RED;
+        THERMAL_CALCITE = registerBlock(() -> new ThermalCalciteBlock(BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(ThermalCalciteBlock.DISTANCE) == 1 ? tc1 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 2 ? tc2 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 3 ? tc3 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 4 ? tc4 : tc5).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F)), "thermal_calcite");
+        THERMAL_CALCITE_VENT = registerBlock(() -> new ThermalCalciteVentBlock(BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(ThermalCalciteBlock.DISTANCE) == 1 ? tc1 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 2 ? tc2 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 3 ? tc3 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 4 ? tc4 : tc5).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F)), "thermal_calcite_vent");
 
         FLESH = registerBlock(() -> new FleshBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
         POROUS_FLESH = registerBlock(() -> new FleshBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "porous_flesh");

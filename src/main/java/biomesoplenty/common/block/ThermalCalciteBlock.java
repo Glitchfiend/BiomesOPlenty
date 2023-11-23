@@ -18,8 +18,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.MapColor;
 
 import java.util.OptionalInt;
+import java.util.function.ToIntFunction;
 
 public class ThermalCalciteBlock extends Block
 {
