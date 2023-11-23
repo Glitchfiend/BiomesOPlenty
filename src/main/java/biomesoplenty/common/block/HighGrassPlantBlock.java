@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HighGrassPlantBlock extends GrowingPlantBodyBlock
@@ -50,6 +49,6 @@ public class HighGrassPlantBlock extends GrowingPlantBodyBlock
     @Override
     public void entityInside(BlockState p_58180_, Level p_58181_, BlockPos p_58182_, Entity p_58183_)
     {
-        p_58183_.makeStuckInBlock(p_58180_, new Vec3((double)0.95F, 2.0D, (double)0.95F));
+        p_58183_.setDeltaMovement(p_58183_.getDeltaMovement().multiply(0.5D, 1.0D, 0.5D));
     }
 }

@@ -4,10 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;

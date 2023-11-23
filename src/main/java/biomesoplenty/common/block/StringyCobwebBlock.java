@@ -7,6 +7,7 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -15,7 +16,8 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -82,7 +84,7 @@ public class StringyCobwebBlock extends Block
         BlockPos belowDirPos = pos.relative(direction.getOpposite()).below();
         BlockState belowDirState = level.getBlockState(belowDirPos);
 
-        if ((aboveState.isSolid() || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.isSolid() || belowDirState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
+        if ((aboveState.isFaceSturdy(level, abovePos, Direction.DOWN) || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.isFaceSturdy(level, belowPos, Direction.UP) || belowDirState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
             return true;
 
         return false;
@@ -128,5 +130,11 @@ public class StringyCobwebBlock extends Block
         }
 
         return null;
+    }
+
+    @Override
+    public void entityInside(BlockState p_58180_, Level p_58181_, BlockPos p_58182_, Entity p_58183_)
+    {
+        p_58183_.setDeltaMovement(p_58183_.getDeltaMovement().multiply(0.75D, 1.0D, 0.75D));
     }
 }

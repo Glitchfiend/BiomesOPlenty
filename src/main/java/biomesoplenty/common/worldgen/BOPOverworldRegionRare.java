@@ -4,7 +4,6 @@
  ******************************************************************************/
 package biomesoplenty.common.worldgen;
 
-import biomesoplenty.common.biome.BOPOverworldBiomeBuilder;
 import biomesoplenty.common.biome.BOPRareOverworldBiomeBuilder;
 import biomesoplenty.core.BiomesOPlenty;
 import com.mojang.datafixers.util.Pair;

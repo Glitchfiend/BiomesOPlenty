@@ -37,8 +37,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
-import java.util.List;
-
 import static biomesoplenty.common.util.worldgen.BOPFeatureUtils.createKey;
 
 public class BOPVegetationFeatures

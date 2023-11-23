@@ -7,7 +7,6 @@ package biomesoplenty.common.worldgen.feature.configurations;
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 

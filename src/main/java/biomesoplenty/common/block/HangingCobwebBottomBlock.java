@@ -7,9 +7,12 @@ package biomesoplenty.common.block;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 public class HangingCobwebBottomBlock extends HangingStrandBottomBlock {
 
@@ -32,5 +35,11 @@ public class HangingCobwebBottomBlock extends HangingStrandBottomBlock {
         } else {
             return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.isFaceSturdy(p_196260_2_, blockpos, Direction.DOWN);
         }
+    }
+
+    @Override
+    public void entityInside(BlockState p_58180_, Level p_58181_, BlockPos p_58182_, Entity p_58183_)
+    {
+        p_58183_.makeStuckInBlock(p_58180_, new Vec3(0.75D, (double)0.5F, 0.75D));
     }
 }

@@ -25,9 +25,9 @@ public class WebbingBlock extends MultifaceBlock {
     }
 
     @Override
-    public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity)
+    public void entityInside(BlockState p_58180_, Level p_58181_, BlockPos p_58182_, Entity p_58183_)
     {
-        entity.setDeltaMovement(entity.getDeltaMovement().multiply(0.75D, 1.0D, 0.75D));
+        p_58183_.setDeltaMovement(p_58183_.getDeltaMovement().multiply(0.625D, 0.75D, 0.625D));
     }
 
     @Override

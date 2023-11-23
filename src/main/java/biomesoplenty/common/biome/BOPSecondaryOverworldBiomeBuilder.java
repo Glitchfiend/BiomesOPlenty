@@ -9,7 +9,6 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 
 public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
