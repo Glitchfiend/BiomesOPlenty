@@ -17,7 +17,7 @@ public class RedwoodTree extends AbstractMegaTreeGrower
    @Override
    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource random)
    {
-      return BOPTreeFeatures.REDWOOD_TREE_MEDIUM;
+      return (random.nextInt(15) == 0 ? BOPTreeFeatures.REDWOOD_TREE_LARGE : BOPTreeFeatures.REDWOOD_TREE_MEDIUM);
    }
 
    @Nullable

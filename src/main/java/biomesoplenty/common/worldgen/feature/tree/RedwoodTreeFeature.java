@@ -207,7 +207,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                     BlockPos local = startPos.offset(x, y, z);
                     didPlace |= this.placeLog(world, local, logs, config);
 
-                    if (dist > 0 && y > 4 && y < (baseHeight - 2) && random.nextInt(10) == 0) {
+                    if (dist > 0 && y > 6 && y < (baseHeight - 2) && random.nextInt(15) == 0) {
                         double theta;
                         if (x == 0 && z == 0) {
                             // Prevents bushes originating from the center from generating too low
@@ -255,24 +255,26 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
 
     protected boolean generateBush(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, RandomSource random, BlockPos pos, TaigaTreeConfiguration config)
     {
+        int height = 2;
+
         //Generate a bush 3 blocks tall, with the center block set to a log
-        for (int y = -1; y < 2; ++y)
+        for (int y = 0; y < height; ++y)
         {
             // log in the center
-            if (y == 0)
+            if (height - y > 1)
             {
                 this.placeLog(world, pos.offset(0, y, 0), logs, config);
             }
 
             //Reduces the radius closer to the top of the bush
-            int leavesRadius = y == 0 ? 2 : 1;
+            int leavesRadius = (height - y > 1 ? 2 : 1);
 
             for (int x = -leavesRadius; x <= leavesRadius; ++x)
             {
                 for (int z = -leavesRadius; z <= leavesRadius; ++z)
                 {
                     //Randomly prevent the generation of leaves on the corners of each layer
-                    if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || random.nextInt(2) != 0)
+                    if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius)
                     {
                         if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
                         {
