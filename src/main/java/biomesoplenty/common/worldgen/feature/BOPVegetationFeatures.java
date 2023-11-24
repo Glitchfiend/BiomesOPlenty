@@ -83,6 +83,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> SCRUB = createKey("scrub");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNFLOWER = createKey("sunflower");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHORT_BAMBOO = createKey("short_bamboo");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> THIN_BAMBOO = createKey("thin_bamboo");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_DRIPLEAF = createKey("small_dripleaf");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_BROWN_MUSHROOM = createKey("small_brown_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_RED_MUSHROOM = createKey("small_red_mushroom");
@@ -261,6 +262,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.SCRUB, BOPBaseFeatures.SCRUB, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.SUNFLOWER, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.SUNFLOWER))));
         register(context, BOPVegetationFeatures.SHORT_BAMBOO, BOPBaseFeatures.SHORT_BAMBOO, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.THIN_BAMBOO, BOPBaseFeatures.THIN_BAMBOO, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.SMALL_DRIPLEAF, BOPBaseFeatures.SMALL_DRIPLEAF, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.SMALL_BROWN_MUSHROOM, BOPBaseFeatures.SMALL_BROWN_MUSHROOM, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.SMALL_RED_MUSHROOM, BOPBaseFeatures.SMALL_RED_MUSHROOM, NoneFeatureConfiguration.INSTANCE);

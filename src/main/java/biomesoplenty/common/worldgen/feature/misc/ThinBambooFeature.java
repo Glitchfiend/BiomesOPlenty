@@ -19,16 +19,14 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class ShortBambooFeature extends Feature<NoneFeatureConfiguration>
+public class ThinBambooFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
+    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.COARSE_DIRT;
     protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos);
-    private static final BlockState BAMBOO_TRUNK = Blocks.BAMBOO.defaultBlockState().setValue(BambooStalkBlock.AGE, Integer.valueOf(1)).setValue(BambooStalkBlock.LEAVES, BambooLeaves.NONE).setValue(BambooStalkBlock.STAGE, Integer.valueOf(0));
-    private static final BlockState BAMBOO_FINAL_LARGE = BAMBOO_TRUNK.setValue(BambooStalkBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooStalkBlock.STAGE, Integer.valueOf(1));
-    private static final BlockState BAMBOO_TOP_LARGE = BAMBOO_TRUNK.setValue(BambooStalkBlock.LEAVES, BambooLeaves.LARGE);
-    private static final BlockState BAMBOO_TOP_SMALL = BAMBOO_TRUNK.setValue(BambooStalkBlock.LEAVES, BambooLeaves.SMALL);
+    private static final BlockState BAMBOO_TRUNK = Blocks.BAMBOO.defaultBlockState().setValue(BambooStalkBlock.AGE, Integer.valueOf(0)).setValue(BambooStalkBlock.LEAVES, BambooLeaves.NONE).setValue(BambooStalkBlock.STAGE, Integer.valueOf(1));
+    private static final BlockState BAMBOO_TOP = BAMBOO_TRUNK.setValue(BambooStalkBlock.LEAVES, BambooLeaves.SMALL);
 
-    public ShortBambooFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public ThinBambooFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
@@ -55,7 +53,7 @@ public class ShortBambooFeature extends Feature<NoneFeatureConfiguration>
         {
             if (Blocks.BAMBOO.defaultBlockState().canSurvive(world, blockpos$mutableblockpos))
             {
-                int j = rand.nextInt(2) + 3;
+                int j = rand.nextInt(3) + 0;
 
                 for(int l1 = 0; l1 < j && world.isEmptyBlock(blockpos$mutableblockpos); ++l1)
                 {
@@ -63,12 +61,7 @@ public class ShortBambooFeature extends Feature<NoneFeatureConfiguration>
                     blockpos$mutableblockpos.move(Direction.UP, 1);
                 }
 
-                if (blockpos$mutableblockpos.getY() - pos.getY() >= 3)
-                {
-                    world.setBlock(blockpos$mutableblockpos, BAMBOO_FINAL_LARGE, 2);
-                    world.setBlock(blockpos$mutableblockpos.move(Direction.DOWN, 1), BAMBOO_TOP_LARGE, 2);
-                    world.setBlock(blockpos$mutableblockpos.move(Direction.DOWN, 1), BAMBOO_TOP_SMALL, 2);
-                }
+                world.setBlock(blockpos$mutableblockpos, BAMBOO_TOP, 2);
             }
         }
 

@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.IceBlock;
+import net.minecraft.world.level.block.MagmaBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -76,7 +77,7 @@ public class ThermalCalciteBlock extends Block
     }
 
     public static OptionalInt getOptionalDistanceAt(BlockState p_277868_) {
-        if (p_277868_.getFluidState().is(Fluids.WATER) || p_277868_.getBlock() instanceof IceBlock) {
+        if (p_277868_.getFluidState().getType() == Fluids.WATER || p_277868_.getFluidState().getType() == Fluids.LAVA || p_277868_.getBlock() instanceof IceBlock || p_277868_.getBlock() instanceof MagmaBlock) {
             return OptionalInt.of(0);
         } else {
             return p_277868_.hasProperty(DISTANCE) ? OptionalInt.of(p_277868_.getValue(DISTANCE)) : OptionalInt.empty();
