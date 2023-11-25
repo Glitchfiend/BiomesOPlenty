@@ -114,7 +114,6 @@ public class MissingMappingsHandler
 
                     if (registry.containsKey(replacement.location()))
                     {
-                        BiomesOPlenty.LOGGER.info("Remapping ?biome");
                         mapping.remap(registry.getValue(replacement.location()));
                     }
                 }
