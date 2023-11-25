@@ -371,6 +371,10 @@ public class BOPBlocks
     public static RegistryObject<Block> REED;
     public static RegistryObject<Block> WATERGRASS;
 
+    public static RegistryObject<Block> RED_MAPLE_LEAF_PILE;
+    public static RegistryObject<Block> ORANGE_MAPLE_LEAF_PILE;
+    public static RegistryObject<Block> YELLOW_MAPLE_LEAF_PILE;
+
     public static RegistryObject<Block> BRAMBLE;
     public static RegistryObject<Block> BRAMBLE_LEAVES;
 

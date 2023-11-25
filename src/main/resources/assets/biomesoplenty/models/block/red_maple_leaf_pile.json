@@ -1,0 +1,45 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"leaves": "biomesoplenty:block/red_maple_leaf_pile",
+		"particle": "biomesoplenty:block/red_maple_leaf_pile"
+	},
+	"elements": [
+		{
+			"from": [0, 3, 3],
+			"to": [16, 3, 19],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 8], "rescale": true},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#leaves"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#leaves"}
+			}
+		},
+		{
+			"from": [-3, 3, 0],
+			"to": [13, 3, 16],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [8, 0, 8], "rescale": true},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#leaves"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#leaves"}
+			}
+		},
+		{
+			"from": [0, 3, -3],
+			"to": [16, 3, 13],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 0, 8], "rescale": true},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#leaves"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#leaves"}
+			}
+		},
+		{
+			"from": [3, 3, 0],
+			"to": [19, 3, 16],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8, 0, 8], "rescale": true},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#leaves"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#leaves"}
+			}
+		}
+	]
+}

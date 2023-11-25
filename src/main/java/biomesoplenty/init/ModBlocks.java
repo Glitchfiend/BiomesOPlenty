@@ -441,6 +441,9 @@ public class ModBlocks
         CATTAIL = registerBlock(() -> new DoubleWatersidePlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "cattail");
         REED = registerBlock(() -> new DoubleWaterPlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIRT).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "reed");
         WATERGRASS = registerBlock(() -> new DoubleWaterPlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "watergrass");
+        RED_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_RED).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "red_maple_leaf_pile");
+        ORANGE_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_ORANGE).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "orange_maple_leaf_pile");
+        YELLOW_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_YELLOW).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "yellow_maple_leaf_pile");
         BRAMBLE = registerBlock(() -> new BrambleBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.NETHER).strength(0.4F).sound(SoundType.WOOD)), "bramble");
         BRAMBLE_LEAVES = registerBlock(() -> new BrambleLeavesBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).instabreak().sound(SoundType.GRASS)), "bramble_leaves");
 
@@ -583,6 +586,9 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(REED.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(WATERGRASS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(DEAD_BRANCH.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(RED_MAPLE_LEAF_PILE.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(ORANGE_MAPLE_LEAF_PILE.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(YELLOW_MAPLE_LEAF_PILE.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BRAMBLE.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BRAMBLE_LEAVES.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(TOADSTOOL.get(), cutoutRenderType);

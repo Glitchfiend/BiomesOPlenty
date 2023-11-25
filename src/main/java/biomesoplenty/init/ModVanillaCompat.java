@@ -192,6 +192,9 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.DEAD_GRASS.get(), 60, 100);
         registerFlammable(BOPBlocks.TUNDRA_SHRUB.get(), 60, 100);
         registerFlammable(BOPBlocks.DEAD_BRANCH.get(), 60, 100);
+        registerFlammable(BOPBlocks.RED_MAPLE_LEAF_PILE.get(), 30, 60);
+        registerFlammable(BOPBlocks.ORANGE_MAPLE_LEAF_PILE.get(), 30, 60);
+        registerFlammable(BOPBlocks.YELLOW_MAPLE_LEAF_PILE.get(), 30, 60);
         registerFlammable(BOPBlocks.BARLEY.get(), 60, 100);
 
         //Log Stripping
@@ -304,6 +307,9 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.WATERGRASS.get());
 
         registerCompostable(0.3F, BOPBlocks.DEAD_BRANCH.get());
+        registerCompostable(0.3F, BOPBlocks.RED_MAPLE_LEAF_PILE.get());
+        registerCompostable(0.3F, BOPBlocks.ORANGE_MAPLE_LEAF_PILE.get());
+        registerCompostable(0.3F, BOPBlocks.YELLOW_MAPLE_LEAF_PILE.get());
         registerCompostable(0.3F, BOPBlocks.BRAMBLE.get());
         registerCompostable(0.3F, BOPBlocks.BRAMBLE_LEAVES.get());
 

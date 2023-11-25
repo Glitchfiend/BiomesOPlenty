@@ -175,6 +175,12 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> HOT_SPRING_VENTS = createKey("hot_spring_vents");
     public static final ResourceKey<PlacedFeature> MOSS_SPLATTER = createKey("moss_splatter");
     public static final ResourceKey<PlacedFeature> PUMPKIN_PATCH = createKey("pumpkin_patch");
+    public static final ResourceKey<PlacedFeature> RED_MAPLE_LEAF_PILES = createKey("red_maple_leaf_piles");
+    public static final ResourceKey<PlacedFeature> ORANGE_MAPLE_LEAF_PILES = createKey("orange_maple_leaf_piles");
+    public static final ResourceKey<PlacedFeature> YELLOW_MAPLE_LEAF_PILES = createKey("yellow_maple_leaf_piles");
+    public static final ResourceKey<PlacedFeature> RED_MAPLE_LEAF_PILES_EXTRA = createKey("red_maple_leaf_piles_extra");
+    public static final ResourceKey<PlacedFeature> ORANGE_MAPLE_LEAF_PILES_EXTRA = createKey("orange_maple_leaf_piles_extra");
+    public static final ResourceKey<PlacedFeature> YELLOW_MAPLE_LEAF_PILES_EXTRA = createKey("yellow_maple_leaf_piles_extra");
     public static final ResourceKey<PlacedFeature> ROOTED_STUMP = createKey("rooted_stump");
     public static final ResourceKey<PlacedFeature> SCATTERED_ROCKS = createKey("scattered_rocks");
     public static final ResourceKey<PlacedFeature> SCATTERED_ROCKS_HIGHLAND = createKey("scattered_rocks_highland");
@@ -299,6 +305,9 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> HOT_SPRING_VENTS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.HOT_SPRING_VENTS);
         final Holder<ConfiguredFeature<?, ?>> MOSS_SPLATTER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.MOSS_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> PUMPKIN_PATCH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PUMPKIN_PATCH);
+        final Holder<ConfiguredFeature<?, ?>> RED_MAPLE_LEAF_PILES = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.RED_MAPLE_LEAF_PILES);
+        final Holder<ConfiguredFeature<?, ?>> ORANGE_MAPLE_LEAF_PILES = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ORANGE_MAPLE_LEAF_PILES);
+        final Holder<ConfiguredFeature<?, ?>> YELLOW_MAPLE_LEAF_PILES = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.YELLOW_MAPLE_LEAF_PILES);
         final Holder<ConfiguredFeature<?, ?>> ROOTED_STUMP = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ROOTED_STUMP);
         final Holder<ConfiguredFeature<?, ?>> SCATTERED_ROCKS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SCATTERED_ROCKS);
         final Holder<ConfiguredFeature<?, ?>> SCRUB = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SCRUB);
@@ -456,6 +465,12 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.HOT_SPRING_VENTS, HOT_SPRING_VENTS, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.MOSS_SPLATTER, MOSS_SPLATTER, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PUMPKIN_PATCH, PUMPKIN_PATCH, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.RED_MAPLE_LEAF_PILES, RED_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(2));
+        register(context, BOPVegetationPlacements.ORANGE_MAPLE_LEAF_PILES, ORANGE_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(2));
+        register(context, BOPVegetationPlacements.YELLOW_MAPLE_LEAF_PILES, YELLOW_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(2));
+        register(context, BOPVegetationPlacements.RED_MAPLE_LEAF_PILES_EXTRA, RED_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(6));
+        register(context, BOPVegetationPlacements.ORANGE_MAPLE_LEAF_PILES_EXTRA, ORANGE_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(7));
+        register(context, BOPVegetationPlacements.YELLOW_MAPLE_LEAF_PILES_EXTRA, YELLOW_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(8));
         register(context, BOPVegetationPlacements.ROOTED_STUMP, ROOTED_STUMP, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.SCATTERED_ROCKS, SCATTERED_ROCKS, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SCATTERED_ROCKS_HIGHLAND, SCATTERED_ROCKS, List.of(RarityFilter.onAverageOnceEvery(7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

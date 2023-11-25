@@ -76,6 +76,9 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_WATERGRASS = createKey("patch_watergrass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_WATERLILY_FLOWER = createKey("patch_waterlily_flower");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PUMPKIN_PATCH = createKey("pumpkin_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_LEAF_PILES = createKey("red_maple_leaf_piles");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_LEAF_PILES = createKey("orange_maple_leaf_piles");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_LEAF_PILES = createKey("yellow_maple_leaf_piles");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINFOREST_CLIFFS_VINES = createKey("rainforest_cliffs_vines");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTED_STUMP = createKey("rooted_stump");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE_BUSH = createKey("rose_bush");
@@ -255,6 +258,9 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_WATERGRASS, Feature.RANDOM_PATCH, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS.get()))));
         register(context, BOPVegetationFeatures.PATCH_WATERLILY_FLOWER, Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERLILY.get())))));
         register(context, BOPVegetationFeatures.PUMPKIN_PATCH, BOPBaseFeatures.PUMPKIN_PATCH, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.RED_MAPLE_LEAF_PILES, BOPBaseFeatures.RED_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.ORANGE_MAPLE_LEAF_PILES, BOPBaseFeatures.ORANGE_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.YELLOW_MAPLE_LEAF_PILES, BOPBaseFeatures.YELLOW_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES, BOPBaseFeatures.RAINFOREST_CLIFFS_VINES, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ROOTED_STUMP, BOPBaseFeatures.ROOTED_STUMP, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ROSE_BUSH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ROSE_BUSH))));

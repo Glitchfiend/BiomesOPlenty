@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:yellow_maple_leaves"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:yellow_maple_leaf_pile",
+    "count": 3
+  }
+}
