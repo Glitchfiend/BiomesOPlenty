@@ -431,6 +431,11 @@ public class ModBlocks
         CLOVER = registerBlock(() -> new CloverBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY)), "clover");
         HUGE_CLOVER_PETAL = registerBlock(() -> new HugeCloverPetalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).ignitedByLava().instabreak().sound(SoundType.PINK_PETALS)), "huge_clover_petal");
         HUGE_LILY_PAD = registerBlock(() -> new HugeLilyPadBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).instabreak().sound(SoundType.LILY_PAD).noOcclusion()), () -> new PlaceOnWaterBlockItem(HUGE_LILY_PAD.get(), new Item.Properties()), "huge_lily_pad");
+
+        RED_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_RED).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "red_maple_leaf_pile");
+        ORANGE_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_ORANGE).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "orange_maple_leaf_pile");
+        YELLOW_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_YELLOW).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "yellow_maple_leaf_pile");
+
         DUNE_GRASS = registerBlock(() -> new FoliageBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_LIGHT_GREEN).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "dune_grass");
         DESERT_GRASS = registerBlock(() -> new FoliageBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_ORANGE).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "desert_grass");
         DEAD_GRASS = registerBlock(() -> new FoliageBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.WOOD).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "dead_grass");
@@ -441,9 +446,8 @@ public class ModBlocks
         CATTAIL = registerBlock(() -> new DoubleWatersidePlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "cattail");
         REED = registerBlock(() -> new DoubleWaterPlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIRT).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "reed");
         WATERGRASS = registerBlock(() -> new DoubleWaterPlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "watergrass");
-        RED_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_RED).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "red_maple_leaf_pile");
-        ORANGE_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_ORANGE).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "orange_maple_leaf_pile");
-        YELLOW_MAPLE_LEAF_PILE = registerBlock(() -> new LeafPileBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_YELLOW).replaceable().noCollission().instabreak().sound(SoundType.GRASS)), "yellow_maple_leaf_pile");
+
+        TINY_CACTUS = registerBlock(() -> new TinyCactusBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.WOOL).offsetType(BlockBehaviour.OffsetType.XZ)), "tiny_cactus");
         BRAMBLE = registerBlock(() -> new BrambleBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.NETHER).strength(0.4F).sound(SoundType.WOOD)), "bramble");
         BRAMBLE_LEAVES = registerBlock(() -> new BrambleLeavesBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).instabreak().sound(SoundType.GRASS)), "bramble_leaves");
 
@@ -477,6 +481,7 @@ public class ModBlocks
         POTTED_WILTED_LILY = registerBlock(() -> new FlowerPotBlock(WILTED_LILY.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_wilted_lily");
         POTTED_BURNING_BLOSSOM = registerBlock(() -> new FlowerPotBlock(BURNING_BLOSSOM.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 7)), "potted_burning_blossom");
         POTTED_SPROUT = registerBlock(() -> new FlowerPotBlock(SPROUT.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_sprout");
+        POTTED_TINY_CACTUS = registerBlock(() -> new FlowerPotBlock(TINY_CACTUS.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_tiny_cactus");
         POTTED_TOADSTOOL = registerBlock(() -> new FlowerPotBlock(TOADSTOOL.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_toadstool");
         POTTED_GLOWSHROOM = registerBlock(() -> new FlowerPotBlock(GLOWSHROOM.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 6).emissiveRendering((state, world, pos) -> true)), "potted_glowshroom");
     }
@@ -576,6 +581,9 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(CLOVER.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(HUGE_CLOVER_PETAL.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(HUGE_LILY_PAD.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(RED_MAPLE_LEAF_PILE.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(ORANGE_MAPLE_LEAF_PILE.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(YELLOW_MAPLE_LEAF_PILE.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(DUNE_GRASS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(DESERT_GRASS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(DEAD_GRASS.get(), cutoutRenderType);
@@ -586,9 +594,7 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(REED.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(WATERGRASS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(DEAD_BRANCH.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(RED_MAPLE_LEAF_PILE.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(ORANGE_MAPLE_LEAF_PILE.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(YELLOW_MAPLE_LEAF_PILE.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(TINY_CACTUS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BRAMBLE.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(BRAMBLE_LEAVES.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(TOADSTOOL.get(), cutoutRenderType);
@@ -662,6 +668,7 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(POTTED_WILTED_LILY.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_BURNING_BLOSSOM.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_SPROUT.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(POTTED_TINY_CACTUS.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_TOADSTOOL.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_GLOWSHROOM.get(), cutoutRenderType);
     }

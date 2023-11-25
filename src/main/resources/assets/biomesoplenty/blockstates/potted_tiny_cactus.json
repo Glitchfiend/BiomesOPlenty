@@ -1,0 +1,8 @@
+{
+    "variants": {
+		"": [
+            { "model": "biomesoplenty:block/potted_tiny_cactus" },
+			{ "model": "biomesoplenty:block/potted_tiny_cactus_alt" }
+        ]
+    }
+}

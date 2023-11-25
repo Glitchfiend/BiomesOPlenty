@@ -360,6 +360,11 @@ public class BOPBlocks
     public static RegistryObject<Block> CLOVER;
     public static RegistryObject<Block> HUGE_CLOVER_PETAL;
     public static RegistryObject<Block> HUGE_LILY_PAD;
+
+    public static RegistryObject<Block> RED_MAPLE_LEAF_PILE;
+    public static RegistryObject<Block> ORANGE_MAPLE_LEAF_PILE;
+    public static RegistryObject<Block> YELLOW_MAPLE_LEAF_PILE;
+
     public static RegistryObject<Block> DUNE_GRASS;
     public static RegistryObject<Block> DESERT_GRASS;
     public static RegistryObject<Block> DEAD_GRASS;
@@ -371,10 +376,7 @@ public class BOPBlocks
     public static RegistryObject<Block> REED;
     public static RegistryObject<Block> WATERGRASS;
 
-    public static RegistryObject<Block> RED_MAPLE_LEAF_PILE;
-    public static RegistryObject<Block> ORANGE_MAPLE_LEAF_PILE;
-    public static RegistryObject<Block> YELLOW_MAPLE_LEAF_PILE;
-
+    public static RegistryObject<Block> TINY_CACTUS;
     public static RegistryObject<Block> BRAMBLE;
     public static RegistryObject<Block> BRAMBLE_LEAVES;
 
@@ -409,6 +411,7 @@ public class BOPBlocks
     public static RegistryObject<Block> POTTED_WILTED_LILY;
     public static RegistryObject<Block> POTTED_BURNING_BLOSSOM;
     public static RegistryObject<Block> POTTED_SPROUT;
+    public static RegistryObject<Block> POTTED_TINY_CACTUS;
     public static RegistryObject<Block> POTTED_TOADSTOOL;
     public static RegistryObject<Block> POTTED_GLOWSHROOM;
 }

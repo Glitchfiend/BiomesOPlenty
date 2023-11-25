@@ -77,10 +77,11 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_dead_bush_2",
       "biomesoplenty:trees_dryland",
       "biomesoplenty:patch_bush_1",
-      "biomesoplenty:patch_grass_6"
+      "biomesoplenty:patch_grass_6",
+      "biomesoplenty:patch_dead_bush_4",
+      "biomesoplenty:patch_tiny_cactus"
     ],
     [
       "minecraft:freeze_top_layer"

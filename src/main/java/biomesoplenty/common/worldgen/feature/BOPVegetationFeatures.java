@@ -72,6 +72,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SEA_OATS = createKey("patch_sea_oats");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SPROUTS = createKey("patch_sprouts");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TALL_LAVENDER = createKey("patch_tall_lavender");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TINY_CACTUS = createKey("patch_tiny_cactus");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TUNDRA_SHRUBS = createKey("patch_tundra_shrubs");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_WATERGRASS = createKey("patch_watergrass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_WATERLILY_FLOWER = createKey("patch_waterlily_flower");
@@ -254,6 +255,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_SEA_OATS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SEA_OATS.get()))));
         register(context, BOPVegetationFeatures.PATCH_SPROUTS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT.get()))));
         register(context, BOPVegetationFeatures.PATCH_TALL_LAVENDER, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TALL_LAVENDER.get()))));
+        register(context, BOPVegetationFeatures.PATCH_TINY_CACTUS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TINY_CACTUS.get()))));
         register(context, BOPVegetationFeatures.PATCH_TUNDRA_SHRUBS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TUNDRA_SHRUB.get()))));
         register(context, BOPVegetationFeatures.PATCH_WATERGRASS, Feature.RANDOM_PATCH, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS.get()))));
         register(context, BOPVegetationFeatures.PATCH_WATERLILY_FLOWER, Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERLILY.get())))));
