@@ -47,6 +47,7 @@ public class ModBiomes
         HolderGetter<ConfiguredWorldCarver<?>> carverGetter = context.lookup(Registries.CONFIGURED_CARVER);
         HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
 
+        register(context, BOPBiomes.ASPEN_FOREST, BOPOverworldBiomes.aspenForest(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.AURORAL_GARDEN, BOPOverworldBiomes.auroralGarden(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.BAYOU, BOPOverworldBiomes.bayou(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.BOG, BOPOverworldBiomes.bog(placedFeatureGetter, carverGetter));
@@ -65,9 +66,9 @@ public class ModBiomes
         register(context, BOPBiomes.GRASSLAND, BOPOverworldBiomes.grassland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.HOT_SPRINGS, BOPOverworldBiomes.hotSprings(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.JACARANDA_FOREST, BOPOverworldBiomes.jacarandaForest(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.JADE_CLIFFS, BOPOverworldBiomes.jadeCliffs(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter, false));
-        register(context, BOPBiomes.LAVENDER_FOREST, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.LUSH_SAVANNA, BOPOverworldBiomes.lushSavanna(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(placedFeatureGetter, carverGetter, false));
@@ -90,7 +91,6 @@ public class ModBiomes
         register(context, BOPBiomes.ROCKY_SHRUBLAND, BOPOverworldBiomes.rockyShrubland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.SCRUBLAND, BOPOverworldBiomes.scrubland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.SEASONAL_FOREST, BOPOverworldBiomes.seasonalForest(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.SEASONAL_ORCHARD, BOPOverworldBiomes.seasonalOrchard(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.SHRUBLAND, BOPOverworldBiomes.shrubland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.SNOWBLOSSOM_GROVE, BOPOverworldBiomes.snowblossomGrove(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(placedFeatureGetter, carverGetter, true));
@@ -119,6 +119,7 @@ public class ModBiomes
     
     private static void registerVillagerTypes()
     {
+        registerVillagerType(BOPBiomes.ASPEN_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.AURORAL_GARDEN, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.BAYOU, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.BOG, VillagerType.SWAMP);
@@ -137,9 +138,9 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.GRASSLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.HIGHLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.HOT_SPRINGS, VillagerType.TAIGA);
+        registerVillagerType(BOPBiomes.JACARANDA_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.JADE_CLIFFS, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LAVENDER_FIELD, VillagerType.PLAINS);
-        registerVillagerType(BOPBiomes.LAVENDER_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LUSH_DESERT, VillagerType.SAVANNA);
         registerVillagerType(BOPBiomes.LUSH_SAVANNA, VillagerType.SAVANNA);
         registerVillagerType(BOPBiomes.MAPLE_WOODS, VillagerType.TAIGA);
@@ -162,7 +163,6 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.ROCKY_SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SCRUBLAND, VillagerType.SAVANNA);
         registerVillagerType(BOPBiomes.SEASONAL_FOREST, VillagerType.PLAINS);
-        registerVillagerType(BOPBiomes.SEASONAL_ORCHARD, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SNOWBLOSSOM_GROVE, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.SNOWY_CONIFEROUS_FOREST, VillagerType.TAIGA);

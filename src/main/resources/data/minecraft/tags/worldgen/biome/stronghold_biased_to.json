@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "biomesoplenty:aspen_forest",
+      "required": false
+    },
+    {
       "id": "biomesoplenty:auroral_garden",
       "required": false
     },
@@ -77,15 +81,15 @@
       "required": false
     },
     {
+      "id": "biomesoplenty:jacaranda_forest",
+      "required": false
+    },
+    {
       "id": "biomesoplenty:jade_cliffs",
       "required": false
     },
     {
       "id": "biomesoplenty:lavender_field",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:lavender_forest",
       "required": false
     },
     {
@@ -170,10 +174,6 @@
     },
     {
       "id": "biomesoplenty:seasonal_forest",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:seasonal_orchard",
       "required": false
     },
     {

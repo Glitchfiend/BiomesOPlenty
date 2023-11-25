@@ -18,11 +18,11 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:lavender_field",
+            "id": "biomesoplenty:jacaranda_forest",
             "required": false
         },
         {
-            "id": "biomesoplenty:lavender_forest",
+            "id": "biomesoplenty:lavender_field",
             "required": false
         },
         {

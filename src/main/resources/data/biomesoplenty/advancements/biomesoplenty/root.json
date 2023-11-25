@@ -14,6 +14,22 @@
         "announce_to_chat": false
     },
     "criteria": {
+		"aspen_forest": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "biomesoplenty:aspen_forest"
+							}
+						}
+					}
+				]
+			}
+		},
 		"auroral_garden": {
 			"trigger": "minecraft:location",
 			"conditions": {
@@ -350,6 +366,22 @@
 				]
 			}
 		},
+		"jacaranda_forest": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "biomesoplenty:jacaranda_forest"
+							}
+						}
+					}
+				]
+			}
+		},
 		"jade_cliffs": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -376,22 +408,6 @@
 				"predicate": {
 				  "location": {
 					"biome": "biomesoplenty:lavender_field"
-				  }
-				}
-			  }
-			]
-		  }
-        },
-		"lavender_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:lavender_forest"
 				  }
 				}
 			  }
@@ -750,22 +766,6 @@
 			]
 		  }
         },
-		"seasonal_orchard": {
-			"trigger": "minecraft:location",
-			"conditions": {
-				"player": [
-					{
-						"condition": "minecraft:entity_properties",
-						"entity": "this",
-						"predicate": {
-							"location": {
-								"biome": "biomesoplenty:seasonal_orchard"
-							}
-						}
-					}
-				]
-			}
-		},
 		"shrubland": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1041,6 +1041,7 @@
     },
 	"requirements": [
         [
+		"aspen_forest",
 		"auroral_garden",
 		"bayou",
 		"bog",
@@ -1062,9 +1063,9 @@
 		"grassland",
 		"highland",
 		"hot_springs",
+		"jacaranda_forest",
 		"jade_cliffs",
 		"lavender_field",
-		"lavender_forest",
 		"lush_desert",
 		"lush_savanna",
 		"maple_woods",
@@ -1087,7 +1088,6 @@
 		"rocky_shrubland",
 		"scrubland",
 		"seasonal_forest",
-		"seasonal_orchard",
 		"shrubland",
 		"snowblossom_grove",
 		"snowy_coniferous_forest",

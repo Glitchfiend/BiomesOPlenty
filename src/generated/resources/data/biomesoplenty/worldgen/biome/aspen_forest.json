@@ -6,11 +6,11 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.7,
+  "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 10601325,
-    "grass_color": 10601325,
+    "foliage_color": 13746762,
+    "grass_color": 14527306,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -21,9 +21,9 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
-      "sound": "minecraft:music.overworld.cherry_grove"
+      "sound": "minecraft:music.overworld.forest"
     },
-    "sky_color": 7907327,
+    "sky_color": 8168703,
     "water_color": 4159204,
     "water_fog_color": 329011
   },
@@ -68,7 +68,10 @@
       "minecraft:ore_lapis",
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
-      "minecraft:underwater_magma"
+      "minecraft:underwater_magma",
+      "minecraft:disk_sand",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel"
     ],
     [],
     [
@@ -77,12 +80,17 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_sugar_cane",
-      "biomesoplenty:patch_grass_24",
-      "biomesoplenty:patch_tall_grass_64",
-      "biomesoplenty:flower_lavender_forest",
-      "biomesoplenty:patch_tall_lavender_forest",
-      "biomesoplenty:trees_lavender_forest"
+      "minecraft:flower_default",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal",
+      "minecraft:patch_pumpkin",
+      "biomesoplenty:trees_aspen_forest",
+      "biomesoplenty:patch_barley_sparse",
+      "biomesoplenty:patch_fern_4",
+      "biomesoplenty:patch_large_fern_normal",
+      "biomesoplenty:toadstool_normal",
+      "biomesoplenty:patch_reed_10",
+      "biomesoplenty:patch_grass_6"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -123,6 +131,18 @@
         "type": "minecraft:cow",
         "maxCount": 4,
         "minCount": 4,
+        "weight": 8
+      },
+      {
+        "type": "minecraft:wolf",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 5
+      },
+      {
+        "type": "minecraft:fox",
+        "maxCount": 4,
+        "minCount": 2,
         "weight": 8
       }
     ],
@@ -188,5 +208,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.8
+  "temperature": 0.4
 }

@@ -111,6 +111,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_WASTELAND = createKey("flower_wasteland");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_WETLAND = createKey("flower_wetland");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_WILDFLOWER = createKey("flower_wildflower");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_ASPEN_FOREST = createKey("trees_aspen_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_AURORAL_GARDEN = createKey("trees_auroral_garden");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BAYOU = createKey("trees_bayou");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BOG = createKey("trees_bog");
@@ -124,7 +125,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_HOT_SPRINGS = createKey("trees_hot_springs");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_JADE_CLIFFS = createKey("trees_jade_cliffs");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_LAVENDER_FIELD = createKey("trees_lavender_field");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_LAVENDER_FOREST = createKey("trees_lavender_forest");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_JACARANDA_FOREST = createKey("trees_jacaranda_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_LUSH_DESERT = createKey("trees_lush_desert");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_MAPLE_FOREST = createKey("trees_maple_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_MEDITERRANEAN_FOREST = createKey("tress_mediterranean_forest");
@@ -141,7 +142,6 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_REDWOOD_FOREST = createKey("trees_redwood_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SCRUBLAND = createKey("trees_scrubland");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SEASONAL_FOREST = createKey("trees_seasonal_forest");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SEASONAL_ORCHARD = createKey("trees_seasonal_orchard");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SEASONAL_PUMPKIN_PATCH = createKey("trees_seasonal_pumpkin_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SNOWBLOSSOM_GROVE = createKey("trees_snowblossom_grove");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SNOWY_CONIFEROUS_FOREST = createKey("trees_snowy_coniferous_forest");
@@ -310,6 +310,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.FLOWER_WASTELAND, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WILTED_LILY.get()))));
         register(context, BOPVegetationFeatures.FLOWER_WETLAND, Feature.FLOWER, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.BLUE_ORCHID.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_WILDFLOWER, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WILDFLOWER.get()))));
+        register(context, BOPVegetationFeatures.TREES_ASPEN_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_YELLOW_MAPLE_TREE_CHECKED, 0.05F)), ASPEN_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_AURORAL_GARDEN, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.1F), new WeightedPlacedFeature(FIR_TREE_SMALL_CHECKED, 0.1F), new WeightedPlacedFeature(FIR_TREE_CHECKED, 0.025F), new WeightedPlacedFeature(BIG_RAINBOW_BIRCH_TREE_CHECKED, 0.4F)), RAINBOW_BIRCH_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_BAYOU, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(CYPRESS_TREE_MEDIUM_CHECKED, 0.3F)), CYPRESS_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_BOG, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SPRUCE_TWIGLET_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(MAPLE_TWIGLET_TREE_CHECKED, 0.6F)), MANGROVE_TWIGLET_TREE_CHECKED));
@@ -321,9 +322,9 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_FIELD_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.25F)), TALL_SPRUCE_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_FUNGAL_JUNGLE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_OAK_TREE_CHECKED, 0.05F)), JUNGLE_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_HOT_SPRINGS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(DARK_OAK_CHECKED, 0.05F)), PINE_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_JACARANDA_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.25F)), BIG_JACARANDA_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_JADE_CLIFFS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PINE_TREE_CHECKED, 0.075F)), SPRUCE_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LAVENDER_FIELD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FLOWERING_OAK_TREE_BEES_CHECKED, 0.2F), new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_JACARANDA_TREE_CHECKED, 0.1F)), JACARANDA_TREE_BEES_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_LAVENDER_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.25F)), BIG_JACARANDA_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LUSH_DESERT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PALM_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(ACACIA_BUSH_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(SPARSE_ACACIA_TREE_CHECKED, 0.2F)), ACACIA_TWIGLET_CHECKED));
         register(context, BOPVegetationFeatures.TREES_MAPLE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_RED_MAPLE_TREE_CHECKED, 0.3F)), RED_MAPLE_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_MEDITERRANEAN_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SPARSE_OAK_TREE_CHECKED, 0.05F), new WeightedPlacedFeature(DARK_OAK_POPLAR_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(SPRUCE_POPLAR_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(FLOWERING_OAK_BUSH_CHECKED, 0.1F)), OAK_BUSH_CHECKED));
@@ -340,7 +341,6 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_REDWOOD_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(REDWOOD_TREE_CHECKED, 0.3f), new WeightedPlacedFeature(REDWOOD_TREE_LARGE_CHECKED, 0.5f)), REDWOOD_TREE_MEDIUM_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SCRUBLAND, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SPRUCE_TWIGLET_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(TALL_TWIGLET_TREE_CHECKED, 0.1F)), ACACIA_TWIGLET_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SEASONAL_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_CHECKED, 0.05F), new WeightedPlacedFeature(FANCY_OAK_CHECKED, 0.025F), new WeightedPlacedFeature(RED_MAPLE_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(YELLOW_MAPLE_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(BIG_RED_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_YELLOW_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_ORANGE_MAPLE_TREE_CHECKED, 0.1F)), ORANGE_MAPLE_TREE_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_SEASONAL_ORCHARD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_YELLOW_MAPLE_TREE_CHECKED, 0.05F)), ASPEN_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.2F), new WeightedPlacedFeature(ORANGE_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_ORANGE_MAPLE_TREE_CHECKED, 0.05F)), TWIGLET_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SNOWBLOSSOM_GROVE, Feature.TREE, snowblossom().build());
         register(context, BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FIR_TREE_CHECKED, 0.4F)), FIR_TREE_LARGE_CHECKED));

@@ -2,6 +2,10 @@
     "replace": false,
     "values": [
         {
+            "id": "biomesoplenty:aspen_forest",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:mediterranean_forest",
             "required": false
         },
@@ -23,10 +27,6 @@
         },
         {
             "id": "biomesoplenty:seasonal_forest",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:seasonal_orchard",
             "required": false
         },
         {

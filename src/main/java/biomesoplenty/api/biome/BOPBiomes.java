@@ -19,6 +19,7 @@ public class BOPBiomes
     private static List<ResourceKey<Biome>> overworldBiomes = Lists.newArrayList();
     private static List<ResourceKey<Biome>> allBiomes = Lists.newArrayList();
 
+    public static final ResourceKey<Biome> ASPEN_FOREST = registerOverworld("aspen_forest");
     public static final ResourceKey<Biome> AURORAL_GARDEN = registerOverworld("auroral_garden");
     public static final ResourceKey<Biome> BAYOU = registerOverworld("bayou");
     public static final ResourceKey<Biome> BOG = registerOverworld("bog");
@@ -40,9 +41,9 @@ public class BOPBiomes
     public static final ResourceKey<Biome> GRASSLAND = registerOverworld("grassland");
     public static final ResourceKey<Biome> HIGHLAND = registerOverworld("highland");
     public static final ResourceKey<Biome> HOT_SPRINGS = registerOverworld("hot_springs");
+    public static final ResourceKey<Biome> JACARANDA_FOREST = registerOverworld("jacaranda_forest");
     public static final ResourceKey<Biome> JADE_CLIFFS = registerOverworld("jade_cliffs");
     public static final ResourceKey<Biome> LAVENDER_FIELD = registerOverworld("lavender_field");
-    public static final ResourceKey<Biome> LAVENDER_FOREST = registerOverworld("lavender_forest");
     public static final ResourceKey<Biome> LUSH_DESERT = registerOverworld("lush_desert");
     public static final ResourceKey<Biome> LUSH_SAVANNA = registerOverworld("lush_savanna");
     public static final ResourceKey<Biome> MAPLE_WOODS = registerOverworld("maple_woods");
@@ -65,7 +66,6 @@ public class BOPBiomes
     public static final ResourceKey<Biome> ROCKY_SHRUBLAND = registerOverworld("rocky_shrubland");
     public static final ResourceKey<Biome> SCRUBLAND = registerOverworld("scrubland");
     public static final ResourceKey<Biome> SEASONAL_FOREST = registerOverworld("seasonal_forest");
-    public static final ResourceKey<Biome> SEASONAL_ORCHARD = registerOverworld("seasonal_orchard");
     public static final ResourceKey<Biome> SHRUBLAND = registerOverworld("shrubland");
     public static final ResourceKey<Biome> SNOWBLOSSOM_GROVE = registerOverworld("snowblossom_grove");
     public static final ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = registerOverworld("snowy_coniferous_forest");
