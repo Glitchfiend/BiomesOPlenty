@@ -6,7 +6,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "biomesoplenty:maple_sapling",
+          "Name": "biomesoplenty:red_maple_sapling",
           "Properties": {
             "stage": "0"
           }

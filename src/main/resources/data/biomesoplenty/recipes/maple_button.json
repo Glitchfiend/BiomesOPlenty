@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:maple_planks"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:maple_button"
+  }
+}

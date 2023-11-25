@@ -156,12 +156,6 @@ public class ModBlocks
         SNOWBLOSSOM_LEAVES = registerBlock(() -> new SnowblossomLeavesBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.SNOW).strength(0.2F).randomTicks().sound(SoundType.CHERRY_LEAVES).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "snowblossom_leaves");
         RAINBOW_BIRCH_SAPLING = registerBlock(() -> new SaplingBlockBOP(new RainbowBirchTree(), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 1).emissiveRendering((state, world, pos) -> true)), "rainbow_birch_sapling");
         RAINBOW_BIRCH_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never).lightLevel((state) -> 1).emissiveRendering((state, world, pos) -> true)), "rainbow_birch_leaves");
-        YELLOW_AUTUMN_SAPLING = registerBlock(() -> new SaplingBlockBOP(new YellowAutumnTree(), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "yellow_autumn_sapling");
-        YELLOW_AUTUMN_LEAVES = registerBlock(() -> new YellowAutumnLeavesBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_YELLOW).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "yellow_autumn_leaves");
-        ORANGE_AUTUMN_SAPLING = registerBlock(() -> new SaplingBlockBOP(new OrangeAutumnTree(), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "orange_autumn_sapling");
-        ORANGE_AUTUMN_LEAVES = registerBlock(() -> new OrangeAutumnLeavesBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_ORANGE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "orange_autumn_leaves");
-        MAPLE_SAPLING = registerBlock(() -> new SaplingBlockBOP(new MapleTree(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "maple_sapling");
-        MAPLE_LEAVES = registerBlock(() -> new MapleLeavesBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_RED).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "maple_leaves");
 
         FIR_SAPLING = registerBlock(() -> new SaplingBlockBOP(new FirTree(), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "fir_sapling");
         FIR_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "fir_leaves");
@@ -202,6 +196,30 @@ public class ModBlocks
         PINE_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().mapColor(PINE_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(PINE_SIGN), BOPWoodTypes.PINE), "pine_wall_sign");
         PINE_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().mapColor(PINE_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.PINE), "pine_hanging_sign");
         PINE_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().mapColor(PINE_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(PINE_HANGING_SIGN), BOPWoodTypes.PINE), "pine_wall_hanging_sign");
+
+        RED_MAPLE_SAPLING = registerBlock(() -> new SaplingBlockBOP(new RedMapleTree(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "red_maple_sapling");
+        RED_MAPLE_LEAVES = registerBlock(() -> new RedMapleLeavesBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_RED).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "red_maple_leaves");
+        ORANGE_MAPLE_SAPLING = registerBlock(() -> new SaplingBlockBOP(new OrangeMapleTree(), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "orange_maple_sapling");
+        ORANGE_MAPLE_LEAVES = registerBlock(() -> new OrangeMapleLeavesBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_ORANGE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "orange_maple_leaves");
+        YELLOW_MAPLE_SAPLING = registerBlock(() -> new SaplingBlockBOP(new YellowMapleTree(), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "yellow_maple_sapling");
+        YELLOW_MAPLE_LEAVES = registerBlock(() -> new YellowMapleLeavesBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_YELLOW).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "yellow_maple_leaves");
+        MAPLE_LOG = registerBlock(() -> log(MapColor.DIRT, MapColor.TERRACOTTA_BROWN), "maple_log");
+        MAPLE_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.DIRT).strength(2.0F).sound(SoundType.WOOD)), "maple_wood");
+        STRIPPED_MAPLE_LOG = registerBlock(() -> log(MapColor.DIRT, MapColor.DIRT), "stripped_maple_log");
+        STRIPPED_MAPLE_WOOD = registerBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.DIRT).strength(2.0F).sound(SoundType.WOOD)), "stripped_maple_wood");
+        MAPLE_PLANKS = registerBlock(() -> new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.DIRT).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_planks");
+        MAPLE_STAIRS = registerBlock(() -> new StairBlock(MAPLE_PLANKS.get()::defaultBlockState, Block.Properties.copy(MAPLE_PLANKS.get())), "maple_stairs");
+        MAPLE_SLAB = registerBlock(() -> new SlabBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.DIRT).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_slab");
+        MAPLE_FENCE = registerBlock(() -> new FenceBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().mapColor(MAPLE_PLANKS.get().defaultMapColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_fence");
+        MAPLE_FENCE_GATE = registerBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().mapColor(MAPLE_PLANKS.get().defaultMapColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD), BOPWoodTypes.MAPLE), "maple_fence_gate");
+        MAPLE_DOOR = registerBlock(() -> new DoorBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MAPLE_PLANKS.get().defaultMapColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion(), BOPBlockSetTypes.MAPLE), "maple_door");
+        MAPLE_TRAPDOOR = registerBlock(() -> new TrapDoorBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.DIRT).strength(3.0F).sound(SoundType.WOOD).noOcclusion(), BOPBlockSetTypes.MAPLE), "maple_trapdoor");
+        MAPLE_PRESSURE_PLATE = registerBlock(() -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().mapColor(MAPLE_PLANKS.get().defaultMapColor()).noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.MAPLE), "maple_pressure_plate");
+        MAPLE_BUTTON = registerBlock(() -> new ButtonBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().strength(0.5F).sound(SoundType.WOOD), BOPBlockSetTypes.MAPLE, 30, true), "maple_button");
+        MAPLE_SIGN = registerBlockNoBlockItem(() -> new StandingSignBlockBOP(BlockBehaviour.Properties.of().mapColor(MAPLE_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.MAPLE), "maple_sign");
+        MAPLE_WALL_SIGN = registerBlockNoBlockItem(() -> new WallSignBlockBOP(BlockBehaviour.Properties.of().mapColor(MAPLE_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(MAPLE_SIGN), BOPWoodTypes.MAPLE), "maple_wall_sign");
+        MAPLE_HANGING_SIGN = registerBlockNoBlockItem(() -> new CeilingHangingSignBlockBOP(BlockBehaviour.Properties.of().mapColor(MAPLE_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F).sound(SoundType.WOOD), BOPWoodTypes.MAPLE), "maple_hanging_sign");
+        MAPLE_WALL_HANGING_SIGN = registerBlockNoBlockItem(() -> new WallHangingSignBlockBOP(BlockBehaviour.Properties.of().mapColor(MAPLE_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(MAPLE_HANGING_SIGN), BOPWoodTypes.MAPLE), "maple_wall_hanging_sign");
 
         REDWOOD_SAPLING = registerBlock(() -> new SaplingBlockBOP(new RedwoodTree(), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)), "redwood_sapling");
         REDWOOD_LEAVES = registerBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never)), "redwood_leaves");
@@ -431,11 +449,11 @@ public class ModBlocks
         POTTED_FLOWERING_OAK_SAPLING = registerBlock(() -> new FlowerPotBlock(FLOWERING_OAK_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_flowering_oak_sapling");
         POTTED_SNOWBLOSSOM_SAPLING = registerBlock(() -> new FlowerPotBlock(SNOWBLOSSOM_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_snowblossom_sapling");
         POTTED_RAINBOW_BIRCH_SAPLING = registerBlock(() -> new FlowerPotBlock(RAINBOW_BIRCH_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 1).emissiveRendering((state, world, pos) -> true)), "potted_rainbow_birch_sapling");
-        POTTED_YELLOW_AUTUMN_SAPLING = registerBlock(() -> new FlowerPotBlock(YELLOW_AUTUMN_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_yellow_autumn_sapling");
-        POTTED_ORANGE_AUTUMN_SAPLING = registerBlock(() -> new FlowerPotBlock(ORANGE_AUTUMN_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_orange_autumn_sapling");
-        POTTED_MAPLE_SAPLING = registerBlock(() -> new FlowerPotBlock(MAPLE_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_maple_sapling");
         POTTED_FIR_SAPLING = registerBlock(() -> new FlowerPotBlock(FIR_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_fir_sapling");
         POTTED_PINE_SAPLING = registerBlock(() -> new FlowerPotBlock(PINE_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_pine_sapling");
+        POTTED_RED_MAPLE_SAPLING = registerBlock(() -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_red_maple_sapling");
+        POTTED_ORANGE_MAPLE_SAPLING = registerBlock(() -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_orange_maple_sapling");
+        POTTED_YELLOW_MAPLE_SAPLING = registerBlock(() -> new FlowerPotBlock(YELLOW_MAPLE_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_yellow_maple_sapling");
         POTTED_REDWOOD_SAPLING = registerBlock(() -> new FlowerPotBlock(REDWOOD_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_redwood_sapling");
         POTTED_MAHOGANY_SAPLING = registerBlock(() -> new FlowerPotBlock(MAHOGANY_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_mahogany_sapling");
         POTTED_JACARANDA_SAPLING = registerBlock(() -> new FlowerPotBlock(JACARANDA_SAPLING.get(), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_jacaranda_sapling");
@@ -465,6 +483,7 @@ public class ModBlocks
     {
         Sheets.addWoodType(BOPWoodTypes.FIR);
         Sheets.addWoodType(BOPWoodTypes.PINE);
+        Sheets.addWoodType(BOPWoodTypes.MAPLE);
         Sheets.addWoodType(BOPWoodTypes.REDWOOD);
         Sheets.addWoodType(BOPWoodTypes.MAHOGANY);
         Sheets.addWoodType(BOPWoodTypes.JACARANDA);
@@ -489,11 +508,11 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(FLOWERING_OAK_LEAVES.get(), transparentRenderType);
         ItemBlockRenderTypes.setRenderLayer(SNOWBLOSSOM_LEAVES.get(), transparentRenderType);
         ItemBlockRenderTypes.setRenderLayer(RAINBOW_BIRCH_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(YELLOW_AUTUMN_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(ORANGE_AUTUMN_LEAVES.get(), transparentRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAPLE_LEAVES.get(), transparentRenderType);
         ItemBlockRenderTypes.setRenderLayer(FIR_LEAVES.get(), transparentRenderType);
         ItemBlockRenderTypes.setRenderLayer(PINE_LEAVES.get(), transparentRenderType);
+        ItemBlockRenderTypes.setRenderLayer(RED_MAPLE_LEAVES.get(), transparentRenderType);
+        ItemBlockRenderTypes.setRenderLayer(ORANGE_MAPLE_LEAVES.get(), transparentRenderType);
+        ItemBlockRenderTypes.setRenderLayer(YELLOW_MAPLE_LEAVES.get(), transparentRenderType);
         ItemBlockRenderTypes.setRenderLayer(REDWOOD_LEAVES.get(), transparentRenderType);
         ItemBlockRenderTypes.setRenderLayer(MAHOGANY_LEAVES.get(), transparentRenderType);
         ItemBlockRenderTypes.setRenderLayer(JACARANDA_LEAVES.get(), transparentRenderType);
@@ -508,11 +527,11 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(FLOWERING_OAK_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(SNOWBLOSSOM_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(RAINBOW_BIRCH_SAPLING.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(YELLOW_AUTUMN_SAPLING.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(ORANGE_AUTUMN_SAPLING.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(MAPLE_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(FIR_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(PINE_SAPLING.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(RED_MAPLE_SAPLING.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(ORANGE_MAPLE_SAPLING.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(YELLOW_MAPLE_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(REDWOOD_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(MAHOGANY_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(JACARANDA_SAPLING.get(), cutoutRenderType);
@@ -610,11 +629,11 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(POTTED_FLOWERING_OAK_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_SNOWBLOSSOM_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_RAINBOW_BIRCH_SAPLING.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(POTTED_YELLOW_AUTUMN_SAPLING.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(POTTED_ORANGE_AUTUMN_SAPLING.get(), cutoutRenderType);
-        ItemBlockRenderTypes.setRenderLayer(POTTED_MAPLE_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_FIR_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_PINE_SAPLING.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(POTTED_RED_MAPLE_SAPLING.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(POTTED_ORANGE_MAPLE_SAPLING.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(POTTED_YELLOW_MAPLE_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_REDWOOD_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_MAHOGANY_SAPLING.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(POTTED_JACARANDA_SAPLING.get(), cutoutRenderType);
@@ -642,12 +661,12 @@ public class ModBlocks
     public static void registerBlockEntities()
     {
         BOPBlockEntities.SIGN = registerBlockEntityType("sign", SignBlockEntityBOP::new,
-                () -> List.of(FIR_SIGN.get(), PINE_SIGN.get(), REDWOOD_SIGN.get(), MAHOGANY_SIGN.get(), JACARANDA_SIGN.get(), PALM_SIGN.get(), WILLOW_SIGN.get(), DEAD_SIGN.get(), MAGIC_SIGN.get(), UMBRAN_SIGN.get(), HELLBARK_SIGN.get(),
-            FIR_WALL_SIGN.get(), PINE_WALL_SIGN.get(), REDWOOD_WALL_SIGN.get(), MAHOGANY_WALL_SIGN.get(), JACARANDA_WALL_SIGN.get(), PALM_WALL_SIGN.get(), WILLOW_WALL_SIGN.get(), DEAD_WALL_SIGN.get(), MAGIC_WALL_SIGN.get(), UMBRAN_WALL_SIGN.get(), HELLBARK_WALL_SIGN.get()));
+                () -> List.of(FIR_SIGN.get(), PINE_SIGN.get(), MAPLE_SIGN.get(), REDWOOD_SIGN.get(), MAHOGANY_SIGN.get(), JACARANDA_SIGN.get(), PALM_SIGN.get(), WILLOW_SIGN.get(), DEAD_SIGN.get(), MAGIC_SIGN.get(), UMBRAN_SIGN.get(), HELLBARK_SIGN.get(),
+            FIR_WALL_SIGN.get(), PINE_WALL_SIGN.get(), MAPLE_WALL_SIGN.get(), REDWOOD_WALL_SIGN.get(), MAHOGANY_WALL_SIGN.get(), JACARANDA_WALL_SIGN.get(), PALM_WALL_SIGN.get(), WILLOW_WALL_SIGN.get(), DEAD_WALL_SIGN.get(), MAGIC_WALL_SIGN.get(), UMBRAN_WALL_SIGN.get(), HELLBARK_WALL_SIGN.get()));
 
         BOPBlockEntities.HANGING_SIGN = registerBlockEntityType("hanging_sign", HangingSignBlockEntityBOP::new,
-                () -> List.of(FIR_HANGING_SIGN.get(), PINE_HANGING_SIGN.get(), REDWOOD_HANGING_SIGN.get(), MAHOGANY_HANGING_SIGN.get(), JACARANDA_HANGING_SIGN.get(), PALM_HANGING_SIGN.get(), WILLOW_HANGING_SIGN.get(), DEAD_HANGING_SIGN.get(), MAGIC_HANGING_SIGN.get(), UMBRAN_HANGING_SIGN.get(), HELLBARK_HANGING_SIGN.get(),
-            FIR_WALL_HANGING_SIGN.get(), PINE_WALL_HANGING_SIGN.get(), REDWOOD_WALL_HANGING_SIGN.get(), MAHOGANY_WALL_HANGING_SIGN.get(), JACARANDA_WALL_HANGING_SIGN.get(), PALM_WALL_HANGING_SIGN.get(), WILLOW_WALL_HANGING_SIGN.get(), DEAD_WALL_HANGING_SIGN.get(), MAGIC_WALL_HANGING_SIGN.get(), UMBRAN_WALL_HANGING_SIGN.get(), HELLBARK_WALL_HANGING_SIGN.get()));
+                () -> List.of(FIR_HANGING_SIGN.get(), PINE_HANGING_SIGN.get(), MAPLE_HANGING_SIGN.get(), REDWOOD_HANGING_SIGN.get(), MAHOGANY_HANGING_SIGN.get(), JACARANDA_HANGING_SIGN.get(), PALM_HANGING_SIGN.get(), WILLOW_HANGING_SIGN.get(), DEAD_HANGING_SIGN.get(), MAGIC_HANGING_SIGN.get(), UMBRAN_HANGING_SIGN.get(), HELLBARK_HANGING_SIGN.get(),
+            FIR_WALL_HANGING_SIGN.get(), PINE_WALL_HANGING_SIGN.get(), MAPLE_WALL_HANGING_SIGN.get(), REDWOOD_WALL_HANGING_SIGN.get(), MAHOGANY_WALL_HANGING_SIGN.get(), JACARANDA_WALL_HANGING_SIGN.get(), PALM_WALL_HANGING_SIGN.get(), WILLOW_WALL_HANGING_SIGN.get(), DEAD_WALL_HANGING_SIGN.get(), MAGIC_WALL_HANGING_SIGN.get(), UMBRAN_WALL_HANGING_SIGN.get(), HELLBARK_WALL_HANGING_SIGN.get()));
     }
 
     private static RotatedPillarBlock log(MapColor MapColor, MapColor MapColor2) {

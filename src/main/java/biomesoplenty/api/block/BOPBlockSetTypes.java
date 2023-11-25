@@ -13,6 +13,7 @@ public class BOPBlockSetTypes
 {
     public static final BlockSetType FIR = register(new BlockSetType(BOPAPI.MOD_ID + ":fir"));
     public static final BlockSetType PINE = register(new BlockSetType(BOPAPI.MOD_ID + ":pine"));
+    public static final BlockSetType MAPLE = register(new BlockSetType(BOPAPI.MOD_ID + ":maple"));
     public static final BlockSetType REDWOOD = register(new BlockSetType(BOPAPI.MOD_ID + ":redwood"));
     public static final BlockSetType MAHOGANY = register(new BlockSetType(BOPAPI.MOD_ID + ":mahogany"));
     public static final BlockSetType JACARANDA = register(new BlockSetType(BOPAPI.MOD_ID + ":jacaranda"));

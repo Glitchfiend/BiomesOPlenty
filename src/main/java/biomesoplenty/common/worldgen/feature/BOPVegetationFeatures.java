@@ -166,12 +166,12 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> BIG_FLOWERING_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_FLOWERING_TREE_CHECKED);
         final Holder<PlacedFeature> BIG_JACARANDA_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_JACARANDA_TREE_CHECKED);
         final Holder<PlacedFeature> BIG_MAGIC_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_MAGIC_TREE_CHECKED);
-        final Holder<PlacedFeature> BIG_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_MAPLE_TREE_CHECKED);
+        final Holder<PlacedFeature> BIG_RED_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_RED_MAPLE_TREE_CHECKED);
         final Holder<PlacedFeature> BIG_OAK_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_OAK_TREE_CHECKED);
-        final Holder<PlacedFeature> BIG_ORANGE_AUTUMN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_ORANGE_AUTUMN_TREE_CHECKED);
+        final Holder<PlacedFeature> BIG_ORANGE_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_ORANGE_MAPLE_TREE_CHECKED);
         final Holder<PlacedFeature> BIG_ORIGIN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_ORIGIN_TREE_CHECKED);
         final Holder<PlacedFeature> BIG_RAINBOW_BIRCH_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_RAINBOW_BIRCH_TREE_CHECKED);
-        final Holder<PlacedFeature> BIG_YELLOW_AUTUMN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_YELLOW_AUTUMN_TREE_CHECKED);
+        final Holder<PlacedFeature> BIG_YELLOW_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_YELLOW_MAPLE_TREE_CHECKED);
         final Holder<PlacedFeature> CYPRESS_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.CYPRESS_TREE_CHECKED);
         final Holder<PlacedFeature> CYPRESS_TREE_MEDIUM_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.CYPRESS_TREE_MEDIUM_CHECKED);
         final Holder<PlacedFeature> DARK_OAK_POPLAR_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.DARK_OAK_POPLAR_TREE_CHECKED);
@@ -194,10 +194,10 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> MAGIC_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.MAGIC_TREE_CHECKED);
         final Holder<PlacedFeature> MAHOGANY_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.MAHOGANY_TREE_CHECKED);
         final Holder<PlacedFeature> MANGROVE_TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.MANGROVE_TWIGLET_TREE_CHECKED);
-        final Holder<PlacedFeature> MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.MAPLE_TREE_CHECKED);
+        final Holder<PlacedFeature> RED_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.RED_MAPLE_TREE_CHECKED);
         final Holder<PlacedFeature> MAPLE_TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.MAPLE_TWIGLET_TREE_CHECKED);
         final Holder<PlacedFeature> OAK_BUSH_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.OAK_BUSH_CHECKED);
-        final Holder<PlacedFeature> ORANGE_AUTUMN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORANGE_AUTUMN_TREE_CHECKED);
+        final Holder<PlacedFeature> ORANGE_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORANGE_MAPLE_TREE_CHECKED);
         final Holder<PlacedFeature> ORIGIN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORIGIN_TREE_CHECKED);
         final Holder<PlacedFeature> PALM_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.PALM_TREE_CHECKED);
         final Holder<PlacedFeature> PINE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.PINE_TREE_CHECKED);
@@ -219,7 +219,7 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.TWIGLET_TREE_CHECKED);
         final Holder<PlacedFeature> UMBRAN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.UMBRAN_TREE_CHECKED);
         final Holder<PlacedFeature> WILLOW_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.WILLOW_TREE_CHECKED);
-        final Holder<PlacedFeature> YELLOW_AUTUMN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.YELLOW_AUTUMN_TREE_CHECKED);
+        final Holder<PlacedFeature> YELLOW_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.YELLOW_MAPLE_TREE_CHECKED);
 
         register(context, BOPVegetationFeatures.COLD_DESERT_ROCKS, Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.COBBLESTONE.defaultBlockState()));
         register(context, BOPVegetationFeatures.HIGH_GRASS, BOPBaseFeatures.HIGH_GRASS, NoneFeatureConfiguration.INSTANCE);
@@ -325,7 +325,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_LAVENDER_FIELD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FLOWERING_OAK_TREE_BEES_CHECKED, 0.2F), new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_JACARANDA_TREE_CHECKED, 0.1F)), JACARANDA_TREE_BEES_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LAVENDER_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.25F)), BIG_JACARANDA_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LUSH_DESERT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PALM_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(ACACIA_BUSH_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(SPARSE_ACACIA_TREE_CHECKED, 0.2F)), ACACIA_TWIGLET_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_MAPLE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_MAPLE_TREE_CHECKED, 0.3F)), MAPLE_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_MAPLE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_RED_MAPLE_TREE_CHECKED, 0.3F)), RED_MAPLE_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_MEDITERRANEAN_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SPARSE_OAK_TREE_CHECKED, 0.05F), new WeightedPlacedFeature(DARK_OAK_POPLAR_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(SPRUCE_POPLAR_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(FLOWERING_OAK_BUSH_CHECKED, 0.1F)), OAK_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_MUSKEG, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_DEAD_TWIGLET_TREE_CHECKED, 0.1F)), DEAD_TWIGLET_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_OLD_GROWTH_DEAD_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(DYING_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(DEAD_TWIGLET_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(SMALL_DEAD_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(OAK_CHECKED, 0.05F)), TALL_DEAD_TWIGLET_TREE_CHECKED));
@@ -339,12 +339,12 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_RAINFOREST_FLOODPLAIN, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SPARSE_OAK_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(BIG_OAK_TREE_CHECKED, 0.1F)), OAK_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_REDWOOD_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(REDWOOD_TREE_CHECKED, 0.3f), new WeightedPlacedFeature(REDWOOD_TREE_LARGE_CHECKED, 0.5f)), REDWOOD_TREE_MEDIUM_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SCRUBLAND, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SPRUCE_TWIGLET_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(TALL_TWIGLET_TREE_CHECKED, 0.1F)), ACACIA_TWIGLET_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_SEASONAL_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_CHECKED, 0.05F), new WeightedPlacedFeature(FANCY_OAK_CHECKED, 0.025F), new WeightedPlacedFeature(MAPLE_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(YELLOW_AUTUMN_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(BIG_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_YELLOW_AUTUMN_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_ORANGE_AUTUMN_TREE_CHECKED, 0.1F)), ORANGE_AUTUMN_TREE_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_SEASONAL_ORCHARD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_YELLOW_AUTUMN_TREE_CHECKED, 0.05F)), ASPEN_TREE_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.2F), new WeightedPlacedFeature(ORANGE_AUTUMN_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_ORANGE_AUTUMN_TREE_CHECKED, 0.05F)), TWIGLET_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_SEASONAL_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_CHECKED, 0.05F), new WeightedPlacedFeature(FANCY_OAK_CHECKED, 0.025F), new WeightedPlacedFeature(RED_MAPLE_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(YELLOW_MAPLE_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(BIG_RED_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_YELLOW_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_ORANGE_MAPLE_TREE_CHECKED, 0.1F)), ORANGE_MAPLE_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_SEASONAL_ORCHARD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_YELLOW_MAPLE_TREE_CHECKED, 0.05F)), ASPEN_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.2F), new WeightedPlacedFeature(ORANGE_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_ORANGE_MAPLE_TREE_CHECKED, 0.05F)), TWIGLET_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SNOWBLOSSOM_GROVE, Feature.TREE, snowblossom().build());
         register(context, BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FIR_TREE_CHECKED, 0.4F)), FIR_TREE_LARGE_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_SNOWY_MAPLE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(BIG_MAPLE_TREE_CHECKED, 0.1F)), MAPLE_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_SNOWY_MAPLE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(BIG_RED_MAPLE_TREE_CHECKED, 0.1F)), RED_MAPLE_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_TROPICS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(JUNGLE_TWIGLET_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(FLOWERING_OAK_TREE_CHECKED, 0.1F)), PALM_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_TUNDRA, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(DEAD_TWIGLET_TREE_SMALL_CHECKED, 0.1F)), MAPLE_TWIGLET_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_WASTELAND, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(DEAD_TREE_WASTELAND_CHECKED, 0.2F)), DYING_TREE_WASTELAND_CHECKED));

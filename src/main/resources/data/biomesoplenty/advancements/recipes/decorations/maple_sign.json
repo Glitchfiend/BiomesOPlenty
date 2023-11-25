@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:maple_sign"
+    ]
+  },
+  "criteria": {
+    "has_maple_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+               "biomesoplenty:maple_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:maple_sign"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_maple_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

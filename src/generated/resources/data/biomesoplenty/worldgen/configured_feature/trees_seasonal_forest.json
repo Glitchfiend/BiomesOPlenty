@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "biomesoplenty:orange_autumn_tree",
+    "default": "biomesoplenty:orange_maple_tree",
     "features": [
       {
         "chance": 0.05,
@@ -13,23 +13,23 @@
       },
       {
         "chance": 0.2,
-        "feature": "biomesoplenty:maple_tree_checked"
+        "feature": "biomesoplenty:red_maple_tree_checked"
       },
       {
         "chance": 0.3,
-        "feature": "biomesoplenty:yellow_autumn_tree"
+        "feature": "biomesoplenty:yellow_maple_tree"
       },
       {
         "chance": 0.1,
-        "feature": "biomesoplenty:big_maple_tree"
+        "feature": "biomesoplenty:big_red_maple_tree"
       },
       {
         "chance": 0.1,
-        "feature": "biomesoplenty:big_yellow_autumn_tree"
+        "feature": "biomesoplenty:big_yellow_maple_tree"
       },
       {
         "chance": 0.1,
-        "feature": "biomesoplenty:big_orange_autumn_tree"
+        "feature": "biomesoplenty:big_orange_maple_tree"
       }
     ]
   }

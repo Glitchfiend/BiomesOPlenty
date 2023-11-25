@@ -42,6 +42,8 @@ public class ModItems
         FIR_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.FIR_HANGING_SIGN.get(), BOPBlocks.FIR_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "fir_hanging_sign");
         PINE_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.PINE_SIGN.get(), BOPBlocks.PINE_WALL_SIGN.get()), "pine_sign");
         PINE_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.PINE_HANGING_SIGN.get(), BOPBlocks.PINE_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "pine_hanging_sign");
+        MAPLE_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.MAPLE_SIGN.get(), BOPBlocks.MAPLE_WALL_SIGN.get()), "maple_sign");
+        MAPLE_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.MAPLE_HANGING_SIGN.get(), BOPBlocks.MAPLE_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "maple_hanging_sign");
         REDWOOD_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.REDWOOD_SIGN.get(), BOPBlocks.REDWOOD_WALL_SIGN.get()), "redwood_sign");
         REDWOOD_HANGING_SIGN = registerItem(() -> new HangingSignItem(BOPBlocks.REDWOOD_HANGING_SIGN.get(), BOPBlocks.REDWOOD_WALL_HANGING_SIGN.get(), (new Item.Properties()).stacksTo(16)), "redwood_hanging_sign");
         MAHOGANY_SIGN = registerItem(() -> new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.MAHOGANY_SIGN.get(), BOPBlocks.MAHOGANY_WALL_SIGN.get()), "mahogany_sign");
@@ -65,6 +67,8 @@ public class ModItems
         FIR_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1)), "fir_chest_boat");
         PINE_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.PINE, (new Item.Properties()).stacksTo(1)), "pine_boat");
         PINE_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.PINE, (new Item.Properties()).stacksTo(1)), "pine_chest_boat");
+        MAPLE_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.MAPLE, (new Item.Properties()).stacksTo(1)), "maple_boat");
+        MAPLE_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.MAPLE, (new Item.Properties()).stacksTo(1)), "maple_chest_boat");
         REDWOOD_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1)), "redwood_boat");
         REDWOOD_CHEST_BOAT = registerItem(() -> new BoatItemBOP(true, BoatBOP.ModelType.REDWOOD, (new Item.Properties()).stacksTo(1)), "redwood_chest_boat");
         MAHOGANY_BOAT = registerItem(() -> new BoatItemBOP(false, BoatBOP.ModelType.MAHOGANY, (new Item.Properties()).stacksTo(1)), "mahogany_boat");

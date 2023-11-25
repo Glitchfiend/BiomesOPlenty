@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "biomesoplenty:block/red_maple_leaves"
+    }
+}

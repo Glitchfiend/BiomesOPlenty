@@ -9,11 +9,11 @@
       },
       {
         "chance": 0.1,
-        "feature": "biomesoplenty:orange_autumn_tree"
+        "feature": "biomesoplenty:orange_maple_tree"
       },
       {
         "chance": 0.05,
-        "feature": "biomesoplenty:big_orange_autumn_tree"
+        "feature": "biomesoplenty:big_orange_maple_tree"
       }
     ]
   }
