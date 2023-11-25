@@ -604,6 +604,7 @@ public class ModBlocks
 
         ItemBlockRenderTypes.setRenderLayer(FIR_DOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(PINE_DOOR.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(MAPLE_DOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(REDWOOD_DOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(MAHOGANY_DOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(JACARANDA_DOOR.get(), cutoutRenderType);
@@ -615,6 +616,7 @@ public class ModBlocks
         ItemBlockRenderTypes.setRenderLayer(HELLBARK_DOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(FIR_TRAPDOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(PINE_TRAPDOOR.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(MAPLE_TRAPDOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(REDWOOD_TRAPDOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(MAHOGANY_TRAPDOOR.get(), cutoutRenderType);
         ItemBlockRenderTypes.setRenderLayer(JACARANDA_TRAPDOOR.get(), cutoutRenderType);
