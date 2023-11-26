@@ -69,6 +69,7 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.SEA_OATS.get(), 1, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.REED.get(), 1, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.WATERGRASS.get(), 1, 1, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.TINY_CACTUS.get(), 1, 1, 8, 1),
 
             new ItemsForEmeralds(BOPBlocks.WHITE_SAND.get(), 1, 4, 6, 1),
             new ItemsForEmeralds(BOPBlocks.ORANGE_SAND.get(), 1, 4, 6, 1),

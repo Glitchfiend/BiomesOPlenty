@@ -250,7 +250,7 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
     {
         BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < 50; ++i)
+        for(int i = 0; i < 75; ++i)
         {
             blockpos$mutable.setWithOffset(p_236429_3_, p_236429_2_.nextInt(5) - p_236429_2_.nextInt(5), p_236429_2_.nextInt(3) - p_236429_2_.nextInt(3), p_236429_2_.nextInt(5) - p_236429_2_.nextInt(5));
             if (p_236429_1_.isEmptyBlock(blockpos$mutable))
