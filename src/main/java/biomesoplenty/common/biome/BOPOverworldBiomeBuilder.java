@@ -83,12 +83,20 @@ public class BOPOverworldBiomeBuilder
             {Biomes.FROZEN_OCEAN,      Biomes.COLD_OCEAN,      Biomes.OCEAN,      Biomes.LUKEWARM_OCEAN,      Biomes.WARM_OCEAN}
     };
 
-    private final ResourceKey<Biome>[][] ISLAND_BIOMES_BOP = new ResourceKey[][]{
-            {BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY},
-            {BOPBiomes.ORIGIN_VALLEY,       BOPBiomes.ORIGIN_VALLEY,       BOPBiomes.ORIGIN_VALLEY,       BOPBiomes.ORIGIN_VALLEY,       BOPBiomes.ORIGIN_VALLEY},
+    private final ResourceKey<Biome>[][] RIVER_BIOMES_BOP = new ResourceKey[][]{
             {null,                          null,                          null,                          null,                          null},
-            {BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS},
-            {BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS}
+            {null,                          null,                          null,                          null,                          null},
+            {null,                          null,                          null,                          null,                          null},
+            {null,                          null,                          null,                          BOPBiomes.FLOODPLAIN,          BOPBiomes.FLOODPLAIN},
+            {null,                          null,                          null,                          null,                          null}
+    };
+
+    private final ResourceKey<Biome>[][] ISLAND_BIOMES_BOP = new ResourceKey[][]{
+            {BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY},
+            {BOPBiomes.ORIGIN_VALLEY,        BOPBiomes.ORIGIN_VALLEY,        BOPBiomes.ORIGIN_VALLEY,        BOPBiomes.ORIGIN_VALLEY,        BOPBiomes.ORIGIN_VALLEY},
+            {null,                           null,                           null,                           null,                           null},
+            {BOPBiomes.TROPICS,              BOPBiomes.TROPICS,              BOPBiomes.TROPICS,              BOPBiomes.TROPICS,              BOPBiomes.TROPICS},
+            {BOPBiomes.TROPICS,              BOPBiomes.TROPICS,              BOPBiomes.TROPICS,              BOPBiomes.TROPICS,              BOPBiomes.TROPICS}
     };
 
     protected final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{
@@ -419,20 +427,32 @@ public class BOPOverworldBiomeBuilder
     protected void addValleys(Registry<Biome> biomeRegistry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter weirdness)
     {
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, weirdness.max() < 0L ? Biomes.STONY_SHORE : Biomes.FROZEN_RIVER);
-        this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, weirdness.max() < 0L ? Biomes.STONY_SHORE : Biomes.RIVER);
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, this.nearInlandContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, Biomes.FROZEN_RIVER);
-        this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, this.nearInlandContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, Biomes.RIVER);
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), Climate.Parameter.span(this.erosions[2], this.erosions[5]), weirdness, 0.0F, Biomes.FROZEN_RIVER);
-        this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), Climate.Parameter.span(this.erosions[2], this.erosions[5]), weirdness, 0.0F, Biomes.RIVER);
 
         // Coastal watery valleys
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, Biomes.FROZEN_RIVER);
-        this.addSurfaceBiome(mapper, this.UNFROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, Biomes.RIVER);
 
         // Inland watery valleys
-
         //Disabled so the Frozen River doesn't cut into the Muskeg/Hot Springs
         //this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.FROZEN_RIVER);
+
+        // BOP River biomes
+        for (int i = 1; i < this.temperatures.length; ++i)
+        {
+            Climate.Parameter temperature = this.temperatures[i];
+
+            for (int j = 0; j < this.humidities.length; ++j)
+            {
+                Climate.Parameter humidity = this.humidities[j];
+                ResourceKey<Biome> riverBiomeBOP = this.pickRiverBiomeBOP(biomeRegistry, i, j);
+
+                this.addSurfaceBiome(mapper, temperature, humidity, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, weirdness.max() < 0L ? Biomes.STONY_SHORE : riverBiomeBOP);
+                this.addSurfaceBiome(mapper, temperature, humidity, this.nearInlandContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, riverBiomeBOP);
+                this.addSurfaceBiome(mapper, temperature, humidity, Climate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), Climate.Parameter.span(this.erosions[2], this.erosions[5]), weirdness, 0.0F, riverBiomeBOP);
+                this.addSurfaceBiome(mapper, temperature, humidity, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, riverBiomeBOP);
+            }
+        }
 
         for (int i = 0; i < this.temperatures.length; ++i)
         {
@@ -456,6 +476,11 @@ public class BOPOverworldBiomeBuilder
         this.addUndergroundBiome(biomeRegistry, mapper, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(0.8F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, 0.0F, BOPBiomes.SPIDER_NEST);
         this.addUndergroundBiome(biomeRegistry, mapper, this.FULL_RANGE, Climate.Parameter.span(0.7F, 1.0F), this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, 0.0F, BOPBiomes.GLOWING_GROTTO);
         this.addBottomBiome(mapper, this.FULL_RANGE, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.erosions[0], this.erosions[1]), this.FULL_RANGE, 0.0F, Biomes.DEEP_DARK);
+    }
+
+    protected ResourceKey<Biome> pickRiverBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
+    {
+        return temperatureIndex > 0 ? BiomeUtil.biomeOrFallback(biomeRegistry, this.RIVER_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.RIVER) : Biomes.FROZEN_RIVER;
     }
 
     protected ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)

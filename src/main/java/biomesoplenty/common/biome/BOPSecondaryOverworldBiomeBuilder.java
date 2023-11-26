@@ -9,6 +9,7 @@ import biomesoplenty.common.util.biome.BiomeUtil;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 
 public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
@@ -45,6 +46,14 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
             {null, null,                       null,                          null,                        null}
     };
 
+    private final ResourceKey<Biome>[][] RIVER_BIOMES_BOP = new ResourceKey[][]{
+            {null,                          null,                          null,                          null,                          null},
+            {null,                          null,                          null,                          null,                          null},
+            {null,                          null,                          null,                          null,                          null},
+            {null,                          null,                          null,                          null,                          null},
+            {BOPBiomes.WASTELAND,           BOPBiomes.WASTELAND,           BOPBiomes.WASTELAND,           BOPBiomes.WASTELAND,           BOPBiomes.WASTELAND}
+    };
+
     @Override
     protected ResourceKey<Biome> pickMiddleBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
@@ -62,5 +71,11 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     {
         if (weirdness.max() < 0L) return BiomeUtil.biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
         else return BiomeUtil.biomeOrFallback(biomeRegistry, this.PLATEAU_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
+    }
+
+    @Override
+    protected ResourceKey<Biome> pickRiverBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
+    {
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.RIVER_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.RIVER);
     }
 }

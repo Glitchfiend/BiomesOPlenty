@@ -201,10 +201,6 @@
       "required": false
     },
     {
-      "id": "biomesoplenty:snowy_origin_valley",
-      "required": false
-    },
-    {
       "id": "biomesoplenty:spider_nest",
       "required": false
     },
@@ -234,6 +230,10 @@
     },
     {
       "id": "biomesoplenty:wetland",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:wintry_origin_valley",
       "required": false
     },
     {

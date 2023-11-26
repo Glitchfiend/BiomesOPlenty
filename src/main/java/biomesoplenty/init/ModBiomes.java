@@ -96,7 +96,6 @@ public class ModBiomes
         register(context, BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.SNOWY_MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(placedFeatureGetter, carverGetter, true));
-        register(context, BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPOverworldBiomes.originValley(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.TROPICS, BOPOverworldBiomes.tropics(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains(placedFeatureGetter, carverGetter));
@@ -104,6 +103,7 @@ public class ModBiomes
         register(context, BOPBiomes.WASTELAND, BOPOverworldBiomes.wasteland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.WASTELAND_STEPPE, BOPOverworldBiomes.wastelandSteppe(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.WETLAND, BOPOverworldBiomes.wetland(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPOverworldBiomes.originValley(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.WOODLAND, BOPOverworldBiomes.woodland(placedFeatureGetter, carverGetter, false));
 
         // Cave biomes
@@ -169,7 +169,6 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.SNOWY_CONIFEROUS_FOREST, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.SNOWY_FIR_CLEARING, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.SNOWY_MAPLE_WOODS, VillagerType.TAIGA);
-        registerVillagerType(BOPBiomes.SNOWY_ORIGIN_VALLEY, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.TROPICS, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.TUNDRA, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.VOLCANIC_PLAINS, VillagerType.PLAINS);
@@ -177,6 +176,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.WASTELAND, VillagerType.DESERT);
         registerVillagerType(BOPBiomes.WASTELAND_STEPPE, VillagerType.DESERT);
         registerVillagerType(BOPBiomes.WETLAND, VillagerType.SWAMP);
+        registerVillagerType(BOPBiomes.WINTRY_ORIGIN_VALLEY, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.WOODLAND, VillagerType.PLAINS);
     }
 

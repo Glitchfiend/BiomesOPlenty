@@ -42,10 +42,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:snowy_origin_valley",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:tropics",
             "required": false
         },
@@ -56,6 +52,10 @@
         {
             "id": "biomesoplenty:volcano",
             "required": false
+        },
+        {
+          "id": "biomesoplenty:wintry_origin_valley",
+          "required": false
         },
         {
             "id": "biomesoplenty:glowing_grotto",

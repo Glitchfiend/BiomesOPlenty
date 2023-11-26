@@ -1,4 +1,4 @@
-// 1.20.2	2023-11-26T16:02:56.6910887	Registries
+// 1.20.2	2023-11-26T17:50:48.2431845	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 b8dc803c8b669f1676bca4cf741dd201cf95119e data/biomesoplenty/worldgen/biome/aspen_forest.json
@@ -53,7 +53,6 @@ c8fa4838e950832b19ba66266866ea61b005223f data/biomesoplenty/worldgen/biome/snowb
 da1e2ca3e9713a52d9ed243d551fd3d7c40c7ab1 data/biomesoplenty/worldgen/biome/snowy_coniferous_forest.json
 b3b83857ff6b14727aa1601f28548eebdc7d4c74 data/biomesoplenty/worldgen/biome/snowy_fir_clearing.json
 395105efa433bd42df952ed7ad1a22947f90a65b data/biomesoplenty/worldgen/biome/snowy_maple_woods.json
-0a702d4b7e9b0ddbb6a52b528141cec3b077c93e data/biomesoplenty/worldgen/biome/snowy_origin_valley.json
 82f90b4ed424d588a7af087fa323a82f71f3bb08 data/biomesoplenty/worldgen/biome/spider_nest.json
 02be395480aaa328ec75b2adc7df1692cd2d13a4 data/biomesoplenty/worldgen/biome/tropics.json
 89b2556e41798476db1a083ad49d046d3dd2babf data/biomesoplenty/worldgen/biome/tundra.json
@@ -64,6 +63,7 @@ b3b83857ff6b14727aa1601f28548eebdc7d4c74 data/biomesoplenty/worldgen/biome/snowy
 660cd9538a3ed2b681731e238d4742fb6cc9d96a data/biomesoplenty/worldgen/biome/wasteland.json
 24dce7dbd2a39b6aa990fe00ddba94576849144d data/biomesoplenty/worldgen/biome/wasteland_steppe.json
 60881c39a86b83d0a6bec725bff78f3cd43b1b3a data/biomesoplenty/worldgen/biome/wetland.json
+0a702d4b7e9b0ddbb6a52b528141cec3b077c93e data/biomesoplenty/worldgen/biome/wintry_origin_valley.json
 37400e95af1d490848d4ddd1ac2744f75615938e data/biomesoplenty/worldgen/biome/withered_abyss.json
 42b8a814841ea7cda61ec115c8264ca9322fc060 data/biomesoplenty/worldgen/biome/woodland.json
 a4d5101a19a38da4f42164b672b74766edb26bc9 data/biomesoplenty/worldgen/configured_carver/origin_cave.json
