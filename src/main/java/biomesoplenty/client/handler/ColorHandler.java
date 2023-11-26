@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockAndTintGetter;
@@ -70,7 +71,21 @@ public class ColorHandler
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
     {
-        Color foliage = Color.getHSBColor((((float)pos.getX() + Mth.sin(((float)pos.getZ() + (float)pos.getX()) / 35) * 35) % 150) / 150, 0.6F, 1.0F);
+        float saturation;
+        if (world.getBlockState(pos.above()).is(BlockTags.SNOW))
+        {
+            saturation = 0.3F;
+        }
+        else if (world.getBlockState(pos.above(2)).is(BlockTags.SNOW))
+        {
+            saturation = 0.45F;
+        }
+        else
+        {
+            saturation = 0.6F;
+        }
+
+        Color foliage = Color.getHSBColor(((float)pos.getX() + (float)pos.getY() + (float)pos.getZ() + (Mth.sin(((float)pos.getX() + (float)pos.getY() + (float)pos.getZ()) / 16) * 16) % 100) / 100, saturation, 1.0F);
 
         return foliage.getRGB();
     }
