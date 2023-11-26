@@ -71,6 +71,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = registerOverworld("snowy_coniferous_forest");
     public static final ResourceKey<Biome> SNOWY_FIR_CLEARING = registerOverworld("snowy_fir_clearing");
     public static final ResourceKey<Biome> SNOWY_MAPLE_WOODS = registerOverworld("snowy_maple_woods");
+    public static final ResourceKey<Biome> SNOWY_ORIGIN_VALLEY = registerOverworld("snowy_origin_valley");
     public static final ResourceKey<Biome> SPIDER_NEST = register("spider_nest");
     public static final ResourceKey<Biome> TROPICS = registerOverworld("tropics");
     public static final ResourceKey<Biome> TUNDRA = registerOverworld("tundra");

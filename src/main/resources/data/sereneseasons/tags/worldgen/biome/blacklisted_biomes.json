@@ -11,6 +11,14 @@
 	{
       "id": "biomesoplenty:dune_beach",
       "required": false
+    },
+	{
+      "id": "biomesoplenty:origin_valley",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:snowy_origin_valley",
+      "required": false
     }
   ]
 }

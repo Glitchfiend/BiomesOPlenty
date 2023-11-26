@@ -946,7 +946,7 @@ public class BOPOverworldBiomes
         return biomeWithColorOverrides(true, 0.8F, 0.4F, 0xA9DB69, 0xC9F75D, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
-    public static Biome originValley(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome originValley(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean snowy)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -982,7 +982,14 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_ORIGIN_VALLEY);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_ORIGIN_VALLEY);
 
-        return biomeWithColorOverrides(true, 0.6F, 0.6F, 0x2032FF, 0x050533, 0xC0D8FF, 0x9AFF5F, 0x3AFF00, 0x88BBFF, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_ORIGIN_VALLEY.getHolder().orElseThrow()));
+        if (!snowy)
+        {
+            return biomeWithColorOverrides(true, 0.6F, 0.6F, 0x2032FF, 0x050533, 0xC0D8FF, 0x9AFF5F, 0x3AFF00, 0x88BBFF, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_ORIGIN_VALLEY.getHolder().orElseThrow()));
+        }
+        else
+        {
+            return biomeWithColorOverrides(true, -0.25F, 0.6F, 0x2032FF, 0x050533, 0xC0D8FF, 0x9AFF5F, 0x3AFF00, 0x88BBFF, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_ORIGIN_VALLEY.getHolder().orElseThrow()));
+        }
     }
 
     public static Biome pasture(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)

@@ -846,6 +846,22 @@
 			]
 		  }
         },
+		"snowy_origin_valley": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biome": "biomesoplenty:snowy_origin_valley"
+							}
+						}
+					}
+				]
+			}
+		},
 		"spider_nest": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1093,6 +1109,7 @@
 		"snowy_coniferous_forest",
 		"snowy_fir_clearing",
 		"snowy_maple_woods",
+		"snowy_origin_valley",
 		"spider_nest",
 		"tropics",
 		"tundra",

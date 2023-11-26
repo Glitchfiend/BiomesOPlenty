@@ -28,10 +28,6 @@
       "id": "biomesoplenty:ominous_woods",
       "required": false
     },
-	{
-      "id": "biomesoplenty:origin_valley",
-      "required": false
-    },
     {
       "id": "biomesoplenty:rainforest",
       "required": false

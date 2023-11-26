@@ -84,11 +84,11 @@ public class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] ISLAND_BIOMES_BOP = new ResourceKey[][]{
-            {null,                            null,                            null,                    null,                    null},
-            {BOPBiomes.ORIGIN_VALLEY,         BOPBiomes.ORIGIN_VALLEY,         BOPBiomes.ORIGIN_VALLEY, BOPBiomes.ORIGIN_VALLEY, BOPBiomes.ORIGIN_VALLEY},
-            {null,                            null,                            null,                    null,                    null},
-            {BOPBiomes.TROPICS,               BOPBiomes.TROPICS,               BOPBiomes.TROPICS,       BOPBiomes.TROPICS,       BOPBiomes.TROPICS},
-            {BOPBiomes.TROPICS,               BOPBiomes.TROPICS,               BOPBiomes.TROPICS,       BOPBiomes.TROPICS,       BOPBiomes.TROPICS}
+            {BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY},
+            {BOPBiomes.ORIGIN_VALLEY,       BOPBiomes.ORIGIN_VALLEY,       BOPBiomes.ORIGIN_VALLEY,       BOPBiomes.ORIGIN_VALLEY,       BOPBiomes.ORIGIN_VALLEY},
+            {null,                          null,                          null,                          null,                          null},
+            {BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS},
+            {BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS,             BOPBiomes.TROPICS}
     };
 
     protected final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{

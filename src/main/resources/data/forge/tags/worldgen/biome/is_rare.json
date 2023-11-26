@@ -42,6 +42,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:snowy_origin_valley",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:tropics",
             "required": false
         },

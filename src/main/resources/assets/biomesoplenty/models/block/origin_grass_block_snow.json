@@ -3,7 +3,7 @@
   "textures": {
     "top": "biomesoplenty:block/origin_grass_block_top",
     "bottom": "minecraft:block/dirt",
-    "side": "minecraft:block/grass_block_snow",
+    "side": "biomesoplenty:block/origin_grass_block_snow",
     "particle": "minecraft:block/dirt"
   }
 }

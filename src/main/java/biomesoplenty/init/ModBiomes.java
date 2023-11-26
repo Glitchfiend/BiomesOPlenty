@@ -81,7 +81,7 @@ public class ModBiomes
         register(context, BOPBiomes.OLD_GROWTH_WOODLAND, BOPOverworldBiomes.woodland(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.OMINOUS_WOODS, BOPOverworldBiomes.ominousWoods(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.ORCHARD, BOPOverworldBiomes.orchard(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.ORIGIN_VALLEY, BOPOverworldBiomes.originValley(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.ORIGIN_VALLEY, BOPOverworldBiomes.originValley(placedFeatureGetter, carverGetter, false));
         register(context, BOPBiomes.PASTURE, BOPOverworldBiomes.pasture(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.PUMPKIN_PATCH, BOPOverworldBiomes.pumpkinPatch(placedFeatureGetter, carverGetter));
@@ -96,6 +96,7 @@ public class ModBiomes
         register(context, BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.SNOWY_FIR_CLEARING, BOPOverworldBiomes.firClearing(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.SNOWY_MAPLE_WOODS, BOPOverworldBiomes.mapleWoods(placedFeatureGetter, carverGetter, true));
+        register(context, BOPBiomes.SNOWY_ORIGIN_VALLEY, BOPOverworldBiomes.originValley(placedFeatureGetter, carverGetter, true));
         register(context, BOPBiomes.TROPICS, BOPOverworldBiomes.tropics(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.TUNDRA, BOPOverworldBiomes.tundra(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.VOLCANIC_PLAINS, BOPOverworldBiomes.volcanicPlains(placedFeatureGetter, carverGetter));
@@ -168,6 +169,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.SNOWY_CONIFEROUS_FOREST, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.SNOWY_FIR_CLEARING, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.SNOWY_MAPLE_WOODS, VillagerType.TAIGA);
+        registerVillagerType(BOPBiomes.SNOWY_ORIGIN_VALLEY, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.TROPICS, VillagerType.JUNGLE);
         registerVillagerType(BOPBiomes.TUNDRA, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.VOLCANIC_PLAINS, VillagerType.PLAINS);

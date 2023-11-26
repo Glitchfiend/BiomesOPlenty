@@ -483,7 +483,7 @@ public class BOPSurfaceRuleData
                                 SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
                             ),
-                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ORIGIN_VALLEY), ORIGIN_GRASS),
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ORIGIN_VALLEY, BOPBiomes.SNOWY_ORIGIN_VALLEY), ORIGIN_GRASS),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
                         )
                     ),
