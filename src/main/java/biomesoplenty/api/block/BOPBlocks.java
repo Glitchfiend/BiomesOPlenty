@@ -139,10 +139,13 @@ public class BOPBlocks
     public static RegistryObject<Block> PINE_WALL_HANGING_SIGN;
     public static RegistryObject<Block> RED_MAPLE_SAPLING;
     public static RegistryObject<Block> RED_MAPLE_LEAVES;
+    public static RegistryObject<Block> RED_MAPLE_LEAF_PILE;
     public static RegistryObject<Block> ORANGE_MAPLE_SAPLING;
     public static RegistryObject<Block> ORANGE_MAPLE_LEAVES;
+    public static RegistryObject<Block> ORANGE_MAPLE_LEAF_PILE;
     public static RegistryObject<Block> YELLOW_MAPLE_SAPLING;
     public static RegistryObject<Block> YELLOW_MAPLE_LEAVES;
+    public static RegistryObject<Block> YELLOW_MAPLE_LEAF_PILE;
     public static RegistryObject<Block> MAPLE_LOG;
     public static RegistryObject<Block> STRIPPED_MAPLE_LOG;
     public static RegistryObject<Block> MAPLE_WOOD;
@@ -346,7 +349,6 @@ public class BOPBlocks
     public static RegistryObject<Block> ORANGE_COSMOS;
     public static RegistryObject<Block> PINK_DAFFODIL;
     public static RegistryObject<Block> PINK_HIBISCUS;
-    public static RegistryObject<Block> WATERLILY;
     public static RegistryObject<Block> WHITE_PETALS;
     public static RegistryObject<Block> ICY_IRIS;
     public static RegistryObject<Block> GLOWFLOWER;
@@ -360,16 +362,12 @@ public class BOPBlocks
     public static RegistryObject<Block> CLOVER;
     public static RegistryObject<Block> HUGE_CLOVER_PETAL;
     public static RegistryObject<Block> HUGE_LILY_PAD;
-
-    public static RegistryObject<Block> RED_MAPLE_LEAF_PILE;
-    public static RegistryObject<Block> ORANGE_MAPLE_LEAF_PILE;
-    public static RegistryObject<Block> YELLOW_MAPLE_LEAF_PILE;
+    public static RegistryObject<Block> WATERLILY;
 
     public static RegistryObject<Block> DUNE_GRASS;
     public static RegistryObject<Block> DESERT_GRASS;
     public static RegistryObject<Block> DEAD_GRASS;
     public static RegistryObject<Block> TUNDRA_SHRUB;
-
     public static RegistryObject<Block> BARLEY;
     public static RegistryObject<Block> SEA_OATS;
     public static RegistryObject<Block> CATTAIL;

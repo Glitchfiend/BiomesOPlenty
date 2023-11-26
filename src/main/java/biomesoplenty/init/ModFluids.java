@@ -99,7 +99,7 @@ public class ModFluids
                             public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape)
                             {
                                 RenderSystem.setShaderFogStart(0.125F);
-                                RenderSystem.setShaderFogEnd(1.5F);
+                                RenderSystem.setShaderFogEnd(5.0F);
                             }
                         });
                     }

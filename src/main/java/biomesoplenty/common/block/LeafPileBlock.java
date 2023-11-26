@@ -7,6 +7,7 @@ package biomesoplenty.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -58,7 +59,7 @@ public class LeafPileBlock extends BushBlock implements IPlantable
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
 
-        return groundState.isFaceSturdy(worldIn, pos.below(), Direction.UP) || super.canSurvive(state, worldIn, pos);
+        return groundState.isFaceSturdy(worldIn, pos.below(), Direction.UP) || groundState.is(BlockTags.LEAVES) || super.canSurvive(state, worldIn, pos);
     }
 
 //    @Override
