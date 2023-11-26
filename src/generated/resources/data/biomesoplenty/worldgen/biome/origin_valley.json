@@ -4,7 +4,7 @@
   },
   "downfall": 0.6,
   "effects": {
-    "fog_color": 11587583,
+    "fog_color": 12638463,
     "foliage_color": 3866368,
     "grass_color": 10157919,
     "mood_sound": {
@@ -19,9 +19,9 @@
       "replace_current_music": false,
       "sound": "biomesoplenty:music.overworld.origin_valley"
     },
-    "sky_color": 9223679,
-    "water_color": 930303,
-    "water_fog_color": 458841
+    "sky_color": 8961023,
+    "water_color": 2110207,
+    "water_fog_color": 329011
   },
   "features": [
     [],

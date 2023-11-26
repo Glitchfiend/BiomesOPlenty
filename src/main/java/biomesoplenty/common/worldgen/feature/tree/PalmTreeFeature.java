@@ -39,12 +39,12 @@ public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
         int leavesRadius = 2;
         int heightMinusTop = height - leavesRadius - 1;
         boolean slant = true;
-        Direction direction = Direction.getRandom(random); //The direction the palm tree curves towards
-        if (direction == Direction.DOWN || direction == Direction.UP)
+        Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random); //The direction the palm tree curves towards
+        if (random.nextInt(8) == 0)
         {
             slant = false;
         }
-        double baseSlant = random.nextInt(35) / 100D;
+        double baseSlant = (5 + random.nextInt(30)) / 100D;
         double slantMultiplier = 1.3D;
 
         if (height < 8) {return false;} //Prevent trees from being too small
