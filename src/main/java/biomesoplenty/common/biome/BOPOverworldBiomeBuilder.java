@@ -84,7 +84,7 @@ public class BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] RIVER_BIOMES_BOP = new ResourceKey[][]{
-            {null,                          null,                          null,                          null,                          null},
+            {Biomes.FROZEN_RIVER,           Biomes.FROZEN_RIVER,           Biomes.FROZEN_RIVER,           Biomes.FROZEN_RIVER,           Biomes.FROZEN_RIVER},
             {null,                          null,                          null,                          null,                          null},
             {null,                          null,                          null,                          null,                          null},
             {null,                          null,                          null,                          BOPBiomes.FLOODPLAIN,          BOPBiomes.FLOODPLAIN},
@@ -133,10 +133,10 @@ public class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS},
-            {BOPBiomes.BOG,         BOPBiomes.BOG,         BOPBiomes.WETLAND,     BOPBiomes.WETLAND,     BOPBiomes.WETLAND},
+            {BOPBiomes.WETLAND,     BOPBiomes.WETLAND,     BOPBiomes.WETLAND,     BOPBiomes.WETLAND,     BOPBiomes.WETLAND},
             {BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH},
             {BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN},
-            {BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN}
+            {BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN}
     };
 
     protected final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
@@ -426,6 +426,7 @@ public class BOPOverworldBiomeBuilder
 
     protected void addValleys(Registry<Biome> biomeRegistry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter weirdness)
     {
+        /* Disabled in favor of BOP rivers
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, weirdness.max() < 0L ? Biomes.STONY_SHORE : Biomes.FROZEN_RIVER);
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, this.nearInlandContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), weirdness, 0.0F, Biomes.FROZEN_RIVER);
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), Climate.Parameter.span(this.erosions[2], this.erosions[5]), weirdness, 0.0F, Biomes.FROZEN_RIVER);
@@ -434,11 +435,11 @@ public class BOPOverworldBiomeBuilder
         this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, this.erosions[6], weirdness, 0.0F, Biomes.FROZEN_RIVER);
 
         // Inland watery valleys
-        //Disabled so the Frozen River doesn't cut into the Muskeg/Hot Springs
         //this.addSurfaceBiome(mapper, this.FROZEN_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.inlandContinentalness, this.farInlandContinentalness), this.erosions[6], weirdness, 0.0F, Biomes.FROZEN_RIVER);
+        */
 
         // BOP River biomes
-        for (int i = 1; i < this.temperatures.length; ++i)
+        for (int i = 0; i < this.temperatures.length; ++i)
         {
             Climate.Parameter temperature = this.temperatures[i];
 
@@ -454,6 +455,7 @@ public class BOPOverworldBiomeBuilder
             }
         }
 
+        // BOP Swamp biomes
         for (int i = 0; i < this.temperatures.length; ++i)
         {
             Climate.Parameter temperature = this.temperatures[i];
