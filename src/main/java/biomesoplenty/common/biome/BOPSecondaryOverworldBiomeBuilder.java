@@ -70,7 +70,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
             {BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,  BOPBiomes.WASTELAND,  BOPBiomes.WASTELAND}
     };
 
-    private final ResourceKey<Biome>[][] STONY_sHORES_BIOMES_BOP = new ResourceKey[][]{
+    private final ResourceKey<Biome>[][] STONY_SHORES_BIOMES_BOP = new ResourceKey[][]{
             {null,                null,                null,                null,                null},
             {null,                null,                null,                null,                null},
             {null,                null,                null,                null,                null},
@@ -112,12 +112,12 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     @Override
     protected ResourceKey<Biome> pickBeachBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
     {
-        return BiomeUtil.biomeOrFallback(biomeRegistry, this.BEACH_BIOMES_BOP[temperatureIndex][humidityIndex], temperatureIndex == 0 ? Biomes.SNOWY_BEACH : temperatureIndex == 4 ? Biomes.DESERT : Biomes.BEACH);
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.BEACH_BIOMES_BOP[temperatureIndex][humidityIndex], this.BEACH_BIOMES[temperatureIndex][humidityIndex]);
     }
 
     @Override
     protected ResourceKey<Biome> pickStonyShoresBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
     {
-        return BiomeUtil.biomeOrFallback(biomeRegistry, this.STONY_sHORES_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.STONY_SHORE);
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.STONY_SHORES_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.STONY_SHORE);
     }
 }

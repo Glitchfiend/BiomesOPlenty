@@ -118,7 +118,7 @@ public class BOPOverworldBiomeBuilder
             {Biomes.ERODED_BADLANDS, Biomes.ERODED_BADLANDS, null,          null,                null}
     };
 
-    private final ResourceKey<Biome>[][] EXTREME_HILLS = new ResourceKey[][]{
+    private final ResourceKey<Biome>[][] EXTREME_HILLS_BIOMES = new ResourceKey[][]{
             {Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.WINDSWEPT_FOREST},
             {Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.WINDSWEPT_FOREST},
             {Biomes.WINDSWEPT_HILLS,          Biomes.WINDSWEPT_HILLS,          Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.WINDSWEPT_FOREST},
@@ -132,6 +132,14 @@ public class BOPOverworldBiomeBuilder
             {Biomes.SWAMP,          Biomes.SWAMP,          Biomes.SWAMP,          Biomes.SWAMP,          Biomes.SWAMP},
             {Biomes.MANGROVE_SWAMP, Biomes.MANGROVE_SWAMP, Biomes.MANGROVE_SWAMP, Biomes.MANGROVE_SWAMP, Biomes.MANGROVE_SWAMP},
             {Biomes.MANGROVE_SWAMP, Biomes.MANGROVE_SWAMP, Biomes.MANGROVE_SWAMP, Biomes.MANGROVE_SWAMP, Biomes.MANGROVE_SWAMP}
+    };
+
+    protected final ResourceKey<Biome>[][] BEACH_BIOMES = new ResourceKey[][]{
+            {Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH},
+            {Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH},
+            {Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH},
+            {Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH,       Biomes.BEACH},
+            {Biomes.DESERT,      Biomes.DESERT,      Biomes.DESERT,      Biomes.DESERT,      Biomes.DESERT}
     };
 
     /******************************************************************************************************************************/
@@ -169,7 +177,7 @@ public class BOPOverworldBiomeBuilder
             {null, null, null, null,                       BOPBiomes.LUSH_SAVANNA}
     };
 
-    private final ResourceKey<Biome>[][] EXTREME_HILLS_BOP = new ResourceKey[][]{
+    private final ResourceKey<Biome>[][] EXTREME_HILLS_BIOMES_BOP = new ResourceKey[][]{
             {null,               null,               null,               null,               null},
             {BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND},
             {BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND},
@@ -201,7 +209,7 @@ public class BOPOverworldBiomeBuilder
             {BOPBiomes.DRYLAND,    BOPBiomes.DRYLAND,    BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT}
     };
 
-    private final ResourceKey<Biome>[][] STONY_sHORES_BIOMES_BOP = new ResourceKey[][]{
+    private final ResourceKey<Biome>[][] STONY_SHORES_BIOMES_BOP = new ResourceKey[][]{
             {null, null, null,                  null,                       null},
             {null, null, null,                  null,                       null},
             {null, null, null,                  null,                       null},
@@ -561,12 +569,12 @@ public class BOPOverworldBiomeBuilder
 
     protected ResourceKey<Biome> pickBeachBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
     {
-        return BiomeUtil.biomeOrFallback(biomeRegistry, this.BEACH_BIOMES_BOP[temperatureIndex][humidityIndex], temperatureIndex == 0 ? Biomes.SNOWY_BEACH : temperatureIndex == 4 ? Biomes.DESERT : Biomes.BEACH);
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.BEACH_BIOMES_BOP[temperatureIndex][humidityIndex], this.BEACH_BIOMES[temperatureIndex][humidityIndex]);
     }
 
     protected ResourceKey<Biome> pickStonyShoresBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
     {
-        return BiomeUtil.biomeOrFallback(biomeRegistry, this.STONY_sHORES_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.STONY_SHORE);
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.STONY_SHORES_BIOMES_BOP[temperatureIndex][humidityIndex], Biomes.STONY_SHORE);
     }
 
     protected ResourceKey<Biome> pickIslandBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
@@ -626,13 +634,13 @@ public class BOPOverworldBiomeBuilder
 
     protected ResourceKey<Biome> pickExtremeHillsBiomeVanilla(int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
-        ResourceKey<Biome> resourcekey = this.EXTREME_HILLS[temperatureIndex][humidityIndex];
+        ResourceKey<Biome> resourcekey = this.EXTREME_HILLS_BIOMES[temperatureIndex][humidityIndex];
         return resourcekey == null ? this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : resourcekey;
     }
 
     protected ResourceKey<Biome> pickExtremeHillsBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
-        return BiomeUtil.biomeOrFallback(biomeRegistry, this.EXTREME_HILLS_BOP[temperatureIndex][humidityIndex], this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.EXTREME_HILLS_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
     }
 
     protected void addSurfaceBiome(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
