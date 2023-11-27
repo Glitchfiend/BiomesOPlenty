@@ -1,4 +1,4 @@
-// 1.20.2	2023-11-26T17:50:48.2431845	Registries
+// 1.20.2	2023-11-27T00:34:24.626857	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 b8dc803c8b669f1676bca4cf741dd201cf95119e data/biomesoplenty/worldgen/biome/aspen_forest.json
@@ -394,7 +394,7 @@ f97f184a71f65bf4b57c006b44fa7d2bc403f398 data/biomesoplenty/worldgen/placed_feat
 c85908914ebbbdface27da7524af002623d49619 data/biomesoplenty/worldgen/placed_feature/flower_tropics.json
 49945b52e721505e5a50b4992f9ef9be5ca49f33 data/biomesoplenty/worldgen/placed_feature/flower_undergrowth.json
 04d342758c64e5c565de41efe923a811b431179b data/biomesoplenty/worldgen/placed_feature/flower_violet.json
-496db4afc01ef6b10ef525ca5b1e7b2bc4d25402 data/biomesoplenty/worldgen/placed_feature/flower_wasteland.json
+1da06a1c0419889e8c0e3fb5eaa01b914b7f813d data/biomesoplenty/worldgen/placed_feature/flower_wasteland.json
 8d07e41719604b44d6af460b24cee853ec77d197 data/biomesoplenty/worldgen/placed_feature/flower_wetland.json
 f2fe7ca33c22cb4b6ba6ef8d0c6476b51ac4f880 data/biomesoplenty/worldgen/placed_feature/giant_glowshroom_cave.json
 319dc186d37a1aaef6ff83642105c3dc4350863e data/biomesoplenty/worldgen/placed_feature/giant_tree.json
