@@ -161,7 +161,7 @@ public class BOPOverworldBiomeBuilder
             {null,              null,                   null,                          BOPBiomes.LUSH_SAVANNA,       BOPBiomes.LUSH_SAVANNA}
     };
 
-    private final ResourceKey<Biome>[][] PLATEAU_BIOMES_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] PLATEAU_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.COLD_DESERT,       BOPBiomes.COLD_DESERT,       BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_CONIFEROUS_FOREST},
             {BOPBiomes.CONIFEROUS_FOREST, BOPBiomes.CONIFEROUS_FOREST, BOPBiomes.HIGHLAND,           BOPBiomes.HIGHLAND,           BOPBiomes.FIELD},
             {BOPBiomes.ORCHARD,           BOPBiomes.ROCKY_SHRUBLAND,   BOPBiomes.ROCKY_SHRUBLAND,    BOPBiomes.HIGHLAND,           BOPBiomes.HIGHLAND},
@@ -169,7 +169,7 @@ public class BOPOverworldBiomeBuilder
             {BOPBiomes.DRYLAND,           BOPBiomes.DRYLAND,           BOPBiomes.LUSH_DESERT,        BOPBiomes.LUSH_DESERT,        BOPBiomes.LUSH_DESERT}
     };
 
-    private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null, null, null, null,                       null},
             {null, null, null, null,                       null},
             {null, null, null, BOPBiomes.MOOR,             null},
@@ -177,7 +177,23 @@ public class BOPOverworldBiomeBuilder
             {null, null, null, null,                       BOPBiomes.LUSH_SAVANNA}
     };
 
-    private final ResourceKey<Biome>[][] EXTREME_HILLS_BIOMES_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] SLOPE_BIOMES_BOP = new ResourceKey[][]{
+            {null,                  null,                  null,                  null,                  null},
+            {BOPBiomes.CRAG,        BOPBiomes.CRAG,        BOPBiomes.CRAG,        BOPBiomes.CRAG,        BOPBiomes.CRAG},
+            {BOPBiomes.JADE_CLIFFS, BOPBiomes.JADE_CLIFFS, BOPBiomes.JADE_CLIFFS, BOPBiomes.JADE_CLIFFS, BOPBiomes.JADE_CLIFFS},
+            {null,                  null,                  null,                  BOPBiomes.VOLCANO,     BOPBiomes.VOLCANO},
+            {null,                  null,                  null,                  null,                  null}
+    };
+
+    protected final ResourceKey<Biome>[][] PEAK_BIOMES_BOP = new ResourceKey[][]{
+            {null,                  null,                  null,                  null,                  null},
+            {BOPBiomes.CRAG,        BOPBiomes.CRAG,        BOPBiomes.CRAG,        BOPBiomes.CRAG,        BOPBiomes.CRAG},
+            {BOPBiomes.JADE_CLIFFS, BOPBiomes.JADE_CLIFFS, BOPBiomes.JADE_CLIFFS, BOPBiomes.JADE_CLIFFS, BOPBiomes.JADE_CLIFFS},
+            {null,                  null,                  null,                  BOPBiomes.VOLCANO,     BOPBiomes.VOLCANO},
+            {null,                  null,                  null,                  null,                  null}
+    };
+
+    protected final ResourceKey<Biome>[][] EXTREME_HILLS_BIOMES_BOP = new ResourceKey[][]{
             {null,               null,               null,               null,               null},
             {BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND},
             {BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND},
@@ -185,7 +201,7 @@ public class BOPOverworldBiomeBuilder
             {null,               null,               null,               null,               null}
     };
 
-    private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS, BOPBiomes.HOT_SPRINGS},
             {BOPBiomes.WETLAND,     BOPBiomes.WETLAND,     BOPBiomes.WETLAND,     BOPBiomes.WETLAND,     BOPBiomes.WETLAND},
             {BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH,       BOPBiomes.MARSH},
@@ -193,7 +209,7 @@ public class BOPOverworldBiomeBuilder
             {BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.BAYOU,       BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN}
     };
 
-    private final ResourceKey<Biome>[][] RIVER_BIOMES_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] RIVER_BIOMES_BOP = new ResourceKey[][]{
             {Biomes.FROZEN_RIVER, Biomes.FROZEN_RIVER, Biomes.FROZEN_RIVER, Biomes.FROZEN_RIVER,  Biomes.FROZEN_RIVER},
             {null,                null,                null,                null,                 null},
             {null,                null,                null,                null,                 null},
@@ -201,7 +217,7 @@ public class BOPOverworldBiomeBuilder
             {null,                null,                null,                null,                 null}
     };
 
-    private final ResourceKey<Biome>[][] BEACH_BIOMES_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] BEACH_BIOMES_BOP = new ResourceKey[][]{
             {Biomes.SNOWY_BEACH,   Biomes.SNOWY_BEACH,   Biomes.SNOWY_BEACH,    Biomes.SNOWY_BEACH,    Biomes.SNOWY_BEACH},
             {Biomes.BEACH,         Biomes.BEACH,         Biomes.BEACH,          Biomes.BEACH,          Biomes.BEACH},
             {BOPBiomes.DUNE_BEACH, BOPBiomes.DUNE_BEACH, BOPBiomes.DUNE_BEACH,  Biomes.BEACH,          Biomes.BEACH},
@@ -209,7 +225,7 @@ public class BOPOverworldBiomeBuilder
             {BOPBiomes.DRYLAND,    BOPBiomes.DRYLAND,    BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT}
     };
 
-    private final ResourceKey<Biome>[][] STONY_SHORES_BIOMES_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] STONY_SHORES_BIOMES_BOP = new ResourceKey[][]{
             {null, null, null,                  null,                       null},
             {null, null, null,                  null,                       null},
             {null, null, null,                  null,                       null},
@@ -217,7 +233,7 @@ public class BOPOverworldBiomeBuilder
             {null, null, BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT,      BOPBiomes.LUSH_DESERT}
     };
 
-    private final ResourceKey<Biome>[][] ISLAND_BIOMES_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] ISLAND_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY},
             {BOPBiomes.ORIGIN_VALLEY,        BOPBiomes.ORIGIN_VALLEY,        BOPBiomes.ORIGIN_VALLEY,        BOPBiomes.ORIGIN_VALLEY,        BOPBiomes.ORIGIN_VALLEY},
             {null,                           null,                           null,                           null,                           null},
@@ -614,22 +630,12 @@ public class BOPOverworldBiomeBuilder
 
     protected ResourceKey<Biome> pickPeakBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
-        ResourceKey<Biome> peakBiome = this.pickPeakBiome(temperatureIndex, humidityIndex, weirdness);
-
-        if (temperatureIndex == 1) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.CRAG, peakBiome);
-        else if (temperatureIndex == 2) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.JADE_CLIFFS, peakBiome);
-        else if (temperatureIndex == 3 && humidityIndex >= 3) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.VOLCANO, peakBiome);
-        else return peakBiome;
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.PEAK_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickPeakBiome(temperatureIndex, humidityIndex, weirdness));
     }
 
     protected ResourceKey<Biome> pickSlopeBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
-        ResourceKey<Biome> plateauBiome = this.pickPlateauBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness);
-
-        if (temperatureIndex == 1) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.CRAG, plateauBiome);
-        else if (temperatureIndex == 2) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.JADE_CLIFFS, plateauBiome);
-        else if (temperatureIndex == 3 && humidityIndex >= 3) return BiomeUtil.biomeOrFallback(biomeRegistry, BOPBiomes.VOLCANO, plateauBiome);
-        else return plateauBiome;
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.SLOPE_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickPlateauBiomeBOP(biomeRegistry, temperatureIndex, humidityIndex, weirdness));
     }
 
     protected ResourceKey<Biome> pickExtremeHillsBiomeVanilla(int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)

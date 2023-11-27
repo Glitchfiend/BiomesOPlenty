@@ -33,22 +33,6 @@ public class BOPRareOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
             {null, null, null, null, null}
     };
 
-    private final ResourceKey<Biome>[][] SWAMP_BIOMES_BOP = new ResourceKey[][]{
-            {Biomes.FROZEN_RIVER, Biomes.FROZEN_RIVER, Biomes.FROZEN_RIVER,     Biomes.FROZEN_RIVER,    Biomes.FROZEN_RIVER},
-            {BOPBiomes.WETLAND,   BOPBiomes.WETLAND,   BOPBiomes.OMINOUS_WOODS, BOPBiomes.WETLAND,      BOPBiomes.WETLAND},
-            {BOPBiomes.MARSH,     BOPBiomes.MARSH,     BOPBiomes.MARSH,         BOPBiomes.MYSTIC_GROVE, BOPBiomes.MARSH},
-            {BOPBiomes.BAYOU,     BOPBiomes.BAYOU,     BOPBiomes.BAYOU,         BOPBiomes.FLOODPLAIN,   BOPBiomes.FUNGAL_JUNGLE},
-            {BOPBiomes.BAYOU,     BOPBiomes.BAYOU,     BOPBiomes.BAYOU,         BOPBiomes.FLOODPLAIN,   BOPBiomes.FLOODPLAIN}
-    };
-
-    private final ResourceKey<Biome>[][] RIVER_BIOMES_BOP = new ResourceKey[][]{
-            {Biomes.FROZEN_RIVER, Biomes.FROZEN_RIVER, Biomes.FROZEN_RIVER,     Biomes.FROZEN_RIVER,    Biomes.FROZEN_RIVER},
-            {null,                null,                BOPBiomes.OMINOUS_WOODS, null,                   null},
-            {null,                null,                null,                    BOPBiomes.MYSTIC_GROVE, null},
-            {null,                null,                null,                    null,                   BOPBiomes.FUNGAL_JUNGLE},
-            {null,                null,                null,                    null,                   null}
-    };
-
     @Override
     protected ResourceKey<Biome> pickMiddleBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
@@ -57,19 +41,26 @@ public class BOPRareOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
         if (weirdness.max() < 0) return middleBiome;
         else
         {
-            return BiomeUtil.biomeOrFallback(biomeRegistry, this.RARE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], middleBiome);
+            return BiomeUtil.biomeOrFallback(biomeRegistry, this.RARE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.RARE_BIOMES_BOP[temperatureIndex][humidityIndex], this.MIDDLE_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], middleBiome);
         }
+    }
+
+    @Override
+    protected ResourceKey<Biome> pickPlateauBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
+    {
+        if (weirdness.max() < 0L) return BiomeUtil.biomeOrFallback(biomeRegistry, this.RARE_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
+        else return BiomeUtil.biomeOrFallback(biomeRegistry, this.RARE_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_VARIANT_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_BOP[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES_VARIANT[temperatureIndex][humidityIndex], this.PLATEAU_BIOMES[temperatureIndex][humidityIndex]);
     }
 
     @Override
     protected ResourceKey<Biome> pickRiverBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex)
     {
-        return BiomeUtil.biomeOrFallback(biomeRegistry, this.RIVER_BIOMES_BOP[temperatureIndex][humidityIndex], temperatureIndex == 0 ? Biomes.FROZEN_RIVER : Biomes.RIVER);
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.RARE_BIOMES_BOP[temperatureIndex][humidityIndex], this.RIVER_BIOMES_BOP[temperatureIndex][humidityIndex], temperatureIndex == 0 ? Biomes.FROZEN_RIVER : Biomes.RIVER);
     }
 
     @Override
     protected ResourceKey<Biome> pickSwampBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
-        return BiomeUtil.biomeOrFallback(biomeRegistry, this.SWAMP_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickSwampBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.RARE_BIOMES_BOP[temperatureIndex][humidityIndex], this.SWAMP_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickSwampBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
     }
 }
