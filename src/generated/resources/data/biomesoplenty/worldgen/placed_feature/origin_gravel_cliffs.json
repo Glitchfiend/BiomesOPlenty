@@ -1,0 +1,8 @@
+{
+  "feature": "biomesoplenty:origin_gravel_cliffs",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

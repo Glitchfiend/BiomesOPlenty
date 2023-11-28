@@ -55,6 +55,7 @@ public class BOPMiscOverworldFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> LAVA_LAKE_VOLCANO = createKey("lava_lake_volcano");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRING_LAVA_VOLCANO = createKey("spring_lava_volcano");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRING_WATER_EXTRA = createKey("spring_water_extra");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORIGIN_GRAVEL_CLIFFS = createKey("origin_gravel_cliffs");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context)
     {
@@ -84,6 +85,7 @@ public class BOPMiscOverworldFeatures
         register(context, BOPMiscOverworldFeatures.LAVA_LAKE_VOLCANO, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.LAVA.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
         register(context, BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO, Feature.SPRING, new SpringConfiguration(Fluids.LAVA.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.BLACK_SAND.get(), BOPBlocks.BLACK_SANDSTONE.get(), Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE)));
         register(context, BOPMiscOverworldFeatures.SPRING_WATER_EXTRA, Feature.SPRING, new SpringConfiguration(Fluids.WATER.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.DIRT, Blocks.TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, BOPBlocks.ORANGE_SANDSTONE.get())));
+        register(context, BOPMiscOverworldFeatures.ORIGIN_GRAVEL_CLIFFS, BOPBaseFeatures.ORIGIN_GRAVEL_CLIFFS, NoneFeatureConfiguration.INSTANCE);
     }
     
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)

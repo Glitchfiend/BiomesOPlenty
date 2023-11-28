@@ -79,6 +79,7 @@ public class BOPBaseFeatures
     public static final BOPTreeFeature<TwigletTreeConfiguration> TWIGLET_TREE = register("twiglet_tree", new TwigletTreeFeature(TwigletTreeConfiguration.CODEC));
     public static final BOPTreeFeature<TaigaTreeConfiguration> UMBRAN_TREE = register("umbran_tree", new UmbranTreeFeature(TaigaTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> WEBBING = register("webbing", new WebbingFeature(NoneFeatureConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> ORIGIN_GRAVEL_CLIFFS = register("origin_gravel_cliffs", new OriginGravelCliffFeature(NoneFeatureConfiguration.CODEC));
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(String key, F value)
     {

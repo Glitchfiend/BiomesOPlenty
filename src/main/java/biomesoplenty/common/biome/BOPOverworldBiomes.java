@@ -979,6 +979,7 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addDefaultMonsterRoom(biomeBuilder);
         BiomeDefaultFeatures.addDefaultSprings(biomeBuilder);
         BiomeDefaultFeatures.addSurfaceFreezing(biomeBuilder);
+        addFeature(biomeBuilder, GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BOPMiscOverworldPlacements.ORIGIN_GRAVEL_CLIFFS);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIRT);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_GRAVEL);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_COAL_UPPER);

@@ -61,7 +61,8 @@
       "biomesoplenty:flower_origin_valley"
     ],
     [
-      "minecraft:freeze_top_layer"
+      "minecraft:freeze_top_layer",
+      "biomesoplenty:origin_gravel_cliffs"
     ]
   ],
   "has_precipitation": true,
