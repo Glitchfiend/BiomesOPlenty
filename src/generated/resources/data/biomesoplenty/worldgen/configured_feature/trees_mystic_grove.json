@@ -12,7 +12,7 @@
         "feature": "biomesoplenty:big_magic_tree"
       },
       {
-        "chance": 0.01,
+        "chance": 0.025,
         "feature": "biomesoplenty:giant_tree"
       }
     ]

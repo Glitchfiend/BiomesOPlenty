@@ -876,7 +876,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
-        return biomeWithColorOverridesAndParticles(true, 0.7F, 0.8F, 0x9C3FE4, 0x2E0533, 0xFFC9DA, 0x69CFDB, 0x70E0B5, 0xAAEFFF, spawnBuilder, biomeBuilder, ParticleTypes.END_ROD, 0.00011532552F, MAGICAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.7F, 0.8F, 0x9C3FE4, 0x2E0533, 0xFFC9DA, 0x69CFDB, 0x70E0B5, 0xAAEFFF, spawnBuilder, biomeBuilder, MAGICAL_MUSIC);
     }
 
     public static Biome oldGrowthDeadForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)

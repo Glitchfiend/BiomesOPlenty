@@ -441,7 +441,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_MEDITERRANEAN_FOREST, TREES_MEDITERRANEAN_FOREST, treePlacement(PlacementUtils.countExtra(3, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_MUSKEG, TREES_MUSKEG, treePlacement(PlacementUtils.countExtra(0, 0.5F, 1)));
         register(context, BOPVegetationPlacements.TREES_OLD_GROWTH_DEAD_FOREST, TREES_OLD_GROWTH_DEAD_FOREST, treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
-        register(context, BOPVegetationPlacements.TREES_MYSTIC_GROVE, TREES_MYSTIC_GROVE, treePlacement(PlacementUtils.countExtra(9, 0.1F, 1)));
+        register(context, BOPVegetationPlacements.TREES_MYSTIC_GROVE, TREES_MYSTIC_GROVE, treePlacement(PlacementUtils.countExtra(5, 0.2F, 10)));
         register(context, BOPVegetationPlacements.TREES_OMINOUS_WOODS, TREES_OMINOUS_WOODS, treePlacement(PlacementUtils.countExtra(6, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_ORCHARD, TREES_ORCHARD, treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_ORIGIN_VALLEY, TREES_ORIGIN_VALLEY, treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));

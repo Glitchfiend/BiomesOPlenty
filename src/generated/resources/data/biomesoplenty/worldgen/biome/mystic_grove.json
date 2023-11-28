@@ -23,12 +23,6 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.cherry_grove"
     },
-    "particle": {
-      "options": {
-        "type": "minecraft:end_rod"
-      },
-      "probability": 1.1532552E-4
-    },
     "sky_color": 11202559,
     "water_color": 10239972,
     "water_fog_color": 3015987

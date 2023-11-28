@@ -1,5 +1,5 @@
 {
-  "type": "biomesoplenty:taiga_tree",
+  "type": "biomesoplenty:umbran_tree",
   "config": {
     "alt_foliage_provider": {
       "type": "minecraft:simple_state_provider",

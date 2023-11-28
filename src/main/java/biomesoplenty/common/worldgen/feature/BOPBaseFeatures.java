@@ -45,6 +45,7 @@ public class BOPBaseFeatures
     public static final Feature<NoneFeatureConfiguration> INFERNO_SPLATTER = register("inferno_splatter", new InfernoSplatterFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> LARGE_FUMAROLE = register("large_fumarole", new LargeFumaroleFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<LargeDripstoneConfiguration> LARGE_ROSE_QUARTZ = register("large_rose_quartz", new LargeRoseQuartzFeature(LargeDripstoneConfiguration.CODEC));
+    public static final BOPTreeFeature<MagicTreeConfiguration> MAGIC_TREE = register("magic_tree", new MagicTreeFeature(MagicTreeConfiguration.CODEC));
     public static final BOPTreeFeature<MahoganyTreeConfiguration> MAHOGANY_TREE = register("mahogany_tree", new MahoganyTreeFeature(MahoganyTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> MEDIUM_GLOWSHROOM = register("medium_glowshroom", new MediumGlowshroomFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> MOSS_SPLATTER = register("moss_splatter", new MossSplatterFeature(NoneFeatureConfiguration.CODEC));
@@ -76,6 +77,7 @@ public class BOPBaseFeatures
     public static final Feature<NoneFeatureConfiguration> STRINGY_COBWEB = register("stringy_cobweb", new StringyCobwebFeature(NoneFeatureConfiguration.CODEC));
     public static final BOPTreeFeature<TaigaTreeConfiguration> TAIGA_TREE = register("taiga_tree", new TaigaTreeFeature(TaigaTreeConfiguration.CODEC));
     public static final BOPTreeFeature<TwigletTreeConfiguration> TWIGLET_TREE = register("twiglet_tree", new TwigletTreeFeature(TwigletTreeConfiguration.CODEC));
+    public static final BOPTreeFeature<TaigaTreeConfiguration> UMBRAN_TREE = register("umbran_tree", new UmbranTreeFeature(TaigaTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> WEBBING = register("webbing", new WebbingFeature(NoneFeatureConfiguration.CODEC));
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(String key, F value)

@@ -1,5 +1,5 @@
 {
-  "type": "biomesoplenty:poplar_tree",
+  "type": "biomesoplenty:magic_tree",
   "config": {
     "alt_foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -26,7 +26,7 @@
       }
     },
     "max_height": 12,
-    "min_height": 8,
+    "min_height": 5,
     "trunk_fruit_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
