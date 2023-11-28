@@ -13,7 +13,7 @@
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "biomesoplenty:white_sand"
+          "Name": "biomesoplenty:white_sandstone"
         }
       },
       "rules": []
@@ -21,13 +21,11 @@
     "target": {
       "type": "minecraft:matching_blocks",
       "blocks": [
-        "minecraft:dirt",
-        "minecraft:grass_block",
-        "minecraft:mycelium",
-        "minecraft:sand",
-        "minecraft:gravel",
-        "minecraft:clay",
-        "biomesoplenty:origin_grass_block"
+        "minecraft:stone",
+        "minecraft:sandstone",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite"
       ]
     }
   }

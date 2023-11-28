@@ -39,6 +39,7 @@ public class BOPMiscOverworldFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_ORANGE_SAND = createKey("disk_orange_sand");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_WHITE_SAND = createKey("disk_white_sand");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_WHITE_SAND_EXTRA = createKey("disk_white_sand_extra");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_WHITE_SANDSTONE = createKey("disk_white_sandstone");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_GRAVEL = createKey("disk_hot_spring_gravel");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_CALCITE = createKey("disk_hot_spring_calcite");
@@ -66,7 +67,8 @@ public class BOPMiscOverworldFeatures
         register(context, BOPMiscOverworldFeatures.DISK_GRAVEL_EXTRA, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.GRAVEL), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(1, 4), 2));
         register(context, BOPMiscOverworldFeatures.DISK_ORANGE_SAND, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.ORANGE_SAND.get()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));
         register(context, BOPMiscOverworldFeatures.DISK_WHITE_SAND, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.WHITE_SAND.get()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));
-        register(context, BOPMiscOverworldFeatures.DISK_WHITE_SAND_EXTRA, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.WHITE_SAND.get()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.MYCELIUM, Blocks.SAND, Blocks.SANDSTONE, Blocks.GRAVEL, Blocks.CLAY, BOPBlocks.ORIGIN_GRASS_BLOCK.get())), UniformInt.of(6, 8), 4));
+        register(context, BOPMiscOverworldFeatures.DISK_WHITE_SAND_EXTRA, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.WHITE_SAND.get()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.MYCELIUM, Blocks.SAND, Blocks.GRAVEL, Blocks.CLAY, BOPBlocks.ORIGIN_GRASS_BLOCK.get())), UniformInt.of(6, 8), 4));
+        register(context, BOPMiscOverworldFeatures.DISK_WHITE_SANDSTONE, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.WHITE_SANDSTONE.get()), BlockPredicate.matchesBlocks(List.of(Blocks.STONE, Blocks.SANDSTONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE)), UniformInt.of(6, 8), 4));
 
         register(context, BOPMiscOverworldFeatures.DISK_HOT_SPRING_GRAVEL, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.GRAVEL), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.CLAY, Blocks.ANDESITE, Blocks.GRANITE, Blocks.DIORITE, Blocks.STONE)), UniformInt.of(8, 8), 4));
         register(context, BOPMiscOverworldFeatures.DISK_HOT_SPRING_CALCITE, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.CALCITE), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.GRASS_BLOCK, Blocks.SAND, Blocks.GRAVEL, Blocks.CLAY, Blocks.ANDESITE, Blocks.GRANITE, Blocks.DIORITE, Blocks.STONE)), UniformInt.of(6, 7), 3));

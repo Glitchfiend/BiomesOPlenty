@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
 public class BOPSurfaceRuleData
 {
@@ -388,6 +389,14 @@ public class BOPSurfaceRuleData
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, GRAVEL)
         );
 
+        SurfaceRules.RuleSource originBeachTop = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), SurfaceRules.sequence(SurfaceRules.ifTrue(isAbove63, AIR), SurfaceRules.sequence(SurfaceRules.ifTrue(isAbove62, WATER), GRAVEL))), SAND
+        );
+
+        SurfaceRules.RuleSource originBeachFiller = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), GRAVEL), SAND
+        );
+
         SurfaceRules.RuleSource mixedLushDesertSurface = SurfaceRules.sequence(
             SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), ORANGE_SANDSTONE),
             ORANGE_SAND
@@ -488,7 +497,7 @@ public class BOPSurfaceRuleData
                                 SurfaceRules.isBiome(BOPBiomes.MEDITERRANEAN_FOREST),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), PODZOL)
                             ),
-                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY), ORIGIN_GRASS),
+                            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.yStartCheck(VerticalAnchor.absolute(65), 0), ORIGIN_GRASS), SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(64), 0), originBeachTop))),
                             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.REDWOOD_FOREST), PODZOL)
                         )
                     ),
@@ -520,6 +529,8 @@ public class BOPSurfaceRuleData
                 )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.GRAVEL_BEACH), gravelBeachSurface),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.yStartCheck(VerticalAnchor.absolute(65), 0), SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), DIRT)), SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), originBeachFiller))),
+
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.ROCKY_SHRUBLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), STONE)
