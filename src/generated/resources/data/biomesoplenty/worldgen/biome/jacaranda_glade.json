@@ -80,9 +80,9 @@
       "minecraft:patch_sugar_cane",
       "biomesoplenty:patch_grass_24",
       "biomesoplenty:patch_tall_grass_64",
-      "biomesoplenty:flower_jacaranda_forest",
+      "biomesoplenty:flower_jacaranda_glade",
       "biomesoplenty:patch_tall_lavender_forest",
-      "biomesoplenty:trees_jacaranda_forest"
+      "biomesoplenty:trees_jacaranda_glade"
     ],
     [
       "minecraft:freeze_top_layer"

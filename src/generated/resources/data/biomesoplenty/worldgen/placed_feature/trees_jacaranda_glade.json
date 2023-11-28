@@ -1,5 +1,5 @@
 {
-  "feature": "biomesoplenty:trees_aspen_forest",
+  "feature": "biomesoplenty:trees_jacaranda_glade",
   "placement": [
     {
       "type": "minecraft:count",
@@ -7,11 +7,11 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 3,
+            "data": 7,
             "weight": 4
           },
           {
-            "data": 4,
+            "data": 17,
             "weight": 1
           }
         ]

@@ -19,7 +19,7 @@ public class BOPBiomes
     private static List<ResourceKey<Biome>> overworldBiomes = Lists.newArrayList();
     private static List<ResourceKey<Biome>> allBiomes = Lists.newArrayList();
 
-    public static final ResourceKey<Biome> ASPEN_FOREST = registerOverworld("aspen_forest");
+    public static final ResourceKey<Biome> ASPEN_GLADE = registerOverworld("aspen_glade");
     public static final ResourceKey<Biome> AURORAL_GARDEN = registerOverworld("auroral_garden");
     public static final ResourceKey<Biome> BAYOU = registerOverworld("bayou");
     public static final ResourceKey<Biome> BOG = registerOverworld("bog");
@@ -42,7 +42,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> GRAVEL_BEACH = registerOverworld("gravel_beach");
     public static final ResourceKey<Biome> HIGHLAND = registerOverworld("highland");
     public static final ResourceKey<Biome> HOT_SPRINGS = registerOverworld("hot_springs");
-    public static final ResourceKey<Biome> JACARANDA_FOREST = registerOverworld("jacaranda_forest");
+    public static final ResourceKey<Biome> JACARANDA_GLADE = registerOverworld("jacaranda_glade");
     public static final ResourceKey<Biome> JADE_CLIFFS = registerOverworld("jade_cliffs");
     public static final ResourceKey<Biome> LAVENDER_FIELD = registerOverworld("lavender_field");
     public static final ResourceKey<Biome> LUSH_DESERT = registerOverworld("lush_desert");
