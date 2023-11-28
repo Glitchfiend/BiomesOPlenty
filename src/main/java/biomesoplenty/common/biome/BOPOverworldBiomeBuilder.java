@@ -218,11 +218,11 @@ public class BOPOverworldBiomeBuilder
     };
 
     protected final ResourceKey<Biome>[][] BEACH_BIOMES_BOP = new ResourceKey[][]{
-            {Biomes.SNOWY_BEACH,   Biomes.SNOWY_BEACH,   Biomes.SNOWY_BEACH,    Biomes.SNOWY_BEACH,    Biomes.SNOWY_BEACH},
-            {Biomes.BEACH,         Biomes.BEACH,         Biomes.BEACH,          Biomes.BEACH,          Biomes.BEACH},
-            {BOPBiomes.DUNE_BEACH, BOPBiomes.DUNE_BEACH, BOPBiomes.DUNE_BEACH,  Biomes.BEACH,          Biomes.BEACH},
-            {Biomes.BEACH,         Biomes.BEACH,         Biomes.BEACH,          BOPBiomes.FLOODPLAIN,  BOPBiomes.FLOODPLAIN},
-            {BOPBiomes.DRYLAND,    BOPBiomes.DRYLAND,    BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT, BOPBiomes.LUSH_DESERT}
+            {Biomes.SNOWY_BEACH,     Biomes.SNOWY_BEACH,     Biomes.SNOWY_BEACH,     Biomes.SNOWY_BEACH,     Biomes.SNOWY_BEACH},
+            {BOPBiomes.GRAVEL_BEACH, BOPBiomes.GRAVEL_BEACH, BOPBiomes.GRAVEL_BEACH, BOPBiomes.GRAVEL_BEACH, BOPBiomes.GRAVEL_BEACH},
+            {BOPBiomes.DUNE_BEACH,   BOPBiomes.DUNE_BEACH,   BOPBiomes.DUNE_BEACH,   Biomes.BEACH,           Biomes.BEACH},
+            {Biomes.BEACH,           Biomes.BEACH,           Biomes.BEACH,           BOPBiomes.FLOODPLAIN,   BOPBiomes.FLOODPLAIN},
+            {BOPBiomes.DRYLAND,      BOPBiomes.DRYLAND,      BOPBiomes.LUSH_DESERT,  BOPBiomes.LUSH_DESERT,  BOPBiomes.LUSH_DESERT}
     };
 
     protected final ResourceKey<Biome>[][] STONY_SHORES_BIOMES_BOP = new ResourceKey[][]{

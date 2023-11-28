@@ -383,6 +383,11 @@ public class BOPSurfaceRuleData
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, STONE)
         );
 
+        SurfaceRules.RuleSource gravelBeachSurface = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(SurfaceRules.ifTrue(isAbove63, AIR), SurfaceRules.sequence(SurfaceRules.ifTrue(isAbove62, WATER), GRAVEL))),
+                SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, GRAVEL)
+        );
+
         SurfaceRules.RuleSource mixedLushDesertSurface = SurfaceRules.sequence(
             SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), ORANGE_SANDSTONE),
             ORANGE_SAND
@@ -514,6 +519,7 @@ public class BOPSurfaceRuleData
                     volcanoSurface
                 )
             ),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.GRAVEL_BEACH), gravelBeachSurface),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.ROCKY_SHRUBLAND),
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), STONE)

@@ -1,4 +1,4 @@
-// 1.20.2	2023-11-27T18:37:14.4728628	Registries
+// 1.20.2	2023-11-27T22:19:35.2465614	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 b8dc803c8b669f1676bca4cf741dd201cf95119e data/biomesoplenty/worldgen/biome/aspen_forest.json
@@ -21,6 +21,7 @@ a9636d9d8c3cbbb4afcf2f57615b9762318e87e1 data/biomesoplenty/worldgen/biome/fores
 b50746f2c174b41608eaf7b9a4ea927ed2ac0a03 data/biomesoplenty/worldgen/biome/fungal_jungle.json
 d9000040ce4407e603b2089bb386181a6f4c4427 data/biomesoplenty/worldgen/biome/glowing_grotto.json
 7a1c57597ceed578a6a9ad29bb5475d766eeb4ed data/biomesoplenty/worldgen/biome/grassland.json
+72776c2315490fac1ed59c279df1a47b09ab6130 data/biomesoplenty/worldgen/biome/gravel_beach.json
 c60852465ebacbddccba4c8a3ecc7fc7c958ece2 data/biomesoplenty/worldgen/biome/highland.json
 95bfe311c5f232012863d1047022f609d6c26cee data/biomesoplenty/worldgen/biome/hot_springs.json
 4154a4e77331837da4b3db36a98c5c017d279853 data/biomesoplenty/worldgen/biome/jacaranda_forest.json

@@ -4,6 +4,10 @@
     {
       "id": "biomesoplenty:dune_beach",
       "required": false
+    },
+    {
+      "id": "biomesoplenty:gravel_beach",
+      "required": false
     }
   ]
 }

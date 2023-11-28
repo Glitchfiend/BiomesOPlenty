@@ -63,11 +63,11 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     };
 
     private final ResourceKey<Biome>[][] BEACH_BIOMES_BOP = new ResourceKey[][]{
-            {Biomes.SNOWY_BEACH,             Biomes.SNOWY_BEACH,             Biomes.SNOWY_BEACH,   Biomes.SNOWY_BEACH,   Biomes.BEACH},
-            {Biomes.BEACH,                   Biomes.BEACH,                   Biomes.BEACH,         Biomes.BEACH,         Biomes.BEACH},
-            {BOPBiomes.DUNE_BEACH,           BOPBiomes.DUNE_BEACH,           BOPBiomes.DUNE_BEACH, Biomes.BEACH,         Biomes.BEACH},
-            {BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.MEDITERRANEAN_FOREST, Biomes.BEACH,         BOPBiomes.FLOODPLAIN, BOPBiomes.VOLCANIC_PLAINS},
-            {BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,  BOPBiomes.WASTELAND,  BOPBiomes.WASTELAND}
+            {BOPBiomes.GRAVEL_BEACH,         BOPBiomes.GRAVEL_BEACH,         Biomes.SNOWY_BEACH,     Biomes.SNOWY_BEACH,     BOPBiomes.GRAVEL_BEACH},
+            {BOPBiomes.GRAVEL_BEACH,         BOPBiomes.GRAVEL_BEACH,         BOPBiomes.GRAVEL_BEACH, BOPBiomes.GRAVEL_BEACH, BOPBiomes.GRAVEL_BEACH},
+            {BOPBiomes.DUNE_BEACH,           BOPBiomes.DUNE_BEACH,           BOPBiomes.DUNE_BEACH,   Biomes.BEACH,           Biomes.BEACH},
+            {BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.MEDITERRANEAN_FOREST, Biomes.BEACH,           BOPBiomes.FLOODPLAIN,   BOPBiomes.VOLCANIC_PLAINS},
+            {BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,    BOPBiomes.WASTELAND,    BOPBiomes.WASTELAND}
     };
 
     private final ResourceKey<Biome>[][] STONY_SHORES_BIOMES_BOP = new ResourceKey[][]{
