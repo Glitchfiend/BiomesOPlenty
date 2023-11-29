@@ -148,29 +148,45 @@ public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguratio
             }
         }
 
+        pos = pos.relative(direction, length+1).above(height+1);
 
-        pos = pos.relative(direction, length+1).above(height+2);
-
-        int radius = 2;
-        for (int x = -(radius-1); x <= (radius-1); x++)
+        if (world.getRandom().nextInt(2) == 0)
         {
-            for (int z = -(radius - 1); z <= (radius - 1); z++)
-            {
-                this.placeLeaves(world, pos.offset(x,0,z), leaves, config);
-            }
+            this.placeLeaves(world, pos.offset(-1, -1, 0), leaves, config);
+            this.placeLeaves(world, pos.offset(1, -1, 0), leaves, config);
+            this.placeLeaves(world, pos.offset(0, -1, -1), leaves, config);
+            this.placeLeaves(world, pos.offset(0, -1, 1), leaves, config);
         }
 
-        for (int x = -radius; x <= radius; x++)
+        //Generate a bush 3 blocks tall, with the center block set to a log
+        for (int y = 0; y < 2; ++y)
         {
-            for (int z = -radius; z <= radius; z++)
+            //Reduces the radius closer to the top of the bush
+            int leavesRadius = (2 - y > 1 ? 2 : 1);
+
+            for (int x = -leavesRadius; x <= leavesRadius; ++x)
             {
-                if ((x == -radius || x == radius) && (z == -radius || z == radius))
+                for (int z = -leavesRadius; z <= leavesRadius; ++z)
                 {
-                    continue;
-                }
-                else
-                {
-                    this.placeLeaves(world, pos.offset(x,-1,z), leaves, config);
+                    //Randomly prevent the generation of leaves on the corners of each layer
+                    if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || world.getRandom().nextInt(4) == 0)
+                    {
+                        if (config.altFoliageProvider.getState(world.getRandom(), pos) != Blocks.AIR.defaultBlockState())
+                        {
+                            if (world.getRandom().nextInt(4) == 0)
+                            {
+                                this.placeAltLeaves(world, pos.offset(x, y, z), leaves, config);
+                            }
+                            else
+                            {
+                                this.placeLeaves(world, pos.offset(x, y, z), leaves, config);
+                            }
+                        }
+                        else
+                        {
+                            this.placeLeaves(world, pos.offset(x, y, z), leaves, config);
+                        }
+                    }
                 }
             }
         }

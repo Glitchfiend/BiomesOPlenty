@@ -24,12 +24,12 @@ import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
 
-public class FallenFirLogFeature extends Feature<NoneFeatureConfiguration>
+public class FallenJacarandaLogFeature extends Feature<NoneFeatureConfiguration>
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.COARSE_DIRT;
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).getBlock() == Blocks.SNOW;
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
 
-    public FallenFirLogFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public FallenJacarandaLogFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
@@ -46,7 +46,7 @@ public class FallenFirLogFeature extends Feature<NoneFeatureConfiguration>
             startPos = startPos.below();
         }
 
-        int length = 5 + rand.nextInt(5);
+        int length = 4 + rand.nextInt(2);
         Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
 
         int groundCheck = 0;
@@ -96,23 +96,16 @@ public class FallenFirLogFeature extends Feature<NoneFeatureConfiguration>
 
         for (int i = 0; i < length; i++)
         {
-            this.setBlock(world, pos.relative(direction, i), BOPBlocks.FIR_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
+            this.setBlock(world, pos.relative(direction, i), BOPBlocks.JACARANDA_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
 
             BlockState blockAbove = world.getBlockState(pos.above().relative(direction, i));
-            if (blockAbove.isAir() || blockAbove.getBlock() instanceof BushBlock || blockAbove.getBlock() == Blocks.SNOW)
+            if (blockAbove.isAir() || blockAbove.getBlock() instanceof BushBlock)
             {
-                if (rand.nextInt(5) == 0)
-                {
-                    this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.TOADSTOOL.get().defaultBlockState());
-                }
-                else if (rand.nextInt(4) == 0)
-                {
-                    this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.SPROUT.get().defaultBlockState());
-                }
+                this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.SPROUT.get().defaultBlockState());
             }
 
             BlockState blockBelow = world.getBlockState(pos.below().relative(direction, i));
-            if (blockBelow.isAir() || blockBelow.getFluidState().is(Fluids.WATER) || blockBelow.getBlock() instanceof BushBlock || blockBelow.getBlock() == Blocks.SNOW)
+            if (blockBelow.isAir() || blockBelow.getFluidState().is(Fluids.WATER) || blockBelow.getBlock() instanceof BushBlock)
             {
                 this.setBlock(world, pos.below().relative(direction, i), Blocks.HANGING_ROOTS.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(world.isWaterAt(pos.below().relative(direction, i)))));
             }

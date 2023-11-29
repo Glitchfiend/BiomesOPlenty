@@ -194,6 +194,8 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> SMALL_DRIPLEAF = createKey("small_dripleaf");
     public static final ResourceKey<PlacedFeature> FALLEN_LOG = createKey("fallen_log");
     public static final ResourceKey<PlacedFeature> FALLEN_FIR_LOG = createKey("fallen_fir_log");
+    public static final ResourceKey<PlacedFeature> FALLEN_BIRCH_LOG = createKey("fallen_birch_log");
+    public static final ResourceKey<PlacedFeature> FALLEN_JACARANDA_LOG = createKey("fallen_jacaranda_log");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context)
     {
@@ -323,6 +325,8 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> SMALL_DRIPLEAF = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_DRIPLEAF);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_LOG);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_FIR_LOG);
+        final Holder<ConfiguredFeature<?, ?>> FALLEN_BIRCH_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_BIRCH_LOG);
+        final Holder<ConfiguredFeature<?, ?>> FALLEN_JACARANDA_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_JACARANDA_LOG);
         final Holder<ConfiguredFeature<?, ?>> HIGHLAND_ROCKS = configuredFeatureGetter.getOrThrow(MiscOverworldFeatures.FOREST_ROCK);
         final Holder<ConfiguredFeature<?, ?>> COLD_DESERT_ROCKS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.COLD_DESERT_ROCKS);
 
@@ -478,8 +482,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.ORANGE_MAPLE_LEAF_PILES, ORANGE_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.YELLOW_MAPLE_LEAF_PILES, YELLOW_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.RED_MAPLE_LEAF_PILES_EXTRA, RED_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(6));
-        register(context, BOPVegetationPlacements.ORANGE_MAPLE_LEAF_PILES_EXTRA, ORANGE_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(7));
-        register(context, BOPVegetationPlacements.YELLOW_MAPLE_LEAF_PILES_EXTRA, YELLOW_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(8));
+        register(context, BOPVegetationPlacements.ORANGE_MAPLE_LEAF_PILES_EXTRA, ORANGE_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(8));
+        register(context, BOPVegetationPlacements.YELLOW_MAPLE_LEAF_PILES_EXTRA, YELLOW_MAPLE_LEAF_PILES, VegetationPlacements.worldSurfaceSquaredWithCount(15));
         register(context, BOPVegetationPlacements.SPARSE_DUNE_GRASS, SPARSE_DUNE_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.ROOTED_STUMP, ROOTED_STUMP, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.SCATTERED_ROCKS, SCATTERED_ROCKS, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -491,6 +495,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.SMALL_DRIPLEAF, SMALL_DRIPLEAF, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_LOG, FALLEN_LOG, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_FIR_LOG, FALLEN_FIR_LOG, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FALLEN_BIRCH_LOG, FALLEN_BIRCH_LOG, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FALLEN_JACARANDA_LOG, FALLEN_JACARANDA_LOG, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     }
 
     private static List<PlacementModifier> waterTreePlacement(PlacementModifier modifier)

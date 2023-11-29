@@ -81,7 +81,8 @@
       "biomesoplenty:patch_grass_24",
       "biomesoplenty:patch_tall_grass_128",
       "biomesoplenty:flower_jacaranda_glade",
-      "biomesoplenty:trees_jacaranda_glade"
+      "biomesoplenty:trees_jacaranda_glade",
+      "biomesoplenty:fallen_jacaranda_log"
     ],
     [
       "minecraft:freeze_top_layer"

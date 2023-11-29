@@ -27,7 +27,7 @@
     },
     "leaf_chance_even": 1.0,
     "leaf_chance_odd": 1.0,
-    "max_height": 1,
+    "max_height": 2,
     "min_height": 1,
     "trunk_fruit_provider": {
       "type": "minecraft:simple_state_provider",

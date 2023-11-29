@@ -1,16 +1,16 @@
 {
-  "feature": "biomesoplenty:yellow_maple_leaf_piles",
+  "feature": "biomesoplenty:fallen_birch_log",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 15
+      "type": "minecraft:rarity_filter",
+      "chance": 3
     },
     {
       "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "WORLD_SURFACE_WG"
+      "heightmap": "MOTION_BLOCKING"
     },
     {
       "type": "minecraft:biome"

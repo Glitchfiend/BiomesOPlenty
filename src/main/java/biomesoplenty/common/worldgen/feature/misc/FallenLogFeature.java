@@ -16,11 +16,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.material.Fluids;
 
 public class FallenLogFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -110,9 +112,9 @@ public class FallenLogFeature extends Feature<NoneFeatureConfiguration>
             }
 
             BlockState blockBelow = world.getBlockState(pos.below().relative(direction, i));
-            if (blockBelow.isAir() || blockBelow.getBlock() instanceof BushBlock)
+            if (blockBelow.isAir() || blockBelow.getFluidState().is(Fluids.WATER) || blockBelow.getBlock() instanceof BushBlock)
             {
-                this.setBlock(world, pos.below().relative(direction, i), Blocks.HANGING_ROOTS.defaultBlockState());
+                this.setBlock(world, pos.below().relative(direction, i), Blocks.HANGING_ROOTS.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(world.isWaterAt(pos.below().relative(direction, i)))));
             }
             if (blockBelow.is(BlockTags.DIRT))
             {
@@ -130,6 +132,12 @@ public class FallenLogFeature extends Feature<NoneFeatureConfiguration>
             super.setBlock(world, pos, state);
             return true;
         }
+        else if (world.getBlockState(pos).getFluidState().is(Fluids.WATER) && state.getBlock() == Blocks.HANGING_ROOTS)
+        {
+            super.setBlock(world, pos, state);
+            return true;
+        }
+
         return false;
     }
 
