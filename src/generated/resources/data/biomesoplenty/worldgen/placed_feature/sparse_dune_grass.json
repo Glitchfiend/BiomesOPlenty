@@ -1,16 +1,16 @@
 {
-  "feature": "biomesoplenty:flower_jacaranda_glade",
+  "feature": "biomesoplenty:sparse_dune_grass",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 2
+      "type": "minecraft:count",
+      "count": 1
     },
     {
       "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING"
+      "heightmap": "WORLD_SURFACE_WG"
     },
     {
       "type": "minecraft:biome"

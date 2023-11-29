@@ -6,11 +6,11 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.7,
+  "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 10601325,
-    "grass_color": 10601325,
+    "foliage_color": 8634480,
+    "grass_color": 8043631,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -23,7 +23,7 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.cherry_grove"
     },
-    "sky_color": 7907327,
+    "sky_color": 7972607,
     "water_color": 4159204,
     "water_fog_color": 329011
   },
@@ -79,9 +79,8 @@
       "minecraft:glow_lichen",
       "minecraft:patch_sugar_cane",
       "biomesoplenty:patch_grass_24",
-      "biomesoplenty:patch_tall_grass_64",
+      "biomesoplenty:patch_tall_grass_128",
       "biomesoplenty:flower_jacaranda_glade",
-      "biomesoplenty:patch_tall_lavender_forest",
       "biomesoplenty:trees_jacaranda_glade"
     ],
     [
@@ -188,5 +187,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.8
+  "temperature": 0.7
 }

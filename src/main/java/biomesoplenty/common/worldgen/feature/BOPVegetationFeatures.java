@@ -80,6 +80,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_LEAF_PILES = createKey("red_maple_leaf_piles");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_LEAF_PILES = createKey("orange_maple_leaf_piles");
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_LEAF_PILES = createKey("yellow_maple_leaf_piles");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPARSE_DUNE_GRASS = createKey("sparse_dune_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINFOREST_CLIFFS_VINES = createKey("rainforest_cliffs_vines");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTED_STUMP = createKey("rooted_stump");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE_BUSH = createKey("rose_bush");
@@ -100,6 +101,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_FIELD_1 = createKey("flower_field_1");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_FIELD_2 = createKey("flower_field_2");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_GRASSLAND = createKey("flower_grassland");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_JACARANDA_GLADE = createKey("flower_jacaranda_glade");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_LAVENDER = createKey("flower_lavender");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_MOOR = createKey("flower_moor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_MYSTIC_GROVE = createKey("flower_mystic_grove");
@@ -200,6 +202,8 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> MANGROVE_TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.MANGROVE_TWIGLET_TREE_CHECKED);
         final Holder<PlacedFeature> RED_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.RED_MAPLE_TREE_CHECKED);
         final Holder<PlacedFeature> MAPLE_TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.MAPLE_TWIGLET_TREE_CHECKED);
+        final Holder<PlacedFeature> CHERRY_TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.CHERRY_TWIGLET_TREE_CHECKED);
+        final Holder<PlacedFeature> SNOWBLOSSOM_TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.SNOWBLOSSOM_TWIGLET_TREE_CHECKED);
         final Holder<PlacedFeature> OAK_BUSH_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.OAK_BUSH_CHECKED);
         final Holder<PlacedFeature> ORANGE_MAPLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORANGE_MAPLE_TREE_CHECKED);
         final Holder<PlacedFeature> ORIGIN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORIGIN_TREE_CHECKED);
@@ -263,6 +267,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.RED_MAPLE_LEAF_PILES, BOPBaseFeatures.RED_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ORANGE_MAPLE_LEAF_PILES, BOPBaseFeatures.ORANGE_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.YELLOW_MAPLE_LEAF_PILES, BOPBaseFeatures.YELLOW_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.SPARSE_DUNE_GRASS, BOPBaseFeatures.SPARSE_DUNE_GRASS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES, BOPBaseFeatures.RAINFOREST_CLIFFS_VINES, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ROOTED_STUMP, BOPBaseFeatures.ROOTED_STUMP, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ROSE_BUSH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ROSE_BUSH))));
@@ -304,6 +309,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.FLOWER_FIELD_1, Feature.FLOWER, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_FIELD_2, Feature.FLOWER, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.PINK_TULIP.defaultBlockState(), 1).add(Blocks.RED_TULIP.defaultBlockState(), 1).add(Blocks.WHITE_TULIP.defaultBlockState(), 1).add(Blocks.ORANGE_TULIP.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_GRASSLAND, Feature.FLOWER, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BOPBlocks.PINK_DAFFODIL.get().defaultBlockState(), 1)), 64));
+        register(context, BOPVegetationFeatures.FLOWER_JACARANDA_GLADE, Feature.FLOWER, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 3).add(Blocks.BLUE_ORCHID.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_LAVENDER, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.LAVENDER.get()))));
         register(context, BOPVegetationFeatures.FLOWER_MOOR, Feature.FLOWER, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.ALLIUM.defaultBlockState(), 1).add(BOPBlocks.VIOLET.get().defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_MYSTIC_GROVE, Feature.FLOWER, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BOPBlocks.GLOWFLOWER.get().defaultBlockState(), 1).add(BOPBlocks.PINK_DAFFODIL.get().defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.ALLIUM.defaultBlockState(), 1)), 64));
@@ -330,7 +336,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_FIELD_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.25F)), TALL_SPRUCE_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_FUNGAL_JUNGLE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_OAK_TREE_CHECKED, 0.05F)), JUNGLE_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_HOT_SPRINGS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(DARK_OAK_CHECKED, 0.05F)), PINE_TREE_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_JACARANDA_GLADE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.25F)), BIG_JACARANDA_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_JACARANDA_GLADE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.375F), new WeightedPlacedFeature(SNOWBLOSSOM_TWIGLET_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(CHERRY_TWIGLET_TREE_CHECKED, 0.075F)), BIG_JACARANDA_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_JADE_CLIFFS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PINE_TREE_CHECKED, 0.075F)), SPRUCE_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LAVENDER_FIELD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FLOWERING_OAK_TREE_BEES_CHECKED, 0.2F), new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_JACARANDA_TREE_CHECKED, 0.1F)), JACARANDA_TREE_BEES_CHECKED));
         register(context, BOPVegetationFeatures.TREES_LUSH_DESERT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PALM_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(ACACIA_BUSH_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(SPARSE_ACACIA_TREE_CHECKED, 0.2F)), ACACIA_TWIGLET_CHECKED));

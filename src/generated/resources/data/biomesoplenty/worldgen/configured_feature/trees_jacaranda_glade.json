@@ -4,8 +4,16 @@
     "default": "biomesoplenty:big_jacaranda_tree",
     "features": [
       {
-        "chance": 0.25,
+        "chance": 0.375,
         "feature": "biomesoplenty:big_flowering_tree"
+      },
+      {
+        "chance": 0.2,
+        "feature": "biomesoplenty:snowblossom_twiglet_tree"
+      },
+      {
+        "chance": 0.075,
+        "feature": "biomesoplenty:cherry_twiglet_tree"
       }
     ]
   }

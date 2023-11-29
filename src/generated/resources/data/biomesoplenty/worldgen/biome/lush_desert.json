@@ -31,7 +31,8 @@
     [],
     [
       "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
+      "minecraft:lake_lava_surface",
+      "biomesoplenty:lake_hot_spring"
     ],
     [
       "minecraft:amethyst_geode"
@@ -82,11 +83,11 @@
     [
       "minecraft:glow_lichen",
       "minecraft:patch_sugar_cane",
+      "minecraft:patch_cactus_decorated",
       "biomesoplenty:trees_lush_desert",
       "biomesoplenty:flower_lush_desert",
-      "biomesoplenty:patch_desert_grass_extra",
-      "biomesoplenty:patch_dune_grass",
-      "biomesoplenty:patch_sprouts_1"
+      "biomesoplenty:patch_desert_grass",
+      "biomesoplenty:sparse_dune_grass"
     ],
     [
       "minecraft:freeze_top_layer"

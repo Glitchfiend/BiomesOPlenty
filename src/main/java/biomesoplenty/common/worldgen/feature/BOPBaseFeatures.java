@@ -60,6 +60,7 @@ public class BOPBaseFeatures
     public static final Feature<NoneFeatureConfiguration> RED_MAPLE_LEAF_PILE = register("red_maple_leaf_pile", new RedMapleLeafPileFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> ORANGE_MAPLE_LEAF_PILE = register("orange_maple_leaf_pile", new OrangeMapleLeafPileFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> YELLOW_MAPLE_LEAF_PILE = register("yellow_maple_leaf_pile", new YellowMapleLeafPileFeature(NoneFeatureConfiguration.CODEC));
+    public static final Feature<NoneFeatureConfiguration> SPARSE_DUNE_GRASS = register("sparse_dune_grass", new SparseDuneGrassFeature(NoneFeatureConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> RAINFOREST_CLIFFS_VINES = register("rainforest_cliffs_vines", new RainforestCliffsVinesFeature(NoneFeatureConfiguration.CODEC));
     public static final BOPTreeFeature<TaigaTreeConfiguration> REDWOOD_TREE = register("redwood_tree", new RedwoodTreeFeature(TaigaTreeConfiguration.CODEC));
     public static final Feature<NoneFeatureConfiguration> ROOTED_STUMP = register("rooted_stump", new RootedStumpFeature(NoneFeatureConfiguration.CODEC));
