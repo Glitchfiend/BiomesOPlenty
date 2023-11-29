@@ -82,6 +82,14 @@ public class UmbranTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                 }
             }
         }
+
+        if (rand.nextInt(6) != 0 && leavesRadius > 1)
+        {
+            this.placeLeaves(world, pos.offset(-1, 1, 0), leaves, config);
+            this.placeLeaves(world, pos.offset(1, 1, 0), leaves, config);
+            this.placeLeaves(world, pos.offset(0, 1, -1), leaves, config);
+            this.placeLeaves(world, pos.offset(0, 1, 1), leaves, config);
+        }
     }
 
     public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TaigaTreeConfiguration config)

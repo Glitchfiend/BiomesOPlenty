@@ -17,6 +17,13 @@ public class FloweringOakTree extends AbstractTreeGrower
    @Override
    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_FLOWERING_OAK_TREE : BOPTreeFeatures.FLOWERING_OAK_TREE);
+      if (random.nextInt(10) == 0)
+      {
+         return flowers ? BOPTreeFeatures.BIG_FLOWERING_OAK_TREE_BEES : BOPTreeFeatures.BIG_FLOWERING_OAK_TREE;
+      }
+      else
+      {
+         return flowers ? BOPTreeFeatures.FLOWERING_OAK_TREE_BEES : BOPTreeFeatures.FLOWERING_OAK_TREE;
+      }
    }
 }

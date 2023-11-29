@@ -1,5 +1,5 @@
 {
-  "type": "biomesoplenty:basic_tree",
+  "type": "biomesoplenty:big_tree",
   "config": {
     "alt_foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -13,6 +13,8 @@
         "probability": 0.05
       }
     ],
+    "foliage_density": 1.0,
+    "foliage_height": 5,
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -24,7 +26,6 @@
         }
       }
     },
-    "hanging_chance": 0.0,
     "hanging_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -36,12 +37,8 @@
         }
       }
     },
-    "leaf_layers": 4,
-    "leaves_layer_height": 2,
-    "leaves_offset": 1,
-    "max_height": 7,
-    "max_leaves_radius": 1,
-    "min_height": 4,
+    "max_height": 12,
+    "min_height": 5,
     "trunk_fruit_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -57,6 +54,7 @@
         }
       }
     },
+    "trunk_width": 1,
     "vine_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

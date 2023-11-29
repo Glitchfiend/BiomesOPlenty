@@ -15,6 +15,13 @@ public class JacarandaTree extends AbstractTreeGrower
    @Override
    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
    {
-      return (random.nextInt(10) == 0 ? BOPTreeFeatures.BIG_JACARANDA_TREE : BOPTreeFeatures.JACARANDA_TREE);
+      if (random.nextInt(10) == 0)
+      {
+         return flowers ? BOPTreeFeatures.BIG_JACARANDA_TREE_BEES : BOPTreeFeatures.BIG_JACARANDA_TREE;
+      }
+      else
+      {
+         return flowers ? BOPTreeFeatures.JACARANDA_TREE_BEES : BOPTreeFeatures.JACARANDA_TREE;
+      }
    }
 }
