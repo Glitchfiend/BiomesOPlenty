@@ -138,14 +138,14 @@ public class BOPBlocks
     public static RegistryObject<Block> PINE_HANGING_SIGN;
     public static RegistryObject<Block> PINE_WALL_HANGING_SIGN;
     public static RegistryObject<Block> RED_MAPLE_SAPLING;
-    public static RegistryObject<Block> RED_MAPLE_LEAVES;
     public static RegistryObject<Block> RED_MAPLE_LEAF_PILE;
+    public static RegistryObject<Block> RED_MAPLE_LEAVES;
     public static RegistryObject<Block> ORANGE_MAPLE_SAPLING;
-    public static RegistryObject<Block> ORANGE_MAPLE_LEAVES;
     public static RegistryObject<Block> ORANGE_MAPLE_LEAF_PILE;
+    public static RegistryObject<Block> ORANGE_MAPLE_LEAVES;
     public static RegistryObject<Block> YELLOW_MAPLE_SAPLING;
-    public static RegistryObject<Block> YELLOW_MAPLE_LEAVES;
     public static RegistryObject<Block> YELLOW_MAPLE_LEAF_PILE;
+    public static RegistryObject<Block> YELLOW_MAPLE_LEAVES;
     public static RegistryObject<Block> MAPLE_LOG;
     public static RegistryObject<Block> STRIPPED_MAPLE_LOG;
     public static RegistryObject<Block> MAPLE_WOOD;

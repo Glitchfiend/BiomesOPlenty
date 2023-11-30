@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:block/orange_maple_leaf_pile"
+        "layer0": "biomesoplenty:item/orange_maple_leaf_pile"
     }
 }
