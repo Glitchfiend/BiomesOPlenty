@@ -3,10 +3,12 @@
   "advancements.biomesoplenty.root.description": "Дослідіть світ навколо себе",
   "advancements.biomesoplenty.all_biomes.title": "Мандрівник",
   "advancements.biomesoplenty.all_biomes.description": "Дослідіть усі біоми Biomes O' Plenty",
+
   "commands.biomesoplenty.gendata.success": "Дані успішно згенеровано",
   "generator.minecraft.biomesoplenty": "Biomes O' Plenty",
   "itemGroup.biomesoplenty": "Biomes O' Plenty",
-  "biome.biomesoplenty.aspen_forest": "Осиковий ліс",
+
+  "biome.biomesoplenty.aspen_glade": "Осикова галявина",
   "biome.biomesoplenty.auroral_garden": "Полярний сад",
   "biome.biomesoplenty.bayou": "Баю",
   "biome.biomesoplenty.bog": "Торфовище",
@@ -26,9 +28,10 @@
   "biome.biomesoplenty.fungal_jungle": "Грибні джунглі",
   "biome.biomesoplenty.glowing_grotto": "Сяйний ґрот",
   "biome.biomesoplenty.grassland": "Пасовище",
+  "biome.biomesoplenty.gravel_beach": "Гравійний пляж",
   "biome.biomesoplenty.highland": "Високогір'я",
   "biome.biomesoplenty.hot_springs": "Гарячі джерела",
-  "biome.biomesoplenty.jacaranda_forest": "Жакарандовий ліс",
+  "biome.biomesoplenty.jacaranda_glade": "Жакарандова галявина",
   "biome.biomesoplenty.jade_cliffs": "Нефритові скелі",
   "biome.biomesoplenty.lavender_field": "Лавандове поле",
   "biome.biomesoplenty.lush_desert": "Заросла пустеля",
@@ -71,6 +74,7 @@
   "biome.biomesoplenty.wintry_origin_valley": "Зимня долина зародження",
   "biome.biomesoplenty.withered_abyss": "Висушена безодня",
   "biome.biomesoplenty.woodland": "Рідколісся",
+
   "item.biomesoplenty.blood_bucket": "Відро крові",
   "item.biomesoplenty.bop_icon": "Іконка BOP",
   "item.biomesoplenty.dead_boat": "Мертвий човен",
@@ -100,6 +104,7 @@
   "item.biomesoplenty.umbran_chest_boat": "Тіньовий човен зі скринею",
   "item.biomesoplenty.willow_boat": "Вербовий човен",
   "item.biomesoplenty.willow_chest_boat": "Вербовий човен зі скринею",
+
   "block.biomesoplenty.barley": "Ячмінь",
   "block.biomesoplenty.black_sand": "Чорний пісок",
   "block.biomesoplenty.black_sandstone": "Чорний пісковик",
@@ -489,14 +494,18 @@
   "block.biomesoplenty.yellow_maple_leaf_pile": "Купа жовтого кленового листя",
   "block.biomesoplenty.yellow_maple_leaves": "Жовте кленове листя",
   "block.biomesoplenty.yellow_maple_sapling": "Паросток жовтого клена",
+
   "entity.biomesoplenty.boat": "Човен",
   "entity.biomesoplenty.chest_boat": "Човен зі скринею",
+
   "trim_material.biomesoplenty.glowworm_silk": "Матеріал із шовку сяйного хробака",
   "trim_material.biomesoplenty.rose_quartz": "Рожево-кварцовий матеріал",
+
   "death.attack.bramble": "%1$s проткнуто до смерті",
   "death.attack.bramble.player": "%1$s застряг у колючнику при спробі втекти від %2$s",
   "death.attack.fumarole": "%1$s запаровано живцем",
   "death.attack.fumarole.player": "%1$s прийняв смертельну парову ванну через %2$s",
+
   "subtitles.block.flesh_tendon.drip": "Кров капає",
   "subtitles.block.pus_bubble.pop": "Гнійний пузир лускає",
   "subtitles.block.spider_egg.break": "Павуче яйце ламається"
