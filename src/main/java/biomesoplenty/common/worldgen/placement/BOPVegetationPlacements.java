@@ -375,7 +375,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_TALL_GRASS_128, PATCH_TALL_GRASS, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_TALL_LAVENDER, PATCH_TALL_LAVENDER, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_TALL_LAVENDER_FOREST, PATCH_TALL_LAVENDER, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.PATCH_TINY_CACTUS, PATCH_TINY_CACTUS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_TINY_CACTUS, PATCH_TINY_CACTUS, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_TUNDRA_SHRUBS, PATCH_TUNDRA_SHRUBS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.RAINFOREST_CLIFFS_VINES, RAINFOREST_CLIFFS_VINES, VegetationPlacements.worldSurfaceSquaredWithCount(10));
         register(context, BOPVegetationPlacements.SMALL_BROWN_MUSHROOM, SMALL_BROWN_MUSHROOM, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
