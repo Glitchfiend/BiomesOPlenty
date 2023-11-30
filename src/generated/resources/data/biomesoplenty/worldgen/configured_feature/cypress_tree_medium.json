@@ -14,6 +14,7 @@
         "Name": "biomesoplenty:willow_leaves",
         "Properties": {
           "distance": "7",
+          "mossy": "false",
           "persistent": "false",
           "waterlogged": "false"
         }

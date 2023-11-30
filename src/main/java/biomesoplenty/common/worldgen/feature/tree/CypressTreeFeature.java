@@ -5,6 +5,7 @@
 package biomesoplenty.common.worldgen.feature.tree;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.WillowLeavesBlock;
 import biomesoplenty.common.util.biome.GeneratorUtil;
 import biomesoplenty.common.worldgen.feature.configurations.CypressTreeConfiguration;
 import com.mojang.serialization.Codec;
@@ -17,9 +18,11 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.function.BiConsumer;
 
@@ -273,6 +276,12 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
 
     public static void placeSpanishMossColumn(LevelAccessor p_236427_0_, RandomSource p_236427_1_, BlockPos.MutableBlockPos p_236427_2_, int p_236427_3_, int p_236427_4_, int p_236427_5_)
     {
+        BlockState leaves = p_236427_0_.getBlockState(p_236427_2_.above());
+        if (leaves.getBlock() == BOPBlocks.WILLOW_LEAVES.get())
+        {
+            p_236427_0_.setBlock(p_236427_2_.above(), leaves.setValue(WillowLeavesBlock.MOSSY, Boolean.valueOf(true)), 2);
+        }
+
         for(int i = 0; i <= p_236427_3_; ++i)
         {
             if (p_236427_0_.isEmptyBlock(p_236427_2_))
@@ -299,6 +308,12 @@ public class CypressTreeFeature  extends BOPTreeFeature<CypressTreeConfiguration
             leaves.set(pos, config.foliageProvider.getState(level.getRandom(), pos));
             return true;
         }
+        else if (level.getBlockState(pos).getFluidState().is(Fluids.WATER))
+        {
+            leaves.set(pos, config.foliageProvider.getState(level.getRandom(), pos).setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(level.isWaterAt(pos))));
+            return true;
+        }
+
         return false;
     }
 

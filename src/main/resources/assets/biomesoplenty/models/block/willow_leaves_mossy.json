@@ -1,0 +1,7 @@
+{
+    "parent": "biomesoplenty:block/leaves_overlay",
+    "textures": {
+        "leaves": "biomesoplenty:block/willow_leaves_mossy",
+        "overlay": "biomesoplenty:block/willow_leaves_mossy_overlay"
+    }
+}
