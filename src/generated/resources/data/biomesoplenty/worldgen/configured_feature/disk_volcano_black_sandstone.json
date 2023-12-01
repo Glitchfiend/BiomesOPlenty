@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:disk",
+  "config": {
+    "half_height": 3,
+    "radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 6,
+        "min_inclusive": 4
+      }
+    },
+    "state_provider": {
+      "fallback": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "biomesoplenty:black_sandstone"
+        }
+      },
+      "rules": []
+    },
+    "target": {
+      "type": "minecraft:matching_blocks",
+      "blocks": [
+        "minecraft:terracotta",
+        "minecraft:light_gray_terracotta",
+        "minecraft:cyan_terracotta",
+        "minecraft:light_blue_terracotta",
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:podzol",
+        "minecraft:grass_block",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:clay",
+        "minecraft:andesite",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:stone",
+        "minecraft:basalt",
+        "minecraft:smooth_basalt",
+        "biomesoplenty:black_sand",
+        "biomesoplenty:black_sandstone",
+        "biomesoplenty:mossy_black_sand"
+      ]
+    }
+  }
+}

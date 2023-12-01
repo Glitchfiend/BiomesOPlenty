@@ -4,7 +4,7 @@
     "default": "biomesoplenty:red_maple_tree_checked",
     "features": [
       {
-        "chance": 0.1,
+        "chance": 0.3,
         "feature": "biomesoplenty:tall_spruce_tree"
       },
       {

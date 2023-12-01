@@ -21,6 +21,10 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource BEDROCK = makeStateRule(Blocks.BEDROCK);
     private static final SurfaceRules.RuleSource WHITE_TERRACOTTA = makeStateRule(Blocks.WHITE_TERRACOTTA);
     private static final SurfaceRules.RuleSource ORANGE_TERRACOTTA = makeStateRule(Blocks.ORANGE_TERRACOTTA);
+    private static final SurfaceRules.RuleSource BLUE_TERRACOTTA = makeStateRule(Blocks.BLUE_TERRACOTTA);
+    private static final SurfaceRules.RuleSource LIGHT_BLUE_TERRACOTTA = makeStateRule(Blocks.LIGHT_BLUE_TERRACOTTA);
+    private static final SurfaceRules.RuleSource CYAN_TERRACOTTA = makeStateRule(Blocks.CYAN_TERRACOTTA);
+    private static final SurfaceRules.RuleSource LIGHT_GRAY_TERRACOTTA = makeStateRule(Blocks.LIGHT_GRAY_TERRACOTTA);
     private static final SurfaceRules.RuleSource TERRACOTTA = makeStateRule(Blocks.TERRACOTTA);
     private static final SurfaceRules.RuleSource RED_SAND = makeStateRule(Blocks.RED_SAND);
     private static final SurfaceRules.RuleSource RED_SANDSTONE = makeStateRule(Blocks.RED_SANDSTONE);
@@ -379,6 +383,11 @@ public class BOPSurfaceRuleData
             SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, POWDER_SNOW)
         );
 
+        SurfaceRules.RuleSource snowSurface = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SNOW_BLOCK),
+                SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SNOW_BLOCK)
+        );
+
         SurfaceRules.RuleSource gravelStoneSurface = SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, GRAVEL),
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, STONE)
@@ -390,7 +399,7 @@ public class BOPSurfaceRuleData
         );
 
         SurfaceRules.RuleSource originBeach = SurfaceRules.sequence(
-                SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), GRAVEL), SAND
+                SurfaceRules.ifTrue(surfaceNoiseAbove(1.5D), GRAVEL), SAND
         );
 
         SurfaceRules.RuleSource mixedLushDesertSurface = SurfaceRules.sequence(
@@ -399,9 +408,10 @@ public class BOPSurfaceRuleData
         );
 
         SurfaceRules.RuleSource mixedColdDesertSurface = SurfaceRules.sequence(
-            SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), powderedSnowSurface),
+            SurfaceRules.ifTrue(surfaceNoiseAbove(3.4D), powderedSnowSurface),
+            SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), snowSurface),
             gravelStoneSurface
-        );
+        ));
 
         SurfaceRules.RuleSource volcanoSurface = SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, BASALT),
@@ -419,7 +429,10 @@ public class BOPSurfaceRuleData
                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), STONE)
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ROCKY_RAINFOREST),
-                SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), TERRACOTTA)
+                SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(4.0D), LIGHT_BLUE_TERRACOTTA),
+                SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(3.0D), CYAN_TERRACOTTA),
+                SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), LIGHT_GRAY_TERRACOTTA),
+                SurfaceRules.ifTrue(surfaceNoiseAbove(1.0D), TERRACOTTA))))
             ),
             SurfaceRules.ifTrue(
                 sixBelowWater,
@@ -511,18 +524,19 @@ public class BOPSurfaceRuleData
                 )
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.COLD_DESERT),
-                SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), powderedSnowSurface),
+                SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(3.4D), powderedSnowSurface),
+                SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), snowSurface),
                     gravelStoneSurface
-                )
+                ))
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.CRAG), STONE),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.VOLCANO),
-                SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(surfaceNoiseAbove(2.8D), MAGMA),
+                SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(3.7D), MAGMA),
+                SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(2.6D), BLACK_SANDSTONE),
+                SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(1.5D), SMOOTH_BASALT),
                     volcanoSurface
-                )
+                )))
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.GRAVEL_BEACH), gravelBeachSurface),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.ORIGIN_VALLEY, BOPBiomes.WINTRY_ORIGIN_VALLEY), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.yStartCheck(VerticalAnchor.absolute(66), 0), SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), DIRT)), SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), originBeach))),

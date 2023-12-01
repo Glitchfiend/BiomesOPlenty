@@ -4,7 +4,7 @@
     "default": "biomesoplenty:big_jacaranda_tree",
     "features": [
       {
-        "chance": 0.375,
+        "chance": 0.4,
         "feature": "biomesoplenty:big_flowering_tree"
       },
       {

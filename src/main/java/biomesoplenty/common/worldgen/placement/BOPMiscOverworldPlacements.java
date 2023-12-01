@@ -39,6 +39,10 @@ public class BOPMiscOverworldPlacements
     public static final ResourceKey<PlacedFeature> DISK_HOT_SPRING_PACKED_MUD = createKey("disk_hot_spring_packed_mud");
     public static final ResourceKey<PlacedFeature> DISK_HOT_SPRING_THERMAL_CALCITE = createKey("disk_hot_spring_thermal_calcite");
 
+    public static final ResourceKey<PlacedFeature> DISK_VOLCANO_SMOOTH_BASALT = createKey("disk_volcano_smooth_basalt");
+    public static final ResourceKey<PlacedFeature> DISK_VOLCANO_BLACK_SANDSTONE = createKey("disk_volcano_black_sandstone");
+    public static final ResourceKey<PlacedFeature> DISK_VOLCANO_MAGMA = createKey("disk_volcano_magma");
+
     public static final ResourceKey<PlacedFeature> DISK_MUD = createKey("disk_mud");
     public static final ResourceKey<PlacedFeature> MOSSY_BLACK_SAND_SPLATTER = createKey("mossy_black_sand_splatter");
     public static final ResourceKey<PlacedFeature> MUD_SPLATTER = createKey("mud_splatter");
@@ -67,6 +71,10 @@ public class BOPMiscOverworldPlacements
         final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_PACKED_MUD = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_PACKED_MUD);
         final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_THERMAL_CALCITE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_THERMAL_CALCITE);
 
+        final Holder<ConfiguredFeature<?, ?>> DISK_VOLCANO_SMOOTH_BASALT = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_SMOOTH_BASALT);
+        final Holder<ConfiguredFeature<?, ?>> DISK_VOLCANO_BLACK_SANDSTONE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_BLACK_SANDSTONE);
+        final Holder<ConfiguredFeature<?, ?>> DISK_VOLCANO_MAGMA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_MAGMA);
+
         final Holder<ConfiguredFeature<?, ?>> DISK_MUD = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_MUD);
         final Holder<ConfiguredFeature<?, ?>> DISK_ORANGE_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_ORANGE_SAND);
         final Holder<ConfiguredFeature<?, ?>> DISK_WHITE_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SAND);
@@ -92,6 +100,10 @@ public class BOPMiscOverworldPlacements
         register(context, BOPMiscOverworldPlacements.DISK_HOT_SPRING_BASALT, DISK_HOT_SPRING_BASALT, List.of(CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.DISK_HOT_SPRING_PACKED_MUD, DISK_HOT_SPRING_PACKED_MUD, List.of(CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.DISK_HOT_SPRING_THERMAL_CALCITE, DISK_HOT_SPRING_THERMAL_CALCITE, List.of(CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
+
+        register(context, BOPMiscOverworldPlacements.DISK_VOLCANO_SMOOTH_BASALT, DISK_VOLCANO_SMOOTH_BASALT, List.of(CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.LAVA)), BiomeFilter.biome()));
+        register(context, BOPMiscOverworldPlacements.DISK_VOLCANO_BLACK_SANDSTONE, DISK_VOLCANO_BLACK_SANDSTONE, List.of(CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.LAVA)), BiomeFilter.biome()));
+        register(context, BOPMiscOverworldPlacements.DISK_VOLCANO_MAGMA, DISK_VOLCANO_MAGMA, List.of(CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.LAVA)), BiomeFilter.biome()));
 
         register(context, BOPMiscOverworldPlacements.DISK_MUD, DISK_MUD, List.of(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.DISK_ORANGE_SAND, DISK_ORANGE_SAND, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));

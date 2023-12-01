@@ -76,10 +76,12 @@
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
-      "minecraft:disk_gravel",
       "minecraft:ore_emerald"
     ],
     [
+      "biomesoplenty:disk_volcano_smooth_basalt",
+      "biomesoplenty:disk_volcano_black_sandstone",
+      "biomesoplenty:disk_volcano_magma",
       "minecraft:ore_infested"
     ],
     [
