@@ -1,8 +1,8 @@
 {
 	"ambientocclusion": false,
 	"textures": {
-		"string": "biomesoplenty:block/stringy_cobweb_connected",
-		"particle": "biomesoplenty:block/stringy_cobweb_connected"
+		"string": "biomesoplenty:block/stringy_cobweb_bottom",
+		"particle": "biomesoplenty:block/stringy_cobweb_bottom"
 	},
 	"elements": [
 		{

@@ -5,6 +5,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.state.properties.ConnectedProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -16,8 +17,8 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -26,14 +27,14 @@ import javax.annotation.Nullable;
 public class StringyCobwebBlock extends Block
 {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final BooleanProperty CONNECTED = BooleanProperty.create("connected");
+    public static final EnumProperty<ConnectedProperty> CONNECTED = EnumProperty.create("connected", ConnectedProperty.class);
     protected static final VoxelShape SHAPE_X = Block.box(0.0D, 0.0D, 7.0D, 16.0D, 16.0D, 9.0D);
     protected static final VoxelShape SHAPE_Z = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 16.0D, 16.0D);
 
     public StringyCobwebBlock(Properties properties)
     {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(CONNECTED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(CONNECTED, ConnectedProperty.MIDDLE));
     }
 
     @Override
@@ -76,15 +77,17 @@ public class StringyCobwebBlock extends Block
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos)
     {
         Direction direction = state.getValue(FACING);
-        BlockPos abovePos = pos.relative(direction).above();
+        BlockPos abovePos = pos.above();
+        BlockPos nextStringPos = pos.relative(direction).above();
+        BlockPos prevStringPos = pos.relative(direction.getOpposite()).below();
         BlockPos belowPos = pos.below();
+
         BlockState aboveState = level.getBlockState(abovePos);
+        BlockState nextStringState = level.getBlockState(nextStringPos);
+        BlockState prevStringState = level.getBlockState(prevStringPos);
         BlockState belowState = level.getBlockState(belowPos);
 
-        BlockPos belowDirPos = pos.relative(direction.getOpposite()).below();
-        BlockState belowDirState = level.getBlockState(belowDirPos);
-
-        if ((aboveState.isFaceSturdy(level, abovePos, Direction.DOWN) || aboveState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.isFaceSturdy(level, belowPos, Direction.UP) || belowDirState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
+        if ((aboveState.isFaceSturdy(level, abovePos, Direction.DOWN) || nextStringState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()) && (belowState.isFaceSturdy(level, belowPos, Direction.UP) || prevStringState.getBlock() == BOPBlocks.STRINGY_COBWEB.get()))
             return true;
 
         return false;

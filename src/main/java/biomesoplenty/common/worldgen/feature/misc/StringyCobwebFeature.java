@@ -6,10 +6,14 @@ package biomesoplenty.common.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.block.StringyCobwebBlock;
+import biomesoplenty.common.block.state.properties.ConnectedProperty;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.SectionPos;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -19,55 +23,109 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
 {
     private static final int MIN_DISTANCE = 2;
-    private static final int MAX_DISTANCE = 16;
+    private static final int MAX_DISTANCE = 32;
 
     public StringyCobwebFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
 
-    private boolean moveDiagnonally(WorldGenLevel level, BlockPos origin, Direction direction, boolean place)
+    public boolean canPlace(WorldGenLevel world, BlockPos pos, int length, Direction dir)
     {
-        int distance;
-        boolean connected = true;
+        BlockPos belowPos = pos.below();
+        BlockState belowState = world.getBlockState(belowPos);
 
-        for (distance = 0; distance < MAX_DISTANCE; distance++)
+        if (!world.getBlockState(pos).isAir() || !belowState.isFaceSturdy(world, belowPos, Direction.UP) || !this.respectsCutoff((WorldGenRegion)world, pos))
         {
-            if (distance > 0)
-            {
-                connected = false;
-            }
-
-            BlockPos pos = origin.relative(direction, distance).above(distance);
-            BlockState state = level.getBlockState(pos);
-
-            if (!state.isAir())
-            {
-                // Don't allow connecting to non-solid materials
-                if (!state.isSolid()) return false;
-
-                // Discontinue once we hit a block
-                break;
-            }
-
-            if (place) this.setBlock(level, pos, BOPBlocks.STRINGY_COBWEB.get().defaultBlockState().setValue(StringyCobwebBlock.FACING, direction).setValue(StringyCobwebBlock.CONNECTED, connected));
+            return false;
         }
 
-        if (distance < MIN_DISTANCE || distance >= MAX_DISTANCE) return false;
+        BlockPos nextStringPos = pos;
+
+        for (int i = 0; i < length; i++)
+        {
+            nextStringPos = nextStringPos.relative(dir, 1).above(1);
+            BlockState nextStringState = world.getBlockState(nextStringPos);
+
+            if (!nextStringState.isAir() || !this.respectsCutoff((WorldGenRegion)world, nextStringPos))
+            {
+                return false;
+            }
+        }
+
+        BlockPos abovePos = nextStringPos.above();
+        BlockState aboveState = world.getBlockState(abovePos);
+
+        if (!aboveState.isFaceSturdy(world, abovePos, Direction.DOWN) || !this.respectsCutoff((WorldGenRegion)world, nextStringPos))
+        {
+            return false;
+        }
+
         return true;
     }
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context)
+    public void placeCobweb(WorldGenLevel world, BlockPos pos, int length, Direction dir)
     {
-        WorldGenLevel level = context.level();
-        RandomSource rand = context.random();
-        BlockPos origin = context.origin();
-        Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
+        if (this.respectsCutoff((WorldGenRegion)world, pos))
+        {
+            world.setBlock(pos, BOPBlocks.STRINGY_COBWEB.get().defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.BOTTOM), 2);
+        }
 
-        if (!this.moveDiagnonally(level, origin, dir, false))
-            return false;
+        BlockPos nextStringPos = pos;
 
-        return this.moveDiagnonally(level, origin, dir, true);
+        for (int i = 0; i < length; ++i)
+        {
+            nextStringPos = nextStringPos.relative(dir, 1).above(1);
+
+            if (this.respectsCutoff((WorldGenRegion)world, nextStringPos))
+            {
+                world.setBlock(nextStringPos, BOPBlocks.STRINGY_COBWEB.get().defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.MIDDLE), 2);
+            }
+        }
+
+        if (this.respectsCutoff((WorldGenRegion)world, nextStringPos))
+        {
+            world.setBlock(nextStringPos, BOPBlocks.STRINGY_COBWEB.get().defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.TOP), 2);
+        }
+    }
+
+    @Override
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    {
+        WorldGenLevel world = featurePlaceContext.level();
+        RandomSource rand = featurePlaceContext.random();
+        BlockPos pos = featurePlaceContext.origin();
+        int k = 0;
+
+        for(int j = 0; j < 128; ++j)
+        {
+            int length = MIN_DISTANCE + rand.nextInt(MAX_DISTANCE - MIN_DISTANCE);
+            Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
+            BlockPos blockPos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
+
+            if (canPlace(world, blockPos, length, dir))
+            {
+                placeCobweb(world, blockPos, length, dir);
+                ++k;
+            }
+        }
+
+        return k > 0;
+    }
+
+    private boolean respectsCutoff(WorldGenRegion region, BlockPos pos)
+    {
+        int i = SectionPos.blockToSectionCoord(pos.getX());
+        int j = SectionPos.blockToSectionCoord(pos.getZ());
+        ChunkPos chunkpos = region.getCenter();
+        int k = Math.abs(chunkpos.x - i);
+        int l = Math.abs(chunkpos.z - j);
+
+        if (k <= region.writeRadiusCutoff && l <= region.writeRadiusCutoff)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

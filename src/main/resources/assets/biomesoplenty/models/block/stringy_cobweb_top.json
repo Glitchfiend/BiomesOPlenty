@@ -1,0 +1,29 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"string": "biomesoplenty:block/stringy_cobweb_top",
+		"particle": "biomesoplenty:block/stringy_cobweb_top"
+	},
+	"elements": [
+		{
+			"from": [8, 0, 0],
+			"to": [8, 16, 16],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 0, 16]},
+			"shade": false,
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#string"},
+				"west": {"uv": [16, 0, 0, 16], "texture": "#string"}
+			}
+		},
+		{
+			"from": [8, 0, 0],
+			"to": [8, 16, 16],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [8, 0, 16]},
+			"shade": false,
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#string"},
+				"west": {"uv": [16, 0, 0, 16], "texture": "#string"}
+			}
+		}
+	]
+}

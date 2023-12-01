@@ -1,4 +1,4 @@
-// 1.20.2	2023-11-30T22:19:29.5428274	Registries
+// 1.20.2	2023-12-01T05:58:34.6500989	Registries
 a09ddf53150a7fcf8767a311dd5cf040fa2e9221 data/biomesoplenty/damage_type/bramble.json
 2d0eab2cc85c4c6397fdc41dd0cedefbc4a7a150 data/biomesoplenty/damage_type/fumarole.json
 1db19ce8d33b8c131955b60ed830200bbee6a912 data/biomesoplenty/worldgen/biome/aspen_glade.json
@@ -561,7 +561,7 @@ ee7f4df006fd534f998daf475482bb1acca0cd3f data/biomesoplenty/worldgen/placed_feat
 212bb036d2b8b398ce520a3670f6124efa9bd229 data/biomesoplenty/worldgen/placed_feature/spruce_bush.json
 e0d549bf2e58a98f405659b64f9831d25f979f88 data/biomesoplenty/worldgen/placed_feature/spruce_poplar_tree.json
 849711fce232370528ad51f0f4111fc8657dfd18 data/biomesoplenty/worldgen/placed_feature/spruce_twiglet_tree.json
-d08ca8d1b844d090e87861b280fd62ad9bd2c867 data/biomesoplenty/worldgen/placed_feature/stringy_cobweb.json
+fefb2c64348097e2ec8da7f62dbcad1ad2e047d2 data/biomesoplenty/worldgen/placed_feature/stringy_cobweb.json
 eed31e45b9d0416bc9f3360d84481a98ba55f877 data/biomesoplenty/worldgen/placed_feature/sunflower.json
 b49b4fe6426269383157659659eb8cbd7fd1c7d9 data/biomesoplenty/worldgen/placed_feature/tall_dead_twiglet_tree.json
 2d8a13b82e2207df536eb2107efd5938169b6522 data/biomesoplenty/worldgen/placed_feature/tall_spruce_tree.json
