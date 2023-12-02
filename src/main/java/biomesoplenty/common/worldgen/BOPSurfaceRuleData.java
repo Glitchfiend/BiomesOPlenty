@@ -57,25 +57,47 @@ public class BOPSurfaceRuleData
         return SurfaceRules.state(p_194811_.defaultBlockState());
     }
 
-    public static SurfaceRules.RuleSource overworld() {
-        return overworldLike(true, false, true);
-    }
-
-    public static SurfaceRules.RuleSource overworldLike(boolean checkAbovePreliminarySurface, boolean p_198382_, boolean p_198383_)
+    public static SurfaceRules.RuleSource overworld()
     {
         SurfaceRules.RuleSource surfaceRules = SurfaceRules.sequence(
-            makeBOPRules());
+            makeBOPOverworldRules());
 
         ImmutableList.Builder<SurfaceRules.RuleSource> builder = ImmutableList.builder();
 
         SurfaceRules.RuleSource surfacerules$rulesource9 = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), surfaceRules);
-        builder.add(checkAbovePreliminarySurface ? surfacerules$rulesource9 : surfaceRules);
+        builder.add(surfacerules$rulesource9);
         return SurfaceRules.sequence(builder.build().toArray((p_198379_) -> {
             return new SurfaceRules.RuleSource[p_198379_];
         }));
     }
 
-    private static SurfaceRules.RuleSource makeBOPRules()
+    public static SurfaceRules.RuleSource nether()
+    {
+        SurfaceRules.ConditionSource surfacerules$conditionsource1 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(32), 0);
+        SurfaceRules.ConditionSource isTop5Blocks = SurfaceRules.yBlockCheck(VerticalAnchor.belowTop(5), 0);
+        SurfaceRules.ConditionSource isHole = SurfaceRules.hole();
+
+        return SurfaceRules.sequence(
+            SurfaceRules.ifTrue(
+                SurfaceRules.verticalGradient("bedrock_floor", VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)),
+                BEDROCK
+            ),
+            SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.verticalGradient("bedrock_roof", VerticalAnchor.belowTop(5), VerticalAnchor.top())), BEDROCK),
+            SurfaceRules.ifTrue(isTop5Blocks, NETHERRACK),
+            makeBOPNetherRules(),
+            SurfaceRules.ifTrue(
+                SurfaceRules.ON_FLOOR,
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(
+                        SurfaceRules.not(surfacerules$conditionsource1),
+                        SurfaceRules.ifTrue(isHole, LAVA)
+                    )
+                )
+            ),
+            NETHERRACK);
+    }
+
+    private static SurfaceRules.RuleSource makeBOPOverworldRules()
     {
         // Conditions
         SurfaceRules.ConditionSource isAtOrAboveWaterLevel = SurfaceRules.waterBlockCheck(-1, 0);
@@ -299,32 +321,6 @@ public class BOPSurfaceRuleData
                 )
             )
         );
-    }
-
-    public static SurfaceRules.RuleSource nether()
-    {
-        SurfaceRules.ConditionSource surfacerules$conditionsource1 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(32), 0);
-        SurfaceRules.ConditionSource isTop5Blocks = SurfaceRules.yBlockCheck(VerticalAnchor.belowTop(5), 0);
-        SurfaceRules.ConditionSource isHole = SurfaceRules.hole();
-
-        return SurfaceRules.sequence(
-            SurfaceRules.ifTrue(
-                SurfaceRules.verticalGradient("bedrock_floor", VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)),
-                BEDROCK
-            ),
-            SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.verticalGradient("bedrock_roof", VerticalAnchor.belowTop(5), VerticalAnchor.top())), BEDROCK),
-            SurfaceRules.ifTrue(isTop5Blocks, NETHERRACK),
-            makeBOPNetherRules(),
-            SurfaceRules.ifTrue(
-                SurfaceRules.ON_FLOOR,
-                SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(
-                        SurfaceRules.not(surfacerules$conditionsource1),
-                        SurfaceRules.ifTrue(isHole, LAVA)
-                    )
-                )
-            ),
-            NETHERRACK);
     }
 
     private static SurfaceRules.ConditionSource surfaceNoiseAbove(double p_194809_) {

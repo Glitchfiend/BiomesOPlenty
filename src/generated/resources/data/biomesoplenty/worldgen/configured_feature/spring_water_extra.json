@@ -13,6 +13,10 @@
     "valid_blocks": [
       "minecraft:dirt",
       "minecraft:terracotta",
+      "minecraft:light_gray_terracotta",
+      "minecraft:cyan_terracotta",
+      "minecraft:light_blue_terracotta",
+      "minecraft:blue_terracotta",
       "minecraft:stone",
       "minecraft:granite",
       "minecraft:diorite",

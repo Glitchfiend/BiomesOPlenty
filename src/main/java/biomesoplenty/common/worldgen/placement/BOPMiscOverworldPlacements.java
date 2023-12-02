@@ -5,12 +5,14 @@
 package biomesoplenty.common.worldgen.placement;
 
 import biomesoplenty.common.worldgen.feature.BOPMiscOverworldFeatures;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -116,9 +118,9 @@ public class BOPMiscOverworldPlacements
         register(context, BOPMiscOverworldPlacements.LAKE_WATER_EXTRA, LAKE_WATER, CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.LAKE_WATER_MARSH, LAKE_WATER, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.LAKE_HOT_SPRING, LAKE_HOT_SPRING, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
-        register(context, BOPMiscOverworldPlacements.LAKE_LAVA_SURFACE_EXTRA, LAKE_LAVA, CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
-        register(context, BOPMiscOverworldPlacements.SPRING_LAVA_VOLCANO, SPRING_LAVA_VOLCANO, List.of(CountPlacement.of(128), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
-        register(context, BOPMiscOverworldPlacements.SPRING_WATER_EXTRA, SPRING_WATER_EXTRA, List.of(CountPlacement.of(128), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
+        register(context, BOPMiscOverworldPlacements.LAKE_LAVA_SURFACE_EXTRA, LAKE_LAVA, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+        register(context, BOPMiscOverworldPlacements.SPRING_LAVA_VOLCANO, SPRING_LAVA_VOLCANO, List.of(CountPlacement.of(96), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(96), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
+        register(context, BOPMiscOverworldPlacements.SPRING_WATER_EXTRA, SPRING_WATER_EXTRA, List.of(CountPlacement.of(96), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(72), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.ORIGIN_GRAVEL_CLIFFS, ORIGIN_GRAVEL_CLIFFS, BiomeFilter.biome());
     }
 

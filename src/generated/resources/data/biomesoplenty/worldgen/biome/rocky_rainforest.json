@@ -74,7 +74,8 @@
     [],
     [
       "minecraft:spring_water",
-      "minecraft:spring_lava"
+      "minecraft:spring_lava",
+      "biomesoplenty:spring_water_extra"
     ],
     [
       "minecraft:glow_lichen",

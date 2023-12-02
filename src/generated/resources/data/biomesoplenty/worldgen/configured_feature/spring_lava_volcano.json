@@ -12,13 +12,9 @@
     },
     "valid_blocks": [
       "minecraft:basalt",
+      "minecraft:smooth_basalt",
       "minecraft:magma_block",
-      "biomesoplenty:black_sand",
-      "biomesoplenty:black_sandstone",
-      "minecraft:stone",
-      "minecraft:granite",
-      "minecraft:diorite",
-      "minecraft:andesite"
+      "biomesoplenty:black_sandstone"
     ]
   }
 }

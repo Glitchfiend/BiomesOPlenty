@@ -723,7 +723,6 @@ public class BOPOverworldBiomes
         globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
-        addFeature(biomeBuilder, GenerationStep.Decoration.FLUID_SPRINGS, BOPMiscOverworldPlacements.SPRING_WATER_EXTRA);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_POPPY);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.ROSE_BUSH_EXTRA);
@@ -1115,6 +1114,7 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, BOPMiscOverworldPlacements.DISK_ORANGE_SAND);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        addFeature(biomeBuilder, GenerationStep.Decoration.FLUID_SPRINGS, BOPMiscOverworldPlacements.SPRING_WATER_EXTRA);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_RAINFOREST_CLIFFS);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_RAINFOREST);
