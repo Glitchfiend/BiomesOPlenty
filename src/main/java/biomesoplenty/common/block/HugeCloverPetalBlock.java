@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -25,6 +26,7 @@ import net.minecraftforge.common.PlantType;
 
 public class HugeCloverPetalBlock extends HorizontalDirectionalBlock implements IPlantable
 {
+    public static final MapCodec<HugeCloverPetalBlock> CODEC = simpleCodec(HugeCloverPetalBlock::new);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final VoxelShape SHAPE = Block.box(0.0D, 13.0D, 0.0D, 16.0D, 15.0D, 16.0D);
 
@@ -32,6 +34,12 @@ public class HugeCloverPetalBlock extends HorizontalDirectionalBlock implements 
     {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+    }
+
+    @Override
+    public MapCodec<HugeCloverPetalBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override

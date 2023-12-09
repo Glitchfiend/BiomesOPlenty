@@ -7,17 +7,18 @@ package biomesoplenty.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SandBlock;
+import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.common.PlantType;
 
-public class SandBlockBOP extends SandBlock
+public class SandBlockBOP extends ColoredFallingBlock
 {
-    public SandBlockBOP(int dustColor, Block.Properties properties)
+    public SandBlockBOP(ColorRGBA dustColor, Block.Properties properties)
     {
         super(dustColor, properties);
     }

@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -18,10 +19,17 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
 {
+    public static final MapCodec<HangingStrandBottomBlock> CODEC = simpleCodec(HangingStrandBottomBlock::new);
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-    public HangingStrandBottomBlock(Properties p_i241194_1_) {
-        super(p_i241194_1_, Direction.DOWN, SHAPE, false, 0.01D);
+    public HangingStrandBottomBlock(Properties properties) {
+        super(properties, Direction.DOWN, SHAPE, false, 0.01D);
+    }
+
+    @Override
+    public MapCodec<HangingStrandBottomBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override

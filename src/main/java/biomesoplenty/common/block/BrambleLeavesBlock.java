@@ -5,6 +5,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -25,6 +26,7 @@ import javax.annotation.Nullable;
 
 public class BrambleLeavesBlock extends DirectionalBlock
 {
+    public static final MapCodec<BrambleLeavesBlock> CODEC = simpleCodec(BrambleLeavesBlock::new);
     protected static final VoxelShape HORIZONTAL = Block.box(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D);
     protected static final VoxelShape VERTICAL = Block.box(0.0D, 0.0D, 4.0D, 16.0D, 16.0D, 12.0D);
 
@@ -32,6 +34,12 @@ public class BrambleLeavesBlock extends DirectionalBlock
     {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
+    }
+
+    @Override
+    public MapCodec<BrambleLeavesBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override

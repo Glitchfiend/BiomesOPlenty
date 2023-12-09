@@ -14,7 +14,7 @@ public class WallSignBlockBOP extends WallSignBlock
 {
     public WallSignBlockBOP(Properties properties, WoodType type)
     {
-        super(properties, type);
+        super(type, properties);
     }
 
     @Override

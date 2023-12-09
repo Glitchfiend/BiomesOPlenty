@@ -5,6 +5,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -18,10 +19,18 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public class WebbingBlock extends MultifaceBlock {
+public class WebbingBlock extends MultifaceBlock
+{
+    public static final MapCodec<WebbingBlock> CODEC = simpleCodec(WebbingBlock::new);
 
     public WebbingBlock(BlockBehaviour.Properties p_153282_) {
         super(p_153282_);
+    }
+
+    @Override
+    public MapCodec<WebbingBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override

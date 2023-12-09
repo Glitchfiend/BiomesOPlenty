@@ -95,7 +95,7 @@ public class MissingMappingsHandler
                 .remap("nether_sprout", BOPBlocks.SPROUT)
                 .remap("tall_cattail", BOPBlocks.CATTAIL)
                 .remap("ivy", BOPBlocks.WILLOW_VINE)
-                .remap("short_grass", Blocks.GRASS)
+                .remap("short_grass", Blocks.SHORT_GRASS)
                 .remap("thorn", Blocks.DEAD_BUSH)
                 .remap("deathbloom", Blocks.WITHER_ROSE)
                 .remap("devilweed", BOPBlocks.SPROUT)

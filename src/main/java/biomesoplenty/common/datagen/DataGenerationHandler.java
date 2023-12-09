@@ -9,16 +9,22 @@ import biomesoplenty.common.util.worldgen.BOPPlacementUtils;
 import biomesoplenty.common.worldgen.carver.BOPConfiguredCarvers;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModBiomes;
+import net.minecraft.core.Cloner;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
+import net.minecraft.data.registries.RegistriesDatapackGenerator;
+import net.minecraft.resources.RegistryDataLoader;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BiomesOPlenty.MOD_ID)
@@ -38,6 +44,21 @@ public class DataGenerationHandler
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
+        generator.addProvider(event.includeServer(), new RegistriesDatapackGenerator(output, event.getLookupProvider().thenApply(r -> constructRegistries(r, BUILDER)), Set.of(BiomesOPlenty.MOD_ID)));
+    }
+
+    private static HolderLookup.Provider constructRegistries(HolderLookup.Provider original, RegistrySetBuilder datapackEntriesBuilder)
+    {
+        Cloner.Factory clonerFactory = new Cloner.Factory();
+        var builderKeys = new HashSet<>(datapackEntriesBuilder.getEntryKeys());
+        RegistryDataLoader.WORLDGEN_REGISTRIES.stream().forEach(data -> {
+            // Add keys for missing registries
+            if (!builderKeys.contains(data.key()))
+                datapackEntriesBuilder.add(data.key(), context -> {});
+
+            data.runWithArguments(clonerFactory::addCodec);
+        });
+
+        return datapackEntriesBuilder.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), original, clonerFactory).patches();
     }
 }

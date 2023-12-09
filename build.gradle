@@ -1,5 +1,5 @@
 plugins {
-    id "net.minecraftforge.gradle" version "6.0.+"
+    id "net.minecraftforge.gradle" version "6.+"
     id "org.spongepowered.mixin" version "0.7-SNAPSHOT"
     id "com.matthewprenger.cursegradle" version "1.4.0"
     id "com.modrinth.minotaur" version "2.+"
@@ -52,32 +52,17 @@ minecraft {
             workingDirectory = project.file("run")
             ideaModule "${project.name}.main"
             taskName 'Client'
-            mods {
-                modClientRun {
-                    source sourceSets.main
-                }
-            }
         }
         server {
             workingDirectory project.file('run')
             ideaModule "${project.name}.main"
             taskName 'Server'
-            mods {
-                modServerRun {
-                    source sourceSets.main
-                }
-            }
         }
         data {
             workingDirectory project.file('run')
             ideaModule "${project.name}.main"
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             taskName 'Data'
-            mods {
-                modDataRun {
-                    source sourceSets.main
-                }
-            }
         }
     }
 }
@@ -95,6 +80,16 @@ sourceSets {
             srcDir 'src/generated/resources'
         }
     }
+}
+
+// Merge the resources and classes into the same directory.
+// This is done because java expects modules to be in a single directory.
+// And if we have it in multiple we have to do performance intensive hacks like having the UnionFileSystem
+// This will eventually be migrated to ForgeGradle so modders don't need to manually do it. But that is later.
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
 }
 
 dependencies {

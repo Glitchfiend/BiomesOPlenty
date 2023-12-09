@@ -25,9 +25,9 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
 {
     public MushroomBlockBOP(Block.Properties properties)
     {
-        super(properties, null);
+        super(null, properties);
     }
-    
+
     @Override
     public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random)
     {

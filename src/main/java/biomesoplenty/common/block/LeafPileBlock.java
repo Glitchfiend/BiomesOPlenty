@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.stats.Stats;
@@ -26,11 +27,18 @@ import javax.annotation.Nullable;
 
 public class LeafPileBlock extends BushBlock implements IPlantable
 {
+    public static final MapCodec<LeafPileBlock> CODEC = simpleCodec(LeafPileBlock::new);
     protected static final VoxelShape NORMAL = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
 
     public LeafPileBlock(Properties properties)
     {
         super(properties);
+    }
+
+    @Override
+    public MapCodec<LeafPileBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override

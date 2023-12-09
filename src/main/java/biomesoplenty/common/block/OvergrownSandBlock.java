@@ -8,17 +8,18 @@ import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.SandBlock;
+import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LightEngine;
 import net.minecraftforge.common.PlantType;
 
-public class OvergrownSandBlock extends SandBlock
+public class OvergrownSandBlock extends ColoredFallingBlock
 {
-    public OvergrownSandBlock(int dustColor, Properties properties)
+    public OvergrownSandBlock(ColorRGBA dustColor, Properties properties)
     {
         super(dustColor, properties);
     }

@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.common.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
@@ -20,11 +21,18 @@ import net.minecraftforge.common.IPlantable;
 
 public class TinyCactusBlock extends BushBlock implements IPlantable
 {
+    public static final MapCodec<TinyCactusBlock> CODEC = simpleCodec(TinyCactusBlock::new);
     protected static final VoxelShape NORMAL = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 13.0D, 13.0D);
 
     public TinyCactusBlock(Properties properties)
     {
         super(properties);
+    }
+
+    @Override
+    public MapCodec<TinyCactusBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override

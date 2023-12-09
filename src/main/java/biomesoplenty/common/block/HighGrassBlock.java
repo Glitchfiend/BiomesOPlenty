@@ -5,6 +5,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -20,6 +21,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HighGrassBlock extends GrowingPlantHeadBlock
 {
+    public static final MapCodec<HighGrassBlock> CODEC = simpleCodec(HighGrassBlock::new);
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     public static final int MAX_AGE = 8;
     private final double growPerTickProbability;
@@ -27,6 +29,12 @@ public class HighGrassBlock extends GrowingPlantHeadBlock
     public HighGrassBlock(Properties p_i241195_1_) {
         super(p_i241195_1_, Direction.UP, SHAPE, false, 0.01D);
         this.growPerTickProbability = 0.01D;
+    }
+
+    @Override
+    public MapCodec<HighGrassBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override

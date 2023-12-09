@@ -5,6 +5,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -18,10 +19,17 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class SpanishMossBottomBlock extends GrowingPlantHeadBlock
 {
+    public static final MapCodec<SpanishMossBottomBlock> CODEC = simpleCodec(SpanishMossBottomBlock::new);
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public SpanishMossBottomBlock(Properties p_i241194_1_) {
         super(p_i241194_1_, Direction.DOWN, SHAPE, false, 0.01D);
+    }
+
+    @Override
+    public MapCodec<SpanishMossBottomBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override

@@ -6,6 +6,7 @@ package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.damagesource.BOPDamageTypes;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -22,10 +23,18 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 
 public class BrambleBlock extends PipeBlock
 {
+    public static final MapCodec<BrambleBlock> CODEC = simpleCodec(BrambleBlock::new);
+
     public BrambleBlock(Block.Properties builder)
     {
         super(0.25F, builder);
         this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)).setValue(DOWN, Boolean.valueOf(false)));
+    }
+
+    @Override
+    public MapCodec<BrambleBlock> codec()
+    {
+        return CODEC;
     }
     
     @Override

@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -27,9 +27,9 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
 {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
    public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-   private final AbstractTreeGrower tree;
+   private final TreeGrower tree;
 
-   public SaplingBlockBOP(AbstractTreeGrower tree, Block.Properties properties)
+   public SaplingBlockBOP(TreeGrower tree, Block.Properties properties)
    {
       super(tree, properties);
       this.tree = tree;

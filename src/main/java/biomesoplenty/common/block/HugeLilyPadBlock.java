@@ -5,6 +5,7 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.common.block.state.properties.QuarterProperty;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -31,6 +32,7 @@ import javax.annotation.Nullable;
 
 public class HugeLilyPadBlock extends BushBlock
 {
+    public static final MapCodec<HugeLilyPadBlock> CODEC = simpleCodec(HugeLilyPadBlock::new);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final EnumProperty<QuarterProperty> QUARTER = EnumProperty.create("quarter", QuarterProperty.class);
 
@@ -40,6 +42,12 @@ public class HugeLilyPadBlock extends BushBlock
     {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(QUARTER, QuarterProperty.SOUTH_WEST));
+    }
+
+    @Override
+    public MapCodec<HugeLilyPadBlock> codec()
+    {
+        return CODEC;
     }
 
     @Override
