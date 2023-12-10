@@ -100,27 +100,27 @@
   "music.overworld.origin_valley": {
     "sounds": [
 	  {
-        "name": "minecraft:music/game/calm1",
+        "name": "minecraft:music/game/minecraft",
         "stream": true
       },
 	  {
-        "name": "minecraft:music/game/calm2",
+        "name": "minecraft:music/game/clark",
         "stream": true
       },
 	  {
-        "name": "minecraft:music/game/calm3",
+        "name": "minecraft:music/game/sweden",
         "stream": true
       },
 	  {
-        "name": "minecraft:music/game/piano1",
+        "name": "minecraft:music/game/dry_hands",
         "stream": true
       },
 	  {
-        "name": "minecraft:music/game/piano2",
+        "name": "minecraft:music/game/wet_hands",
         "stream": true
       },
 	  {
-        "name": "minecraft:music/game/piano3",
+        "name": "minecraft:music/game/mice_on_venus",
         "stream": true
       }
     ]
