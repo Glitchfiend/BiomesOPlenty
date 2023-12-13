@@ -37,6 +37,10 @@ public class PoplarTreeFeature extends BOPTreeFeature<PoplarTreeConfiguration>
         int height = GeneratorUtil.nextIntBetween(random, config.minHeight, config.maxHeight);
         if (height < 4) {return false;}
         int baseHeight = height / 3;
+        if (config.leavesAtBottom)
+        {
+            baseHeight = 0;
+        }
         int leavesHeight = height - baseHeight;
 
         // Move up to space above ground

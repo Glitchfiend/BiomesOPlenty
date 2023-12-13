@@ -25,6 +25,7 @@
         "Name": "minecraft:air"
       }
     },
+    "leaves_at_bottom": true,
     "max_height": 15,
     "min_height": 12,
     "trunk_fruit_provider": {

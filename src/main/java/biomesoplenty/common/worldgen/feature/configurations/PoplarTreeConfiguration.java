@@ -23,26 +23,39 @@ public class PoplarTreeConfiguration extends BOPTreeConfiguration
                 BlockStateProvider.CODEC.fieldOf("alt_foliage_provider").forGetter((instance) -> instance.altFoliageProvider),
                 Codec.INT.fieldOf("min_height").forGetter((instance) -> instance.minHeight),
                 Codec.INT.fieldOf("max_height").forGetter((instance) -> instance.maxHeight),
-                TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators)
+                TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators),
+                Codec.BOOL.fieldOf("leaves_at_bottom").forGetter((instance) -> instance.leavesAtBottom)
         ).apply(builder, PoplarTreeConfiguration::new);
     });
 
-    protected PoplarTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators)
+    public final boolean leavesAtBottom;
+
+    protected PoplarTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, boolean leavesAtBottom)
     {
         super(trunkProvider, foliageProvider, vineProvider, hangingProvider, trunkFruitProvider, altFoliageProvider, minHeight, maxHeight, decorators);
+        this.leavesAtBottom = leavesAtBottom;
     }
 
     public static class Builder extends BOPTreeConfiguration.Builder<PoplarTreeConfiguration.Builder>
     {
+        private boolean leavesAtBottom;
+
         public Builder()
         {
             this.minHeight = 12;
             this.maxHeight = 15;
+            this.leavesAtBottom = false;
+        }
+
+        public PoplarTreeConfiguration.Builder leavesAtBottom(boolean a)
+        {
+            this.leavesAtBottom = a;
+            return this;
         }
 
         public PoplarTreeConfiguration build()
         {
-            return new PoplarTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators);
+            return new PoplarTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators, this.leavesAtBottom);
         }
     }
 }
