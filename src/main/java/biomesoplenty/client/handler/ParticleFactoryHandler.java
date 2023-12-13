@@ -23,6 +23,7 @@ public class ParticleFactoryHandler
         event.registerSpriteSet(ModParticles.LANDING_BLOOD.get(), DripParticleBOP.BloodLandProvider::new);
         event.registerSpriteSet(ModParticles.PUS.get(), PusParticle.Provider::new);
         event.registerSpriteSet(ModParticles.GLOWWORM.get(), GlowwormParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.STEAM.get(), SteamParticle.Provider::new);
         event.registerSpriteSet(ModParticles.JACARANDA_LEAVES.get(), (p_277215_) -> {
             return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
                 return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
