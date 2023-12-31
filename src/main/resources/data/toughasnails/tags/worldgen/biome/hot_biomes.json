@@ -1,15 +1,48 @@
 {
   "values": [
-    "biomesoplenty:crystalline_chasm",
-	"biomesoplenty:dryland",
-	"biomesoplenty:erupting_inferno",
-	"biomesoplenty:fungal_jungle",
-	"biomesoplenty:lush_desert",
-	"biomesoplenty:lush_savanna",
-	"biomesoplenty:undergrowth",
-    "biomesoplenty:visceral_heap",
-	"biomesoplenty:volcano",
-	"biomesoplenty:wasteland",
-	"biomesoplenty:wasteland_steppe"
+    {
+      "id": "biomesoplenty:crystalline_chasm",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:dryland",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:erupting_inferno",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:fungal_jungle",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:lush_desert",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:lush_savanna",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:undergrowth",
+	  "required": false
+    },
+    {
+      "id": "biomesoplenty:visceral_heap",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:volcano",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:wasteland",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:wasteland_steppe",
+	  "required": false
+    }
   ]
 }

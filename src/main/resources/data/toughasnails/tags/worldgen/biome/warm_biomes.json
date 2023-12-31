@@ -1,13 +1,40 @@
 {
   "values": [
-    "biomesoplenty:bayou",
-	"biomesoplenty:floodplain",
-	"biomesoplenty:mediterranean_forest",
-	"biomesoplenty:rainforest",
-	"biomesoplenty:rocky_rainforest",
-	"biomesoplenty:scrubland",
-	"biomesoplenty:tropics",
-	"biomesoplenty:withered_abyss",
-	"biomesoplenty:volcanic_plains"
+    {
+      "id": "biomesoplenty:bayou",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:floodplain",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:mediterranean_forest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:rainforest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:rocky_rainforest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:scrubland",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:tropics",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:withered_abyss",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:volcanic_plains",
+	  "required": false
+    }
   ]
 }

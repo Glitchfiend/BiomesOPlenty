@@ -1,19 +1,64 @@
 {
   "values": [
-    "biomesoplenty:aspen_glade",
-	"biomesoplenty:bog",
-	"biomesoplenty:coniferous_forest",
-	"biomesoplenty:dead_forest",
-	"biomesoplenty:field",
-	"biomesoplenty:fir_clearing",
-	"biomesoplenty:forested_field",
-	"biomesoplenty:gravel_beach",
-	"biomesoplenty:hot_springs",
-	"biomesoplenty:maple_woods",
-	"biomesoplenty:old_growth_dead_forest",
-	"biomesoplenty:ominous_woods",
-	"biomesoplenty:pumpkin_patch",
-	"biomesoplenty:seasonal_forest",
-	"biomesoplenty:tundra"
+    {
+      "id": "biomesoplenty:aspen_glade",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:bog",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:coniferous_forest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:dead_forest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:field",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:fir_clearing",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:forested_field",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:gravel_beach",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:hot_springs",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:maple_woods",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:old_growth_dead_forest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:ominous_woods",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:pumpkin_patch",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:seasonal_forest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:tundra",
+	  "required": false
+    }
   ]
 }

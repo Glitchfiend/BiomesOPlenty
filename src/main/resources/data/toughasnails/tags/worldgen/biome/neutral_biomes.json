@@ -1,27 +1,96 @@
 {
   "values": [
-    "biomesoplenty:clover_patch",
-	"biomesoplenty:crag",
-	"biomesoplenty:dune_beach",
-    "biomesoplenty:glowing_grotto",
-	"biomesoplenty:grassland",
-	"biomesoplenty:highland",
-	"biomesoplenty:jacaranda_glade",
-	"biomesoplenty:jade_cliffs",
-	"biomesoplenty:lavender_field",
-	"biomesoplenty:marsh",
-	"biomesoplenty:moor",
-	"biomesoplenty:mystic_grove",
-	"biomesoplenty:old_growth_woodland",
-	"biomesoplenty:orchard",
-	"biomesoplenty:origin_valley",
-	"biomesoplenty:pasture",
-	"biomesoplenty:prairie",
-	"biomesoplenty:redwood_forest",
-	"biomesoplenty:rocky_shrubland",
-	"biomesoplenty:shrubland",
-    "biomesoplenty:spider_nest",
-	"biomesoplenty:wetland",
-	"biomesoplenty:woodland"
+    {
+      "id": "biomesoplenty:clover_patch",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:crag",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:dune_beach",
+	  "required": false
+    },
+    {
+      "id": "biomesoplenty:glowing_grotto",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:grassland",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:highland",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:jacaranda_glade",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:jade_cliffs",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:lavender_field",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:marsh",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:moor",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:mystic_grove",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:old_growth_woodland",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:orchard",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:origin_valley",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:pasture",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:prairie",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:redwood_forest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:rocky_shrubland",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:shrubland",
+	  "required": false
+    },
+    {
+      "id": "biomesoplenty:spider_nest",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:wetland",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:woodland",
+	  "required": false
+    }
   ]
 }
