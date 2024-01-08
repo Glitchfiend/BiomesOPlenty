@@ -28,6 +28,7 @@ public class ModSounds
         MUSIC_BIOME_VISCERAL_HEAP = registerSound("music.nether.visceral_heap");
         MUSIC_BIOME_WITHERED_ABYSS = registerSound("music.nether.withered_abyss");
 
+        BLOOD_AMBIENT = registerSound("block.blood.ambient");
         FLESH_TENDON_DRIP = registerSound("block.flesh_tendon.drip");
         PUS_BUBBLE_POP = registerSound("block.pus_bubble.pop");
         SPIDER_EGG_BREAK = registerSound("block.spider_egg.break");
