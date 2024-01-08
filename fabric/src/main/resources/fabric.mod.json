@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "Adubbz",
+    "Forstride"
+  ],
+  "contact": {
+    "homepage": "${mod_page_url}",
+    "sources": "${mod_git_url}"
+  },
+  "license": "${mod_license}",
+  "icon": "${mod_id}_logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "glitchcore": [
+      "biomesoplenty.fabric.core.BiomesOPlentyFabric"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17",
+    "glitchcore": ">=${glitchcore_version}"
+  },
+  "accessWidener": "${mod_id}.accesswidener",
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "${mod_discord_url}"
+      }
+    }
+  }
+}

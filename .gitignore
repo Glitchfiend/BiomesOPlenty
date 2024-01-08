@@ -1,28 +1,24 @@
-/build/
-/bin/
-/out/
-/Mixin/
-/repo/
-/run/
-/logs/
-.idea/*
-/.gradle/
-/.settings/
-/.classpath
-/.project
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
 
-# OS generated files
-*.DS_Store
-
-# IntelliJ project files
-*.iml
+# idea
+out
 *.ipr
 *.iws
+*.iml
+.idea/*
+!.idea/scopes
 
-*.launch
-mappings/.gradle/
-#mappings/mcp/
-mappings/build/
-mappings/*.csv
-mappings/.project
-mappings/last_updated.json
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+runs

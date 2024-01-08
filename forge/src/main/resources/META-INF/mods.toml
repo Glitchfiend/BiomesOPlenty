@@ -1,0 +1,27 @@
+modLoader="javafml"
+license="${mod_license}"
+loaderVersion="${forge_loader_version_range}"
+issueTrackerURL="${mod_issues_url}"
+displayURL="${mod_page_url}"
+logoFile="${mod_id}_logo.png"
+
+[[mods]]
+    modId="${mod_id}"
+    version="${mod_version}"
+    displayName="${mod_display_name}"
+	authors="${mod_authors}"
+    description="${mod_description}"
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="glitchcore"
+    mandatory=true
+    versionRange="[${glitchcore_version},)"
+    ordering="AFTER"
+    side="BOTH"

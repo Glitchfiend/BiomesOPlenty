@@ -1,220 +1,197 @@
-plugins {
-    id "net.minecraftforge.gradle" version "6.+"
-    id "org.spongepowered.mixin" version "0.7-SNAPSHOT"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
-    id "com.modrinth.minotaur" version "2.+"
-    id 'net.minecraftforge.gradleutils' version '2.2.0'
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            name = "Forge"
+            url = "https://maven.minecraftforge.net"
+        }
+    }
+    dependencies {
+        classpath 'com.modrinth.minotaur:Minotaur:2.+'
+        classpath 'gradle.plugin.org.jetbrains.gradle.plugin.idea-ext:gradle-idea-ext:1.1.7' // Required for NeoGradle
+        classpath 'net.minecraftforge:gradleutils:2.2.0' // Required for changelog generation
+    }
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'maven-publish'
+apply plugin: 'org.jetbrains.gradle.plugin.idea-ext'
+apply plugin: 'net.minecraftforge.gradleutils'
+
+changelog {
+    fromTag '9.2.0'
+}
 
 ext {
     mod_version = gradleutils.getTagOffsetVersion()
-    changelog_file = project.file("build/changelog.txt")
-}
-
-changelog {
-    fromTag '18.2.0'
-}
-
-def trimChangelog(String text) {
-    def m = text =~ /(?s) - (?:[0-9.]+) (.+?)(?=( - )|$)/
-    return '```\n' + m[0][1].replaceAll(/(?m)^ */, '')
-}
-
-group = "com.github.glitchfiend"
-base.archivesName = mod_name
-version = "${minecraft_version}-${mod_version}"
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-java.withSourcesJar()
-
-tasks.withType(JavaCompile).configureEach {
-    it.options.encoding = 'UTF-8'
-    it.options.release.set(17)
-}
-
-// Disables Gradle's custom module metadata from being published to maven. The
-// metadata includes mapped dependencies which are not reasonably consumable by
-// other mod developers.
-tasks.withType(GenerateModuleMetadata) {
-    enabled = false
-}
-
-minecraft {
-    mappings channel: 'official', version: minecraft_version
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
-    runs {
-        client = {
-            workingDirectory = project.file("run")
-            ideaModule "${project.name}.main"
-            taskName 'Client'
-        }
-        server {
-            workingDirectory project.file('run')
-            ideaModule "${project.name}.main"
-            taskName 'Server'
-        }
-        data {
-            workingDirectory project.file('run')
-            ideaModule "${project.name}.main"
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            taskName 'Data'
-        }
+    changelog_file = rootProject.file("build/changelog.txt")
+    trimChangelog = (String text) -> {
+        def m = text =~ /(?s) - (?:[0-9.]+) (.+?)(?=( - )|$)/
+        return '```\n' + m[0][1].replaceAll(/(?m)^ */, '')
     }
 }
 
-sourceSets {
-    api {
-        java {
-            compileClasspath += main.compileClasspath
-            srcDirs main.java.srcDirs
-            include "${mod_id}/api/**"
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven-publish'
+
+    if (!project.name.equals("Common")) {
+        apply plugin: 'com.modrinth.minotaur'
+    }
+
+    version = "${minecraft_version}-${mod_version}"
+
+    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+    java.withSourcesJar()
+
+    jar {
+        manifest {
+            attributes([
+                'Specification-Title'     : mod_name,
+                'Specification-Vendor'    : mod_authors,
+                'Specification-Version'   : mod_version,
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : mod_version,
+                'Implementation-Vendor'   : mod_authors,
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                'Timestamp'               : System.currentTimeMillis(),
+                'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                'Build-On-Minecraft'      : minecraft_version
+            ])
         }
     }
-    main {
-        resources {
-            srcDir 'src/generated/resources'
+
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'Sponge / Mixin'
+            url = 'https://repo.spongepowered.org/repository/maven-public/'
+        }
+        maven {
+            name = 'Forge'
+            url = "https://maven.minecraftforge.net"
         }
     }
-}
 
-// Merge the resources and classes into the same directory.
-// This is done because java expects modules to be in a single directory.
-// And if we have it in multiple we have to do performance intensive hacks like having the UnionFileSystem
-// This will eventually be migrated to ForgeGradle so modders don't need to manually do it. But that is later.
-sourceSets.each {
-    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
-    it.output.resourcesDir = dir
-    it.java.destinationDirectory = dir
-}
-
-dependencies {
-    minecraft 'net.minecraftforge:forge:' + minecraft_version + '-' + forge_version
-    implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
-}
-
-jar {
-    manifest {
-        attributes([
-            'Specification-Title'     : mod_name,
-            'Specification-Vendor'    : mod_author,
-            'Specification-Version'   : mod_version,
-            'Implementation-Title'    : project.name,
-            'Implementation-Version'  : mod_version,
-            'Implementation-Vendor'   : mod_author,
-            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            'Timestamp'               : System.currentTimeMillis(),
-            'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-            'Build-On-Minecraft'      : minecraft_version
-        ])
+    tasks.withType(JavaCompile).configureEach {
+        it.options.encoding = 'UTF-8'
+        it.options.release.set(17)
     }
-}
 
-task apiJar(type: Jar) {
-    from sourceSets.api.allJava, sourceSets.api.output
-    archiveClassifier = 'api'
-}
-
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    archiveClassifier = 'deobf'
-}
-
-build.dependsOn apiJar
-build.dependsOn deobfJar
-
-curseforge {
-    apiKey = project.findProperty('curseApiKey') ?: 'unset'
-    project {
-        id = mod_curseforge_id
-
-        if (changelog_file.exists()) {
-            changelog = changelog_file
+    processResources {
+        var expandProps = [
+            minecraft_version   : minecraft_version,
+            forge_version       : forge_version, forge_version_range: forge_version_range, forge_loader_version_range: forge_loader_version_range,
+            neoforge_version    : neoforge_version, neoforge_version_range: neoforge_version_range, neoforge_loader_version_range: neoforge_loader_version_range,
+            glitchcore_version  : glitchcore_version,
+            mod_id              : mod_id, mod_name: mod_name, mod_display_name: mod_display_name, mod_version: mod_version,
+            mod_authors         : mod_authors, mod_description: mod_description,
+            mod_issues_url      : mod_issues_url, mod_page_url: mod_page_url, mod_git_url: mod_git_url,
+            mod_discord_url     : mod_discord_url,
+            mod_license         : mod_license
+        ]
+        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', "*.mixins.json"]) {
+            expand expandProps
         }
-
-        releaseType = 'beta'
-        addGameVersion minecraft_version
-
-        mainArtifact(jar) {
-            displayName = "${mod_display_name} ${version}"
-        }
-
-        addArtifact deobfJar
-        addArtifact apiJar
-        
-        relations {
-            requiredDependency 'terrablender'
-        }
+        inputs.properties(expandProps)
     }
-}
 
-modrinth {
-    token = project.findProperty('modrinthToken')
-    projectId = mod_modrinth_id
-    versionNumber = mod_version
-    versionName = version + " for Forge " + minecraft_version
-    versionType = 'beta' // can be release, beta, or alpha
-    uploadFile = jar
-    gameVersions = [minecraft_version]
-    loaders = ['forge']
-
-    if (changelog_file.exists()) {
-        changelog = trimChangelog(changelog_file.text)
+    // Disables Gradle's custom module metadata from being published to maven. The
+    // metadata includes mapped dependencies which are not reasonably consumable by
+    // other mod developers.
+    tasks.withType(GenerateModuleMetadata) {
+        enabled = false
     }
-}
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            // We must use artifact jar to ensure the Forge dependency is excluded from the pom, breaking fg.deobf()
-            artifact jar
-            artifact apiJar
-            artifact deobfJar
-            groupId project.group
-            artifactId project.archivesBaseName
-            version project.version
+    afterEvaluate {
+        // Share Modrinth configuration between loaders
+        // Unfortunately the CurseForge plugin breaks when doing this
+        // remapJar does not exist until after initial evaluation
+        if (!name.equals("Common")) {
+            modrinth {
+                token = findProperty('modrinthToken')
+                projectId = mod_modrinth_id
+                versionNumber = mod_version
+                versionName = "${mod_version} for ${name} ${minecraft_version}"
+                versionType = release_channel
+                uploadFile = name.equals("Fabric") ? remapJar : jar
+                gameVersions = [minecraft_version]
+                loaders = [name.toLowerCase()]
 
-            pom {
-                name = project.mod_name
-                description = project.mod_description
-                url = project.mod_git_url
-                scm {
-                    url = project.mod_git_url
-                    connection = project.mod_scm_url
-                    developerConnection = project.mod_scm_url
-                }
-                issueManagement {
-                    system = 'github'
-                    url = project.mod_issues_url
-                }
-                licenses {
-                    license {
-                        name = 'All Rights Reserved'
-                    }
-                }
-                developers {
-                    developer {
-                        id = 'adubbz'
-                        name = 'Adubbz'
-                    }
-                    developer {
-                        id = 'forstride'
-                        name = 'Forstride'
-                    }
+                if (changelog_file.exists()) {
+                    changelog = trimChangelog(changelog_file.text)
                 }
             }
         }
-    }
-    repositories {
-        maven {
-            url = "https://maven.minecraftforge.net/releases/"
-            credentials {
-                username = System.getenv("MAVEN_USER")
-                password = System.getenv("MAVEN_PASSWORD")
+
+        // archivesBaseName is not set until after initial evaluation
+        publishing {
+            publications {
+                mavenJava(MavenPublication) {
+                    artifact jar
+                    groupId project.group
+                    artifactId project.archivesBaseName
+                    version project.version
+
+                    pom {
+                        name = project.archivesBaseName
+                        description = project.mod_description
+                        url = project.mod_git_url
+                        scm {
+                            url = project.mod_git_url
+                            connection = project.mod_scm_url
+                            developerConnection = project.mod_scm_url
+                        }
+                        issueManagement {
+                            system = 'github'
+                            url = project.mod_issues_url
+                        }
+                        licenses {
+                            license {
+                                name = project.mod_license
+                            }
+                        }
+                        developers {
+                            developer {
+                                id = 'adubbz'
+                                name = 'Adubbz'
+                            }
+                            developer {
+                                id = 'forstride'
+                                name = 'Forstride'
+                            }
+                        }
+                        withXml {
+                            NodeList dependencies = asNode().dependencies
+                            NodeList allDeps = dependencies.'*'
+
+                            // Remove forge deps
+                            allDeps.<Node> findAll() { Node el ->
+                                el.artifactId.text() == 'forge' && el.groupId.text() == 'net.minecraftforge'
+                            }.forEach() { Node el ->
+                                el.parent().remove(el)
+                            }
+                            // Remove ForgeGradle's mapped suffix from versions & set as optional so anyone else doesn't inherit them
+                            allDeps.<Node> findAll() { Node el ->
+                                el.version.text().contains('_mapped_')
+                            }.each { Node el ->
+                                el.version.each { Node version ->
+                                    def versionText = version.text()
+                                    version.setValue(versionText.substring(0, versionText.indexOf('_mapped_')))
+                                }
+                                el.appendNode('optional', true)
+                            }
+                        }
+                    }
+                }
+            }
+            repositories {
+                maven {
+                    url = "https://maven.minecraftforge.net/releases/"
+                    credentials {
+                        username = System.getenv("MAVEN_USER")
+                        password = System.getenv("MAVEN_PASSWORD")
+                    }
+                }
             }
         }
     }

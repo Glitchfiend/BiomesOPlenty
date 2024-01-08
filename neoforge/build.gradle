@@ -1,0 +1,91 @@
+plugins {
+    id "net.neoforged.gradle.userdev" version "7.+"
+    id "net.neoforged.gradle.mixin" version "7.+"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
+}
+
+base.archivesName.set("${mod_name}-neoforge")
+
+mixin {
+    config "${mod_id}.mixins.json"
+    config "${mod_id}.neoforge.mixins.json"
+}
+
+minecraft {
+    mappings {
+        channel = official()
+        version.put "minecraft", minecraft_version
+    }
+    accessTransformers.file('src/main/resources/META-INF/accesstransformer.cfg')
+}
+
+runs {
+    configureEach {
+        modSource project.sourceSets.main
+    }
+
+    client {
+        workingDirectory.set(project.file('run'))
+        systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
+    }
+
+    server {
+        workingDirectory.set(project.file('run'))
+        systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
+        programArgument '--nogui'
+    }
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neoforge_version}"
+    compileOnly project(":Common")
+    implementation 'com.github.glitchfiend:GlitchCore-neoforge:' + minecraft_version + '-' + glitchcore_version
+    implementation 'com.github.glitchfiend:TerraBlender-neoforge:' + minecraft_version + '-' + terrablender_version
+}
+
+// NeoGradle compiles the game, but we don't want to add our common code to the game's code
+TaskCollection.metaClass.excludingNeoTasks = { ->
+    delegate.matching { !it.name.startsWith("neo") }
+}
+
+tasks.withType(JavaCompile).excludingNeoTasks().configureEach {
+    source(project(":Common").sourceSets.main.allSource)
+}
+
+tasks.withType(Javadoc).excludingNeoTasks().configureEach {
+    source(project(":Common").sourceSets.main.allJava)
+}
+
+tasks.named("sourcesJar", Jar) {
+    from(project(":Common").sourceSets.main.allSource)
+}
+
+tasks.withType(ProcessResources).excludingNeoTasks().configureEach {
+    from project(":Common").sourceSets.main.resources
+    filesMatching("${mod_id}.mixins.json") {
+        expand "refmap_target": "${mod_id}."
+    }
+}
+
+curseforge {
+    apiKey = project.findProperty('curseApiKey') ?: 'unset'
+    project {
+        id = mod_curseforge_id
+
+        if (changelog_file.exists()) {
+            changelog = changelog_file
+        }
+
+        releaseType = release_channel
+        addGameVersion minecraft_version
+        addGameVersion name
+
+        mainArtifact(jar) {
+            displayName = "${mod_display_name} ${name} ${version}"
+        }
+
+        relations {
+            requiredDependency 'glitchcore'
+        }
+    }
+}
