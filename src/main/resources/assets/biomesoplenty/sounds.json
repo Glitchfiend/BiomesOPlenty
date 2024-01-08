@@ -1,7 +1,11 @@
 {
   "block.blood.ambient": {
     "sounds": [
-      "liquid/lava"
+	  {
+        "name": "minecraft:liquid/lava",
+        "pitch": 0.5,
+		"volume": 0.5
+      }
     ],
     "subtitle": "subtitles.block.blood.ambient"
   },

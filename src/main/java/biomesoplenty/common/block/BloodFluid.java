@@ -54,7 +54,7 @@ public abstract class BloodFluid extends FlowingFluid
     @Override
     public void animateTick(Level p_230606_, BlockPos p_230607_, FluidState p_230608_, RandomSource p_230609_)
     {
-        if (p_230609_.nextInt(200) == 0)
+        if (p_230609_.nextInt(256) == 0)
         {
             p_230606_.playLocalSound((double)p_230607_.getX() + 0.5D, (double)p_230607_.getY() + 0.5D, (double)p_230607_.getZ() + 0.5D, BOPSounds.BLOOD_AMBIENT.get(), SoundSource.BLOCKS, p_230609_.nextFloat() * 0.25F + 0.75F, p_230609_.nextFloat() + 0.5F, false);
         }
