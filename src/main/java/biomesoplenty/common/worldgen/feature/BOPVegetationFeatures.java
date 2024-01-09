@@ -73,6 +73,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_REED = createKey("patch_reed");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SEA_OATS = createKey("patch_sea_oats");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SPROUTS = createKey("patch_sprouts");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPROUT_BONEMEAL = createKey("sprout_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TALL_LAVENDER = createKey("patch_tall_lavender");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TINY_CACTUS = createKey("patch_tiny_cactus");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TUNDRA_SHRUBS = createKey("patch_tundra_shrubs");
@@ -267,6 +268,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_TUNDRA_SHRUBS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TUNDRA_SHRUB.get()))));
         register(context, BOPVegetationFeatures.PATCH_WATERGRASS, Feature.RANDOM_PATCH, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS.get()))));
         register(context, BOPVegetationFeatures.PATCH_WATERLILY_FLOWER, Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERLILY.get())))));
+        register(context, BOPVegetationFeatures.SPROUT_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT.get().defaultBlockState())));
         register(context, BOPVegetationFeatures.PUMPKIN_PATCH, BOPBaseFeatures.PUMPKIN_PATCH, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.RED_MAPLE_LEAF_PILES, BOPBaseFeatures.RED_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ORANGE_MAPLE_LEAF_PILES, BOPBaseFeatures.ORANGE_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);

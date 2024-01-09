@@ -35,8 +35,10 @@ import static biomesoplenty.common.util.worldgen.BOPFeatureUtils.createKey;
 public class BOPCaveFeatures
 {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_GROTTO_FLOOR_PLANTS = createKey("glowing_grotto_floor_plants");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_GROTTO_CEILING_PLANTS = createKey("glowing_grotto_ceiling_plants");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_MOSS_PATCH = createKey("glowing_moss_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_MOSS_PATCH_BONEMEAL = createKey("glowing_moss_patch_bonemeal");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_MOSS_PATCH_BONEMEAL_BOTTOM = createKey("glowing_moss_patch_bonemeal_bottom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_PLANTS = createKey("mud_plants");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_PATCH = createKey("mud_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWWORM_SILK = createKey("glowworm_silk");
@@ -58,8 +60,13 @@ public class BOPCaveFeatures
         register(context, BOPCaveFeatures.GLOWING_GROTTO_FLOOR_PLANTS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BOPBlocks.GLOWSHROOM.get().defaultBlockState(), 6).add(BOPBlocks.GLOWING_MOSS_CARPET.get().defaultBlockState(), 25))));
         final Holder<ConfiguredFeature<?, ?>> GLOWING_GROTTO_FLOOR_PLANTS = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.GLOWING_GROTTO_FLOOR_PLANTS);
 
+        register(context, BOPCaveFeatures.GLOWING_GROTTO_CEILING_PLANTS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GLOWWORM_SILK.get())));
+        final Holder<ConfiguredFeature<?, ?>> GLOWING_GROTTO_CEILING_PLANTS = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.GLOWING_GROTTO_CEILING_PLANTS);
+
+
         register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(GLOWING_GROTTO_FLOOR_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.5F, UniformInt.of(4, 7), 0.3F));
         register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(GLOWING_GROTTO_FLOOR_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.4F, UniformInt.of(1, 2), 0.75F));
+        register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH_BONEMEAL_BOTTOM, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(GLOWING_GROTTO_CEILING_PLANTS), CaveSurface.CEILING, ConstantInt.of(1), 0.0F, 5, 0.4F, UniformInt.of(1, 2), 0.75F));
 
         register(context, BOPCaveFeatures.MUD_PLANTS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_CARPET.get())));
         final Holder<ConfiguredFeature<?, ?>> MUD_PLANTS = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.MUD_PLANTS);

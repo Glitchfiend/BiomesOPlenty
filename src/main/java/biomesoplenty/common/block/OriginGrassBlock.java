@@ -1,6 +1,8 @@
 package biomesoplenty.common.block;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrassBlock;
@@ -29,5 +31,11 @@ public class OriginGrassBlock extends GrassBlock
         }
 
         return null;
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(LevelReader p_256229_, BlockPos p_256432_, BlockState p_255677_)
+    {
+        return false;
     }
 }
