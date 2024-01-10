@@ -85,6 +85,8 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.GLOWFLOWER, 1, 2, 5, 1),
             new ItemsForEmeralds(BOPBlocks.BURNING_BLOSSOM, 1, 1, 6, 1),
             new ItemsForEmeralds(BOPBlocks.ICY_IRIS, 2, 1, 4, 1),
+            new ItemsForEmeralds(BOPBlocks.BRIMSTONE, 2, 4, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.BRAMBLE, 1, 1, 4, 1),
             new ItemsForEmeralds(BOPBlocks.GLOWWORM_SILK, 6, 1, 2, 1),
             new ItemsForEmeralds(BOPBlocks.SPIDER_EGG, 6, 1, 1, 1)};
 

@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " # ",
+	"#L#",
+	"###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:brimstone"
+    },
+	"L": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:brimstone_fumarole",
+    "count": 1
+  }
+}

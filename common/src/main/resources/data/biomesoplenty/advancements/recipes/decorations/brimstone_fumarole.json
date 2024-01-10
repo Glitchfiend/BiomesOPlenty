@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:brimstone_fumarole"
+    ]
+  },
+  "criteria": {
+    "has_brimstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+               "biomesoplenty:brimstone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:brimstone_fumarole"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_brimstone",
+      "has_the_recipe"
+    ]
+  ]
+}
