@@ -75,6 +75,7 @@ public class BiomesOPlenty
     public static void setupClient()
     {
         ModClient.setupRenderTypes();
+        ModClient.registerRenderers();
         ModClient.registerWoodTypes();
     }
 }
