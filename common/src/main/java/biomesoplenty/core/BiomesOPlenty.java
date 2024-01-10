@@ -37,7 +37,7 @@ public class BiomesOPlenty
         regHelper.addRegistrar(Registries.BLOCK, ModBlocks::setup);
         regHelper.addRegistrar(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities::registerBlockEntities);
         regHelper.addRegistrar(Registries.FLUID, ModFluids::registerFluids);
-        regHelper.addRegistrar(Registries.ITEM, ModItems::registerItems);
+        regHelper.addRegistrar(Registries.ITEM, ModItems::setup);
         regHelper.addRegistrar(Registries.FEATURE, BOPBaseFeatures::registerFeatures);
         regHelper.addRegistrar(Registries.CARVER, BOPWorldCarvers::registerCarvers);
         regHelper.addRegistrar(Registries.ENTITY_TYPE, ModEntities::registerEntities);

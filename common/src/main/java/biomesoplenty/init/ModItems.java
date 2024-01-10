@@ -20,7 +20,13 @@ import static biomesoplenty.api.item.BOPItems.*;
 
 public class ModItems
 {
-    public static void registerItems(BiConsumer<ResourceLocation, Item> func)
+    public static void setup(BiConsumer<ResourceLocation, Item> func)
+    {
+        registerItems(func);
+        ModVanillaCompat.setup();
+    }
+
+    private static void registerItems(BiConsumer<ResourceLocation, Item> func)
     {
         registerBlockItems(func);
 

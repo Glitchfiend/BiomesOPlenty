@@ -2,12 +2,11 @@
  * Copyright 2022, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
-package biomesoplenty.forge.client.renderer;
+package biomesoplenty.client.renderer;
 
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.entity.BoatBOP;
 import biomesoplenty.entity.ChestBoatBOP;
-import biomesoplenty.forge.core.BiomesOPlentyForge;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.model.BoatModel;
@@ -36,12 +35,12 @@ public class BoatRendererBOP extends BoatRenderer
     }
 
     @Override
-    public Pair<ResourceLocation, ListModel<Boat>> getModelWithLocation(Boat boat)
+    public ResourceLocation getTextureLocation(Boat boat)
     {
         if (boat instanceof ChestBoatBOP)
-            return this.boatResources.get(((ChestBoatBOP)boat).getModel());
+            return this.boatResources.get(((ChestBoatBOP)boat).getModel()).getFirst();
         else
-            return this.boatResources.get(((BoatBOP)boat).getModel());
+            return this.boatResources.get(((BoatBOP)boat).getModel()).getFirst();
     }
 
     private static String getTextureLocation(BoatBOP.ModelType model, boolean hasChest)

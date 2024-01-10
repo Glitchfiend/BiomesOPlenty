@@ -2,22 +2,24 @@
  * Copyright 2022, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
-package biomesoplenty.forge.init;
+package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
-import com.google.common.collect.Maps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.item.DispensibleContainerItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.BlockHitResult;
+
+import static glitchcore.util.BlockHelper.*;
 
 public class ModVanillaCompat
 {
@@ -318,25 +320,5 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.GLOWSHROOM);
         registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_BLOCK);
         registerCompostable(0.65F, BOPBlocks.HUGE_LILY_PAD);
-    }
-
-    public static void registerStrippable(Block log, Block stripped_log) {
-        AxeItem.STRIPPABLES = Maps.newHashMap(AxeItem.STRIPPABLES);
-        AxeItem.STRIPPABLES.put(log, stripped_log);
-    }
-
-    public static void registerFlattenable(Block block, BlockState flattened_block) {
-        ShovelItem.FLATTENABLES = Maps.newHashMap(ShovelItem.FLATTENABLES);
-        ShovelItem.FLATTENABLES.put(block, flattened_block);
-    }
-
-    public static void registerCompostable(float chance, ItemLike itemIn) {
-        ComposterBlock.COMPOSTABLES.put(itemIn.asItem(), chance);
-    }
-
-    public static void registerFlammable(Block blockIn, int encouragement, int flammability)
-    {
-        FireBlock fireblock = (FireBlock)Blocks.FIRE;
-        fireblock.setFlammable(blockIn, encouragement, flammability);
     }
 }
