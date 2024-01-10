@@ -4,9 +4,10 @@
  ******************************************************************************/
 package biomesoplenty.forge.common.handler;
 
-import biomesoplenty.forge.api.biome.BOPBiomes;
-import biomesoplenty.forge.api.block.BOPBlocks;
-import biomesoplenty.forge.api.item.BOPItems;
+import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.forge.core.BiomesOPlentyForge;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
@@ -217,7 +218,7 @@ public class MissingMappingsHandler
 
         public Remapper<T> remap(String oldId, T replacement)
         {
-            this.remaps.put(new ResourceLocation(BiomesOPlentyForge.MOD_ID, oldId), replacement);
+            this.remaps.put(new ResourceLocation(BiomesOPlenty.MOD_ID, oldId), replacement);
             return this;
         }
 
@@ -228,13 +229,13 @@ public class MissingMappingsHandler
 
         public Remapper<T> remap(String oldId, ResourceKey<T> replacement)
         {
-            this.remapResourceKeys.put(new ResourceLocation(BiomesOPlentyForge.MOD_ID, oldId), replacement);
+            this.remapResourceKeys.put(new ResourceLocation(BiomesOPlenty.MOD_ID, oldId), replacement);
             return this;
         }
 
         public void run(MissingMappingsEvent event)
         {
-            for (var mapping : event.getMappings(this.registryKey, BiomesOPlentyForge.MOD_ID))
+            for (var mapping : event.getMappings(this.registryKey, BiomesOPlenty.MOD_ID))
             {
                 if (this.remaps.containsKey(mapping.getKey()))
                 {
@@ -255,7 +256,7 @@ public class MissingMappingsHandler
             // Attempt to remap items based on block remappings
             if ((ResourceKey)this.registryKey == Registries.BLOCK)
             {
-                for (var mapping : event.getMappings(Registries.ITEM, BiomesOPlentyForge.MOD_ID))
+                for (var mapping : event.getMappings(Registries.ITEM, BiomesOPlenty.MOD_ID))
                 {
                     if (this.remaps.containsKey(mapping.getKey()))
                     {

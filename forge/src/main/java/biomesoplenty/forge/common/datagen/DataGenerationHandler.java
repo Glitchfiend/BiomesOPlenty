@@ -4,11 +4,13 @@
  ******************************************************************************/
 package biomesoplenty.forge.common.datagen;
 
-import biomesoplenty.forge.common.util.worldgen.BOPFeatureUtils;
-import biomesoplenty.forge.common.util.worldgen.BOPPlacementUtils;
-import biomesoplenty.forge.common.worldgen.carver.BOPConfiguredCarvers;
+import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.init.ModDamageTypes;
+import biomesoplenty.util.worldgen.BOPFeatureUtils;
+import biomesoplenty.util.worldgen.BOPPlacementUtils;
+import biomesoplenty.worldgen.carver.BOPConfiguredCarvers;
 import biomesoplenty.forge.core.BiomesOPlentyForge;
-import biomesoplenty.forge.init.ModBiomes;
+import biomesoplenty.init.ModBiomes;
 import net.minecraft.core.Cloner;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
@@ -27,7 +29,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.HashSet;
 import java.util.Set;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BiomesOPlentyForge.MOD_ID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BiomesOPlenty.MOD_ID)
 public class DataGenerationHandler
 {
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
@@ -44,7 +46,7 @@ public class DataGenerationHandler
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(), new RegistriesDatapackGenerator(output, event.getLookupProvider().thenApply(r -> constructRegistries(r, BUILDER)), Set.of(BiomesOPlentyForge.MOD_ID)));
+        generator.addProvider(event.includeServer(), new RegistriesDatapackGenerator(output, event.getLookupProvider().thenApply(r -> constructRegistries(r, BUILDER)), Set.of(BiomesOPlenty.MOD_ID)));
     }
 
     private static HolderLookup.Provider constructRegistries(HolderLookup.Provider original, RegistrySetBuilder datapackEntriesBuilder)

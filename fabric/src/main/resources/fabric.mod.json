@@ -18,6 +18,9 @@
   "entrypoints": {
     "glitchcore": [
       "biomesoplenty.fabric.core.BiomesOPlentyFabric"
+    ],
+    "terrablender": [
+      "biomesoplenty.fabric.core.BiomesOPlentyFabric"
     ]
   },
   "mixins": [

@@ -4,8 +4,9 @@
  ******************************************************************************/
 package biomesoplenty.forge.client.renderer;
 
-import biomesoplenty.forge.common.entity.BoatBOP;
-import biomesoplenty.forge.common.entity.ChestBoatBOP;
+import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.entity.BoatBOP;
+import biomesoplenty.entity.ChestBoatBOP;
 import biomesoplenty.forge.core.BiomesOPlentyForge;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
@@ -30,7 +31,7 @@ public class BoatRendererBOP extends BoatRenderer
     {
         super(context, false);
         this.boatResources = Stream.of(BoatBOP.ModelType.values()).collect(ImmutableMap.toImmutableMap((key) -> key, (model) -> {
-            return Pair.of(new ResourceLocation(BiomesOPlentyForge.MOD_ID, getTextureLocation(model, hasChest)), createBoatModel(context, model, hasChest));
+            return Pair.of(new ResourceLocation(BiomesOPlenty.MOD_ID, getTextureLocation(model, hasChest)), createBoatModel(context, model, hasChest));
         }));
     }
 
@@ -50,7 +51,7 @@ public class BoatRendererBOP extends BoatRenderer
 
     private static ModelLayerLocation createLocation(String name, String layer)
     {
-        return new ModelLayerLocation(new ResourceLocation(BiomesOPlentyForge.MOD_ID, name), layer);
+        return new ModelLayerLocation(new ResourceLocation(BiomesOPlenty.MOD_ID, name), layer);
     }
 
     public static ModelLayerLocation createBoatModelName(BoatBOP.ModelType model)
