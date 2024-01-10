@@ -8,6 +8,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
@@ -16,6 +17,7 @@ public class ModTags
     public static void setup()
     {
         Blocks.setup();
+        Items.setup();
         Fluids.setup();
     }
 
@@ -31,6 +33,18 @@ public class ModTags
         public static TagKey<Block> create(ResourceLocation name)
         {
             return TagKey.create(Registries.BLOCK, name);
+        }
+    }
+
+    public static class Items
+    {
+        private static void setup() {}
+
+        public static final TagKey<Item> SHEARS = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "shears"));
+
+        public static TagKey<Item> create(ResourceLocation name)
+        {
+            return TagKey.create(Registries.ITEM, name);
         }
     }
 

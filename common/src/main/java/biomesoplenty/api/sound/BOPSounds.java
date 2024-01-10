@@ -16,6 +16,7 @@ public class BOPSounds
 	public static Holder<SoundEvent> MUSIC_BIOME_VISCERAL_HEAP;
 	public static Holder<SoundEvent> MUSIC_BIOME_WITHERED_ABYSS;
 	public static SoundEvent MUSIC_DISC_WANDERER;
+	public static SoundEvent BLOOD_AMBIENT;
 	public static SoundEvent FLESH_TENDON_DRIP;
 	public static SoundEvent PUS_BUBBLE_POP;
 	public static SoundEvent SPIDER_EGG_BREAK;

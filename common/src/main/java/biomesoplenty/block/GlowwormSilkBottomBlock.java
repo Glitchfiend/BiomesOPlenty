@@ -38,7 +38,7 @@ public class GlowwormSilkBottomBlock extends HangingStrandBottomBlock {
         }
         else
         {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK || (blockstate.is(BlockTags.DRIPSTONE_REPLACEABLE) && blockstate.isFaceSturdy(p_196260_2_, blockpos, Direction.DOWN));
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.getBlock() == BOPBlocks.GLOWING_MOSS_BLOCK || blockstate.isFaceSturdy(p_196260_2_, blockpos, Direction.DOWN);
         }
     }
 

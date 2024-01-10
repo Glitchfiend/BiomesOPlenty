@@ -27,7 +27,7 @@ public class GlowingMossBlock extends MossBlock implements BonemealableBlock
     @Override
     public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_)
     {
-        return p_153797_.getBlockState(p_153798_.above()).isAir();
+        return p_153797_.getBlockState(p_153798_.above()).isAir() || p_153797_.getBlockState(p_153798_.below()).isAir();
     }
 
     @Override
@@ -41,5 +41,6 @@ public class GlowingMossBlock extends MossBlock implements BonemealableBlock
     {
         Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry = p_153792_.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE);
         configuredFeatureRegistry.get(BOPCaveFeatures.GLOWING_MOSS_PATCH_BONEMEAL).place(p_153792_, p_153792_.getChunkSource().getGenerator(), p_153793_, p_153794_.above());
+        configuredFeatureRegistry.get(BOPCaveFeatures.GLOWING_MOSS_PATCH_BONEMEAL_BOTTOM).place(p_153792_, p_153792_.getChunkSource().getGenerator(), p_153793_, p_153794_.below());
     }
 }

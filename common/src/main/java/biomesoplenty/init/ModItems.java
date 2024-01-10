@@ -380,8 +380,8 @@ public class ModItems
         HIGH_GRASS_PLANT = register(func, "high_grass_plant", new BlockItem(BOPBlocks.HIGH_GRASS_PLANT, new Item.Properties()));
         CLOVER = register(func, "clover", new BlockItem(BOPBlocks.CLOVER, new Item.Properties()));
         HUGE_CLOVER_PETAL = register(func, "huge_clover_petal", new BlockItem(BOPBlocks.HUGE_CLOVER_PETAL, new Item.Properties()));
-        HUGE_LILY_PAD = register(func, "huge_lily_pad", new BlockItem(BOPBlocks.HUGE_LILY_PAD, new Item.Properties()));
-        WATERLILY = register(func, "waterlily", new BlockItem(BOPBlocks.WATERLILY, new Item.Properties()));
+        HUGE_LILY_PAD = register(func, "huge_lily_pad", new PlaceOnWaterBlockItem(BOPBlocks.HUGE_LILY_PAD, new Item.Properties()));
+        WATERLILY = register(func, "waterlily", new PlaceOnWaterBlockItem(BOPBlocks.WATERLILY, new Item.Properties()));
         DUNE_GRASS = register(func, "dune_grass", new BlockItem(BOPBlocks.DUNE_GRASS, new Item.Properties()));
         DESERT_GRASS = register(func, "desert_grass", new BlockItem(BOPBlocks.DESERT_GRASS, new Item.Properties()));
         DEAD_GRASS = register(func, "dead_grass", new BlockItem(BOPBlocks.DEAD_GRASS, new Item.Properties()));

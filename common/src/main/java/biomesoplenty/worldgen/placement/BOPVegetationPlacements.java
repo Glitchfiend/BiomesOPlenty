@@ -125,6 +125,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PEONY = BOPPlacementUtils.createKey("patch_peony");
     public static final ResourceKey<PlacedFeature> ROSE_BUSH_NORMAL = BOPPlacementUtils.createKey("rose_bush_normal");
     public static final ResourceKey<PlacedFeature> ROSE_BUSH_EXTRA = BOPPlacementUtils.createKey("rose_bush_extra");
+    public static final ResourceKey<PlacedFeature> SPROUT_BONEMEAL = BOPPlacementUtils.createKey("sprout_bonemeal");
     public static final ResourceKey<PlacedFeature> SUNFLOWER = BOPPlacementUtils.createKey("sunflower");
     public static final ResourceKey<PlacedFeature> TREES_ASPEN_GLADE = BOPPlacementUtils.createKey("trees_aspen_glade");
     public static final ResourceKey<PlacedFeature> TREES_AURORAL_GARDEN = BOPPlacementUtils.createKey("trees_auroral_garden");
@@ -262,6 +263,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> PATCH_LILAC = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_LILAC);
         final Holder<ConfiguredFeature<?, ?>> PATCH_PEONY = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_PEONY);
         final Holder<ConfiguredFeature<?, ?>> ROSE_BUSH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ROSE_BUSH);
+        final Holder<ConfiguredFeature<?, ?>> SPROUT_BONEMEAL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SPROUT_BONEMEAL);
         final Holder<ConfiguredFeature<?, ?>> SUNFLOWER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SUNFLOWER);
         final Holder<ConfiguredFeature<?, ?>> TREES_ASPEN_GLADE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_ASPEN_GLADE);
         final Holder<ConfiguredFeature<?, ?>> TREES_AURORAL_GARDEN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_AURORAL_GARDEN);
@@ -426,6 +428,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PEONY, PATCH_PEONY, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.ROSE_BUSH_NORMAL, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.ROSE_BUSH_EXTRA, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.SPROUT_BONEMEAL, SPROUT_BONEMEAL, PlacementUtils.isEmpty());
         register(context, BOPVegetationPlacements.SUNFLOWER, SUNFLOWER, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.TREES_ASPEN_GLADE, TREES_ASPEN_GLADE, treePlacement(PlacementUtils.countExtra(3, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_AURORAL_GARDEN, TREES_AURORAL_GARDEN, treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));

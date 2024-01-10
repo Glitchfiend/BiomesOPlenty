@@ -1,4 +1,14 @@
 {
+  "block.blood.ambient": {
+    "sounds": [
+	  {
+        "name": "minecraft:liquid/lava",
+        "pitch": 0.5,
+		"volume": 0.5
+      }
+    ],
+    "subtitle": "subtitles.block.blood.ambient"
+  },
   "block.pus_bubble.pop": {
     "sounds": [
       "minecraft:liquid/lavapop"

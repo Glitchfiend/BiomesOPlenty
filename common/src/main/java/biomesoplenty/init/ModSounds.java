@@ -29,6 +29,7 @@ public class ModSounds
 
         MUSIC_DISC_WANDERER = register(func, "music_disc.wanderer");
 
+        BLOOD_AMBIENT = register(func, "block.blood.ambient");
         FLESH_TENDON_DRIP = register(func, "block.flesh_tendon.drip");
         PUS_BUBBLE_POP = register(func, "block.pus_bubble.pop");
         SPIDER_EGG_BREAK = register(func, "block.spider_egg.break");

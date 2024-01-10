@@ -7,6 +7,7 @@ package biomesoplenty.block;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.init.ModParticles;
 import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
@@ -14,6 +15,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -46,6 +49,15 @@ public abstract class BloodFluid extends FlowingFluid
     @Override
     public Item getBucket() {
         return BOPItems.BLOOD_BUCKET;
+    }
+
+    @Override
+    public void animateTick(Level p_230606_, BlockPos p_230607_, FluidState p_230608_, RandomSource p_230609_)
+    {
+        if (p_230609_.nextInt(256) == 0)
+        {
+            p_230606_.playLocalSound((double)p_230607_.getX() + 0.5D, (double)p_230607_.getY() + 0.5D, (double)p_230607_.getZ() + 0.5D, BOPSounds.BLOOD_AMBIENT, SoundSource.BLOCKS, p_230609_.nextFloat() * 0.25F + 0.75F, p_230609_.nextFloat() + 0.5F, false);
+        }
     }
 
     @Nullable
