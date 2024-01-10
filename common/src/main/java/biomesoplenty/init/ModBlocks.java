@@ -91,8 +91,6 @@ public class ModBlocks
         CUT_BLACK_SANDSTONE_SLAB = register(func, new SlabBlock(Block.Properties.ofFullCopy(CUT_BLACK_SANDSTONE)), "cut_black_sandstone_slab");
         CHISELED_BLACK_SANDSTONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(0.8F)), "chiseled_black_sandstone");
 
-        DRIED_SALT = register(func, new DriedSaltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
-
         MapColor tc1 = MapColor.GOLD;
         MapColor tc2 = MapColor.COLOR_YELLOW;
         MapColor tc3 = MapColor.COLOR_ORANGE;
@@ -100,6 +98,7 @@ public class ModBlocks
         MapColor tc5 = MapColor.TERRACOTTA_RED;
         THERMAL_CALCITE = register(func, new ThermalCalciteBlock(BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(ThermalCalciteBlock.DISTANCE) == 1 ? tc1 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 2 ? tc2 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 3 ? tc3 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 4 ? tc4 : tc5).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F)), "thermal_calcite");
         THERMAL_CALCITE_VENT = register(func, new ThermalCalciteVentBlock(BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(ThermalCalciteBlock.DISTANCE) == 1 ? tc1 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 2 ? tc2 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 3 ? tc3 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 4 ? tc4 : tc5).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F)), "thermal_calcite_vent");
+        DRIED_SALT = register(func, new DriedSaltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL))), "dried_salt");
 
         FLESH = register(func, new FleshBlock(BlockBehaviour.Properties.of().randomTicks().mapColor(MapColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "flesh");
         POROUS_FLESH = register(func, new FleshBlock(BlockBehaviour.Properties.of().randomTicks().mapColor(MapColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL))), "porous_flesh");

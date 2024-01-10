@@ -27,9 +27,7 @@ public class ModItems
         BOP_ICON = register(func, new Item(new Item.Properties()), "bop_icon");
 
         ROSE_QUARTZ_CHUNK = register(func, new Item(new Item.Properties()), "rose_quartz_chunk");
-
         MUSIC_DISC_WANDERER = register(func, new MusicDiscItemBOP(BOPSounds.MUSIC_DISC_WANDERER), "music_disc_wanderer");
-
         BLOOD_BUCKET = register(func, new BucketItem(BOPFluids.BLOOD, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1)), "blood_bucket");
 
         FIR_SIGN = register(func, new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.FIR_SIGN, BOPBlocks.FIR_WALL_SIGN), "fir_sign");
@@ -120,9 +118,9 @@ public class ModItems
         CUT_BLACK_SANDSTONE = register(func, "cut_black_sandstone", new BlockItem(BOPBlocks.CUT_BLACK_SANDSTONE, new Item.Properties()));
         CUT_BLACK_SANDSTONE_SLAB = register(func, "cut_black_sandstone_slab", new BlockItem(BOPBlocks.CUT_BLACK_SANDSTONE_SLAB, new Item.Properties()));
         CHISELED_BLACK_SANDSTONE = register(func, "chiseled_black_sandstone", new BlockItem(BOPBlocks.CHISELED_BLACK_SANDSTONE, new Item.Properties()));
-        DRIED_SALT = register(func, "dried_salt", new BlockItem(BOPBlocks.DRIED_SALT, new Item.Properties()));
         THERMAL_CALCITE = register(func, "thermal_calcite", new BlockItem(BOPBlocks.THERMAL_CALCITE, new Item.Properties()));
         THERMAL_CALCITE_VENT = register(func, "thermal_calcite_vent", new BlockItem(BOPBlocks.THERMAL_CALCITE_VENT, new Item.Properties()));
+        DRIED_SALT = register(func, "dried_salt", new BlockItem(BOPBlocks.DRIED_SALT, new Item.Properties()));
         FLESH = register(func, "flesh", new BlockItem(BOPBlocks.FLESH, new Item.Properties()));
         POROUS_FLESH = register(func, "porous_flesh", new BlockItem(BOPBlocks.POROUS_FLESH, new Item.Properties()));
         FLESH_TENDONS = register(func, "flesh_tendons", new BlockItem(BOPBlocks.FLESH_TENDONS, new Item.Properties()));

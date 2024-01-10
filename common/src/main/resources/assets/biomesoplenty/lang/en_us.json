@@ -501,13 +501,13 @@
   "trim_material.biomesoplenty.glowworm_silk": "Glowworm Silk Material",
   "trim_material.biomesoplenty.rose_quartz": "Rose Quartz Material",
   
-  "death.attack.bramble": "%1$s was punctured to death",
-  "death.attack.bramble.player": "%1$s got caught in bramble while trying to escape %2$s",
-  "death.attack.fumarole": "%1$s was steamed alive",
-  "death.attack.fumarole.player": "%1$s took a fatal steam bath due to %2$s",
+  "death.attack.biomesoplenty.bramble": "%1$s was punctured to death",
+  "death.attack.biomesoplenty.bramble.player": "%1$s got caught in bramble while trying to escape %2$s",
+  "death.attack.biomesoplenty.fumarole": "%1$s was steamed alive",
+  "death.attack.biomesoplenty.fumarole.player": "%1$s took a fatal steam bath due to %2$s",
   
-  "subtitles.block.blood.ambient": "Blood gurgles",
-  "subtitles.block.flesh_tendon.drip": "Blood drips",
-  "subtitles.block.pus_bubble.pop": "Pus Bubble pops",
-  "subtitles.block.spider_egg.break": "Spider Egg breaks"
+  "subtitles.block.biomesoplenty.blood.ambient": "Blood gurgles",
+  "subtitles.block.biomesoplenty.flesh_tendon.drip": "Blood drips",
+  "subtitles.block.biomesoplenty.pus_bubble.pop": "Pus Bubble pops",
+  "subtitles.block.biomesoplenty.spider_egg.break": "Spider Egg breaks"
 }

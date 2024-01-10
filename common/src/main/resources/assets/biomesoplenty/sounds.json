@@ -7,20 +7,20 @@
 		"volume": 0.5
       }
     ],
-    "subtitle": "subtitles.block.blood.ambient"
+    "subtitle": "subtitles.block.biomesoplenty.blood.ambient"
   },
   "block.pus_bubble.pop": {
     "sounds": [
       "minecraft:liquid/lavapop"
     ],
-    "subtitle": "subtitles.block.pus_bubble.pop"
+    "subtitle": "subtitles.block.biomesoplenty.pus_bubble.pop"
   },
   "block.spider_egg.break": {
     "sounds": [
 	  "minecraft:mob/turtle/egg/egg_break1",
       "minecraft:mob/turtle/egg/egg_break2"
     ],
-    "subtitle": "subtitles.block.spider_egg.break"
+    "subtitle": "subtitles.block.biomesoplenty.spider_egg.break"
   },
   "block.flesh_tendon.drip": {
     "sounds": [
@@ -97,7 +97,7 @@
         "volume": 0.3
       }
     ],
-    "subtitle": "subtitles.block.flesh_tendon.drip"
+    "subtitle": "subtitles.block.biomesoplenty.flesh_tendon.drip"
   },
   "music_disc.wanderer": {
     "sounds": [

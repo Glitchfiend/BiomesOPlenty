@@ -10,60 +10,6 @@ public class BOPItems
 {
     public static Item BOP_ICON;
 
-    public static Item ROSE_QUARTZ_CHUNK;
-    public static Item BLOOD_BUCKET;
-    public static Item MUSIC_DISC_WANDERER;
-    public static Item FIR_SIGN;
-    public static Item FIR_HANGING_SIGN;
-    public static Item PINE_SIGN;
-    public static Item PINE_HANGING_SIGN;
-    public static Item MAPLE_SIGN;
-    public static Item MAPLE_HANGING_SIGN;
-    public static Item REDWOOD_SIGN;
-    public static Item REDWOOD_HANGING_SIGN;
-    public static Item MAHOGANY_SIGN;
-    public static Item MAHOGANY_HANGING_SIGN;
-    public static Item JACARANDA_SIGN;
-    public static Item JACARANDA_HANGING_SIGN;
-    public static Item PALM_SIGN;
-    public static Item PALM_HANGING_SIGN;
-    public static Item WILLOW_SIGN;
-    public static Item WILLOW_HANGING_SIGN;
-    public static Item DEAD_SIGN;
-    public static Item DEAD_HANGING_SIGN;
-    public static Item MAGIC_SIGN;
-    public static Item MAGIC_HANGING_SIGN;
-    public static Item UMBRAN_SIGN;
-    public static Item UMBRAN_HANGING_SIGN;
-    public static Item HELLBARK_SIGN;
-    public static Item HELLBARK_HANGING_SIGN;
-
-    public static Item FIR_BOAT;
-    public static Item FIR_CHEST_BOAT;
-    public static Item PINE_BOAT;
-    public static Item PINE_CHEST_BOAT;
-    public static Item MAPLE_BOAT;
-    public static Item MAPLE_CHEST_BOAT;
-    public static Item REDWOOD_BOAT;
-    public static Item REDWOOD_CHEST_BOAT;
-    public static Item MAHOGANY_BOAT;
-    public static Item MAHOGANY_CHEST_BOAT;
-    public static Item JACARANDA_BOAT;
-    public static Item JACARANDA_CHEST_BOAT;
-    public static Item PALM_BOAT;
-    public static Item PALM_CHEST_BOAT;
-    public static Item WILLOW_BOAT;
-    public static Item WILLOW_CHEST_BOAT;
-    public static Item DEAD_BOAT;
-    public static Item DEAD_CHEST_BOAT;
-    public static Item MAGIC_BOAT;
-    public static Item MAGIC_CHEST_BOAT;
-    public static Item UMBRAN_BOAT;
-    public static Item UMBRAN_CHEST_BOAT;
-    public static Item HELLBARK_BOAT;
-    public static Item HELLBARK_CHEST_BOAT;
-
-    // Block items
     public static Item WHITE_SAND;
     public static Item WHITE_SANDSTONE;
     public static Item CUT_WHITE_SANDSTONE;
@@ -99,9 +45,9 @@ public class BOPItems
     public static Item BLACK_SANDSTONE_STAIRS;
     public static Item BLACK_SANDSTONE_WALL;
 
-    public static Item DRIED_SALT;
     public static Item THERMAL_CALCITE;
     public static Item THERMAL_CALCITE_VENT;
+    public static Item DRIED_SALT;
 
     public static Item FLESH;
     public static Item POROUS_FLESH;
@@ -110,6 +56,9 @@ public class BOPItems
     public static Item EYEBULB;
     public static Item HAIR;
     public static Item PUS_BUBBLE;
+
+    public static Item BLOOD;
+    public static Item BLOOD_BUCKET;
 
     public static Item BRIMSTONE;
     public static Item BRIMSTONE_BRICKS;
@@ -128,6 +77,8 @@ public class BOPItems
     public static Item LARGE_ROSE_QUARTZ_BUD;
     public static Item MEDIUM_ROSE_QUARTZ_BUD;
     public static Item SMALL_ROSE_QUARTZ_BUD;
+
+    public static Item ROSE_QUARTZ_CHUNK;
 
     public static Item TOADSTOOL;
     public static Item TOADSTOOL_BLOCK;
@@ -169,6 +120,11 @@ public class BOPItems
     public static Item FIR_TRAPDOOR;
     public static Item FIR_PRESSURE_PLATE;
     public static Item FIR_BUTTON;
+    public static Item FIR_SIGN;
+    public static Item FIR_HANGING_SIGN;
+    public static Item FIR_BOAT;
+    public static Item FIR_CHEST_BOAT;
+
     public static Item PINE_SAPLING;
     public static Item PINE_LEAVES;
     public static Item PINE_LOG;
@@ -184,6 +140,11 @@ public class BOPItems
     public static Item PINE_TRAPDOOR;
     public static Item PINE_PRESSURE_PLATE;
     public static Item PINE_BUTTON;
+    public static Item PINE_SIGN;
+    public static Item PINE_HANGING_SIGN;
+    public static Item PINE_BOAT;
+    public static Item PINE_CHEST_BOAT;
+
     public static Item RED_MAPLE_SAPLING;
     public static Item RED_MAPLE_LEAF_PILE;
     public static Item RED_MAPLE_LEAVES;
@@ -206,6 +167,11 @@ public class BOPItems
     public static Item MAPLE_TRAPDOOR;
     public static Item MAPLE_PRESSURE_PLATE;
     public static Item MAPLE_BUTTON;
+    public static Item MAPLE_SIGN;
+    public static Item MAPLE_HANGING_SIGN;
+    public static Item MAPLE_BOAT;
+    public static Item MAPLE_CHEST_BOAT;
+
     public static Item REDWOOD_SAPLING;
     public static Item REDWOOD_LEAVES;
     public static Item REDWOOD_LOG;
@@ -221,6 +187,11 @@ public class BOPItems
     public static Item REDWOOD_TRAPDOOR;
     public static Item REDWOOD_PRESSURE_PLATE;
     public static Item REDWOOD_BUTTON;
+    public static Item REDWOOD_SIGN;
+    public static Item REDWOOD_HANGING_SIGN;
+    public static Item REDWOOD_BOAT;
+    public static Item REDWOOD_CHEST_BOAT;
+
     public static Item MAHOGANY_SAPLING;
     public static Item MAHOGANY_LEAVES;
     public static Item MAHOGANY_LOG;
@@ -236,6 +207,11 @@ public class BOPItems
     public static Item MAHOGANY_TRAPDOOR;
     public static Item MAHOGANY_PRESSURE_PLATE;
     public static Item MAHOGANY_BUTTON;
+    public static Item MAHOGANY_SIGN;
+    public static Item MAHOGANY_HANGING_SIGN;
+    public static Item MAHOGANY_BOAT;
+    public static Item MAHOGANY_CHEST_BOAT;
+
     public static Item JACARANDA_SAPLING;
     public static Item JACARANDA_LEAVES;
     public static Item JACARANDA_LOG;
@@ -251,6 +227,11 @@ public class BOPItems
     public static Item JACARANDA_TRAPDOOR;
     public static Item JACARANDA_PRESSURE_PLATE;
     public static Item JACARANDA_BUTTON;
+    public static Item JACARANDA_SIGN;
+    public static Item JACARANDA_HANGING_SIGN;
+    public static Item JACARANDA_BOAT;
+    public static Item JACARANDA_CHEST_BOAT;
+
     public static Item PALM_SAPLING;
     public static Item PALM_LEAVES;
     public static Item PALM_LOG;
@@ -266,6 +247,11 @@ public class BOPItems
     public static Item PALM_TRAPDOOR;
     public static Item PALM_PRESSURE_PLATE;
     public static Item PALM_BUTTON;
+    public static Item PALM_SIGN;
+    public static Item PALM_HANGING_SIGN;
+    public static Item PALM_BOAT;
+    public static Item PALM_CHEST_BOAT;
+
     public static Item WILLOW_SAPLING;
     public static Item WILLOW_VINE;
     public static Item SPANISH_MOSS;
@@ -284,6 +270,11 @@ public class BOPItems
     public static Item WILLOW_TRAPDOOR;
     public static Item WILLOW_PRESSURE_PLATE;
     public static Item WILLOW_BUTTON;
+    public static Item WILLOW_SIGN;
+    public static Item WILLOW_HANGING_SIGN;
+    public static Item WILLOW_BOAT;
+    public static Item WILLOW_CHEST_BOAT;
+
     public static Item DEAD_SAPLING;
     public static Item DEAD_BRANCH;
     public static Item DEAD_LEAVES;
@@ -300,6 +291,11 @@ public class BOPItems
     public static Item DEAD_TRAPDOOR;
     public static Item DEAD_PRESSURE_PLATE;
     public static Item DEAD_BUTTON;
+    public static Item DEAD_SIGN;
+    public static Item DEAD_HANGING_SIGN;
+    public static Item DEAD_BOAT;
+    public static Item DEAD_CHEST_BOAT;
+
     public static Item MAGIC_SAPLING;
     public static Item MAGIC_LEAVES;
     public static Item MAGIC_LOG;
@@ -315,6 +311,11 @@ public class BOPItems
     public static Item MAGIC_TRAPDOOR;
     public static Item MAGIC_PRESSURE_PLATE;
     public static Item MAGIC_BUTTON;
+    public static Item MAGIC_SIGN;
+    public static Item MAGIC_HANGING_SIGN;
+    public static Item MAGIC_BOAT;
+    public static Item MAGIC_CHEST_BOAT;
+
     public static Item UMBRAN_SAPLING;
     public static Item UMBRAN_LEAVES;
     public static Item UMBRAN_LOG;
@@ -330,6 +331,11 @@ public class BOPItems
     public static Item UMBRAN_TRAPDOOR;
     public static Item UMBRAN_PRESSURE_PLATE;
     public static Item UMBRAN_BUTTON;
+    public static Item UMBRAN_SIGN;
+    public static Item UMBRAN_HANGING_SIGN;
+    public static Item UMBRAN_BOAT;
+    public static Item UMBRAN_CHEST_BOAT;
+
     public static Item HELLBARK_SAPLING;
     public static Item HELLBARK_LEAVES;
     public static Item HELLBARK_LOG;
@@ -345,6 +351,10 @@ public class BOPItems
     public static Item HELLBARK_TRAPDOOR;
     public static Item HELLBARK_PRESSURE_PLATE;
     public static Item HELLBARK_BUTTON;
+    public static Item HELLBARK_SIGN;
+    public static Item HELLBARK_HANGING_SIGN;
+    public static Item HELLBARK_BOAT;
+    public static Item HELLBARK_CHEST_BOAT;
 
     public static Item ROSE;
     public static Item VIOLET;
@@ -385,7 +395,7 @@ public class BOPItems
     public static Item BRAMBLE;
     public static Item BRAMBLE_LEAVES;
 
-    public static Item BLOOD;
+    public static Item MUSIC_DISC_WANDERER;
 
     public static Item POTTED_ORIGIN_SAPLING;
     public static Item POTTED_FLOWERING_OAK_SAPLING;

@@ -43,9 +43,9 @@ public class BOPBlocks
     public static Block BLACK_SANDSTONE_STAIRS;
     public static Block BLACK_SANDSTONE_WALL;
 
-    public static Block DRIED_SALT;
     public static Block THERMAL_CALCITE;
     public static Block THERMAL_CALCITE_VENT;
+    public static Block DRIED_SALT;
 
     public static Block FLESH;
     public static Block POROUS_FLESH;

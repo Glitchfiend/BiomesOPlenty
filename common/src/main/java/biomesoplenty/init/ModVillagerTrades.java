@@ -98,27 +98,6 @@ public class ModVillagerTrades
         }
     }
 
-    static class EmeraldForItems implements VillagerTrades.ItemListing {
-        private final Item item;
-        private final int cost;
-        private final int maxUses;
-        private final int villagerXp;
-        private final float priceMultiplier;
-
-        public EmeraldForItems(ItemLike p_35657_, int p_35658_, int p_35659_, int p_35660_) {
-            this.item = p_35657_.asItem();
-            this.cost = p_35658_;
-            this.maxUses = p_35659_;
-            this.villagerXp = p_35660_;
-            this.priceMultiplier = 0.05F;
-        }
-
-        public MerchantOffer getOffer(Entity p_219682_, RandomSource p_219683_) {
-            ItemStack itemstack = new ItemStack(this.item, this.cost);
-            return new MerchantOffer(itemstack, new ItemStack(Items.EMERALD), this.maxUses, this.villagerXp, this.priceMultiplier);
-        }
-    }
-
     static class ItemsForEmeralds implements VillagerTrades.ItemListing {
         private final ItemStack itemStack;
         private final int emeraldCost;
@@ -129,14 +108,6 @@ public class ModVillagerTrades
 
         public ItemsForEmeralds(Block p_35765_, int p_35766_, int p_35767_, int p_35768_, int p_35769_) {
             this(new ItemStack(p_35765_), p_35766_, p_35767_, p_35768_, p_35769_);
-        }
-
-        public ItemsForEmeralds(Item p_35741_, int p_35742_, int p_35743_, int p_35744_) {
-            this(new ItemStack(p_35741_), p_35742_, p_35743_, 12, p_35744_);
-        }
-
-        public ItemsForEmeralds(Item p_35746_, int p_35747_, int p_35748_, int p_35749_, int p_35750_) {
-            this(new ItemStack(p_35746_), p_35747_, p_35748_, p_35749_, p_35750_);
         }
 
         public ItemsForEmeralds(ItemStack p_35752_, int p_35753_, int p_35754_, int p_35755_, int p_35756_) {

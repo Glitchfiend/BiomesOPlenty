@@ -8,7 +8,7 @@ public class ModDamageTypes
 {
     public static void bootstrap(BootstapContext<DamageType> context)
     {
-        context.register(BOPDamageTypes.BRAMBLE, new DamageType("bramble", 0.1F));
-        context.register(BOPDamageTypes.FUMAROLE, new DamageType("fumarole", 0.1F));
+        context.register(BOPDamageTypes.BRAMBLE, new DamageType("biomesoplenty.bramble", 0.1F));
+        context.register(BOPDamageTypes.FUMAROLE, new DamageType("biomesoplenty.fumarole", 0.1F));
     }
 }
