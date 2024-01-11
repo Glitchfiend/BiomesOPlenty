@@ -6,11 +6,13 @@ package biomesoplenty.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.IceBlock;
@@ -54,10 +56,17 @@ public class WaterlilyBlockBOP extends BushBlock
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState p_58174_, BlockGetter p_58175_, BlockPos p_58176_)
+    public boolean canSurvive(BlockState p_51028_, LevelReader p_51029_, BlockPos p_51030_)
     {
-        FluidState fluidstate = p_58175_.getFluidState(p_58176_);
-        FluidState fluidstate1 = p_58175_.getFluidState(p_58176_.above());
+        BlockPos blockpos = p_51030_.below();
+        return this.mayPlaceOn(p_51029_.getBlockState(blockpos), p_51029_, blockpos);
+    }
+
+    @Override
+    protected boolean mayPlaceOn(BlockState p_58174_, BlockGetter p_58175_, BlockPos pos)
+    {
+        FluidState fluidstate = p_58175_.getFluidState(pos);
+        FluidState fluidstate1 = p_58175_.getFluidState(pos.above());
         return (fluidstate.getType() == Fluids.WATER || p_58174_.getBlock() instanceof IceBlock) && fluidstate1.getType() == Fluids.EMPTY;
     }
 }

@@ -12,6 +12,7 @@ import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DispensibleContainerItem;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -320,5 +321,7 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.GLOWSHROOM);
         registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_BLOCK);
         registerCompostable(0.65F, BOPBlocks.HUGE_LILY_PAD);
+
+        registerTillable(BOPBlocks.ORIGIN_GRASS_BLOCK, HoeItem::onlyIfAirAbove, Blocks.FARMLAND.defaultBlockState());
     }
 }

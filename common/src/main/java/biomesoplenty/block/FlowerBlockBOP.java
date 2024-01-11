@@ -66,9 +66,13 @@ public class FlowerBlockBOP extends FlowerBlock
         {
             return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || super.canSurvive(state, worldIn, pos);
         }
-        if (this == BOPBlocks.BURNING_BLOSSOM)
+        else if (this == BOPBlocks.BURNING_BLOSSOM)
         {
             return ground == Blocks.NETHERRACK || ground == Blocks.SOUL_SAND ||  ground == Blocks.SOUL_SOIL ||  ground == Blocks.CRIMSON_NYLIUM ||  ground == Blocks.WARPED_NYLIUM || super.canSurvive(state, worldIn, pos);
+        }
+        else if (this == BOPBlocks.WILTED_LILY)
+        {
+            return ground == BOPBlocks.DRIED_SALT || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);

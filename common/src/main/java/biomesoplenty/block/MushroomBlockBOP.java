@@ -11,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -30,6 +31,15 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
     @Override
     public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random)
     {
+    }
+
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos)
+    {
+        BlockPos below = pos.below();
+        BlockState ground = level.getBlockState(below);
+
+        return ground.is(BlockTags.MUSHROOM_GROW_BLOCK) || this.mayPlaceOn(ground, level, below);
     }
 
     @Override
