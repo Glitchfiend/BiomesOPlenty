@@ -2,7 +2,7 @@
  * Copyright 2022, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
-package biomesoplenty.forge.common.datagen;
+package biomesoplenty.forge.datagen;
 
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModDamageTypes;
