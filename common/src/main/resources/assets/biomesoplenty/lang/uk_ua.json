@@ -501,12 +501,13 @@
   "trim_material.biomesoplenty.glowworm_silk": "Матеріал із шовку сяйного хробака",
   "trim_material.biomesoplenty.rose_quartz": "Рожево-кварцовий матеріал",
 
-  "death.attack.bramble": "%1$s проткнуто до смерті",
-  "death.attack.bramble.player": "%1$s застряг у колючнику при спробі втекти від %2$s",
-  "death.attack.fumarole": "%1$s запаровано живцем",
-  "death.attack.fumarole.player": "%1$s прийняв смертельну парову ванну через %2$s",
+  "death.attack.biomesoplenty.bramble": "%1$s проткнуто до смерті",
+  "death.attack.biomesoplenty.bramble.player": "%1$s застряг у колючнику при спробі втекти від %2$s",
+  "death.attack.biomesoplenty.fumarole": "%1$s запаровано живцем",
+  "death.attack.biomesoplenty.fumarole.player": "%1$s прийняв смертельну парову ванну через %2$s",
 
-  "subtitles.block.flesh_tendon.drip": "Кров капає",
-  "subtitles.block.pus_bubble.pop": "Гнійний пузир лускає",
-  "subtitles.block.spider_egg.break": "Павуче яйце ламається"
+  "subtitles.block.biomesoplenty.blood.ambient": "Кров булькає",
+  "subtitles.block.biomesoplenty.flesh_tendon.drip": "Кров капає",
+  "subtitles.block.biomesoplenty.pus_bubble.pop": "Гнійний пузир лускає",
+  "subtitles.block.biomesoplenty.spider_egg.break": "Павуче яйце ламається"
 }
