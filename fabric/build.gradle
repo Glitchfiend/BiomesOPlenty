@@ -70,7 +70,7 @@ curseforge {
         relations {
             requiredDependency 'fabric-api'
             requiredDependency 'glitchcore'
-            requiredDependency 'terrablender'
+            requiredDependency 'terrablender-fabric'
         }
     }
 }

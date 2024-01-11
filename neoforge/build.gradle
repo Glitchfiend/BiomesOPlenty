@@ -86,7 +86,7 @@ curseforge {
 
         relations {
             requiredDependency 'glitchcore'
-            requiredDependency 'terrablender'
+            requiredDependency 'terrablender-neoforge'
         }
     }
 }
