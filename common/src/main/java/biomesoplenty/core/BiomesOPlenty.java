@@ -53,18 +53,8 @@ public class BiomesOPlenty
 
         if (Environment.isClient())
         {
-            addClientHandlers();
+            ModClient.addClientHandlers();
         }
-    }
-
-    private static void addClientHandlers()
-    {
-        // Coloring
-        EventManager.addListener(ModClient::registerBlockColors);
-        EventManager.addListener(ModClient::registerItemColors);
-
-        // Particles
-        EventManager.addListener(ModClient::registerParticleSprites);
     }
 
     public static void setupTerraBlender()
@@ -72,10 +62,4 @@ public class BiomesOPlenty
         ModBiomes.setupTerraBlender();
     }
 
-    public static void setupClient()
-    {
-        ModClient.setupRenderTypes();
-        ModClient.registerRenderers();
-        ModClient.registerWoodTypes();
-    }
 }

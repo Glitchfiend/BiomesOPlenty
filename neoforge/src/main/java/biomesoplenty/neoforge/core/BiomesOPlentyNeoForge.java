@@ -6,6 +6,7 @@
 package biomesoplenty.neoforge.core;
 
 import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.init.ModClient;
 import biomesoplenty.neoforge.init.ModFluidTypes;
 import glitchcore.neoforge.GlitchCoreNeoForge;
 import net.neoforged.bus.api.IEventBus;
@@ -45,6 +46,6 @@ public class BiomesOPlentyNeoForge
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        event.enqueueWork(BiomesOPlenty::setupClient);
+        event.enqueueWork(ModClient::setup);
     }
 }

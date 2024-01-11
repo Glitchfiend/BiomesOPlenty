@@ -14,6 +14,7 @@ import biomesoplenty.client.renderer.BoatRendererBOP;
 import biomesoplenty.entity.BoatBOP;
 import biomesoplenty.entity.ChestBoatBOP;
 import biomesoplenty.particle.*;
+import glitchcore.event.EventManager;
 import glitchcore.event.client.RegisterColorsEvent;
 import glitchcore.event.client.RegisterParticleSpritesEvent;
 import glitchcore.util.RenderHelper;
@@ -25,7 +26,6 @@ import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.BlockPos;
@@ -45,6 +45,23 @@ import static biomesoplenty.api.block.BOPBlocks.*;
 
 public class ModClient
 {
+    public static void setup()
+    {
+        setupRenderTypes();
+        registerRenderers();
+        registerWoodTypes();
+    }
+
+    public static void addClientHandlers()
+    {
+        // Coloring
+        EventManager.addListener(ModClient::registerBlockColors);
+        EventManager.addListener(ModClient::registerItemColors);
+
+        // Particles
+        EventManager.addListener(ModClient::registerParticleSprites);
+    }
+
     public static void setupRenderTypes()
     {
         RenderType transparentRenderType = RenderType.cutoutMipped();

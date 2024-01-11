@@ -48,6 +48,6 @@ public class BiomesOPlentyForge
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        event.enqueueWork(BiomesOPlenty::setupClient);
+        event.enqueueWork(ModClient::setup);
     }
 }
