@@ -130,6 +130,7 @@ subprojects {
                         required.project "fabric-api"
                     }
                     required.project "glitchcore"
+                    required.project "terrablender"
                 }
 
                 if (changelog_file.exists()) {
