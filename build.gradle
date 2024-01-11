@@ -125,6 +125,12 @@ subprojects {
                 uploadFile = name.equals("Fabric") ? remapJar : jar
                 gameVersions = [minecraft_version]
                 loaders = [name.toLowerCase()]
+                dependencies {
+                    if (name.equals("Fabric")) {
+                        required.project "fabric-api"
+                    }
+                    required.project "glitchcore"
+                }
 
                 if (changelog_file.exists()) {
                     changelog = trimChangelog(changelog_file.text)
