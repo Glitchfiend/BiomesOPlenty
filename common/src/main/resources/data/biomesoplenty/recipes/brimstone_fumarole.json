@@ -2,15 +2,15 @@
   "type": "crafting_shaped",
   "pattern": [
     " # ",
-	"#L#",
+	"#F#",
 	"###"
   ],
   "key": {
     "#": {
       "item": "biomesoplenty:brimstone"
     },
-	"L": {
-      "item": "minecraft:lava_bucket"
+	"F": {
+      "item": "minecraft:fire_charge"
     }
   },
   "result": {

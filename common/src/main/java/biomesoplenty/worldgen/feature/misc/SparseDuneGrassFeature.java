@@ -34,7 +34,7 @@ public class SparseDuneGrassFeature extends Feature<NoneFeatureConfiguration>
         for(int j = 0; j < 128; ++j)
         {
             BlockPos blockpos = pos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(2) - rand.nextInt(2), rand.nextInt(4) - rand.nextInt(4));
-            if (world.getBlockState(blockpos).canBeReplaced())
+            if (world.getBlockState(blockpos).isAir())
             {
                 if (world.getBlockState(blockpos.below()).getBlock() == BOPBlocks.ORANGE_SAND)
                 {
