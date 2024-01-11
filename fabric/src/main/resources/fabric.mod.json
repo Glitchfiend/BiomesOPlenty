@@ -13,7 +13,7 @@
     "sources": "${mod_git_url}"
   },
   "license": "${mod_license}",
-  "icon": "${mod_id}_logo.png",
+  "icon": "assets/biomesoplenty/textures/item/bop_icon.png",
   "environment": "*",
   "entrypoints": {
     "glitchcore": [
@@ -32,7 +32,8 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
     "java": ">=17",
-    "glitchcore": ">=${glitchcore_version}"
+    "glitchcore": ">=${glitchcore_version}",
+    "terrablender": ">=${terrablender_version}"
   },
   "accessWidener": "${mod_id}.accesswidener",
   "custom": {

@@ -25,3 +25,10 @@ logoFile="${mod_id}_logo.png"
     versionRange="[${glitchcore_version},)"
     ordering="AFTER"
     side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="terrablender"
+    mandatory=true
+    versionRange="[${terrablender_version},)"
+    ordering="AFTER"
+    side="BOTH"
