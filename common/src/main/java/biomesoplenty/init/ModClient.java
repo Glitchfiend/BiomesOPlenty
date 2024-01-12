@@ -6,6 +6,7 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlockEntities;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.block.BOPWoodTypes;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.block.HangingSignBlockEntityBOP;
@@ -231,6 +232,8 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_GLOWSHROOM, cutoutRenderType);
 
         RenderHelper.setRenderType(BLOOD, translucentRenderType);
+        RenderHelper.setRenderType(BOPFluids.BLOOD, translucentRenderType);
+        RenderHelper.setRenderType(BOPFluids.FLOWING_BLOOD, translucentRenderType);
     }
 
     public static void registerRenderers()

@@ -122,13 +122,6 @@ public abstract class BloodFluid extends FlowingFluid
         return Optional.of(SoundEvents.BUCKET_FILL);
     }
 
-    // TODO: Forge fluids
-//    @Override
-//    public net.minecraftforge.fluids.FluidType getFluidType()
-//    {
-//        return BOPFluids.BLOOD_TYPE;
-//    }
-
     public static class Flowing extends BloodFluid
     {
         protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> p_76476_)
