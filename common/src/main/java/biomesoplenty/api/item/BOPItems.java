@@ -80,6 +80,12 @@ public class BOPItems
 
     public static Item ROSE_QUARTZ_CHUNK;
 
+    public static Item ALGAL_END_STONE;
+    public static Item ALGAE_BLOOM;
+    public static Item ENDERPHYTE;
+    public static Item BARNACLES;
+    public static Item ANOMALY;
+
     public static Item TOADSTOOL;
     public static Item TOADSTOOL_BLOCK;
     public static Item GLOWSHROOM;
@@ -429,5 +435,4 @@ public class BOPItems
     public static Item POTTED_TINY_CACTUS;
     public static Item POTTED_TOADSTOOL;
     public static Item POTTED_GLOWSHROOM;
-    public static Item FOOBAR;
 }

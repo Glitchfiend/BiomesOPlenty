@@ -10,10 +10,10 @@ import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.block.BOPWoodTypes;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.block.HangingSignBlockEntityBOP;
-import biomesoplenty.block.entity.FoobarBlockEntity;
+import biomesoplenty.block.entity.AnomalyBlockEntity;
 import biomesoplenty.block.entity.SignBlockEntityBOP;
 import biomesoplenty.client.renderer.BoatRendererBOP;
-import biomesoplenty.client.renderer.FoobarRenderer;
+import biomesoplenty.client.renderer.AnomalyRenderer;
 import biomesoplenty.entity.BoatBOP;
 import biomesoplenty.entity.ChestBoatBOP;
 import biomesoplenty.particle.*;
@@ -173,6 +173,8 @@ public class ModClient
         RenderHelper.setRenderType(SMALL_ROSE_QUARTZ_BUD, cutoutRenderType);
         RenderHelper.setRenderType(BLACKSTONE_SPINES, cutoutRenderType);
         RenderHelper.setRenderType(BLACKSTONE_BULB, cutoutRenderType);
+        RenderHelper.setRenderType(ALGAE_BLOOM, cutoutRenderType);
+        RenderHelper.setRenderType(ENDERPHYTE, cutoutRenderType);
         RenderHelper.setRenderType(SPIDER_EGG, cutoutRenderType);
 
         RenderHelper.setRenderType(FIR_DOOR, cutoutRenderType);
@@ -253,7 +255,7 @@ public class ModClient
         // Register block entity renderers
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<SignBlockEntityBOP>) BOPBlockEntities.SIGN, SignRenderer::new);
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<HangingSignBlockEntityBOP>)BOPBlockEntities.HANGING_SIGN, HangingSignRenderer::new);
-        RenderHelper.registerBlockEntityRenderer((BlockEntityType<FoobarBlockEntity>)BOPBlockEntities.FOOBAR, FoobarRenderer::new);
+        RenderHelper.registerBlockEntityRenderer((BlockEntityType<AnomalyBlockEntity>)BOPBlockEntities.ANOMALY, AnomalyRenderer::new);
 
         // Register entity renderers
         RenderHelper.registerEntityRenderer((EntityType<BoatBOP>) BOPEntities.BOAT, context -> new BoatRendererBOP(context, false));

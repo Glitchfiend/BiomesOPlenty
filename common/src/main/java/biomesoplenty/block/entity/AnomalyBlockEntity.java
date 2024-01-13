@@ -9,9 +9,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class FoobarBlockEntity extends BlockEntity
+public class AnomalyBlockEntity extends BlockEntity
 {
-    public FoobarBlockEntity(BlockPos pos, BlockState state) {
-        super(BOPBlockEntities.FOOBAR, pos, state);
+    public AnomalyBlockEntity(BlockPos pos, BlockState state) {
+        super(BOPBlockEntities.ANOMALY, pos, state);
     }
 }

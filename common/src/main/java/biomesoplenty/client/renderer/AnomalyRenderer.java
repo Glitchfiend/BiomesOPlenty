@@ -4,7 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.client.renderer;
 
-import biomesoplenty.block.entity.FoobarBlockEntity;
+import biomesoplenty.block.entity.AnomalyBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -25,17 +25,17 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Map;
 
-public class FoobarRenderer implements BlockEntityRenderer<FoobarBlockEntity>
+public class AnomalyRenderer implements BlockEntityRenderer<AnomalyBlockEntity>
 {
     private final BlockRenderDispatcher dispatcher;
 
-    public FoobarRenderer(BlockEntityRendererProvider.Context context)
+    public AnomalyRenderer(BlockEntityRendererProvider.Context context)
     {
         this.dispatcher = context.getBlockRenderDispatcher();
     }
 
     @Override
-    public void render(FoobarBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay)
+    public void render(AnomalyBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay)
     {
         Level level = blockEntity.getLevel();
         BlockPos pos = blockEntity.getBlockPos();
@@ -43,12 +43,12 @@ public class FoobarRenderer implements BlockEntityRenderer<FoobarBlockEntity>
         this.dispatcher.getModelRenderer().tesselateBlock(level, this.dispatcher.getBlockModel(renderState), renderState, pos, poseStack, buffer.getBuffer(ItemBlockRenderTypes.getRenderType(renderState, true)), false, RandomSource.create(), renderState.getSeed(pos), OverlayTexture.NO_OVERLAY);
     }
 
-    private BlockState getRenderState(RandomSource random, FoobarBlockEntity blockEntity)
+    private BlockState getRenderState(RandomSource random, AnomalyBlockEntity blockEntity)
     {
         Level level = blockEntity.getLevel();
         Registry<Block> blockRegistry = level.registryAccess().registryOrThrow(Registries.BLOCK);
 
-        int index = (random.nextInt(blockRegistry.size()) + (int) (level.getGameTime() / 5L)) % blockRegistry.size();
+        int index = (random.nextInt(blockRegistry.size()) * (int)(level.getGameTime() / 2L)) % blockRegistry.size();
         BlockState state = Blocks.AIR.defaultBlockState();
 
         while (state.getRenderShape() != RenderShape.MODEL)

@@ -150,6 +150,11 @@ public class ModItems
         LARGE_ROSE_QUARTZ_BUD = register(func, "large_rose_quartz_bud", new BlockItem(BOPBlocks.LARGE_ROSE_QUARTZ_BUD, new Item.Properties()));
         MEDIUM_ROSE_QUARTZ_BUD = register(func, "medium_rose_quartz_bud", new BlockItem(BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD, new Item.Properties()));
         SMALL_ROSE_QUARTZ_BUD = register(func, "small_rose_quartz_bud", new BlockItem(BOPBlocks.SMALL_ROSE_QUARTZ_BUD, new Item.Properties()));
+        ALGAL_END_STONE = register(func, "algal_end_stone", new BlockItem(BOPBlocks.ALGAL_END_STONE, new Item.Properties()));
+        ALGAE_BLOOM = register(func, "algae_bloom", new BlockItem(BOPBlocks.ALGAE_BLOOM, new Item.Properties()));
+        ENDERPHYTE = register(func, "enderphyte", new BlockItem(BOPBlocks.ENDERPHYTE, new Item.Properties()));
+        BARNACLES = register(func, "barnacles", new BlockItem(BOPBlocks.BARNACLES, new Item.Properties()));
+        ANOMALY = register(func, "anomaly", new BlockItem(BOPBlocks.ANOMALY, new Item.Properties()));
         TOADSTOOL = register(func, "toadstool", new BlockItem(BOPBlocks.TOADSTOOL, new Item.Properties()));
         TOADSTOOL_BLOCK = register(func, "toadstool_block", new BlockItem(BOPBlocks.TOADSTOOL_BLOCK, new Item.Properties()));
         GLOWSHROOM = register(func, "glowshroom", new BlockItem(BOPBlocks.GLOWSHROOM, new Item.Properties()));
@@ -430,7 +435,6 @@ public class ModItems
         POTTED_TINY_CACTUS = register(func, "potted_tiny_cactus", new BlockItem(BOPBlocks.POTTED_TINY_CACTUS, new Item.Properties()));
         POTTED_TOADSTOOL = register(func, "potted_toadstool", new BlockItem(BOPBlocks.POTTED_TOADSTOOL, new Item.Properties()));
         POTTED_GLOWSHROOM = register(func, "potted_glowshroom", new BlockItem(BOPBlocks.POTTED_GLOWSHROOM, new Item.Properties()));
-        FOOBAR = register(func, "foobar", new BlockItem(BOPBlocks.FOOBAR, new Item.Properties()));
     }
 
     private static Item register(BiConsumer<ResourceLocation, Item> func, Item item, String name)

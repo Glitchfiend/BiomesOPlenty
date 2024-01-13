@@ -45,6 +45,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_PUMPKIN = BOPFeatureUtils.createKey("big_pumpkin");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRAMBLE = BOPFeatureUtils.createKey("bramble");
     public static final ResourceKey<ConfiguredFeature<?, ?>> COLD_DESERT_ROCKS = BOPFeatureUtils.createKey("cold_desert_rocks");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ENDERPHYTE_BONEMEAL = BOPFeatureUtils.createKey("enderphyte_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LOG = BOPFeatureUtils.createKey("fallen_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = BOPFeatureUtils.createKey("fallen_fir_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_BIRCH_LOG = BOPFeatureUtils.createKey("fallen_birch_log");
@@ -236,6 +237,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.BIG_DRIPLEAF, BOPBaseFeatures.BIG_DRIPLEAF, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.BIG_PUMPKIN, BOPBaseFeatures.BIG_PUMPKIN, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.BRAMBLE, BOPBaseFeatures.BRAMBLE, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.ENDERPHYTE_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE.defaultBlockState())));
         register(context, BOPVegetationFeatures.FALLEN_LOG, BOPBaseFeatures.FALLEN_LOG, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.FALLEN_FIR_LOG, BOPBaseFeatures.FALLEN_FIR_LOG, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.FALLEN_BIRCH_LOG, BOPBaseFeatures.FALLEN_BIRCH_LOG, NoneFeatureConfiguration.INSTANCE);

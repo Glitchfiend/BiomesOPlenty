@@ -10,5 +10,5 @@ public class BOPBlockEntities
 {
     public static BlockEntityType<?> SIGN;
     public static BlockEntityType<?> HANGING_SIGN;
-    public static BlockEntityType<?> FOOBAR;
+    public static BlockEntityType<?> ANOMALY;
 }

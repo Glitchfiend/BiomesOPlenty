@@ -73,6 +73,12 @@ public class BOPBlocks
     public static Block MEDIUM_ROSE_QUARTZ_BUD;
     public static Block SMALL_ROSE_QUARTZ_BUD;
 
+    public static Block ALGAL_END_STONE;
+    public static Block ALGAE_BLOOM;
+    public static Block ENDERPHYTE;
+    public static Block BARNACLES;
+    public static Block ANOMALY;
+
     public static Block TOADSTOOL;
     public static Block TOADSTOOL_BLOCK;
     public static Block GLOWSHROOM;
@@ -411,6 +417,4 @@ public class BOPBlocks
     public static Block POTTED_TINY_CACTUS;
     public static Block POTTED_TOADSTOOL;
     public static Block POTTED_GLOWSHROOM;
-
-    public static Block FOOBAR;
 }
