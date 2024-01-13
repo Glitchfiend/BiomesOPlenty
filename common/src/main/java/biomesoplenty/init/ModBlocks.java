@@ -45,6 +45,7 @@ public class ModBlocks
     {
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.overworld());
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.nether());
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.end());
     }
 
     private static void registerBlocks(BiConsumer<ResourceLocation, Block> func)

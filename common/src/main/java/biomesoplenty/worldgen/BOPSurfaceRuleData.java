@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.placement.CaveSurface;
 public class BOPSurfaceRuleData
 {
     private static final SurfaceRules.RuleSource AIR = makeStateRule(Blocks.AIR);
+    private static final SurfaceRules.RuleSource ALGAL_END_STONE = makeStateRule(BOPBlocks.ALGAL_END_STONE);
     private static final SurfaceRules.RuleSource BEDROCK = makeStateRule(Blocks.BEDROCK);
     private static final SurfaceRules.RuleSource LIGHT_BLUE_TERRACOTTA = makeStateRule(Blocks.LIGHT_BLUE_TERRACOTTA);
     private static final SurfaceRules.RuleSource CYAN_TERRACOTTA = makeStateRule(Blocks.CYAN_TERRACOTTA);
@@ -322,6 +323,23 @@ public class BOPSurfaceRuleData
             )
         );
     }
+
+    public static SurfaceRules.RuleSource end()
+    {
+        return SurfaceRules.sequence(
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(BOPBiomes.END_WILDS),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
+                        SurfaceRules.sequence(
+                            ALGAL_END_STONE
+                        )
+                    )
+                )
+            )
+        );
+    }
+
 
     private static SurfaceRules.ConditionSource surfaceNoiseAbove(double p_194809_) {
         return SurfaceRules.noiseCondition(Noises.SURFACE, p_194809_ / 8.25D, Double.MAX_VALUE);

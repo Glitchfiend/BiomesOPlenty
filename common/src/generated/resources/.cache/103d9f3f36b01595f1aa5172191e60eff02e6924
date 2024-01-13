@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-13T10:45:24.7076168	Registries
+// 1.20.4	2024-01-14T10:15:56.4044896	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 1db19ce8d33b8c131955b60ed830200bbee6a912 data/biomesoplenty/worldgen/biome/aspen_glade.json
@@ -13,6 +13,11 @@ d0c0bdd9fc7b09e7d046e35faea8cc6d752b468a data/biomesoplenty/worldgen/biome/crag.
 401cb408a8b99f3fd8b696f9759d9f1f8a1a945e data/biomesoplenty/worldgen/biome/dead_forest.json
 506de7d82a9bf0a7caea3390590dc9d1fa2028b0 data/biomesoplenty/worldgen/biome/dryland.json
 d4a9226ceaef3cf4eed45892e027c1eabf9fcd72 data/biomesoplenty/worldgen/biome/dune_beach.json
+5a23cdc8f5cb6d13e4cd7185b7b9841bf550acf2 data/biomesoplenty/worldgen/biome/end_aeries.json
+5a23cdc8f5cb6d13e4cd7185b7b9841bf550acf2 data/biomesoplenty/worldgen/biome/end_corruption.json
+5a23cdc8f5cb6d13e4cd7185b7b9841bf550acf2 data/biomesoplenty/worldgen/biome/end_drifts.json
+5a23cdc8f5cb6d13e4cd7185b7b9841bf550acf2 data/biomesoplenty/worldgen/biome/end_reef.json
+5a23cdc8f5cb6d13e4cd7185b7b9841bf550acf2 data/biomesoplenty/worldgen/biome/end_wilds.json
 a89d541384f1a879bb82d9c984d98c512474d27c data/biomesoplenty/worldgen/biome/erupting_inferno.json
 d662a9e04a7840345595d343cc34426393c04699 data/biomesoplenty/worldgen/biome/field.json
 0ca60f25f9961787ec5f174f8be6f29463c4decc data/biomesoplenty/worldgen/biome/fir_clearing.json
