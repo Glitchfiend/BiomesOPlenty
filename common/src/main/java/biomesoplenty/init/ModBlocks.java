@@ -12,7 +12,6 @@ import biomesoplenty.block.*;
 import biomesoplenty.block.trees.BOPTreeGrowers;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.worldgen.BOPSurfaceRuleData;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -478,6 +477,8 @@ public class ModBlocks
         POTTED_TINY_CACTUS = register(func, new FlowerPotBlock(TINY_CACTUS, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_tiny_cactus");
         POTTED_TOADSTOOL = register(func, new FlowerPotBlock(TOADSTOOL, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_toadstool");
         POTTED_GLOWSHROOM = register(func, new FlowerPotBlock(GLOWSHROOM, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 6).emissiveRendering((state, world, pos) -> true)), "potted_glowshroom");
+
+        FOOBAR = register(func, new FoobarBlock(BlockBehaviour.Properties.of().noOcclusion()), "foobar");
     }
 
     private static RotatedPillarBlock log(MapColor MapColor, MapColor MapColor2) {

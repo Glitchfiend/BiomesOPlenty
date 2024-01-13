@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.block;
 
+import biomesoplenty.block.entity.SignBlockEntityBOP;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;

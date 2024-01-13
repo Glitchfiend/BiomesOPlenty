@@ -2,7 +2,7 @@
  * Copyright 2022, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
-package biomesoplenty.block;
+package biomesoplenty.block.entity;
 
 import biomesoplenty.api.block.BOPBlockEntities;
 import net.minecraft.core.BlockPos;

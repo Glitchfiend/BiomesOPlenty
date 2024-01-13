@@ -10,8 +10,10 @@ import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.block.BOPWoodTypes;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.block.HangingSignBlockEntityBOP;
-import biomesoplenty.block.SignBlockEntityBOP;
+import biomesoplenty.block.entity.FoobarBlockEntity;
+import biomesoplenty.block.entity.SignBlockEntityBOP;
 import biomesoplenty.client.renderer.BoatRendererBOP;
+import biomesoplenty.client.renderer.FoobarRenderer;
 import biomesoplenty.entity.BoatBOP;
 import biomesoplenty.entity.ChestBoatBOP;
 import biomesoplenty.particle.*;
@@ -251,6 +253,7 @@ public class ModClient
         // Register block entity renderers
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<SignBlockEntityBOP>) BOPBlockEntities.SIGN, SignRenderer::new);
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<HangingSignBlockEntityBOP>)BOPBlockEntities.HANGING_SIGN, HangingSignRenderer::new);
+        RenderHelper.registerBlockEntityRenderer((BlockEntityType<FoobarBlockEntity>)BOPBlockEntities.FOOBAR, FoobarRenderer::new);
 
         // Register entity renderers
         RenderHelper.registerEntityRenderer((EntityType<BoatBOP>) BOPEntities.BOAT, context -> new BoatRendererBOP(context, false));

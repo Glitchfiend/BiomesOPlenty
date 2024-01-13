@@ -411,4 +411,6 @@ public class BOPBlocks
     public static Block POTTED_TINY_CACTUS;
     public static Block POTTED_TOADSTOOL;
     public static Block POTTED_GLOWSHROOM;
+
+    public static Block FOOBAR;
 }

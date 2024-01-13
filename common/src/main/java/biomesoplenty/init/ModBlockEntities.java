@@ -6,7 +6,8 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlockEntities;
 import biomesoplenty.block.HangingSignBlockEntityBOP;
-import biomesoplenty.block.SignBlockEntityBOP;
+import biomesoplenty.block.entity.FoobarBlockEntity;
+import biomesoplenty.block.entity.SignBlockEntityBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
@@ -29,6 +30,8 @@ public class ModBlockEntities
         BOPBlockEntities.HANGING_SIGN = register(func, "hanging_sign", BlockEntityType.Builder.of(HangingSignBlockEntityBOP::new,
                 FIR_HANGING_SIGN, PINE_HANGING_SIGN, MAPLE_HANGING_SIGN, REDWOOD_HANGING_SIGN, MAHOGANY_HANGING_SIGN, JACARANDA_HANGING_SIGN, PALM_HANGING_SIGN, WILLOW_HANGING_SIGN, DEAD_HANGING_SIGN, MAGIC_HANGING_SIGN, UMBRAN_HANGING_SIGN, HELLBARK_HANGING_SIGN,
                         FIR_WALL_HANGING_SIGN, PINE_WALL_HANGING_SIGN, MAPLE_WALL_HANGING_SIGN, REDWOOD_WALL_HANGING_SIGN, MAHOGANY_WALL_HANGING_SIGN, JACARANDA_WALL_HANGING_SIGN, PALM_WALL_HANGING_SIGN, WILLOW_WALL_HANGING_SIGN, DEAD_WALL_HANGING_SIGN, MAGIC_WALL_HANGING_SIGN, UMBRAN_WALL_HANGING_SIGN, HELLBARK_WALL_HANGING_SIGN));
+
+        BOPBlockEntities.FOOBAR = register(func, "foobar", BlockEntityType.Builder.of(FoobarBlockEntity::new, FOOBAR));
     }
 
     private static <T extends BlockEntity> BlockEntityType<?> register(BiConsumer<ResourceLocation, BlockEntityType<?>> func, String name, BlockEntityType.Builder<T> builder)

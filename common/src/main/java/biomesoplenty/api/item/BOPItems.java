@@ -429,4 +429,5 @@ public class BOPItems
     public static Item POTTED_TINY_CACTUS;
     public static Item POTTED_TOADSTOOL;
     public static Item POTTED_GLOWSHROOM;
+    public static Item FOOBAR;
 }

@@ -430,6 +430,7 @@ public class ModItems
         POTTED_TINY_CACTUS = register(func, "potted_tiny_cactus", new BlockItem(BOPBlocks.POTTED_TINY_CACTUS, new Item.Properties()));
         POTTED_TOADSTOOL = register(func, "potted_toadstool", new BlockItem(BOPBlocks.POTTED_TOADSTOOL, new Item.Properties()));
         POTTED_GLOWSHROOM = register(func, "potted_glowshroom", new BlockItem(BOPBlocks.POTTED_GLOWSHROOM, new Item.Properties()));
+        FOOBAR = register(func, "foobar", new BlockItem(BOPBlocks.FOOBAR, new Item.Properties()));
     }
 
     private static Item register(BiConsumer<ResourceLocation, Item> func, Item item, String name)
