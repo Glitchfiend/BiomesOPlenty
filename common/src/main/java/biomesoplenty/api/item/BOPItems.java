@@ -81,10 +81,8 @@ public class BOPItems
     public static Item ROSE_QUARTZ_CHUNK;
 
     public static Item ALGAL_END_STONE;
-    public static Item ALGAE_BLOOM;
-    public static Item ENDERPHYTE;
     public static Item BARNACLES;
-    public static Item NULLED_END_STONE;
+    public static Item NULL_END_STONE;
     public static Item NULL_BLOCK;
     public static Item ANOMALY;
 
@@ -379,6 +377,7 @@ public class BOPItems
     public static Item GLOWFLOWER;
     public static Item WILTED_LILY;
     public static Item BURNING_BLOSSOM;
+    public static Item ALGAE_BLOOM;
 
     public static Item SPROUT;
     public static Item BUSH;
@@ -393,6 +392,7 @@ public class BOPItems
     public static Item DESERT_GRASS;
     public static Item DEAD_GRASS;
     public static Item TUNDRA_SHRUB;
+    public static Item ENDERPHYTE;
     public static Item BARLEY;
     public static Item SEA_OATS;
     public static Item CATTAIL;
@@ -433,6 +433,7 @@ public class BOPItems
     public static Item POTTED_GLOWFLOWER;
     public static Item POTTED_WILTED_LILY;
     public static Item POTTED_BURNING_BLOSSOM;
+    public static Item POTTED_ALGAE_BLOOM;
     public static Item POTTED_SPROUT;
     public static Item POTTED_TINY_CACTUS;
     public static Item POTTED_TOADSTOOL;

@@ -74,10 +74,8 @@ public class BOPBlocks
     public static Block SMALL_ROSE_QUARTZ_BUD;
 
     public static Block ALGAL_END_STONE;
-    public static Block ALGAE_BLOOM;
-    public static Block ENDERPHYTE;
     public static Block BARNACLES;
-    public static Block NULLED_END_STONE;
+    public static Block NULL_END_STONE;
     public static Block NULL_BLOCK;
     public static Block ANOMALY;
 
@@ -361,6 +359,7 @@ public class BOPBlocks
     public static Block GLOWFLOWER;
     public static Block WILTED_LILY;
     public static Block BURNING_BLOSSOM;
+    public static Block ALGAE_BLOOM;
 
     public static Block SPROUT;
     public static Block BUSH;
@@ -375,6 +374,7 @@ public class BOPBlocks
     public static Block DESERT_GRASS;
     public static Block DEAD_GRASS;
     public static Block TUNDRA_SHRUB;
+    public static Block ENDERPHYTE;
     public static Block BARLEY;
     public static Block SEA_OATS;
     public static Block CATTAIL;
@@ -415,6 +415,7 @@ public class BOPBlocks
     public static Block POTTED_GLOWFLOWER;
     public static Block POTTED_WILTED_LILY;
     public static Block POTTED_BURNING_BLOSSOM;
+    public static Block POTTED_ALGAE_BLOOM;
     public static Block POTTED_SPROUT;
     public static Block POTTED_TINY_CACTUS;
     public static Block POTTED_TOADSTOOL;

@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "biomesoplenty:block/nulled_end_stone"
+        "all": "biomesoplenty:block/null_end_stone"
     }
 }

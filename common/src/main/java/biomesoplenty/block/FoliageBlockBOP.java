@@ -88,6 +88,10 @@ public class FoliageBlockBOP extends BushBlock
         {
             return ground == BOPBlocks.DRIED_SALT || ground == Blocks.GRAVEL || ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == Blocks.NETHERRACK || super.canSurvive(state, worldIn, pos);
         }
+        if (this == BOPBlocks.ENDERPHYTE)
+        {
+            return ground == BOPBlocks.ALGAL_END_STONE || ground == Blocks.END_STONE;
+        }
 
         return super.canSurvive(state, worldIn, pos);
     }

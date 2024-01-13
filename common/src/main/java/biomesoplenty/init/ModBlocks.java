@@ -126,10 +126,8 @@ public class ModBlocks
         SMALL_ROSE_QUARTZ_BUD = register(func, new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.ofFullCopy(ROSE_QUARTZ_CLUSTER).pushReaction(PushReaction.DESTROY).forceSolidOn().sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((state) -> 5)), "small_rose_quartz_bud");
 
         ALGAL_END_STONE = register(func, new AlgalEndStoneBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).randomTicks().requiresCorrectToolForDrops().strength(3.0F, 9.0F)), "algal_end_stone");
-        ALGAE_BLOOM = register(func, new EndStoneDecorationBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "algae_bloom");
-        ENDERPHYTE = register(func, new EndStoneDecorationBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "enderphyte");
         BARNACLES = register(func, new BarnaclesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).pushReaction(PushReaction.DESTROY).replaceable().noCollission().sound(SoundType.CORAL_BLOCK)), "barnacles");
-        NULLED_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 4.5F)), "nulled_end_stone");
+        NULL_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 4.5F)), "null_end_stone");
         NULL_BLOCK = register(func, new Block(BlockBehaviour.Properties.of()), "null_block");
         ANOMALY = register(func, new AnomalyBlock(BlockBehaviour.Properties.of().noOcclusion()), "anomaly");
 
@@ -427,6 +425,7 @@ public class ModBlocks
         GLOWFLOWER = register(func, new FlowerBlockBOP(MobEffects.GLOWING, 10, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 9)), "glowflower");
         WILTED_LILY = register(func, new FlowerBlockBOP(MobEffects.UNLUCK, 5, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "wilted_lily");
         BURNING_BLOSSOM = register(func, new FlowerBlockBOP(MobEffects.FIRE_RESISTANCE, 7, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 7)), "burning_blossom");
+        ALGAE_BLOOM = register(func, new FlowerBlockBOP(MobEffects.WATER_BREATHING, 5, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "algae_bloom");
 
         //Plants
         SPROUT = register(func, new FoliageBlockBOP(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "sprout");
@@ -442,6 +441,7 @@ public class ModBlocks
         DESERT_GRASS = register(func, new FoliageBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_ORANGE).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "desert_grass");
         DEAD_GRASS = register(func, new FoliageBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.WOOD).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "dead_grass");
         TUNDRA_SHRUB = register(func, new FoliageBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "tundra_shrub");
+        ENDERPHYTE = register(func, new FoliageBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_YELLOW).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "enderphyte");
         BARLEY = register(func, new DoublePlantBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.TERRACOTTA_YELLOW).ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "barley");
         SEA_OATS = register(func, new SeaOatsBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.SAND).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "sea_oats");
         CATTAIL = register(func, new DoubleWatersidePlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIRT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "cattail");
@@ -481,6 +481,7 @@ public class ModBlocks
         POTTED_GLOWFLOWER = register(func, new FlowerPotBlock(GLOWFLOWER, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 9)), "potted_glowflower");
         POTTED_WILTED_LILY = register(func, new FlowerPotBlock(WILTED_LILY, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_wilted_lily");
         POTTED_BURNING_BLOSSOM = register(func, new FlowerPotBlock(BURNING_BLOSSOM, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 7)), "potted_burning_blossom");
+        POTTED_ALGAE_BLOOM = register(func, new FlowerPotBlock(ALGAE_BLOOM, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_algae_bloom");
         POTTED_SPROUT = register(func, new FlowerPotBlock(SPROUT, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_sprout");
         POTTED_TINY_CACTUS = register(func, new FlowerPotBlock(TINY_CACTUS, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_tiny_cactus");
         POTTED_TOADSTOOL = register(func, new FlowerPotBlock(TOADSTOOL, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_toadstool");

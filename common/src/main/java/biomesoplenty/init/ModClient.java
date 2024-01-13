@@ -230,6 +230,7 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_GLOWFLOWER, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_WILTED_LILY, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_BURNING_BLOSSOM, cutoutRenderType);
+        RenderHelper.setRenderType(POTTED_ALGAE_BLOOM, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_SPROUT, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_TINY_CACTUS, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_TOADSTOOL, cutoutRenderType);
