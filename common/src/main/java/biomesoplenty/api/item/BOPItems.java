@@ -84,6 +84,8 @@ public class BOPItems
     public static Item ALGAE_BLOOM;
     public static Item ENDERPHYTE;
     public static Item BARNACLES;
+    public static Item NULLED_END_STONE;
+    public static Item NULL_BLOCK;
     public static Item ANOMALY;
 
     public static Item TOADSTOOL;

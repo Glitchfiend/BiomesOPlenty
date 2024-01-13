@@ -1,0 +1,8 @@
+{
+    "variants": {
+		"": [
+            { "model": "biomesoplenty:block/nulled_end_stone" },
+            { "model": "biomesoplenty:block/nulled_end_stone_alt" }
+        ]
+    }
+}

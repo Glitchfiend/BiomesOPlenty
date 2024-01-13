@@ -154,6 +154,8 @@ public class ModItems
         ALGAE_BLOOM = register(func, "algae_bloom", new BlockItem(BOPBlocks.ALGAE_BLOOM, new Item.Properties()));
         ENDERPHYTE = register(func, "enderphyte", new BlockItem(BOPBlocks.ENDERPHYTE, new Item.Properties()));
         BARNACLES = register(func, "barnacles", new BlockItem(BOPBlocks.BARNACLES, new Item.Properties()));
+        NULLED_END_STONE = register(func, "nulled_end_stone", new BlockItem(BOPBlocks.NULLED_END_STONE, new Item.Properties()));
+        NULL_BLOCK = register(func, "null_block", new BlockItem(BOPBlocks.NULL_BLOCK, new Item.Properties()));
         ANOMALY = register(func, "anomaly", new BlockItem(BOPBlocks.ANOMALY, new Item.Properties()));
         TOADSTOOL = register(func, "toadstool", new BlockItem(BOPBlocks.TOADSTOOL, new Item.Properties()));
         TOADSTOOL_BLOCK = register(func, "toadstool_block", new BlockItem(BOPBlocks.TOADSTOOL_BLOCK, new Item.Properties()));

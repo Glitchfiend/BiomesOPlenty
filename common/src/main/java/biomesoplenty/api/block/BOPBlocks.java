@@ -77,6 +77,8 @@ public class BOPBlocks
     public static Block ALGAE_BLOOM;
     public static Block ENDERPHYTE;
     public static Block BARNACLES;
+    public static Block NULLED_END_STONE;
+    public static Block NULL_BLOCK;
     public static Block ANOMALY;
 
     public static Block TOADSTOOL;

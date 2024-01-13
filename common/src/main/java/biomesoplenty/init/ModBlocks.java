@@ -129,6 +129,8 @@ public class ModBlocks
         ALGAE_BLOOM = register(func, new EndStoneDecorationBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "algae_bloom");
         ENDERPHYTE = register(func, new EndStoneDecorationBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)), "enderphyte");
         BARNACLES = register(func, new BarnaclesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).pushReaction(PushReaction.DESTROY).replaceable().noCollission().sound(SoundType.CORAL_BLOCK)), "barnacles");
+        NULLED_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 4.5F)), "nulled_end_stone");
+        NULL_BLOCK = register(func, new Block(BlockBehaviour.Properties.of()), "null_block");
         ANOMALY = register(func, new AnomalyBlock(BlockBehaviour.Properties.of().noOcclusion()), "anomaly");
 
         TOADSTOOL = register(func, new MushroomBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
