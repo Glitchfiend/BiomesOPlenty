@@ -46,7 +46,15 @@ public class AnomalyBlock extends BaseEntityBlock
     @Override
     public VoxelShape getOcclusionShape(BlockState state, BlockGetter getter, BlockPos pos)
     {
-        return state.getValue(ANOMALY_TYPE) == AnomalyType.STABLE ? Shapes.block() : Shapes.empty();
+        if (state.getValue(ANOMALY_TYPE) == AnomalyType.STABLE) return Shapes.block();
+
+        AnomalyBlockEntity blockEntity = (AnomalyBlockEntity)getter.getBlockEntity(pos);
+
+        if (blockEntity != null)
+        {
+            return blockEntity.getRenderState().getOcclusionShape(getter, pos);
+        }
+        else return Shapes.empty();
     }
 
     @Override
