@@ -130,7 +130,7 @@ public class ModBlocks
         BARNACLES = register(func, new BarnaclesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).pushReaction(PushReaction.DESTROY).replaceable().noCollission().sound(SoundType.CORAL_BLOCK)), "barnacles");
         NULL_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 4.5F)), "null_end_stone");
         NULL_BLOCK = register(func, new Block(BlockBehaviour.Properties.of()), "null_block");
-        ANOMALY = register(func, new AnomalyBlock(BlockBehaviour.Properties.of().noOcclusion()), "anomaly");
+        ANOMALY = register(func, new AnomalyBlock(BlockBehaviour.Properties.of()), "anomaly");
 
         TOADSTOOL = register(func, new MushroomBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");
         TOADSTOOL_BLOCK = register(func, new HugeMushroomBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD)), "toadstool_block");
