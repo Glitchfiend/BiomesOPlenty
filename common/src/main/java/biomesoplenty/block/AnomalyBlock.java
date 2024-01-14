@@ -8,6 +8,7 @@ import biomesoplenty.block.entity.AnomalyBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
@@ -18,7 +19,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 public class AnomalyBlock extends BaseEntityBlock
 {
@@ -37,6 +39,45 @@ public class AnomalyBlock extends BaseEntityBlock
         return CODEC;
     }
 
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext p_49479_)
+    {
+        AnomalyType type;
+        switch (p_49479_.getLevel().random.nextInt(4))
+        {
+            default:
+            case 0:
+                type = AnomalyBlock.AnomalyType.VOLATILE;
+                break;
+
+            case 1:
+                type = AnomalyBlock.AnomalyType.QUIRKY;
+                break;
+
+            case 2:
+                type = AnomalyBlock.AnomalyType.UNSTABLE;
+                break;
+
+            case 3:
+                type = AnomalyBlock.AnomalyType.STABLE;
+                break;
+        }
+        return this.defaultBlockState().setValue(ANOMALY_TYPE, type);
+    }
+
+    @Override
+    public boolean propagatesSkylightDown(BlockState state, BlockGetter getter, BlockPos pos)
+    {
+        return state.getValue(ANOMALY_TYPE) != AnomalyType.STABLE;
+    }
+
+    @Override
+    public float getShadeBrightness(BlockState state, BlockGetter getter, BlockPos pos)
+    {
+        return 1.0F;
+    }
+
     @Override
     public RenderShape getRenderShape(BlockState state)
     {
@@ -47,13 +88,6 @@ public class AnomalyBlock extends BaseEntityBlock
     public VoxelShape getOcclusionShape(BlockState state, BlockGetter getter, BlockPos pos)
     {
         if (state.getValue(ANOMALY_TYPE) == AnomalyType.STABLE) return Shapes.block();
-
-        AnomalyBlockEntity blockEntity = (AnomalyBlockEntity)getter.getBlockEntity(pos);
-
-        if (blockEntity != null)
-        {
-            return blockEntity.getRenderState().getOcclusionShape(getter, pos);
-        }
         else return Shapes.empty();
     }
 
