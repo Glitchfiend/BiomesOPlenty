@@ -64,6 +64,7 @@ public class BOPTreePlacements
     public static final ResourceKey<PlacedFeature> MANGROVE_TWIGLET_TREE_CHECKED = BOPPlacementUtils.createKey("mangrove_twiglet_tree");
     public static final ResourceKey<PlacedFeature> RED_MAPLE_TREE_CHECKED = BOPPlacementUtils.createKey("red_maple_tree_checked");
     public static final ResourceKey<PlacedFeature> MAPLE_TWIGLET_TREE_CHECKED = BOPPlacementUtils.createKey("maple_twiglet_tree");
+    public static final ResourceKey<PlacedFeature> NULL_TREE_CHECKED = BOPPlacementUtils.createKey("null_tree");
     public static final ResourceKey<PlacedFeature> CHERRY_TWIGLET_TREE_CHECKED = BOPPlacementUtils.createKey("cherry_twiglet_tree");
     public static final ResourceKey<PlacedFeature> SNOWBLOSSOM_TWIGLET_TREE_CHECKED = BOPPlacementUtils.createKey("snowblossom_twiglet_tree");
     public static final ResourceKey<PlacedFeature> OAK_BUSH_CHECKED = BOPPlacementUtils.createKey("oak_bush");
@@ -133,6 +134,7 @@ public class BOPTreePlacements
         final Holder<ConfiguredFeature<?, ?>> MAHOGANY_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAHOGANY_TREE);
         final Holder<ConfiguredFeature<?, ?>> MANGROVE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MANGROVE_TWIGLET_TREE);
         final Holder<ConfiguredFeature<?, ?>> MAPLE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAPLE_TWIGLET_TREE);
+        final Holder<ConfiguredFeature<?, ?>> NULL_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.NULL_TREE);
         final Holder<ConfiguredFeature<?, ?>> CHERRY_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.CHERRY_TWIGLET_TREE);
         final Holder<ConfiguredFeature<?, ?>> SNOWBLOSSOM_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SNOWBLOSSOM_TWIGLET_TREE);
         final Holder<ConfiguredFeature<?, ?>> OAK_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.OAK_BUSH);
@@ -200,13 +202,14 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.MANGROVE_TWIGLET_TREE_CHECKED, MANGROVE_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.RED_MAPLE_TREE_CHECKED, RED_MAPLE_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.RED_MAPLE_SAPLING)));
         register(context, BOPTreePlacements.MAPLE_TWIGLET_TREE_CHECKED, MAPLE_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.RED_MAPLE_SAPLING)));
+        register(context, BOPTreePlacements.NULL_TREE_CHECKED, NULL_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.END_STONE))));
         register(context, BOPTreePlacements.CHERRY_TWIGLET_TREE_CHECKED, CHERRY_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.CHERRY_SAPLING)));
         register(context, BOPTreePlacements.SNOWBLOSSOM_TWIGLET_TREE_CHECKED, SNOWBLOSSOM_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.SNOWBLOSSOM_SAPLING)));
         register(context, BOPTreePlacements.OAK_BUSH_CHECKED, OAK_BUSH, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.ORANGE_MAPLE_TREE_CHECKED, ORANGE_MAPLE_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.ORANGE_MAPLE_SAPLING)));
         register(context, BOPTreePlacements.ORIGIN_TREE_CHECKED, ORIGIN_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.PALM_TREE_CHECKED, PALM_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.PALM_SAPLING)));
-        register(context, BOPTreePlacements.PINE_TREE_CHECKED, PINE_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING)));
+        register(context, BOPTreePlacements.PINE_TREE_CHECKED, PINE_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.PINE_SAPLING)));
         register(context, BOPTreePlacements.RAINBOW_BIRCH_TREE_CHECKED, RAINBOW_BIRCH_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.RAINBOW_BIRCH_SAPLING)));
         register(context, BOPTreePlacements.REDWOOD_TREE_CHECKED, REDWOOD_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.REDWOOD_SAPLING)));
         register(context, BOPTreePlacements.REDWOOD_TREE_LARGE_CHECKED, REDWOOD_TREE_LARGE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.REDWOOD_SAPLING)));

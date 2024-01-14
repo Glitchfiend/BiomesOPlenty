@@ -99,6 +99,7 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE = BOPFeatureUtils.createKey("palm_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE_LARGE = BOPFeatureUtils.createKey("redwood_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_TREE = BOPFeatureUtils.createKey("pine_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NULL_TREE = BOPFeatureUtils.createKey("null_tree");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context)
     {
@@ -171,6 +172,7 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.SNOWBLOSSOM_TREE, Feature.TREE, snowblossom().build());
         register(context, BOPTreeFeatures.REDWOOD_TREE_LARGE, BOPBaseFeatures.REDWOOD_TREE, createRedwood(BOPBlocks.REDWOOD_WOOD).minHeight(45).maxHeight(60).trunkWidth(3).build());
         register(context, BOPTreeFeatures.PINE_TREE, BOPBaseFeatures.PINE_TREE, new PineTreeConfiguration.Builder().build());
+        register(context, BOPTreeFeatures.NULL_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)).foliage(BlockStateProvider.simple(BOPBlocks.NULL_BLOCK)).build());
     }
 
     private static TreeConfiguration.TreeConfigurationBuilder snowblossom() {

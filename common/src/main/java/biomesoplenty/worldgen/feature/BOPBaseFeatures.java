@@ -9,7 +9,6 @@ import biomesoplenty.worldgen.feature.configurations.*;
 import biomesoplenty.worldgen.feature.misc.*;
 import biomesoplenty.worldgen.feature.tree.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.LargeDripstoneConfiguration;

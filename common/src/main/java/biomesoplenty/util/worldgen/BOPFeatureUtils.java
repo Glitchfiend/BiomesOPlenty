@@ -19,6 +19,7 @@ public class BOPFeatureUtils
         BOPCaveFeatures.bootstrap(context);
         BOPMiscOverworldFeatures.bootstrap(context);
         BOPNetherFeatures.bootstrap(context);
+        BOPEndFeatures.bootstrap(context);
         BOPTreeFeatures.bootstrap(context);
         BOPVegetationFeatures.bootstrap(context);
     }

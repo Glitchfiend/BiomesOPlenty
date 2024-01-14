@@ -19,6 +19,7 @@ public class BOPPlacementUtils
         BOPCavePlacements.bootstrap(context);
         BOPMiscOverworldPlacements.bootstrap(context);
         BOPNetherPlacements.bootstrap(context);
+        BOPEndPlacements.bootstrap(context);
         BOPTreePlacements.bootstrap(context);
         BOPVegetationPlacements.bootstrap(context);
     }

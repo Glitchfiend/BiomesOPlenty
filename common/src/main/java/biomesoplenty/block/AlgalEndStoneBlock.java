@@ -4,8 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.block;
 
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.worldgen.placement.BOPVegetationPlacements;
+import biomesoplenty.worldgen.placement.BOPEndPlacements;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -73,7 +72,7 @@ public class AlgalEndStoneBlock extends Block implements BonemealableBlock
     public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_)
     {
         BlockPos blockpos = p_221272_.above();
-        Optional<Holder.Reference<PlacedFeature>> optional = p_221270_.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(BOPVegetationPlacements.ENDERPHYTE_BONEMEAL);
+        Optional<Holder.Reference<PlacedFeature>> optional = p_221270_.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(BOPEndPlacements.ENDERPHYTE_BONEMEAL);
 
         label49:
         for(int i = 0; i < 128; ++i)

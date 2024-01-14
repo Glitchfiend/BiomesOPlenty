@@ -23,10 +23,13 @@
     ],
     [],
     [],
-    [],
+    [
+      "biomesoplenty:anomaly",
+      "biomesoplenty:null_lake"
+    ],
     [],
     [
-      "biomesoplenty:anomaly"
+      "biomesoplenty:null_trees"
     ]
   ],
   "has_precipitation": false,

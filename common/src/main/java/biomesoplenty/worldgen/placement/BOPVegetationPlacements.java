@@ -50,7 +50,6 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_DESERT_GRASS = BOPPlacementUtils.createKey("patch_desert_grass");
     public static final ResourceKey<PlacedFeature> PATCH_DESERT_GRASS_EXTRA = BOPPlacementUtils.createKey("patch_desert_grass_extra");
     public static final ResourceKey<PlacedFeature> PATCH_DUNE_GRASS = BOPPlacementUtils.createKey("patch_dune_grass");
-    public static final ResourceKey<PlacedFeature> PATCH_ENDERPHYTES = BOPPlacementUtils.createKey("patch_enderphytes");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_2 = BOPPlacementUtils.createKey("patch_fern_2");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_4 = BOPPlacementUtils.createKey("patch_fern_4");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_8 = BOPPlacementUtils.createKey("patch_fern_8");
@@ -103,7 +102,6 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> FLOWER_CONIFEROUS_FOREST = BOPPlacementUtils.createKey("flower_coniferous_forest");
     public static final ResourceKey<PlacedFeature> FLOWER_DEFAULT_EXTENDED_6 = BOPPlacementUtils.createKey("flower_default_extended_6");
     public static final ResourceKey<PlacedFeature> FLOWER_DEFAULT_EXTENDED_15 = BOPPlacementUtils.createKey("flower_default_extended_15");
-    public static final ResourceKey<PlacedFeature> FLOWER_END_WILDS = BOPPlacementUtils.createKey("flower_end_wilds");
     public static final ResourceKey<PlacedFeature> FLOWER_FIELD_1 = BOPPlacementUtils.createKey("flower_field_1");
     public static final ResourceKey<PlacedFeature> FLOWER_FIELD_2 = BOPPlacementUtils.createKey("flower_field_2");
     public static final ResourceKey<PlacedFeature> FLOWER_GRASSLAND = BOPPlacementUtils.createKey("flower_grassland");
@@ -121,7 +119,6 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> FLOWER_VIOLET = BOPPlacementUtils.createKey("flower_violet");
     public static final ResourceKey<PlacedFeature> FLOWER_WASTELAND = BOPPlacementUtils.createKey("flower_wasteland");
     public static final ResourceKey<PlacedFeature> FLOWER_WETLAND = BOPPlacementUtils.createKey("flower_wetland");
-    public static final ResourceKey<PlacedFeature> ENDERPHYTE_BONEMEAL = BOPPlacementUtils.createKey("enderphyte_bonemeal");
     public static final ResourceKey<PlacedFeature> GOLDENROD = BOPPlacementUtils.createKey("goldenrod");
     public static final ResourceKey<PlacedFeature> LILAC_NORMAL = BOPPlacementUtils.createKey("patch_lilac_normal");
     public static final ResourceKey<PlacedFeature> LILAC_EXTRA = BOPPlacementUtils.createKey("patch_lilac_extra");
@@ -175,7 +172,6 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> TREES_TUNDRA = BOPPlacementUtils.createKey("trees_tundra");
     public static final ResourceKey<PlacedFeature> TREES_VOLCANIC_PLAINS = BOPPlacementUtils.createKey("trees_volcanic_plains");
     public static final ResourceKey<PlacedFeature> HIGH_GRASS = BOPPlacementUtils.createKey("high_grass");
-    public static final ResourceKey<PlacedFeature> ANOMALY = BOPPlacementUtils.createKey("anomaly");
     public static final ResourceKey<PlacedFeature> BIG_DRIPLEAF = BOPPlacementUtils.createKey("big_dripleaf");
     public static final ResourceKey<PlacedFeature> BIG_PUMPKIN = BOPPlacementUtils.createKey("big_pumpkin");
     public static final ResourceKey<PlacedFeature> BRAMBLE = BOPPlacementUtils.createKey("bramble");
@@ -219,7 +215,6 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> PATCH_DEAD_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DEAD_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DESERT_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DESERT_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DUNE_GRASS);
-        final Holder<ConfiguredFeature<?, ?>> PATCH_ENDERPHYTES = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_ENDERPHYTES);
         final Holder<ConfiguredFeature<?, ?>> PATCH_FERN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_FERN);
         final Holder<ConfiguredFeature<?, ?>> PATCH_GRASS = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_ICY_IRIS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_ICY_IRIS);
@@ -247,7 +242,6 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> FLOWER_CLOVER_PATCH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_CLOVER_PATCH);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_CONIFEROUS_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_CONIFEROUS_FOREST);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_DEFAULT_EXTENDED = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_DEFAULT_EXTENDED);
-        final Holder<ConfiguredFeature<?, ?>> FLOWER_END_WILDS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_END_WILDS);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_FIELD_1 = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_FIELD_1);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_FIELD_2 = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_FIELD_2);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_GRASSLAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_GRASSLAND);
@@ -265,7 +259,6 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> FLOWER_VIOLET = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_VIOLET);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_WASTELAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_WASTELAND);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_WETLAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_WETLAND);
-        final Holder<ConfiguredFeature<?, ?>> ENDERPHYTE_BONEMEAL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ENDERPHYTE_BONEMEAL);
         final Holder<ConfiguredFeature<?, ?>> GOLDENROD = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.GOLDENROD);
         final Holder<ConfiguredFeature<?, ?>> PATCH_LILAC = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_LILAC);
         final Holder<ConfiguredFeature<?, ?>> PATCH_PEONY = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_PEONY);
@@ -316,7 +309,6 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> TREES_TUNDRA = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_TUNDRA);
         final Holder<ConfiguredFeature<?, ?>> TWIGLET_TREE_VOLCANO = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TWIGLET_TREE_VOLCANO);
         final Holder<ConfiguredFeature<?, ?>> HIGH_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.HIGH_GRASS);
-        final Holder<ConfiguredFeature<?, ?>> ANOMALY = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ANOMALY);
         final Holder<ConfiguredFeature<?, ?>> BIG_DRIPLEAF = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BIG_DRIPLEAF);
         final Holder<ConfiguredFeature<?, ?>> BIG_PUMPKIN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BIG_PUMPKIN);
         final Holder<ConfiguredFeature<?, ?>> BRAMBLE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.BRAMBLE);
@@ -361,7 +353,6 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_DESERT_GRASS, PATCH_DESERT_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.PATCH_DESERT_GRASS_EXTRA, PATCH_DESERT_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.PATCH_DUNE_GRASS, PATCH_DUNE_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(4));
-        register(context, BOPVegetationPlacements.PATCH_ENDERPHYTES, PATCH_ENDERPHYTES, VegetationPlacements.worldSurfaceSquaredWithCount(5));
         register(context, BOPVegetationPlacements.PATCH_FERN_2, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.PATCH_FERN_4, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(4));
         register(context, BOPVegetationPlacements.PATCH_FERN_8, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(8));
@@ -414,7 +405,6 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.FLOWER_CONIFEROUS_FOREST, FLOWER_CONIFEROUS_FOREST, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_DEFAULT_EXTENDED_6, FLOWER_DEFAULT_EXTENDED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_DEFAULT_EXTENDED_15, FLOWER_DEFAULT_EXTENDED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.FLOWER_END_WILDS, FLOWER_END_WILDS, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_FIELD_1, FLOWER_FIELD_1, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_FIELD_2, FLOWER_FIELD_2, List.of(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_GRASSLAND, FLOWER_GRASSLAND, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -432,7 +422,6 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.FLOWER_VIOLET, FLOWER_VIOLET, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.FLOWER_WASTELAND, FLOWER_WASTELAND, List.of(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_WETLAND, FLOWER_WETLAND, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.ENDERPHYTE_BONEMEAL, ENDERPHYTE_BONEMEAL, PlacementUtils.isEmpty());
         register(context, BOPVegetationPlacements.GOLDENROD, GOLDENROD, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.LILAC_NORMAL, PATCH_LILAC, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.LILAC_EXTRA, PATCH_LILAC, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -486,7 +475,6 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_TUNDRA, TREES_TUNDRA, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_VOLCANIC_PLAINS, TWIGLET_TREE_VOLCANO, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
         register(context, BOPVegetationPlacements.HIGH_GRASS, HIGH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(30));
-        register(context, BOPVegetationPlacements.ANOMALY, ANOMALY, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.BIG_DRIPLEAF, BIG_DRIPLEAF, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.BIG_PUMPKIN, BIG_PUMPKIN, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.BRAMBLE, BRAMBLE, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
