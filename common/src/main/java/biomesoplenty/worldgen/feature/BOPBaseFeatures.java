@@ -87,7 +87,10 @@ public class BOPBaseFeatures
     public static BOPTreeFeature<TaigaTreeConfiguration> UMBRAN_TREE;
     public static Feature<NoneFeatureConfiguration> WEBBING;
     public static Feature<NoneFeatureConfiguration> ORIGIN_GRAVEL_CLIFFS;
-
+    public static Feature<NoneFeatureConfiguration> DEAD_CORAL_TREE;
+    public static Feature<NoneFeatureConfiguration> DEAD_CORAL_MUSHROOM;
+    public static Feature<NoneFeatureConfiguration> DEAD_CORAL_CLAW;
+    public static Feature<NoneFeatureConfiguration> BARNACLES;
 
     public static void registerFeatures(BiConsumer<ResourceLocation, Feature<?>> func)
     {
@@ -159,6 +162,10 @@ public class BOPBaseFeatures
         UMBRAN_TREE = register(func, "umbran_tree", new UmbranTreeFeature(TaigaTreeConfiguration.CODEC));
         WEBBING = register(func, "webbing", new WebbingFeature(NoneFeatureConfiguration.CODEC));
         ORIGIN_GRAVEL_CLIFFS = register(func, "origin_gravel_cliffs", new OriginGravelCliffFeature(NoneFeatureConfiguration.CODEC));
+        DEAD_CORAL_TREE = register(func, "dead_coral_tree", new DeadCoralTreeFeature(NoneFeatureConfiguration.CODEC));
+        DEAD_CORAL_MUSHROOM = register(func, "dead_coral_mushroom", new DeadCoralMushroomFeature(NoneFeatureConfiguration.CODEC));
+        DEAD_CORAL_CLAW = register(func, "dead_coral_claw", new DeadCoralClawFeature(NoneFeatureConfiguration.CODEC));
+        BARNACLES = register(func, "barnacles", new BarnacleFeature(NoneFeatureConfiguration.CODEC));
     }
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(BiConsumer<ResourceLocation, Feature<?>> func, String name, F feature)

@@ -10,24 +10,25 @@ import biomesoplenty.worldgen.placement.BOPTreePlacements;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class BOPEndFeatures
 {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANOMALY = BOPFeatureUtils.createKey("anomaly");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BARNACLES = BOPFeatureUtils.createKey("barnacles");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_CORAL = BOPFeatureUtils.createKey("dead_coral");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ENDERPHYTE_BONEMEAL = BOPFeatureUtils.createKey("enderphyte_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_END_WILDS = BOPFeatureUtils.createKey("flower_end_wilds");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NULL_LAKE = BOPFeatureUtils.createKey("null_lake");
@@ -40,6 +41,8 @@ public class BOPEndFeatures
         final Holder<PlacedFeature> NULL_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.NULL_TREE_CHECKED);
 
         register(context, BOPEndFeatures.ANOMALY, BOPBaseFeatures.ANOMALY, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPEndFeatures.BARNACLES, BOPBaseFeatures.BARNACLES, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPEndFeatures.DEAD_CORAL, Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_TREE, FeatureConfiguration.NONE), PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_CLAW, FeatureConfiguration.NONE), PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_MUSHROOM, FeatureConfiguration.NONE))));
         register(context, BOPEndFeatures.ENDERPHYTE_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE.defaultBlockState())));
         register(context, BOPEndFeatures.FLOWER_END_WILDS, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ALGAE_BLOOM))));
         register(context, BOPEndFeatures.NULL_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.NULL_BLOCK), BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)));

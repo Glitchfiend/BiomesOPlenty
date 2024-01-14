@@ -20,6 +20,14 @@
     [],
     [
       "minecraft:end_gateway_return"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "biomesoplenty:dead_coral",
+      "biomesoplenty:barnacles"
     ]
   ],
   "has_precipitation": false,

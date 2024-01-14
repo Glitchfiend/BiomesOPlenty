@@ -27,6 +27,10 @@ public class ModTags
 
         public static final TagKey<Block> BLACKSTONE_DECORATION_PLACEABLE = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "blackstone_decoration_placeable"));
         public static final TagKey<Block> BRIMSTONE_DECORATION_PLACEABLE = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "brimstone_decoration_placeable"));
+        public static final TagKey<Block> DEAD_CORALS = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "dead_corals"));
+        public static final TagKey<Block> DEAD_CORAL_BLOCKS = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "dead_coral_blocks"));
+        public static final TagKey<Block> DEAD_CORAL_PLANTS = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "dead_coral_plants"));
+        public static final TagKey<Block> DEAD_WALL_CORALS = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "dead_wall_corals"));
         public static final TagKey<Block> FLESH = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "flesh"));
         public static final TagKey<Block> FLESH_DECORATION_PLACEABLE = create(new ResourceLocation(BiomesOPlenty.MOD_ID, "flesh_decoration_placeable"));
 

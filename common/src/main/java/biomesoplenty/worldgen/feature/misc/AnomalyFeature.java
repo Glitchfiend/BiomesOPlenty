@@ -46,8 +46,8 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
             return false;
         }
 
-        int size = rand.nextInt(5);
-        int anomalyHeight = size+4;
+        int size = rand.nextInt(3) + 2;
+        int anomalyHeight = size+3;
 
         if (!this.checkSpace(world, startPos, size, anomalyHeight))
         {

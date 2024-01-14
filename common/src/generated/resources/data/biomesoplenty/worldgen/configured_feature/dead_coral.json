@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "biomesoplenty:dead_coral_tree",
+          "config": {}
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "biomesoplenty:dead_coral_claw",
+          "config": {}
+        },
+        "placement": []
+      },
+      {
+        "feature": {
+          "type": "biomesoplenty:dead_coral_mushroom",
+          "config": {}
+        },
+        "placement": []
+      }
+    ]
+  }
+}
