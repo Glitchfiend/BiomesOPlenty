@@ -162,6 +162,16 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.UMBRAN_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.UMBRAN_FENCE, 5, 20);
         registerFlammable(BOPBlocks.UMBRAN_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.EMPYREAL_LEAVES, 30, 60);
+        registerFlammable(BOPBlocks.EMPYREAL_LOG, 5, 5);
+        registerFlammable(BOPBlocks.EMPYREAL_WOOD, 5, 5);
+        registerFlammable(BOPBlocks.STRIPPED_EMPYREAL_LOG, 5, 5);
+        registerFlammable(BOPBlocks.STRIPPED_EMPYREAL_WOOD, 5, 5);
+        registerFlammable(BOPBlocks.EMPYREAL_PLANKS, 5, 20);
+        registerFlammable(BOPBlocks.EMPYREAL_SLAB, 5, 20);
+        registerFlammable(BOPBlocks.EMPYREAL_STAIRS, 5, 20);
+        registerFlammable(BOPBlocks.EMPYREAL_FENCE, 5, 20);
+        registerFlammable(BOPBlocks.EMPYREAL_FENCE_GATE, 5, 20);
         registerFlammable(BOPBlocks.ROSE, 60, 100);
         registerFlammable(BOPBlocks.VIOLET, 60, 100);
         registerFlammable(BOPBlocks.LAVENDER, 60, 100);
@@ -225,6 +235,8 @@ public class ModVanillaCompat
         registerStrippable(BOPBlocks.UMBRAN_WOOD, BOPBlocks.STRIPPED_UMBRAN_WOOD);
         registerStrippable(BOPBlocks.HELLBARK_LOG, BOPBlocks.STRIPPED_HELLBARK_LOG);
         registerStrippable(BOPBlocks.HELLBARK_WOOD, BOPBlocks.STRIPPED_HELLBARK_WOOD);
+        registerStrippable(BOPBlocks.EMPYREAL_LOG, BOPBlocks.STRIPPED_EMPYREAL_LOG);
+        registerStrippable(BOPBlocks.EMPYREAL_WOOD, BOPBlocks.STRIPPED_EMPYREAL_WOOD);
 
         // Flattening
         registerFlattenable(BOPBlocks.ORIGIN_GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState());
@@ -269,6 +281,8 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.UMBRAN_LEAVES);
         registerCompostable(0.3F, BOPBlocks.HELLBARK_SAPLING);
         registerCompostable(0.3F, BOPBlocks.HELLBARK_LEAVES);
+        registerCompostable(0.3F, BOPBlocks.EMPYREAL_SAPLING);
+        registerCompostable(0.3F, BOPBlocks.EMPYREAL_LEAVES);
         registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_CARPET);
 
         registerCompostable(0.65F, BOPBlocks.ROSE);

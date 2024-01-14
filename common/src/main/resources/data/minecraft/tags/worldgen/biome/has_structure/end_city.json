@@ -1,14 +1,10 @@
 {
   "values": [
     {
-      "id": "biomesoplenty:end_aeries",
+      "id": "biomesoplenty:end_corruption",
       "required": false
     },
-	{
-      "id": "biomesoplenty:end_drifts",
-      "required": false
-    },
-	{
+    {
       "id": "biomesoplenty:end_reef",
       "required": false
     },

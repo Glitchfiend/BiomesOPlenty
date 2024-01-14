@@ -23,4 +23,5 @@ public class BOPBlockSetTypes
     public static final BlockSetType MAGIC = register(new BlockSetType(BOPAPI.MOD_ID + ":magic"));
     public static final BlockSetType UMBRAN = register(new BlockSetType(BOPAPI.MOD_ID + ":umbran"));
     public static final BlockSetType HELLBARK = register(new BlockSetType(BOPAPI.MOD_ID + ":hellbark"));
+    public static final BlockSetType EMPYREAL = register(new BlockSetType(BOPAPI.MOD_ID + ":empyreal"));
 }

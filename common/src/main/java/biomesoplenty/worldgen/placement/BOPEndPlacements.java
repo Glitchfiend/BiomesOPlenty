@@ -45,8 +45,8 @@ public class BOPEndPlacements
         final Holder<ConfiguredFeature<?, ?>> PATCH_ENDERPHYTES = configuredFeatureGetter.getOrThrow(BOPEndFeatures.PATCH_ENDERPHYTES);
 
         register(context, BOPEndPlacements.ANOMALY, ANOMALY, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPEndPlacements.BARNACLES, BARNACLES, List.of(CountPlacement.of(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPEndPlacements.DEAD_CORAL, DEAD_CORAL, NoiseBasedCountPlacement.of(20, 400.0D, 0.0D), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
+        register(context, BOPEndPlacements.BARNACLES, BARNACLES, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPEndPlacements.DEAD_CORAL, DEAD_CORAL, List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPEndPlacements.ENDERPHYTE_BONEMEAL, ENDERPHYTE_BONEMEAL, PlacementUtils.isEmpty());
         register(context, BOPEndPlacements.FLOWER_END_WILDS, FLOWER_END_WILDS, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.NULL_LAKE, NULL_LAKE, List.of(CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

@@ -47,6 +47,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource ALGAL_END_STONE = makeStateRule(BOPBlocks.ALGAL_END_STONE);
     private static final SurfaceRules.RuleSource DRIED_SALT = makeStateRule(BOPBlocks.DRIED_SALT);
     private static final SurfaceRules.RuleSource WHITE_SAND = makeStateRule(BOPBlocks.WHITE_SAND);
+    private static final SurfaceRules.RuleSource WHITE_SANDSTONE = makeStateRule(BOPBlocks.WHITE_SANDSTONE);
     private static final SurfaceRules.RuleSource ORANGE_SAND = makeStateRule(BOPBlocks.ORANGE_SAND);
     private static final SurfaceRules.RuleSource ORANGE_SANDSTONE = makeStateRule(BOPBlocks.ORANGE_SANDSTONE);
     private static final SurfaceRules.RuleSource BLACK_SAND = makeStateRule(BOPBlocks.BLACK_SAND);
@@ -327,6 +328,8 @@ public class BOPSurfaceRuleData
 
     public static SurfaceRules.RuleSource end()
     {
+        SurfaceRules.RuleSource whiteSandstoneLining = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, WHITE_SANDSTONE), WHITE_SAND);
+
         return SurfaceRules.sequence(
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.END_WILDS),
@@ -339,11 +342,11 @@ public class BOPSurfaceRuleData
                 )
             ),
             SurfaceRules.ifTrue(
-                SurfaceRules.isBiome(BOPBiomes.END_DRIFTS),
+                SurfaceRules.isBiome(BOPBiomes.END_REEF),
                 SurfaceRules.sequence(
                     SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
                         SurfaceRules.sequence(
-                            WHITE_SAND
+                            whiteSandstoneLining
                         )
                     )
                 )

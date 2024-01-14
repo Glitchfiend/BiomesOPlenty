@@ -91,6 +91,7 @@ public class ModClient
         RenderHelper.setRenderType(MAGIC_LEAVES, transparentRenderType);
         RenderHelper.setRenderType(UMBRAN_LEAVES, transparentRenderType);
         RenderHelper.setRenderType(HELLBARK_LEAVES, transparentRenderType);
+        RenderHelper.setRenderType(EMPYREAL_LEAVES, transparentRenderType);
 
         RenderHelper.setRenderType(ORIGIN_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(FLOWERING_OAK_SAPLING, cutoutRenderType);

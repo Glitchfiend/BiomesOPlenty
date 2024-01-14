@@ -343,6 +343,25 @@ public class BOPBlocks
     public static Block HELLBARK_WALL_SIGN;
     public static Block HELLBARK_HANGING_SIGN;
     public static Block HELLBARK_WALL_HANGING_SIGN;
+    public static Block EMPYREAL_SAPLING;
+    public static Block EMPYREAL_LEAVES;
+    public static Block EMPYREAL_LOG;
+    public static Block STRIPPED_EMPYREAL_LOG;
+    public static Block EMPYREAL_WOOD;
+    public static Block STRIPPED_EMPYREAL_WOOD;
+    public static Block EMPYREAL_PLANKS;
+    public static Block EMPYREAL_SLAB;
+    public static Block EMPYREAL_STAIRS;
+    public static Block EMPYREAL_FENCE;
+    public static Block EMPYREAL_FENCE_GATE;
+    public static Block EMPYREAL_DOOR;
+    public static Block EMPYREAL_TRAPDOOR;
+    public static Block EMPYREAL_PRESSURE_PLATE;
+    public static Block EMPYREAL_BUTTON;
+    public static Block EMPYREAL_SIGN;
+    public static Block EMPYREAL_WALL_SIGN;
+    public static Block EMPYREAL_HANGING_SIGN;
+    public static Block EMPYREAL_WALL_HANGING_SIGN;
 
     public static Block ROSE;
     public static Block VIOLET;
@@ -405,6 +424,7 @@ public class BOPBlocks
     public static Block POTTED_MAGIC_SAPLING;
     public static Block POTTED_UMBRAN_SAPLING;
     public static Block POTTED_HELLBARK_SAPLING;
+    public static Block POTTED_EMPYREAL_SAPLING;
     public static Block POTTED_ROSE;
     public static Block POTTED_VIOLET;
     public static Block POTTED_LAVENDER;

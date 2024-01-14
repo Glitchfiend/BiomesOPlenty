@@ -80,6 +80,7 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.MAGIC_SAPLING, 5, 1, 4, 1),
             new ItemsForEmeralds(BOPBlocks.UMBRAN_SAPLING, 5, 1, 4, 1),
             new ItemsForEmeralds(BOPBlocks.HELLBARK_SAPLING, 5, 1, 4, 1),
+            new ItemsForEmeralds(BOPBlocks.EMPYREAL_SAPLING, 5, 1, 4, 1),
             new ItemsForEmeralds(BOPBlocks.ORIGIN_GRASS_BLOCK, 2, 1, 4, 1),
             new ItemsForEmeralds(BOPBlocks.ROSE, 1, 1, 6, 1),
             new ItemsForEmeralds(BOPBlocks.GLOWFLOWER, 1, 2, 5, 1),

@@ -2,10 +2,8 @@
   "feature": "biomesoplenty:dead_coral",
   "placement": [
     {
-      "type": "minecraft:noise_based_count",
-      "noise_factor": 400.0,
-      "noise_offset": 0.0,
-      "noise_to_count_ratio": 20
+      "type": "minecraft:count",
+      "count": 2
     },
     {
       "type": "minecraft:in_square"

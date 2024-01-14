@@ -136,6 +136,8 @@ public class BoatBOP extends Boat
                 return BOPItems.UMBRAN_BOAT;
             case HELLBARK:
                 return BOPItems.HELLBARK_BOAT;
+            case EMPYREAL:
+                return BOPItems.EMPYREAL_BOAT;
         }
         return Items.OAK_BOAT;
     }
@@ -174,7 +176,8 @@ public class BoatBOP extends Boat
         DEAD("dead", BOPBlocks.DEAD_PLANKS),
         MAGIC("magic", BOPBlocks.MAGIC_PLANKS),
         UMBRAN("umbran", BOPBlocks.UMBRAN_PLANKS),
-        HELLBARK("hellbark", BOPBlocks.HELLBARK_PLANKS);
+        HELLBARK("hellbark", BOPBlocks.HELLBARK_PLANKS),
+        EMPYREAL("empyreal", BOPBlocks.EMPYREAL_PLANKS);
 
         private final String name;
         private final Block planks;

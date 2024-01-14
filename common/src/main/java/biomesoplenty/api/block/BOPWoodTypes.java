@@ -23,4 +23,5 @@ public class BOPWoodTypes
     public static final WoodType MAGIC = register(new WoodType(BOPAPI.MOD_ID + ":magic", BOPBlockSetTypes.MAGIC));
     public static final WoodType UMBRAN = register(new WoodType(BOPAPI.MOD_ID + ":umbran", BOPBlockSetTypes.UMBRAN));
     public static final WoodType HELLBARK = register(new WoodType(BOPAPI.MOD_ID + ":hellbark", BOPBlockSetTypes.HELLBARK));
+    public static final WoodType EMPYREAL = register(new WoodType(BOPAPI.MOD_ID + ":empyreal", BOPBlockSetTypes.EMPYREAL));
 }

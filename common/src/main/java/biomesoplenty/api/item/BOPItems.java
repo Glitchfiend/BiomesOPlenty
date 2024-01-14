@@ -362,6 +362,26 @@ public class BOPItems
     public static Item HELLBARK_BOAT;
     public static Item HELLBARK_CHEST_BOAT;
 
+    public static Item EMPYREAL_SAPLING;
+    public static Item EMPYREAL_LEAVES;
+    public static Item EMPYREAL_LOG;
+    public static Item STRIPPED_EMPYREAL_LOG;
+    public static Item EMPYREAL_WOOD;
+    public static Item STRIPPED_EMPYREAL_WOOD;
+    public static Item EMPYREAL_PLANKS;
+    public static Item EMPYREAL_SLAB;
+    public static Item EMPYREAL_STAIRS;
+    public static Item EMPYREAL_FENCE;
+    public static Item EMPYREAL_FENCE_GATE;
+    public static Item EMPYREAL_DOOR;
+    public static Item EMPYREAL_TRAPDOOR;
+    public static Item EMPYREAL_PRESSURE_PLATE;
+    public static Item EMPYREAL_BUTTON;
+    public static Item EMPYREAL_SIGN;
+    public static Item EMPYREAL_HANGING_SIGN;
+    public static Item EMPYREAL_BOAT;
+    public static Item EMPYREAL_CHEST_BOAT;
+
     public static Item ROSE;
     public static Item VIOLET;
     public static Item LAVENDER;
@@ -423,6 +443,7 @@ public class BOPItems
     public static Item POTTED_MAGIC_SAPLING;
     public static Item POTTED_UMBRAN_SAPLING;
     public static Item POTTED_HELLBARK_SAPLING;
+    public static Item POTTED_EMPYREAL_SAPLING;
     public static Item POTTED_ROSE;
     public static Item POTTED_VIOLET;
     public static Item POTTED_LAVENDER;

@@ -60,6 +60,8 @@ public class ModItems
         UMBRAN_HANGING_SIGN = register(func, new HangingSignItem(BOPBlocks.UMBRAN_HANGING_SIGN, BOPBlocks.UMBRAN_WALL_HANGING_SIGN, (new Item.Properties()).stacksTo(16)), "umbran_hanging_sign");
         HELLBARK_SIGN = register(func, new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.HELLBARK_SIGN, BOPBlocks.HELLBARK_WALL_SIGN), "hellbark_sign");
         HELLBARK_HANGING_SIGN = register(func, new HangingSignItem(BOPBlocks.HELLBARK_HANGING_SIGN, BOPBlocks.HELLBARK_WALL_HANGING_SIGN, (new Item.Properties()).stacksTo(16)), "hellbark_hanging_sign");
+        EMPYREAL_SIGN = register(func, new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.EMPYREAL_SIGN, BOPBlocks.EMPYREAL_WALL_SIGN), "empyreal_sign");
+        EMPYREAL_HANGING_SIGN = register(func, new HangingSignItem(BOPBlocks.EMPYREAL_HANGING_SIGN, BOPBlocks.EMPYREAL_WALL_HANGING_SIGN, (new Item.Properties()).stacksTo(16)), "empyreal_hanging_sign");
 
         FIR_BOAT = register(func, new BoatItemBOP(false, BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1)), "fir_boat");
         FIR_CHEST_BOAT = register(func, new BoatItemBOP(true, BoatBOP.ModelType.FIR, (new Item.Properties()).stacksTo(1)), "fir_chest_boat");
@@ -85,6 +87,8 @@ public class ModItems
         UMBRAN_CHEST_BOAT = register(func, new BoatItemBOP(true, BoatBOP.ModelType.UMBRAN, (new Item.Properties()).stacksTo(1)), "umbran_chest_boat");
         HELLBARK_BOAT = register(func, new BoatItemBOP(false, BoatBOP.ModelType.HELLBARK, (new Item.Properties()).stacksTo(1)), "hellbark_boat");
         HELLBARK_CHEST_BOAT = register(func, new BoatItemBOP(true, BoatBOP.ModelType.HELLBARK, (new Item.Properties()).stacksTo(1)), "hellbark_chest_boat");
+        EMPYREAL_BOAT = register(func, new BoatItemBOP(false, BoatBOP.ModelType.EMPYREAL, (new Item.Properties()).stacksTo(1)), "empyreal_boat");
+        EMPYREAL_CHEST_BOAT = register(func, new BoatItemBOP(true, BoatBOP.ModelType.EMPYREAL, (new Item.Properties()).stacksTo(1)), "empyreal_chest_boat");
     }
 
     public static void registerBlockItems(BiConsumer<ResourceLocation, Item> func)
@@ -370,6 +374,21 @@ public class ModItems
         HELLBARK_TRAPDOOR = register(func, "hellbark_trapdoor", new BlockItem(BOPBlocks.HELLBARK_TRAPDOOR, new Item.Properties()));
         HELLBARK_PRESSURE_PLATE = register(func, "hellbark_pressure_plate", new BlockItem(BOPBlocks.HELLBARK_PRESSURE_PLATE, new Item.Properties()));
         HELLBARK_BUTTON = register(func, "hellbark_button", new BlockItem(BOPBlocks.HELLBARK_BUTTON, new Item.Properties()));
+        EMPYREAL_SAPLING = register(func, "empyreal_sapling", new BlockItem(BOPBlocks.EMPYREAL_SAPLING, new Item.Properties()));
+        EMPYREAL_LEAVES = register(func, "empyreal_leaves", new BlockItem(BOPBlocks.EMPYREAL_LEAVES, new Item.Properties()));
+        EMPYREAL_LOG = register(func, "empyreal_log", new BlockItem(BOPBlocks.EMPYREAL_LOG, new Item.Properties()));
+        EMPYREAL_WOOD = register(func, "empyreal_wood", new BlockItem(BOPBlocks.EMPYREAL_WOOD, new Item.Properties()));
+        STRIPPED_EMPYREAL_LOG = register(func, "stripped_empyreal_log", new BlockItem(BOPBlocks.STRIPPED_EMPYREAL_LOG, new Item.Properties()));
+        STRIPPED_EMPYREAL_WOOD = register(func, "stripped_empyreal_wood", new BlockItem(BOPBlocks.STRIPPED_EMPYREAL_WOOD, new Item.Properties()));
+        EMPYREAL_PLANKS = register(func, "empyreal_planks", new BlockItem(BOPBlocks.EMPYREAL_PLANKS, new Item.Properties()));
+        EMPYREAL_STAIRS = register(func, "empyreal_stairs", new BlockItem(BOPBlocks.EMPYREAL_STAIRS, new Item.Properties()));
+        EMPYREAL_SLAB = register(func, "empyreal_slab", new BlockItem(BOPBlocks.EMPYREAL_SLAB, new Item.Properties()));
+        EMPYREAL_FENCE = register(func, "empyreal_fence", new BlockItem(BOPBlocks.EMPYREAL_FENCE, new Item.Properties()));
+        EMPYREAL_FENCE_GATE = register(func, "empyreal_fence_gate", new BlockItem(BOPBlocks.EMPYREAL_FENCE_GATE, new Item.Properties()));
+        EMPYREAL_DOOR = register(func, "empyreal_door", new BlockItem(BOPBlocks.EMPYREAL_DOOR, new Item.Properties()));
+        EMPYREAL_TRAPDOOR = register(func, "empyreal_trapdoor", new BlockItem(BOPBlocks.EMPYREAL_TRAPDOOR, new Item.Properties()));
+        EMPYREAL_PRESSURE_PLATE = register(func, "empyreal_pressure_plate", new BlockItem(BOPBlocks.EMPYREAL_PRESSURE_PLATE, new Item.Properties()));
+        EMPYREAL_BUTTON = register(func, "empyreal_button", new BlockItem(BOPBlocks.EMPYREAL_BUTTON, new Item.Properties()));
         ROSE = register(func, "rose", new BlockItem(BOPBlocks.ROSE, new Item.Properties()));
         VIOLET = register(func, "violet", new BlockItem(BOPBlocks.VIOLET, new Item.Properties()));
         LAVENDER = register(func, "lavender", new BlockItem(BOPBlocks.LAVENDER, new Item.Properties()));
@@ -423,6 +442,7 @@ public class ModItems
         POTTED_MAGIC_SAPLING = register(func, "potted_magic_sapling", new BlockItem(BOPBlocks.POTTED_MAGIC_SAPLING, new Item.Properties()));
         POTTED_UMBRAN_SAPLING = register(func, "potted_umbran_sapling", new BlockItem(BOPBlocks.POTTED_UMBRAN_SAPLING, new Item.Properties()));
         POTTED_HELLBARK_SAPLING = register(func, "potted_hellbark_sapling", new BlockItem(BOPBlocks.POTTED_HELLBARK_SAPLING, new Item.Properties()));
+        POTTED_EMPYREAL_SAPLING = register(func, "potted_empyreal_sapling", new BlockItem(BOPBlocks.POTTED_EMPYREAL_SAPLING, new Item.Properties()));
         POTTED_ROSE = register(func, "potted_rose", new BlockItem(BOPBlocks.POTTED_ROSE, new Item.Properties()));
         POTTED_VIOLET = register(func, "potted_violet", new BlockItem(BOPBlocks.POTTED_VIOLET, new Item.Properties()));
         POTTED_LAVENDER = register(func, "potted_lavender", new BlockItem(BOPBlocks.POTTED_LAVENDER, new Item.Properties()));

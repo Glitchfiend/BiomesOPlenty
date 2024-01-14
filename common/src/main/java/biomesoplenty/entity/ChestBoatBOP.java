@@ -132,6 +132,8 @@ public class ChestBoatBOP extends ChestBoat
                 return BOPItems.UMBRAN_CHEST_BOAT;
             case HELLBARK:
                 return BOPItems.HELLBARK_CHEST_BOAT;
+            case EMPYREAL:
+                return BOPItems.EMPYREAL_CHEST_BOAT;
         }
         return Items.OAK_CHEST_BOAT;
     }

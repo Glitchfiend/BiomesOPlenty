@@ -41,10 +41,8 @@ public class ModBiomes
 
         // Register end biomes
         EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_WILDS, 10);
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_REEF, 10);
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_DRIFTS, 10);
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_AERIES, 10);
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 10);
+        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_REEF, 6);
+        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 3);
     }
 
     public static void bootstrapBiomes(BootstapContext<Biome> context)
@@ -126,8 +124,6 @@ public class ModBiomes
         // End biomes
         register(context, BOPBiomes.END_WILDS, BOPEndBiomes.endWilds(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.END_REEF, BOPEndBiomes.endReef(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.END_DRIFTS, BOPEndBiomes.endDrifts(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.END_AERIES, BOPEndBiomes.endAeries(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.END_CORRUPTION, BOPEndBiomes.endCorruption(placedFeatureGetter, carverGetter));
     }
     

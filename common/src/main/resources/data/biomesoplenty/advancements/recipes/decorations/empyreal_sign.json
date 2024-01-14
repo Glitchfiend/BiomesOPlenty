@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:empyreal_sign"
+    ]
+  },
+  "criteria": {
+    "has_empyreal_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+               "biomesoplenty:empyreal_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "biomesoplenty:empyreal_sign"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_empyreal_planks",
+      "has_the_recipe"
+    ]
+  ]
+}
