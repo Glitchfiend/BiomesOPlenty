@@ -22,6 +22,7 @@ public class BOPBaseFeatures
 
     public static BOPTreeFeature<BasicTreeConfiguration> BASIC_TREE;
     public static Feature<NoneFeatureConfiguration> HIGH_GRASS;
+    public static Feature<NoneFeatureConfiguration> ANOMALY;
     public static Feature<NoneFeatureConfiguration> BIG_DRIPLEAF;
     public static Feature<NoneFeatureConfiguration> BIG_PUMPKIN;
     public static Feature<NoneFeatureConfiguration> BLACK_SAND_SPLATTER;
@@ -93,6 +94,7 @@ public class BOPBaseFeatures
     {
         BASIC_TREE = register(func, "basic_tree", new BasicTreeFeature(BasicTreeConfiguration.CODEC));
         HIGH_GRASS = register(func, "high_grass", new HighGrassFeature(NoneFeatureConfiguration.CODEC));
+        ANOMALY = register(func, "anomaly", new AnomalyFeature(NoneFeatureConfiguration.CODEC));
         BIG_DRIPLEAF = register(func, "big_dripleaf", new BigDripleafFeature(NoneFeatureConfiguration.CODEC));
         BIG_PUMPKIN = register(func, "big_pumpkin", new BigPumpkinFeature(NoneFeatureConfiguration.CODEC));
         BLACK_SAND_SPLATTER = register(func, "black_sand_splatter", new BlackSandSplatterFeature(NoneFeatureConfiguration.CODEC));

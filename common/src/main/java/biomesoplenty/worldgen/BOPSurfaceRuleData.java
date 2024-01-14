@@ -17,7 +17,6 @@ import net.minecraft.world.level.levelgen.placement.CaveSurface;
 public class BOPSurfaceRuleData
 {
     private static final SurfaceRules.RuleSource AIR = makeStateRule(Blocks.AIR);
-    private static final SurfaceRules.RuleSource ALGAL_END_STONE = makeStateRule(BOPBlocks.ALGAL_END_STONE);
     private static final SurfaceRules.RuleSource BEDROCK = makeStateRule(Blocks.BEDROCK);
     private static final SurfaceRules.RuleSource LIGHT_BLUE_TERRACOTTA = makeStateRule(Blocks.LIGHT_BLUE_TERRACOTTA);
     private static final SurfaceRules.RuleSource CYAN_TERRACOTTA = makeStateRule(Blocks.CYAN_TERRACOTTA);
@@ -45,7 +44,9 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource BLACKSTONE = makeStateRule(Blocks.BLACKSTONE);
 
     // BOP
+    private static final SurfaceRules.RuleSource ALGAL_END_STONE = makeStateRule(BOPBlocks.ALGAL_END_STONE);
     private static final SurfaceRules.RuleSource DRIED_SALT = makeStateRule(BOPBlocks.DRIED_SALT);
+    private static final SurfaceRules.RuleSource WHITE_SAND = makeStateRule(BOPBlocks.WHITE_SAND);
     private static final SurfaceRules.RuleSource ORANGE_SAND = makeStateRule(BOPBlocks.ORANGE_SAND);
     private static final SurfaceRules.RuleSource ORANGE_SANDSTONE = makeStateRule(BOPBlocks.ORANGE_SANDSTONE);
     private static final SurfaceRules.RuleSource BLACK_SAND = makeStateRule(BOPBlocks.BLACK_SAND);
@@ -330,9 +331,19 @@ public class BOPSurfaceRuleData
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.END_WILDS),
                 SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
+                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                         SurfaceRules.sequence(
                             ALGAL_END_STONE
+                        )
+                    )
+                )
+            ),
+            SurfaceRules.ifTrue(
+                SurfaceRules.isBiome(BOPBiomes.END_DRIFTS),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
+                        SurfaceRules.sequence(
+                            WHITE_SAND
                         )
                     )
                 )

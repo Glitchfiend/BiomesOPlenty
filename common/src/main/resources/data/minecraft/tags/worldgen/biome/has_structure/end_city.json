@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "biomesoplenty:end_aeries",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:end_drifts",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:end_reef",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:end_wilds",
+      "required": false
+    }
+  ]
+}
