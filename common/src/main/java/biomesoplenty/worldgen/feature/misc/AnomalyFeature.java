@@ -5,12 +5,15 @@
 package biomesoplenty.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.block.AnomalyBlock;
 import biomesoplenty.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -20,7 +23,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE;
-    protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.ALGAL_END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.NULL_END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.NULL_BLOCK;
+    protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).is(BlockTags.REPLACEABLE_BY_TREES) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).getBlock() == Blocks.END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.ALGAL_END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.NULL_END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.NULL_BLOCK;
 
     public AnomalyFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -44,7 +47,7 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
         }
 
         int radius = rand.nextInt(3);
-        int anomalyHeight = (radius*2)+3;
+        int anomalyHeight = (radius*2)+4;
 
         if (!this.checkSpace(world, startPos, radius, anomalyHeight))
         {
@@ -92,14 +95,27 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
             {
                 for (int z = -radius; z <= radius; z++)
                 {
+                    AnomalyBlock.AnomalyType type = AnomalyBlock.AnomalyType.STABLE;
                     if (y == -radius || y == radius || x == -radius || x == radius || z == -radius || z == radius)
                     {
-                        world.setBlock(pos.offset(x,anomalyHeight+radius+y,z), BOPBlocks.ANOMALY.defaultBlockState(), 2);
+                        switch (rand.nextInt(6))
+                        {
+                            default:
+                            case 0:
+                                type = AnomalyBlock.AnomalyType.VOLATILE;
+                                break;
+
+                            case 1:
+                                type = AnomalyBlock.AnomalyType.QUIRKY;
+                                break;
+
+                            case 2:
+                                type = AnomalyBlock.AnomalyType.UNSTABLE;
+                                break;
+                        }
                     }
-                    else
-                    {
-                        world.setBlock(pos.offset(x,anomalyHeight+radius+y,z), Blocks.BEDROCK.defaultBlockState(), 2);
-                    }
+
+                    world.setBlock(pos.offset(x,anomalyHeight+radius+y,z), BOPBlocks.ANOMALY.defaultBlockState().setValue(AnomalyBlock.ANOMALY_TYPE, type), 2);
                 }
             }
         }

@@ -60,7 +60,7 @@ public class AnomalyRenderer implements BlockEntityRenderer<AnomalyBlockEntity>
         switch (state.getValue(AnomalyBlock.ANOMALY_TYPE))
         {
             case VOLATILE -> index *= level.getGameTime() / 2L;
-            case QURIRKY -> index += level.getGameTime() / 10L;
+            case QUIRKY -> index += level.getGameTime() / 10L;
             case UNSTABLE -> {
                 // Changes slowly most of the time, but has sudden bursts of rapid changes
                 final float slowWeight = 0.98F;
