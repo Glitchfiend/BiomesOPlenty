@@ -28,7 +28,8 @@
     [
       "biomesoplenty:trees_end_wilds",
       "biomesoplenty:flower_end_wilds",
-      "biomesoplenty:patch_enderphytes"
+      "biomesoplenty:patch_enderphytes",
+      "biomesoplenty:radiant_hands"
     ]
   ],
   "has_precipitation": false,

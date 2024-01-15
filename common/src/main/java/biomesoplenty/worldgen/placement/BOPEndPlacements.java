@@ -29,6 +29,7 @@ public class BOPEndPlacements
     public static final ResourceKey<PlacedFeature> FLOWER_END_WILDS = BOPPlacementUtils.createKey("flower_end_wilds");
     public static final ResourceKey<PlacedFeature> NULL_LAKE = BOPPlacementUtils.createKey("null_lake");
     public static final ResourceKey<PlacedFeature> PATCH_ENDERPHYTES = BOPPlacementUtils.createKey("patch_enderphytes");
+    public static final ResourceKey<PlacedFeature> RADIANT_HANDS = BOPPlacementUtils.createKey("radiant_hands");
     public static final ResourceKey<PlacedFeature> TREES_END_CORRUPTION = BOPPlacementUtils.createKey("trees_end_corruption");
     public static final ResourceKey<PlacedFeature> TREES_END_WILDS = BOPPlacementUtils.createKey("trees_end_wilds");
 
@@ -43,6 +44,7 @@ public class BOPEndPlacements
         final Holder<ConfiguredFeature<?, ?>> FLOWER_END_WILDS = configuredFeatureGetter.getOrThrow(BOPEndFeatures.FLOWER_END_WILDS);
         final Holder<ConfiguredFeature<?, ?>> NULL_LAKE = configuredFeatureGetter.getOrThrow(BOPEndFeatures.NULL_LAKE);
         final Holder<ConfiguredFeature<?, ?>> PATCH_ENDERPHYTES = configuredFeatureGetter.getOrThrow(BOPEndFeatures.PATCH_ENDERPHYTES);
+        final Holder<ConfiguredFeature<?, ?>> RADIANT_HANDS = configuredFeatureGetter.getOrThrow(BOPEndFeatures.RADIANT_HANDS);
         final Holder<ConfiguredFeature<?, ?>> TREES_END_CORRUPTION = configuredFeatureGetter.getOrThrow(BOPEndFeatures.TREES_END_CORRUPTION);
         final Holder<ConfiguredFeature<?, ?>> TREES_END_WILDS = configuredFeatureGetter.getOrThrow(BOPEndFeatures.TREES_END_WILDS);
 
@@ -53,6 +55,7 @@ public class BOPEndPlacements
         register(context, BOPEndPlacements.FLOWER_END_WILDS, FLOWER_END_WILDS, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.NULL_LAKE, NULL_LAKE, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.PATCH_ENDERPHYTES, PATCH_ENDERPHYTES, VegetationPlacements.worldSurfaceSquaredWithCount(5));
+        register(context, BOPEndPlacements.RADIANT_HANDS, RADIANT_HANDS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.TREES_END_CORRUPTION, TREES_END_CORRUPTION, treePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
         register(context, BOPEndPlacements.TREES_END_WILDS, TREES_END_WILDS, treePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
     }

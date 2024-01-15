@@ -416,6 +416,8 @@ public class ModItems
         DEAD_GRASS = register(func, "dead_grass", new BlockItem(BOPBlocks.DEAD_GRASS, new Item.Properties()));
         TUNDRA_SHRUB = register(func, "tundra_shrub", new BlockItem(BOPBlocks.TUNDRA_SHRUB, new Item.Properties()));
         ENDERPHYTE = register(func, "enderphyte", new BlockItem(BOPBlocks.ENDERPHYTE, new Item.Properties()));
+        RADIANT_HANDS = register(func, "radiant_hands", new BlockItem(BOPBlocks.RADIANT_HANDS, new Item.Properties()));
+        RADIANT_HANDS_PLANT = register(func, "radiant_hands_plant", new BlockItem(BOPBlocks.RADIANT_HANDS_PLANT, new Item.Properties()));
         BARLEY = register(func, "barley", new BlockItem(BOPBlocks.BARLEY, new Item.Properties()));
         SEA_OATS = register(func, "sea_oats", new BlockItem(BOPBlocks.SEA_OATS, new Item.Properties()));
         CATTAIL = register(func, "cattail", new BlockItem(BOPBlocks.CATTAIL, new Item.Properties()));

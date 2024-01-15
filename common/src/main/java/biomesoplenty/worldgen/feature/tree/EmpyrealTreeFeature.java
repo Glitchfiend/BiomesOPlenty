@@ -13,6 +13,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
@@ -297,7 +298,15 @@ public class EmpyrealTreeFeature extends BOPTreeFeature<EmpyrealTreeConfiguratio
         placeLeaves(world, pos.offset(0, 1, 2), leaves, config);
         placeLeaves(world, pos.offset(0, 1, -2), leaves, config);
 
-        placeLog(world, pos.offset(0, 2, 0), logs, config);
+        if (world.getRandom().nextInt(5) == 0)
+        {
+            world.setBlock(pos.offset(0, 2, 0), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
+        }
+        else
+        {
+            placeLog(world, pos.offset(0, 2, 0), logs, config);
+        }
+
         placeLeaves(world, pos.offset(1, 2, 0), leaves, config);
         placeLeaves(world, pos.offset(-1, 2, 0), leaves, config);
         placeLeaves(world, pos.offset(0, 2, 1), leaves, config);

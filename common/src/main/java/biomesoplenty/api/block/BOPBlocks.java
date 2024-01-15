@@ -394,6 +394,8 @@ public class BOPBlocks
     public static Block DEAD_GRASS;
     public static Block TUNDRA_SHRUB;
     public static Block ENDERPHYTE;
+    public static Block RADIANT_HANDS;
+    public static Block RADIANT_HANDS_PLANT;
     public static Block BARLEY;
     public static Block SEA_OATS;
     public static Block CATTAIL;

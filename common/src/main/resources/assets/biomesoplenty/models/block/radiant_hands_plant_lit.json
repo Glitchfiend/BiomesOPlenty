@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "biomesoplenty:block/radiant_hands_plant_lit"
+    }
+}

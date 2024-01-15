@@ -177,6 +177,8 @@ public class ModClient
         RenderHelper.setRenderType(BLACKSTONE_BULB, cutoutRenderType);
         RenderHelper.setRenderType(ENDBLOOM, cutoutRenderType);
         RenderHelper.setRenderType(ENDERPHYTE, cutoutRenderType);
+        RenderHelper.setRenderType(RADIANT_HANDS, cutoutRenderType);
+        RenderHelper.setRenderType(RADIANT_HANDS_PLANT, cutoutRenderType);
         RenderHelper.setRenderType(SPIDER_EGG, cutoutRenderType);
 
         RenderHelper.setRenderType(FIR_DOOR, cutoutRenderType);

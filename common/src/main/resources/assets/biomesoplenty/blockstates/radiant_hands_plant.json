@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "biomesoplenty:block/radiant_hands_plant"
+    },
+    "lit=true": {
+      "model": "biomesoplenty:block/radiant_hands_plant_lit"
+    }
+  }
+}

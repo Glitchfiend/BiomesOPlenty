@@ -207,6 +207,9 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.DESERT_GRASS, 60, 100);
         registerFlammable(BOPBlocks.DEAD_GRASS, 60, 100);
         registerFlammable(BOPBlocks.TUNDRA_SHRUB, 60, 100);
+        registerFlammable(BOPBlocks.ENDERPHYTE, 60, 100);
+        registerFlammable(BOPBlocks.RADIANT_HANDS, 60, 100);
+        registerFlammable(BOPBlocks.RADIANT_HANDS_PLANT, 60, 100);
         registerFlammable(BOPBlocks.DEAD_BRANCH, 60, 100);
         registerFlammable(BOPBlocks.BARLEY, 60, 100);
 
@@ -333,6 +336,8 @@ public class ModVanillaCompat
 
         registerCompostable(0.3F, BOPBlocks.ENDBLOOM);
         registerCompostable(0.3F, BOPBlocks.ENDERPHYTE);
+        registerCompostable(0.3F, BOPBlocks.RADIANT_HANDS);
+        registerCompostable(0.3F, BOPBlocks.RADIANT_HANDS_PLANT);
 
         registerCompostable(0.65F, BOPBlocks.TOADSTOOL);
         registerCompostable(0.65F, BOPBlocks.GLOWSHROOM);
