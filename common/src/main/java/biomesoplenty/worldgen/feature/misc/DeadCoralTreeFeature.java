@@ -55,7 +55,7 @@ public class DeadCoralTreeFeature extends CoralTreeFeature
             }
             else if ($$1.nextFloat() < 0.05F)
             {
-                $$0.setBlock($$4, (BlockState)Blocks.SEA_PICKLE.defaultBlockState().setValue(SeaPickleBlock.PICKLES, $$1.nextInt(4) + 1).setValue(SeaPickleBlock.WATERLOGGED, false), 2);
+                $$0.setBlock($$4, (BlockState)Blocks.GLOW_LICHEN.defaultBlockState().setValue(PipeBlock.DOWN, true).setValue(SeaPickleBlock.WATERLOGGED, false), 2);
             }
 
             Iterator var7 = Direction.Plane.HORIZONTAL.iterator();

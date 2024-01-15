@@ -331,7 +331,7 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.BRAMBLE);
         registerCompostable(0.3F, BOPBlocks.BRAMBLE_LEAVES);
 
-        registerCompostable(0.3F, BOPBlocks.ALGAE_BLOOM);
+        registerCompostable(0.3F, BOPBlocks.ENDBLOOM);
         registerCompostable(0.3F, BOPBlocks.ENDERPHYTE);
 
         registerCompostable(0.65F, BOPBlocks.TOADSTOOL);

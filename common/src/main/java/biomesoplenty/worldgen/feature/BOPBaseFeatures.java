@@ -34,6 +34,7 @@ public class BOPBaseFeatures
     public static BOPTreeFeature<CypressTreeConfiguration> CYPRESS_TREE;
     public static Feature<NoneFeatureConfiguration> DRIPSTONE_SPLATTER;
     public static Feature<NoneFeatureConfiguration> BONE_SPINE;
+    public static BOPTreeFeature<EmpyrealTreeConfiguration> EMPYREAL_TREE;
     public static Feature<NoneFeatureConfiguration> EXTRA_GLOW_LICHEN;
     public static Feature<NoneFeatureConfiguration> FALLEN_LOG;
     public static Feature<NoneFeatureConfiguration> FALLEN_FIR_LOG;
@@ -109,6 +110,7 @@ public class BOPBaseFeatures
         CYPRESS_TREE = register(func, "cypress_tree", new CypressTreeFeature(CypressTreeConfiguration.CODEC));
         DRIPSTONE_SPLATTER = register(func, "dripstone_splatter", new DripstoneSplatterFeature(NoneFeatureConfiguration.CODEC));
         BONE_SPINE = register(func, "bone_spine", new BoneSpineFeature(NoneFeatureConfiguration.CODEC));
+        EMPYREAL_TREE = register(func, "empyreal_tree", new EmpyrealTreeFeature(EmpyrealTreeConfiguration.CODEC));
         EXTRA_GLOW_LICHEN = register(func, "extra_glow_lichen", new ExtraGlowLichenFeature(NoneFeatureConfiguration.CODEC));
         FALLEN_LOG = register(func, "fallen_log", new FallenLogFeature(NoneFeatureConfiguration.CODEC));
         FALLEN_FIR_LOG = register(func, "fallen_fir_log", new FallenFirLogFeature(NoneFeatureConfiguration.CODEC));

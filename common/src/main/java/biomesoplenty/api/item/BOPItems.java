@@ -397,7 +397,7 @@ public class BOPItems
     public static Item GLOWFLOWER;
     public static Item WILTED_LILY;
     public static Item BURNING_BLOSSOM;
-    public static Item ALGAE_BLOOM;
+    public static Item ENDBLOOM;
 
     public static Item SPROUT;
     public static Item BUSH;
@@ -454,7 +454,7 @@ public class BOPItems
     public static Item POTTED_GLOWFLOWER;
     public static Item POTTED_WILTED_LILY;
     public static Item POTTED_BURNING_BLOSSOM;
-    public static Item POTTED_ALGAE_BLOOM;
+    public static Item POTTED_ENDBLOOM;
     public static Item POTTED_SPROUT;
     public static Item POTTED_TINY_CACTUS;
     public static Item POTTED_TOADSTOOL;

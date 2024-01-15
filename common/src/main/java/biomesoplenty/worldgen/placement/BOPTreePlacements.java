@@ -47,6 +47,7 @@ public class BOPTreePlacements
     public static final ResourceKey<PlacedFeature> DEAD_TWIGLET_TREE_SMALL_CHECKED = BOPPlacementUtils.createKey("dead_twiglet_tree_small");
     public static final ResourceKey<PlacedFeature> DYING_TREE_CHECKED = BOPPlacementUtils.createKey("dying_tree");
     public static final ResourceKey<PlacedFeature> DYING_TREE_WASTELAND_CHECKED = BOPPlacementUtils.createKey("dying_tree_wasteland");
+    public static final ResourceKey<PlacedFeature> EMPYREAL_TREE_CHECKED = BOPPlacementUtils.createKey("empyreal_tree");
     public static final ResourceKey<PlacedFeature> FIR_TREE_CHECKED = BOPPlacementUtils.createKey("fir_tree");
     public static final ResourceKey<PlacedFeature> FIR_TREE_LARGE_CHECKED = BOPPlacementUtils.createKey("fir_tree_large");
     public static final ResourceKey<PlacedFeature> FIR_TREE_SMALL_CHECKED = BOPPlacementUtils.createKey("fir_tree_small");
@@ -118,6 +119,7 @@ public class BOPTreePlacements
         final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_SMALL);
         final Holder<ConfiguredFeature<?, ?>> DYING_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE);
         final Holder<ConfiguredFeature<?, ?>> DYING_TREE_WASTELAND = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE_WASTELAND);
+        final Holder<ConfiguredFeature<?, ?>> EMPYREAL_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.EMPYREAL_TREE);
         final Holder<ConfiguredFeature<?, ?>> FIR_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE);
         final Holder<ConfiguredFeature<?, ?>> FIR_TREE_LARGE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE_LARGE);
         final Holder<ConfiguredFeature<?, ?>> FIR_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE_SMALL);
@@ -185,6 +187,7 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.DEAD_TWIGLET_TREE_SMALL_CHECKED, DEAD_TWIGLET_TREE_SMALL, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DYING_TREE_CHECKED, DYING_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DYING_TREE_WASTELAND_CHECKED, DYING_TREE_WASTELAND, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
+        register(context, BOPTreePlacements.EMPYREAL_TREE_CHECKED, EMPYREAL_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.EMPYREAL_SAPLING)));
         register(context, BOPTreePlacements.FIR_TREE_CHECKED, FIR_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING)));
         register(context, BOPTreePlacements.FIR_TREE_LARGE_CHECKED, FIR_TREE_LARGE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING)));
         register(context, BOPTreePlacements.FIR_TREE_SMALL_CHECKED, FIR_TREE_SMALL, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.FIR_SAPLING)));

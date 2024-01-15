@@ -22,7 +22,7 @@ public class NullBlock extends Block
     @Override
     public void animateTick(BlockState p_221253_, Level p_221254_, BlockPos p_221255_, RandomSource p_221256_)
     {
-        if (p_221256_.nextInt(5) == 0)
+        if (p_221256_.nextInt(10) == 0)
         {
             Direction direction = Direction.getRandom(p_221256_);
             Direction.Axis direction$axis = direction.getAxis();
@@ -40,13 +40,7 @@ public class NullBlock extends Block
                 double d5 = direction$axis == Direction.Axis.Y ? (double)direction.getStepY() * 0.55D : d3;
                 double d6 = direction$axis == Direction.Axis.Z ? (double)direction.getStepZ() * 0.55D : d3;
 
-                double ymove = 0.1D;
-                if (direction == Direction.DOWN)
-                {
-                    ymove = -0.1D;
-                }
-
-                p_221254_.addParticle(ModParticles.NULL, d0 + d4, d1 + d5, d2 + d6, 0.0D, ymove, 0.0D);
+                p_221254_.addParticle(ModParticles.NULL, d0 + d4, d1 + d5, d2 + d6, 0.0D, 0.1D, 0.0D);
             }
         }
     }

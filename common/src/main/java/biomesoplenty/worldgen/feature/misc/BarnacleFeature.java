@@ -56,7 +56,7 @@ public class BarnacleFeature extends Feature<NoneFeatureConfiguration>
                         for (Direction direction : Direction.values())
                         {
                             BlockState blockstate1 = worldIn.getBlockState(blockpos.relative(direction));
-                            if (rand.nextInt(5) == 0 && (blockstate1 == Blocks.END_STONE.defaultBlockState() || blockstate1 == BOPBlocks.ALGAL_END_STONE.defaultBlockState() || blockstate1 == BOPBlocks.WHITE_SAND.defaultBlockState() || blockstate1 == BOPBlocks.WHITE_SANDSTONE.defaultBlockState() || blockstate1.is(ModTags.Blocks.DEAD_CORAL_BLOCKS)))
+                            if (rand.nextInt(4) == 0 && (blockstate1 == Blocks.END_STONE.defaultBlockState() || blockstate1 == BOPBlocks.ALGAL_END_STONE.defaultBlockState() || blockstate1 == BOPBlocks.WHITE_SAND.defaultBlockState() || blockstate1 == BOPBlocks.WHITE_SANDSTONE.defaultBlockState() || blockstate1.is(ModTags.Blocks.DEAD_CORAL_BLOCKS)))
                             {
                                 barnaclestate = barnaclestate.setValue(MultifaceBlock.getFaceProperty(direction), true);
                                 faces++;

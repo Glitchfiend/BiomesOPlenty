@@ -1,7 +1,7 @@
 {
   "parent": "biomesoplenty:item/rose_quartz_bud",
   "textures": {
-    "layer0": "biomesoplenty:block/algae_bloom"
+    "layer0": "biomesoplenty:block/endbloom"
   },
   "display": {
     "firstperson_righthand": {

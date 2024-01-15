@@ -48,7 +48,7 @@ public class FlowerBlockBOP extends FlowerBlock
         {
             shape = MEDIUM;
         }
-        if (block == BOPBlocks.VIOLET || block == BOPBlocks.ALGAE_BLOOM)
+        if (block == BOPBlocks.VIOLET || block == BOPBlocks.ENDBLOOM)
         {
             shape = SHORT;
         }
@@ -74,7 +74,7 @@ public class FlowerBlockBOP extends FlowerBlock
         {
             return ground == BOPBlocks.DRIED_SALT || super.canSurvive(state, worldIn, pos);
         }
-        else if (this == BOPBlocks.ALGAE_BLOOM)
+        else if (this == BOPBlocks.ENDBLOOM)
         {
             return ground == BOPBlocks.ALGAL_END_STONE || ground == Blocks.END_STONE || super.canSurvive(state, worldIn, pos);
         }

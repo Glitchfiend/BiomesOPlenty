@@ -15,7 +15,7 @@ import java.util.Optional;
 public class BOPTreeGrowers
 {
     public static final TreeGrower DEAD = register("dead", 0.5F, Optional.empty(), Optional.empty(), Optional.of(BOPTreeFeatures.DEAD_TWIGLET_TREE), Optional.of(BOPTreeFeatures.SMALL_DEAD_TREE), Optional.empty(), Optional.empty());
-    public static final TreeGrower EMPYREAL = register("empyreal", Optional.of(BOPTreeFeatures.PINE_TREE), Optional.empty());
+    public static final TreeGrower EMPYREAL = register("empyreal", Optional.of(BOPTreeFeatures.EMPYREAL_TREE), Optional.empty());
     public static final TreeGrower FIR = register("fir", Optional.of(BOPTreeFeatures.FIR_TREE), Optional.empty(), Optional.of(BOPTreeFeatures.FIR_TREE_LARGE), Optional.empty());
     public static final TreeGrower FLOWERING_OAK = register("flowering_oak", 0.1F, Optional.empty(), Optional.empty(), Optional.of(BOPTreeFeatures.FLOWERING_OAK_TREE), Optional.of(BOPTreeFeatures.BIG_FLOWERING_OAK_TREE), Optional.of(BOPTreeFeatures.FLOWERING_OAK_TREE_BEES), Optional.of(BOPTreeFeatures.BIG_FLOWERING_OAK_TREE_BEES));
     public static final TreeGrower HELLBARK = register("hellbark", Optional.of(BOPTreeFeatures.HELLBARK_TREE), Optional.of(BOPTreeFeatures.BIG_HELLBARK_TREE));

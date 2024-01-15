@@ -111,6 +111,7 @@ public class ModClient
         RenderHelper.setRenderType(MAGIC_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(UMBRAN_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(HELLBARK_SAPLING, cutoutRenderType);
+        RenderHelper.setRenderType(EMPYREAL_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(ROSE, cutoutRenderType);
         RenderHelper.setRenderType(VIOLET, cutoutRenderType);
         RenderHelper.setRenderType(LAVENDER, cutoutRenderType);
@@ -174,7 +175,7 @@ public class ModClient
         RenderHelper.setRenderType(SMALL_ROSE_QUARTZ_BUD, cutoutRenderType);
         RenderHelper.setRenderType(BLACKSTONE_SPINES, cutoutRenderType);
         RenderHelper.setRenderType(BLACKSTONE_BULB, cutoutRenderType);
-        RenderHelper.setRenderType(ALGAE_BLOOM, cutoutRenderType);
+        RenderHelper.setRenderType(ENDBLOOM, cutoutRenderType);
         RenderHelper.setRenderType(ENDERPHYTE, cutoutRenderType);
         RenderHelper.setRenderType(SPIDER_EGG, cutoutRenderType);
 
@@ -190,6 +191,7 @@ public class ModClient
         RenderHelper.setRenderType(MAGIC_DOOR, translucentRenderType);
         RenderHelper.setRenderType(UMBRAN_DOOR, cutoutRenderType);
         RenderHelper.setRenderType(HELLBARK_DOOR, cutoutRenderType);
+        RenderHelper.setRenderType(EMPYREAL_DOOR, cutoutRenderType);
         RenderHelper.setRenderType(FIR_TRAPDOOR, cutoutRenderType);
         RenderHelper.setRenderType(PINE_TRAPDOOR, cutoutRenderType);
         RenderHelper.setRenderType(MAPLE_TRAPDOOR, cutoutRenderType);
@@ -202,6 +204,7 @@ public class ModClient
         RenderHelper.setRenderType(MAGIC_TRAPDOOR, translucentRenderType);
         RenderHelper.setRenderType(UMBRAN_TRAPDOOR, cutoutRenderType);
         RenderHelper.setRenderType(HELLBARK_TRAPDOOR, cutoutRenderType);
+        RenderHelper.setRenderType(EMPYREAL_TRAPDOOR, cutoutRenderType);
 
         RenderHelper.setRenderType(POTTED_ORIGIN_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_FLOWERING_OAK_SAPLING, cutoutRenderType);
@@ -221,6 +224,7 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_MAGIC_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_UMBRAN_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_HELLBARK_SAPLING, cutoutRenderType);
+        RenderHelper.setRenderType(POTTED_EMPYREAL_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_ROSE, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_VIOLET, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_LAVENDER, cutoutRenderType);
@@ -231,7 +235,7 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_GLOWFLOWER, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_WILTED_LILY, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_BURNING_BLOSSOM, cutoutRenderType);
-        RenderHelper.setRenderType(POTTED_ALGAE_BLOOM, cutoutRenderType);
+        RenderHelper.setRenderType(POTTED_ENDBLOOM, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_SPROUT, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_TINY_CACTUS, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_TOADSTOOL, cutoutRenderType);

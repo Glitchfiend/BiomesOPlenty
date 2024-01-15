@@ -155,8 +155,6 @@ public class ModItems
         MEDIUM_ROSE_QUARTZ_BUD = register(func, "medium_rose_quartz_bud", new BlockItem(BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD, new Item.Properties()));
         SMALL_ROSE_QUARTZ_BUD = register(func, "small_rose_quartz_bud", new BlockItem(BOPBlocks.SMALL_ROSE_QUARTZ_BUD, new Item.Properties()));
         ALGAL_END_STONE = register(func, "algal_end_stone", new BlockItem(BOPBlocks.ALGAL_END_STONE, new Item.Properties()));
-        ALGAE_BLOOM = register(func, "algae_bloom", new BlockItem(BOPBlocks.ALGAE_BLOOM, new Item.Properties()));
-        ENDERPHYTE = register(func, "enderphyte", new BlockItem(BOPBlocks.ENDERPHYTE, new Item.Properties()));
         BARNACLES = register(func, "barnacles", new BlockItem(BOPBlocks.BARNACLES, new Item.Properties()));
         NULL_END_STONE = register(func, "null_end_stone", new BlockItem(BOPBlocks.NULL_END_STONE, new Item.Properties()));
         NULL_BLOCK = register(func, "null_block", new BlockItem(BOPBlocks.NULL_BLOCK, new Item.Properties()));
@@ -404,6 +402,7 @@ public class ModItems
         GLOWFLOWER = register(func, "glowflower", new BlockItem(BOPBlocks.GLOWFLOWER, new Item.Properties()));
         WILTED_LILY = register(func, "wilted_lily", new BlockItem(BOPBlocks.WILTED_LILY, new Item.Properties()));
         BURNING_BLOSSOM = register(func, "burning_blossom", new BlockItem(BOPBlocks.BURNING_BLOSSOM, new Item.Properties()));
+        ENDBLOOM = register(func, "endbloom", new BlockItem(BOPBlocks.ENDBLOOM, new Item.Properties()));
         SPROUT = register(func, "sprout", new BlockItem(BOPBlocks.SPROUT, new Item.Properties()));
         BUSH = register(func, "bush", new BlockItem(BOPBlocks.BUSH, new Item.Properties()));
         HIGH_GRASS = register(func, "high_grass", new BlockItem(BOPBlocks.HIGH_GRASS, new Item.Properties()));
@@ -416,6 +415,7 @@ public class ModItems
         DESERT_GRASS = register(func, "desert_grass", new BlockItem(BOPBlocks.DESERT_GRASS, new Item.Properties()));
         DEAD_GRASS = register(func, "dead_grass", new BlockItem(BOPBlocks.DEAD_GRASS, new Item.Properties()));
         TUNDRA_SHRUB = register(func, "tundra_shrub", new BlockItem(BOPBlocks.TUNDRA_SHRUB, new Item.Properties()));
+        ENDERPHYTE = register(func, "enderphyte", new BlockItem(BOPBlocks.ENDERPHYTE, new Item.Properties()));
         BARLEY = register(func, "barley", new BlockItem(BOPBlocks.BARLEY, new Item.Properties()));
         SEA_OATS = register(func, "sea_oats", new BlockItem(BOPBlocks.SEA_OATS, new Item.Properties()));
         CATTAIL = register(func, "cattail", new BlockItem(BOPBlocks.CATTAIL, new Item.Properties()));
@@ -453,7 +453,7 @@ public class ModItems
         POTTED_GLOWFLOWER = register(func, "potted_glowflower", new BlockItem(BOPBlocks.POTTED_GLOWFLOWER, new Item.Properties()));
         POTTED_WILTED_LILY = register(func, "potted_wilted_lily", new BlockItem(BOPBlocks.POTTED_WILTED_LILY, new Item.Properties()));
         POTTED_BURNING_BLOSSOM = register(func, "potted_burning_blossom", new BlockItem(BOPBlocks.POTTED_BURNING_BLOSSOM, new Item.Properties()));
-        POTTED_ALGAE_BLOOM = register(func, "potted_algae_bloom", new BlockItem(BOPBlocks.POTTED_ALGAE_BLOOM, new Item.Properties()));
+        POTTED_ENDBLOOM = register(func, "potted_endbloom", new BlockItem(BOPBlocks.POTTED_ENDBLOOM, new Item.Properties()));
         POTTED_SPROUT = register(func, "potted_sprout", new BlockItem(BOPBlocks.POTTED_SPROUT, new Item.Properties()));
         POTTED_TINY_CACTUS = register(func, "potted_tiny_cactus", new BlockItem(BOPBlocks.POTTED_TINY_CACTUS, new Item.Properties()));
         POTTED_TOADSTOOL = register(func, "potted_toadstool", new BlockItem(BOPBlocks.POTTED_TOADSTOOL, new Item.Properties()));

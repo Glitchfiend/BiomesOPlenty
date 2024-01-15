@@ -378,7 +378,7 @@ public class BOPBlocks
     public static Block GLOWFLOWER;
     public static Block WILTED_LILY;
     public static Block BURNING_BLOSSOM;
-    public static Block ALGAE_BLOOM;
+    public static Block ENDBLOOM;
 
     public static Block SPROUT;
     public static Block BUSH;
@@ -435,7 +435,7 @@ public class BOPBlocks
     public static Block POTTED_GLOWFLOWER;
     public static Block POTTED_WILTED_LILY;
     public static Block POTTED_BURNING_BLOSSOM;
-    public static Block POTTED_ALGAE_BLOOM;
+    public static Block POTTED_ENDBLOOM;
     public static Block POTTED_SPROUT;
     public static Block POTTED_TINY_CACTUS;
     public static Block POTTED_TOADSTOOL;

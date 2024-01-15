@@ -40,7 +40,7 @@ public class ModBiomes
         Regions.register(new BOPNetherRegionRare(ModConfig.generation.bopNetherRareRegionWeight));
 
         // Register end biomes
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_WILDS, 10);
+        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_WILDS, 9);
         EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_REEF, 6);
         EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 3);
     }

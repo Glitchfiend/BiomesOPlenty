@@ -73,12 +73,6 @@ public class AnomalyBlock extends BaseEntityBlock
     }
 
     @Override
-    public float getShadeBrightness(BlockState state, BlockGetter getter, BlockPos pos)
-    {
-        return 1.0F;
-    }
-
-    @Override
     public RenderShape getRenderShape(BlockState state)
     {
         return state.getValue(ANOMALY_TYPE) == AnomalyType.STABLE ? RenderShape.MODEL : RenderShape.INVISIBLE;

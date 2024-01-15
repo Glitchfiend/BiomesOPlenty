@@ -88,7 +88,10 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                 BlockPos soilPos = pos.below();
                 Block soil = world.getBlockState(soilPos).getBlock();
 
-                world.setBlock(soilPos, Blocks.DIRT.defaultBlockState(), 3);
+                if (world.getBlockState(pos.below()).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos.below()).getBlock() == Blocks.MYCELIUM)
+                {
+                    world.setBlock(soilPos, Blocks.DIRT.defaultBlockState(), 3);
+                }
                 int leavesLayers = (config.leafLayers - 1);
 
                 //Generates leaves at the top of the tree, going one block above the top log (<= rather than <)

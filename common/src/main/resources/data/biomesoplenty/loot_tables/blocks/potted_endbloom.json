@@ -20,7 +20,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesoplenty:algae_bloom"
+          "name": "biomesoplenty:endbloom"
         }
       ],
       "conditions": [
