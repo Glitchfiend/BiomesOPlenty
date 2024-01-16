@@ -39,6 +39,35 @@ public class TidepoolFeature extends Feature<NoneFeatureConfiguration>
         NoneFeatureConfiguration config = featurePlaceContext.config();
         int i = 0;
 
+        BlockState linerBlock;
+        switch (rand.nextInt(7))
+        {
+            default:
+            case 0:
+                linerBlock = BOPBlocks.WHITE_SANDSTONE.defaultBlockState();
+                break;
+
+            case 1:
+                linerBlock = Blocks.DEAD_TUBE_CORAL_BLOCK.defaultBlockState();
+                break;
+
+            case 2:
+                linerBlock = Blocks.DEAD_BRAIN_CORAL_BLOCK.defaultBlockState();
+                break;
+
+            case 3:
+                linerBlock = Blocks.DEAD_BUBBLE_CORAL_BLOCK.defaultBlockState();
+                break;
+
+            case 4:
+                linerBlock = Blocks.DEAD_FIRE_CORAL_BLOCK.defaultBlockState();
+                break;
+
+            case 5:
+                linerBlock = Blocks.DEAD_HORN_CORAL_BLOCK.defaultBlockState();
+                break;
+        }
+
         for(int j = 0; j < 96; ++j)
         {
             BlockPos blockpos = pos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(2) - rand.nextInt(2), rand.nextInt(4) - rand.nextInt(4));
@@ -117,38 +146,13 @@ public class TidepoolFeature extends Feature<NoneFeatureConfiguration>
                         break;
                 }
 
-                BlockState coralBlock;
-                switch (rand.nextInt(5))
-                {
-                    default:
-                    case 0:
-                        coralBlock = Blocks.DEAD_TUBE_CORAL_BLOCK.defaultBlockState();
-                        break;
-
-                    case 1:
-                        coralBlock = Blocks.DEAD_BRAIN_CORAL_BLOCK.defaultBlockState();
-                        break;
-
-                    case 2:
-                        coralBlock = Blocks.DEAD_BUBBLE_CORAL_BLOCK.defaultBlockState();
-                        break;
-
-                    case 3:
-                        coralBlock = Blocks.DEAD_FIRE_CORAL_BLOCK.defaultBlockState();
-                        break;
-
-                    case 4:
-                        coralBlock = Blocks.DEAD_HORN_CORAL_BLOCK.defaultBlockState();
-                        break;
-                }
-
-                world.setBlock(blockpos.below(), coralBlock, 2);
+                world.setBlock(blockpos.below(), linerBlock, 2);
 
                 for (Direction direction : Direction.Plane.HORIZONTAL)
                 {
                     if (!world.getFluidState(blockpos.relative(direction)).is(Fluids.WATER))
                     {
-                        world.setBlock(blockpos.relative(direction), coralBlock, 2);
+                        world.setBlock(blockpos.relative(direction), linerBlock, 2);
                     }
                 }
 

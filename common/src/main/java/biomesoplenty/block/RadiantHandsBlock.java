@@ -9,7 +9,6 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -47,9 +46,8 @@ public class RadiantHandsBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public BlockState getStateForPlacement(LevelAccessor p_53949_)
-    {
-        return this.defaultBlockState().setValue(AGE, Integer.valueOf(p_53949_.getRandom().nextInt(MAX_AGE))).setValue(LIT, p_53949_.getRandom().nextInt(7) == 0);
+    public BlockState getStateForPlacement(LevelAccessor p_53949_) {
+        return this.defaultBlockState().setValue(AGE, Integer.valueOf(p_53949_.getRandom().nextInt(MAX_AGE)));
     }
 
     @Override
@@ -68,8 +66,13 @@ public class RadiantHandsBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    protected int getBlocksToGrowWhenBonemealed(RandomSource p_230332_1_) {
-        return NetherVines.getBlocksToGrowWhenBonemealed(p_230332_1_);
+    protected int getBlocksToGrowWhenBonemealed(RandomSource p_220928_) {
+        return 1;
+    }
+
+    @Override
+    protected BlockState getGrowIntoState(BlockState p_220935_, RandomSource p_220936_) {
+        return super.getGrowIntoState(p_220935_, p_220936_).setValue(LIT, Boolean.valueOf(p_220936_.nextFloat() < 0.4F));
     }
 
     @Override
@@ -78,12 +81,19 @@ public class RadiantHandsBlock extends GrowingPlantHeadBlock
         int i = Math.min(p_221340_.getValue(AGE) + 1, MAX_AGE);
         int j = this.getBlocksToGrowWhenBonemealed(p_221338_);
 
-        for(int k = 0; k < j && this.canGrowInto(p_221337_.getBlockState(blockpos)); ++k) {
+        p_221337_.setBlock(p_221339_, p_221340_.setValue(LIT, Boolean.valueOf(true)), 2);
+
+        for(int k = 0; k < j && this.canGrowInto(p_221337_.getBlockState(blockpos)); ++k)
+        {
             p_221337_.setBlockAndUpdate(blockpos, p_221340_.setValue(AGE, Integer.valueOf(i)));
             blockpos = blockpos.relative(this.growthDirection);
             i = Math.min(i + 1, MAX_AGE);
         }
+    }
 
+    @Override
+    protected BlockState updateBodyAfterConvertedFromHead(BlockState p_152987_, BlockState p_152988_) {
+        return p_152988_.setValue(LIT, p_152987_.getValue(LIT));
     }
 
     @Override

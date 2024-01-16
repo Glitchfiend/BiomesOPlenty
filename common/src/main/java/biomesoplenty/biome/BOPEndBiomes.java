@@ -16,9 +16,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class BOPEndBiomes
 {
-    private static Biome baseEndBiome(BiomeGenerationSettings.Builder biomeBuilder, int waterColor, int waterFogColor) {
-        MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.endSpawns(mobSpawnBuilder);
+    private static Biome baseEndBiome(BiomeGenerationSettings.Builder biomeBuilder, MobSpawnSettings.Builder mobSpawnBuilder, int waterColor, int waterFogColor) {
         return new Biome.BiomeBuilder()
             .hasPrecipitation(false)
             .temperature(0.5F)
@@ -39,17 +37,20 @@ public class BOPEndBiomes
 
     public static Biome endWilds(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
     {
+        MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.endSpawns(mobSpawnBuilder);
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.TREES_END_WILDS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.FLOWER_END_WILDS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.PATCH_ENDERPHYTES);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.RADIANT_HANDS);
-        return baseEndBiome(biomeBuilder, 4159204, 329011);
+        return baseEndBiome(biomeBuilder, mobSpawnBuilder, 4159204, 329011);
     }
 
     public static Biome endReef(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
     {
+        MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPEndPlacements.JAGGED_SANDSTONE);
@@ -58,16 +59,18 @@ public class BOPEndBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.DEAD_CORAL_PATCH);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.BARNACLES);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_DEAD_GRASS);
-        return baseEndBiome(biomeBuilder, 0xFFFFFF, 0x333333);
+        return baseEndBiome(biomeBuilder, mobSpawnBuilder, 0xFFFFFF, 0x333333);
     }
 
     public static Biome endCorruption(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
     {
+        MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.endSpawns(mobSpawnBuilder);
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
-        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPEndPlacements.ANOMALY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, BOPEndPlacements.ANOMALY);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPEndPlacements.NULL_LAKE);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.TREES_END_CORRUPTION);
-        return baseEndBiome(biomeBuilder, 4159204, 329011);
+        return baseEndBiome(biomeBuilder, mobSpawnBuilder, 4159204, 329011);
     }
 }

@@ -8,9 +8,8 @@ import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -69,7 +68,20 @@ public class RadiantHandsPlantBlock extends GrowingPlantBodyBlock
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_56651_) {
+    protected BlockState updateHeadAfterConvertedFromBody(BlockState $$0, BlockState $$1)
+    {
+        return (BlockState)$$1.setValue(LIT, (Boolean)$$0.getValue(LIT));
+    }
+
+    @Override
+    public void performBonemeal(ServerLevel $$0, RandomSource $$1, BlockPos $$2, BlockState $$3)
+    {
+        $$0.setBlock($$2, (BlockState)$$3.setValue(LIT, true), 2);
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_56651_)
+    {
         p_56651_.add(LIT);
     }
 }

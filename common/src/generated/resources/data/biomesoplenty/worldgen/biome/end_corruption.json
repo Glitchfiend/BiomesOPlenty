@@ -16,7 +16,9 @@
   "features": [
     [],
     [],
-    [],
+    [
+      "biomesoplenty:anomaly"
+    ],
     [],
     [
       "minecraft:end_gateway_return"
@@ -24,7 +26,6 @@
     [],
     [],
     [
-      "biomesoplenty:anomaly",
       "biomesoplenty:null_lake"
     ],
     [],
