@@ -22,6 +22,9 @@ public class BOPBaseFeatures
     public static BOPTreeFeature<BasicTreeConfiguration> BASIC_TREE;
     public static Feature<NoneFeatureConfiguration> HIGH_GRASS;
     public static Feature<NoneFeatureConfiguration> RADIANT_HANDS;
+    public static Feature<NoneFeatureConfiguration> TIDEPOOL;
+    public static Feature<NoneFeatureConfiguration> DEAD_CORAL_PATCH;
+    public static Feature<NoneFeatureConfiguration> JAGGED_SANDSTONE;
     public static Feature<NoneFeatureConfiguration> ANOMALY;
     public static Feature<NoneFeatureConfiguration> BIG_DRIPLEAF;
     public static Feature<NoneFeatureConfiguration> BIG_PUMPKIN;
@@ -99,6 +102,9 @@ public class BOPBaseFeatures
         BASIC_TREE = register(func, "basic_tree", new BasicTreeFeature(BasicTreeConfiguration.CODEC));
         HIGH_GRASS = register(func, "high_grass", new HighGrassFeature(NoneFeatureConfiguration.CODEC));
         RADIANT_HANDS = register(func, "radiant_hands", new RadiantHandsFeature(NoneFeatureConfiguration.CODEC));
+        TIDEPOOL = register(func, "tidepool", new TidepoolFeature(NoneFeatureConfiguration.CODEC));
+        DEAD_CORAL_PATCH = register(func, "dead_coral_patch", new DeadCoralPatchFeature(NoneFeatureConfiguration.CODEC));
+        JAGGED_SANDSTONE = register(func, "jagged_sandstone", new JaggedSandstoneFeature(NoneFeatureConfiguration.CODEC));
         ANOMALY = register(func, "anomaly", new AnomalyFeature(NoneFeatureConfiguration.CODEC));
         BIG_DRIPLEAF = register(func, "big_dripleaf", new BigDripleafFeature(NoneFeatureConfiguration.CODEC));
         BIG_PUMPKIN = register(func, "big_pumpkin", new BigPumpkinFeature(NoneFeatureConfiguration.CODEC));

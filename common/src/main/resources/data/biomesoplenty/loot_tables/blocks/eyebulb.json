@@ -5,23 +5,21 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "conditions": [
+          "type": "minecraft:alternatives",
+          "children": [
             {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "enchantments": [
-                  {
-                    "enchantment": "minecraft:silk_touch",
-                    "levels": {
-                      "min": 1
-                    }
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "tag": "biomesoplenty:shears"
                   }
-                ]
-              }
+                }
+              ],
+              "name": "biomesoplenty:eyebulb"
             }
-          ],
-          "name": "biomesoplenty:eyebulb"
+          ]
         }
       ]
     }

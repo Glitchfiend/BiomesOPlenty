@@ -10,8 +10,8 @@
       "tick_delay": 6000
     },
     "sky_color": 0,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "water_color": 16777215,
+    "water_fog_color": 3355443
   },
   "features": [
     [],
@@ -23,11 +23,16 @@
     ],
     [],
     [],
-    [],
+    [
+      "biomesoplenty:jagged_sandstone",
+      "biomesoplenty:tidepool"
+    ],
     [],
     [
       "biomesoplenty:dead_coral",
-      "biomesoplenty:barnacles"
+      "biomesoplenty:dead_coral_patch",
+      "biomesoplenty:barnacles",
+      "biomesoplenty:patch_dead_grass"
     ]
   ],
   "has_precipitation": false,
