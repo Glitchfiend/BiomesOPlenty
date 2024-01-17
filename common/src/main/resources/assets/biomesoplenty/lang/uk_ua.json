@@ -3,11 +3,11 @@
   "advancements.biomesoplenty.root.description": "Дослідіть світ навколо себе",
   "advancements.biomesoplenty.all_biomes.title": "Мандрівник",
   "advancements.biomesoplenty.all_biomes.description": "Дослідіть усі біоми Biomes O' Plenty",
- 
+
   "commands.biomesoplenty.gendata.success": "Дані успішно згенеровано",
   "generator.minecraft.biomesoplenty": "Biomes O' Plenty",
   "itemGroup.biomesoplenty": "Biomes O' Plenty",
- 
+
   "biome.biomesoplenty.aspen_glade": "Осикова галявина",
   "biome.biomesoplenty.auroral_garden": "Полярний сад",
   "biome.biomesoplenty.bayou": "Баю",
