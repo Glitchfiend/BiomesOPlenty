@@ -74,7 +74,6 @@ public class BOPBlocks
     public static Block SMALL_ROSE_QUARTZ_BUD;
 
     public static Block ALGAL_END_STONE;
-    public static Block BARNACLES;
     public static Block NULL_END_STONE;
     public static Block NULL_BLOCK;
     public static Block ANOMALY;
@@ -405,6 +404,7 @@ public class BOPBlocks
     public static Block TINY_CACTUS;
     public static Block BRAMBLE;
     public static Block BRAMBLE_LEAVES;
+    public static Block BARNACLES;
 
     public static Block BLOOD;
 

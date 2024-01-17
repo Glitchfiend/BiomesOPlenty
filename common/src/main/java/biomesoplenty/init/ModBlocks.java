@@ -127,7 +127,6 @@ public class ModBlocks
         SMALL_ROSE_QUARTZ_BUD = register(func, new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.ofFullCopy(ROSE_QUARTZ_CLUSTER).pushReaction(PushReaction.DESTROY).forceSolidOn().sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((state) -> 5)), "small_rose_quartz_bud");
 
         ALGAL_END_STONE = register(func, new AlgalEndStoneBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).randomTicks().requiresCorrectToolForDrops().strength(3.0F, 9.0F)), "algal_end_stone");
-        BARNACLES = register(func, new BarnaclesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).pushReaction(PushReaction.DESTROY).replaceable().noCollission().sound(SoundType.CORAL_BLOCK)), "barnacles");
         NULL_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 4.5F)), "null_end_stone");
         NULL_BLOCK = register(func, new NullBlock(BlockBehaviour.Properties.of()), "null_block");
         ANOMALY = register(func, new AnomalyBlock(BlockBehaviour.Properties.of().lightLevel((state) -> 5)), "anomaly");
@@ -474,6 +473,7 @@ public class ModBlocks
         TINY_CACTUS = register(func, new TinyCactusBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.WOOL).offsetType(BlockBehaviour.OffsetType.XZ)), "tiny_cactus");
         BRAMBLE = register(func, new BrambleBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.NETHER).strength(0.4F).sound(SoundType.WOOD)), "bramble");
         BRAMBLE_LEAVES = register(func, new BrambleLeavesBlock(BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).mapColor(MapColor.PLANT).instabreak().sound(SoundType.GRASS)), "bramble_leaves");
+        BARNACLES = register(func, new BarnaclesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).pushReaction(PushReaction.DESTROY).replaceable().noCollission().sound(SoundType.CORAL_BLOCK)), "barnacles");
 
         //Potted Plants
         POTTED_ORIGIN_SAPLING = register(func, new FlowerPotBlock(ORIGIN_SAPLING, BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak()), "potted_origin_sapling");
