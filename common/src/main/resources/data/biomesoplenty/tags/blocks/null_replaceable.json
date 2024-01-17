@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+	"#biomesoplenty:dead_coral_blocks",
+	"minecraft:end_stone",
+	"biomesoplenty:algal_end_stone",
+	"biomesoplenty:unmapped_end_stone",
+	"biomesoplenty:null_end_stone",
+	"biomesoplenty:null_block",
+    "biomesoplenty:white_sand",
+    "biomesoplenty:white_sandstone"
+  ]
+}

@@ -1,6 +1,32 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "biomesoplenty:block/null_end_stone_alt"
-    }
+	"parent": "block/block",
+	"textures": {
+		"endstone": "minecraft:block/end_stone",
+		"null": "biomesoplenty:block/null_overlay_alt",
+		"particle": "#endstone"
+	},
+	"elements": [
+		{   "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#endstone", "cullface": "down" },
+                "up":    { "texture": "#endstone", "cullface": "up" },
+                "north": { "texture": "#endstone", "cullface": "north" },
+                "south": { "texture": "#endstone", "cullface": "south" },
+                "west":  { "texture": "#endstone", "cullface": "west" },
+                "east":  { "texture": "#endstone", "cullface": "east" }
+            }
+        },
+		{   "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#null", "cullface": "down" },
+                "up":    { "texture": "#null", "cullface": "up" },
+                "north": { "texture": "#null", "cullface": "north" },
+                "south": { "texture": "#null", "cullface": "south" },
+                "west":  { "texture": "#null", "cullface": "west" },
+                "east":  { "texture": "#null", "cullface": "east" }
+            }
+        }
+	]
 }

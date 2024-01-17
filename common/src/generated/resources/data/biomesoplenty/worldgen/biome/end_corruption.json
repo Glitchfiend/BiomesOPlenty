@@ -9,6 +9,12 @@
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
+    "particle": {
+      "options": {
+        "type": "biomesoplenty:binary"
+      },
+      "probability": 3.75E-4
+    },
     "sky_color": 0,
     "water_color": 4159204,
     "water_fog_color": 329011
@@ -40,14 +46,7 @@
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      }
-    ],
+    "monster": [],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

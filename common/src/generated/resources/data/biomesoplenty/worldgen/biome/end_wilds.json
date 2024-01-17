@@ -9,6 +9,12 @@
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
+    "particle": {
+      "options": {
+        "type": "biomesoplenty:end_spore"
+      },
+      "probability": 0.005
+    },
     "sky_color": 0,
     "water_color": 4159204,
     "water_fog_color": 329011

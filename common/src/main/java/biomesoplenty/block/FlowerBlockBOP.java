@@ -76,7 +76,7 @@ public class FlowerBlockBOP extends FlowerBlock
         }
         else if (this == BOPBlocks.ENDBLOOM)
         {
-            return ground == BOPBlocks.ALGAL_END_STONE || ground == Blocks.END_STONE || super.canSurvive(state, worldIn, pos);
+            return ground == BOPBlocks.ALGAL_END_STONE || ground == BOPBlocks.UNMAPPED_END_STONE || ground == BOPBlocks.NULL_END_STONE || ground == Blocks.END_STONE || super.canSurvive(state, worldIn, pos);
         }
 
         return super.canSurvive(state, worldIn, pos);

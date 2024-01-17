@@ -6,6 +6,7 @@ package biomesoplenty.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.block.AnomalyBlock;
+import biomesoplenty.init.ModTags;
 import biomesoplenty.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -22,8 +23,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE;
-    protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).is(BlockTags.REPLACEABLE_BY_TREES) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).getBlock() == Blocks.END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.ALGAL_END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.WHITE_SAND || world.getBlockState(pos).getBlock() == BOPBlocks.WHITE_SANDSTONE || world.getBlockState(pos).getBlock() == BOPBlocks.NULL_END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.NULL_BLOCK;
+    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.UNMAPPED_END_STONE;
+    protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).is(BlockTags.REPLACEABLE_BY_TREES) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).is(ModTags.Blocks.NULL_REPLACEABLE);
 
     public AnomalyFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -65,21 +66,34 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
                 {
                     if (x == -3 || x == size+3 || z == -3 || z == size+3)
                     {
-                        if (rand.nextInt(3) == 0 && (world.getBlockState(pos.offset(x,y,z)).getBlock() == Blocks.END_STONE || world.getBlockState(pos.offset(x,y,z)).getBlock() == BOPBlocks.ALGAL_END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.WHITE_SAND || world.getBlockState(pos).getBlock() == BOPBlocks.WHITE_SANDSTONE || world.getBlockState(pos.offset(x,y,z)).getBlock() == BOPBlocks.NULL_END_STONE))
+                        if (rand.nextInt(4) == 0 && this.replace.matches(world, pos.offset(x,y,z)) && world.getBlockState(pos.offset(x,y,z)).getBlock() != BOPBlocks.NULL_BLOCK)
                         {
-                            world.setBlock(pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState(), 2);
+                            if (!((x == -3 || x == size+3) && (z == -3 || z == size+3)))
+                            {
+                                world.setBlock(pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState(), 2);
+                            }
                         }
                     }
                     else if (x == -2 || x == size+2 || z == -2 || z == size+2)
                     {
-                        if (world.getBlockState(pos.offset(x,y,z)).getBlock() == Blocks.END_STONE || world.getBlockState(pos.offset(x,y,z)).getBlock() == BOPBlocks.ALGAL_END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.WHITE_SAND || world.getBlockState(pos).getBlock() == BOPBlocks.WHITE_SANDSTONE || world.getBlockState(pos.offset(x,y,z)).getBlock() == BOPBlocks.NULL_END_STONE)
+                        if (this.replace.matches(world, pos.offset(x,y,z)) && world.getBlockState(pos.offset(x,y,z)).getBlock() != BOPBlocks.NULL_BLOCK)
                         {
-                            world.setBlock(pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState(), 2);
+                            if (!((x == -2 || x == size+2) && (z == -2 || z == size+2)))
+                            {
+                                world.setBlock(pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState(), 2);
+                            }
                         }
                     }
                     else if (x == -1 || x == size+1 || z == -1 || z == size+1)
                     {
-                        this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_BLOCK.defaultBlockState());
+                        if ((x == -1 || x == size+1) && (z == -1 || z == size+1))
+                        {
+                            this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState());
+                        }
+                        else
+                        {
+                            this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_BLOCK.defaultBlockState());
+                        }
                     }
                     else
                     {

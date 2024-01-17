@@ -9,6 +9,12 @@
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
+    "particle": {
+      "options": {
+        "type": "minecraft:mycelium"
+      },
+      "probability": 0.0075
+    },
     "sky_color": 0,
     "water_color": 16777215,
     "water_fog_color": 3355443

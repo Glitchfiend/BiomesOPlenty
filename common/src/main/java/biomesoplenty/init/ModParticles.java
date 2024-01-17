@@ -26,7 +26,9 @@ public class ModParticles
     public static SimpleParticleType RED_MAPLE_LEAVES;
     public static SimpleParticleType ORANGE_MAPLE_LEAVES;
     public static SimpleParticleType YELLOW_MAPLE_LEAVES;
+    public static SimpleParticleType END_SPORE;
     public static SimpleParticleType NULL;
+    public static SimpleParticleType BINARY;
 
     public static void registerParticles(BiConsumer<ResourceLocation, ParticleType<?>> func)
     {
@@ -41,7 +43,9 @@ public class ModParticles
         RED_MAPLE_LEAVES = register(func, "red_maple_leaves",  new SimpleParticleType(false));
         ORANGE_MAPLE_LEAVES = register(func, "orange_maple_leaves",  new SimpleParticleType(false));
         YELLOW_MAPLE_LEAVES = register(func, "yellow_maple_leaves",  new SimpleParticleType(false));
+        END_SPORE = register(func, "end_spore",  new SimpleParticleType(false));
         NULL = register(func, "null",  new SimpleParticleType(false));
+        BINARY = register(func, "binary",  new SimpleParticleType(false));
     }
 
     private static <T extends ParticleType<? extends ParticleOptions>> T register(BiConsumer<ResourceLocation, ParticleType<?>> func, String name, T particle)

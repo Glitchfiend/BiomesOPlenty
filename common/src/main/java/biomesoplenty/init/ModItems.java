@@ -155,6 +155,7 @@ public class ModItems
         MEDIUM_ROSE_QUARTZ_BUD = register(func, "medium_rose_quartz_bud", new BlockItem(BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD, new Item.Properties()));
         SMALL_ROSE_QUARTZ_BUD = register(func, "small_rose_quartz_bud", new BlockItem(BOPBlocks.SMALL_ROSE_QUARTZ_BUD, new Item.Properties()));
         ALGAL_END_STONE = register(func, "algal_end_stone", new BlockItem(BOPBlocks.ALGAL_END_STONE, new Item.Properties()));
+        UNMAPPED_END_STONE = register(func, "unmapped_end_stone", new BlockItem(BOPBlocks.UNMAPPED_END_STONE, new Item.Properties()));
         NULL_END_STONE = register(func, "null_end_stone", new BlockItem(BOPBlocks.NULL_END_STONE, new Item.Properties()));
         NULL_BLOCK = register(func, "null_block", new BlockItem(BOPBlocks.NULL_BLOCK, new Item.Properties()));
         ANOMALY = register(func, "anomaly", new BlockItem(BOPBlocks.ANOMALY, new Item.Properties()));

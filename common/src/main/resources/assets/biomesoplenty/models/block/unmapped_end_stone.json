@@ -1,0 +1,21 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"all": "block/end_stone",
+		"particle": "#all"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [16, 0, 0, 1], "texture": "#all"},
+				"east": {"uv": [15, 0, 16, 16], "rotation": 90, "texture": "#all"},
+				"south": {"uv": [0, 15, 16, 16], "texture": "#all"},
+				"west": {"uv": [0, 0, 1, 16], "rotation": 270, "texture": "#all"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#all"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#all"}
+			}
+		}
+	]
+}

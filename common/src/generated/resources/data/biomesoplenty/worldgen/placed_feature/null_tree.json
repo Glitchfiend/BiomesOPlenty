@@ -5,7 +5,7 @@
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:matching_blocks",
-        "blocks": "minecraft:end_stone",
+        "blocks": "biomesoplenty:unmapped_end_stone",
         "offset": [
           0,
           -1,

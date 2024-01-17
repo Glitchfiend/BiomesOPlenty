@@ -127,6 +127,7 @@ public class ModBlocks
         SMALL_ROSE_QUARTZ_BUD = register(func, new AmethystClusterBlock(3, 4, BlockBehaviour.Properties.ofFullCopy(ROSE_QUARTZ_CLUSTER).pushReaction(PushReaction.DESTROY).forceSolidOn().sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((state) -> 5)), "small_rose_quartz_bud");
 
         ALGAL_END_STONE = register(func, new AlgalEndStoneBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).randomTicks().requiresCorrectToolForDrops().strength(3.0F, 9.0F)), "algal_end_stone");
+        UNMAPPED_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 9.0F)), "unmapped_end_stone");
         NULL_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 4.5F)), "null_end_stone");
         NULL_BLOCK = register(func, new NullBlock(BlockBehaviour.Properties.of()), "null_block");
         ANOMALY = register(func, new AnomalyBlock(BlockBehaviour.Properties.of().lightLevel((state) -> 5)), "anomaly");

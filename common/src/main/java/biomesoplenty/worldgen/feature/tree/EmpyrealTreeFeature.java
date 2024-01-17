@@ -54,7 +54,14 @@ public class EmpyrealTreeFeature extends BOPTreeFeature<EmpyrealTreeConfiguratio
 
         BlockPos topPos = pos.above(height);
 
-        this.placeLog(world, topPos.offset(0, 0, 0), logs, config);
+        if (world.getRandom().nextInt(5) == 0)
+        {
+            world.setBlock(topPos.offset(0, 0, 0), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
+        }
+        else
+        {
+            this.placeLog(world, topPos.offset(0, 0, 0), logs, config);
+        }
 
         if (random.nextInt(2) == 0)
         {
@@ -238,6 +245,16 @@ public class EmpyrealTreeFeature extends BOPTreeFeature<EmpyrealTreeConfiguratio
         this.placeLeaves(world, topPos.offset(-1, 9, 0), leaves, config);
         this.placeLeaves(world, topPos.offset(0, 9, 1), leaves, config);
         this.placeLeaves(world, topPos.offset(0, 9, -1), leaves, config);
+
+        if (world.getRandom().nextInt(5) == 0)
+        {
+            world.setBlock(topPos.offset(0, 8, 0), Blocks.SHROOMLIGHT.defaultBlockState(), 2);
+        }
+        else
+        {
+            this.placeLeaves(world, topPos.offset(0, 8, 0), leaves, config);
+        }
+
         this.placeLeaves(world, topPos.offset(1, 8, 0), leaves, config);
         this.placeLeaves(world, topPos.offset(-1, 8, 0), leaves, config);
         this.placeLeaves(world, topPos.offset(0, 8, 1), leaves, config);

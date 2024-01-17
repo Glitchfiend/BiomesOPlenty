@@ -63,7 +63,7 @@ public class BOPEndPlacements
         register(context, BOPEndPlacements.JAGGED_SANDSTONE, JAGGED_SANDSTONE, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.NULL_LAKE, NULL_LAKE, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.PATCH_ENDERPHYTES, PATCH_ENDERPHYTES, VegetationPlacements.worldSurfaceSquaredWithCount(5));
-        register(context, BOPEndPlacements.RADIANT_HANDS, RADIANT_HANDS, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPEndPlacements.RADIANT_HANDS, RADIANT_HANDS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.TIDEPOOL, TIDEPOOL, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPEndPlacements.TREES_END_CORRUPTION, TREES_END_CORRUPTION, treePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
         register(context, BOPEndPlacements.TREES_END_WILDS, TREES_END_WILDS, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));

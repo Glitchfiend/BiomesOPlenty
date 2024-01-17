@@ -58,7 +58,7 @@ public class RadiantHandsPlantBlock extends GrowingPlantBodyBlock
         }
         else
         {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || block == Blocks.END_STONE || block == BOPBlocks.ALGAL_END_STONE;
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || block == Blocks.END_STONE || block == BOPBlocks.UNMAPPED_END_STONE || block == BOPBlocks.NULL_END_STONE || block == BOPBlocks.ALGAL_END_STONE;
         }
     }
 

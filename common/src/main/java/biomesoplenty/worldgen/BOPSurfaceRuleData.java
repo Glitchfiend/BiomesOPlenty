@@ -45,6 +45,7 @@ public class BOPSurfaceRuleData
 
     // BOP
     private static final SurfaceRules.RuleSource ALGAL_END_STONE = makeStateRule(BOPBlocks.ALGAL_END_STONE);
+    private static final SurfaceRules.RuleSource UNMAPPED_END_STONE = makeStateRule(BOPBlocks.UNMAPPED_END_STONE);
     private static final SurfaceRules.RuleSource DRIED_SALT = makeStateRule(BOPBlocks.DRIED_SALT);
     private static final SurfaceRules.RuleSource WHITE_SAND = makeStateRule(BOPBlocks.WHITE_SAND);
     private static final SurfaceRules.RuleSource WHITE_SANDSTONE = makeStateRule(BOPBlocks.WHITE_SANDSTONE);
@@ -341,6 +342,7 @@ public class BOPSurfaceRuleData
                     )
                 )
             ),
+            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.END_CORRUPTION), UNMAPPED_END_STONE),
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.END_REEF),
                 SurfaceRules.sequence(

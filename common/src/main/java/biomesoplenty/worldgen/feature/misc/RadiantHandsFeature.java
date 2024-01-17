@@ -95,7 +95,7 @@ public class RadiantHandsFeature extends Feature<NoneFeatureConfiguration>
         else
         {
             BlockState blockstate = p_67297_.getBlockState(p_67298_.below());
-            return !blockstate.is(Blocks.END_STONE) && !blockstate.is(BOPBlocks.ALGAL_END_STONE);
+            return !blockstate.is(Blocks.END_STONE) && !blockstate.is(BOPBlocks.UNMAPPED_END_STONE) && !blockstate.is(BOPBlocks.NULL_END_STONE) && !blockstate.is(BOPBlocks.ALGAL_END_STONE);
         }
     }
 }

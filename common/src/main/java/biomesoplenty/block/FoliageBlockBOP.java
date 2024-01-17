@@ -90,7 +90,7 @@ public class FoliageBlockBOP extends BushBlock
         }
         if (this == BOPBlocks.ENDERPHYTE)
         {
-            return ground == BOPBlocks.ALGAL_END_STONE || ground == Blocks.END_STONE;
+            return ground == BOPBlocks.ALGAL_END_STONE || ground == BOPBlocks.UNMAPPED_END_STONE || ground == BOPBlocks.NULL_END_STONE || ground == Blocks.END_STONE;
         }
 
         return super.canSurvive(state, worldIn, pos);

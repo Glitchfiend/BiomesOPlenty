@@ -81,6 +81,7 @@ public class BOPItems
     public static Item ROSE_QUARTZ_CHUNK;
 
     public static Item ALGAL_END_STONE;
+    public static Item UNMAPPED_END_STONE;
     public static Item NULL_END_STONE;
     public static Item NULL_BLOCK;
     public static Item ANOMALY;
