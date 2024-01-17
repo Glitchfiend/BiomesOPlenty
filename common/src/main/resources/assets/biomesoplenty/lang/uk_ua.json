@@ -534,8 +534,8 @@
   "entity.biomesoplenty.chest_boat": "Човен зі скринею",
 
   "trim_material.biomesoplenty.glowworm_silk": "Матеріал із шовку сяйного хробака",
-
   "trim_material.biomesoplenty.rose_quartz": "Рожево-кварцовий матеріал",
+
   "death.attack.biomesoplenty.bramble": "%1$s проткнуто до смерті",
   "death.attack.biomesoplenty.bramble.player": "%1$s застряг у колючнику при спробі втекти від %2$s",
   "death.attack.biomesoplenty.fumarole": "%1$s запаровано живцем",
