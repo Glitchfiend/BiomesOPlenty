@@ -35,6 +35,7 @@ public class ModItems
         ROSE_QUARTZ_CHUNK = register(func, new Item(new Item.Properties()), "rose_quartz_chunk");
         MUSIC_DISC_WANDERER = register(func, new MusicDiscItemBOP(BOPSounds.MUSIC_DISC_WANDERER), "music_disc_wanderer");
         BLOOD_BUCKET = register(func, new BucketItem(BOPFluids.BLOOD, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1)), "blood_bucket");
+        LIQUID_NULL_BUCKET = register(func, new BucketItem(BOPFluids.LIQUID_NULL, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1)), "liquid_null_bucket");
 
         FIR_SIGN = register(func, new SignItem((new Item.Properties()).stacksTo(16), BOPBlocks.FIR_SIGN, BOPBlocks.FIR_WALL_SIGN), "fir_sign");
         FIR_HANGING_SIGN = register(func, new HangingSignItem(BOPBlocks.FIR_HANGING_SIGN, BOPBlocks.FIR_WALL_HANGING_SIGN, (new Item.Properties()).stacksTo(16)), "fir_hanging_sign");
@@ -94,6 +95,7 @@ public class ModItems
     public static void registerBlockItems(BiConsumer<ResourceLocation, Item> func)
     {
         BLOOD = register(func, "blood", new BlockItem(BOPBlocks.BLOOD, new Item.Properties()));
+        LIQUID_NULL = register(func, "liquid_null", new BlockItem(BOPBlocks.LIQUID_NULL, new Item.Properties()));
         WHITE_SAND = register(func, "white_sand", new BlockItem(BOPBlocks.WHITE_SAND, new Item.Properties()));
         WHITE_SANDSTONE = register(func, "white_sandstone", new BlockItem(BOPBlocks.WHITE_SANDSTONE, new Item.Properties()));
         WHITE_SANDSTONE_STAIRS = register(func, "white_sandstone_stairs", new BlockItem(BOPBlocks.WHITE_SANDSTONE_STAIRS, new Item.Properties()));
@@ -160,6 +162,8 @@ public class ModItems
         UNMAPPED_END_STONE = register(func, "unmapped_end_stone", new BlockItem(BOPBlocks.UNMAPPED_END_STONE, new Item.Properties()));
         NULL_END_STONE = register(func, "null_end_stone", new BlockItem(BOPBlocks.NULL_END_STONE, new Item.Properties()));
         NULL_BLOCK = register(func, "null_block", new BlockItem(BOPBlocks.NULL_BLOCK, new Item.Properties()));
+        NULL_LEAVES = register(func, "null_leaves", new BlockItem(BOPBlocks.NULL_LEAVES, new Item.Properties()));
+        NULL_PLANT = register(func, "null_plant", new BlockItem(BOPBlocks.NULL_PLANT, new Item.Properties()));
         ANOMALY = register(func, "anomaly", new BlockItem(BOPBlocks.ANOMALY, new Item.Properties()));
         TOADSTOOL = register(func, "toadstool", new BlockItem(BOPBlocks.TOADSTOOL, new Item.Properties()));
         TOADSTOOL_BLOCK = register(func, "toadstool_block", new BlockItem(BOPBlocks.TOADSTOOL_BLOCK, new Item.Properties()));

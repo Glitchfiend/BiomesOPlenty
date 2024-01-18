@@ -52,6 +52,7 @@ public class ModBlocks
     {
         //Fluids
         BLOOD = register(func, new BloodBlock(BOPFluids.FLOWING_BLOOD, BlockBehaviour.Properties.of().replaceable().pushReaction(PushReaction.DESTROY).liquid().noCollission().randomTicks().noLootTable().mapColor(MapColor.CRIMSON_NYLIUM).sound(SoundType.EMPTY).strength(100.0F)), "blood");
+        LIQUID_NULL = register(func, new BloodBlock(BOPFluids.FLOWING_LIQUID_NULL, BlockBehaviour.Properties.of().replaceable().pushReaction(PushReaction.DESTROY).liquid().noCollission().randomTicks().noLootTable().sound(SoundType.EMPTY).strength(100.0F)), "liquid_null");
 
         //Terrain
         WHITE_SAND = register(func, new SandBlockBOP(new ColorRGBA(0xF3F1E4), BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(MapColor.QUARTZ).strength(0.5F).sound(SoundType.SAND)), "white_sand");
@@ -132,6 +133,8 @@ public class ModBlocks
         UNMAPPED_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(3.0F, 9.0F)), "unmapped_end_stone");
         NULL_END_STONE = register(func, new Block(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(1.5F, 4.5F)), "null_end_stone");
         NULL_BLOCK = register(func, new NullBlock(BlockBehaviour.Properties.of()), "null_block");
+        NULL_LEAVES = register(func, new NullLeavesBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).strength(0.2F).randomTicks().noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).isRedstoneConductor(ModBlocks::never)), "null_leaves");
+        NULL_PLANT = register(func, new NullPlantBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().noCollission().instabreak().offsetType(BlockBehaviour.OffsetType.XZ)), "null_plant");
         ANOMALY = register(func, new AnomalyBlock(BlockBehaviour.Properties.of().lightLevel((state) -> 5)), "anomaly");
 
         TOADSTOOL = register(func, new MushroomBlockBOP(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_ORANGE).noCollission().instabreak().sound(SoundType.GRASS)), "toadstool");

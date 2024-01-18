@@ -56,7 +56,6 @@ public class BOPItems
     public static Item EYEBULB;
     public static Item HAIR;
     public static Item PUS_BUBBLE;
-
     public static Item BLOOD;
     public static Item BLOOD_BUCKET;
 
@@ -86,6 +85,10 @@ public class BOPItems
     public static Item UNMAPPED_END_STONE;
     public static Item NULL_END_STONE;
     public static Item NULL_BLOCK;
+    public static Item NULL_LEAVES;
+    public static Item NULL_PLANT;
+    public static Item LIQUID_NULL;
+    public static Item LIQUID_NULL_BUCKET;
     public static Item ANOMALY;
 
     public static Item TOADSTOOL;

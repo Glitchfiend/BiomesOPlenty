@@ -174,7 +174,7 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.REDWOOD_TREE_LARGE, BOPBaseFeatures.REDWOOD_TREE, createRedwood(BOPBlocks.REDWOOD_WOOD).minHeight(45).maxHeight(60).trunkWidth(3).build());
         register(context, BOPTreeFeatures.PINE_TREE, BOPBaseFeatures.PINE_TREE, new PineTreeConfiguration.Builder().build());
         register(context, BOPTreeFeatures.EMPYREAL_TREE, BOPBaseFeatures.EMPYREAL_TREE, new EmpyrealTreeConfiguration.Builder().build());
-        register(context, BOPTreeFeatures.NULL_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)).foliage(BlockStateProvider.simple(BOPBlocks.NULL_BLOCK)).build());
+        register(context, BOPTreeFeatures.NULL_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.NULL_BLOCK)).foliage(BlockStateProvider.simple(BOPBlocks.NULL_LEAVES)).build());
     }
 
     private static TreeConfiguration.TreeConfigurationBuilder snowblossom() {

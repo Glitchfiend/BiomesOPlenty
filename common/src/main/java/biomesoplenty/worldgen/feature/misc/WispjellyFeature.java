@@ -9,7 +9,6 @@ import biomesoplenty.init.ModTags;
 import biomesoplenty.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -74,11 +73,23 @@ public class WispjellyFeature extends Feature<NoneFeatureConfiguration>
 
     public void createTinyJelly(WorldGenLevel world, BlockPos pos)
     {
-        this.setBlock(world, pos, BOPBlocks.WISPJELLY.defaultBlockState());
-        for (Direction direction : Direction.values())
-        {
-            this.setBlock(world, pos.relative(direction), BOPBlocks.WISPJELLY.defaultBlockState());
-        }
+        this.setBlock(world, pos.offset(-1, 1, 0), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(1, 1, 0), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(0, 1, 1), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(0, 1, -1), BOPBlocks.WISPJELLY.defaultBlockState());
+
+        this.setBlock(world, pos.offset(0, 0, 0), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(-1, 0, 0), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(1, 0, 0), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(0, 0, 1), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(0, 0, -1), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(1, 0, 1), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(1, 0, -1), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(-1, 0, 1), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(-1, 0, -1), BOPBlocks.WISPJELLY.defaultBlockState());
+
+        this.setBlock(world, pos.offset(-1, -1, 0), BOPBlocks.WISPJELLY.defaultBlockState());
+        this.setBlock(world, pos.offset(1, -1, 0), BOPBlocks.WISPJELLY.defaultBlockState());
     }
 
     public void createSmallJelly(WorldGenLevel world, BlockPos pos)
@@ -165,7 +176,8 @@ public class WispjellyFeature extends Feature<NoneFeatureConfiguration>
             this.setBlock(world, pos.offset(-2, -(i+1), 0), BOPBlocks.WISPJELLY.defaultBlockState());
             this.setBlock(world, pos.offset(2, -(i+1), 0), BOPBlocks.WISPJELLY.defaultBlockState());
 
-            this.setBlock(world, pos.offset(-2, -(i+2), 0), BOPBlocks.WISPJELLY.defaultBlockState());
+            this.setBlock(world, pos.offset(-1, -(i+2), -2), BOPBlocks.WISPJELLY.defaultBlockState());
+            this.setBlock(world, pos.offset(-1, -(i+2), 2), BOPBlocks.WISPJELLY.defaultBlockState());
             this.setBlock(world, pos.offset(2, -(i+2), 0), BOPBlocks.WISPJELLY.defaultBlockState());
         }
     }

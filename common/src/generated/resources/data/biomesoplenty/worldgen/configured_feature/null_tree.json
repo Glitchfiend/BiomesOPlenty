@@ -11,7 +11,12 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "biomesoplenty:null_block"
+        "Name": "biomesoplenty:null_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
       }
     },
     "hanging_chance": 0.0,
@@ -36,7 +41,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "biomesoplenty:null_end_stone"
+        "Name": "biomesoplenty:null_block"
       }
     },
     "vine_provider": {

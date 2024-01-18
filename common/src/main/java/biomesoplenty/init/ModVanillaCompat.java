@@ -44,6 +44,7 @@ public class ModVanillaCompat
         };
 
         DispenserBlock.registerBehavior(BOPItems.BLOOD_BUCKET, dispenseBucketBehavior);
+        DispenserBlock.registerBehavior(BOPItems.LIQUID_NULL_BUCKET, dispenseBucketBehavior);
 
         //Flammability
         registerFlammable(BOPBlocks.ORIGIN_LEAVES, 30, 60);

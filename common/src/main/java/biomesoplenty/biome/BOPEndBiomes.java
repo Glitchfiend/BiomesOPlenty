@@ -59,8 +59,11 @@ public class BOPEndBiomes
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
         biomeBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, BOPEndPlacements.ANOMALY);
-        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPEndPlacements.NULL_LAKE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, BOPEndPlacements.LIQUID_NULL_LAKE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.FLUID_SPRINGS, BOPEndPlacements.LIQUID_NULL_SPRING);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPEndPlacements.MONOLITH);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.TREES_END_CORRUPTION);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.PATCH_NULL_PLANTS);
 
         return new Biome.BiomeBuilder()
             .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)

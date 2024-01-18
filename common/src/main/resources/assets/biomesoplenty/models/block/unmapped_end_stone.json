@@ -7,7 +7,6 @@
 	"elements": [
 		{   "from": [0, 0, 0],
 			"to": [16, 16, 16],
-			"shade": false,
 			"faces": {
 				"north": { "uv": [16, 0, 0, 1], "texture": "#all", "cullface": "north" },
 				"east": { "uv": [15, 0, 16, 16], "rotation": 90, "texture": "#all", "cullface": "east" },

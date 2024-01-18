@@ -38,6 +38,7 @@ import java.util.function.Supplier;
 public class ModFluidTypes
 {
     public static Holder<FluidType> BLOOD_TYPE;
+    public static Holder<FluidType> LIQUID_NULL_TYPE;
 
     public static void setup()
     {
@@ -98,6 +99,59 @@ public class ModFluidTypes
                 });
             }
         }, "blood");
+
+        LIQUID_NULL_TYPE = registerFluidType(() -> new FluidType(FluidType.Properties.create()
+                .descriptionId("block.biomesoplenty.liquid_null")
+                .fallDistanceModifier(0F)
+                .canExtinguish(false)
+                .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+                .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
+                .density(3000)
+                .viscosity(6000))
+        {
+            @Override
+            public @Nullable BlockPathTypes getBlockPathType(FluidState state, BlockGetter level, BlockPos pos, @Nullable Mob mob, boolean canFluidLog)
+            {
+                return canFluidLog ? super.getBlockPathType(state, level, pos, mob, true) : null;
+            }
+
+            @Override
+            public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer)
+            {
+                consumer.accept(new IClientFluidTypeExtensions()
+                {
+                    private static final ResourceLocation LIQUID_NULL_UNDERWATER = new ResourceLocation("biomesoplenty:textures/block/liquid_null_underwater.png"),
+                            LIQUID_NULL_STILL = new ResourceLocation("biomesoplenty:block/liquid_null_still"),
+                            LIQUID_NULL_FLOW = new ResourceLocation("biomesoplenty:block/liquid_null_flow");
+
+                    @Override
+                    public ResourceLocation getStillTexture()
+                    {
+                        return LIQUID_NULL_STILL;
+                    }
+
+                    @Override
+                    public ResourceLocation getFlowingTexture() { return LIQUID_NULL_FLOW; }
+
+                    @Override
+                    public ResourceLocation getRenderOverlayTexture(Minecraft mc) { return LIQUID_NULL_UNDERWATER; }
+
+                    @Override
+                    public Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor)
+                    {
+                        return new Vector3f(0.0F, 0.0F, 0.0F);
+                    }
+
+                    @Override
+                    public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape)
+                    {
+                        RenderSystem.setShaderFogStart(0.1F);
+                        RenderSystem.setShaderFogEnd(2.5F);
+                    }
+                });
+            }
+        }, "liquid_null");
     }
 
     public static DeferredHolder<FluidType, FluidType> registerFluidType(Supplier<FluidType> fluidSupplier, String name)
@@ -115,6 +169,11 @@ public class ModFluidTypes
                         ModFluidTypes.BLOOD_TYPE.value(),
                         fluidState -> fluidState.isSource() ? BOPBlocks.FLESH.defaultBlockState() : BOPBlocks.POROUS_FLESH.defaultBlockState()
                 ));
+            }
+            if (fluidType.getValue() != NeoForgeMod.EMPTY_TYPE.value() && fluidType.getValue() != ModFluidTypes.LIQUID_NULL_TYPE.value())
+            {
+                FluidInteractionRegistry.addInteraction(fluidType.getValue(), new FluidInteractionRegistry.InteractionInformation(
+                        ModFluidTypes.LIQUID_NULL_TYPE.value(), BOPBlocks.NULL_BLOCK.defaultBlockState()));
             }
         }
     }

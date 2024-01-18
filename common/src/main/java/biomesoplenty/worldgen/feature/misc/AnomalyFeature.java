@@ -66,21 +66,35 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
                 {
                     if (x == -3 || x == size+3 || z == -3 || z == size+3)
                     {
-                        if (rand.nextInt(4) == 0 && this.replace.matches(world, pos.offset(x,y,z)) && world.getBlockState(pos.offset(x,y,z)).getBlock() != BOPBlocks.NULL_BLOCK)
+                        if (!((x == -3 || x == size+3) && (z == -3 || z == size+3)))
                         {
-                            if (!((x == -3 || x == size+3) && (z == -3 || z == size+3)))
+                            if (rand.nextInt(4) == 0 && world.getBlockState(pos.offset(x,y,z)).getBlock() != BOPBlocks.NULL_BLOCK)
                             {
-                                world.setBlock(pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState(), 2);
+                                if (world.getBlockState(pos.offset(x, y, z)).is(BlockTags.REPLACEABLE_BY_TREES))
+                                {
+                                    this.setBlock(world, pos.offset(x,y,z), Blocks.AIR.defaultBlockState());
+                                }
+                                else
+                                {
+                                    this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState());
+                                }
                             }
                         }
                     }
                     else if (x == -2 || x == size+2 || z == -2 || z == size+2)
                     {
-                        if (this.replace.matches(world, pos.offset(x,y,z)) && world.getBlockState(pos.offset(x,y,z)).getBlock() != BOPBlocks.NULL_BLOCK)
+                        if (!((x == -2 || x == size+2) && (z == -2 || z == size+2)))
                         {
-                            if (!((x == -2 || x == size+2) && (z == -2 || z == size+2)))
+                            if (world.getBlockState(pos.offset(x,y,z)).getBlock() != BOPBlocks.NULL_BLOCK)
                             {
-                                world.setBlock(pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState(), 2);
+                                if (world.getBlockState(pos.offset(x, y, z)).is(BlockTags.REPLACEABLE_BY_TREES))
+                                {
+                                    this.setBlock(world, pos.offset(x,y,z), Blocks.AIR.defaultBlockState());
+                                }
+                                else
+                                {
+                                    this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState());
+                                }
                             }
                         }
                     }
@@ -88,11 +102,25 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
                     {
                         if ((x == -1 || x == size+1) && (z == -1 || z == size+1))
                         {
-                            this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState());
+                            if (world.getBlockState(pos.offset(x, y, z)).is(BlockTags.REPLACEABLE_BY_TREES))
+                            {
+                                this.setBlock(world, pos.offset(x,y,z), Blocks.AIR.defaultBlockState());
+                            }
+                            else
+                            {
+                                this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState());
+                            }
                         }
                         else
                         {
-                            this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_BLOCK.defaultBlockState());
+                            if (world.getBlockState(pos.offset(x, y, z)).is(BlockTags.REPLACEABLE_BY_TREES))
+                            {
+                                this.setBlock(world, pos.offset(x,y,z), Blocks.AIR.defaultBlockState());
+                            }
+                            else
+                            {
+                                this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_BLOCK.defaultBlockState());
+                            }
                         }
                     }
                     else

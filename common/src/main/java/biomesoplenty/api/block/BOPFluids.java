@@ -11,4 +11,6 @@ public class BOPFluids
 {
     public static FlowingFluid FLOWING_BLOOD;
     public static Fluid BLOOD;
+    public static FlowingFluid FLOWING_LIQUID_NULL;
+    public static Fluid LIQUID_NULL;
 }

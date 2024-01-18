@@ -23,7 +23,9 @@
   },
   "features": [
     [],
-    [],
+    [
+      "biomesoplenty:liquid_null_lake"
+    ],
     [
       "biomesoplenty:anomaly"
     ],
@@ -34,11 +36,14 @@
     [],
     [],
     [
-      "biomesoplenty:null_lake"
+      "biomesoplenty:monolith"
     ],
-    [],
     [
-      "biomesoplenty:trees_end_corruption"
+      "biomesoplenty:liquid_null_spring"
+    ],
+    [
+      "biomesoplenty:trees_end_corruption",
+      "biomesoplenty:patch_null_plants"
     ]
   ],
   "has_precipitation": false,

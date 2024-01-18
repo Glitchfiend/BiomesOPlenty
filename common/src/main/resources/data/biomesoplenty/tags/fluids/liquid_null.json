@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:liquid_null",
+    "biomesoplenty:flowing_liquid_null"
+  ]
+}

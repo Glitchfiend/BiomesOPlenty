@@ -29,7 +29,7 @@ public class NullBlock extends Block
             BlockPos blockpos = p_221255_.relative(direction);
             BlockState blockstate = p_221254_.getBlockState(blockpos);
 
-            if (!isFaceFull(blockstate.getCollisionShape(p_221254_, blockpos), direction))
+            if (direction != Direction.DOWN && !isFaceFull(blockstate.getCollisionShape(p_221254_, blockpos), direction))
             {
                 double d0 = (double)p_221255_.getX() + 0.5D;
                 double d1 = (double)p_221255_.getY() + 0.5D;

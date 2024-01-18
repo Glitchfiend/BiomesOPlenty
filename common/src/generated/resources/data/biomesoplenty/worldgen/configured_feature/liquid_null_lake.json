@@ -10,7 +10,10 @@
     "fluid": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "biomesoplenty:null_block"
+        "Name": "biomesoplenty:liquid_null",
+        "Properties": {
+          "level": "0"
+        }
       }
     }
   }

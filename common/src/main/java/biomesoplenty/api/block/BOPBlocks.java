@@ -54,6 +54,7 @@ public class BOPBlocks
     public static Block EYEBULB;
     public static Block HAIR;
     public static Block PUS_BUBBLE;
+    public static Block BLOOD;
 
     public static Block BRIMSTONE;
     public static Block BRIMSTONE_BRICKS;
@@ -79,6 +80,9 @@ public class BOPBlocks
     public static Block UNMAPPED_END_STONE;
     public static Block NULL_END_STONE;
     public static Block NULL_BLOCK;
+    public static Block NULL_LEAVES;
+    public static Block NULL_PLANT;
+    public static Block LIQUID_NULL;
     public static Block ANOMALY;
 
     public static Block TOADSTOOL;
@@ -407,8 +411,6 @@ public class BOPBlocks
     public static Block TINY_CACTUS;
     public static Block BRAMBLE;
     public static Block BRAMBLE_LEAVES;
-
-    public static Block BLOOD;
 
     public static Block POTTED_ORIGIN_SAPLING;
     public static Block POTTED_FLOWERING_OAK_SAPLING;

@@ -14,5 +14,6 @@ public class ModClientFabric
     public static void setup()
     {
         FluidRenderHandlerRegistry.INSTANCE.register(BOPFluids.BLOOD, BOPFluids.FLOWING_BLOOD, new SimpleFluidRenderHandler(new ResourceLocation("biomesoplenty:block/blood_still"), new ResourceLocation("biomesoplenty:block/blood_flow")));
+        FluidRenderHandlerRegistry.INSTANCE.register(BOPFluids.LIQUID_NULL, BOPFluids.FLOWING_LIQUID_NULL, new SimpleFluidRenderHandler(new ResourceLocation("biomesoplenty:block/liquid_null_still"), new ResourceLocation("biomesoplenty:block/liquid_null_flow")));
     }
 }

@@ -67,7 +67,7 @@ public class WispBubbleParticle extends TextureSheetParticle
         public Particle createParticle(SimpleParticleType p_105910_, ClientLevel p_105911_, double p_105912_, double p_105913_, double p_105914_, double p_105915_, double p_105916_, double p_105917_)
         {
             WispBubbleParticle particle = new WispBubbleParticle(p_105911_, p_105912_, p_105913_, p_105914_, p_105915_, p_105916_, p_105917_);
-            particle.setAlpha(0.5F);
+            particle.setAlpha(0.375F);
             particle.pickSprite(this.sprites);
             return particle;
         }

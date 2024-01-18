@@ -73,7 +73,9 @@ public class ModClient
 
         RenderHelper.setRenderType(MOSSY_BLACK_SAND, transparentRenderType);
         RenderHelper.setRenderType(WISPJELLY, translucentRenderType);
-        RenderHelper.setRenderType(NULL_END_STONE, cutoutRenderType);
+        RenderHelper.setRenderType(NULL_END_STONE, transparentRenderType);
+        RenderHelper.setRenderType(NULL_LEAVES, transparentRenderType);
+        RenderHelper.setRenderType(NULL_PLANT, cutoutRenderType);
 
         RenderHelper.setRenderType(ORIGIN_LEAVES, transparentRenderType);
         RenderHelper.setRenderType(FLOWERING_OAK_LEAVES, transparentRenderType);
@@ -248,6 +250,10 @@ public class ModClient
         RenderHelper.setRenderType(BLOOD, translucentRenderType);
         RenderHelper.setRenderType(BOPFluids.BLOOD, translucentRenderType);
         RenderHelper.setRenderType(BOPFluids.FLOWING_BLOOD, translucentRenderType);
+
+        RenderHelper.setRenderType(LIQUID_NULL, translucentRenderType);
+        RenderHelper.setRenderType(BOPFluids.LIQUID_NULL, translucentRenderType);
+        RenderHelper.setRenderType(BOPFluids.LIQUID_NULL, translucentRenderType);
     }
 
     public static void registerRenderers()
