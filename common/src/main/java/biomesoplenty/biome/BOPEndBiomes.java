@@ -8,7 +8,6 @@ import biomesoplenty.init.ModParticles;
 import biomesoplenty.worldgen.placement.BOPEndPlacements;
 import biomesoplenty.worldgen.placement.BOPVegetationPlacements;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.placement.EndPlacements;
 import net.minecraft.world.level.biome.*;
@@ -31,7 +30,7 @@ public class BOPEndBiomes
 
         return new Biome.BiomeBuilder()
             .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(10518688).skyColor(0).ambientParticle(new AmbientParticleSettings(ModParticles.END_SPORE, 0.005F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
+            .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0xEAB35D).foliageColorOverride(0xEAB35D).waterColor(4159204).waterFogColor(329011).fogColor(10518688).skyColor(0).ambientParticle(new AmbientParticleSettings(ModParticles.END_SPORE, 0.005F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
@@ -45,11 +44,12 @@ public class BOPEndBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.DEAD_CORAL);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.DEAD_CORAL_PATCH);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.BARNACLES);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.WISPJELLY);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_DEAD_GRASS);
 
         return new Biome.BiomeBuilder()
             .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .specialEffects(new BiomeSpecialEffects.Builder().waterColor(0xFFFFFF).waterFogColor(0x333333).fogColor(10518688).skyColor(0).ambientParticle(new AmbientParticleSettings(ParticleTypes.MYCELIUM, 0.0075F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
+            .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0xE5FFFC).foliageColorOverride(0xE5FFFC).waterColor(0xE5FFFC).waterFogColor(0x434949).fogColor(10518688).skyColor(0).ambientParticle(new AmbientParticleSettings(ModParticles.WISP_BUBBLE, 0.001F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
@@ -64,7 +64,7 @@ public class BOPEndBiomes
 
         return new Biome.BiomeBuilder()
             .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(10518688).skyColor(0).ambientParticle(new AmbientParticleSettings(ModParticles.BINARY, 0.000375F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
+            .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0x000000).foliageColorOverride(0x000000).waterColor(4159204).waterFogColor(329011).fogColor(10518688).skyColor(0).ambientParticle(new AmbientParticleSettings(ModParticles.BINARY, 0.000375F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 }

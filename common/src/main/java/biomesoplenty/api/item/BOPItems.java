@@ -80,6 +80,8 @@ public class BOPItems
 
     public static Item ROSE_QUARTZ_CHUNK;
 
+    public static Item BARNACLES;
+    public static Item WISPJELLY;
     public static Item ALGAL_END_STONE;
     public static Item UNMAPPED_END_STONE;
     public static Item NULL_END_STONE;
@@ -424,7 +426,6 @@ public class BOPItems
     public static Item TINY_CACTUS;
     public static Item BRAMBLE;
     public static Item BRAMBLE_LEAVES;
-    public static Item BARNACLES;
 
     public static Item MUSIC_DISC_WANDERER;
 

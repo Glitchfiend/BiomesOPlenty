@@ -39,6 +39,7 @@ public class BOPEndFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> TIDEPOOL = BOPFeatureUtils.createKey("tidepool");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_END_CORRUPTION = BOPFeatureUtils.createKey("trees_end_corruption");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_END_WILDS = BOPFeatureUtils.createKey("trees_end_wilds");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WISPJELLY = BOPFeatureUtils.createKey("wispjelly");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context)
     {
@@ -59,6 +60,7 @@ public class BOPEndFeatures
         register(context, BOPEndFeatures.TIDEPOOL, BOPBaseFeatures.TIDEPOOL, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.TREES_END_CORRUPTION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(NULL_TREE_CHECKED, 0.075F)), NULL_TREE_CHECKED));
         register(context, BOPEndFeatures.TREES_END_WILDS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(EMPYREAL_TREE_CHECKED, 0.075F)), EMPYREAL_TREE_CHECKED));
+        register(context, BOPEndFeatures.WISPJELLY, BOPBaseFeatures.WISPJELLY, NoneFeatureConfiguration.INSTANCE);
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)

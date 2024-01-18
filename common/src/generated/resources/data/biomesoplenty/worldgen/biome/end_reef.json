@@ -3,6 +3,8 @@
   "downfall": 0.5,
   "effects": {
     "fog_color": 10518688,
+    "foliage_color": 15073276,
+    "grass_color": 15073276,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -11,13 +13,13 @@
     },
     "particle": {
       "options": {
-        "type": "minecraft:mycelium"
+        "type": "biomesoplenty:wisp_bubble"
       },
-      "probability": 0.0075
+      "probability": 0.001
     },
     "sky_color": 0,
-    "water_color": 16777215,
-    "water_fog_color": 3355443
+    "water_color": 15073276,
+    "water_fog_color": 4409673
   },
   "features": [
     [],
@@ -38,6 +40,7 @@
       "biomesoplenty:dead_coral",
       "biomesoplenty:dead_coral_patch",
       "biomesoplenty:barnacles",
+      "biomesoplenty:wispjelly",
       "biomesoplenty:patch_dead_grass"
     ]
   ],

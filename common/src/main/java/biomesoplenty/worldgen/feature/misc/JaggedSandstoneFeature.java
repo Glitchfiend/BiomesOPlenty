@@ -46,9 +46,7 @@ public class JaggedSandstoneFeature extends Feature<NoneFeatureConfiguration>
                     blockpos$mutableblockpos.set(blockpos).move(l, Mth.nextInt(randomsource, -j, j), k);
                     if (findFirstAirBlockAboveGround(worldgenlevel, blockpos$mutableblockpos) && !isInvalidPlacementLocation(worldgenlevel, blockpos$mutableblockpos))
                     {
-                        int i1 = 1 + (((i + i) - (Mth.abs(l) + Mth.abs(k))));
-
-                        placeWeepingVinesColumn(worldgenlevel, randomsource, blockpos$mutableblockpos, i1 + randomsource.nextInt(3));
+                        placeWeepingVinesColumn(worldgenlevel, randomsource, blockpos$mutableblockpos, 2 + randomsource.nextInt(6));
                     }
                 }
             }

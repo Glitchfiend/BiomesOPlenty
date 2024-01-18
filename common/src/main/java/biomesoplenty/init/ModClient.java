@@ -72,6 +72,7 @@ public class ModClient
         RenderType translucentRenderType = RenderType.translucent();
 
         RenderHelper.setRenderType(MOSSY_BLACK_SAND, transparentRenderType);
+        RenderHelper.setRenderType(WISPJELLY, translucentRenderType);
         RenderHelper.setRenderType(NULL_END_STONE, cutoutRenderType);
 
         RenderHelper.setRenderType(ORIGIN_LEAVES, transparentRenderType);
@@ -324,6 +325,7 @@ public class ModClient
         event.registerSpriteSet(ModParticles.GLOWWORM, GlowwormParticle.Provider::new);
         event.registerSpriteSet(ModParticles.STEAM, SteamParticle.Provider::new);
         event.registerSpriteSet(ModParticles.END_SPORE, EndSporeParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.WISP_BUBBLE, WispBubbleParticle.Provider::new);
         event.registerSpriteSet(ModParticles.NULL, NullParticle.Provider::new);
         event.registerSpriteSet(ModParticles.BINARY, BinaryParticle.Provider::new);
         event.registerSpriteSet(ModParticles.JACARANDA_LEAVES, (p_277215_) -> {

@@ -35,6 +35,7 @@ public class BOPEndPlacements
     public static final ResourceKey<PlacedFeature> TIDEPOOL = BOPPlacementUtils.createKey("tidepool");
     public static final ResourceKey<PlacedFeature> TREES_END_CORRUPTION = BOPPlacementUtils.createKey("trees_end_corruption");
     public static final ResourceKey<PlacedFeature> TREES_END_WILDS = BOPPlacementUtils.createKey("trees_end_wilds");
+    public static final ResourceKey<PlacedFeature> WISPJELLY = BOPPlacementUtils.createKey("wispjelly");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context)
     {
@@ -53,6 +54,7 @@ public class BOPEndPlacements
         final Holder<ConfiguredFeature<?, ?>> TIDEPOOL = configuredFeatureGetter.getOrThrow(BOPEndFeatures.TIDEPOOL);
         final Holder<ConfiguredFeature<?, ?>> TREES_END_CORRUPTION = configuredFeatureGetter.getOrThrow(BOPEndFeatures.TREES_END_CORRUPTION);
         final Holder<ConfiguredFeature<?, ?>> TREES_END_WILDS = configuredFeatureGetter.getOrThrow(BOPEndFeatures.TREES_END_WILDS);
+        final Holder<ConfiguredFeature<?, ?>> WISPJELLY = configuredFeatureGetter.getOrThrow(BOPEndFeatures.WISPJELLY);
 
         register(context, BOPEndPlacements.ANOMALY, ANOMALY, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.BARNACLES, BARNACLES, List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -61,6 +63,7 @@ public class BOPEndPlacements
         register(context, BOPEndPlacements.ENDERPHYTE_BONEMEAL, ENDERPHYTE_BONEMEAL, PlacementUtils.isEmpty());
         register(context, BOPEndPlacements.FLOWER_END_WILDS, FLOWER_END_WILDS, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.JAGGED_SANDSTONE, JAGGED_SANDSTONE, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPEndPlacements.WISPJELLY, WISPJELLY, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.NULL_LAKE, NULL_LAKE, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.PATCH_ENDERPHYTES, PATCH_ENDERPHYTES, VegetationPlacements.worldSurfaceSquaredWithCount(5));
         register(context, BOPEndPlacements.RADIANT_HANDS, RADIANT_HANDS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

@@ -24,6 +24,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> RADIANT_HANDS;
     public static Feature<NoneFeatureConfiguration> TIDEPOOL;
     public static Feature<NoneFeatureConfiguration> DEAD_CORAL_PATCH;
+    public static Feature<NoneFeatureConfiguration> WISPJELLY;
     public static Feature<NoneFeatureConfiguration> JAGGED_SANDSTONE;
     public static Feature<NoneFeatureConfiguration> ANOMALY;
     public static Feature<NoneFeatureConfiguration> BIG_DRIPLEAF;
@@ -104,6 +105,7 @@ public class BOPBaseFeatures
         RADIANT_HANDS = register(func, "radiant_hands", new RadiantHandsFeature(NoneFeatureConfiguration.CODEC));
         TIDEPOOL = register(func, "tidepool", new TidepoolFeature(NoneFeatureConfiguration.CODEC));
         DEAD_CORAL_PATCH = register(func, "dead_coral_patch", new DeadCoralPatchFeature(NoneFeatureConfiguration.CODEC));
+        WISPJELLY = register(func, "wispjelly", new WispjellyFeature(NoneFeatureConfiguration.CODEC));
         JAGGED_SANDSTONE = register(func, "jagged_sandstone", new JaggedSandstoneFeature(NoneFeatureConfiguration.CODEC));
         ANOMALY = register(func, "anomaly", new AnomalyFeature(NoneFeatureConfiguration.CODEC));
         BIG_DRIPLEAF = register(func, "big_dripleaf", new BigDripleafFeature(NoneFeatureConfiguration.CODEC));
