@@ -24,15 +24,15 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.ToIntFunction;
 
-public class RadiantHandsBlock extends GrowingPlantHeadBlock
+public class LumaloopBlock extends GrowingPlantHeadBlock
 {
-    public static final MapCodec<RadiantHandsBlock> CODEC = simpleCodec(RadiantHandsBlock::new);
+    public static final MapCodec<LumaloopBlock> CODEC = simpleCodec(LumaloopBlock::new);
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     public static final int MAX_AGE = 8;
     private final double growPerTickProbability;
 
-    public RadiantHandsBlock(Properties p_i241195_1_)
+    public LumaloopBlock(Properties p_i241195_1_)
     {
         super(p_i241195_1_, Direction.UP, SHAPE, false, 0.01D);
         this.growPerTickProbability = 0.01D;
@@ -40,7 +40,7 @@ public class RadiantHandsBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public MapCodec<RadiantHandsBlock> codec()
+    public MapCodec<LumaloopBlock> codec()
     {
         return CODEC;
     }
@@ -103,7 +103,7 @@ public class RadiantHandsBlock extends GrowingPlantHeadBlock
 
     @Override
     protected Block getBodyBlock() {
-        return BOPBlocks.RADIANT_HANDS_PLANT;
+        return BOPBlocks.LUMALOOP_PLANT;
     }
 
     @Override

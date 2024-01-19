@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "biomesoplenty:block/lumaloop"
+    },
+    "lit=true": {
+      "model": "biomesoplenty:block/lumaloop_lit"
+    }
+  }
+}

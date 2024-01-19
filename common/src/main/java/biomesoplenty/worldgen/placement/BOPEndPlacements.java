@@ -31,10 +31,10 @@ public class BOPEndPlacements
     public static final ResourceKey<PlacedFeature> JAGGED_SANDSTONE = BOPPlacementUtils.createKey("jagged_sandstone");
     public static final ResourceKey<PlacedFeature> LIQUID_NULL_LAKE = BOPPlacementUtils.createKey("liquid_null_lake");
     public static final ResourceKey<PlacedFeature> LIQUID_NULL_SPRING = BOPPlacementUtils.createKey("liquid_null_spring");
+    public static final ResourceKey<PlacedFeature> LUMALOOP = BOPPlacementUtils.createKey("lumaloop");
     public static final ResourceKey<PlacedFeature> MONOLITH = BOPPlacementUtils.createKey("monolith");
     public static final ResourceKey<PlacedFeature> PATCH_ENDERPHYTES = BOPPlacementUtils.createKey("patch_enderphytes");
     public static final ResourceKey<PlacedFeature> PATCH_NULL_PLANTS = BOPPlacementUtils.createKey("patch_null_plants");
-    public static final ResourceKey<PlacedFeature> RADIANT_HANDS = BOPPlacementUtils.createKey("radiant_hands");
     public static final ResourceKey<PlacedFeature> TIDEPOOL = BOPPlacementUtils.createKey("tidepool");
     public static final ResourceKey<PlacedFeature> TREES_END_CORRUPTION = BOPPlacementUtils.createKey("trees_end_corruption");
     public static final ResourceKey<PlacedFeature> TREES_END_WILDS = BOPPlacementUtils.createKey("trees_end_wilds");
@@ -53,10 +53,10 @@ public class BOPEndPlacements
         final Holder<ConfiguredFeature<?, ?>> JAGGED_SANDSTONE = configuredFeatureGetter.getOrThrow(BOPEndFeatures.JAGGED_SANDSTONE);
         final Holder<ConfiguredFeature<?, ?>> LIQUID_NULL_LAKE = configuredFeatureGetter.getOrThrow(BOPEndFeatures.LIQUID_NULL_LAKE);
         final Holder<ConfiguredFeature<?, ?>> LIQUID_NULL_SPRING = configuredFeatureGetter.getOrThrow(BOPEndFeatures.LIQUID_NULL_SPRING);
+        final Holder<ConfiguredFeature<?, ?>> LUMALOOP = configuredFeatureGetter.getOrThrow(BOPEndFeatures.LUMALOOP);
         final Holder<ConfiguredFeature<?, ?>> MONOLITH = configuredFeatureGetter.getOrThrow(BOPEndFeatures.MONOLITH);
         final Holder<ConfiguredFeature<?, ?>> PATCH_ENDERPHYTES = configuredFeatureGetter.getOrThrow(BOPEndFeatures.PATCH_ENDERPHYTES);
         final Holder<ConfiguredFeature<?, ?>> PATCH_NULL_PLANTS = configuredFeatureGetter.getOrThrow(BOPEndFeatures.PATCH_NULL_PLANTS);
-        final Holder<ConfiguredFeature<?, ?>> RADIANT_HANDS = configuredFeatureGetter.getOrThrow(BOPEndFeatures.RADIANT_HANDS);
         final Holder<ConfiguredFeature<?, ?>> TIDEPOOL = configuredFeatureGetter.getOrThrow(BOPEndFeatures.TIDEPOOL);
         final Holder<ConfiguredFeature<?, ?>> TREES_END_CORRUPTION = configuredFeatureGetter.getOrThrow(BOPEndFeatures.TREES_END_CORRUPTION);
         final Holder<ConfiguredFeature<?, ?>> TREES_END_WILDS = configuredFeatureGetter.getOrThrow(BOPEndFeatures.TREES_END_WILDS);
@@ -71,10 +71,10 @@ public class BOPEndPlacements
         register(context, BOPEndPlacements.JAGGED_SANDSTONE, JAGGED_SANDSTONE, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.LIQUID_NULL_LAKE, LIQUID_NULL_LAKE, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.LIQUID_NULL_SPRING, LIQUID_NULL_SPRING, List.of(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
+        register(context, BOPEndPlacements.LUMALOOP, LUMALOOP, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.MONOLITH, MONOLITH, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.PATCH_ENDERPHYTES, PATCH_ENDERPHYTES, VegetationPlacements.worldSurfaceSquaredWithCount(5));
         register(context, BOPEndPlacements.PATCH_NULL_PLANTS, PATCH_NULL_PLANTS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-        register(context, BOPEndPlacements.RADIANT_HANDS, RADIANT_HANDS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.TIDEPOOL, TIDEPOOL, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPEndPlacements.TREES_END_CORRUPTION, TREES_END_CORRUPTION, treePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
         register(context, BOPEndPlacements.TREES_END_WILDS, TREES_END_WILDS, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));

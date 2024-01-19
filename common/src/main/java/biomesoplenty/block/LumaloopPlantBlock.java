@@ -23,27 +23,27 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.ToIntFunction;
 
-public class RadiantHandsPlantBlock extends GrowingPlantBodyBlock
+public class LumaloopPlantBlock extends GrowingPlantBodyBlock
 {
-    public static final MapCodec<RadiantHandsPlantBlock> CODEC = simpleCodec(RadiantHandsPlantBlock::new);
+    public static final MapCodec<LumaloopPlantBlock> CODEC = simpleCodec(LumaloopPlantBlock::new);
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-    public RadiantHandsPlantBlock(Properties p_i241195_1_)
+    public LumaloopPlantBlock(Properties p_i241195_1_)
     {
         super(p_i241195_1_, Direction.UP, SHAPE, false);
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
     }
 
     @Override
-    public MapCodec<RadiantHandsPlantBlock> codec()
+    public MapCodec<LumaloopPlantBlock> codec()
     {
         return CODEC;
     }
 
     @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BOPBlocks.RADIANT_HANDS;
+        return (GrowingPlantHeadBlock) BOPBlocks.LUMALOOP;
     }
 
     @Override

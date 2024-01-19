@@ -38,10 +38,10 @@ public class BOPEndFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> JAGGED_SANDSTONE = BOPFeatureUtils.createKey("jagged_sandstone");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIQUID_NULL_LAKE = BOPFeatureUtils.createKey("liquid_null_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIQUID_NULL_SPRING = BOPFeatureUtils.createKey("liquid_null_spring");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMALOOP = BOPFeatureUtils.createKey("lumaloop");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MONOLITH = BOPFeatureUtils.createKey("monolith");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_ENDERPHYTES = BOPFeatureUtils.createKey("patch_enderphytes");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NULL_PLANTS = BOPFeatureUtils.createKey("patch_null_plants");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> RADIANT_HANDS = BOPFeatureUtils.createKey("radiant_hands");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TIDEPOOL = BOPFeatureUtils.createKey("tidepool");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_END_CORRUPTION = BOPFeatureUtils.createKey("trees_end_corruption");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_END_WILDS = BOPFeatureUtils.createKey("trees_end_wilds");
@@ -62,10 +62,10 @@ public class BOPEndFeatures
         register(context, BOPEndFeatures.JAGGED_SANDSTONE, BOPBaseFeatures.JAGGED_SANDSTONE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.LIQUID_NULL_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.LIQUID_NULL), BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)));
         register(context, BOPEndFeatures.LIQUID_NULL_SPRING, Feature.SPRING, new SpringConfiguration(BOPFluids.LIQUID_NULL.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.END_STONE, BOPBlocks.NULL_END_STONE, BOPBlocks.UNMAPPED_END_STONE)));
+        register(context, BOPEndFeatures.LUMALOOP, BOPBaseFeatures.LUMALOOP, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.MONOLITH, BOPBaseFeatures.MONOLITH, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.PATCH_ENDERPHYTES, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE))));
         register(context, BOPEndFeatures.PATCH_NULL_PLANTS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.NULL_PLANT))));
-        register(context, BOPEndFeatures.RADIANT_HANDS, BOPBaseFeatures.RADIANT_HANDS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.TIDEPOOL, BOPBaseFeatures.TIDEPOOL, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.TREES_END_CORRUPTION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(NULL_TREE_CHECKED, 0.075F)), NULL_TREE_CHECKED));
         register(context, BOPEndFeatures.TREES_END_WILDS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(EMPYREAL_TREE_CHECKED, 0.075F)), EMPYREAL_TREE_CHECKED));

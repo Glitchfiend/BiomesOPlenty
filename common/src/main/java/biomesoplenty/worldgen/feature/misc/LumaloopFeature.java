@@ -5,7 +5,7 @@
 package biomesoplenty.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.block.RadiantHandsPlantBlock;
+import biomesoplenty.block.LumaloopPlantBlock;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,9 +20,9 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class RadiantHandsFeature extends Feature<NoneFeatureConfiguration>
+public class LumaloopFeature extends Feature<NoneFeatureConfiguration>
 {
-    public RadiantHandsFeature(Codec<NoneFeatureConfiguration> p_67292_)
+    public LumaloopFeature(Codec<NoneFeatureConfiguration> p_67292_)
     {
         super(p_67292_);
     }
@@ -76,11 +76,11 @@ public class RadiantHandsFeature extends Feature<NoneFeatureConfiguration>
         for (int i = 1; i <= p_225304_; ++i) {
             if (p_225301_.isEmptyBlock(p_225303_)) {
                 if (i == p_225304_ || !p_225301_.isEmptyBlock(p_225303_.above())) {
-                    p_225301_.setBlock(p_225303_, BOPBlocks.RADIANT_HANDS.defaultBlockState().setValue(RadiantHandsPlantBlock.LIT, p_225302_.nextInt(6) == 0).setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(Mth.nextInt(p_225302_, p_225305_, p_225306_))), 2);
+                    p_225301_.setBlock(p_225303_, BOPBlocks.LUMALOOP.defaultBlockState().setValue(LumaloopPlantBlock.LIT, p_225302_.nextInt(6) == 0).setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(Mth.nextInt(p_225302_, p_225305_, p_225306_))), 2);
                     break;
                 }
 
-                p_225301_.setBlock(p_225303_, BOPBlocks.RADIANT_HANDS_PLANT.defaultBlockState().setValue(RadiantHandsPlantBlock.LIT, p_225302_.nextInt(6) == 0), 2);
+                p_225301_.setBlock(p_225303_, BOPBlocks.LUMALOOP_PLANT.defaultBlockState().setValue(LumaloopPlantBlock.LIT, p_225302_.nextInt(6) == 0), 2);
             }
 
             p_225303_.move(Direction.UP);

@@ -418,8 +418,8 @@ public class BOPItems
     public static Item DEAD_GRASS;
     public static Item TUNDRA_SHRUB;
     public static Item ENDERPHYTE;
-    public static Item RADIANT_HANDS;
-    public static Item RADIANT_HANDS_PLANT;
+    public static Item LUMALOOP;
+    public static Item LUMALOOP_PLANT;
     public static Item BARLEY;
     public static Item SEA_OATS;
     public static Item CATTAIL;

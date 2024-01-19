@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "biomesoplenty:block/radiant_hands"
+        "cross": "biomesoplenty:block/lumaloop"
     }
 }
