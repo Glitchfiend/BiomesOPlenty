@@ -23,7 +23,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 public class MonolithFeature extends Feature<NoneFeatureConfiguration>
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.UNMAPPED_END_STONE;
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).is(BlockTags.REPLACEABLE_BY_TREES) || world.getBlockState(pos).getBlock() instanceof BushBlock;
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).is(BlockTags.REPLACEABLE_BY_TREES) || world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos).getBlock() == BOPBlocks.NULL_END_STONE;
 
     public MonolithFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -48,7 +48,7 @@ public class MonolithFeature extends Feature<NoneFeatureConfiguration>
 
         int sizeX = 1 + rand.nextInt(3);
         int sizeZ = 1 + rand.nextInt(3);
-        int height = 4 + rand.nextInt(8);
+        int height = 5 + rand.nextInt(7);
 
         if (!this.checkSpace(world, startPos.above(), sizeX, sizeZ, height))
         {
@@ -60,11 +60,21 @@ public class MonolithFeature extends Feature<NoneFeatureConfiguration>
 
         for (int x = 0; x <= sizeX; x++)
         {
-            for (int y = -4; y <= height; y++)
+            for (int y = -6; y <= height; y++)
             {
                 for (int z = 0; z <= sizeZ; z++)
                 {
-                    this.setBlock(world, pos.offset(x,y,z), Blocks.OBSIDIAN.defaultBlockState());
+                    if (y == height - 1)
+                    {
+                        if ((x == 0 || x == sizeX) && (z == 0 || z == sizeZ))
+                        {
+                            this.setBlock(world, pos.offset(x,y,z), Blocks.OBSIDIAN.defaultBlockState());
+                        }
+                    }
+                    else
+                    {
+                        this.setBlock(world, pos.offset(x,y,z), Blocks.OBSIDIAN.defaultBlockState());
+                    }
                 }
             }
         }

@@ -108,6 +108,5 @@ public class AlgalEndStoneBlock extends Block implements BonemealableBlock
                 holder.value().place(p_221270_, p_221270_.getChunkSource().getGenerator(), p_221271_, blockpos1);
             }
         }
-
     }
 }

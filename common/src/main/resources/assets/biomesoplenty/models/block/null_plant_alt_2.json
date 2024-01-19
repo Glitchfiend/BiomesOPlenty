@@ -1,6 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "cross": "biomesoplenty:block/null_plant_alt_2"
-    }
-}
