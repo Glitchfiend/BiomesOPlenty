@@ -8,7 +8,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -20,6 +20,8 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+
+import java.util.function.Consumer;
 
 public class DripstoneSplatterFeature extends Feature<NoneFeatureConfiguration>
 {
@@ -51,7 +53,6 @@ public class DripstoneSplatterFeature extends Feature<NoneFeatureConfiguration>
                {
                   BlockPos blockpos = new BlockPos(k, k1, l);
                   BlockState blockstate = worldIn.getBlockState(blockpos);
-                  BlockState blockstate1 = worldIn.getBlockState(blockpos.above());
 
                   if (blockstate.getBlock() == Blocks.GRASS_BLOCK && this.isAir(worldIn, blockpos.above()))
                   {
@@ -59,11 +60,7 @@ public class DripstoneSplatterFeature extends Feature<NoneFeatureConfiguration>
                      if (rand.nextInt(5) == 0)
                      {
                         int height = 1 + rand.nextInt(8);
-                        for (int ii = height; ii > 0; ii--)
-                        {
-                           BlockPos dripPos = blockpos.above(ii);
-                           worldIn.setBlock(dripPos, Blocks.POINTED_DRIPSTONE.defaultBlockState().setValue(PointedDripstoneBlock.THICKNESS,calculateDripstoneThickness(worldIn, dripPos, Direction.UP, false)), 2);
-                        }
+                        growPointedDripstone(worldIn, blockpos.above(), Direction.UP, height, false);
                      }
 
                      ++i;
@@ -77,26 +74,46 @@ public class DripstoneSplatterFeature extends Feature<NoneFeatureConfiguration>
       return i > 0;
    }
 
-   private static DripstoneThickness calculateDripstoneThickness(LevelReader p_154093_, BlockPos p_154094_, Direction p_154095_, boolean p_154096_) {
-      Direction direction = p_154095_.getOpposite();
-      BlockState blockstate = p_154093_.getBlockState(p_154094_.relative(p_154095_));
-      if (isPointedDripstoneWithDirection(blockstate, direction)) {
-         return !p_154096_ && blockstate.getValue(PointedDripstoneBlock.THICKNESS) != DripstoneThickness.TIP_MERGE ? DripstoneThickness.TIP : DripstoneThickness.TIP_MERGE;
-      } else if (!isPointedDripstoneWithDirection(blockstate, p_154095_)) {
-         return DripstoneThickness.TIP;
-      } else {
-         DripstoneThickness dripstonethickness = blockstate.getValue(PointedDripstoneBlock.THICKNESS);
-         if (dripstonethickness != DripstoneThickness.TIP && dripstonethickness != DripstoneThickness.TIP_MERGE) {
-            BlockState blockstate1 = p_154093_.getBlockState(p_154094_.relative(direction));
-            return !isPointedDripstoneWithDirection(blockstate1, p_154095_) ? DripstoneThickness.BASE : DripstoneThickness.MIDDLE;
-         } else {
-            return DripstoneThickness.FRUSTUM;
+   protected static void growPointedDripstone(LevelAccessor p_190848_, BlockPos p_190849_, Direction p_190850_, int p_190851_, boolean p_190852_)
+   {
+      BlockPos.MutableBlockPos blockpos$mutableblockpos = p_190849_.mutable();
+      buildBaseToTipColumn(p_190850_, p_190851_, p_190852_, (p_309326_) -> {
+         if (p_309326_.is(Blocks.POINTED_DRIPSTONE))
+         {
+            p_309326_ = p_309326_.setValue(PointedDripstoneBlock.WATERLOGGED, Boolean.valueOf(p_190848_.isWaterAt(blockpos$mutableblockpos)));
          }
+
+         p_190848_.setBlock(blockpos$mutableblockpos, p_309326_, 2);
+         blockpos$mutableblockpos.move(p_190850_);
+      });
+   }
+
+   protected static void buildBaseToTipColumn(Direction p_159652_, int p_159653_, boolean p_159654_, Consumer<BlockState> p_159655_)
+   {
+      if (p_159653_ >= 3)
+      {
+         p_159655_.accept(createPointedDripstone(p_159652_, DripstoneThickness.BASE));
+
+         for(int i = 0; i < p_159653_ - 3; ++i)
+         {
+            p_159655_.accept(createPointedDripstone(p_159652_, DripstoneThickness.MIDDLE));
+         }
+      }
+
+      if (p_159653_ >= 2)
+      {
+         p_159655_.accept(createPointedDripstone(p_159652_, DripstoneThickness.FRUSTUM));
+      }
+
+      if (p_159653_ >= 1)
+      {
+         p_159655_.accept(createPointedDripstone(p_159652_, p_159654_ ? DripstoneThickness.TIP_MERGE : DripstoneThickness.TIP));
       }
    }
 
-   private static boolean isPointedDripstoneWithDirection(BlockState p_154208_, Direction p_154209_) {
-      return p_154208_.is(Blocks.POINTED_DRIPSTONE) && p_154208_.getValue(PointedDripstoneBlock.TIP_DIRECTION) == p_154209_;
+   private static BlockState createPointedDripstone(Direction p_159657_, DripstoneThickness p_159658_)
+   {
+      return Blocks.POINTED_DRIPSTONE.defaultBlockState().setValue(PointedDripstoneBlock.TIP_DIRECTION, p_159657_).setValue(PointedDripstoneBlock.THICKNESS, p_159658_);
    }
 
    public static boolean isAir(LevelSimulatedReader level, BlockPos pos)

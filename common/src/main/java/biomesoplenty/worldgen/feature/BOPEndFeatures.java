@@ -40,6 +40,7 @@ public class BOPEndFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIQUID_NULL_SPRING = BOPFeatureUtils.createKey("liquid_null_spring");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMALOOP = BOPFeatureUtils.createKey("lumaloop");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MONOLITH = BOPFeatureUtils.createKey("monolith");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NULL_PLANT_BONEMEAL = BOPFeatureUtils.createKey("null_plant_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_ENDERPHYTES = BOPFeatureUtils.createKey("patch_enderphytes");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NULL_PLANTS = BOPFeatureUtils.createKey("patch_null_plants");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TIDEPOOL = BOPFeatureUtils.createKey("tidepool");
@@ -64,6 +65,7 @@ public class BOPEndFeatures
         register(context, BOPEndFeatures.LIQUID_NULL_SPRING, Feature.SPRING, new SpringConfiguration(BOPFluids.LIQUID_NULL.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.END_STONE, BOPBlocks.NULL_END_STONE, BOPBlocks.UNMAPPED_END_STONE)));
         register(context, BOPEndFeatures.LUMALOOP, BOPBaseFeatures.LUMALOOP, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.MONOLITH, BOPBaseFeatures.MONOLITH, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPEndFeatures.NULL_PLANT_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.NULL_PLANT.defaultBlockState())));
         register(context, BOPEndFeatures.PATCH_ENDERPHYTES, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE))));
         register(context, BOPEndFeatures.PATCH_NULL_PLANTS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.NULL_PLANT))));
         register(context, BOPEndFeatures.TIDEPOOL, BOPBaseFeatures.TIDEPOOL, NoneFeatureConfiguration.INSTANCE);

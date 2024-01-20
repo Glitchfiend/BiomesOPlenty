@@ -1,0 +1,12 @@
+{
+  "feature": "biomesoplenty:null_plant_bonemeal",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      }
+    }
+  ]
+}

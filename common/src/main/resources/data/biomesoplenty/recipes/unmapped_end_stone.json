@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "EBE",
+	" E "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:end_stone"
+    },
+	"B": {
+      "item": "biomesoplenty:liquid_null_bucket"
+    }
+  },
+  "result": {
+    "item": "biomesoplenty:unmapped_end_stone",
+    "count": 4
+  }
+}

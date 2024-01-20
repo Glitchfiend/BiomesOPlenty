@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "biomesoplenty:block/lumaloop_lit"
+        "layer0": "biomesoplenty:block/lumaloop_plant"
     }
 }

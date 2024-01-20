@@ -8,7 +8,6 @@ import biomesoplenty.init.ModParticles;
 import biomesoplenty.worldgen.placement.BOPEndPlacements;
 import biomesoplenty.worldgen.placement.BOPVegetationPlacements;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.placement.EndPlacements;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -20,7 +19,6 @@ public class BOPEndBiomes
     public static Biome endWilds(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
     {
         MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.endSpawns(mobSpawnBuilder);
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.TREES_END_WILDS);
