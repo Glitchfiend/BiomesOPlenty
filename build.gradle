@@ -143,10 +143,10 @@ subprojects {
         publishing {
             publications {
                 mavenJava(MavenPublication) {
-                    artifact jar
-                    groupId project.group
                     artifactId project.archivesBaseName
+                    groupId project.group
                     version project.version
+                    from components.java
 
                     pom {
                         name = project.archivesBaseName
