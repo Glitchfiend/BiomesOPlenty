@@ -6,7 +6,6 @@ package biomesoplenty.block.entity;
 
 import biomesoplenty.api.block.BOPBlockEntities;
 import biomesoplenty.block.AnomalyBlock;
-import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
@@ -62,8 +61,7 @@ public class AnomalyBlockEntity extends BlockEntity
         while (renderState.getRenderShape() != RenderShape.MODEL)
         {
             Block renderBlock = blockRegistry.entrySet().stream().skip(index).map(Map.Entry::getValue).findFirst().orElseThrow();
-            ImmutableList<BlockState> possibleStates = renderBlock.getStateDefinition().getPossibleStates();
-            renderState = possibleStates.get(random.nextInt(possibleStates.size()));
+            renderState = renderBlock.defaultBlockState();
             index = (index + 1) % blockRegistry.size();
         }
 
