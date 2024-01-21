@@ -65,7 +65,7 @@ public class BOPEndBiomes
 
         return new Biome.BiomeBuilder()
             .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0x000000).foliageColorOverride(0x000000).waterColor(4159204).waterFogColor(329011).fogColor(10518688).skyColor(0).ambientParticle(new AmbientParticleSettings(ModParticles.BINARY, 0.000375F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
+            .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0x7CBD6B).foliageColorOverride(0x48B518).waterColor(4159204).waterFogColor(329011).fogColor(10518688).skyColor(0).ambientParticle(new AmbientParticleSettings(ModParticles.BINARY, 0.000375F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 }
