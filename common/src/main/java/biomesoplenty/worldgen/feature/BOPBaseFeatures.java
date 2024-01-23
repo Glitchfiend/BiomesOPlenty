@@ -90,6 +90,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> SMALL_TOADSTOOL;
     public static Feature<NoneFeatureConfiguration> STRINGY_COBWEB;
     public static BOPTreeFeature<TaigaTreeConfiguration> TAIGA_TREE;
+    public static Feature<NoneFeatureConfiguration> TERMITE_MOUND;
     public static BOPTreeFeature<TwigletTreeConfiguration> TWIGLET_TREE;
     public static BOPTreeFeature<TaigaTreeConfiguration> UMBRAN_TREE;
     public static Feature<NoneFeatureConfiguration> WEBBING;
@@ -172,6 +173,7 @@ public class BOPBaseFeatures
         SMALL_TOADSTOOL = register(func, "small_toadstool", new SmallToadstoolFeature(NoneFeatureConfiguration.CODEC));
         STRINGY_COBWEB = register(func, "stringy_cobweb", new StringyCobwebFeature(NoneFeatureConfiguration.CODEC));
         TAIGA_TREE = register(func, "taiga_tree", new TaigaTreeFeature(TaigaTreeConfiguration.CODEC));
+        TERMITE_MOUND = register(func, "termite_mound", new TermiteMoundFeature(NoneFeatureConfiguration.CODEC));
         TWIGLET_TREE = register(func, "twiglet_tree", new TwigletTreeFeature(TwigletTreeConfiguration.CODEC));
         UMBRAN_TREE = register(func, "umbran_tree", new UmbranTreeFeature(TaigaTreeConfiguration.CODEC));
         WEBBING = register(func, "webbing", new WebbingFeature(NoneFeatureConfiguration.CODEC));

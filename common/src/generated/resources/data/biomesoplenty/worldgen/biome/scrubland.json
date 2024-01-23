@@ -62,7 +62,9 @@
       "minecraft:ore_copper",
       "minecraft:underwater_magma"
     ],
-    [],
+    [
+      "biomesoplenty:termite_mound"
+    ],
     [
       "minecraft:spring_water",
       "minecraft:spring_lava"
