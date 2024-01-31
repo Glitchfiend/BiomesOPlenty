@@ -14,7 +14,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 
 public class ThermalCalciteVentBlock extends ThermalCalciteBlock
@@ -27,12 +26,9 @@ public class ThermalCalciteVentBlock extends ThermalCalciteBlock
     @Override
     public void stepOn(Level level, BlockPos p_153778_, BlockState p_153779_, Entity p_153780_)
     {
-        if (level.getBlockState(p_153778_.above()).getFluidState().getType() == Fluids.WATER && level.getBlockState(p_153778_.above()).getFluidState().getAmount() == 8)
+        if (!p_153780_.fireImmune() && p_153780_ instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) p_153780_))
         {
-            if (!p_153780_.fireImmune() && p_153780_ instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) p_153780_))
-            {
-                p_153780_.hurt(level.damageSources().source(BOPDamageTypes.FUMAROLE), 1.0F);
-            }
+            p_153780_.hurt(level.damageSources().source(BOPDamageTypes.FUMAROLE), 1.0F);
         }
 
         super.stepOn(level, p_153778_, p_153779_, p_153780_);
@@ -42,10 +38,7 @@ public class ThermalCalciteVentBlock extends ThermalCalciteBlock
     public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand)
     {
         super.animateTick(stateIn, worldIn, pos, rand);
-        if (worldIn.getBlockState(pos.above()).getFluidState().getType() == Fluids.WATER && worldIn.getBlockState(pos.above()).getFluidState().getAmount() == 8)
-        {
-            worldIn.addAlwaysVisibleParticle(ModParticles.STEAM, (double) (pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), (double) (pos.getY() + 1.0D), (double) (pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), 0.0D, 0.02D, 0.0D);
-        }
+        worldIn.addAlwaysVisibleParticle(ModParticles.STEAM, (double) (pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), (double) (pos.getY() + 1.0D), (double) (pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), 0.0D, 0.02D, 0.0D);
     }
 
     @Override
