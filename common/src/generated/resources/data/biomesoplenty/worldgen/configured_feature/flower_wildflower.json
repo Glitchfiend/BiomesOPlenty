@@ -6,10 +6,169 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "biomesoplenty:wildflower"
-            }
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "north",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "east",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "south",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:wildflower",
+                  "Properties": {
+                    "facing": "west",
+                    "flower_amount": "4"
+                  }
+                },
+                "weight": 1
+              }
+            ]
           }
         }
       },
@@ -24,7 +183,7 @@
       ]
     },
     "tries": 96,
-    "xz_spread": 7,
-    "y_spread": 3
+    "xz_spread": 6,
+    "y_spread": 2
   }
 }

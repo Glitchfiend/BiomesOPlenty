@@ -106,6 +106,7 @@ public class MissingMappingsHandler
                 .remap("nether_crystal", BOPBlocks.ROSE_QUARTZ_CLUSTER)
                 .remap("tall_wheat", BOPBlocks.BARLEY)
                 .remap("potted_clover", Blocks.FLOWER_POT)
+                .remap("potted_wildflower", Blocks.FLOWER_POT)
                 .run(event);
 
         Remapper.create(Registries.ITEM)

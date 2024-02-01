@@ -15,6 +15,7 @@ import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -35,7 +36,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         BlockPos belowPos = pos.below();
         BlockState belowState = world.getBlockState(belowPos);
 
-        if (!world.getBlockState(pos).isAir() || !belowState.isFaceSturdy(world, belowPos, Direction.UP) || !this.respectsCutoff((WorldGenRegion)world, pos))
+        if ((!world.getBlockState(pos).isAir() && world.getBlockState(pos).getBlock() != Blocks.COBWEB && world.getBlockState(pos).getBlock() != Blocks.GLOW_LICHEN && world.getBlockState(pos).getBlock() != BOPBlocks.WEBBING) || !belowState.isFaceSturdy(world, belowPos, Direction.UP) || !this.respectsCutoff((WorldGenRegion)world, pos))
         {
             return false;
         }
@@ -47,7 +48,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
             nextStringPos = nextStringPos.relative(dir, 1).above(1);
             BlockState nextStringState = world.getBlockState(nextStringPos);
 
-            if (!nextStringState.isAir() || !this.respectsCutoff((WorldGenRegion)world, nextStringPos))
+            if ((!nextStringState.isAir() && world.getBlockState(nextStringPos).getBlock() != Blocks.COBWEB && world.getBlockState(nextStringPos).getBlock() != Blocks.GLOW_LICHEN && world.getBlockState(nextStringPos).getBlock() != BOPBlocks.WEBBING) || !this.respectsCutoff((WorldGenRegion)world, nextStringPos))
             {
                 return false;
             }

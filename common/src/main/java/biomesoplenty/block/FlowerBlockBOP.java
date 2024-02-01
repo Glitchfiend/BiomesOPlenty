@@ -44,7 +44,7 @@ public class FlowerBlockBOP extends FlowerBlock
         {
         	shape = LARGE;
         }
-        if (block == BOPBlocks.PINK_DAFFODIL || block == BOPBlocks.WILDFLOWER || block == BOPBlocks.GLOWFLOWER || block == BOPBlocks.WILTED_LILY)
+        if (block == BOPBlocks.PINK_DAFFODIL || block == BOPBlocks.GLOWFLOWER || block == BOPBlocks.WILTED_LILY)
         {
             shape = MEDIUM;
         }
@@ -62,11 +62,7 @@ public class FlowerBlockBOP extends FlowerBlock
     {
         Block ground = worldIn.getBlockState(pos.below()).getBlock();
 
-        if (this == BOPBlocks.WILDFLOWER)
-        {
-            return ground == Blocks.SAND || ground == Blocks.RED_SAND || ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || super.canSurvive(state, worldIn, pos);
-        }
-        else if (this == BOPBlocks.BURNING_BLOSSOM)
+        if (this == BOPBlocks.BURNING_BLOSSOM)
         {
             return ground == Blocks.NETHERRACK || ground == Blocks.SOUL_SAND ||  ground == Blocks.SOUL_SOIL ||  ground == Blocks.CRIMSON_NYLIUM ||  ground == Blocks.WARPED_NYLIUM || super.canSurvive(state, worldIn, pos);
         }
