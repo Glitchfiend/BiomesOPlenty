@@ -454,7 +454,6 @@ public class ModItems
         POTTED_ROSE = register(func, "potted_rose", new BlockItem(BOPBlocks.POTTED_ROSE, new Item.Properties()));
         POTTED_VIOLET = register(func, "potted_violet", new BlockItem(BOPBlocks.POTTED_VIOLET, new Item.Properties()));
         POTTED_LAVENDER = register(func, "potted_lavender", new BlockItem(BOPBlocks.POTTED_LAVENDER, new Item.Properties()));
-        POTTED_WILDFLOWER = register(func, "potted_wildflower", new BlockItem(BOPBlocks.POTTED_WILDFLOWER, new Item.Properties()));
         POTTED_ORANGE_COSMOS = register(func, "potted_orange_cosmos", new BlockItem(BOPBlocks.POTTED_ORANGE_COSMOS, new Item.Properties()));
         POTTED_PINK_DAFFODIL = register(func, "potted_pink_daffodil", new BlockItem(BOPBlocks.POTTED_PINK_DAFFODIL, new Item.Properties()));
         POTTED_PINK_HIBISCUS = register(func, "potted_pink_hibiscus", new BlockItem(BOPBlocks.POTTED_PINK_HIBISCUS, new Item.Properties()));

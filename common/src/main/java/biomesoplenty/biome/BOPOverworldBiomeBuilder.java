@@ -156,7 +156,7 @@ public class BOPOverworldBiomeBuilder
     protected final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null,              null,                   BOPBiomes.SNOWY_FIR_CLEARING,  BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_MAPLE_WOODS},
             {null,              BOPBiomes.FIR_CLEARING, null,                          null,                         BOPBiomes.FORESTED_FIELD},
-            {BOPBiomes.PASTURE, null,                   BOPBiomes.ROCKY_SHRUBLAND,     null,                         null},
+            {BOPBiomes.PASTURE, BOPBiomes.PRAIRIE,      BOPBiomes.ROCKY_SHRUBLAND,     null,                         null},
             {null,              null,                   BOPBiomes.OLD_GROWTH_WOODLAND, null,                         BOPBiomes.ROCKY_RAINFOREST},
             {null,              null,                   null,                          BOPBiomes.LUSH_SAVANNA,       BOPBiomes.LUSH_SAVANNA}
     };
@@ -170,11 +170,11 @@ public class BOPOverworldBiomeBuilder
     };
 
     protected final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null, null, null, null,                       null},
-            {null, null, null, null,                       null},
-            {null, null, null, BOPBiomes.MOOR,             null},
-            {null, null, null, BOPBiomes.ROCKY_RAINFOREST, null},
-            {null, null, null, null,                       BOPBiomes.LUSH_SAVANNA}
+            {null,                null,                null,               null,                       null},
+            {Biomes.CHERRY_GROVE, null,                null,               null,                       null},
+            {Biomes.CHERRY_GROVE, Biomes.CHERRY_GROVE, BOPBiomes.HIGHLAND, BOPBiomes.MOOR,             null},
+            {null,                null,                null,               BOPBiomes.ROCKY_RAINFOREST, null},
+            {null,                null,                null,               null,                       BOPBiomes.LUSH_SAVANNA}
     };
 
     protected final ResourceKey<Biome>[][] SLOPE_BIOMES_BOP = new ResourceKey[][]{

@@ -68,7 +68,7 @@ public class AnomalyBlockEntity extends BlockEntity
             }
         }
 
-        index %= renderStates.size();
+        index = Mth.positiveModulo(index, renderStates.size()); // For some bizarre reason some people have a negative time?
         BlockState renderState = renderStates.stream().skip(index).findFirst().orElseThrow();
 
         lastState = renderState;

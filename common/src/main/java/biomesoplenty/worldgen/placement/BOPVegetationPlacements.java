@@ -191,6 +191,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> SCRUB_EXTRA = BOPPlacementUtils.createKey("scrub_extra");
     public static final ResourceKey<PlacedFeature> SCRUB_NORMAL = BOPPlacementUtils.createKey("scrub_normal");
     public static final ResourceKey<PlacedFeature> SHORT_BAMBOO = BOPPlacementUtils.createKey("short_bamboo");
+    public static final ResourceKey<PlacedFeature> TERMITE_MOUND = BOPPlacementUtils.createKey("termite_mound");
     public static final ResourceKey<PlacedFeature> THIN_BAMBOO = BOPPlacementUtils.createKey("thin_bamboo");
     public static final ResourceKey<PlacedFeature> SMALL_DRIPLEAF = BOPPlacementUtils.createKey("small_dripleaf");
     public static final ResourceKey<PlacedFeature> FALLEN_LOG = BOPPlacementUtils.createKey("fallen_log");
@@ -323,6 +324,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> SCATTERED_ROCKS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SCATTERED_ROCKS);
         final Holder<ConfiguredFeature<?, ?>> SCRUB = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SCRUB);
         final Holder<ConfiguredFeature<?, ?>> SHORT_BAMBOO = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SHORT_BAMBOO);
+        final Holder<ConfiguredFeature<?, ?>> TERMITE_MOUND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TERMITE_MOUND);
         final Holder<ConfiguredFeature<?, ?>> THIN_BAMBOO = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.THIN_BAMBOO);
         final Holder<ConfiguredFeature<?, ?>> SMALL_DRIPLEAF = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.SMALL_DRIPLEAF);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_LOG);
@@ -463,8 +465,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_RAINFOREST_CLIFFS, TREES_RAINFOREST_CLIFFS, treePlacement(PlacementUtils.countExtra(20, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_RAINFOREST_FLOODPLAIN, TREES_RAINFOREST_FLOODPLAIN, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_REDWOOD_FOREST, TREES_REDWOOD_FOREST, treePlacement(PlacementUtils.countExtra(12, 0.2F, 1)));
-        register(context, BOPVegetationPlacements.TREES_ROCKY_SHRUBLAND, OAK_BUSH, treePlacement(PlacementUtils.countExtra(2, 0.05F, 1), Blocks.OAK_SAPLING));
-        register(context, BOPVegetationPlacements.TREES_SHRUBLAND, OAK_BUSH, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1), Blocks.OAK_SAPLING));
+        register(context, BOPVegetationPlacements.TREES_ROCKY_SHRUBLAND, OAK_BUSH, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1), Blocks.OAK_SAPLING));
+        register(context, BOPVegetationPlacements.TREES_SHRUBLAND, OAK_BUSH, treePlacement(PlacementUtils.countExtra(2, 0.05F, 1), Blocks.OAK_SAPLING));
         register(context, BOPVegetationPlacements.TREES_SCRUBLAND, TREES_SCRUBLAND, treePlacement(PlacementUtils.countExtra(0, 0.2F, 6)));
         register(context, BOPVegetationPlacements.TREES_SEASONAL_FOREST, TREES_SEASONAL_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_SEASONAL_PUMPKIN_PATCH, TREES_SEASONAL_PUMPKIN_PATCH, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
@@ -494,6 +496,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.SCRUB_EXTRA, SCRUB, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SCRUB_NORMAL, SCRUB, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SHORT_BAMBOO, SHORT_BAMBOO, VegetationPlacements.worldSurfaceSquaredWithCount(2));
+        register(context, BOPVegetationPlacements.TERMITE_MOUND, TERMITE_MOUND, List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.THIN_BAMBOO, THIN_BAMBOO, VegetationPlacements.worldSurfaceSquaredWithCount(5));
         register(context, BOPVegetationPlacements.SMALL_DRIPLEAF, SMALL_DRIPLEAF, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_LOG, FALLEN_LOG, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

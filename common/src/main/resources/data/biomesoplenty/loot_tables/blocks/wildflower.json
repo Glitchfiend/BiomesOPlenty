@@ -2,18 +2,76 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "biomesoplenty:wildflower",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "flower_amount": "1"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "biomesoplenty:wildflower",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "flower_amount": "2"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "biomesoplenty:wildflower",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "flower_amount": "3"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "biomesoplenty:wildflower",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "flower_amount": "4"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
           "name": "biomesoplenty:wildflower"
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ]
+      "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "biomesoplenty:blocks/wildflower"
 }

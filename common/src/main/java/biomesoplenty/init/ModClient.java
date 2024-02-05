@@ -234,7 +234,6 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_ROSE, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_VIOLET, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_LAVENDER, cutoutRenderType);
-        RenderHelper.setRenderType(POTTED_WILDFLOWER, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_ORANGE_COSMOS, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_PINK_DAFFODIL, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_PINK_HIBISCUS, cutoutRenderType);
@@ -314,7 +313,7 @@ public class ModClient
         event.register((state, world, pos, tintIndex) -> {
                     if (tintIndex != 0) { return world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(); }
                     else { return -1; }},
-                BOPBlocks.WHITE_PETALS);
+                BOPBlocks.WHITE_PETALS, BOPBlocks.WILDFLOWER);
 
         //Lily Pad Coloring
         event.register((state, world, pos, tintIndex) -> {

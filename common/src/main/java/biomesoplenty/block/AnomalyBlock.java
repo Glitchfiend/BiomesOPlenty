@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -84,12 +83,6 @@ public class AnomalyBlock extends BaseEntityBlock
     {
         if (state.getValue(ANOMALY_TYPE) == AnomalyType.STABLE) return Shapes.block();
         else return Shapes.empty();
-    }
-
-    @Override
-    public boolean isPathfindable(BlockState p_154341_, BlockGetter p_154342_, BlockPos p_154343_, PathComputationType p_154344_)
-    {
-        return false;
     }
 
     @Override

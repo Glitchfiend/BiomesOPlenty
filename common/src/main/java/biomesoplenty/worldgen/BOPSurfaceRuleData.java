@@ -275,7 +275,7 @@ public class BOPSurfaceRuleData
 
             SurfaceRules.ifTrue(
                 SurfaceRules.isBiome(BOPBiomes.ROCKY_SHRUBLAND),
-                SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), STONE)
+                SurfaceRules.ifTrue(surfaceNoiseAbove(1.4D), STONE)
             ),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.WASTELAND), DRIED_SALT)
         );

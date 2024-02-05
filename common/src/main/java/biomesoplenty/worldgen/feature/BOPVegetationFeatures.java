@@ -90,6 +90,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPROUT_BONEMEAL = BOPFeatureUtils.createKey("sprout_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNFLOWER = BOPFeatureUtils.createKey("sunflower");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHORT_BAMBOO = BOPFeatureUtils.createKey("short_bamboo");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TERMITE_MOUND = BOPFeatureUtils.createKey("termite_mound");
     public static final ResourceKey<ConfiguredFeature<?, ?>> THIN_BAMBOO = BOPFeatureUtils.createKey("thin_bamboo");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_DRIPLEAF = BOPFeatureUtils.createKey("small_dripleaf");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_BROWN_MUSHROOM = BOPFeatureUtils.createKey("small_brown_mushroom");
@@ -280,6 +281,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.SPROUT_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT.defaultBlockState())));
         register(context, BOPVegetationFeatures.SUNFLOWER, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.SUNFLOWER))));
         register(context, BOPVegetationFeatures.SHORT_BAMBOO, BOPBaseFeatures.SHORT_BAMBOO, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.TERMITE_MOUND, BOPBaseFeatures.TERMITE_MOUND, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.THIN_BAMBOO, BOPBaseFeatures.THIN_BAMBOO, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.SMALL_DRIPLEAF, BOPBaseFeatures.SMALL_DRIPLEAF, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.SMALL_BROWN_MUSHROOM, BOPBaseFeatures.SMALL_BROWN_MUSHROOM, NoneFeatureConfiguration.INSTANCE);
@@ -289,23 +291,19 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.WASTELAND_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BOPBlocks.DESERT_GRASS.defaultBlockState(), 1).add(BOPBlocks.DEAD_GRASS.defaultBlockState(), 2).build()))));
 
         SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
-
         for(int i = 1; i <= 4; ++i) {
             for(Direction direction : Direction.Plane.HORIZONTAL) {
                 builder.add(BOPBlocks.CLOVER.defaultBlockState().setValue(PinkPetalsBlock.AMOUNT, Integer.valueOf(i)).setValue(PinkPetalsBlock.FACING, direction), 1);
             }
         }
-
         register(context, PATCH_CLOVER, Feature.RANDOM_PATCH, new RandomPatchConfiguration(96, 2, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder)))));
 
         SimpleWeightedRandomList.Builder<BlockState> builder2 = SimpleWeightedRandomList.builder();
-
         for(int i = 1; i <= 4; ++i) {
             for(Direction direction : Direction.Plane.HORIZONTAL) {
                 builder2.add(BOPBlocks.WHITE_PETALS.defaultBlockState().setValue(PinkPetalsBlock.AMOUNT, Integer.valueOf(i)).setValue(PinkPetalsBlock.FACING, direction), 1);
             }
         }
-
         register(context, FLOWER_SNOWBLOSSOM_GROVE, Feature.FLOWER, new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder2)))));
 
         register(context, BOPVegetationFeatures.FLOWER_CLOVER_PATCH, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.AZURE_BLUET))));
@@ -328,7 +326,15 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.FLOWER_VIOLET, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.VIOLET))));
         register(context, BOPVegetationFeatures.FLOWER_WASTELAND, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WILTED_LILY))));
         register(context, BOPVegetationFeatures.FLOWER_WETLAND, Feature.FLOWER, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.BLUE_ORCHID.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_WILDFLOWER, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WILDFLOWER))));
+
+        SimpleWeightedRandomList.Builder<BlockState> builder3 = SimpleWeightedRandomList.builder();
+        for(int i = 1; i <= 4; ++i) {
+            for(Direction direction : Direction.Plane.HORIZONTAL) {
+                builder3.add(BOPBlocks.WILDFLOWER.defaultBlockState().setValue(PinkPetalsBlock.AMOUNT, Integer.valueOf(i)).setValue(PinkPetalsBlock.FACING, direction), 1);
+            }
+        }
+        register(context, BOPVegetationFeatures.FLOWER_WILDFLOWER, Feature.FLOWER, new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder3)))));
+
         register(context, BOPVegetationFeatures.TREES_ASPEN_GLADE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_YELLOW_MAPLE_TREE_CHECKED, 0.05F)), ASPEN_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_AURORAL_GARDEN, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.1F), new WeightedPlacedFeature(FIR_TREE_SMALL_CHECKED, 0.1F), new WeightedPlacedFeature(FIR_TREE_CHECKED, 0.025F), new WeightedPlacedFeature(BIG_RAINBOW_BIRCH_TREE_CHECKED, 0.4F)), RAINBOW_BIRCH_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_BAYOU, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(CYPRESS_TREE_MEDIUM_CHECKED, 0.3F)), CYPRESS_TREE_CHECKED));
