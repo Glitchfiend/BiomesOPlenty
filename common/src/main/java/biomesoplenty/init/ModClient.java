@@ -119,6 +119,7 @@ public class ModClient
         RenderHelper.setRenderType(ROSE, cutoutRenderType);
         RenderHelper.setRenderType(VIOLET, cutoutRenderType);
         RenderHelper.setRenderType(LAVENDER, cutoutRenderType);
+        RenderHelper.setRenderType(WHITE_LAVENDER, cutoutRenderType);
         RenderHelper.setRenderType(WILDFLOWER, cutoutRenderType);
         RenderHelper.setRenderType(ORANGE_COSMOS, cutoutRenderType);
         RenderHelper.setRenderType(PINK_DAFFODIL, cutoutRenderType);
@@ -129,6 +130,7 @@ public class ModClient
         RenderHelper.setRenderType(WILTED_LILY, cutoutRenderType);
         RenderHelper.setRenderType(BURNING_BLOSSOM, cutoutRenderType);
         RenderHelper.setRenderType(TALL_LAVENDER, cutoutRenderType);
+        RenderHelper.setRenderType(TALL_WHITE_LAVENDER, cutoutRenderType);
         RenderHelper.setRenderType(BLUE_HYDRANGEA, cutoutRenderType);
         RenderHelper.setRenderType(GOLDENROD, cutoutRenderType);
         RenderHelper.setRenderType(ICY_IRIS, cutoutRenderType);
@@ -234,6 +236,7 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_ROSE, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_VIOLET, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_LAVENDER, cutoutRenderType);
+        RenderHelper.setRenderType(POTTED_WHITE_LAVENDER, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_ORANGE_COSMOS, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_PINK_DAFFODIL, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_PINK_HIBISCUS, cutoutRenderType);

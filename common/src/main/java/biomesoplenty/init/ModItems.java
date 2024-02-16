@@ -397,6 +397,8 @@ public class ModItems
         VIOLET = register(func, "violet", new BlockItem(BOPBlocks.VIOLET, new Item.Properties()));
         LAVENDER = register(func, "lavender", new BlockItem(BOPBlocks.LAVENDER, new Item.Properties()));
         TALL_LAVENDER = register(func, "tall_lavender", new BlockItem(BOPBlocks.TALL_LAVENDER, new Item.Properties()));
+        WHITE_LAVENDER = register(func, "white_lavender", new BlockItem(BOPBlocks.WHITE_LAVENDER, new Item.Properties()));
+        TALL_WHITE_LAVENDER = register(func, "tall_white_lavender", new BlockItem(BOPBlocks.TALL_WHITE_LAVENDER, new Item.Properties()));
         BLUE_HYDRANGEA = register(func, "blue_hydrangea", new BlockItem(BOPBlocks.BLUE_HYDRANGEA, new Item.Properties()));
         WILDFLOWER = register(func, "wildflower", new BlockItem(BOPBlocks.WILDFLOWER, new Item.Properties()));
         GOLDENROD = register(func, "goldenrod", new BlockItem(BOPBlocks.GOLDENROD, new Item.Properties()));
@@ -454,6 +456,7 @@ public class ModItems
         POTTED_ROSE = register(func, "potted_rose", new BlockItem(BOPBlocks.POTTED_ROSE, new Item.Properties()));
         POTTED_VIOLET = register(func, "potted_violet", new BlockItem(BOPBlocks.POTTED_VIOLET, new Item.Properties()));
         POTTED_LAVENDER = register(func, "potted_lavender", new BlockItem(BOPBlocks.POTTED_LAVENDER, new Item.Properties()));
+        POTTED_WHITE_LAVENDER = register(func, "potted_white_lavender", new BlockItem(BOPBlocks.POTTED_WHITE_LAVENDER, new Item.Properties()));
         POTTED_ORANGE_COSMOS = register(func, "potted_orange_cosmos", new BlockItem(BOPBlocks.POTTED_ORANGE_COSMOS, new Item.Properties()));
         POTTED_PINK_DAFFODIL = register(func, "potted_pink_daffodil", new BlockItem(BOPBlocks.POTTED_PINK_DAFFODIL, new Item.Properties()));
         POTTED_PINK_HIBISCUS = register(func, "potted_pink_hibiscus", new BlockItem(BOPBlocks.POTTED_PINK_HIBISCUS, new Item.Properties()));

@@ -37,6 +37,7 @@ public class ModVillagerTrades
 
             new ItemsForEmeralds(BOPBlocks.VIOLET, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.LAVENDER, 1, 1, 12, 1),
+            new ItemsForEmeralds(BOPBlocks.WHITE_LAVENDER, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.WILDFLOWER, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.WHITE_PETALS, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.ORANGE_COSMOS, 1, 1, 12, 1),
@@ -45,6 +46,7 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.WATERLILY, 1, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.WILTED_LILY, 1, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.TALL_LAVENDER, 2, 1, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.TALL_WHITE_LAVENDER, 2, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.BLUE_HYDRANGEA, 2, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.GOLDENROD, 2, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.CLOVER, 1, 1, 12, 1),

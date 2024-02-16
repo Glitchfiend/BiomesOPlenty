@@ -373,6 +373,8 @@ public class BOPBlocks
     public static Block VIOLET;
     public static Block LAVENDER;
     public static Block TALL_LAVENDER;
+    public static Block WHITE_LAVENDER;
+    public static Block TALL_WHITE_LAVENDER;
     public static Block BLUE_HYDRANGEA;
     public static Block GOLDENROD;
     public static Block ORANGE_COSMOS;
@@ -434,6 +436,7 @@ public class BOPBlocks
     public static Block POTTED_ROSE;
     public static Block POTTED_VIOLET;
     public static Block POTTED_LAVENDER;
+    public static Block POTTED_WHITE_LAVENDER;
     public static Block POTTED_ORANGE_COSMOS;
     public static Block POTTED_PINK_DAFFODIL;
     public static Block POTTED_PINK_HIBISCUS;

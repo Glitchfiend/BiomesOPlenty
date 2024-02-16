@@ -1,5 +1,8 @@
 {
     "variants": {
-        "": { "model": "biomesoplenty:block/lavender" }
+        "": [
+            { "model": "biomesoplenty:block/lavender" },
+            { "model": "biomesoplenty:block/lavender_alt" }
+        ]
     }
 }

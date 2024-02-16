@@ -176,6 +176,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.ROSE, 60, 100);
         registerFlammable(BOPBlocks.VIOLET, 60, 100);
         registerFlammable(BOPBlocks.LAVENDER, 60, 100);
+        registerFlammable(BOPBlocks.WHITE_LAVENDER, 60, 100);
         registerFlammable(BOPBlocks.WILDFLOWER, 60, 100);
         registerFlammable(BOPBlocks.PINK_DAFFODIL, 60, 100);
         registerFlammable(BOPBlocks.PINK_HIBISCUS, 60, 100);
@@ -183,6 +184,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.GLOWFLOWER, 60, 100);
         registerFlammable(BOPBlocks.WILTED_LILY, 60, 100);
         registerFlammable(BOPBlocks.TALL_LAVENDER, 60, 100);
+        registerFlammable(BOPBlocks.TALL_WHITE_LAVENDER, 60, 100);
         registerFlammable(BOPBlocks.BLUE_HYDRANGEA, 60, 100);
         registerFlammable(BOPBlocks.GOLDENROD, 60, 100);
         registerFlammable(BOPBlocks.ICY_IRIS, 60, 100);
@@ -292,6 +294,7 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.ROSE);
         registerCompostable(0.65F, BOPBlocks.VIOLET);
         registerCompostable(0.65F, BOPBlocks.LAVENDER);
+        registerCompostable(0.65F, BOPBlocks.WHITE_LAVENDER);
         registerCompostable(0.65F, BOPBlocks.WILDFLOWER);
         registerCompostable(0.65F, BOPBlocks.ORANGE_COSMOS);
         registerCompostable(0.65F, BOPBlocks.PINK_DAFFODIL);
@@ -303,6 +306,7 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.BURNING_BLOSSOM);
 
         registerCompostable(0.65F, BOPBlocks.TALL_LAVENDER);
+        registerCompostable(0.65F, BOPBlocks.TALL_WHITE_LAVENDER);
         registerCompostable(0.65F, BOPBlocks.BLUE_HYDRANGEA);
         registerCompostable(0.65F, BOPBlocks.GOLDENROD);
         registerCompostable(0.65F, BOPBlocks.ICY_IRIS);

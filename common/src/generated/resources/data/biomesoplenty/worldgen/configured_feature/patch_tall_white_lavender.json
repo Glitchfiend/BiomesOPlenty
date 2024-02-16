@@ -1,20 +1,18 @@
 {
-  "type": "minecraft:flower",
+  "type": "minecraft:random_patch",
   "config": {
     "feature": {
       "feature": {
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:weighted_state_provider",
-            "entries": [
-              {
-                "data": {
-                  "Name": "biomesoplenty:white_lavender"
-                },
-                "weight": 1
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "biomesoplenty:tall_white_lavender",
+              "Properties": {
+                "half": "lower"
               }
-            ]
+            }
           }
         }
       },
@@ -28,7 +26,7 @@
         }
       ]
     },
-    "tries": 64,
+    "tries": 96,
     "xz_spread": 7,
     "y_spread": 3
   }

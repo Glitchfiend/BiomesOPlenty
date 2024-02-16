@@ -391,6 +391,8 @@ public class BOPItems
     public static Item VIOLET;
     public static Item LAVENDER;
     public static Item TALL_LAVENDER;
+    public static Item WHITE_LAVENDER;
+    public static Item TALL_WHITE_LAVENDER;
     public static Item BLUE_HYDRANGEA;
     public static Item GOLDENROD;
     public static Item ORANGE_COSMOS;
@@ -454,6 +456,7 @@ public class BOPItems
     public static Item POTTED_ROSE;
     public static Item POTTED_VIOLET;
     public static Item POTTED_LAVENDER;
+    public static Item POTTED_WHITE_LAVENDER;
     public static Item POTTED_ORANGE_COSMOS;
     public static Item POTTED_PINK_DAFFODIL;
     public static Item POTTED_PINK_HIBISCUS;

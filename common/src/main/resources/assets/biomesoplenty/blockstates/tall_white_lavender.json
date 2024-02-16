@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "biomesoplenty:block/tall_white_lavender_bottom" },
+        "half=upper": { "model": "biomesoplenty:block/tall_white_lavender_top" }
+    }
+}

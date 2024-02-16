@@ -10,25 +10,25 @@
             "entries": [
               {
                 "data": {
-                  "Name": "minecraft:pink_tulip"
+                  "Name": "minecraft:lily_of_the_valley"
                 },
                 "weight": 1
               },
               {
                 "data": {
-                  "Name": "minecraft:red_tulip"
+                  "Name": "biomesoplenty:white_lavender"
                 },
                 "weight": 1
               },
               {
                 "data": {
-                  "Name": "minecraft:white_tulip"
+                  "Name": "minecraft:poppy"
                 },
                 "weight": 1
               },
               {
                 "data": {
-                  "Name": "minecraft:orange_tulip"
+                  "Name": "minecraft:dandelion"
                 },
                 "weight": 1
               }

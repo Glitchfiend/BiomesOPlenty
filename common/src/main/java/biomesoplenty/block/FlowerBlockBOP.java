@@ -40,7 +40,7 @@ public class FlowerBlockBOP extends FlowerBlock
     	Block block = state.getBlock();
         VoxelShape shape = NORMAL;
         
-        if (block == BOPBlocks.LAVENDER || block == BOPBlocks.PINK_HIBISCUS)
+        if (block == BOPBlocks.LAVENDER || block == BOPBlocks.WHITE_LAVENDER || block == BOPBlocks.PINK_HIBISCUS)
         {
         	shape = LARGE;
         }
