@@ -10,12 +10,6 @@
             "entries": [
               {
                 "data": {
-                  "Name": "minecraft:lily_of_the_valley"
-                },
-                "weight": 1
-              },
-              {
-                "data": {
                   "Name": "biomesoplenty:white_lavender"
                 },
                 "weight": 1

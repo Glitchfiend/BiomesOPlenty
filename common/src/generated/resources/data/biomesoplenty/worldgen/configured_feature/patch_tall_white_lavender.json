@@ -6,13 +6,24 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "biomesoplenty:tall_white_lavender",
-              "Properties": {
-                "half": "lower"
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "biomesoplenty:tall_white_lavender",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                },
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:white_lavender"
+                },
+                "weight": 1
               }
-            }
+            ]
           }
         }
       },
@@ -26,7 +37,7 @@
         }
       ]
     },
-    "tries": 96,
+    "tries": 512,
     "xz_spread": 7,
     "y_spread": 3
   }

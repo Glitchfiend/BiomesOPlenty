@@ -103,8 +103,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> FLOWER_CONIFEROUS_FOREST = BOPPlacementUtils.createKey("flower_coniferous_forest");
     public static final ResourceKey<PlacedFeature> FLOWER_DEFAULT_EXTENDED_6 = BOPPlacementUtils.createKey("flower_default_extended_6");
     public static final ResourceKey<PlacedFeature> FLOWER_DEFAULT_EXTENDED_15 = BOPPlacementUtils.createKey("flower_default_extended_15");
-    public static final ResourceKey<PlacedFeature> FLOWER_FIELD_1 = BOPPlacementUtils.createKey("flower_field_1");
-    public static final ResourceKey<PlacedFeature> FLOWER_FIELD_2 = BOPPlacementUtils.createKey("flower_field_2");
+    public static final ResourceKey<PlacedFeature> FLOWER_FIELD = BOPPlacementUtils.createKey("flower_field");
     public static final ResourceKey<PlacedFeature> FLOWER_GRASSLAND = BOPPlacementUtils.createKey("flower_grassland");
     public static final ResourceKey<PlacedFeature> FLOWER_MOOR = BOPPlacementUtils.createKey("flower_moor");
     public static final ResourceKey<PlacedFeature> FLOWER_MYSTIC_GROVE = BOPPlacementUtils.createKey("flower_mystic_grove");
@@ -246,8 +245,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> FLOWER_CLOVER_PATCH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_CLOVER_PATCH);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_CONIFEROUS_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_CONIFEROUS_FOREST);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_DEFAULT_EXTENDED = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_DEFAULT_EXTENDED);
-        final Holder<ConfiguredFeature<?, ?>> FLOWER_FIELD_1 = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_FIELD_1);
-        final Holder<ConfiguredFeature<?, ?>> FLOWER_FIELD_2 = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_FIELD_2);
+        final Holder<ConfiguredFeature<?, ?>> FLOWER_FIELD = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_FIELD);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_GRASSLAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_GRASSLAND);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_JACARANDA_GLADE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_JACARANDA_GLADE);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_MOOR = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_MOOR);
@@ -382,7 +380,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_TALL_GRASS_128, PATCH_TALL_GRASS, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_TALL_LAVENDER, PATCH_TALL_LAVENDER, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_TALL_LAVENDER_FOREST, PATCH_TALL_LAVENDER, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.PATCH_TALL_WHITE_LAVENDER, PATCH_TALL_WHITE_LAVENDER, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_TALL_WHITE_LAVENDER, PATCH_TALL_WHITE_LAVENDER, List.of(RarityFilter.onAverageOnceEvery(7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_TINY_CACTUS, PATCH_TINY_CACTUS, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_TUNDRA_SHRUBS, PATCH_TUNDRA_SHRUBS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.RAINFOREST_CLIFFS_VINES, RAINFOREST_CLIFFS_VINES, VegetationPlacements.worldSurfaceSquaredWithCount(10));
@@ -411,8 +409,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.FLOWER_CONIFEROUS_FOREST, FLOWER_CONIFEROUS_FOREST, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_DEFAULT_EXTENDED_6, FLOWER_DEFAULT_EXTENDED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_DEFAULT_EXTENDED_15, FLOWER_DEFAULT_EXTENDED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.FLOWER_FIELD_1, FLOWER_FIELD_1, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.FLOWER_FIELD_2, FLOWER_FIELD_2, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FLOWER_FIELD, FLOWER_FIELD, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_GRASSLAND, FLOWER_GRASSLAND, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_MOOR, FLOWER_MOOR, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_MYSTIC_GROVE, FLOWER_MYSTIC_GROVE, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
