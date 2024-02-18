@@ -27,7 +27,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ROSE_QUARTZ_CLUSTER || world.getBlockState(pos).getBlock() == BOPBlocks.LARGE_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.SMALL_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS_STRAND || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR || world.getBlockState(pos).getBlock() == BOPBlocks.BLOOD;
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ROSE_QUARTZ_CLUSTER || world.getBlockState(pos).getBlock() == BOPBlocks.LARGE_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.SMALL_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS_STRAND || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR || world.getBlockState(pos).getBlock() == BOPBlocks.EYEBULB || world.getBlockState(pos).getBlock() == BOPBlocks.BLOOD || world.getBlockState(pos).getBlock() == Blocks.LAVA;
 
     private static final int MIN_DISTANCE = 8;
     private static final int MAX_DISTANCE = 32;
