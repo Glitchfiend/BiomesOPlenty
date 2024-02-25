@@ -90,7 +90,7 @@
   "item.biomesoplenty.hellbark_chest_boat": "Pekelná loď s truhlou",
   "item.biomesoplenty.jacaranda_boat": "Žakarandová loď",
   "item.biomesoplenty.jacaranda_chest_boat": "Žakarandová loď s truhlou",
-  "item.biomesoplenty.liquid_null_bucket": "���� Bucket",
+  "item.biomesoplenty.liquid_null_bucket": "���� kbelík",
   "item.biomesoplenty.magic_boat": "Magická loď",
   "item.biomesoplenty.magic_chest_boat": "Magická loď s truhlou",
   "item.biomesoplenty.maple_boat": "Javorová loď",
@@ -272,7 +272,7 @@
   "block.biomesoplenty.magic_door": "Magické dveře",
   "block.biomesoplenty.magic_fence": "Magický plot",
   "block.biomesoplenty.magic_fence_gate": "Magická branka",
-  "block.biomesoplenty.magic_hanging_sign": "Magická závěsná cedule,
+  "block.biomesoplenty.magic_hanging_sign": "Magická závěsná cedule",
   "block.biomesoplenty.magic_leaves": "Magické listy",
   "block.biomesoplenty.magic_log": "Magický kmen",
   "block.biomesoplenty.magic_planks": "Magická prkna",
@@ -545,16 +545,16 @@
   "trim_material.biomesoplenty.glowworm_silk": "Hedvábný materiál",
   "trim_material.biomesoplenty.rose_quartz": "Růžovokřemenný materiál",
   
-  "death.attack.bramble": "%1$s byl popíchán k smrti",
-  "death.attack.bramble.player": "%1$s se zachytil v ostružiní při pokusu pro útěk před hráčem %2$s",
-  "death.attack.fumarole": "%1$s byl opařen zaživa",
-  "death.attack.fumarole.player": "%1$s dostal smrtelenou parní koupel od hráče %2$s",
+  "death.attack.biomesoplenty.bramble": "%1$s byl popíchán k smrti",
+  "death.attack.biomesoplenty.bramble.player": "%1$s se zachytil v ostružiní při pokusu pro útěk před hráčem %2$s",
+  "death.attack.biomesoplenty.fumarole": "%1$s byl opařen zaživa",
+  "death.attack.biomesoplenty.fumarole.player": "%1$s dostal smrtelenou parní koupel od hráče %2$s",
 
   "entity.biomesoplenty.boat": "Loď",
   "entity.biomesoplenty.chest_boat": "Loď s truhlou",
   
   "subtitles.block.biomesoplenty.blood.ambient": "Krev bublá",
-  "subtitles.block.flesh_tendon.drip": "Krev kape",
-  "subtitles.block.pus_bubble.pop": "Hnisavá bublina praská",
-  "subtitles.block.spider_egg.break": "Pavoučí vejce praská"
+  "subtitles.block.biomesoplenty.flesh_tendon.drip": "Krev kape",
+  "subtitles.block.biomesoplenty.pus_bubble.pop": "Hnisavá bublina praská",
+  "subtitles.block.biomesoplenty.spider_egg.break": "Pavoučí vejce praská"
 }
