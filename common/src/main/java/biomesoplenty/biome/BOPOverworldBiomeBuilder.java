@@ -170,11 +170,11 @@ public class BOPOverworldBiomeBuilder
     };
 
     protected final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
-            {null,                null,                null,               null,                       null},
-            {Biomes.CHERRY_GROVE, null,                null,               null,                       null},
-            {Biomes.CHERRY_GROVE, Biomes.CHERRY_GROVE, BOPBiomes.HIGHLAND, BOPBiomes.MOOR,             null},
-            {null,                null,                null,               BOPBiomes.ROCKY_RAINFOREST, null},
-            {null,                null,                null,               null,                       BOPBiomes.LUSH_SAVANNA}
+            {null, null, null,                        null,                       null},
+            {null, null, BOPBiomes.CONIFEROUS_FOREST, BOPBiomes.FIELD,            null},
+            {null, null, BOPBiomes.HIGHLAND,          BOPBiomes.MOOR,             null},
+            {null, null, null,                        BOPBiomes.ROCKY_RAINFOREST, null},
+            {null, null, null,                        null,                       BOPBiomes.LUSH_SAVANNA}
     };
 
     protected final ResourceKey<Biome>[][] SLOPE_BIOMES_BOP = new ResourceKey[][]{

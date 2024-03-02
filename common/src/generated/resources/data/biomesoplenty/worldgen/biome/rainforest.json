@@ -118,6 +118,12 @@
         "weight": 10
       },
       {
+        "type": "minecraft:pig",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
         "type": "minecraft:parrot",
         "maxCount": 2,
         "minCount": 1,
