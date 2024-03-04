@@ -5,6 +5,7 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.biome.BOPBiomes;
+import biomesoplenty.config.GameplayConfig;
 import biomesoplenty.config.GenerationConfig;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.util.config.JsonUtil;
@@ -30,6 +31,7 @@ public class ModConfig
     private static final TreeMap<String, Boolean> defaultBiomeToggles = Maps.newTreeMap();
 
     public static GenerationConfig generation = new GenerationConfig();
+    public static GameplayConfig gameplay = new GameplayConfig();
 
     public static void setup()
     {

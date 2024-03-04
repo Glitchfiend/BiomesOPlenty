@@ -49,7 +49,7 @@ public class BiomesOPlenty
     private static void addHandlers()
     {
         // Misc handlers
-        EventManager.addListener(ModVillagerTrades::addWanderingVillagerTrades);
+        if (ModConfig.gameplay.wanderingTraderTrades) { EventManager.addListener(ModVillagerTrades::addWanderingVillagerTrades); }
 
         if (Environment.isClient())
         {
