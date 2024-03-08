@@ -79,22 +79,6 @@
 			]
 		  }
         },
-        "clover_patch": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:clover_patch"
-				  }
-				}
-			  }
-			]
-		  }
-        },
         "cold_desert": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -687,6 +671,22 @@
 			]
 		  }
         },
+		"overgrown_greens": {
+            "trigger": "minecraft:location",
+            "conditions": {
+			"player": [
+			  {
+				"condition": "minecraft:entity_properties",
+				"entity": "this",
+				"predicate": {
+				  "location": {
+					"biome": "biomesoplenty:overgrown_greens"
+				  }
+				}
+			  }
+			]
+		  }
+        },
 		"pasture": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1134,9 +1134,6 @@
 		"bog"
 		],
 		[
-		"clover_patch"
-		],
-		[
 		"cold_desert"
 		],
 		[
@@ -1246,6 +1243,9 @@
 		],
 		[
 		"origin_valley"
+		],
+		[
+		"overgrown_greens"
 		],
 		[
 		"pasture"

@@ -12,6 +12,12 @@
                 "data": {
                   "Name": "biomesoplenty:pink_daffodil"
                 },
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "minecraft:azure_bluet"
+                },
                 "weight": 1
               }
             ]

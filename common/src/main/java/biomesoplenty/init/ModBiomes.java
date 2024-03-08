@@ -54,7 +54,6 @@ public class ModBiomes
         register(context, BOPBiomes.AURORAL_GARDEN, BOPOverworldBiomes.auroralGarden(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.BAYOU, BOPOverworldBiomes.bayou(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.BOG, BOPOverworldBiomes.bog(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.CLOVER_PATCH, BOPOverworldBiomes.cloverPatch(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.COLD_DESERT, BOPOverworldBiomes.coldDesert(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.CONIFEROUS_FOREST, BOPOverworldBiomes.coniferousForest(placedFeatureGetter, carverGetter, false));
         register(context, BOPBiomes.CRAG, BOPOverworldBiomes.crag(placedFeatureGetter, carverGetter));
@@ -86,6 +85,7 @@ public class ModBiomes
         register(context, BOPBiomes.OMINOUS_WOODS, BOPOverworldBiomes.ominousWoods(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.ORCHARD, BOPOverworldBiomes.orchard(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.ORIGIN_VALLEY, BOPOverworldBiomes.originValley(placedFeatureGetter, carverGetter, false));
+        register(context, BOPBiomes.OVERGROWN_GREENS, BOPOverworldBiomes.overgrownGreens(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.PASTURE, BOPOverworldBiomes.pasture(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.PRAIRIE, BOPOverworldBiomes.prairie(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.PUMPKIN_PATCH, BOPOverworldBiomes.pumpkinPatch(placedFeatureGetter, carverGetter));
@@ -133,7 +133,6 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.AURORAL_GARDEN, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.BAYOU, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.BOG, VillagerType.SWAMP);
-        registerVillagerType(BOPBiomes.CLOVER_PATCH, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.COLD_DESERT, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.CONIFEROUS_FOREST, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.CRAG, VillagerType.PLAINS);
@@ -165,6 +164,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.OMINOUS_WOODS, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.ORCHARD, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.ORIGIN_VALLEY, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.OVERGROWN_GREENS, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.PASTURE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.PRAIRIE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.PUMPKIN_PATCH, VillagerType.PLAINS);

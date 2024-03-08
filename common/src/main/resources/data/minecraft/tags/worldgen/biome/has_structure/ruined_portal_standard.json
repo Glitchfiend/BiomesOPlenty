@@ -14,10 +14,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:clover_patch",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:grassland",
             "required": false
         },
@@ -27,6 +23,10 @@
         },
         {
             "id": "biomesoplenty:lavender_field",
+            "required": false
+        },
+		{
+            "id": "biomesoplenty:overgrown_greens",
             "required": false
         },
         {

@@ -6,10 +6,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:clover_patch",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:cold_desert",
             "required": false
         },
@@ -29,7 +25,7 @@
             "id": "biomesoplenty:fir_clearing",
             "required": false
         },
-        {
+		{
             "id": "biomesoplenty:grassland",
             "required": false
         },

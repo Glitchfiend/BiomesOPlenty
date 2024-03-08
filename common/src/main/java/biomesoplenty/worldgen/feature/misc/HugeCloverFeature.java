@@ -9,6 +9,7 @@ import biomesoplenty.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -23,7 +24,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
+    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).is(BlockTags.DIRT);
     protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
 
     public HugeCloverFeature(Codec<NoneFeatureConfiguration> deserializer)
@@ -59,6 +60,11 @@ public class HugeCloverFeature extends Feature<NoneFeatureConfiguration>
         this.setBlock(world, pos.south(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.WEST));
         this.setBlock(world, pos.east(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.EAST));
         this.setBlock(world, pos.south().east(), BOPBlocks.HUGE_CLOVER_PETAL.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.SOUTH));
+
+        this.setBlock(world, pos.above(), Blocks.AIR.defaultBlockState());
+        this.setBlock(world, pos.south().above(), Blocks.AIR.defaultBlockState());
+        this.setBlock(world, pos.east().above(), Blocks.AIR.defaultBlockState());
+        this.setBlock(world, pos.south().east().above(), Blocks.AIR.defaultBlockState());
 
         return true;
     }

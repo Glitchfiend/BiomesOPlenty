@@ -1,9 +1,5 @@
 {
   "values": [
-    {
-      "id": "biomesoplenty:clover_patch",
-	  "required": false
-    },
 	{
       "id": "biomesoplenty:crag",
 	  "required": false
@@ -58,6 +54,10 @@
     },
 	{
       "id": "biomesoplenty:origin_valley",
+	  "required": false
+    },
+	{
+      "id": "biomesoplenty:overgrown_greens",
 	  "required": false
     },
 	{

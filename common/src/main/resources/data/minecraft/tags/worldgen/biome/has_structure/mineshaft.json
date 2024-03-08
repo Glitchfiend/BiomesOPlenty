@@ -2,10 +2,6 @@
     "replace": false,
     "values": [
         {
-            "id": "biomesoplenty:clover_patch",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:cold_desert",
             "required": false
         },
@@ -43,6 +39,10 @@
         },
         {
             "id": "biomesoplenty:prairie",
+            "required": false
+        },
+		{
+            "id": "biomesoplenty:overgrown_greens",
             "required": false
         },
         {

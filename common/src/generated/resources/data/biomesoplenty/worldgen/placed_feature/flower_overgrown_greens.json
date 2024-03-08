@@ -1,9 +1,9 @@
 {
-  "feature": "biomesoplenty:flower_clover_patch",
+  "feature": "biomesoplenty:flower_overgrown_greens",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 4
+      "chance": 3
     },
     {
       "type": "minecraft:in_square"

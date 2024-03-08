@@ -23,7 +23,6 @@ public class BOPBiomes
     public static final ResourceKey<Biome> AURORAL_GARDEN = registerOverworld("auroral_garden");
     public static final ResourceKey<Biome> BAYOU = registerOverworld("bayou");
     public static final ResourceKey<Biome> BOG = registerOverworld("bog");
-    public static final ResourceKey<Biome> CLOVER_PATCH = registerOverworld("clover_patch");
     public static final ResourceKey<Biome> COLD_DESERT = registerOverworld("cold_desert");
     public static final ResourceKey<Biome> CONIFEROUS_FOREST = registerOverworld("coniferous_forest");
     public static final ResourceKey<Biome> CRAG = registerOverworld("crag");
@@ -61,6 +60,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> OMINOUS_WOODS = registerOverworld("ominous_woods");
     public static final ResourceKey<Biome> ORCHARD = registerOverworld("orchard");
     public static final ResourceKey<Biome> ORIGIN_VALLEY = registerOverworld("origin_valley");
+    public static final ResourceKey<Biome> OVERGROWN_GREENS = registerOverworld("overgrown_greens");
     public static final ResourceKey<Biome> PASTURE = registerOverworld("pasture");
     public static final ResourceKey<Biome> PRAIRIE = registerOverworld("prairie");
     public static final ResourceKey<Biome> PUMPKIN_PATCH = registerOverworld("pumpkin_patch");

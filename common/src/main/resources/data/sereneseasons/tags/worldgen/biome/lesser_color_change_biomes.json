@@ -5,10 +5,6 @@
       "required": false
     },
 	{
-      "id": "biomesoplenty:grassland",
-      "required": false
-    },
-	{
       "id": "biomesoplenty:mediterranean_forest",
       "required": false
     },
@@ -22,6 +18,10 @@
     },
 	{
       "id": "biomesoplenty:ominous_woods",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:overgrown_greens",
       "required": false
     },
 	{

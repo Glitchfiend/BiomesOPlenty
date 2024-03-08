@@ -6,11 +6,11 @@
       "minecraft:canyon"
     ]
   },
-  "downfall": 0.7,
+  "downfall": 0.9,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 6993519,
-    "grass_color": 8963455,
+    "foliage_color": 5618801,
+    "grass_color": 6209386,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -71,10 +71,11 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_sugar_cane_desert",
-      "biomesoplenty:flower_clover_patch",
+      "biomesoplenty:flower_overgrown_greens",
+      "biomesoplenty:patch_grass_24",
+      "biomesoplenty:patch_tall_grass_64",
+      "biomesoplenty:high_grass",
       "biomesoplenty:patch_clover_extra",
-      "biomesoplenty:patch_grass_6",
       "biomesoplenty:huge_clover"
     ],
     [
@@ -117,18 +118,6 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 8
-      },
-      {
-        "type": "minecraft:horse",
-        "maxCount": 6,
-        "minCount": 2,
-        "weight": 5
-      },
-      {
-        "type": "minecraft:donkey",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 1
       }
     ],
     "misc": [],

@@ -78,7 +78,7 @@
 			]
 		  }
         },
-        "clover_patch": {
+        "overgrown_greens": {
             "trigger": "minecraft:location",
             "conditions": {
 			"player": [
@@ -87,7 +87,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:clover_patch"
+					"biome": "biomesoplenty:overgrown_greens"
 				  }
 				}
 			  }
@@ -1125,7 +1125,6 @@
 		"auroral_garden",
 		"bayou",
 		"bog",
-		"clover_patch",
 		"cold_desert",
 		"coniferous_forest",
 		"crag",
@@ -1163,6 +1162,7 @@
 		"ominous_woods",
 		"orchard",
 		"origin_valley",
+		"overgrown_greens",
 		"pasture",
 		"prairie",
 		"pumpkin_patch",

@@ -219,7 +219,7 @@ public class BOPSurfaceRuleData
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), ORANGE_SAND)
                             ),
                             SurfaceRules.ifTrue(
-                                SurfaceRules.isBiome(BOPBiomes.GRASSLAND),
+                                SurfaceRules.isBiome(BOPBiomes.OVERGROWN_GREENS),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.7D), COARSE_DIRT)
                             ),
                             SurfaceRules.ifTrue(

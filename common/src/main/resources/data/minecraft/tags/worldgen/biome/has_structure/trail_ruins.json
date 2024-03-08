@@ -21,6 +21,10 @@
 		"required": false
 	},
 	{
+		"id": "biomesoplenty:overgrown_greens",
+		"required": false
+	},
+	{
 		"id": "biomesoplenty:rainforest",
 		"required": false
 	}
