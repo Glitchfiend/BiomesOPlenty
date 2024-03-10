@@ -39,6 +39,7 @@ public class BoatRendererBOP extends EntityRenderer<Boat>
     public BoatRendererBOP(EntityRendererProvider.Context context, boolean hasChest)
     {
         super(context);
+        this.shadowRadius = 0.8F;
         this.boatResources = Stream.of(BoatBOP.ModelType.values()).collect(ImmutableMap.toImmutableMap((key) -> key, (model) -> {
             return Pair.of(new ResourceLocation(BiomesOPlenty.MOD_ID, getTextureLocation(model, hasChest)), createBoatModel(context, model, hasChest));
         }));
