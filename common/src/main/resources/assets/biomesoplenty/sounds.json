@@ -140,25 +140,49 @@
 	  {
         "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
-		"weight": 4
+		"weight": 4,
+		"volume": 0.9
       },
 	  {
         "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.4
       },
 	  {
         "name": "biomesoplenty:music/game/nether/timber",
         "stream": true,
-		"weight": 1
+		"weight": 2
       },
 	  {
         "name": "biomesoplenty:music/game/nether/mesh",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.8
       },
 	  {
         "name": "biomesoplenty:music/game/nether/cortisol",
+        "stream": true,
+		"weight": 2,
+		"volume": 0.6
+      },
+	  {
+        "name": "minecraft:music/game/nether/concrete_halls",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/dead_voxel",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/warmth",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/ballad_of_the_cats",
         "stream": true,
 		"weight": 1
       }
@@ -169,25 +193,49 @@
 	  {
         "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
-		"weight": 4
+		"weight": 4,
+		"volume": 0.4
       },
 	  {
         "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.9
       },
 	  {
         "name": "biomesoplenty:music/game/nether/timber",
         "stream": true,
-		"weight": 1
+		"weight": 2
       },
 	  {
         "name": "biomesoplenty:music/game/nether/mesh",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.8
       },
 	  {
         "name": "biomesoplenty:music/game/nether/cortisol",
+        "stream": true,
+		"weight": 2,
+		"volume": 0.6
+      },
+	  {
+        "name": "minecraft:music/game/nether/concrete_halls",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/dead_voxel",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/warmth",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/ballad_of_the_cats",
         "stream": true,
 		"weight": 1
       }
@@ -203,20 +251,44 @@
 	  {
         "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.9
       },
 	  {
         "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.4
       },
 	  {
         "name": "biomesoplenty:music/game/nether/mesh",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.8
       },
 	  {
         "name": "biomesoplenty:music/game/nether/cortisol",
+        "stream": true,
+		"weight": 2,
+		"volume": 0.6
+      },
+	  {
+        "name": "minecraft:music/game/nether/concrete_halls",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/dead_voxel",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/warmth",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/ballad_of_the_cats",
         "stream": true,
 		"weight": 1
       }
@@ -227,25 +299,49 @@
 	  {
         "name": "biomesoplenty:music/game/nether/mesh",
         "stream": true,
-		"weight": 4
+		"weight": 4,
+		"volume": 0.8
       },
 	  {
         "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.9
       },
 	  {
         "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.4
       },
 	  {
         "name": "biomesoplenty:music/game/nether/timber",
         "stream": true,
-		"weight": 1
+		"weight": 2
       },
 	  {
         "name": "biomesoplenty:music/game/nether/cortisol",
+        "stream": true,
+		"weight": 2,
+		"volume": 0.6
+      },
+	  {
+        "name": "minecraft:music/game/nether/concrete_halls",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/dead_voxel",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/warmth",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/ballad_of_the_cats",
         "stream": true,
 		"weight": 1
       }
@@ -256,25 +352,49 @@
 	  {
         "name": "biomesoplenty:music/game/nether/cortisol",
         "stream": true,
-		"weight": 4
+		"weight": 4,
+		"volume": 0.6
       },
 	  {
         "name": "biomesoplenty:music/game/nether/redhead",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.9
       },
 	  {
         "name": "biomesoplenty:music/game/nether/blot",
         "stream": true,
-		"weight": 1
+		"weight": 2,
+		"volume": 0.4
       },
 	  {
         "name": "biomesoplenty:music/game/nether/timber",
         "stream": true,
-		"weight": 1
+		"weight": 2
       },
 	  {
         "name": "biomesoplenty:music/game/nether/mesh",
+        "stream": true,
+		"weight": 2,
+		"volume": 0.8
+      },
+	  {
+        "name": "minecraft:music/game/nether/concrete_halls",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/dead_voxel",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/warmth",
+        "stream": true,
+		"weight": 1
+      },
+	  {
+        "name": "minecraft:music/game/nether/ballad_of_the_cats",
         "stream": true,
 		"weight": 1
       }

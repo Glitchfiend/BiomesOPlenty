@@ -27,8 +27,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BrimstoneFumaroleBlock extends Block
 {
-    protected static final VoxelShape SHAPE_TOP = Block.box(4.0D, 8.0D, 4.0D, 12.0D, 16.0D, 12.0D);
-    protected static final VoxelShape SHAPE_BOTTOM = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 8.0D, 14.0D);
+    protected static final VoxelShape SHAPE_TOP = Block.box(4.0D, 10.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+    protected static final VoxelShape SHAPE_BOTTOM = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 10.0D, 14.0D);
     protected static final VoxelShape FULL_SHAPE = Shapes.or(SHAPE_TOP, SHAPE_BOTTOM);
 
     public BrimstoneFumaroleBlock(Properties properties)
