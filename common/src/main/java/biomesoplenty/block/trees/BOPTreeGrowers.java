@@ -14,6 +14,7 @@ import java.util.Optional;
 
 public class BOPTreeGrowers
 {
+    public static final TreeGrower CYPRESS = register("cypress", Optional.of(BOPTreeFeatures.CYPRESS_TREE), Optional.empty());
     public static final TreeGrower DEAD = register("dead", 0.5F, Optional.empty(), Optional.empty(), Optional.of(BOPTreeFeatures.DEAD_TWIGLET_TREE), Optional.of(BOPTreeFeatures.SMALL_DEAD_TREE), Optional.empty(), Optional.empty());
     public static final TreeGrower EMPYREAL = register("empyreal", Optional.of(BOPTreeFeatures.EMPYREAL_TREE), Optional.empty());
     public static final TreeGrower FIR = register("fir", Optional.of(BOPTreeFeatures.FIR_TREE), Optional.empty(), Optional.of(BOPTreeFeatures.FIR_TREE_LARGE), Optional.empty());
@@ -31,7 +32,7 @@ public class BOPTreeGrowers
     public static final TreeGrower REDWOOD = register("redwood", Optional.of(BOPTreeFeatures.REDWOOD_TREE), Optional.empty(), Optional.of(BOPTreeFeatures.REDWOOD_TREE_MEDIUM), Optional.of(BOPTreeFeatures.REDWOOD_TREE_LARGE));
     public static final TreeGrower SNOWBLOSSOM = register("snowblossom", Optional.of(BOPTreeFeatures.SNOWBLOSSOM_TREE), Optional.empty());
     public static final TreeGrower UMBRAN = register("umbran", Optional.of(BOPTreeFeatures.UMBRAN_TREE), Optional.empty(), Optional.of(BOPTreeFeatures.TALL_UMBRAN_TREE), Optional.empty());
-    public static final TreeGrower WILLOW = register("willow", Optional.of(BOPTreeFeatures.WILLOW_TREE), Optional.of(BOPTreeFeatures.CYPRESS_TREE));
+    public static final TreeGrower WILLOW = register("willow", Optional.of(BOPTreeFeatures.WILLOW_TREE), Optional.of(BOPTreeFeatures.BAYOU_TREE));
     public static final TreeGrower YELLOW_MAPLE = register("yellow_maple", Optional.of(BOPTreeFeatures.YELLOW_MAPLE_TREE), Optional.of(BOPTreeFeatures.BIG_YELLOW_MAPLE_TREE));
 
     private static TreeGrower register(String name, float secondaryChance, Optional<ResourceKey<ConfiguredFeature<?, ?>>> megaTree, Optional<ResourceKey<ConfiguredFeature<?, ?>>> secondaryMegaTree, Optional<ResourceKey<ConfiguredFeature<?, ?>>> tree, Optional<ResourceKey<ConfiguredFeature<?, ?>>> secondaryTree, Optional<ResourceKey<ConfiguredFeature<?, ?>>> flowers, Optional<ResourceKey<ConfiguredFeature<?, ?>>> secondaryFlowers)

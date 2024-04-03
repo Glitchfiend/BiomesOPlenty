@@ -7,6 +7,7 @@ package biomesoplenty.worldgen.feature.configurations;
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 
@@ -25,36 +26,40 @@ public class CypressTreeConfiguration extends BOPTreeConfiguration
                 Codec.INT.fieldOf("min_height").forGetter((instance) -> instance.minHeight),
                 Codec.INT.fieldOf("max_height").forGetter((instance) -> instance.maxHeight),
                 TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators),
-                Codec.INT.fieldOf("trunk_width").forGetter((instance) -> instance.trunkWidth)
+                Codec.BOOL.fieldOf("leaves_at_bottom").forGetter((instance) -> instance.leavesAtBottom)
         ).apply(builder, CypressTreeConfiguration::new);
     });
-    public final int trunkWidth;
 
-    protected CypressTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, int trunkWidth)
+    public final boolean leavesAtBottom;
+
+    protected CypressTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, boolean leavesAtBottom)
     {
         super(trunkProvider, foliageProvider, vineProvider, hangingProvider, trunkFruitProvider, altFoliageProvider, minHeight, maxHeight, decorators);
-        this.trunkWidth = trunkWidth;
+        this.leavesAtBottom = leavesAtBottom;
     }
 
     public static class Builder extends BOPTreeConfiguration.Builder<CypressTreeConfiguration.Builder>
     {
-        private int trunkWidth;
-
-        public Builder trunkWidth(int a) {this.trunkWidth = a; return this;}
+        private boolean leavesAtBottom;
 
         public Builder()
         {
-            this.minHeight = 8;
+            this.minHeight = 12;
             this.maxHeight = 15;
-            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LOG.defaultBlockState());
-            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LEAVES.defaultBlockState());
-            this.vineProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_VINE.defaultBlockState());
-            this.trunkWidth = 1;
+            this.trunkProvider = BlockStateProvider.simple(Blocks.SPRUCE_LOG);
+            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.CYPRESS_LEAVES);
+            this.leavesAtBottom = false;
+        }
+
+        public CypressTreeConfiguration.Builder leavesAtBottom(boolean a)
+        {
+            this.leavesAtBottom = a;
+            return this;
         }
 
         public CypressTreeConfiguration build()
         {
-            return new CypressTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators, this.trunkWidth);
+            return new CypressTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators, this.leavesAtBottom);
         }
     }
 }

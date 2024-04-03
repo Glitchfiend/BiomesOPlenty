@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.worldgen.feature.configurations;
 
+import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -11,9 +12,9 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 
 import java.util.List;
 
-public class PoplarTreeConfiguration extends BOPTreeConfiguration
+public class BayouTreeConfiguration extends BOPTreeConfiguration
 {
-    public static final Codec<PoplarTreeConfiguration> CODEC = RecordCodecBuilder.create((builder) -> {
+    public static final Codec<BayouTreeConfiguration> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(
                 BlockStateProvider.CODEC.fieldOf("trunk_provider").forGetter((instance) -> instance.trunkProvider),
                 BlockStateProvider.CODEC.fieldOf("foliage_provider").forGetter((instance) -> instance.foliageProvider),
@@ -24,38 +25,36 @@ public class PoplarTreeConfiguration extends BOPTreeConfiguration
                 Codec.INT.fieldOf("min_height").forGetter((instance) -> instance.minHeight),
                 Codec.INT.fieldOf("max_height").forGetter((instance) -> instance.maxHeight),
                 TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators),
-                Codec.BOOL.fieldOf("leaves_at_bottom").forGetter((instance) -> instance.leavesAtBottom)
-        ).apply(builder, PoplarTreeConfiguration::new);
+                Codec.INT.fieldOf("trunk_width").forGetter((instance) -> instance.trunkWidth)
+        ).apply(builder, BayouTreeConfiguration::new);
     });
+    public final int trunkWidth;
 
-    public final boolean leavesAtBottom;
-
-    protected PoplarTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, boolean leavesAtBottom)
+    protected BayouTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, int trunkWidth)
     {
         super(trunkProvider, foliageProvider, vineProvider, hangingProvider, trunkFruitProvider, altFoliageProvider, minHeight, maxHeight, decorators);
-        this.leavesAtBottom = leavesAtBottom;
+        this.trunkWidth = trunkWidth;
     }
 
-    public static class Builder extends BOPTreeConfiguration.Builder<PoplarTreeConfiguration.Builder>
+    public static class Builder extends BOPTreeConfiguration.Builder<BayouTreeConfiguration.Builder>
     {
-        private boolean leavesAtBottom;
+        private int trunkWidth;
+
+        public Builder trunkWidth(int a) {this.trunkWidth = a; return this;}
 
         public Builder()
         {
-            this.minHeight = 12;
+            this.minHeight = 8;
             this.maxHeight = 15;
-            this.leavesAtBottom = false;
+            this.trunkProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LOG.defaultBlockState());
+            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_LEAVES.defaultBlockState());
+            this.vineProvider = BlockStateProvider.simple(BOPBlocks.WILLOW_VINE.defaultBlockState());
+            this.trunkWidth = 1;
         }
 
-        public PoplarTreeConfiguration.Builder leavesAtBottom(boolean a)
+        public BayouTreeConfiguration build()
         {
-            this.leavesAtBottom = a;
-            return this;
-        }
-
-        public PoplarTreeConfiguration build()
-        {
-            return new PoplarTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators, this.leavesAtBottom);
+            return new BayouTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators, this.trunkWidth);
         }
     }
 }

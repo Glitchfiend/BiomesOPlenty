@@ -5,7 +5,7 @@
     "features": [
       {
         "chance": 0.05,
-        "feature": "minecraft:dark_oak_checked"
+        "feature": "biomesoplenty:pine_tree"
       }
     ]
   }

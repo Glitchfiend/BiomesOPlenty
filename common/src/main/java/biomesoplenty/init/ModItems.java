@@ -183,6 +183,8 @@ public class ModItems
         ORIGIN_LEAVES = register(func, "origin_leaves", new BlockItem(BOPBlocks.ORIGIN_LEAVES, new Item.Properties()));
         FLOWERING_OAK_SAPLING = register(func, "flowering_oak_sapling", new BlockItem(BOPBlocks.FLOWERING_OAK_SAPLING, new Item.Properties()));
         FLOWERING_OAK_LEAVES = register(func, "flowering_oak_leaves", new BlockItem(BOPBlocks.FLOWERING_OAK_LEAVES, new Item.Properties()));
+        CYPRESS_SAPLING = register(func, "cypress_sapling", new BlockItem(BOPBlocks.CYPRESS_SAPLING, new Item.Properties()));
+        CYPRESS_LEAVES = register(func, "cypress_leaves", new BlockItem(BOPBlocks.CYPRESS_LEAVES, new Item.Properties()));
         SNOWBLOSSOM_SAPLING = register(func, "snowblossom_sapling", new BlockItem(BOPBlocks.SNOWBLOSSOM_SAPLING, new Item.Properties()));
         SNOWBLOSSOM_LEAVES = register(func, "snowblossom_leaves", new BlockItem(BOPBlocks.SNOWBLOSSOM_LEAVES, new Item.Properties()));
         RAINBOW_BIRCH_SAPLING = register(func, "rainbow_birch_sapling", new BlockItem(BOPBlocks.RAINBOW_BIRCH_SAPLING, new Item.Properties()));
@@ -436,6 +438,7 @@ public class ModItems
         BRAMBLE_LEAVES = register(func, "bramble_leaves", new BlockItem(BOPBlocks.BRAMBLE_LEAVES, new Item.Properties()));
         POTTED_ORIGIN_SAPLING = register(func, "potted_origin_sapling", new BlockItem(BOPBlocks.POTTED_ORIGIN_SAPLING, new Item.Properties()));
         POTTED_FLOWERING_OAK_SAPLING = register(func, "potted_flowering_oak_sapling", new BlockItem(BOPBlocks.POTTED_FLOWERING_OAK_SAPLING, new Item.Properties()));
+        POTTED_CYPRESS_SAPLING = register(func, "potted_cypress_sapling", new BlockItem(BOPBlocks.POTTED_CYPRESS_SAPLING, new Item.Properties()));
         POTTED_SNOWBLOSSOM_SAPLING = register(func, "potted_snowblossom_sapling", new BlockItem(BOPBlocks.POTTED_SNOWBLOSSOM_SAPLING, new Item.Properties()));
         POTTED_RAINBOW_BIRCH_SAPLING = register(func, "potted_rainbow_birch_sapling", new BlockItem(BOPBlocks.POTTED_RAINBOW_BIRCH_SAPLING, new Item.Properties()));
         POTTED_FIR_SAPLING = register(func, "potted_fir_sapling", new BlockItem(BOPBlocks.POTTED_FIR_SAPLING, new Item.Properties()));

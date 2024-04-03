@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": [
+      {
+        "item": "biomesoplenty:white_sand"
+      },
+      {
+        "item": "biomesoplenty:orange_sand"
+      },
+	  {
+        "item": "biomesoplenty:black_sand"
+      }
+    ],
+    "X": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "#X#",
+    "X#X"
+  ],
+  "result": {
+    "item": "minecraft:tnt"
+  }
+}
