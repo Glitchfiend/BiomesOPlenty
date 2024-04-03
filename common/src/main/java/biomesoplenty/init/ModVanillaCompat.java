@@ -255,6 +255,8 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.ORIGIN_LEAVES);
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_SAPLING);
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_LEAVES);
+        registerCompostable(0.3F, BOPBlocks.CYPRESS_SAPLING);
+        registerCompostable(0.3F, BOPBlocks.CYPRESS_LEAVES);
         registerCompostable(0.3F, BOPBlocks.SNOWBLOSSOM_SAPLING);
         registerCompostable(0.3F, BOPBlocks.SNOWBLOSSOM_LEAVES);
         registerCompostable(0.3F, BOPBlocks.RAINBOW_BIRCH_SAPLING);

@@ -39,9 +39,8 @@ public class BOPTreePlacements
     public static final ResourceKey<PlacedFeature> BIG_ORIGIN_TREE_CHECKED = BOPPlacementUtils.createKey("big_origin_tree");
     public static final ResourceKey<PlacedFeature> BIG_RAINBOW_BIRCH_TREE_CHECKED = BOPPlacementUtils.createKey("big_rainbow_birch_tree");
     public static final ResourceKey<PlacedFeature> BIG_YELLOW_MAPLE_TREE_CHECKED = BOPPlacementUtils.createKey("big_yellow_maple_tree");
-    public static final ResourceKey<PlacedFeature> CYPRESS_TREE_CHECKED = BOPPlacementUtils.createKey("cypress_tree");
-    public static final ResourceKey<PlacedFeature> CYPRESS_TREE_MEDIUM_CHECKED = BOPPlacementUtils.createKey("cypress_tree_medium");
-    public static final ResourceKey<PlacedFeature> DARK_OAK_POPLAR_TREE_CHECKED = BOPPlacementUtils.createKey("dark_oak_poplar_tree");
+    public static final ResourceKey<PlacedFeature> BAYOU_TREE_CHECKED = BOPPlacementUtils.createKey("bayou_tree");
+    public static final ResourceKey<PlacedFeature> BAYOU_TREE_MEDIUM_CHECKED = BOPPlacementUtils.createKey("bayou_tree_medium");
     public static final ResourceKey<PlacedFeature> DEAD_TREE_WASTELAND_CHECKED = BOPPlacementUtils.createKey("dead_tree_wasteland");
     public static final ResourceKey<PlacedFeature> DEAD_TWIGLET_TREE_CHECKED = BOPPlacementUtils.createKey("dead_twiglet_tree");
     public static final ResourceKey<PlacedFeature> DEAD_TWIGLET_TREE_SMALL_CHECKED = BOPPlacementUtils.createKey("dead_twiglet_tree_small");
@@ -81,7 +80,7 @@ public class BOPTreePlacements
     public static final ResourceKey<PlacedFeature> SPARSE_ACACIA_TREE_CHECKED = BOPPlacementUtils.createKey("sparse_acacia_tree");
     public static final ResourceKey<PlacedFeature> SPARSE_OAK_TREE_CHECKED = BOPPlacementUtils.createKey("sparse_oak_tree");
     public static final ResourceKey<PlacedFeature> SPRUCE_BUSH_CHECKED = BOPPlacementUtils.createKey("spruce_bush");
-    public static final ResourceKey<PlacedFeature> SPRUCE_POPLAR_TREE_CHECKED = BOPPlacementUtils.createKey("spruce_poplar_tree");
+    public static final ResourceKey<PlacedFeature> CYPRESS_TREE_CHECKED = BOPPlacementUtils.createKey("cypress_tree");
     public static final ResourceKey<PlacedFeature> SPRUCE_TWIGLET_TREE_CHECKED = BOPPlacementUtils.createKey("spruce_twiglet_tree");
     public static final ResourceKey<PlacedFeature> TALL_DEAD_TWIGLET_TREE_CHECKED = BOPPlacementUtils.createKey("tall_dead_twiglet_tree");
     public static final ResourceKey<PlacedFeature> TALL_SPRUCE_TREE_BEES_CHECKED = BOPPlacementUtils.createKey("tall_spruce_tree_bees");
@@ -111,9 +110,8 @@ public class BOPTreePlacements
         final Holder<ConfiguredFeature<?, ?>> BIG_ORIGIN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_ORIGIN_TREE);
         final Holder<ConfiguredFeature<?, ?>> BIG_RAINBOW_BIRCH_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_RAINBOW_BIRCH_TREE);
         final Holder<ConfiguredFeature<?, ?>> BIG_YELLOW_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_YELLOW_MAPLE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> CYPRESS_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.CYPRESS_TREE);
-        final Holder<ConfiguredFeature<?, ?>> CYPRESS_TREE_MEDIUM = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.CYPRESS_TREE_MEDIUM);
-        final Holder<ConfiguredFeature<?, ?>> DARK_OAK_POPLAR_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DARK_OAK_POPLAR_TREE);
+        final Holder<ConfiguredFeature<?, ?>> BAYOU_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BAYOU_TREE);
+        final Holder<ConfiguredFeature<?, ?>> BAYOU_TREE_MEDIUM = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BAYOU_TREE_MEDIUM);
         final Holder<ConfiguredFeature<?, ?>> DEAD_TREE_WASTELAND = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TREE_WASTELAND);
         final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE);
         final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_SMALL);
@@ -153,7 +151,7 @@ public class BOPTreePlacements
         final Holder<ConfiguredFeature<?, ?>> SPARSE_ACACIA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPARSE_ACACIA_TREE);
         final Holder<ConfiguredFeature<?, ?>> SPARSE_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPARSE_OAK_TREE);
         final Holder<ConfiguredFeature<?, ?>> SPRUCE_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPRUCE_BUSH);
-        final Holder<ConfiguredFeature<?, ?>> SPRUCE_POPLAR_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPRUCE_POPLAR_TREE);
+        final Holder<ConfiguredFeature<?, ?>> CYPRESS_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.CYPRESS_TREE);
         final Holder<ConfiguredFeature<?, ?>> SPRUCE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPRUCE_TWIGLET_TREE);
         final Holder<ConfiguredFeature<?, ?>> TALL_DEAD_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_DEAD_TWIGLET_TREE);
         final Holder<ConfiguredFeature<?, ?>> TALL_SPRUCE_TREE_BEES = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_SPRUCE_TREE_BEES);
@@ -179,9 +177,8 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.BIG_ORIGIN_TREE_CHECKED, BIG_ORIGIN_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.BIG_RAINBOW_BIRCH_TREE_CHECKED, BIG_RAINBOW_BIRCH_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.RAINBOW_BIRCH_SAPLING)));
         register(context, BOPTreePlacements.BIG_YELLOW_MAPLE_TREE_CHECKED, BIG_YELLOW_MAPLE_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.YELLOW_MAPLE_SAPLING)));
-        register(context, BOPTreePlacements.CYPRESS_TREE_CHECKED, CYPRESS_TREE);
-        register(context, BOPTreePlacements.CYPRESS_TREE_MEDIUM_CHECKED, CYPRESS_TREE_MEDIUM);
-        register(context, BOPTreePlacements.DARK_OAK_POPLAR_TREE_CHECKED, DARK_OAK_POPLAR_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.DARK_OAK_SAPLING)));
+        register(context, BOPTreePlacements.BAYOU_TREE_CHECKED, BAYOU_TREE);
+        register(context, BOPTreePlacements.BAYOU_TREE_MEDIUM_CHECKED, BAYOU_TREE_MEDIUM);
         register(context, BOPTreePlacements.DEAD_TREE_WASTELAND_CHECKED, DEAD_TREE_WASTELAND, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DEAD_TWIGLET_TREE_CHECKED, DEAD_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DEAD_TWIGLET_TREE_SMALL_CHECKED, DEAD_TWIGLET_TREE_SMALL, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
@@ -221,7 +218,7 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.SPARSE_ACACIA_TREE_CHECKED, SPARSE_ACACIA_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BOPBlocks.ORANGE_SAND))));
         register(context, BOPTreePlacements.SPARSE_OAK_TREE_CHECKED, SPARSE_OAK_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.SPRUCE_BUSH_CHECKED, SPRUCE_BUSH, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING)));
-        register(context, BOPTreePlacements.SPRUCE_POPLAR_TREE_CHECKED, SPRUCE_POPLAR_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING)));
+        register(context, BOPTreePlacements.CYPRESS_TREE_CHECKED, CYPRESS_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.CYPRESS_SAPLING)));
         register(context, BOPTreePlacements.SPRUCE_TWIGLET_TREE_CHECKED, SPRUCE_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING)));
         register(context, BOPTreePlacements.TALL_DEAD_TWIGLET_TREE_CHECKED, TALL_DEAD_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.TALL_SPRUCE_TREE_BEES_CHECKED, TALL_SPRUCE_TREE_BEES, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING)));

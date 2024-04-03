@@ -79,6 +79,7 @@ public class ModClient
 
         RenderHelper.setRenderType(ORIGIN_LEAVES, transparentRenderType);
         RenderHelper.setRenderType(FLOWERING_OAK_LEAVES, transparentRenderType);
+        RenderHelper.setRenderType(CYPRESS_LEAVES, transparentRenderType);
         RenderHelper.setRenderType(SNOWBLOSSOM_LEAVES, transparentRenderType);
         RenderHelper.setRenderType(RAINBOW_BIRCH_LEAVES, transparentRenderType);
         RenderHelper.setRenderType(FIR_LEAVES, transparentRenderType);
@@ -99,6 +100,7 @@ public class ModClient
 
         RenderHelper.setRenderType(ORIGIN_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(FLOWERING_OAK_SAPLING, cutoutRenderType);
+        RenderHelper.setRenderType(CYPRESS_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(SNOWBLOSSOM_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(RAINBOW_BIRCH_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(FIR_SAPLING, cutoutRenderType);
@@ -216,6 +218,7 @@ public class ModClient
 
         RenderHelper.setRenderType(POTTED_ORIGIN_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_FLOWERING_OAK_SAPLING, cutoutRenderType);
+        RenderHelper.setRenderType(POTTED_CYPRESS_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_SNOWBLOSSOM_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_RAINBOW_BIRCH_SAPLING, cutoutRenderType);
         RenderHelper.setRenderType(POTTED_FIR_SAPLING, cutoutRenderType);

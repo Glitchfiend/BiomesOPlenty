@@ -22,6 +22,7 @@ public class ModVillagerTrades
         //Cost, Amount, Trades Until Disabled, Villager XP
         VillagerTrades.ItemListing[] WANDERING_TRADER_GENERIC = new VillagerTrades.ItemListing[]{
             new ItemsForEmeralds(BOPBlocks.FLOWERING_OAK_SAPLING, 5, 1, 8, 1),
+            new ItemsForEmeralds(BOPBlocks.CYPRESS_SAPLING, 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.SNOWBLOSSOM_SAPLING, 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.FIR_SAPLING, 5, 1, 8, 1),
             new ItemsForEmeralds(BOPBlocks.PINE_SAPLING, 5, 1, 8, 1),

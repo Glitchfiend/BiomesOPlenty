@@ -39,7 +39,14 @@ public class AnomalyRenderer implements BlockEntityRenderer<AnomalyBlockEntity> 
         Level level = blockEntity.getLevel();
         BlockPos pos = blockEntity.getBlockPos();
         BlockState renderState = blockEntity.getRenderState();
-        this.dispatcher.getModelRenderer().tesselateBlock(level, this.dispatcher.getBlockModel(renderState), renderState, pos, poseStack, buffer.getBuffer(ItemBlockRenderTypes.getRenderType(renderState, true)), false, RandomSource.create(), renderState.getSeed(pos), OverlayTexture.NO_OVERLAY);
+
+        // Certain modded blocks (e.g. Immersive Engineering's bottling machine) crash when rendering for seemingly no reason.
+        // In these cases, we'll just fail silently
+        try
+        {
+            this.dispatcher.getModelRenderer().tesselateBlock(level, this.dispatcher.getBlockModel(renderState), renderState, pos, poseStack, buffer.getBuffer(ItemBlockRenderTypes.getRenderType(renderState, true)), false, RandomSource.create(), renderState.getSeed(pos), OverlayTexture.NO_OVERLAY);
+        }
+        catch (Exception e) {}
     }
 }
 

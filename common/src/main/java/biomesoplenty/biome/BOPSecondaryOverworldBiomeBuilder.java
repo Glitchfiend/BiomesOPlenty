@@ -17,7 +17,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.TUNDRA,               BOPBiomes.TUNDRA,               BOPBiomes.MUSKEG,          BOPBiomes.SNOWY_MAPLE_WOODS, BOPBiomes.DEAD_FOREST},
             {BOPBiomes.SEASONAL_FOREST,      BOPBiomes.SEASONAL_FOREST,      BOPBiomes.SEASONAL_FOREST, BOPBiomes.MAPLE_WOODS,       BOPBiomes.MAPLE_WOODS},
-            {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.REDWOOD_FOREST,  BOPBiomes.GRASSLAND,         BOPBiomes.GRASSLAND},
+            {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.ORCHARD,         BOPBiomes.SHRUBLAND,         BOPBiomes.SHRUBLAND},
             {BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,        BOPBiomes.RAINFOREST,        BOPBiomes.VOLCANIC_PLAINS},
             {BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,            BOPBiomes.WASTELAND,       BOPBiomes.WASTELAND,         BOPBiomes.WASTELAND}
     };
@@ -25,7 +25,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null, null,                       null,                          BOPBiomes.SNOWBLOSSOM_GROVE, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
             {null, BOPBiomes.ASPEN_GLADE,      BOPBiomes.PUMPKIN_PATCH,       null,                        null},
-            {null, BOPBiomes.JACARANDA_GLADE,  BOPBiomes.SHRUBLAND,           BOPBiomes.SHRUBLAND,         null},
+            {null, BOPBiomes.JACARANDA_GLADE,  null,                          BOPBiomes.ROCKY_SHRUBLAND,   BOPBiomes.GRASSLAND},
             {null, null,                       BOPBiomes.OLD_GROWTH_WOODLAND, BOPBiomes.VOLCANIC_PLAINS,   null},
             {null, null,                       null,                          null,                        null}
     };
@@ -33,7 +33,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.TUNDRA,               BOPBiomes.TUNDRA,               BOPBiomes.SNOWBLOSSOM_GROVE, BOPBiomes.SNOWY_MAPLE_WOODS, BOPBiomes.DEAD_FOREST},
             {BOPBiomes.SEASONAL_FOREST,      BOPBiomes.ASPEN_GLADE,          BOPBiomes.HIGHLAND,          BOPBiomes.HIGHLAND,          BOPBiomes.HIGHLAND},
-            {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.HIGHLAND,          BOPBiomes.HIGHLAND,          BOPBiomes.HIGHLAND},
+            {BOPBiomes.LAVENDER_FIELD,       BOPBiomes.LAVENDER_FIELD,       BOPBiomes.ORCHARD,           BOPBiomes.ROCKY_SHRUBLAND,   BOPBiomes.HIGHLAND},
             {BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.MEDITERRANEAN_FOREST, BOPBiomes.WOODLAND,          BOPBiomes.ROCKY_RAINFOREST,  BOPBiomes.VOLCANO},
             {BOPBiomes.WASTELAND_STEPPE,     BOPBiomes.WASTELAND_STEPPE,     BOPBiomes.WASTELAND_STEPPE,  BOPBiomes.WASTELAND_STEPPE,  BOPBiomes.WASTELAND_STEPPE}
     };
@@ -41,7 +41,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null, null,                      null,                          BOPBiomes.SNOWBLOSSOM_GROVE, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
             {null, null,                      null,                          BOPBiomes.MAPLE_WOODS,       null},
-            {null, BOPBiomes.JACARANDA_GLADE, BOPBiomes.ROCKY_SHRUBLAND,     null,                        BOPBiomes.MOOR},
+            {null, BOPBiomes.JACARANDA_GLADE, BOPBiomes.HIGHLAND,            null,                        BOPBiomes.MOOR},
             {null, null,                      BOPBiomes.OLD_GROWTH_WOODLAND, BOPBiomes.VOLCANO,           null},
             {null, null,                      null,                          null,                        null}
     };

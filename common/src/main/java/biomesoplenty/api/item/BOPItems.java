@@ -112,6 +112,8 @@ public class BOPItems
     public static Item ORIGIN_LEAVES;
     public static Item FLOWERING_OAK_SAPLING;
     public static Item FLOWERING_OAK_LEAVES;
+    public static Item CYPRESS_SAPLING;
+    public static Item CYPRESS_LEAVES;
     public static Item SNOWBLOSSOM_SAPLING;
     public static Item SNOWBLOSSOM_LEAVES;
     public static Item RAINBOW_BIRCH_SAPLING;
@@ -436,6 +438,7 @@ public class BOPItems
 
     public static Item POTTED_ORIGIN_SAPLING;
     public static Item POTTED_FLOWERING_OAK_SAPLING;
+    public static Item POTTED_CYPRESS_SAPLING;
     public static Item POTTED_SNOWBLOSSOM_SAPLING;
     public static Item POTTED_RAINBOW_BIRCH_SAPLING;
     public static Item POTTED_FIR_SAPLING;

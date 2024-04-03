@@ -106,6 +106,8 @@ public class BOPBlocks
     public static Block ORIGIN_LEAVES;
     public static Block FLOWERING_OAK_SAPLING;
     public static Block FLOWERING_OAK_LEAVES;
+    public static Block CYPRESS_SAPLING;
+    public static Block CYPRESS_LEAVES;
     public static Block SNOWBLOSSOM_SAPLING;
     public static Block SNOWBLOSSOM_LEAVES;
     public static Block RAINBOW_BIRCH_SAPLING;
@@ -416,6 +418,7 @@ public class BOPBlocks
 
     public static Block POTTED_ORIGIN_SAPLING;
     public static Block POTTED_FLOWERING_OAK_SAPLING;
+    public static Block POTTED_CYPRESS_SAPLING;
     public static Block POTTED_SNOWBLOSSOM_SAPLING;
     public static Block POTTED_RAINBOW_BIRCH_SAPLING;
     public static Block POTTED_FIR_SAPLING;

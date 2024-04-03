@@ -37,7 +37,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> CORNER_COBWEBS;
     public static Feature<NoneFeatureConfiguration> CRAG_MOSS;
     public static Feature<NoneFeatureConfiguration> CRAG_SPLATTER;
-    public static BOPTreeFeature<CypressTreeConfiguration> CYPRESS_TREE;
+    public static BOPTreeFeature<BayouTreeConfiguration> BAYOU_TREE;
     public static Feature<NoneFeatureConfiguration> DRIPSTONE_SPLATTER;
     public static Feature<NoneFeatureConfiguration> BONE_SPINE;
     public static BOPTreeFeature<EmpyrealTreeConfiguration> EMPYREAL_TREE;
@@ -68,7 +68,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> OBSIDIAN_SPLATTER;
     public static BOPTreeFeature<PalmTreeConfiguration> PALM_TREE;
     public static BOPTreeFeature<PineTreeConfiguration> PINE_TREE;
-    public static BOPTreeFeature<PoplarTreeConfiguration> POPLAR_TREE;
+    public static BOPTreeFeature<CypressTreeConfiguration> CYPRESS_TREE;
     public static Feature<NoneFeatureConfiguration> PUMPKIN_PATCH;
     public static Feature<NoneFeatureConfiguration> RED_MAPLE_LEAF_PILE;
     public static Feature<NoneFeatureConfiguration> ORANGE_MAPLE_LEAF_PILE;
@@ -120,7 +120,7 @@ public class BOPBaseFeatures
         CORNER_COBWEBS = register(func, "corner_cobwebs", new CornerCobwebFeature(NoneFeatureConfiguration.CODEC));
         CRAG_MOSS = register(func, "crag_moss", new CragMossFeature(NoneFeatureConfiguration.CODEC));
         CRAG_SPLATTER = register(func, "crag_splatter", new CragSplatterFeature(NoneFeatureConfiguration.CODEC));
-        CYPRESS_TREE = register(func, "cypress_tree", new CypressTreeFeature(CypressTreeConfiguration.CODEC));
+        BAYOU_TREE = register(func, "bayou_tree", new BayouTreeFeature(BayouTreeConfiguration.CODEC));
         DRIPSTONE_SPLATTER = register(func, "dripstone_splatter", new DripstoneSplatterFeature(NoneFeatureConfiguration.CODEC));
         BONE_SPINE = register(func, "bone_spine", new BoneSpineFeature(NoneFeatureConfiguration.CODEC));
         EMPYREAL_TREE = register(func, "empyreal_tree", new EmpyrealTreeFeature(EmpyrealTreeConfiguration.CODEC));
@@ -151,7 +151,7 @@ public class BOPBaseFeatures
         OBSIDIAN_SPLATTER = register(func, "obsidian_splatter", new ObsidianSplatterFeature(NoneFeatureConfiguration.CODEC));
         PALM_TREE = register(func, "palm_tree", new PalmTreeFeature(PalmTreeConfiguration.CODEC));
         PINE_TREE = register(func, "pine_tree", new PineTreeFeature(PineTreeConfiguration.CODEC));
-        POPLAR_TREE = register(func, "poplar_tree", new PoplarTreeFeature(PoplarTreeConfiguration.CODEC));
+        CYPRESS_TREE = register(func, "cypress_tree", new CypressTreeFeature(CypressTreeConfiguration.CODEC));
         PUMPKIN_PATCH = register(func, "pumpkin_patch", new PumpkinPatchFeature(NoneFeatureConfiguration.CODEC));
         RED_MAPLE_LEAF_PILE = register(func, "red_maple_leaf_pile", new RedMapleLeafPileFeature(NoneFeatureConfiguration.CODEC));
         ORANGE_MAPLE_LEAF_PILE = register(func, "orange_maple_leaf_pile", new OrangeMapleLeafPileFeature(NoneFeatureConfiguration.CODEC));
