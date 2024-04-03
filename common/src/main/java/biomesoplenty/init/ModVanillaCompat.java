@@ -49,6 +49,7 @@ public class ModVanillaCompat
         //Flammability
         registerFlammable(BOPBlocks.ORIGIN_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.FLOWERING_OAK_LEAVES, 30, 60);
+        registerFlammable(BOPBlocks.CYPRESS_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.SNOWBLOSSOM_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.RAINBOW_BIRCH_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.FIR_LEAVES, 30, 60);

@@ -133,7 +133,7 @@ public class CypressTreeFeature extends BOPTreeFeature<CypressTreeConfiguration>
 
                     if (x == -radius || x == radius || z == -radius || z == radius)
                     {
-                        if (world.getRandom().nextInt(3) != 0) {
+                        if (world.getRandom().nextInt(4) != 0) {
                             this.placeLeaves(world, pos.offset(x, 0, z), leaves, config);
                         }
                     }
