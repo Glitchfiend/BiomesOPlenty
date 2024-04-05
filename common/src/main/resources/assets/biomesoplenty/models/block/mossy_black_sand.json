@@ -4,7 +4,7 @@
         "particle": "biomesoplenty:block/black_sand",
         "bottom": "biomesoplenty:block/black_sand",
         "top": "biomesoplenty:block/mossy_black_sand_top",
-        "side": "biomesoplenty:block/black_sand",
+        "side": "biomesoplenty:block/mossy_black_sand",
         "overlay": "biomesoplenty:block/mossy_black_sand_side"
     },
     "elements": [
