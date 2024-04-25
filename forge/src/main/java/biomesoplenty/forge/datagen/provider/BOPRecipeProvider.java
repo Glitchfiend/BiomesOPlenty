@@ -13,8 +13,12 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
+
+import javax.annotation.Nullable;
 
 public class BOPRecipeProvider extends RecipeProvider
 {
@@ -28,7 +32,7 @@ public class BOPRecipeProvider extends RecipeProvider
     {
         generateForEnabledBlockFamilies(output, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
-        // Planks from logs
+        // Planks from Logs
         planksFromLogs(output, BOPBlocks.FIR_PLANKS, BOPBlocks.FIR_LOG, 4);
         planksFromLogs(output, BOPBlocks.PINE_PLANKS, BOPBlocks.PINE_LOG, 4);
         planksFromLogs(output, BOPBlocks.MAPLE_PLANKS, BOPBlocks.MAPLE_LOG, 4);
@@ -43,7 +47,7 @@ public class BOPRecipeProvider extends RecipeProvider
         planksFromLogs(output, BOPBlocks.HELLBARK_PLANKS, BOPBlocks.HELLBARK_LOG, 4);
         planksFromLogs(output, BOPBlocks.EMPYREAL_PLANKS, BOPBlocks.EMPYREAL_LOG, 4);
 
-        // Wood from logs
+        // Wood from Logs
         woodFromLogs(output, BOPBlocks.FIR_WOOD, BOPBlocks.FIR_LOG);
         woodFromLogs(output, BOPBlocks.PINE_WOOD, BOPBlocks.PINE_LOG);
         woodFromLogs(output, BOPBlocks.MAPLE_WOOD, BOPBlocks.MAPLE_LOG);
@@ -99,7 +103,7 @@ public class BOPRecipeProvider extends RecipeProvider
         chestBoat(output, BOPItems.HELLBARK_CHEST_BOAT, BOPBlocks.HELLBARK_PLANKS);
         chestBoat(output, BOPItems.EMPYREAL_CHEST_BOAT, BOPBlocks.EMPYREAL_PLANKS);
 
-        // Hanging signs
+        // Hanging Signs
         hangingSign(output, BOPItems.FIR_HANGING_SIGN, BOPBlocks.STRIPPED_FIR_LOG);
         hangingSign(output, BOPItems.PINE_HANGING_SIGN, BOPBlocks.STRIPPED_PINE_LOG);
         hangingSign(output, BOPItems.MAPLE_HANGING_SIGN, BOPBlocks.STRIPPED_MAPLE_LOG);
@@ -114,7 +118,7 @@ public class BOPRecipeProvider extends RecipeProvider
         hangingSign(output, BOPItems.HELLBARK_HANGING_SIGN, BOPBlocks.STRIPPED_HELLBARK_LOG);
         hangingSign(output, BOPItems.EMPYREAL_HANGING_SIGN, BOPBlocks.STRIPPED_EMPYREAL_LOG);
 
-        // White sandstone
+        // White Sandstone
         chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_WHITE_SANDSTONE, Ingredient.of(BOPBlocks.WHITE_SANDSTONE_SLAB)).unlockedBy("has_white_sandstone", has(BOPBlocks.WHITE_SANDSTONE)).unlockedBy("has_chiseled_white_sandstone", has(BOPBlocks.CHISELED_WHITE_SANDSTONE)).unlockedBy("has_cut_white_sandstone", has(BOPBlocks.CUT_WHITE_SANDSTONE)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.WHITE_SANDSTONE).define('#', BOPBlocks.WHITE_SAND).pattern("##").pattern("##").unlockedBy("has_white_sand", has(BOPBlocks.WHITE_SAND)).save(output);
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.WHITE_SANDSTONE_SLAB, Ingredient.of(BOPBlocks.WHITE_SANDSTONE, BOPBlocks.CHISELED_WHITE_SANDSTONE)).unlockedBy("has_white_sandstone", has(BOPBlocks.WHITE_SANDSTONE)).unlockedBy("has_chiseled_white_sandstone", has(BOPBlocks.CHISELED_WHITE_SANDSTONE)).save(output);
@@ -132,7 +136,7 @@ public class BOPRecipeProvider extends RecipeProvider
         stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_WHITE_SANDSTONE_SLAB, BOPBlocks.SMOOTH_WHITE_SANDSTONE, 2);
         stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_WHITE_SANDSTONE_STAIRS, BOPBlocks.SMOOTH_WHITE_SANDSTONE);
 
-        // Orange sandstone
+        // Orange Sandstone
         chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_ORANGE_SANDSTONE, Ingredient.of(BOPBlocks.ORANGE_SANDSTONE_SLAB)).unlockedBy("has_orange_sandstone", has(BOPBlocks.ORANGE_SANDSTONE)).unlockedBy("has_chiseled_orange_sandstone", has(BOPBlocks.CHISELED_ORANGE_SANDSTONE)).unlockedBy("has_cut_orange_sandstone", has(BOPBlocks.CUT_ORANGE_SANDSTONE)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORANGE_SANDSTONE).define('#', BOPBlocks.ORANGE_SAND).pattern("##").pattern("##").unlockedBy("has_orange_sand", has(BOPBlocks.ORANGE_SAND)).save(output);
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORANGE_SANDSTONE_SLAB, Ingredient.of(BOPBlocks.ORANGE_SANDSTONE, BOPBlocks.CHISELED_ORANGE_SANDSTONE)).unlockedBy("has_orange_sandstone", has(BOPBlocks.ORANGE_SANDSTONE)).unlockedBy("has_chiseled_orange_sandstone", has(BOPBlocks.CHISELED_ORANGE_SANDSTONE)).save(output);
@@ -150,7 +154,7 @@ public class BOPRecipeProvider extends RecipeProvider
         stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_ORANGE_SANDSTONE_SLAB, BOPBlocks.SMOOTH_ORANGE_SANDSTONE, 2);
         stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_ORANGE_SANDSTONE_STAIRS, BOPBlocks.SMOOTH_ORANGE_SANDSTONE);
 
-        // Black sandstone
+        // Black Sandstone
         chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_BLACK_SANDSTONE, Ingredient.of(BOPBlocks.BLACK_SANDSTONE_SLAB)).unlockedBy("has_black_sandstone", has(BOPBlocks.BLACK_SANDSTONE)).unlockedBy("has_chiseled_black_sandstone", has(BOPBlocks.CHISELED_BLACK_SANDSTONE)).unlockedBy("has_cut_black_sandstone", has(BOPBlocks.CUT_BLACK_SANDSTONE)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BLACK_SANDSTONE).define('#', BOPBlocks.BLACK_SAND).pattern("##").pattern("##").unlockedBy("has_black_sand", has(BOPBlocks.BLACK_SAND)).save(output);
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BLACK_SANDSTONE_SLAB, Ingredient.of(BOPBlocks.BLACK_SANDSTONE, BOPBlocks.CHISELED_BLACK_SANDSTONE)).unlockedBy("has_black_sandstone", has(BOPBlocks.BLACK_SANDSTONE)).unlockedBy("has_chiseled_black_sandstone", has(BOPBlocks.CHISELED_BLACK_SANDSTONE)).save(output);
@@ -167,6 +171,76 @@ public class BOPRecipeProvider extends RecipeProvider
         stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_BLACK_SANDSTONE, BOPBlocks.BLACK_SANDSTONE);
         stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_BLACK_SANDSTONE_SLAB, BOPBlocks.SMOOTH_BLACK_SANDSTONE, 2);
         stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_BLACK_SANDSTONE_STAIRS, BOPBlocks.SMOOTH_BLACK_SANDSTONE);
+
+        // Brimstone
+        chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_BRIMSTONE_BRICKS, Ingredient.of(BOPBlocks.BRIMSTONE_BRICK_SLAB)).unlockedBy("has_brimstone_bricks", has(BOPBlocks.BRIMSTONE_BRICKS)).unlockedBy("has_chiseled_brimstone_bricks", has(BOPBlocks.CHISELED_BRIMSTONE_BRICKS)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICKS, 4).define('#', BOPBlocks.BRIMSTONE).pattern("##").pattern("##").unlockedBy("has_brimstone", has(BOPBlocks.BRIMSTONE)).save(output);
+        stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICKS, BOPBlocks.BRIMSTONE);
+        slabBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_SLAB, Ingredient.of(BOPBlocks.BRIMSTONE_BRICKS)).unlockedBy("has_brimstone_bricks", has(BOPBlocks.BRIMSTONE_BRICKS)).save(output);
+        stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_SLAB, BOPBlocks.BRIMSTONE_BRICKS, 2);
+        stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_SLAB, BOPBlocks.BRIMSTONE, 2);
+        stairBuilder(BOPBlocks.BRIMSTONE_BRICK_STAIRS, Ingredient.of(BOPBlocks.BRIMSTONE_BRICKS)).unlockedBy("has_brimstone_bricks", has(BOPBlocks.BRIMSTONE_BRICKS)).save(output);
+        stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_STAIRS, BOPBlocks.BRIMSTONE_BRICKS);
+        stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_STAIRS, BOPBlocks.BRIMSTONE);
+        wall(output, RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BRICK_WALL, BOPBlocks.BRIMSTONE_BRICKS);
+        stonecutterResultFromBase(output, RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BRICK_WALL, BOPBlocks.BRIMSTONE_BRICKS);
+        stonecutterResultFromBase(output, RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BRICK_WALL, BOPBlocks.BRIMSTONE);
+        stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_BRIMSTONE_BRICKS, BOPBlocks.BRIMSTONE_BRICKS);
+        stonecutterResultFromBase(output, RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_BRIMSTONE_BRICKS, BOPBlocks.BRIMSTONE);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_CLUSTER, 2).define('#', BOPBlocks.BRIMSTONE).pattern("#").pattern("#").unlockedBy("has_brimstone", has(BOPBlocks.BRIMSTONE)).save(output);
+        stonecutterResultFromBase(output, RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_CLUSTER, BOPBlocks.BRIMSTONE, 2);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BUD, 4).requires(BOPBlocks.BRIMSTONE).unlockedBy("has_brimstone", has(BOPBlocks.BRIMSTONE)).save(output);
+        stonecutterResultFromBase(output, RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BUD, BOPBlocks.BRIMSTONE, 4);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_FUMAROLE).define('#', BOPBlocks.BRIMSTONE).define('F', Items.FIRE_CHARGE).pattern(" # ").pattern("#F#").pattern("###").unlockedBy("has_brimstone", has(BOPBlocks.BRIMSTONE)).save(output);
+
+        // Blackstone Decorations
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BOPBlocks.BLACKSTONE_BULB, 2).define('#', Blocks.BLACKSTONE).define('O', Blocks.CRYING_OBSIDIAN).pattern("O").pattern("#").unlockedBy("has_blackstone", has(Blocks.BLACKSTONE)).save(output);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BOPBlocks.BLACKSTONE_SPINES, 4).requires(Blocks.BLACKSTONE).unlockedBy("has_blackstone", has(Blocks.BLACKSTONE)).save(output);
+        stonecutterResultFromBase(output, RecipeCategory.DECORATIONS, BOPBlocks.BLACKSTONE_SPINES, Blocks.BLACKSTONE, 4);
+
+        // End Stone Blocks
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ALGAL_END_STONE).requires(Blocks.END_STONE).requires(BOPBlocks.ENDERPHYTE).unlockedBy("has_enderphyte", has(BOPBlocks.ENDERPHYTE)).save(output);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.NULL_END_STONE).requires(Blocks.END_STONE).requires(BOPBlocks.NULL_LEAVES).unlockedBy("has_null_leaves", has(BOPBlocks.NULL_LEAVES)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.UNMAPPED_END_STONE, 4).define('#', Blocks.END_STONE).define('B', BOPItems.LIQUID_NULL_BUCKET).pattern(" # ").pattern("#B#").pattern(" # ").unlockedBy("has_liquid_null_bucket", has(BOPItems.LIQUID_NULL_BUCKET)).save(output);
+
+        // Other Building Blocks
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.MOSSY_BLACK_SAND).requires(BOPBlocks.BLACK_SAND).requires(Blocks.MOSS_BLOCK).unlockedBy("has_moss_block", has(Blocks.MOSS_BLOCK)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.FLESH).define('#', Items.ROTTEN_FLESH).define('B', BOPItems.BLOOD_BUCKET).pattern(" # ").pattern("#B#").pattern(" # ").unlockedBy("has_blood_bucket", has(BOPItems.BLOOD_BUCKET)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ROSE_QUARTZ_BLOCK).define('#', BOPItems.ROSE_QUARTZ_CHUNK).pattern("##").pattern("##").unlockedBy("has_rose_quartz_chunk", has(BOPItems.ROSE_QUARTZ_CHUNK)).save(output);
+
+        // Leaf Piles
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BOPBlocks.RED_MAPLE_LEAF_PILE, 3).define('#', BOPBlocks.RED_MAPLE_LEAF_PILE).pattern("###").unlockedBy("has_red_maple_leaves", has(BOPBlocks.RED_MAPLE_LEAVES)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BOPBlocks.ORANGE_MAPLE_LEAF_PILE, 3).define('#', BOPBlocks.ORANGE_MAPLE_LEAF_PILE).pattern("###").unlockedBy("has_orange_maple_leaves", has(BOPBlocks.ORANGE_MAPLE_LEAVES)).save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BOPBlocks.YELLOW_MAPLE_LEAF_PILE, 3).define('#', BOPBlocks.YELLOW_MAPLE_LEAF_PILE).pattern("###").unlockedBy("has_yellow_maple_leaves", has(BOPBlocks.YELLOW_MAPLE_LEAVES)).save(output);
+
+        // Dyes
+        oneToOneConversionRecipe(output, Items.BROWN_DYE, BOPBlocks.CATTAIL, "brown_dye", 2);
+        oneToOneConversionRecipe(output, Items.CYAN_DYE, BOPBlocks.GLOWFLOWER, "cyan_dye");
+        oneToOneConversionRecipe(output, Items.GRAY_DYE, BOPBlocks.WILTED_LILY, "gray_dye");
+        oneToOneConversionRecipe(output, Items.LIGHT_BLUE_DYE, BOPBlocks.BLUE_HYDRANGEA, "light_blue_dye", 2);
+        oneToOneConversionRecipe(output, Items.LIGHT_BLUE_DYE, BOPBlocks.ICY_IRIS, "light_blue_dye", 2);
+        oneToOneConversionRecipe(output, Items.LIGHT_GRAY_DYE, BOPBlocks.ENDBLOOM, "light_gray_dye");
+        oneToOneConversionRecipe(output, Items.MAGENTA_DYE, BOPBlocks.WILDFLOWER, "magenta_dye");
+        oneToOneConversionRecipe(output, Items.ORANGE_DYE, BOPBlocks.BURNING_BLOSSOM, "orange_dye");
+        oneToOneConversionRecipe(output, Items.ORANGE_DYE, BOPBlocks.ORANGE_COSMOS, "orange_dye");
+        oneToOneConversionRecipe(output, Items.PINK_DYE, BOPBlocks.PINK_DAFFODIL, "pink_dye");
+        oneToOneConversionRecipe(output, Items.PINK_DYE, BOPBlocks.PINK_HIBISCUS, "pink_dye");
+        oneToOneConversionRecipe(output, Items.PURPLE_DYE, BOPBlocks.LAVENDER, "purple_dye");
+        oneToOneConversionRecipe(output, Items.PURPLE_DYE, BOPBlocks.TALL_LAVENDER, "purple_dye", 2);
+        oneToOneConversionRecipe(output, Items.PURPLE_DYE, BOPBlocks.VIOLET, "purple_dye");
+        oneToOneConversionRecipe(output, Items.RED_DYE, BOPBlocks.ROSE, "red_dye");
+        oneToOneConversionRecipe(output, Items.RED_DYE, BOPBlocks.WATERLILY, "red_dye");
+        oneToOneConversionRecipe(output, Items.WHITE_DYE, BOPBlocks.WHITE_LAVENDER, "white_dye");
+        oneToOneConversionRecipe(output, Items.WHITE_DYE, BOPBlocks.TALL_WHITE_LAVENDER, "white_dye", 2);
+        oneToOneConversionRecipe(output, Items.WHITE_DYE, BOPBlocks.WHITE_PETALS, "white_dye");
+        oneToOneConversionRecipe(output, Items.YELLOW_DYE, BOPBlocks.GOLDENROD, "yellow_dye", 2);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.TINY_CACTUS.asItem()), RecipeCategory.MISC, Items.GREEN_DYE, 1.0F, 200).unlockedBy("has_tiny_cactus", has(BOPBlocks.TINY_CACTUS)).save(output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Items.GREEN_DYE, BOPBlocks.TINY_CACTUS));
+
+        // Vanilla Parity Recipes
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.MOSSY_COBBLESTONE).requires(Blocks.COBBLESTONE).requires(BOPBlocks.WILLOW_VINE).group("mossy_cobblestone").unlockedBy("has_willow_vine", has(BOPBlocks.WILLOW_VINE)).save(output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Blocks.MOSSY_COBBLESTONE, BOPBlocks.WILLOW_VINE));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.MOSSY_STONE_BRICKS).requires(Blocks.STONE_BRICKS).requires(BOPBlocks.WILLOW_VINE).group("mossy_stone_bricks").unlockedBy("has_willow_vine", has(BOPBlocks.WILLOW_VINE)).save(output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Blocks.MOSSY_STONE_BRICKS, BOPBlocks.WILLOW_VINE));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, Items.RABBIT_STEW).requires(Items.BAKED_POTATO).requires(Items.COOKED_RABBIT).requires(Items.BOWL).requires(Items.CARROT).requires(BOPBlocks.TOADSTOOL).group("rabbit_stew").unlockedBy("has_cooked_rabbit", has(Items.COOKED_RABBIT)).save(output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Items.RABBIT_STEW, BOPItems.TOADSTOOL));
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, Blocks.TNT).define('#', Ingredient.of(BOPBlocks.WHITE_SAND, BOPBlocks.ORANGE_SAND, BOPBlocks.BLACK_SAND)).define('X', Items.GUNPOWDER).pattern("X#X").pattern("#X#").pattern("X#X").unlockedBy("has_gunpowder", has(Items.GUNPOWDER)).save(output, BiomesOPlenty.MOD_ID + ":" + "tnt_from_bop_sand");
     }
 
     protected static void generateForEnabledBlockFamilies(RecipeOutput output, FeatureFlagSet flags) {
@@ -186,5 +260,13 @@ public class BOPRecipeProvider extends RecipeProvider
     protected static void stonecutterResultFromBase(RecipeOutput output, RecipeCategory category, ItemLike result, ItemLike input, int count)
     {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), category, result, count).unlockedBy(getHasName(input), has(input)).save(output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(result, input) + "_stonecutting");
+    }
+
+    protected static void oneToOneConversionRecipe(RecipeOutput p_299023_, ItemLike p_176553_, ItemLike p_176554_, @Nullable String p_176555_) {
+        oneToOneConversionRecipe(p_299023_, p_176553_, p_176554_, p_176555_, 1);
+    }
+
+    protected static void oneToOneConversionRecipe(RecipeOutput p_301230_, ItemLike p_176558_, ItemLike p_176559_, @Nullable String p_176560_, int p_176561_) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, p_176558_, p_176561_).requires(p_176559_).group(p_176560_).unlockedBy(getHasName(p_176559_), has(p_176559_)).save(p_301230_, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(p_176558_, p_176559_));
     }
 }

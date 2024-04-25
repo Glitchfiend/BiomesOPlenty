@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:magenta_dye_from_wildflower"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wildflower": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomesoplenty:wildflower"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wildflower"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:magenta_dye_from_wildflower"
+    ]
+  }
+}

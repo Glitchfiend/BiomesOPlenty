@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tall_lavender": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomesoplenty:tall_lavender"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:purple_dye_from_tall_lavender"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tall_lavender"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:purple_dye_from_tall_lavender"
+    ]
+  }
+}

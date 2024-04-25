@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:blackstone"
+  },
+  "result": "biomesoplenty:blackstone_spines"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "brown_dye",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:cattail"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:brown_dye"
+  }
+}
