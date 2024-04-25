@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "biomesoplenty:huge_lily_pad",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "quarter": "south_west"
+              }
+            }
+          ],
+          "name": "biomesoplenty:huge_lily_pad"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "biomesoplenty:blocks/huge_lily_pad"
+}
