@@ -27,10 +27,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -97,8 +94,8 @@ public class BOPBlockLoot extends BlockLootSubProvider
         // Flesh Blocks
         this.dropSelf(BOPBlocks.FLESH);
         this.dropSelf(BOPBlocks.POROUS_FLESH);
-        this.add(BOPBlocks.FLESH_TENDONS, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.FLESH_TENDONS_STRAND, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+
+        this.addStrandPlantDropTable(BOPBlocks.FLESH_TENDONS, BOPBlocks.FLESH_TENDONS_STRAND);
         this.add(BOPBlocks.EYEBULB, (p_250741_) -> { return this.createSinglePropConditionTable(p_250741_, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER); });
         this.add(BOPBlocks.HAIR, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
         this.dropWhenSilkTouch(BOPBlocks.PUS_BUBBLE);
@@ -142,13 +139,11 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.add(BOPBlocks.GLOWSHROOM_BLOCK, (p_248785_) -> { return this.createMushroomBlockDrop(p_248785_, BOPBlocks.GLOWSHROOM); });
         this.dropSelf(BOPBlocks.GLOWING_MOSS_BLOCK);
         this.dropSelf(BOPBlocks.GLOWING_MOSS_CARPET);
-        this.add(BOPBlocks.GLOWWORM_SILK, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.GLOWWORM_SILK_STRAND, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.addStrandPlantDropTable(BOPBlocks.GLOWWORM_SILK, BOPBlocks.GLOWWORM_SILK_STRAND);
 
         // Webbing Blocks
         this.dropWhenSilkTouch(BOPBlocks.SPIDER_EGG);
-        this.add(BOPBlocks.HANGING_COBWEB, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.HANGING_COBWEB_STRAND, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.addStrandPlantDropTable(BOPBlocks.HANGING_COBWEB, BOPBlocks.HANGING_COBWEB_STRAND);
         this.add(BOPBlocks.WEBBING, (p_249543_) -> { return this.createMultifaceBlockDrops(p_249543_, HAS_SHEARS); });
 
         this.add(BOPBlocks.ORIGIN_GRASS_BLOCK, (p_249779_) -> { return this.createSingleItemTableWithSilkTouch(p_249779_, Blocks.DIRT); });
@@ -301,8 +296,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
         this.dropSelf(BOPBlocks.WILLOW_SAPLING);
         this.add(BOPBlocks.WILLOW_VINE, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.SPANISH_MOSS, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.SPANISH_MOSS_PLANT, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.addStrandPlantDropTable(BOPBlocks.SPANISH_MOSS, BOPBlocks.SPANISH_MOSS_PLANT);
         this.add(BOPBlocks.WILLOW_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.WILLOW_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.WILLOW_LOG);
         this.dropSelf(BOPBlocks.STRIPPED_WILLOW_LOG);
@@ -434,8 +428,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         // Foliage
         this.add(BOPBlocks.SPROUT, (p_249038_) -> { return createGrassDrops(p_249038_); });
         this.add(BOPBlocks.BUSH, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.HIGH_GRASS, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.HIGH_GRASS_PLANT, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.addStrandPlantDropTable(BOPBlocks.HIGH_GRASS, BOPBlocks.HIGH_GRASS_PLANT);
         this.add(BOPBlocks.CLOVER, createCloverDrops(BOPBlocks.CLOVER));
         this.add(BOPBlocks.HUGE_CLOVER_PETAL, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
         this.add(BOPBlocks.HUGE_LILY_PAD, (p_250918_) -> { return this.createSinglePropConditionTable(p_250918_, HugeLilyPadBlock.QUARTER, QuarterProperty.SOUTH_WEST); });
@@ -446,8 +439,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.add(BOPBlocks.DEAD_GRASS, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
         this.add(BOPBlocks.TUNDRA_SHRUB, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
         this.add(BOPBlocks.ENDERPHYTE, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.LUMALOOP, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.add(BOPBlocks.LUMALOOP_PLANT, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.addStrandPlantDropTable(BOPBlocks.LUMALOOP, BOPBlocks.LUMALOOP_PLANT);
 
         this.add(BOPBlocks.BARLEY, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
         this.add(BOPBlocks.SEA_OATS, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
@@ -513,6 +505,12 @@ public class BOPBlockLoot extends BlockLootSubProvider
         return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_SHEARS).add(this.applyExplosionDecay(p_273240_, LootItem.lootTableItem(p_273240_).apply(IntStream.rangeClosed(1, 4).boxed().toList(), (p_272348_) -> {
             return SetItemCountFunction.setCount(ConstantValue.exactly((float)p_272348_.intValue())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_273240_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PinkPetalsBlock.AMOUNT, p_272348_)));
         }))));
+    }
+
+    protected void addStrandPlantDropTable(Block p_252269_, Block p_250696_) {
+        LootTable.Builder loottable$builder = createShearsOnlyDrop(p_252269_);
+        this.add(p_252269_, loottable$builder);
+        this.add(p_250696_, loottable$builder);
     }
 
     protected static LootTable.Builder createShearsOnlyDrop(ItemLike p_250684_)

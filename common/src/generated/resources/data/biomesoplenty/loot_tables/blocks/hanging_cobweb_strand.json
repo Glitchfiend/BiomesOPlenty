@@ -14,7 +14,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesoplenty:hanging_cobweb_strand"
+          "name": "biomesoplenty:hanging_cobweb"
         }
       ],
       "rolls": 1.0

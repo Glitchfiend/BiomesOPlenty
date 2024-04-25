@@ -14,7 +14,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesoplenty:flesh_tendons_strand"
+          "name": "biomesoplenty:flesh_tendons"
         }
       ],
       "rolls": 1.0
