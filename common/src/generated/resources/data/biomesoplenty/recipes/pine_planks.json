@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:pine_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "biomesoplenty:pine_planks"
+  }
+}

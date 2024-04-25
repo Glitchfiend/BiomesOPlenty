@@ -5,6 +5,7 @@
 package biomesoplenty.forge.datagen;
 
 import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.forge.datagen.provider.BOPRecipeProvider;
 import biomesoplenty.init.ModDamageTypes;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
 import biomesoplenty.util.worldgen.BOPPlacementUtils;
@@ -46,7 +47,10 @@ public class DataGenerationHandler
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(), new RegistriesDatapackGenerator(output, event.getLookupProvider().thenApply(r -> constructRegistries(r, BUILDER)), Set.of(BiomesOPlenty.MOD_ID)));
+        var datapackProvider = generator.addProvider(event.includeServer(), new RegistriesDatapackGenerator(output, event.getLookupProvider().thenApply(r -> constructRegistries(r, BUILDER)), Set.of(BiomesOPlenty.MOD_ID)));
+
+        // Recipes
+        generator.addProvider(event.includeServer(), new BOPRecipeProvider(output));
     }
 
     private static HolderLookup.Provider constructRegistries(HolderLookup.Provider original, RegistrySetBuilder datapackEntriesBuilder)
