@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:willow_log"
-            ]
+            "tag": "biomesoplenty:willow_logs"
           }
         ]
       },

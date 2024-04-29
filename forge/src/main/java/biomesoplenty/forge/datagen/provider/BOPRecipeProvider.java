@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.forge.datagen.BOPBlockFamilies;
+import biomesoplenty.init.ModTags;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -33,19 +34,19 @@ public class BOPRecipeProvider extends RecipeProvider
         generateForEnabledBlockFamilies(output, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
         // Planks from Logs
-        planksFromLogs(output, BOPBlocks.FIR_PLANKS, BOPBlocks.FIR_LOG, 4);
-        planksFromLogs(output, BOPBlocks.PINE_PLANKS, BOPBlocks.PINE_LOG, 4);
-        planksFromLogs(output, BOPBlocks.MAPLE_PLANKS, BOPBlocks.MAPLE_LOG, 4);
-        planksFromLogs(output, BOPBlocks.REDWOOD_PLANKS, BOPBlocks.REDWOOD_LOG, 4);
-        planksFromLogs(output, BOPBlocks.MAHOGANY_PLANKS, BOPBlocks.MAHOGANY_LOG, 4);
-        planksFromLogs(output, BOPBlocks.JACARANDA_PLANKS, BOPBlocks.JACARANDA_LOG, 4);
-        planksFromLogs(output, BOPBlocks.PALM_PLANKS, BOPBlocks.PALM_LOG, 4);
-        planksFromLogs(output, BOPBlocks.WILLOW_PLANKS, BOPBlocks.WILLOW_LOG, 4);
-        planksFromLogs(output, BOPBlocks.DEAD_PLANKS, BOPBlocks.DEAD_LOG, 4);
-        planksFromLogs(output, BOPBlocks.MAGIC_PLANKS, BOPBlocks.MAGIC_LOG, 4);
-        planksFromLogs(output, BOPBlocks.UMBRAN_PLANKS, BOPBlocks.UMBRAN_LOG, 4);
-        planksFromLogs(output, BOPBlocks.HELLBARK_PLANKS, BOPBlocks.HELLBARK_LOG, 4);
-        planksFromLogs(output, BOPBlocks.EMPYREAL_PLANKS, BOPBlocks.EMPYREAL_LOG, 4);
+        planksFromLogs(output, BOPBlocks.FIR_PLANKS, ModTags.Items.FIR_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.PINE_PLANKS, ModTags.Items.PINE_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.MAPLE_PLANKS, ModTags.Items.MAPLE_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.REDWOOD_PLANKS, ModTags.Items.REDWOOD_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.MAHOGANY_PLANKS, ModTags.Items.MAHOGANY_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.JACARANDA_PLANKS, ModTags.Items.JACARANDA_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.PALM_PLANKS, ModTags.Items.PALM_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.WILLOW_PLANKS, ModTags.Items.WILLOW_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.DEAD_PLANKS, ModTags.Items.DEAD_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.MAGIC_PLANKS, ModTags.Items.MAGIC_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.UMBRAN_PLANKS, ModTags.Items.UMBRAN_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.HELLBARK_PLANKS, ModTags.Items.HELLBARK_LOGS, 4);
+        planksFromLogs(output, BOPBlocks.EMPYREAL_PLANKS, ModTags.Items.EMPYREAL_LOGS, 4);
 
         // Wood from Logs
         woodFromLogs(output, BOPBlocks.FIR_WOOD, BOPBlocks.FIR_LOG);

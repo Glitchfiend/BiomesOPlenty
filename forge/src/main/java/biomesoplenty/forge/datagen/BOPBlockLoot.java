@@ -94,7 +94,6 @@ public class BOPBlockLoot extends BlockLootSubProvider
         // Flesh Blocks
         this.dropSelf(BOPBlocks.FLESH);
         this.dropSelf(BOPBlocks.POROUS_FLESH);
-
         this.addStrandPlantDropTable(BOPBlocks.FLESH_TENDONS, BOPBlocks.FLESH_TENDONS_STRAND);
         this.add(BOPBlocks.EYEBULB, (p_250741_) -> { return this.createSinglePropConditionTable(p_250741_, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER); });
         this.add(BOPBlocks.HAIR, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });

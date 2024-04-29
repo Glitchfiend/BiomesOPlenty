@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:empyreal_log"
-            ]
+            "tag": "biomesoplenty:empyreal_logs"
           }
         ]
       },

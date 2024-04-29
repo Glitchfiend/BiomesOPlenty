@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:pine_log"
-            ]
+            "tag": "biomesoplenty:pine_logs"
           }
         ]
       },

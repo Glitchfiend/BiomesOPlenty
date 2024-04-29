@@ -4,7 +4,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "item": "biomesoplenty:maple_log"
+      "tag": "biomesoplenty:maple_logs"
     }
   ],
   "result": {
