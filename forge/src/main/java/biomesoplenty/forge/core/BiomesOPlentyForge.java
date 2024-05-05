@@ -32,8 +32,6 @@ public class BiomesOPlentyForge
         FORGE_FLUID_REGISTER.register(bus);
 
         BiomesOPlenty.init();
-        GlitchCoreForge.prepareModEventHandlers(bus);
-
         ModFluidTypes.setup();
     }
 

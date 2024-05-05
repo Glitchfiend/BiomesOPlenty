@@ -14,30 +14,30 @@
        with:
          fetch-depth: 0
          fetch-tags: true
-#     - name: Set up JDK 21
-#       uses: actions/setup-java@v3
-#       with:
-#         java-version: '21'
-#         distribution: 'oracle'
-#         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-#         settings-path: ${{ github.workspace }} # location for the settings.xml file
-#     - name: Setup Gradle
-#       uses: gradle/gradle-build-action@v2
-#     - name: Publish
-#       run: ./gradlew publish
-#       env:
-#         MAVEN_USER: ${{ secrets.MAVEN_USER }}
-#         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
-#         BUILD_NUMBER: ${{ github.run_number }}
-#     - name: CurseForge Publish
-#       run: ./gradlew curseforge -PcurseApiKey=${CURSE_API_KEY}
-#       env:
-#         CURSE_API_KEY: ${{ secrets.CURSE_API_KEY }}
-#         BUILD_NUMBER: ${{ github.run_number }}
-#       continue-on-error: true
-#     - name: Modrinth Publish
-#       run: ./gradlew modrinth -PmodrinthToken=${MODRINTH_TOKEN}
-#       env:
-#         MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-#         BUILD_NUMBER: ${{ github.run_number }}
-#       continue-on-error: true
+     - name: Set up JDK 21
+       uses: actions/setup-java@v3
+       with:
+         java-version: '21'
+         distribution: 'oracle'
+         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+         settings-path: ${{ github.workspace }} # location for the settings.xml file
+     - name: Setup Gradle
+       uses: gradle/gradle-build-action@v2
+     - name: Publish
+       run: ./gradlew publish
+       env:
+         MAVEN_USER: ${{ secrets.MAVEN_USER }}
+         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+         BUILD_NUMBER: ${{ github.run_number }}
+     - name: CurseForge Publish
+       run: ./gradlew curseforge -PcurseApiKey=${CURSE_API_KEY}
+       env:
+         CURSE_API_KEY: ${{ secrets.CURSE_API_KEY }}
+         BUILD_NUMBER: ${{ github.run_number }}
+       continue-on-error: true
+     - name: Modrinth Publish
+       run: ./gradlew modrinth -PmodrinthToken=${MODRINTH_TOKEN}
+       env:
+         MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+         BUILD_NUMBER: ${{ github.run_number }}
+       continue-on-error: true
