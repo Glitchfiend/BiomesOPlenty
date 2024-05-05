@@ -118,13 +118,19 @@
         "type": "minecraft:fox",
         "maxCount": 4,
         "minCount": 2,
-        "weight": 8
+        "weight": 4
       },
       {
         "type": "minecraft:allay",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 8
+      },
+      {
+        "type": "minecraft:wolf",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 4
       }
     ],
     "misc": [],

@@ -1,7 +1,8 @@
 {
     "display": {
         "icon": {
-            "item": "biomesoplenty:fir_sapling"
+			"count": 1,
+            "id": "biomesoplenty:fir_sapling"
         },
         "title": {
             "translate": "advancements.biomesoplenty.root.title"
@@ -23,7 +24,7 @@
 						"entity": "this",
 						"predicate": {
 							"location": {
-								"biome": "biomesoplenty:aspen_glade"
+								"biomes": "biomesoplenty:aspen_glade"
 							}
 						}
 					}
@@ -39,7 +40,7 @@
 						"entity": "this",
 						"predicate": {
 							"location": {
-								"biome": "biomesoplenty:auroral_garden"
+								"biomes": "biomesoplenty:auroral_garden"
 							}
 						}
 					}
@@ -55,7 +56,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:bayou"
+					"biomes": "biomesoplenty:bayou"
 				  }
 				}
 			  }
@@ -71,7 +72,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:bog"
+					"biomes": "biomesoplenty:bog"
 				  }
 				}
 			  }
@@ -87,7 +88,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:overgrown_greens"
+					"biomes": "biomesoplenty:overgrown_greens"
 				  }
 				}
 			  }
@@ -103,7 +104,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:cold_desert"
+					"biomes": "biomesoplenty:cold_desert"
 				  }
 				}
 			  }
@@ -119,7 +120,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:coniferous_forest"
+					"biomes": "biomesoplenty:coniferous_forest"
 				  }
 				}
 			  }
@@ -135,7 +136,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:crag"
+					"biomes": "biomesoplenty:crag"
 				  }
 				}
 			  }
@@ -151,7 +152,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:crystalline_chasm"
+					"biomes": "biomesoplenty:crystalline_chasm"
 				  }
 				}
 			  }
@@ -167,7 +168,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:dead_forest"
+					"biomes": "biomesoplenty:dead_forest"
 				  }
 				}
 			  }
@@ -183,7 +184,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:dryland"
+					"biomes": "biomesoplenty:dryland"
 				  }
 				}
 			  }
@@ -199,7 +200,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:dune_beach"
+					"biomes": "biomesoplenty:dune_beach"
 				  }
 				}
 			  }
@@ -215,7 +216,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:end_corruption"
+					"biomes": "biomesoplenty:end_corruption"
 				  }
 				}
 			  }
@@ -231,7 +232,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:end_reef"
+					"biomes": "biomesoplenty:end_reef"
 				  }
 				}
 			  }
@@ -247,7 +248,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:end_wilds"
+					"biomes": "biomesoplenty:end_wilds"
 				  }
 				}
 			  }
@@ -263,7 +264,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:erupting_inferno"
+					"biomes": "biomesoplenty:erupting_inferno"
 				  }
 				}
 			  }
@@ -279,7 +280,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:field"
+					"biomes": "biomesoplenty:field"
 				  }
 				}
 			  }
@@ -295,7 +296,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:fir_clearing"
+					"biomes": "biomesoplenty:fir_clearing"
 				  }
 				}
 			  }
@@ -311,7 +312,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:floodplain"
+					"biomes": "biomesoplenty:floodplain"
 				  }
 				}
 			  }
@@ -327,7 +328,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:forested_field"
+					"biomes": "biomesoplenty:forested_field"
 				  }
 				}
 			  }
@@ -343,7 +344,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:fungal_jungle"
+					"biomes": "biomesoplenty:fungal_jungle"
 				  }
 				}
 			  }
@@ -359,7 +360,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:glowing_grotto"
+					"biomes": "biomesoplenty:glowing_grotto"
 				  }
 				}
 			  }
@@ -375,7 +376,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:grassland"
+					"biomes": "biomesoplenty:grassland"
 				  }
 				}
 			  }
@@ -391,7 +392,7 @@
 						"entity": "this",
 						"predicate": {
 							"location": {
-								"biome": "biomesoplenty:gravel_beach"
+								"biomes": "biomesoplenty:gravel_beach"
 							}
 						}
 					}
@@ -407,7 +408,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:highland"
+					"biomes": "biomesoplenty:highland"
 				  }
 				}
 			  }
@@ -423,7 +424,7 @@
 						"entity": "this",
 						"predicate": {
 							"location": {
-								"biome": "biomesoplenty:hot_springs"
+								"biomes": "biomesoplenty:hot_springs"
 							}
 						}
 					}
@@ -439,7 +440,7 @@
 						"entity": "this",
 						"predicate": {
 							"location": {
-								"biome": "biomesoplenty:jacaranda_glade"
+								"biomes": "biomesoplenty:jacaranda_glade"
 							}
 						}
 					}
@@ -455,7 +456,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:jade_cliffs"
+					"biomes": "biomesoplenty:jade_cliffs"
 				  }
 				}
 			  }
@@ -471,7 +472,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:lavender_field"
+					"biomes": "biomesoplenty:lavender_field"
 				  }
 				}
 			  }
@@ -487,7 +488,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:lush_desert"
+					"biomes": "biomesoplenty:lush_desert"
 				  }
 				}
 			  }
@@ -503,7 +504,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:lush_savanna"
+					"biomes": "biomesoplenty:lush_savanna"
 				  }
 				}
 			  }
@@ -519,7 +520,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:maple_woods"
+					"biomes": "biomesoplenty:maple_woods"
 				  }
 				}
 			  }
@@ -535,7 +536,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:marsh"
+					"biomes": "biomesoplenty:marsh"
 				  }
 				}
 			  }
@@ -551,7 +552,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:mediterranean_forest"
+					"biomes": "biomesoplenty:mediterranean_forest"
 				  }
 				}
 			  }
@@ -567,7 +568,7 @@
 						"entity": "this",
 						"predicate": {
 							"location": {
-								"biome": "biomesoplenty:moor"
+								"biomes": "biomesoplenty:moor"
 							}
 						}
 					}
@@ -583,7 +584,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:muskeg"
+					"biomes": "biomesoplenty:muskeg"
 				  }
 				}
 			  }
@@ -599,7 +600,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:mystic_grove"
+					"biomes": "biomesoplenty:mystic_grove"
 				  }
 				}
 			  }
@@ -615,7 +616,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:old_growth_dead_forest"
+					"biomes": "biomesoplenty:old_growth_dead_forest"
 				  }
 				}
 			  }
@@ -631,7 +632,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:old_growth_woodland"
+					"biomes": "biomesoplenty:old_growth_woodland"
 				  }
 				}
 			  }
@@ -647,7 +648,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:ominous_woods"
+					"biomes": "biomesoplenty:ominous_woods"
 				  }
 				}
 			  }
@@ -663,7 +664,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:orchard"
+					"biomes": "biomesoplenty:orchard"
 				  }
 				}
 			  }
@@ -679,7 +680,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:origin_valley"
+					"biomes": "biomesoplenty:origin_valley"
 				  }
 				}
 			  }
@@ -695,7 +696,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:pasture"
+					"biomes": "biomesoplenty:pasture"
 				  }
 				}
 			  }
@@ -711,7 +712,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:prairie"
+					"biomes": "biomesoplenty:prairie"
 				  }
 				}
 			  }
@@ -727,7 +728,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:pumpkin_patch"
+					"biomes": "biomesoplenty:pumpkin_patch"
 				  }
 				}
 			  }
@@ -743,7 +744,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:rainforest"
+					"biomes": "biomesoplenty:rainforest"
 				  }
 				}
 			  }
@@ -759,7 +760,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:redwood_forest"
+					"biomes": "biomesoplenty:redwood_forest"
 				  }
 				}
 			  }
@@ -775,7 +776,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:rocky_rainforest"
+					"biomes": "biomesoplenty:rocky_rainforest"
 				  }
 				}
 			  }
@@ -791,7 +792,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:rocky_shrubland"
+					"biomes": "biomesoplenty:rocky_shrubland"
 				  }
 				}
 			  }
@@ -807,7 +808,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:scrubland"
+					"biomes": "biomesoplenty:scrubland"
 				  }
 				}
 			  }
@@ -823,7 +824,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:seasonal_forest"
+					"biomes": "biomesoplenty:seasonal_forest"
 				  }
 				}
 			  }
@@ -839,7 +840,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:shrubland"
+					"biomes": "biomesoplenty:shrubland"
 				  }
 				}
 			  }
@@ -855,7 +856,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:snowblossom_grove"
+					"biomes": "biomesoplenty:snowblossom_grove"
 				  }
 				}
 			  }
@@ -871,7 +872,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:snowy_coniferous_forest"
+					"biomes": "biomesoplenty:snowy_coniferous_forest"
 				  }
 				}
 			  }
@@ -887,7 +888,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:snowy_fir_clearing"
+					"biomes": "biomesoplenty:snowy_fir_clearing"
 				  }
 				}
 			  }
@@ -903,7 +904,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:snowy_maple_woods"
+					"biomes": "biomesoplenty:snowy_maple_woods"
 				  }
 				}
 			  }
@@ -919,7 +920,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:spider_nest"
+					"biomes": "biomesoplenty:spider_nest"
 				  }
 				}
 			  }
@@ -935,7 +936,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:tropics"
+					"biomes": "biomesoplenty:tropics"
 				  }
 				}
 			  }
@@ -951,7 +952,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:tundra"
+					"biomes": "biomesoplenty:tundra"
 				  }
 				}
 			  }
@@ -967,7 +968,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:undergrowth"
+					"biomes": "biomesoplenty:undergrowth"
 				  }
 				}
 			  }
@@ -983,7 +984,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:visceral_heap"
+					"biomes": "biomesoplenty:visceral_heap"
 				  }
 				}
 			  }
@@ -999,7 +1000,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:volcanic_plains"
+					"biomes": "biomesoplenty:volcanic_plains"
 				  }
 				}
 			  }
@@ -1015,7 +1016,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:volcano"
+					"biomes": "biomesoplenty:volcano"
 				  }
 				}
 			  }
@@ -1031,7 +1032,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:wasteland"
+					"biomes": "biomesoplenty:wasteland"
 				  }
 				}
 			  }
@@ -1047,7 +1048,7 @@
 						"entity": "this",
 						"predicate": {
 							"location": {
-								"biome": "biomesoplenty:wasteland_steppe"
+								"biomes": "biomesoplenty:wasteland_steppe"
 							}
 						}
 					}
@@ -1063,7 +1064,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:wetland"
+					"biomes": "biomesoplenty:wetland"
 				  }
 				}
 			  }
@@ -1079,7 +1080,7 @@
 						"entity": "this",
 						"predicate": {
 							"location": {
-								"biome": "biomesoplenty:wintry_origin_valley"
+								"biomes": "biomesoplenty:wintry_origin_valley"
 							}
 						}
 					}
@@ -1095,7 +1096,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:withered_abyss"
+					"biomes": "biomesoplenty:withered_abyss"
 				  }
 				}
 			  }
@@ -1111,7 +1112,7 @@
 				"entity": "this",
 				"predicate": {
 				  "location": {
-					"biome": "biomesoplenty:woodland"
+					"biomes": "biomesoplenty:woodland"
 				  }
 				}
 			  }

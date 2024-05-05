@@ -1,0 +1,6 @@
+{
+  "angry_texture": "minecraft:entity/wolf/wolf_rusty_angry",
+  "biomes": "#c:spawns_rusty_wolves",
+  "tame_texture": "minecraft:entity/wolf/wolf_rusty_tame",
+  "wild_texture": "minecraft:entity/wolf/wolf_rusty"
+}
