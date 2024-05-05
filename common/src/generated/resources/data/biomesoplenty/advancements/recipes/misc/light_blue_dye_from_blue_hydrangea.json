@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:blue_hydrangea"
-            ]
+            "items": "biomesoplenty:blue_hydrangea"
           }
         ]
       },

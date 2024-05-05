@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:yellow_maple_leaves"
-            ]
+            "items": "biomesoplenty:yellow_maple_leaves"
           }
         ]
       },

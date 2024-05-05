@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:icy_iris"
-            ]
+            "items": "biomesoplenty:icy_iris"
           }
         ]
       },

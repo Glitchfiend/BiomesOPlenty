@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:stripped_pine_log"
-            ]
+            "items": "biomesoplenty:stripped_pine_log"
           }
         ]
       },

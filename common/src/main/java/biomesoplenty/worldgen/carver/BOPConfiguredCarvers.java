@@ -7,7 +7,7 @@ package biomesoplenty.worldgen.carver;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -24,7 +24,7 @@ public class BOPConfiguredCarvers
 {
     public static final ResourceKey<ConfiguredWorldCarver<?>> ORIGIN_CAVE = createKey("origin_cave");
 
-    public static void bootstrap(BootstapContext<ConfiguredWorldCarver<?>> context)
+    public static void bootstrap(BootstrapContext<ConfiguredWorldCarver<?>> context)
     {
         HolderGetter<Block> blockGetter = context.lookup(Registries.BLOCK);
         context.register(ORIGIN_CAVE, BOPWorldCarvers.ORIGIN_CAVE.configured(new CaveCarverConfiguration(0.14285715F, BiasedToBottomHeight.of(VerticalAnchor.absolute(0), VerticalAnchor.absolute(127), 8), ConstantFloat.of(0.5F), VerticalAnchor.aboveBottom(10), CarverDebugSettings.of(false, Blocks.CRIMSON_BUTTON.defaultBlockState()), blockGetter.getOrThrow(BlockTags.OVERWORLD_CARVER_REPLACEABLES), ConstantFloat.of(1.0F), ConstantFloat.of(1.0F), ConstantFloat.of(-0.7F))));

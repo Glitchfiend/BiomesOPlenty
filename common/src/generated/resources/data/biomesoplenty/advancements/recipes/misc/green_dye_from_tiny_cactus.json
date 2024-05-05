@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:tiny_cactus"
-            ]
+            "items": "biomesoplenty:tiny_cactus"
           }
         ]
       },

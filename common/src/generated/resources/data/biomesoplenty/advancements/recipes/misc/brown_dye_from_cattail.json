@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:cattail"
-            ]
+            "items": "biomesoplenty:cattail"
           }
         ]
       },

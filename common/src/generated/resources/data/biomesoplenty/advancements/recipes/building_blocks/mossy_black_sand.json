@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:moss_block"
-            ]
+            "items": "minecraft:moss_block"
           }
         ]
       },

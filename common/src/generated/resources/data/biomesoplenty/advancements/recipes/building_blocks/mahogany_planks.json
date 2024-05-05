@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "biomesoplenty:mahogany_logs"
+            "items": "#biomesoplenty:mahogany_logs"
           }
         ]
       },

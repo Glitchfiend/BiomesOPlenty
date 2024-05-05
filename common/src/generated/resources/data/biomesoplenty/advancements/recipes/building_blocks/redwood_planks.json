@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "biomesoplenty:redwood_logs"
+            "items": "#biomesoplenty:redwood_logs"
           }
         ]
       },

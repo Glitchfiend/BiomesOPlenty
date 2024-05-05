@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "biomesoplenty:orange_sandstone"
   },
-  "result": "biomesoplenty:chiseled_orange_sandstone"
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:chiseled_orange_sandstone"
+  }
 }

@@ -42,7 +42,8 @@ public class ThermalCalciteVentBlock extends ThermalCalciteBlock
     }
 
     @Override
-    public boolean isPathfindable(BlockState p_154341_, BlockGetter p_154342_, BlockPos p_154343_, PathComputationType p_154344_) {
+    protected boolean isPathfindable(BlockState state, PathComputationType computationType)
+    {
         return false;
     }
 }

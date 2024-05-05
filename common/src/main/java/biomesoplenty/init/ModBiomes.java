@@ -8,11 +8,10 @@ import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.biome.BOPEndBiomes;
 import biomesoplenty.biome.BOPNetherBiomes;
 import biomesoplenty.biome.BOPOverworldBiomes;
-import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.worldgen.*;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
@@ -20,7 +19,6 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import terrablender.api.EndBiomeRegistry;
 import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
 
 public class ModBiomes
 {
@@ -45,7 +43,7 @@ public class ModBiomes
         EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 3);
     }
 
-    public static void bootstrapBiomes(BootstapContext<Biome> context)
+    public static void bootstrapBiomes(BootstrapContext<Biome> context)
     {
         HolderGetter<ConfiguredWorldCarver<?>> carverGetter = context.lookup(Registries.CONFIGURED_CARVER);
         HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
@@ -190,7 +188,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.WOODLAND, VillagerType.PLAINS);
     }
 
-    private static void register(BootstapContext<Biome> context, ResourceKey<Biome> key, Biome biome)
+    private static void register(BootstrapContext<Biome> context, ResourceKey<Biome> key, Biome biome)
     {
         context.register(key, biome);
     }

@@ -6,6 +6,7 @@ package biomesoplenty.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
@@ -29,7 +30,7 @@ public class FlowerBlockBOP extends FlowerBlock
     protected static final VoxelShape MEDIUM = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 12.0D, 13.0D);
 	protected static final VoxelShape LARGE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
 	
-    public FlowerBlockBOP(MobEffect effect, int effectDuration, Block.Properties properties)
+    public FlowerBlockBOP(Holder<MobEffect> effect, int effectDuration, Block.Properties properties)
     {
         super(effect, 0, properties);
     }
@@ -90,7 +91,7 @@ public class FlowerBlockBOP extends FlowerBlock
                 entityIn.setRemainingFireTicks(entityIn.getRemainingFireTicks() + 1);
                 if (entityIn.getRemainingFireTicks() == 0)
                 {
-                    entityIn.setSecondsOnFire(1);
+                    entityIn.igniteForSeconds(1);
                 }
             }
 

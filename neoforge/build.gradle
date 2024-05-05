@@ -34,6 +34,10 @@ runs {
         systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
         programArgument '--nogui'
     }
+
+    data {
+        programArguments.addAll '--mod', project.mod_id, '--all', '--output', project(':Common').file('src/generated/resources/').getAbsolutePath(), '--existing', project(':Common').file('src/main/resources/').getAbsolutePath()
+    }
 }
 
 dependencies {

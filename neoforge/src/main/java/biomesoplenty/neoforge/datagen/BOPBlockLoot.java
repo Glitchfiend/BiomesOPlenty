@@ -1,4 +1,4 @@
-package biomesoplenty.forge.datagen;
+package biomesoplenty.neoforge.datagen;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
@@ -115,7 +115,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
         // Rose Quartz
         this.dropSelf(BOPBlocks.ROSE_QUARTZ_BLOCK);
-        this.add(BOPBlocks.ROSE_QUARTZ_CLUSTER, (p_252201_) -> { return createSilkTouchDispatchTable(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)).when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES))).otherwise(this.applyExplosionDecay(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))); });
+        this.add(BOPBlocks.ROSE_QUARTZ_CLUSTER, (p_252201_) -> { return createSilkTouchDispatchTable(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.FORTUNE)).when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES))).otherwise(this.applyExplosionDecay(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))); });
         this.dropWhenSilkTouch(BOPBlocks.SMALL_ROSE_QUARTZ_BUD);
         this.dropWhenSilkTouch(BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD);
         this.dropWhenSilkTouch(BOPBlocks.LARGE_ROSE_QUARTZ_BUD);
@@ -496,7 +496,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
     protected LootTable.Builder createGrassDrops(Block p_252139_)
     {
-        return createShearsDispatchTable(p_252139_, this.applyExplosionDecay(p_252139_, LootItem.lootTableItem(Items.WHEAT_SEEDS).when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
+        return createShearsDispatchTable(p_252139_, this.applyExplosionDecay(p_252139_, LootItem.lootTableItem(Items.WHEAT_SEEDS).when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2))));
     }
 
     protected LootTable.Builder createCloverDrops(Block p_273240_)

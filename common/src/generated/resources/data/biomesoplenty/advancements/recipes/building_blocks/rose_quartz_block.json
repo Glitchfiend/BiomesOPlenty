@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:rose_quartz_chunk"
-            ]
+            "items": "biomesoplenty:rose_quartz_chunk"
           }
         ]
       },

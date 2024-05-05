@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:fir_log"
-            ]
+            "items": "biomesoplenty:fir_log"
           }
         ]
       },

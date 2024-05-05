@@ -16,6 +16,8 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -59,28 +61,25 @@ public class ThermalCalciteBlock extends Block
     }
 
     @Override
-    public InteractionResult use(BlockState p_55289_, Level p_55290_, BlockPos p_55291_, Player p_55292_, InteractionHand p_55293_, BlockHitResult p_55294_)
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult)
     {
-        ItemStack itemstack = p_55292_.getItemInHand(p_55293_);
-        if (itemstack.is(ItemTags.PICKAXES) && p_55289_.getBlock() == BOPBlocks.THERMAL_CALCITE)
+        if (stack.is(ItemTags.PICKAXES) && state.getBlock() == BOPBlocks.THERMAL_CALCITE)
         {
-            if (!p_55290_.isClientSide)
+            if (!level.isClientSide)
             {
-                int distance = p_55289_.getValue(DISTANCE);
-                p_55290_.playSound((Player)null, p_55291_, SoundEvents.CALCITE_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
-                p_55290_.setBlock(p_55291_, BOPBlocks.THERMAL_CALCITE_VENT.defaultBlockState().setValue(DISTANCE, distance), 11);
-                itemstack.hurtAndBreak(1, p_55292_, (p_55287_) -> {
-                    p_55287_.broadcastBreakEvent(p_55293_);
-                });
-                p_55290_.gameEvent(p_55292_, GameEvent.BLOCK_CHANGE, p_55291_);
-                p_55292_.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
+                int distance = state.getValue(DISTANCE);
+                level.playSound((Player)null, pos, SoundEvents.CALCITE_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.setBlock(pos, BOPBlocks.THERMAL_CALCITE_VENT.defaultBlockState().setValue(DISTANCE, distance), 11);
+                stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+                player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
             }
 
-            return InteractionResult.sidedSuccess(p_55290_.isClientSide);
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
         else
         {
-            return super.use(p_55289_, p_55290_, p_55291_, p_55292_, p_55293_, p_55294_);
+            return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
         }
     }
 

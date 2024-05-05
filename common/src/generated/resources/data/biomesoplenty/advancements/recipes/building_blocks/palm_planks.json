@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "biomesoplenty:palm_logs"
+            "items": "#biomesoplenty:palm_logs"
           }
         ]
       },

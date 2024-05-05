@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:goldenrod"
-            ]
+            "items": "biomesoplenty:goldenrod"
           }
         ]
       },

@@ -2,13 +2,14 @@
  * Copyright 2024, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
-package biomesoplenty.forge.datagen.provider;
+package biomesoplenty.neoforge.datagen.provider;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.core.BiomesOPlenty;
-import biomesoplenty.forge.datagen.BOPBlockFamilies;
+import biomesoplenty.neoforge.datagen.BOPBlockFamilies;
 import biomesoplenty.init.ModTags;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -20,18 +21,19 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 
 import javax.annotation.Nullable;
+import java.util.concurrent.CompletableFuture;
 
 public class BOPRecipeProvider extends RecipeProvider
 {
-    public BOPRecipeProvider(PackOutput output)
+    public BOPRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> holderLookup)
     {
-        super(output);
+        super(output, holderLookup);
     }
 
     @Override
     protected void buildRecipes(RecipeOutput output)
     {
-        generateForEnabledBlockFamilies(output, FeatureFlagSet.of(FeatureFlags.VANILLA));
+        generateForEnabledBlockFamiliesBOP(output, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
         // Planks from Logs
         planksFromLogs(output, BOPBlocks.FIR_PLANKS, ModTags.Items.FIR_LOGS, 4);
@@ -244,7 +246,7 @@ public class BOPRecipeProvider extends RecipeProvider
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, Blocks.TNT).define('#', Ingredient.of(BOPBlocks.WHITE_SAND, BOPBlocks.ORANGE_SAND, BOPBlocks.BLACK_SAND)).define('X', Items.GUNPOWDER).pattern("X#X").pattern("#X#").pattern("X#X").unlockedBy("has_gunpowder", has(Items.GUNPOWDER)).save(output, BiomesOPlenty.MOD_ID + ":" + "tnt_from_bop_sand");
     }
 
-    protected static void generateForEnabledBlockFamilies(RecipeOutput output, FeatureFlagSet flags) {
+    protected static void generateForEnabledBlockFamiliesBOP(RecipeOutput output, FeatureFlagSet flags) {
         BOPBlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateRecipe).forEach((family) -> generateRecipes(output, family, flags));
     }
 

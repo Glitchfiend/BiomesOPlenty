@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "biomesoplenty:orange_sandstone"
   },
-  "result": "biomesoplenty:smooth_orange_sandstone"
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:smooth_orange_sandstone"
+  }
 }

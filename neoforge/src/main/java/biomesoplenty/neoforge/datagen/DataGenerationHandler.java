@@ -2,16 +2,15 @@
  * Copyright 2022, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
-package biomesoplenty.forge.datagen;
+package biomesoplenty.neoforge.datagen;
 
 import biomesoplenty.core.BiomesOPlenty;
-import biomesoplenty.forge.datagen.provider.BOPLootTableProvider;
-import biomesoplenty.forge.datagen.provider.BOPRecipeProvider;
 import biomesoplenty.init.ModDamageTypes;
+import biomesoplenty.neoforge.datagen.provider.BOPLootTableProvider;
+import biomesoplenty.neoforge.datagen.provider.BOPRecipeProvider;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
 import biomesoplenty.util.worldgen.BOPPlacementUtils;
 import biomesoplenty.worldgen.carver.BOPConfiguredCarvers;
-import biomesoplenty.forge.core.BiomesOPlentyForge;
 import biomesoplenty.init.ModBiomes;
 import net.minecraft.core.Cloner;
 import net.minecraft.core.HolderLookup;
@@ -23,15 +22,16 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.registries.RegistriesDatapackGenerator;
 import net.minecraft.resources.RegistryDataLoader;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BiomesOPlenty.MOD_ID)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = BiomesOPlenty.MOD_ID)
 public class DataGenerationHandler
 {
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
@@ -47,14 +47,15 @@ public class DataGenerationHandler
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         var datapackProvider = generator.addProvider(event.includeServer(), new RegistriesDatapackGenerator(output, event.getLookupProvider().thenApply(r -> constructRegistries(r, BUILDER)), Set.of(BiomesOPlenty.MOD_ID)));
 
         // Recipes
-        generator.addProvider(event.includeServer(), new BOPRecipeProvider(output));
+        generator.addProvider(event.includeServer(), new BOPRecipeProvider(output, lookupProvider));
 
         // Loot
-        generator.addProvider(event.includeServer(), BOPLootTableProvider.create(output));
+        generator.addProvider(event.includeServer(), BOPLootTableProvider.create(output, lookupProvider));
     }
 
     private static HolderLookup.Provider constructRegistries(HolderLookup.Provider original, RegistrySetBuilder datapackEntriesBuilder)

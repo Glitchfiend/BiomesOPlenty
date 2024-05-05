@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:chiseled_orange_sandstone"
-            ]
+            "items": "biomesoplenty:chiseled_orange_sandstone"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:cut_orange_sandstone"
-            ]
+            "items": "biomesoplenty:cut_orange_sandstone"
           }
         ]
       },
@@ -29,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:orange_sandstone"
-            ]
+            "items": "biomesoplenty:orange_sandstone"
           }
         ]
       },

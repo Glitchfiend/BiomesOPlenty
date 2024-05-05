@@ -94,7 +94,7 @@ public class BrambleLeavesBlock extends DirectionalBlock
     }
 
     @Override
-    public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, PathComputationType pathComputationType)
+    protected boolean isPathfindable(BlockState state, PathComputationType computationType)
     {
         return false;
     }

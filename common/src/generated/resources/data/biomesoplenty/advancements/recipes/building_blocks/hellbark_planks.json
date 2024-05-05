@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "biomesoplenty:hellbark_logs"
+            "items": "#biomesoplenty:hellbark_logs"
           }
         ]
       },

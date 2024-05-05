@@ -5,6 +5,12 @@ issueTrackerURL="${mod_issues_url}"
 displayURL="${mod_page_url}"
 logoFile="${mod_id}_logo.png"
 
+[[mixins]]
+    config="${mod_id}.mixins.json"
+
+[[mixins]]
+    config="${mod_id}.neoforge.mixins.json"
+
 [[mods]]
     modId="${mod_id}"
     version="${mod_version}"

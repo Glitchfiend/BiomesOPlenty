@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:smooth_orange_sandstone"
-            ]
+            "items": "biomesoplenty:smooth_orange_sandstone"
           }
         ]
       },

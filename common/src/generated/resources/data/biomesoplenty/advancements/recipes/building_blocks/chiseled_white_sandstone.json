@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:chiseled_white_sandstone"
-            ]
+            "items": "biomesoplenty:chiseled_white_sandstone"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:cut_white_sandstone"
-            ]
+            "items": "biomesoplenty:cut_white_sandstone"
           }
         ]
       },
@@ -35,9 +31,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:white_sandstone"
-            ]
+            "items": "biomesoplenty:white_sandstone"
           }
         ]
       },

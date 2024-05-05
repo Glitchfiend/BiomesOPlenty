@@ -80,7 +80,7 @@ public class RainforestCliffsVinesFeature extends Feature<NoneFeatureConfigurati
             {
                 BlockPos offsetPos = genPos.below(height);
 
-                if (replace.matches(world, offsetPos) && vineState.getBlock().canSurvive(vineState, world, offsetPos))
+                if (replace.matches(world, offsetPos) && vineState.canSurvive(world, offsetPos))
                 {
                     world.setBlock(offsetPos, vineState, 2);
                 }

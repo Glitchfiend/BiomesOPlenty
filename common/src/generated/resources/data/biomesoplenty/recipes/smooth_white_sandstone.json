@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "biomesoplenty:white_sandstone"
   },
-  "result": "biomesoplenty:smooth_white_sandstone"
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:smooth_white_sandstone"
+  }
 }

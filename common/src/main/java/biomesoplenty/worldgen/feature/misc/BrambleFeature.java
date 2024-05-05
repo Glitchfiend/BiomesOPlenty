@@ -32,7 +32,7 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
     protected SimpleBlockPredicate placeOn = (world, pos) ->
     {
         BlockState state = world.getBlockState(pos);
-        return Blocks.OAK_SAPLING.canSurvive(Blocks.OAK_SAPLING.defaultBlockState(), world, pos.above()) || state.getBlock() == Blocks.NETHERRACK;
+        return Blocks.OAK_SAPLING.defaultBlockState().canSurvive(world, pos.above()) || state.getBlock() == Blocks.NETHERRACK;
     };
 
     protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).isAir();

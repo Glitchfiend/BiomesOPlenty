@@ -14,30 +14,24 @@
             {
               "data": {
                 "type": "minecraft:uniform",
-                "value": {
-                  "max_inclusive": 11,
-                  "min_inclusive": 0
-                }
+                "max_inclusive": 11,
+                "min_inclusive": 0
               },
               "weight": 2
             },
             {
               "data": {
                 "type": "minecraft:uniform",
-                "value": {
-                  "max_inclusive": 5,
-                  "min_inclusive": 0
-                }
+                "max_inclusive": 5,
+                "min_inclusive": 0
               },
               "weight": 3
             },
             {
               "data": {
                 "type": "minecraft:uniform",
-                "value": {
-                  "max_inclusive": 2,
-                  "min_inclusive": 0
-                }
+                "max_inclusive": 2,
+                "min_inclusive": 0
               },
               "weight": 10
             }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:blood_bucket"
-            ]
+            "items": "biomesoplenty:blood_bucket"
           }
         ]
       },

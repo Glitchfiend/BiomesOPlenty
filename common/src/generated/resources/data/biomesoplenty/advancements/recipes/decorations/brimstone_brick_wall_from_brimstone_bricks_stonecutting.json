@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "biomesoplenty:brimstone_bricks"
-            ]
+            "items": "biomesoplenty:brimstone_bricks"
           }
         ]
       },

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "biomesoplenty:umbran_logs"
+            "items": "#biomesoplenty:umbran_logs"
           }
         ]
       },

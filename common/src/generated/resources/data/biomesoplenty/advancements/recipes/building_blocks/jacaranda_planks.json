@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "biomesoplenty:jacaranda_logs"
+            "items": "#biomesoplenty:jacaranda_logs"
           }
         ]
       },
