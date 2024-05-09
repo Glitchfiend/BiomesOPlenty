@@ -1,6 +1,6 @@
 {
   "angry_texture": "minecraft:entity/wolf/wolf_spotted_angry",
-  "biomes": "#c:spawns_spotted_wolves",
+  "biomes": "#c:has_wolf_variant/spotted",
   "tame_texture": "minecraft:entity/wolf/wolf_spotted_tame",
   "wild_texture": "minecraft:entity/wolf/wolf_spotted"
 }
