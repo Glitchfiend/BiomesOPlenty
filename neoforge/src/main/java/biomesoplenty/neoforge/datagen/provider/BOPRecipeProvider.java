@@ -92,19 +92,19 @@ public class BOPRecipeProvider extends RecipeProvider
         woodenBoat(output, BOPItems.UMBRAN_BOAT, BOPBlocks.UMBRAN_PLANKS);
         woodenBoat(output, BOPItems.HELLBARK_BOAT, BOPBlocks.HELLBARK_PLANKS);
         woodenBoat(output, BOPItems.EMPYREAL_BOAT, BOPBlocks.EMPYREAL_PLANKS);
-        chestBoat(output, BOPItems.FIR_CHEST_BOAT, BOPBlocks.FIR_PLANKS);
-        chestBoat(output, BOPItems.PINE_CHEST_BOAT, BOPBlocks.PINE_PLANKS);
-        chestBoat(output, BOPItems.MAPLE_CHEST_BOAT, BOPBlocks.MAPLE_PLANKS);
-        chestBoat(output, BOPItems.REDWOOD_CHEST_BOAT, BOPBlocks.REDWOOD_PLANKS);
-        chestBoat(output, BOPItems.MAHOGANY_CHEST_BOAT, BOPBlocks.MAHOGANY_PLANKS);
-        chestBoat(output, BOPItems.JACARANDA_CHEST_BOAT, BOPBlocks.JACARANDA_PLANKS);
-        chestBoat(output, BOPItems.PALM_CHEST_BOAT, BOPBlocks.PALM_PLANKS);
-        chestBoat(output, BOPItems.WILLOW_CHEST_BOAT, BOPBlocks.WILLOW_PLANKS);
-        chestBoat(output, BOPItems.DEAD_CHEST_BOAT, BOPBlocks.DEAD_PLANKS);
-        chestBoat(output, BOPItems.MAGIC_CHEST_BOAT, BOPBlocks.MAGIC_PLANKS);
-        chestBoat(output, BOPItems.UMBRAN_CHEST_BOAT, BOPBlocks.UMBRAN_PLANKS);
-        chestBoat(output, BOPItems.HELLBARK_CHEST_BOAT, BOPBlocks.HELLBARK_PLANKS);
-        chestBoat(output, BOPItems.EMPYREAL_CHEST_BOAT, BOPBlocks.EMPYREAL_PLANKS);
+        chestBoat(output, BOPItems.FIR_CHEST_BOAT, BOPItems.FIR_BOAT);
+        chestBoat(output, BOPItems.PINE_CHEST_BOAT, BOPItems.PINE_BOAT);
+        chestBoat(output, BOPItems.MAPLE_CHEST_BOAT, BOPItems.MAPLE_BOAT);
+        chestBoat(output, BOPItems.REDWOOD_CHEST_BOAT, BOPItems.REDWOOD_BOAT);
+        chestBoat(output, BOPItems.MAHOGANY_CHEST_BOAT, BOPItems.MAHOGANY_BOAT);
+        chestBoat(output, BOPItems.JACARANDA_CHEST_BOAT, BOPItems.JACARANDA_BOAT);
+        chestBoat(output, BOPItems.PALM_CHEST_BOAT, BOPItems.PALM_BOAT);
+        chestBoat(output, BOPItems.WILLOW_CHEST_BOAT, BOPItems.WILLOW_BOAT);
+        chestBoat(output, BOPItems.DEAD_CHEST_BOAT, BOPItems.DEAD_BOAT);
+        chestBoat(output, BOPItems.MAGIC_CHEST_BOAT, BOPItems.MAGIC_BOAT);
+        chestBoat(output, BOPItems.UMBRAN_CHEST_BOAT, BOPItems.UMBRAN_BOAT);
+        chestBoat(output, BOPItems.HELLBARK_CHEST_BOAT, BOPItems.HELLBARK_BOAT);
+        chestBoat(output, BOPItems.EMPYREAL_CHEST_BOAT, BOPItems.EMPYREAL_BOAT);
 
         // Hanging Signs
         hangingSign(output, BOPItems.FIR_HANGING_SIGN, BOPBlocks.STRIPPED_FIR_LOG);
