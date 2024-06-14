@@ -25,7 +25,7 @@ public class ModEntities
 
     private static EntityType<?> register(BiConsumer<ResourceLocation, EntityType<?>> func, EntityType<?> entityType, String name)
     {
-        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), entityType);
+        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), entityType);
         return entityType;
     }
 }

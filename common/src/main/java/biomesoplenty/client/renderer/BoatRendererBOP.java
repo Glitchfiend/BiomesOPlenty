@@ -41,7 +41,7 @@ public class BoatRendererBOP extends EntityRenderer<Boat>
         super(context);
         this.shadowRadius = 0.8F;
         this.boatResources = Stream.of(BoatBOP.ModelType.values()).collect(ImmutableMap.toImmutableMap((key) -> key, (model) -> {
-            return Pair.of(new ResourceLocation(BiomesOPlenty.MOD_ID, getTextureLocation(model, hasChest)), createBoatModel(context, model, hasChest));
+            return Pair.of(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, getTextureLocation(model, hasChest)), createBoatModel(context, model, hasChest));
         }));
     }
 
@@ -73,7 +73,7 @@ public class BoatRendererBOP extends EntityRenderer<Boat>
         poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         listmodel.setupAnim(boat, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
         VertexConsumer vertexconsumer = bufferSource.getBuffer(listmodel.renderType(resourcelocation));
-        listmodel.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        listmodel.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY);
         if (!boat.isUnderWater()) {
             VertexConsumer vertexconsumer1 = bufferSource.getBuffer(RenderType.waterMask());
             if (listmodel instanceof WaterPatchModel) {
@@ -107,7 +107,7 @@ public class BoatRendererBOP extends EntityRenderer<Boat>
 
     private static ModelLayerLocation createLocation(String name, String layer)
     {
-        return new ModelLayerLocation(new ResourceLocation(BiomesOPlenty.MOD_ID, name), layer);
+        return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), layer);
     }
 
     public static ModelLayerLocation createBoatModelName(BoatBOP.ModelType model)

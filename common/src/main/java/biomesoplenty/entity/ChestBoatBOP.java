@@ -12,6 +12,7 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
+import net.minecraft.server.level.ServerEntity;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.ChestBoat;
@@ -39,9 +40,9 @@ public class ChestBoatBOP extends ChestBoat
     }
 
     @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket()
+    public Packet<ClientGamePacketListener> getAddEntityPacket(ServerEntity serverEntity)
     {
-        return new ClientboundAddEntityPacket(this);
+        return new ClientboundAddEntityPacket(this, serverEntity);
     }
 
     @Override

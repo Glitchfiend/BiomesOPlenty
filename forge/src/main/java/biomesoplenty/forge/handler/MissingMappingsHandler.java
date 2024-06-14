@@ -220,7 +220,7 @@ public class MissingMappingsHandler
 
         public Remapper<T> remap(String oldId, T replacement)
         {
-            this.remaps.put(new ResourceLocation(BiomesOPlenty.MOD_ID, oldId), replacement);
+            this.remaps.put(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, oldId), replacement);
             return this;
         }
 
@@ -231,7 +231,7 @@ public class MissingMappingsHandler
 
         public Remapper<T> remap(String oldId, ResourceKey<T> replacement)
         {
-            this.remapResourceKeys.put(new ResourceLocation(BiomesOPlenty.MOD_ID, oldId), replacement);
+            this.remapResourceKeys.put(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, oldId), replacement);
             return this;
         }
 

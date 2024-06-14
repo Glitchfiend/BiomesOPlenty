@@ -27,7 +27,7 @@ public class ModSounds
         MUSIC_BIOME_VISCERAL_HEAP = registerForHolder(func, "music.nether.visceral_heap");
         MUSIC_BIOME_WITHERED_ABYSS = registerForHolder(func, "music.nether.withered_abyss");
 
-        MUSIC_DISC_WANDERER = register(func, "music_disc.wanderer");
+        MUSIC_DISC_WANDERER = registerForHolder(func, "music_disc.wanderer");
 
         BLOOD_AMBIENT = register(func, "block.blood.ambient");
         FLESH_TENDON_DRIP = register(func, "block.flesh_tendon.drip");
@@ -35,9 +35,9 @@ public class ModSounds
         SPIDER_EGG_BREAK = register(func, "block.spider_egg.break");
     }
 
-    private static Holder<SoundEvent> registerForHolder(BiConsumer<ResourceLocation, SoundEvent> func, String name)
+    private static Holder.Reference<SoundEvent> registerForHolder(BiConsumer<ResourceLocation, SoundEvent> func, String name)
     {
-        ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, name);
+        ResourceLocation location = ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name);
         ResourceKey<SoundEvent> key = ResourceKey.create(Registries.SOUND_EVENT, location);
 
         SoundEvent event = SoundEvent.createVariableRangeEvent(location);
@@ -47,7 +47,7 @@ public class ModSounds
 
     private static SoundEvent register(BiConsumer<ResourceLocation, SoundEvent> func, String name)
     {
-        ResourceLocation location = new ResourceLocation(BiomesOPlenty.MOD_ID, name);
+        ResourceLocation location = ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name);
         SoundEvent event = SoundEvent.createVariableRangeEvent(location);
         func.accept(location, event);
         return event;

@@ -6,11 +6,9 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPFluids;
-import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.entity.BoatBOP;
 import biomesoplenty.item.BoatItemBOP;
-import biomesoplenty.item.MusicDiscItemBOP;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 
@@ -33,7 +31,7 @@ public class ModItems
         BOP_ICON = register(func, new Item(new Item.Properties()), "bop_icon");
 
         ROSE_QUARTZ_CHUNK = register(func, new Item(new Item.Properties()), "rose_quartz_chunk");
-        MUSIC_DISC_WANDERER = register(func, new MusicDiscItemBOP(BOPSounds.MUSIC_DISC_WANDERER), "music_disc_wanderer");
+        MUSIC_DISC_WANDERER = register(func, new Item((new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(ModJukeboxSongs.WANDERER)), "music_disc_wanderer");
         BLOOD_BUCKET = register(func, new BucketItem(BOPFluids.BLOOD, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1)), "blood_bucket");
         LIQUID_NULL_BUCKET = register(func, new BucketItem(BOPFluids.LIQUID_NULL, (new Item.Properties()).craftRemainder(Items.BUCKET).stacksTo(1)), "liquid_null_bucket");
 
@@ -480,7 +478,7 @@ public class ModItems
 
     private static Item register(BiConsumer<ResourceLocation, Item> func, String name, Item item)
     {
-        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), item);
+        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), item);
         return item;
     }
 }

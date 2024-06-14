@@ -21,7 +21,7 @@ import java.util.function.Consumer;
 
 public class BOPNetherRegionCommon extends Region
 {
-    public static final ResourceLocation LOCATION = new ResourceLocation(BiomesOPlenty.MOD_ID, "nether_common");
+    public static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "nether_common");
 
     public BOPNetherRegionCommon(int weight)
     {

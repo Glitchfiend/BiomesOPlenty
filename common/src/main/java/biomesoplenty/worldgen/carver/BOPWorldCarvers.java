@@ -23,7 +23,7 @@ public class BOPWorldCarvers
 
     private static <C extends CarverConfiguration> WorldCarver<C> register(BiConsumer<ResourceLocation, WorldCarver<?>> func, String name, WorldCarver<C> carver)
     {
-        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), carver);
+        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), carver);
         return carver;
     }
 }

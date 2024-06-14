@@ -27,7 +27,7 @@ public class ModFluids
 
     private static Fluid register(BiConsumer<ResourceLocation, Fluid> func, Fluid fluid, String name)
     {
-        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), fluid);
+        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), fluid);
         return fluid;
     }
 }

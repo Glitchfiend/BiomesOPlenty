@@ -26,7 +26,7 @@ public class ThermalCalciteVentBlock extends ThermalCalciteBlock
     @Override
     public void stepOn(Level level, BlockPos p_153778_, BlockState p_153779_, Entity p_153780_)
     {
-        if (!p_153780_.fireImmune() && p_153780_ instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) p_153780_))
+        if (!p_153780_.fireImmune() && p_153780_ instanceof LivingEntity)
         {
             p_153780_.hurt(level.damageSources().source(BOPDamageTypes.FUMAROLE), 1.0F);
         }

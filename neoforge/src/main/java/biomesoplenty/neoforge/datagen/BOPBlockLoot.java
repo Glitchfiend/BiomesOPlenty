@@ -8,12 +8,15 @@ import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModTags;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -40,14 +43,16 @@ public class BOPBlockLoot extends BlockLootSubProvider
     protected static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.Items.SHEARS));
     private static final Set<Item> EXPLOSION_RESISTANT = Set.of();
 
-    public BOPBlockLoot()
+    public BOPBlockLoot(HolderLookup.Provider lookup)
     {
-        super(EXPLOSION_RESISTANT, FeatureFlags.REGISTRY.allFlags());
+        super(EXPLOSION_RESISTANT, FeatureFlags.REGISTRY.allFlags(), lookup);
     }
 
     @Override
     protected void generate()
     {
+        HolderLookup.RegistryLookup<Enchantment> lookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+
         // Sandstone
         this.dropSelf(BOPBlocks.WHITE_SAND);
         this.dropSelf(BOPBlocks.WHITE_SANDSTONE);
@@ -115,7 +120,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
         // Rose Quartz
         this.dropSelf(BOPBlocks.ROSE_QUARTZ_BLOCK);
-        this.add(BOPBlocks.ROSE_QUARTZ_CLUSTER, (p_252201_) -> { return createSilkTouchDispatchTable(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.FORTUNE)).when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES))).otherwise(this.applyExplosionDecay(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))); });
+        this.add(BOPBlocks.ROSE_QUARTZ_CLUSTER, (p_252201_) -> { return createSilkTouchDispatchTable(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).apply(ApplyBonusCount.addOreBonusCount(lookup.getOrThrow(Enchantments.FORTUNE))).when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES))).otherwise(this.applyExplosionDecay(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))); });
         this.dropWhenSilkTouch(BOPBlocks.SMALL_ROSE_QUARTZ_BUD);
         this.dropWhenSilkTouch(BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD);
         this.dropWhenSilkTouch(BOPBlocks.LARGE_ROSE_QUARTZ_BUD);
@@ -496,7 +501,8 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
     protected LootTable.Builder createGrassDrops(Block p_252139_)
     {
-        return createShearsDispatchTable(p_252139_, this.applyExplosionDecay(p_252139_, LootItem.lootTableItem(Items.WHEAT_SEEDS).when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.FORTUNE, 2))));
+        HolderLookup.RegistryLookup<Enchantment> lookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        return createShearsDispatchTable(p_252139_, this.applyExplosionDecay(p_252139_, LootItem.lootTableItem(Items.WHEAT_SEEDS).when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(lookup.getOrThrow(Enchantments.FORTUNE), 2))));
     }
 
     protected LootTable.Builder createCloverDrops(Block p_273240_)
@@ -515,9 +521,5 @@ public class BOPBlockLoot extends BlockLootSubProvider
     protected static LootTable.Builder createShearsOnlyDrop(ItemLike p_250684_)
     {
         return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_SHEARS).add(LootItem.lootTableItem(p_250684_)));
-    }
-
-    protected static LootTable.Builder createShearsDispatchTable(Block p_252195_, LootPoolEntryContainer.Builder<?> p_250102_) {
-        return createSelfDropDispatchTable(p_252195_, HAS_SHEARS, p_250102_);
     }
 }

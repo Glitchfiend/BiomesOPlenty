@@ -27,6 +27,6 @@ public class BOPFeatureUtils
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name)
     {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
     }
 }

@@ -37,7 +37,7 @@ public class ModBlockEntities
     private static <T extends BlockEntity> BlockEntityType<?> register(BiConsumer<ResourceLocation, BlockEntityType<?>> func, String name, BlockEntityType.Builder<T> builder)
     {
         var type = builder.build(Util.fetchChoiceType(References.BLOCK_ENTITY, name));
-        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), type);
+        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), type);
         return type;
     }
 }

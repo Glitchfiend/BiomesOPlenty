@@ -67,9 +67,9 @@ public class ModFluidTypes
             {
                 consumer.accept(new IClientFluidTypeExtensions()
                 {
-                    private static final ResourceLocation BLOOD_UNDERWATER = new ResourceLocation("biomesoplenty:textures/block/blood_underwater.png"),
-                            BLOOD_STILL = new ResourceLocation("biomesoplenty:block/blood_still"),
-                            BLOOD_FLOW = new ResourceLocation("biomesoplenty:block/blood_flow");
+                    private static final ResourceLocation BLOOD_UNDERWATER = ResourceLocation.parse("biomesoplenty:textures/block/blood_underwater.png"),
+                            BLOOD_STILL = ResourceLocation.parse("biomesoplenty:block/blood_still"),
+                            BLOOD_FLOW = ResourceLocation.parse("biomesoplenty:block/blood_flow");
 
                     @Override
                     public ResourceLocation getStillTexture()
@@ -120,9 +120,9 @@ public class ModFluidTypes
             {
                 consumer.accept(new IClientFluidTypeExtensions()
                 {
-                    private static final ResourceLocation LIQUID_NULL_UNDERWATER = new ResourceLocation("biomesoplenty:textures/block/liquid_null_underwater.png"),
-                            LIQUID_NULL_STILL = new ResourceLocation("biomesoplenty:block/liquid_null_still"),
-                            LIQUID_NULL_FLOW = new ResourceLocation("biomesoplenty:block/liquid_null_flow");
+                    private static final ResourceLocation LIQUID_NULL_UNDERWATER = ResourceLocation.parse("biomesoplenty:textures/block/liquid_null_underwater.png"),
+                            LIQUID_NULL_STILL = ResourceLocation.parse("biomesoplenty:block/liquid_null_still"),
+                            LIQUID_NULL_FLOW = ResourceLocation.parse("biomesoplenty:block/liquid_null_flow");
 
                     @Override
                     public ResourceLocation getStillTexture()

@@ -6,6 +6,7 @@ package biomesoplenty.neoforge.datagen;
 
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModDamageTypes;
+import biomesoplenty.init.ModJukeboxSongs;
 import biomesoplenty.neoforge.datagen.provider.BOPLootTableProvider;
 import biomesoplenty.neoforge.datagen.provider.BOPRecipeProvider;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
@@ -39,7 +40,8 @@ public class DataGenerationHandler
             .add(Registries.CONFIGURED_FEATURE, BOPFeatureUtils::bootstrap)
             .add(Registries.PLACED_FEATURE, BOPPlacementUtils::bootstrap)
             .add(Registries.BIOME, ModBiomes::bootstrapBiomes)
-            .add(Registries.DAMAGE_TYPE, ModDamageTypes::bootstrap);
+            .add(Registries.DAMAGE_TYPE, ModDamageTypes::bootstrap)
+            .add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap);
 
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent event)

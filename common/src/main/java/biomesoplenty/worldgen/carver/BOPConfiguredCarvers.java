@@ -32,6 +32,6 @@ public class BOPConfiguredCarvers
 
     private static ResourceKey<ConfiguredWorldCarver<?>> createKey(String name)
     {
-        return ResourceKey.create(Registries.CONFIGURED_CARVER, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.CONFIGURED_CARVER, ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
     }
 }

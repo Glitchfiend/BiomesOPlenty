@@ -12,8 +12,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class BOPLootTableProvider
 {
-    public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> holderLooku)
+    public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> holderLookup)
     {
-        return new LootTableProvider(output, Set.of(), List.of(new LootTableProvider.SubProviderEntry(BOPBlockLoot::new, LootContextParamSets.BLOCK)), holderLooku);
+        return new LootTableProvider(output, Set.of(), List.of(new LootTableProvider.SubProviderEntry(BOPBlockLoot::new, LootContextParamSets.BLOCK)), holderLookup);
     }
 }

@@ -17,6 +17,6 @@ public class BOPDamageTypes
 
     private static ResourceKey<DamageType> register(String name)
     {
-        return ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(BOPAPI.MOD_ID, name));
+        return ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(BOPAPI.MOD_ID, name));
     }
 }

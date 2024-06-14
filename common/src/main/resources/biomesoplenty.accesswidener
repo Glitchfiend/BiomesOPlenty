@@ -24,7 +24,7 @@ accessible field net/minecraft/world/entity/vehicle/Boat status Lnet/minecraft/w
 extendable method net/minecraft/world/level/levelgen/feature/TreeFeature doPlace (Lnet/minecraft/world/level/WorldGenLevel;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Lnet/minecraft/world/level/levelgen/feature/foliageplacers/FoliagePlacer$FoliageSetter;Lnet/minecraft/world/level/levelgen/feature/configurations/TreeConfiguration;)Z
 
 # WorldGenRegion
-accessible field net/minecraft/server/level/WorldGenRegion writeRadiusCutoff I
+accessible field net/minecraft/server/level/WorldGenRegion generatingStep Lnet/minecraft/world/level/chunk/status/ChunkStep;
 
 # DamageSources
 accessible method net/minecraft/world/damagesource/DamageSources source (Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/world/damagesource/DamageSource;

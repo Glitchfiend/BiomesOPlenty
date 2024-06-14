@@ -1,0 +1,81 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "predicates": {
+                      "minecraft:enchantments": [
+                        {
+                          "enchantments": "minecraft:silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "name": "biomesoplenty:rose_quartz_cluster"
+            },
+            {
+              "type": "minecraft:alternatives",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:cluster_max_harvestables"
+                      }
+                    }
+                  ],
+                  "functions": [
+                    {
+                      "add": false,
+                      "count": 4.0,
+                      "function": "minecraft:set_count"
+                    },
+                    {
+                      "enchantment": "minecraft:fortune",
+                      "formula": "minecraft:ore_drops",
+                      "function": "minecraft:apply_bonus"
+                    }
+                  ],
+                  "name": "biomesoplenty:rose_quartz_chunk"
+                },
+                {
+                  "type": "minecraft:item",
+                  "functions": [
+                    {
+                      "add": false,
+                      "count": 2.0,
+                      "function": "minecraft:set_count"
+                    },
+                    {
+                      "function": "minecraft:explosion_decay"
+                    }
+                  ],
+                  "name": "biomesoplenty:rose_quartz_chunk"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "biomesoplenty:blocks/rose_quartz_cluster"
+}

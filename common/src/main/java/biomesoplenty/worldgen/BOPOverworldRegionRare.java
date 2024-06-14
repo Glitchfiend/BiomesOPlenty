@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 
 public class BOPOverworldRegionRare extends Region
 {
-    public static final ResourceLocation LOCATION = new ResourceLocation(BiomesOPlenty.MOD_ID, "overworld_rare");
+    public static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "overworld_rare");
 
     public BOPOverworldRegionRare(int weight)
     {

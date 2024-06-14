@@ -27,6 +27,6 @@ public class BOPPlacementUtils
 
     public static ResourceKey<PlacedFeature> createKey(String name)
     {
-        return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
     }
 }

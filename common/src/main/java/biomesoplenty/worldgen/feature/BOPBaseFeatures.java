@@ -186,7 +186,7 @@ public class BOPBaseFeatures
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(BiConsumer<ResourceLocation, Feature<?>> func, String name, F feature)
     {
-        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), feature);
+        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), feature);
         return feature;
     }
 }

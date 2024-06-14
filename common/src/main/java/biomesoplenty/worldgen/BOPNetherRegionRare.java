@@ -21,7 +21,7 @@ import java.util.function.Consumer;
 
 public class BOPNetherRegionRare extends Region
 {
-    public static final ResourceLocation LOCATION = new ResourceLocation(BiomesOPlenty.MOD_ID, "nether_rare");
+    public static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "nether_rare");
 
     public BOPNetherRegionRare(int weight)
     {

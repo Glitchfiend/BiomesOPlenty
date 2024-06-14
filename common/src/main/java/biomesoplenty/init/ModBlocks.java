@@ -532,13 +532,13 @@ public class ModBlocks
 
     private static Block register(BiConsumer<ResourceLocation, Block> func, Block block, String name)
     {
-        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), block);
+        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), block);
         return block;
     }
 
     private static Item register(BiConsumer<ResourceLocation, Item> func, String name, Item item)
     {
-        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), item);
+        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), item);
         return item;
     }
 

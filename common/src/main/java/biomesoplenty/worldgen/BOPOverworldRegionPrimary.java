@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 
 public class BOPOverworldRegionPrimary extends Region
 {
-    public static final ResourceLocation LOCATION = new ResourceLocation(BiomesOPlenty.MOD_ID, "overworld_primary");
+    public static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "overworld_primary");
 
     public BOPOverworldRegionPrimary(int weight)
     {
