@@ -1,11 +1,11 @@
-name: 1.20.6+ Bug Report
+name: 1.21+ Bug Report
 description: File a bug report
 labels: [bug]
 body:
   - type: markdown
     attributes:
       value: |
-        For bugs experienced with Minecraft 1.20.4+. Older versions are not supported.
+        For bugs experienced with Minecraft 1.21+. Older versions are not supported.
         If any section does not apply, replace its content with "N/A".
 
         Please search for existing bug reports before making your own report.

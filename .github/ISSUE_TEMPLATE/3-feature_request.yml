@@ -1,11 +1,11 @@
-name: 1.20.6+ Feature Request
+name: 1.21+ Feature Request
 description: Request a new feature
 labels: [feature]
 body:
   - type: markdown
     attributes:
       value: |
-        Feature requests for Minecraft 1.20.4+. Older versions are not supported.
+        Feature requests for Minecraft 1.21+. Older versions are not supported.
         If any section does not apply, replace its contents with "N/A".
         
         Please search for existing feature requests before you make your own request.
