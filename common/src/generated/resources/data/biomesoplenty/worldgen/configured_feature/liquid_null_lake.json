@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:lake",
+  "type": "biomesoplenty:lake",
   "config": {
     "barrier": {
       "type": "minecraft:simple_state_provider",
