@@ -3,6 +3,14 @@
   "values": [
     "minecraft:shears",
     {
+      "id": "#c:tools/shear",
+      "required": false
+    },
+    {
+      "id": "#c:tools/shears",
+      "required": false
+    },
+    {
       "id": "#c:shears",
       "required": false
     },
