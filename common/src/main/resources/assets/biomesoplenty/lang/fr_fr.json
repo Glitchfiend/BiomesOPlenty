@@ -8,7 +8,6 @@
   "generator.minecraft.biomesoplenty": "Biomes O' Plenty",
   "itemGroup.biomesoplenty": "Biomes O' Plenty",
 
-  //Update for Empyreal Wood
   "item.biomesoplenty.empyreal_boat": "Bateau en bois empyréen",
   "item.biomesoplenty.empyreal_chest_boat": "Bateau de stockage en bois empyréen",
   "block.biomesoplenty.empyreal_button": "Bouton en bois empyréen",
@@ -32,7 +31,6 @@
   "block.biomesoplenty.stripped_empyreal_log": "Bûche en bois empyréen écorcé",
   "block.biomesoplenty.stripped_empyreal_wood": "Bois empyréen écorcé",
 
-  //Hanging Sign
   "block.biomesoplenty.dead_wall_hanging_sign": "Pancarte suspendu murale en bois mort",
   "block.biomesoplenty.dead_hanging_sign": "Pancarte suspendu en bois mort",
   
