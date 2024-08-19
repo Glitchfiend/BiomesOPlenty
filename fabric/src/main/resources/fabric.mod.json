@@ -30,7 +30,7 @@
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "minecraft": "${minecraft_version}",
+    "minecraft": ">=${minecraft_version}",
     "java": ">=17",
     "glitchcore": ">=${glitchcore_version}",
     "terrablender": ">=${terrablender_version}"
