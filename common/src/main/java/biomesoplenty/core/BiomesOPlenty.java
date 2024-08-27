@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2023, the Glitchfiend Team.
+ * Copyright 2024, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
 package biomesoplenty.core;
