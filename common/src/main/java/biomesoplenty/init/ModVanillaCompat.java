@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.BlockHitResult;
 
-import static glitchcore.util.BlockHelper.*;
+import static biomesoplenty.util.BlockHelper.*;
 
 public class ModVanillaCompat
 {

@@ -16,9 +16,9 @@ sourceSets.main.resources.srcDir 'src/generated/resources'
 dependencies {
     compileOnly group:'org.spongepowered', name: 'mixin', version: '0.8.5'
     compileOnly group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
-    compileOnly("com.electronwill.night-config:toml:${nightconfig_version}")
-    compileOnly("com.electronwill.night-config:core:${nightconfig_version}")
-    compileOnly("net.jodah:typetools:0.6.3")
-    compileOnly 'com.github.glitchfiend:GlitchCore-common:' + minecraft_version + '-' + glitchcore_version
+    implementation("com.electronwill.night-config:toml:${nightconfig_version}")
+    implementation("com.electronwill.night-config:core:${nightconfig_version}")
+    implementation("net.jodah:typetools:0.6.3")
+    compileOnly 'com.github.glitchfiend:GlitchCore-common:' + minecraft_version + '-' + "2.1.0.0"
     compileOnly 'com.github.glitchfiend:TerraBlender-common:' + minecraft_version + '-' + terrablender_version
 }

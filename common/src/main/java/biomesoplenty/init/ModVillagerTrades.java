@@ -2,18 +2,16 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.ImmutableMap;
-import glitchcore.event.village.WandererTradesEvent;
+import biomesoplenty.core.event.WandererTradesEvent;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 public class ModVillagerTrades

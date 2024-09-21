@@ -16,9 +16,6 @@
   "icon": "assets/biomesoplenty/textures/item/bop_icon.png",
   "environment": "*",
   "entrypoints": {
-    "glitchcore": [
-      "biomesoplenty.fabric.core.BiomesOPlentyFabric"
-    ],
     "terrablender": [
       "biomesoplenty.fabric.core.BiomesOPlentyFabric"
     ]
@@ -32,7 +29,6 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
     "java": ">=17",
-    "glitchcore": ">=${glitchcore_version}",
     "terrablender": ">=${terrablender_version}"
   },
   "accessWidener": "${mod_id}.accesswidener",

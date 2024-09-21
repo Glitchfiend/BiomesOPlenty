@@ -6,11 +6,10 @@ package biomesoplenty.core;
 
 import biomesoplenty.api.BOPAPI;
 import biomesoplenty.init.*;
+import biomesoplenty.util.Environment;
 import biomesoplenty.worldgen.carver.BOPWorldCarvers;
 import biomesoplenty.worldgen.feature.BOPBaseFeatures;
-import glitchcore.event.EventManager;
-import glitchcore.util.Environment;
-import glitchcore.util.RegistryHelper;
+import biomesoplenty.core.RegistryHelper;
 import net.minecraft.core.registries.Registries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

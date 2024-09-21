@@ -5,8 +5,7 @@
 package biomesoplenty.config;
 
 import biomesoplenty.core.BiomesOPlenty;
-import glitchcore.config.Config;
-import glitchcore.util.Environment;
+import biomesoplenty.util.Environment;
 
 public class GameplayConfig extends Config
 {

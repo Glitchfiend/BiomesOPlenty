@@ -5,7 +5,8 @@
   "refmap": "biomesoplenty.refmap.json",
   "mixins": [
     "MixinBloodFluid",
-    "MixinLiquidNullFluid"
+    "MixinLiquidNullFluid",
+    "ForgeEnvironmentMixin"
   ],
   "client": [
   ],

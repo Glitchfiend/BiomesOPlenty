@@ -8,7 +8,6 @@ package biomesoplenty.forge.core;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.forge.init.ModFluidTypes;
 import biomesoplenty.init.*;
-import glitchcore.forge.GlitchCoreForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.common.Mod;

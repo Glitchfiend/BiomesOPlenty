@@ -4,7 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "biomesoplenty.refmap.json",
   "mixins": [
-
+    "FabricEnvironmentMixin"
   ],
   "client": [
     "MixinBloodFluid",

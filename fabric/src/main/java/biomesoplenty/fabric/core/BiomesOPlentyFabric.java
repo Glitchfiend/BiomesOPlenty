@@ -7,7 +7,6 @@ package biomesoplenty.fabric.core;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.fabric.init.ModClientFabric;
 import biomesoplenty.init.ModClient;
-import glitchcore.fabric.GlitchCoreInitializer;
 import terrablender.api.TerraBlenderApi;
 
 public class BiomesOPlentyFabric implements GlitchCoreInitializer, TerraBlenderApi
