@@ -8,17 +8,8 @@ base.archivesName.set("${mod_name}-forge")
 
 mixin {
     add sourceSets.main, "${mod_id}.refmap.json"
-}
-
-// As of 1.20.6 Forge no longer has reobf tasks. This has broken mixins adding configs correctly into the manifest file
-// See: https://github.com/SpongePowered/MixinGradle/blob/f800b26d2b180d98d9aa9355e5b3086d71218508/src/main/groovy/org/spongepowered/asm/gradle/plugins/MixinExtension.groovy#L184
-// Instead, we will do it ourselves.
-jar {
-    manifest {
-        attributes([
-            'MixinConfigs': "${mod_id}.mixins.json" + "," + "${mod_id}.forge.mixins.json",
-        ])
-    }
+    config "${mod_id}.mixins.json"
+    config "${mod_id}.forge.mixins.json"
 }
 
 minecraft {
@@ -29,29 +20,30 @@ minecraft {
         accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     }
 
-    reobf = false
-
     runs {
         client {
             workingDirectory project.file('run')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Client'
-            mods {
-                modClientRun {
-                    source sourceSets.main
-                }
-            }
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         server {
             workingDirectory project.file('run')
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Server'
-            mods {
-                modServerRun {
-                    source sourceSets.main
-                }
-            }
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+        }
+
+        data {
+            workingDirectory project.file('run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            args '--mod', mod_id, '--all', '--output', project(':Common').file('src/generated/resources/'), '--existing', project(':Common').file('src/main/resources/')
+            taskName 'Data'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
     }
 }
@@ -59,12 +51,14 @@ minecraft {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly project(":Common")
-    //implementation 'com.github.glitchfiend:GlitchCore-forge:' + minecraft_version + '-' + glitchcore_version
-    implementation 'com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version
+    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version)
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
 
-    // Hack fix for now, force jopt-simple to be exactly 5.0.4 because Mojang ships that version, but some transtive dependencies request 6.0+
-    implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
+// Workaround for SpongePowered/MixinGradle#38
+afterEvaluate {
+    tasks.configureReobfTaskForReobfJar.mustRunAfter(tasks.compileJava)
+    tasks.configureReobfTaskForReobfJarJar.mustRunAfter(tasks.compileJava)
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -82,6 +76,8 @@ tasks.named("sourcesJar", Jar) {
 processResources {
     from project(":Common").sourceSets.main.resources
 }
+
+jar.finalizedBy('reobfJar')
 
 // Merge the resources and classes into the same directory.
 // This is done because java expects modules to be in a single directory.

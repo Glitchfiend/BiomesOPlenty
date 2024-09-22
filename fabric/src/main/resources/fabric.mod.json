@@ -16,6 +16,12 @@
   "icon": "assets/biomesoplenty/textures/item/bop_icon.png",
   "environment": "*",
   "entrypoints": {
+    "client": [
+      "biomesoplenty.fabric.client.BiomesOPlentyClient"
+    ],
+    "main": [
+      "biomesoplenty.fabric.core.BiomesOPlentyFabric"
+    ],
     "terrablender": [
       "biomesoplenty.fabric.core.BiomesOPlentyFabric"
     ]

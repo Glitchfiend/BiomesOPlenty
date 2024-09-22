@@ -25,7 +25,6 @@ import java.util.function.ToIntFunction;
 
 public class LumaloopPlantBlock extends GrowingPlantBodyBlock
 {
-    public static final MapCodec<LumaloopPlantBlock> CODEC = simpleCodec(LumaloopPlantBlock::new);
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
@@ -33,12 +32,6 @@ public class LumaloopPlantBlock extends GrowingPlantBodyBlock
     {
         super(p_i241195_1_, Direction.UP, SHAPE, false);
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
-    }
-
-    @Override
-    public MapCodec<LumaloopPlantBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override

@@ -17,17 +17,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class WispjellyBlock extends Block
 {
-    public static final MapCodec<WispjellyBlock> CODEC = simpleCodec(WispjellyBlock::new);
-
     public WispjellyBlock(Properties p_153282_)
     {
         super(p_153282_);
-    }
-
-    @Override
-    public MapCodec<WispjellyBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override
@@ -46,8 +38,7 @@ public class WispjellyBlock extends Block
     }
 
     @Override
-    protected boolean isPathfindable(BlockState state, PathComputationType computationType)
-    {
+    public boolean isPathfindable(BlockState p_154341_, BlockGetter p_154342_, BlockPos p_154343_, PathComputationType p_154344_) {
         return true;
     }
 }

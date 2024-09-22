@@ -1,15 +1,16 @@
 /*******************************************************************************
- * Copyright 2024, the Glitchfiend Team.
+ * Copyright 2023, the Glitchfiend Team.
  * All rights reserved.
  ******************************************************************************/
 package biomesoplenty.core;
 
 import biomesoplenty.api.BOPAPI;
 import biomesoplenty.init.*;
-import biomesoplenty.util.Environment;
 import biomesoplenty.worldgen.carver.BOPWorldCarvers;
 import biomesoplenty.worldgen.feature.BOPBaseFeatures;
-import biomesoplenty.core.RegistryHelper;
+import biomesoplenty.glitch.event.EventManager;
+import biomesoplenty.glitch.util.Environment;
+import biomesoplenty.glitch.util.RegistryHelper;
 import net.minecraft.core.registries.Registries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

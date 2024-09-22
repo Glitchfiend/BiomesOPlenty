@@ -12,7 +12,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.MiscOverworldFeatures;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
@@ -199,7 +199,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> FALLEN_BIRCH_LOG = BOPPlacementUtils.createKey("fallen_birch_log");
     public static final ResourceKey<PlacedFeature> FALLEN_JACARANDA_LOG = BOPPlacementUtils.createKey("fallen_jacaranda_log");
 
-    public static void bootstrap(BootstrapContext<PlacedFeature> context)
+    public static void bootstrap(BootstapContext<PlacedFeature> context)
     {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -513,12 +513,12 @@ public class BOPVegetationPlacements
         return List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, CountPlacement.of(p_195234_), BiomeFilter.biome());
     }
     
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)
+    protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)
     {
         register(context, placedFeatureKey, configuredFeature, List.of(modifiers));
     }
 
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> modifiers)
+    protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> modifiers)
     {
         context.register(placedFeatureKey, new PlacedFeature(configuredFeature, modifiers));
     }

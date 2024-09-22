@@ -27,19 +27,12 @@ import javax.annotation.Nullable;
 
 public class FoliageBlockBOP extends BushBlock
 {
-    public static final MapCodec<FoliageBlockBOP> CODEC = simpleCodec(FoliageBlockBOP::new);
     protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
     protected static final VoxelShape SHORT = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
 
     public FoliageBlockBOP(Block.Properties properties)
     {
         super(properties);
-    }
-
-    @Override
-    public MapCodec<FoliageBlockBOP> codec()
-    {
-        return CODEC;
     }
 
     @Override

@@ -122,7 +122,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         int k = Math.abs(chunkpos.x - i);
         int l = Math.abs(chunkpos.z - j);
 
-        if (k <= region.generatingStep.blockStateWriteRadius() && l <= region.generatingStep.blockStateWriteRadius())
+        if (k <= region.writeRadiusCutoff && l <= region.writeRadiusCutoff)
         {
             return true;
         }

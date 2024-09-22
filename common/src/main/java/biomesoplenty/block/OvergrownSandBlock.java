@@ -11,24 +11,30 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.ColoredFallingBlock;
+import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.lighting.LightEngine;
 
 import java.util.Optional;
 
-public class OvergrownSandBlock extends ColoredFallingBlock implements BonemealableBlock
+public class OvergrownSandBlock extends FallingBlock implements BonemealableBlock
 {
-    public OvergrownSandBlock(ColorRGBA dustColor, Properties properties)
+    private final int dustColor;
+    public OvergrownSandBlock(int dustColor, Properties properties)
     {
-        super(dustColor, properties);
+        super(properties);
+      this.dustColor = dustColor;
+    }
+    @Override
+    public int getDustColor(BlockState $$0, BlockGetter $$1, BlockPos $$2) {
+        return dustColor;
     }
 
     private static boolean canBeGrass(BlockState p_56824_, LevelReader p_56825_, BlockPos p_56826_)
@@ -56,7 +62,7 @@ public class OvergrownSandBlock extends ColoredFallingBlock implements Bonemeala
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_)
+    public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_, boolean b)
     {
         return p_153797_.getBlockState(p_153798_.above()).isAir();
     }
@@ -71,7 +77,7 @@ public class OvergrownSandBlock extends ColoredFallingBlock implements Bonemeala
     public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_)
     {
         BlockPos blockpos = p_221272_.above();
-        BlockState blockstate = Blocks.SHORT_GRASS.defaultBlockState();
+        BlockState blockstate = Blocks.GRASS.defaultBlockState();
         Optional<Holder.Reference<PlacedFeature>> optional = p_221270_.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(BOPVegetationPlacements.SPROUT_BONEMEAL);
 
         label49:

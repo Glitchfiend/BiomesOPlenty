@@ -30,9 +30,6 @@ public class BOPBiomes
     public static final ResourceKey<Biome> DEAD_FOREST = registerOverworld("dead_forest");
     public static final ResourceKey<Biome> DRYLAND = registerOverworld("dryland");
     public static final ResourceKey<Biome> DUNE_BEACH = registerOverworld("dune_beach");
-    public static final ResourceKey<Biome> END_WILDS = registerOverworld("end_wilds");
-    public static final ResourceKey<Biome> END_REEF = registerOverworld("end_reef");
-    public static final ResourceKey<Biome> END_CORRUPTION = registerOverworld("end_corruption");
     public static final ResourceKey<Biome> ERUPTING_INFERNO = register("erupting_inferno");
     public static final ResourceKey<Biome> FIELD = registerOverworld("field");
     public static final ResourceKey<Biome> FIR_CLEARING = registerOverworld("fir_clearing");
@@ -101,7 +98,7 @@ public class BOPBiomes
 
     private static ResourceKey<Biome> registerOverworld(String name)
     {
-        ResourceKey<Biome> key = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(BOPAPI.MOD_ID, name));
+        ResourceKey<Biome> key = ResourceKey.create(Registries.BIOME, new ResourceLocation(BOPAPI.MOD_ID, name));
         overworldBiomes.add(key);
         allBiomes.add(key);
         return key;
@@ -109,7 +106,7 @@ public class BOPBiomes
 
     private static ResourceKey<Biome> register(String name)
     {
-        ResourceKey<Biome> key = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(BOPAPI.MOD_ID, name));
+        ResourceKey<Biome> key = ResourceKey.create(Registries.BIOME, new ResourceLocation(BOPAPI.MOD_ID, name));
         allBiomes.add(key);
         return key;
     }

@@ -13,7 +13,6 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
-import net.minecraft.server.level.ServerEntity;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
@@ -44,9 +43,9 @@ public class BoatBOP extends Boat
     }
 
     @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket(ServerEntity serverEntity)
+    public Packet<ClientGamePacketListener> getAddEntityPacket()
     {
-        return new ClientboundAddEntityPacket(this, serverEntity);
+        return new ClientboundAddEntityPacket(this);
     }
 
     @Override

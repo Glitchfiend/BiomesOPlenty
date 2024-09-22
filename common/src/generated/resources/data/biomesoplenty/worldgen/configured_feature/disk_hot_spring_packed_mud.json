@@ -4,8 +4,10 @@
     "half_height": 1,
     "radius": {
       "type": "minecraft:uniform",
-      "max_inclusive": 4,
-      "min_inclusive": 4
+      "value": {
+        "max_inclusive": 4,
+        "min_inclusive": 4
+      }
     },
     "state_provider": {
       "fallback": {

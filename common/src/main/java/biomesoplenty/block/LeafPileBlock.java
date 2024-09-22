@@ -26,18 +26,11 @@ import javax.annotation.Nullable;
 
 public class LeafPileBlock extends BushBlock
 {
-    public static final MapCodec<LeafPileBlock> CODEC = simpleCodec(LeafPileBlock::new);
     protected static final VoxelShape NORMAL = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
 
     public LeafPileBlock(Properties properties)
     {
         super(properties);
-    }
-
-    @Override
-    public MapCodec<LeafPileBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override

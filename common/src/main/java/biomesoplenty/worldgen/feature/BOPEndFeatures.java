@@ -13,7 +13,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
@@ -48,7 +48,7 @@ public class BOPEndFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_END_WILDS = BOPFeatureUtils.createKey("trees_end_wilds");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WISPJELLY = BOPFeatureUtils.createKey("wispjelly");
 
-    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context)
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context)
     {
         HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
         final Holder<PlacedFeature> EMPYREAL_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.EMPYREAL_TREE_CHECKED);
@@ -61,7 +61,7 @@ public class BOPEndFeatures
         register(context, BOPEndFeatures.ENDERPHYTE_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE.defaultBlockState())));
         register(context, BOPEndFeatures.FLOWER_END_WILDS, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDBLOOM))));
         register(context, BOPEndFeatures.JAGGED_SANDSTONE, BOPBaseFeatures.JAGGED_SANDSTONE, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPEndFeatures.LIQUID_NULL_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.LIQUID_NULL), BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)));
+        register(context, BOPEndFeatures.LIQUID_NULL_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.LIQUID_NULL), BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)));
         register(context, BOPEndFeatures.LIQUID_NULL_SPRING, Feature.SPRING, new SpringConfiguration(BOPFluids.LIQUID_NULL.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.END_STONE, BOPBlocks.NULL_END_STONE, BOPBlocks.UNMAPPED_END_STONE)));
         register(context, BOPEndFeatures.LUMALOOP, BOPBaseFeatures.LUMALOOP, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.MONOLITH, BOPBaseFeatures.MONOLITH, NoneFeatureConfiguration.INSTANCE);
@@ -74,7 +74,7 @@ public class BOPEndFeatures
         register(context, BOPEndFeatures.WISPJELLY, BOPBaseFeatures.WISPJELLY, NoneFeatureConfiguration.INSTANCE);
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)
     {
         context.register(configuredFeatureKey, new ConfiguredFeature<>(feature, configuration));
     }

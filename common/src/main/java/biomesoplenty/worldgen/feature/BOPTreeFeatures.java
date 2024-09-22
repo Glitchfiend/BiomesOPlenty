@@ -7,7 +7,7 @@ package biomesoplenty.worldgen.feature;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
 import biomesoplenty.worldgen.feature.configurations.*;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -101,7 +101,7 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> EMPYREAL_TREE = BOPFeatureUtils.createKey("empyreal_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NULL_TREE = BOPFeatureUtils.createKey("null_tree");
 
-    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context)
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context)
     {
         register(context, BOPTreeFeatures.FLOWERING_OAK_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES)).build());
         register(context, BOPTreeFeatures.FLOWERING_OAK_TREE_BEES, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.OAK_LEAVES)).altFoliage(BlockStateProvider.simple(BOPBlocks.FLOWERING_OAK_LEAVES)).decorator(new BeehiveDecorator(0.05f)).build());
@@ -189,7 +189,7 @@ public class BOPTreeFeatures
         return new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(log)).foliage(BlockStateProvider.simple(BOPBlocks.REDWOOD_LEAVES));
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)
     {
         context.register(configuredFeatureKey, new ConfiguredFeature<>(feature, configuration));
     }

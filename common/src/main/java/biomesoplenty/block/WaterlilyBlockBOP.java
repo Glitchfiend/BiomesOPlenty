@@ -25,17 +25,11 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class WaterlilyBlockBOP extends BushBlock
 {
-    public static final MapCodec<WaterlilyBlockBOP> CODEC = simpleCodec(WaterlilyBlockBOP::new);
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
     public WaterlilyBlockBOP(BlockBehaviour.Properties p_58162_)
     {
         super(p_58162_);
-    }
-    @Override
-    public MapCodec<WaterlilyBlockBOP> codec()
-    {
-        return CODEC;
     }
 
     @Override

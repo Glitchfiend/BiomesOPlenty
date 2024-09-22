@@ -6,8 +6,12 @@
 package biomesoplenty.forge.core;
 
 import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.forge.handler.RegistryEventHandler;
 import biomesoplenty.forge.init.ModFluidTypes;
 import biomesoplenty.init.*;
+import biomesoplenty.glitch.event.Event;
+import biomesoplenty.glitch.event.EventManager;
+import biomesoplenty.glitch.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.common.Mod;
@@ -31,6 +35,8 @@ public class BiomesOPlentyForge
         FORGE_FLUID_REGISTER.register(bus);
 
         BiomesOPlenty.init();
+        prepareModEventHandlers(bus);
+
         ModFluidTypes.setup();
     }
 
@@ -46,5 +52,14 @@ public class BiomesOPlentyForge
     private void clientSetup(final FMLClientSetupEvent event)
     {
         event.enqueueWork(ModClient::setup);
+    }
+
+    public static void prepareModEventHandlers(IEventBus modEventBus)
+    {
+        for (Class<? extends Event> eventClass : EventManager.getRequiredEvents())
+        {
+            if (eventClass.equals(RegistryEvent.class))
+                RegistryEventHandler.setup(modEventBus);
+        }
     }
 }

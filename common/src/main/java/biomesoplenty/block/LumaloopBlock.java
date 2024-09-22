@@ -26,7 +26,6 @@ import java.util.function.ToIntFunction;
 
 public class LumaloopBlock extends GrowingPlantHeadBlock
 {
-    public static final MapCodec<LumaloopBlock> CODEC = simpleCodec(LumaloopBlock::new);
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     public static final int MAX_AGE = 8;
@@ -37,12 +36,6 @@ public class LumaloopBlock extends GrowingPlantHeadBlock
         super(p_i241195_1_, Direction.UP, SHAPE, false, 0.01D);
         this.growPerTickProbability = 0.01D;
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(LIT, false));
-    }
-
-    @Override
-    public MapCodec<LumaloopBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override

@@ -1,6 +1,0 @@
-{
-  "angry_texture": "biomesoplenty:entity/wolf/wolf_spectral_angry",
-  "biomes": "#biomesoplenty:has_wolf_variant/spectral",
-  "tame_texture": "biomesoplenty:entity/wolf/wolf_spectral_tame",
-  "wild_texture": "biomesoplenty:entity/wolf/wolf_spectral"
-}

@@ -7,7 +7,7 @@ package biomesoplenty.worldgen.feature;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
 import net.minecraft.core.HolderSet;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
@@ -60,7 +60,7 @@ public class BOPMiscOverworldFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRING_WATER_EXTRA = BOPFeatureUtils.createKey("spring_water_extra");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORIGIN_GRAVEL_CLIFFS = BOPFeatureUtils.createKey("origin_gravel_cliffs");
 
-    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context)
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context)
     {
         register(context, BOPMiscOverworldFeatures.BLACK_SAND_SPLATTER, BOPBaseFeatures.BLACK_SAND_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.BONE_SPINE, BOPBaseFeatures.BONE_SPINE, NoneFeatureConfiguration.INSTANCE);
@@ -87,15 +87,15 @@ public class BOPMiscOverworldFeatures
         register(context, BOPMiscOverworldFeatures.DISK_MUD, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.MUD), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(4, 6), 2));
         register(context, BOPMiscOverworldFeatures.MOSSY_BLACK_SAND_SPLATTER, BOPBaseFeatures.MOSSY_BLACK_SAND_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.MUD_SPLATTER, BOPBaseFeatures.MUD_SPLATTER, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPMiscOverworldFeatures.WATER_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.WATER.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
-        register(context, BOPMiscOverworldFeatures.HOT_SPRING_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.WATER.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
+        register(context, BOPMiscOverworldFeatures.WATER_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.WATER.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
+        register(context, BOPMiscOverworldFeatures.HOT_SPRING_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.WATER.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
         register(context, BOPMiscOverworldFeatures.LAVA_LAKE_VOLCANO, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.LAVA.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
         register(context, BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO, Feature.SPRING, new SpringConfiguration(Fluids.LAVA.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.BASALT, Blocks.SMOOTH_BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.BLACK_SANDSTONE)));
         register(context, BOPMiscOverworldFeatures.SPRING_WATER_EXTRA, Feature.SPRING, new SpringConfiguration(Fluids.WATER.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.DIRT, Blocks.TERRACOTTA, Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.CYAN_TERRACOTTA, Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.BLUE_TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, BOPBlocks.ORANGE_SANDSTONE)));
         register(context, BOPMiscOverworldFeatures.ORIGIN_GRAVEL_CLIFFS, BOPBaseFeatures.ORIGIN_GRAVEL_CLIFFS, NoneFeatureConfiguration.INSTANCE);
     }
     
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)
     {
         context.register(configuredFeatureKey, new ConfiguredFeature<>(feature, configuration));
     }

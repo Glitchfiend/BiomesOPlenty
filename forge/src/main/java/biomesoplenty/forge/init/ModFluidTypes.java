@@ -19,7 +19,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.pathfinder.PathType;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.SoundActions;
@@ -57,7 +57,7 @@ public class ModFluidTypes
                         .viscosity(6000))
         {
             @Override
-            public @Nullable PathType getBlockPathType(FluidState state, BlockGetter level, BlockPos pos, @Nullable Mob mob, boolean canFluidLog)
+            public @Nullable BlockPathTypes getBlockPathType(FluidState state, BlockGetter level, BlockPos pos, @Nullable Mob mob, boolean canFluidLog)
             {
                 return canFluidLog ? super.getBlockPathType(state, level, pos, mob, true) : null;
             }
@@ -67,9 +67,9 @@ public class ModFluidTypes
             {
                 consumer.accept(new IClientFluidTypeExtensions()
                 {
-                    private static final ResourceLocation BLOOD_UNDERWATER = ResourceLocation.parse("biomesoplenty:textures/block/blood_underwater.png"),
-                            BLOOD_STILL = ResourceLocation.parse("biomesoplenty:block/blood_still"),
-                            BLOOD_FLOW = ResourceLocation.parse("biomesoplenty:block/blood_flow");
+                    private static final ResourceLocation BLOOD_UNDERWATER = new ResourceLocation("biomesoplenty:textures/block/blood_underwater.png"),
+                            BLOOD_STILL = new ResourceLocation("biomesoplenty:block/blood_still"),
+                            BLOOD_FLOW = new ResourceLocation("biomesoplenty:block/blood_flow");
 
                     @Override
                     public ResourceLocation getStillTexture()
@@ -110,7 +110,7 @@ public class ModFluidTypes
                 .viscosity(6000))
         {
             @Override
-            public @Nullable PathType getBlockPathType(FluidState state, BlockGetter level, BlockPos pos, @Nullable Mob mob, boolean canFluidLog)
+            public @Nullable BlockPathTypes getBlockPathType(FluidState state, BlockGetter level, BlockPos pos, @Nullable Mob mob, boolean canFluidLog)
             {
                 return canFluidLog ? super.getBlockPathType(state, level, pos, mob, true) : null;
             }
@@ -120,9 +120,9 @@ public class ModFluidTypes
             {
                 consumer.accept(new IClientFluidTypeExtensions()
                 {
-                    private static final ResourceLocation LIQUID_NULL_UNDERWATER = ResourceLocation.parse("biomesoplenty:textures/block/liquid_null_underwater.png"),
-                            LIQUID_NULL_STILL = ResourceLocation.parse("biomesoplenty:block/liquid_null_still"),
-                            LIQUID_NULL_FLOW = ResourceLocation.parse("biomesoplenty:block/liquid_null_flow");
+                    private static final ResourceLocation LIQUID_NULL_UNDERWATER = new ResourceLocation("biomesoplenty:textures/block/liquid_null_underwater.png"),
+                            LIQUID_NULL_STILL = new ResourceLocation("biomesoplenty:block/liquid_null_still"),
+                            LIQUID_NULL_FLOW = new ResourceLocation("biomesoplenty:block/liquid_null_flow");
 
                     @Override
                     public ResourceLocation getStillTexture()

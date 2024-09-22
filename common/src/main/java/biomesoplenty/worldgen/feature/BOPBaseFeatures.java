@@ -10,7 +10,6 @@ import biomesoplenty.worldgen.feature.misc.*;
 import biomesoplenty.worldgen.feature.tree.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.LargeDripstoneConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -100,7 +99,6 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> DEAD_CORAL_MUSHROOM;
     public static Feature<NoneFeatureConfiguration> DEAD_CORAL_CLAW;
     public static Feature<NoneFeatureConfiguration> BARNACLES;
-    public static BOPLakeFeature LAKE;
 
     public static void registerFeatures(BiConsumer<ResourceLocation, Feature<?>> func)
     {
@@ -184,12 +182,11 @@ public class BOPBaseFeatures
         DEAD_CORAL_MUSHROOM = register(func, "dead_coral_mushroom", new DeadCoralMushroomFeature(NoneFeatureConfiguration.CODEC));
         DEAD_CORAL_CLAW = register(func, "dead_coral_claw", new DeadCoralClawFeature(NoneFeatureConfiguration.CODEC));
         BARNACLES = register(func, "barnacles", new BarnacleFeature(NoneFeatureConfiguration.CODEC));
-        LAKE = register(func, "lake", new BOPLakeFeature(LakeFeature.Configuration.CODEC));
     }
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(BiConsumer<ResourceLocation, Feature<?>> func, String name, F feature)
     {
-        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), feature);
+        func.accept(new ResourceLocation(BiomesOPlenty.MOD_ID, name), feature);
         return feature;
     }
 }

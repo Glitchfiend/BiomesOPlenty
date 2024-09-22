@@ -4,14 +4,23 @@
  ******************************************************************************/
 package biomesoplenty.block;
 
-import net.minecraft.util.ColorRGBA;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ColoredFallingBlock;
+import net.minecraft.world.level.block.FallingBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class SandBlockBOP extends ColoredFallingBlock
+public class SandBlockBOP extends FallingBlock
 {
-    public SandBlockBOP(ColorRGBA dustColor, Block.Properties properties)
+    private final int dustColor;
+    public SandBlockBOP(int dustColor, Block.Properties properties)
     {
-        super(dustColor, properties);
+        super(properties);
+        this.dustColor = dustColor;
+    }
+
+    @Override
+    public int getDustColor(BlockState $$0, BlockGetter $$1, BlockPos $$2) {
+        return dustColor;
     }
 }

@@ -59,7 +59,7 @@ public class NullPlantBlock extends Block implements BonemealableBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState)
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean b)
     {
         return true;
     }

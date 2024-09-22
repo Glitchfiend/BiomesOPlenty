@@ -57,7 +57,7 @@
       "minecraft:ore_redstone",
       "minecraft:ore_redstone_lower",
       "minecraft:ore_diamond",
-      "minecraft:ore_diamond_medium",
+
       "minecraft:ore_diamond_large",
       "minecraft:ore_diamond_buried",
       "minecraft:ore_lapis",
@@ -96,12 +96,6 @@
         "maxCount": 2,
         "minCount": 1,
         "weight": 1
-      },
-      {
-        "type": "minecraft:wolf",
-        "maxCount": 4,
-        "minCount": 2,
-        "weight": 2
       }
     ],
     "misc": [],

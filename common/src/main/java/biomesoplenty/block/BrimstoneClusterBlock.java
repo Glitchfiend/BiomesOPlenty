@@ -58,8 +58,7 @@ public class BrimstoneClusterBlock extends DoublePlantBlockBOP
     }
 
     @Override
-    protected boolean isPathfindable(BlockState state, PathComputationType computationType)
-    {
+    public boolean isPathfindable(BlockState p_154341_, BlockGetter p_154342_, BlockPos p_154343_, PathComputationType p_154344_) {
         return false;
     }
 }

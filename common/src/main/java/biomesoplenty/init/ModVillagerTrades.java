@@ -2,7 +2,7 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.ImmutableMap;
-import biomesoplenty.core.event.WandererTradesEvent;
+import biomesoplenty.glitch.event.village.WandererTradesEvent;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.util.RandomSource;
@@ -10,8 +10,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 public class ModVillagerTrades
@@ -130,7 +130,7 @@ public class ModVillagerTrades
         }
 
         public MerchantOffer getOffer(Entity p_219699_, RandomSource p_219700_) {
-            return new MerchantOffer(new ItemCost(Items.EMERALD, this.emeraldCost), new ItemStack(this.itemStack.getItem(), this.numberOfItems), this.maxUses, this.villagerXp, this.priceMultiplier);
+            return new MerchantOffer(new ItemStack(Items.EMERALD, this.emeraldCost), new ItemStack(this.itemStack.getItem(), this.numberOfItems), this.maxUses, this.villagerXp, this.priceMultiplier);
         }
     }
 

@@ -11,12 +11,11 @@ dependencies {
     compileOnly project(":Common")
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    //modImplementation "com.github.glitchfiend:GlitchCore-fabric:${minecraft_version}-${glitchcore_version}"
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
-    implementation("com.electronwill.night-config:toml:${nightconfig_version}")
-    implementation("com.electronwill.night-config:core:${nightconfig_version}")
-    implementation("net.jodah:typetools:0.6.3")
+    include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
+    include implementation("com.electronwill.night-config:core:${nightconfig_version}")
+    include implementation("net.jodah:typetools:0.6.3")
 }
 
 loom {

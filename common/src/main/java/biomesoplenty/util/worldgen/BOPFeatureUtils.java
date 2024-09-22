@@ -7,15 +7,14 @@ package biomesoplenty.util.worldgen;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.worldgen.feature.*;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 public class BOPFeatureUtils
 {
-    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context)
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context)
     {
         BOPCaveFeatures.bootstrap(context);
         BOPMiscOverworldFeatures.bootstrap(context);
@@ -27,6 +26,6 @@ public class BOPFeatureUtils
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name)
     {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(BiomesOPlenty.MOD_ID, name));
     }
 }

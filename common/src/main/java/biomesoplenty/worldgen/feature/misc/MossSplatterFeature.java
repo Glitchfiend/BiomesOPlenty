@@ -58,7 +58,7 @@ public class MossSplatterFeature extends Feature<NoneFeatureConfiguration>
                      switch (rand.nextInt(4))
                      {
                         case 2:
-                           worldIn.setBlock(blockpos.above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
+                           worldIn.setBlock(blockpos.above(), Blocks.GRASS.defaultBlockState(), 2);
                            break;
 
                         case 1:

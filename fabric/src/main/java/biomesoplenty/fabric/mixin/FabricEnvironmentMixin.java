@@ -1,6 +1,6 @@
 package biomesoplenty.fabric.mixin;
 
-import biomesoplenty.util.Environment;
+import biomesoplenty.glitch.util.Environment;
 import java.nio.file.Path;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -20,11 +20,5 @@ public abstract class FabricEnvironmentMixin
   public static Path getConfigPath()
   {
     return FabricLoader.getInstance().getConfigDir();
-  }
-
-  @Overwrite
-  public static boolean isModLoaded(String id)
-  {
-    return FabricLoader.getInstance().isModLoaded(id);
   }
 }

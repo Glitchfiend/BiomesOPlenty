@@ -20,18 +20,11 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TinyCactusBlock extends BushBlock
 {
-    public static final MapCodec<TinyCactusBlock> CODEC = simpleCodec(TinyCactusBlock::new);
     protected static final VoxelShape NORMAL = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 13.0D, 13.0D);
 
     public TinyCactusBlock(Properties properties)
     {
         super(properties);
-    }
-
-    @Override
-    public MapCodec<TinyCactusBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override

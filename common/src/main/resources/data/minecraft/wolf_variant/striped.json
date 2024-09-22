@@ -1,6 +1,0 @@
-{
-  "angry_texture": "minecraft:entity/wolf/wolf_striped_angry",
-  "biomes": "#c:has_wolf_variant/striped",
-  "tame_texture": "minecraft:entity/wolf/wolf_striped_tame",
-  "wild_texture": "minecraft:entity/wolf/wolf_striped"
-}

@@ -1,8 +1,7 @@
 package biomesoplenty.forge.mixin;
 
-import biomesoplenty.util.Environment;
+import biomesoplenty.glitch.util.Environment;
 import java.nio.file.Path;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,11 +20,5 @@ public abstract class ForgeEnvironmentMixin
   public static Path getConfigPath()
   {
     return FMLPaths.CONFIGDIR.get();
-  }
-
-  @Overwrite
-  public static boolean isModLoaded(String id)
-  {
-    return ModList.get().isLoaded(id);
   }
 }

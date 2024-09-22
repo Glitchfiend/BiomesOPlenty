@@ -6,6 +6,8 @@ package biomesoplenty.block;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import java.util.function.Function;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -26,19 +28,12 @@ import javax.annotation.Nullable;
 
 public class BarnaclesBlock extends MultifaceBlock implements SimpleWaterloggedBlock
 {
-    public static final MapCodec<BarnaclesBlock> CODEC = simpleCodec(BarnaclesBlock::new);
     private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public BarnaclesBlock(Properties p_153282_)
     {
         super(p_153282_);
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(false)));
-    }
-
-    @Override
-    public MapCodec<BarnaclesBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override

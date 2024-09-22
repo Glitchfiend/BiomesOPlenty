@@ -7,8 +7,6 @@ package biomesoplenty.block;
 import biomesoplenty.api.sound.BOPSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
@@ -17,7 +15,6 @@ import net.minecraft.world.entity.monster.CaveSpider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.*;
@@ -73,13 +70,12 @@ public class SpiderEggBlock extends Block
     }
 
     @Override
-    public void spawnAfterBreak(BlockState p_54188_, ServerLevel level, BlockPos p_54190_, ItemStack p_54191_, boolean p_222953_)
+    public void spawnAfterBreak(BlockState p_54188_, ServerLevel p_54189_, BlockPos p_54190_, ItemStack p_54191_, boolean p_222953_)
     {
-        super.spawnAfterBreak(p_54188_, level, p_54190_, p_54191_, p_222953_);
-        HolderLookup.RegistryLookup<Enchantment> registrylookup = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        if (level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(registrylookup.getOrThrow(Enchantments.SILK_TOUCH), p_54191_) == 0)
+        super.spawnAfterBreak(p_54188_, p_54189_, p_54190_, p_54191_, p_222953_);
+        if (p_54189_.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, p_54191_) == 0)
         {
-            this.spawnSpider(level, p_54190_);
+            this.spawnSpider(p_54189_, p_54190_);
         }
     }
 
@@ -99,8 +95,7 @@ public class SpiderEggBlock extends Block
     }
 
     @Override
-    protected boolean isPathfindable(BlockState state, PathComputationType computationType)
-    {
+    public boolean isPathfindable(BlockState p_154341_, BlockGetter p_154342_, BlockPos p_154343_, PathComputationType p_154344_) {
         return false;
     }
 }

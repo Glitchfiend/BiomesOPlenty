@@ -34,11 +34,7 @@
                 "trims/models/armor/raiser",
                 "trims/models/armor/raiser_leggings",
                 "trims/models/armor/host",
-                "trims/models/armor/host_leggings",
-                "trims/models/armor/flow",
-                "trims/models/armor/flow_leggings",
-                "trims/models/armor/bolt",
-                "trims/models/armor/bolt_leggings"
+                "trims/models/armor/host_leggings"
             ],
             "palette_key": "trims/color_palettes/trim_palette",
             "permutations": {

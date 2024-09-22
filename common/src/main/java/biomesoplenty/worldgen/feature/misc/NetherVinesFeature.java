@@ -81,7 +81,7 @@ public class NetherVinesFeature extends Feature<NoneFeatureConfiguration>
             {
                 BlockPos offsetPos = genPos.below(height);
 
-                if (replace.matches(world, offsetPos) && vineState.canSurvive(world, offsetPos))
+                if (replace.matches(world, offsetPos) && vineState.getBlock().canSurvive(vineState, world, offsetPos))
                 {
                     world.setBlock(offsetPos, vineState, 2);
                 }

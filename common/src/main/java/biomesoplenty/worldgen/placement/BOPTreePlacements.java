@@ -11,7 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Blocks;
@@ -92,7 +92,7 @@ public class BOPTreePlacements
     public static final ResourceKey<PlacedFeature> WILLOW_TREE_CHECKED = BOPPlacementUtils.createKey("willow_tree");
     public static final ResourceKey<PlacedFeature> YELLOW_MAPLE_TREE_CHECKED = BOPPlacementUtils.createKey("yellow_maple_tree");
 
-    public static void bootstrap(BootstrapContext<PlacedFeature> context)
+    public static void bootstrap(BootstapContext<PlacedFeature> context)
     {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -231,12 +231,12 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.YELLOW_MAPLE_TREE_CHECKED, YELLOW_MAPLE_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.YELLOW_MAPLE_SAPLING)));
     }
     
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)
+    protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)
     {
         register(context, placedFeatureKey, configuredFeature, List.of(modifiers));
     }
 
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> modifiers)
+    protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> modifiers)
     {
         context.register(placedFeatureKey, new PlacedFeature(configuredFeature, modifiers));
     }
