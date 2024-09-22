@@ -1,0 +1,37 @@
+{
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:cold_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:dryland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:pasture",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:prairie",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:shrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcano",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wasteland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wasteland_steppe",
+            "required": false
+        }
+	]
+}

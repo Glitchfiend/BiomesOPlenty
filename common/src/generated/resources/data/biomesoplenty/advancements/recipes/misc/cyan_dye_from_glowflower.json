@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glowflower": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomesoplenty:glowflower"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:cyan_dye_from_glowflower"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_glowflower"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:cyan_dye_from_glowflower"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "yellow_dye",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:goldenrod"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:yellow_dye"
+  }
+}

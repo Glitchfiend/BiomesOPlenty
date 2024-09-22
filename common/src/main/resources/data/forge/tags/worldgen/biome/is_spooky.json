@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:ominous_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:spider_nest",
+            "required": false
+        }
+	]
+}

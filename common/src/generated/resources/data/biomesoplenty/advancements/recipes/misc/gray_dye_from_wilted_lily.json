@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:gray_dye_from_wilted_lily"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wilted_lily": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomesoplenty:wilted_lily"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wilted_lily"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:gray_dye_from_wilted_lily"
+    ]
+  }
+}

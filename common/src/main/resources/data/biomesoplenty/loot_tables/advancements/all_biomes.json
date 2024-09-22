@@ -1,0 +1,24 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+			"name": "all_biomes",
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "biomesoplenty:music_disc_wanderer",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1                            
+							}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "B": {
+      "item": "biomesoplenty:blood_bucket"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#B#",
+    " # "
+  ],
+  "result": {
+    "item": "biomesoplenty:flesh"
+  }
+}

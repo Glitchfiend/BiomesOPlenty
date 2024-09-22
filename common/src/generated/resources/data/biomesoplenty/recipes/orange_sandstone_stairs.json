@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "biomesoplenty:orange_sandstone"
+      },
+      {
+        "item": "biomesoplenty:chiseled_orange_sandstone"
+      },
+      {
+        "item": "biomesoplenty:cut_orange_sandstone"
+      }
+    ]
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "item": "biomesoplenty:orange_sandstone_stairs"
+  }
+}

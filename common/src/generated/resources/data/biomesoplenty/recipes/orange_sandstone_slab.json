@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "biomesoplenty:orange_sandstone"
+      },
+      {
+        "item": "biomesoplenty:chiseled_orange_sandstone"
+      }
+    ]
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "biomesoplenty:orange_sandstone_slab"
+  }
+}

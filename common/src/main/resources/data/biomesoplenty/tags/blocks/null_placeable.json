@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+	"biomesoplenty:unmapped_end_stone",
+	"biomesoplenty:null_end_stone",
+	"biomesoplenty:null_block"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:bayou",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:bog",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:floodplain",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:forested_field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fungal_jungle",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:grassland",
+            "required": false
+        },
+		{
+            "id": "biomesoplenty:hot_springs",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:marsh",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:moor",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:muskeg",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:mystic_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:ominous_woods",
+            "required": false
+        },
+		{
+            "id": "biomesoplenty:overgrown_greens",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rocky_rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tropics",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wetland",
+            "required": false
+        }
+	]
+}

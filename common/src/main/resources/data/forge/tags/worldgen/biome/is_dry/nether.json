@@ -1,0 +1,25 @@
+{
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:crystalline_chasm",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:erupting_inferno",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:undergrowth",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:visceral_heap",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:withered_abyss",
+            "required": false
+        }
+	]
+}

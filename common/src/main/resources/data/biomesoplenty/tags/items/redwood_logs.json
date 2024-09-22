@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:redwood_log",
+    "biomesoplenty:redwood_wood",
+    "biomesoplenty:stripped_redwood_log",
+    "biomesoplenty:stripped_redwood_wood"
+  ]
+}

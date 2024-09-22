@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:umbran_log",
+    "biomesoplenty:umbran_wood",
+    "biomesoplenty:stripped_umbran_log",
+    "biomesoplenty:stripped_umbran_wood"
+  ]
+}

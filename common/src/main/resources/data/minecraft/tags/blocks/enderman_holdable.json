@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+	"biomesoplenty:black_sand",
+	"biomesoplenty:mossy_black_sand",
+	"biomesoplenty:orange_sand",
+	"biomesoplenty:white_sand",
+	"biomesoplenty:endbloom",
+	"biomesoplenty:enderphyte",
+	"biomesoplenty:toadstool",
+	"biomesoplenty:glowshroom",
+	"biomesoplenty:origin_grass_block"
+  ]
+}

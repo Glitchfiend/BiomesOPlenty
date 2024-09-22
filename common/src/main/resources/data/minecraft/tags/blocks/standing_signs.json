@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:fir_sign",
+	"biomesoplenty:pine_sign",
+	"biomesoplenty:maple_sign",
+	"biomesoplenty:redwood_sign",
+	"biomesoplenty:mahogany_sign",
+	"biomesoplenty:jacaranda_sign",
+	"biomesoplenty:palm_sign",
+	"biomesoplenty:willow_sign",
+	"biomesoplenty:dead_sign",
+	"biomesoplenty:magic_sign",
+	"biomesoplenty:umbran_sign",
+	"biomesoplenty:hellbark_sign",
+	"biomesoplenty:empyreal_sign"
+  ]
+}

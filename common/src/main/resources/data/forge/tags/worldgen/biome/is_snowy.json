@@ -1,0 +1,33 @@
+{
+	"replace": false,
+	"values": [
+        {
+            "id": "biomesoplenty:auroral_garden",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:cold_desert",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:muskeg",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowblossom_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_maple_woods",
+            "required": false
+        }
+	]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "biomesoplenty:white_sandstone"
+      },
+      {
+        "item": "biomesoplenty:chiseled_white_sandstone"
+      }
+    ]
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "biomesoplenty:white_sandstone_slab"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "light_blue_dye",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:icy_iris"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:light_blue_dye"
+  }
+}
