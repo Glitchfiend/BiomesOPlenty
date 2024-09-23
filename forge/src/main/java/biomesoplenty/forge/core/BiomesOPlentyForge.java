@@ -35,7 +35,6 @@ public class BiomesOPlentyForge
         FORGE_FLUID_REGISTER.register(bus);
 
         BiomesOPlenty.init();
-        prepareModEventHandlers(bus);
 
         ModFluidTypes.setup();
     }
@@ -52,14 +51,5 @@ public class BiomesOPlentyForge
     private void clientSetup(final FMLClientSetupEvent event)
     {
         event.enqueueWork(ModClient::setup);
-    }
-
-    public static void prepareModEventHandlers(IEventBus modEventBus)
-    {
-        for (Class<? extends Event> eventClass : EventManager.getRequiredEvents())
-        {
-            if (eventClass.equals(RegistryEvent.class))
-                RegistryEventHandler.setup(modEventBus);
-        }
     }
 }
