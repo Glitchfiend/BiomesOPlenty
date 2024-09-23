@@ -13,5 +13,5 @@ public class OriginGrassBlock extends GrassBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) { return false; }
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean b) { return false; }
 }

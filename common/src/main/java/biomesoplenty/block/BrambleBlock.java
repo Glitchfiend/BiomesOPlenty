@@ -23,18 +23,10 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 
 public class BrambleBlock extends PipeBlock
 {
-    public static final MapCodec<BrambleBlock> CODEC = simpleCodec(BrambleBlock::new);
-
     public BrambleBlock(Block.Properties builder)
     {
         super(0.25F, builder);
         this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)).setValue(DOWN, Boolean.valueOf(false)));
-    }
-
-    @Override
-    public MapCodec<BrambleBlock> codec()
-    {
-        return CODEC;
     }
     
     @Override

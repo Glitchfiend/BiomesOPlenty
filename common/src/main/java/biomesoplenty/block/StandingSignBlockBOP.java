@@ -15,7 +15,7 @@ public class StandingSignBlockBOP extends StandingSignBlock
 {
     public StandingSignBlockBOP(Properties properties, WoodType type)
     {
-        super(type, properties);
+        super(properties, type);
     }
 
     @Override

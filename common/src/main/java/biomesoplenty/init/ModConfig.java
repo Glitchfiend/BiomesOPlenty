@@ -11,7 +11,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.util.config.JsonUtil;
 import com.google.common.collect.Maps;
 import com.google.gson.reflect.TypeToken;
-import glitchcore.util.Environment;
+import biomesoplenty.glitch.util.Environment;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 

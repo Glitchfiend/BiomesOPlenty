@@ -8,7 +8,7 @@ import biomesoplenty.entity.BoatBOP;
 import biomesoplenty.entity.ChestBoatBOP;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.dispenser.BlockSource;
+import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.vehicle.Boat;
@@ -31,12 +31,12 @@ public class BoatDispenseItemBehaviourBOP extends DefaultDispenseItemBehavior
     @Override
     public ItemStack execute(BlockSource source, ItemStack stack)
     {
-        Direction direction = source.state().getValue(DispenserBlock.FACING);
-        Level level = source.level();
-        double d0 = source.pos().getX() + (double) ((float) direction.getStepX() * 1.125F);
-        double d1 = source.pos().getY() + (double) ((float) direction.getStepY() * 1.125F);
-        double d2 = source.pos().getZ() + (double) ((float) direction.getStepZ() * 1.125F);
-        BlockPos blockpos = source.pos().relative(direction);
+        Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
+        Level level = source.getLevel();
+        double d0 = source.getPos().getX() + (double) ((float) direction.getStepX() * 1.125F);
+        double d1 = source.getPos().getY() + (double) ((float) direction.getStepY() * 1.125F);
+        double d2 = source.getPos().getZ() + (double) ((float) direction.getStepZ() * 1.125F);
+        BlockPos blockpos = source.getPos().relative(direction);
         double d3;
         if (level.getFluidState(blockpos).is(FluidTags.WATER))
         {
@@ -76,6 +76,6 @@ public class BoatDispenseItemBehaviourBOP extends DefaultDispenseItemBehavior
     @Override
     protected void playSound(BlockSource p_123373_)
     {
-        p_123373_.level().levelEvent(1000, p_123373_.pos(), 0);
+        p_123373_.getLevel().levelEvent(1000, p_123373_.getPos(), 0);
     }
 }

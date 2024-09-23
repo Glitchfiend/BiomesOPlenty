@@ -17,17 +17,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class WispjellyBlock extends Block
 {
-    public static final MapCodec<WispjellyBlock> CODEC = simpleCodec(WispjellyBlock::new);
-
     public WispjellyBlock(Properties p_153282_)
     {
         super(p_153282_);
-    }
-
-    @Override
-    public MapCodec<WispjellyBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override

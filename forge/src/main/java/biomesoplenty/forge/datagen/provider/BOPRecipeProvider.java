@@ -9,6 +9,7 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.forge.datagen.BOPBlockFamilies;
 import biomesoplenty.init.ModTags;
+import java.util.function.Consumer;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -29,7 +30,7 @@ public class BOPRecipeProvider extends RecipeProvider
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput output)
+    protected void buildRecipes(Consumer<FinishedRecipe> output)
     {
         generateForEnabledBlockFamilies(output, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
@@ -244,30 +245,30 @@ public class BOPRecipeProvider extends RecipeProvider
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, Blocks.TNT).define('#', Ingredient.of(BOPBlocks.WHITE_SAND, BOPBlocks.ORANGE_SAND, BOPBlocks.BLACK_SAND)).define('X', Items.GUNPOWDER).pattern("X#X").pattern("#X#").pattern("X#X").unlockedBy("has_gunpowder", has(Items.GUNPOWDER)).save(output, BiomesOPlenty.MOD_ID + ":" + "tnt_from_bop_sand");
     }
 
-    protected static void generateForEnabledBlockFamilies(RecipeOutput output, FeatureFlagSet flags) {
-        BOPBlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateRecipe).forEach((family) -> generateRecipes(output, family, flags));
+    protected void generateForEnabledBlockFamilies(Consumer<FinishedRecipe> output, FeatureFlagSet flags) {
+        BOPBlockFamilies.getAllFamilies().filter(family -> family.shouldGenerateRecipe(flags)).forEach((family) -> generateRecipes(output, family));
     }
 
-    protected static void planksFromLogs(RecipeOutput output, ItemLike planks, ItemLike log, int count)
+    protected static void planksFromLogs(Consumer<FinishedRecipe> output, ItemLike planks, ItemLike log, int count)
     {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, planks, count).requires(log).group("planks").unlockedBy("has_logs", has(log)).save(output);
     }
 
-    protected static void stonecutterResultFromBase(RecipeOutput output, RecipeCategory category, ItemLike result, ItemLike input)
+    protected static void stonecutterResultFromBase(Consumer<FinishedRecipe> output, RecipeCategory category, ItemLike result, ItemLike input)
     {
         stonecutterResultFromBase(output, category, result, input, 1);
     }
 
-    protected static void stonecutterResultFromBase(RecipeOutput output, RecipeCategory category, ItemLike result, ItemLike input, int count)
+    protected static void stonecutterResultFromBase(Consumer<FinishedRecipe> output, RecipeCategory category, ItemLike result, ItemLike input, int count)
     {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), category, result, count).unlockedBy(getHasName(input), has(input)).save(output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(result, input) + "_stonecutting");
     }
 
-    protected static void oneToOneConversionRecipe(RecipeOutput p_299023_, ItemLike p_176553_, ItemLike p_176554_, @Nullable String p_176555_) {
+    protected static void oneToOneConversionRecipe(Consumer<FinishedRecipe> p_299023_, ItemLike p_176553_, ItemLike p_176554_, @Nullable String p_176555_) {
         oneToOneConversionRecipe(p_299023_, p_176553_, p_176554_, p_176555_, 1);
     }
 
-    protected static void oneToOneConversionRecipe(RecipeOutput p_301230_, ItemLike p_176558_, ItemLike p_176559_, @Nullable String p_176560_, int p_176561_) {
+    protected static void oneToOneConversionRecipe(Consumer<FinishedRecipe> p_301230_, ItemLike p_176558_, ItemLike p_176559_, @Nullable String p_176560_, int p_176561_) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, p_176558_, p_176561_).requires(p_176559_).group(p_176560_).unlockedBy(getHasName(p_176559_), has(p_176559_)).save(p_301230_, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(p_176558_, p_176559_));
     }
 }

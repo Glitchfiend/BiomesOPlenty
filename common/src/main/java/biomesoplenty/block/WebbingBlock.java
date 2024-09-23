@@ -21,16 +21,8 @@ import javax.annotation.Nullable;
 
 public class WebbingBlock extends MultifaceBlock
 {
-    public static final MapCodec<WebbingBlock> CODEC = simpleCodec(WebbingBlock::new);
-
     public WebbingBlock(BlockBehaviour.Properties p_153282_) {
         super(p_153282_);
-    }
-
-    @Override
-    public MapCodec<WebbingBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override

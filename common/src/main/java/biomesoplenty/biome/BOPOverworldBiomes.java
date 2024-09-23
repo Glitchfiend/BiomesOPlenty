@@ -971,7 +971,6 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_REDSTONE);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_REDSTONE_LOWER);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIAMOND);
-        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIAMOND_MEDIUM);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIAMOND_LARGE);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, OrePlacements.ORE_DIAMOND_BURIED);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE);
