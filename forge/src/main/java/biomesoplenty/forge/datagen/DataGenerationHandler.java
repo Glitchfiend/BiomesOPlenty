@@ -4,6 +4,8 @@
  ******************************************************************************/
 package biomesoplenty.forge.datagen;
 
+import biomesoplenty.forge.datagen.provider.BOPLootTableProvider;
+import biomesoplenty.forge.datagen.provider.BOPRecipeProvider;
 import biomesoplenty.init.ModDamageTypes;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
 import biomesoplenty.util.worldgen.BOPPlacementUtils;
@@ -38,5 +40,9 @@ public class DataGenerationHandler
         PackOutput output = generator.getPackOutput();
 
         generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
+        // Recipes
+        generator.addProvider(event.includeServer(), new BOPRecipeProvider(output));
+        // Loot
+        generator.addProvider(event.includeServer(), BOPLootTableProvider.create(output));
     }
 }
