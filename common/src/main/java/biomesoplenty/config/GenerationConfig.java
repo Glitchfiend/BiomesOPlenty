@@ -5,8 +5,8 @@
 package biomesoplenty.config;
 
 import biomesoplenty.core.BiomesOPlenty;
-import biomesoplenty.glitch.config.Config;
-import biomesoplenty.glitch.util.Environment;
+import glitchcore.config.Config;
+import glitchcore.util.Environment;
 
 public class GenerationConfig extends Config
 {

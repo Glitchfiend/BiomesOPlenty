@@ -16,10 +16,7 @@
   "icon": "assets/biomesoplenty/textures/item/bop_icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "biomesoplenty.fabric.client.BiomesOPlentyClient"
-    ],
-    "main": [
+    "glitchcore": [
       "biomesoplenty.fabric.core.BiomesOPlentyFabric"
     ],
     "terrablender": [

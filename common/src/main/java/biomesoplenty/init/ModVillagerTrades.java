@@ -2,7 +2,7 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.ImmutableMap;
-import biomesoplenty.glitch.event.village.WandererTradesEvent;
+import glitchcore.event.village.WandererTradesEvent;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.util.RandomSource;
