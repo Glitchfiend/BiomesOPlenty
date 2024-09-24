@@ -11,6 +11,7 @@ dependencies {
     compileOnly project(":Common")
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    modImplementation "com.github.marlester-dev.GlitchCore-1201:GlitchCore-fabric:${glitchcore_version}"
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")

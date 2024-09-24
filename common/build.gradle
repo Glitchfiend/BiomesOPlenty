@@ -19,5 +19,6 @@ dependencies {
     compileOnly("com.electronwill.night-config:toml:${nightconfig_version}")
     compileOnly("com.electronwill.night-config:core:${nightconfig_version}")
     compileOnly("net.jodah:typetools:0.6.3")
+    compileOnly "com.github.marlester-dev.GlitchCore-1201:GlitchCore-common:${glitchcore_version}"
     compileOnly 'com.github.glitchfiend:TerraBlender-common:' + minecraft_version + '-' + terrablender_version
 }

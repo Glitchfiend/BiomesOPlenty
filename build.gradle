@@ -70,6 +70,9 @@ subprojects {
     }
 
     repositories {
+        maven {
+            url 'https://jitpack.io'
+        }
         mavenCentral()
         maven {
             name = 'Sponge / Mixin'
@@ -90,7 +93,7 @@ subprojects {
         var expandProps = [
             minecraft_version   : minecraft_version,
             forge_version       : forge_version, forge_version_range: forge_version_range, forge_loader_version_range: forge_loader_version_range,
-            terrablender_version: terrablender_version,
+            glitchcore_version  : glitchcore_version, terrablender_version: terrablender_version,
             mod_id              : mod_id, mod_name: mod_name, mod_display_name: mod_display_name, mod_version: mod_version,
             mod_authors         : mod_authors, mod_description: mod_description,
             mod_issues_url      : mod_issues_url, mod_page_url: mod_page_url, mod_git_url: mod_git_url,
