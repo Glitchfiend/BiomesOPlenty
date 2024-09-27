@@ -22,7 +22,7 @@ logoFile="${mod_id}_logo.png"
 [[dependencies.${mod_id}]]
     modId="glitchcore"
     mandatory=true
-    versionRange="[${glitchcore_version},)"
+    versionRange="[0.0.0,)"
     ordering="AFTER"
     side="BOTH"
 
