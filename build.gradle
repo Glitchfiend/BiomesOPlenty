@@ -70,9 +70,6 @@ subprojects {
     }
 
     repositories {
-        maven {
-            url 'https://jitpack.io'
-        }
         mavenCentral()
         maven {
             name = 'Sponge / Mixin'
@@ -132,6 +129,7 @@ subprojects {
                         required.project "fabric-api"
                     }
                     required.project "terrablender"
+                    required.project "glitchcore"
                 }
 
                 if (changelog_file.exists()) {

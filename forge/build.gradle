@@ -51,7 +51,7 @@ minecraft {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly project(":Common")
-    implementation fg.deobf("com.github.marlester-dev.GlitchCore-1201:GlitchCore-forge:${glitchcore_version}")
+    implementation fg.deobf('com.github.glitchfiend:GlitchCore-forge:' + minecraft_version + '-' + glitchcore_version)
     implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version)
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
@@ -108,6 +108,7 @@ curseforge {
         }
 
         relations {
+            requiredDependency 'glitchcore'
             requiredDependency 'terrablender'
         }
     }
