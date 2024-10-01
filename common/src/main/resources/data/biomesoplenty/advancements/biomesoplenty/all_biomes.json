@@ -191,54 +191,6 @@
 			]
 		  }
         },
-		"end_corruption": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:end_corruption"
-				  }
-				}
-			  }
-			]
-		  }
-        },
-		"end_reef": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:end_reef"
-				  }
-				}
-			  }
-			]
-		  }
-        },
-		"end_wilds": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biome": "biomesoplenty:end_wilds"
-				  }
-				}
-			  }
-			]
-		  }
-        },
 		"erupting_inferno": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1153,15 +1105,6 @@
 		],
 		[
 		"dune_beach"
-		],
-		[
-		"end_corruption"
-		],
-		[
-		"end_reef"
-		],
-		[
-		"end_wilds"
 		],
 		[
 		"erupting_inferno"

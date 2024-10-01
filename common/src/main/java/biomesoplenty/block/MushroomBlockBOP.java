@@ -25,7 +25,7 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
 {
     public MushroomBlockBOP(Block.Properties properties)
     {
-        super(null, properties);
+        super(properties, null);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean b) {
         return true;
     }
 

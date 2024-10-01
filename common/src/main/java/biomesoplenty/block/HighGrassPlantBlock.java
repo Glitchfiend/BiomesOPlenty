@@ -20,17 +20,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HighGrassPlantBlock extends GrowingPlantBodyBlock
 {
-    public static final MapCodec<HighGrassPlantBlock> CODEC = simpleCodec(HighGrassPlantBlock::new);
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public HighGrassPlantBlock(Properties p_i241195_1_) {
         super(p_i241195_1_, Direction.UP, SHAPE, false);
-    }
-
-    @Override
-    public MapCodec<HighGrassPlantBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override

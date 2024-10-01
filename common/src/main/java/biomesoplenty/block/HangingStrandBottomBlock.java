@@ -19,17 +19,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
 {
-    public static final MapCodec<HangingStrandBottomBlock> CODEC = simpleCodec(HangingStrandBottomBlock::new);
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public HangingStrandBottomBlock(Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false, 0.01D);
-    }
-
-    @Override
-    public MapCodec<HangingStrandBottomBlock> codec()
-    {
-        return CODEC;
     }
 
     @Override
@@ -73,7 +66,7 @@ public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_)
+    public boolean isValidBonemealTarget(LevelReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, boolean b)
     {
         return false;
     }

@@ -5,10 +5,8 @@
 package biomesoplenty.init;
 
 import biomesoplenty.api.biome.BOPBiomes;
-import biomesoplenty.biome.BOPEndBiomes;
 import biomesoplenty.biome.BOPNetherBiomes;
 import biomesoplenty.biome.BOPOverworldBiomes;
-import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.worldgen.*;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -18,9 +16,7 @@ import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import terrablender.api.EndBiomeRegistry;
 import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
 
 public class ModBiomes
 {
@@ -38,11 +34,6 @@ public class ModBiomes
         Regions.register(new BOPOverworldRegionRare(ModConfig.generation.bopOverworldRareRegionWeight));
         Regions.register(new BOPNetherRegionCommon(ModConfig.generation.bopNetherRegionWeight));
         Regions.register(new BOPNetherRegionRare(ModConfig.generation.bopNetherRareRegionWeight));
-
-        // Register end biomes
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_WILDS, 9);
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_REEF, 6);
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 3);
     }
 
     public static void bootstrapBiomes(BootstapContext<Biome> context)
@@ -120,11 +111,6 @@ public class ModBiomes
         register(context, BOPBiomes.UNDERGROWTH, BOPNetherBiomes.undergrowth(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.VISCERAL_HEAP, BOPNetherBiomes.visceralHeap(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.WITHERED_ABYSS, BOPNetherBiomes.witheredAbyss(placedFeatureGetter, carverGetter));
-
-        // End biomes
-        register(context, BOPBiomes.END_WILDS, BOPEndBiomes.endWilds(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.END_REEF, BOPEndBiomes.endReef(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.END_CORRUPTION, BOPEndBiomes.endCorruption(placedFeatureGetter, carverGetter));
     }
     
     private static void registerVillagerTypes()

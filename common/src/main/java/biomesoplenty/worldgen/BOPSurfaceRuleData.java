@@ -327,35 +327,6 @@ public class BOPSurfaceRuleData
         );
     }
 
-    public static SurfaceRules.RuleSource end()
-    {
-        SurfaceRules.RuleSource whiteSandstoneLining = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, WHITE_SANDSTONE), WHITE_SAND);
-
-        return SurfaceRules.sequence(
-            SurfaceRules.ifTrue(
-                SurfaceRules.isBiome(BOPBiomes.END_WILDS),
-                SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
-                        SurfaceRules.sequence(
-                            ALGAL_END_STONE
-                        )
-                    )
-                )
-            ),
-            SurfaceRules.ifTrue(SurfaceRules.isBiome(BOPBiomes.END_CORRUPTION), UNMAPPED_END_STONE),
-            SurfaceRules.ifTrue(
-                SurfaceRules.isBiome(BOPBiomes.END_REEF),
-                SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
-                        SurfaceRules.sequence(
-                            whiteSandstoneLining
-                        )
-                    )
-                )
-            )
-        );
-    }
-
 
     private static SurfaceRules.ConditionSource surfaceNoiseAbove(double p_194809_) {
         return SurfaceRules.noiseCondition(Noises.SURFACE, p_194809_ / 8.25D, Double.MAX_VALUE);

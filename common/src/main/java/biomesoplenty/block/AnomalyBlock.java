@@ -25,18 +25,11 @@ import javax.annotation.Nullable;
 public class AnomalyBlock extends BaseEntityBlock
 {
     public static final EnumProperty<AnomalyType> ANOMALY_TYPE = EnumProperty.create("type", AnomalyType.class);
-    public static final MapCodec<AnomalyBlock> CODEC = simpleCodec(AnomalyBlock::new);
 
     public AnomalyBlock(Properties properties)
     {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(ANOMALY_TYPE, AnomalyType.STABLE));
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec()
-    {
-        return CODEC;
     }
 
     @Nullable

@@ -72,7 +72,7 @@ public class CragMossFeature extends Feature<NoneFeatureConfiguration>
                                         {
                                             default:
                                             case 0:
-                                                worldIn.setBlock(mutable, Blocks.SHORT_GRASS.defaultBlockState(), 2);
+                                                worldIn.setBlock(mutable, Blocks.GRASS.defaultBlockState(), 2);
                                                 break;
 
                                             case 1:

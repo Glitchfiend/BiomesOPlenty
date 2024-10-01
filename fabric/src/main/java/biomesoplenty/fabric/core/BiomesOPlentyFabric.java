@@ -15,14 +15,13 @@ public class BiomesOPlentyFabric implements GlitchCoreInitializer, TerraBlenderA
     @Override
     public void onInitialize()
     {
-        BiomesOPlenty.init();
+      BiomesOPlenty.init();
     }
 
     @Override
-    public void onInitializeClient()
-    {
-        ModClient.setup();
-        ModClientFabric.setup();
+    public void onInitializeClient() {
+      ModClient.setup();
+      ModClientFabric.setup();
     }
 
     @Override

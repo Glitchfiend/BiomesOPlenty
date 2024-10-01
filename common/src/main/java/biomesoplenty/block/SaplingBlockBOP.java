@@ -5,6 +5,8 @@
 package biomesoplenty.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.block.trees.BOPTreeGrower;
+import biomesoplenty.block.trees.BOPTreeGrowers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -15,7 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.grower.TreeGrower;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -27,11 +29,11 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
 {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
    public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-   private final TreeGrower tree;
+   private final BOPTreeGrower tree;
 
-   public SaplingBlockBOP(TreeGrower tree, Block.Properties properties)
+   public SaplingBlockBOP(BOPTreeGrower tree, Block.Properties properties)
    {
-      super(tree, properties);
+      super((AbstractTreeGrower) tree, properties);
       this.tree = tree;
       this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, Integer.valueOf(0)));
    }
@@ -51,17 +53,15 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
       }
       else
       {
-         this.tree.growTree(world, world.getChunkSource().getGenerator(), pos, state, rand);
+        ((AbstractTreeGrower) this.tree).growTree(world, world.getChunkSource().getGenerator(), pos, state, rand);
       }
 
    }
-
    /**
     * Whether this IGrowable can grow
     */
    @Override
-   public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state)
-   {
+   public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean b)  {
       return true;
    }
 
