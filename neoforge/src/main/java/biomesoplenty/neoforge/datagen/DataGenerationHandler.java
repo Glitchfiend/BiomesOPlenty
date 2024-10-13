@@ -7,6 +7,7 @@ package biomesoplenty.neoforge.datagen;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModDamageTypes;
 import biomesoplenty.init.ModJukeboxSongs;
+import biomesoplenty.neoforge.datagen.provider.BOPDataMapProvider;
 import biomesoplenty.neoforge.datagen.provider.BOPLootTableProvider;
 import biomesoplenty.neoforge.datagen.provider.BOPRecipeProvider;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
@@ -58,6 +59,9 @@ public class DataGenerationHandler
 
         // Loot
         generator.addProvider(event.includeServer(), BOPLootTableProvider.create(output, lookupProvider));
+
+        // Data Maps
+        generator.addProvider(event.includeServer(), new BOPDataMapProvider(output, lookupProvider));
     }
 
     private static HolderLookup.Provider constructRegistries(HolderLookup.Provider original, RegistrySetBuilder datapackEntriesBuilder)
