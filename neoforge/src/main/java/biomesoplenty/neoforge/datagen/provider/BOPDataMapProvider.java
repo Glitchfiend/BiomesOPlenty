@@ -1,13 +1,18 @@
 package biomesoplenty.neoforge.datagen.provider;
 
 import biomesoplenty.api.BOPAPI;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.init.ModVanillaCompat;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.registries.datamaps.AdvancedDataMapType;
 import net.neoforged.neoforge.registries.datamaps.DataMapType;
@@ -25,11 +30,10 @@ public class BOPDataMapProvider extends DataMapProvider {
 
     @Override
     protected void gather() {
-        addCompostable(Items.ACACIA_BOAT, 0.5F);
-        addCompostable(Items.ACACIA_BUTTON, 0.3F);
+        ModVanillaCompat.compostables.forEach(this::addCompostable);
     }
 
-    protected void addCompostable(Item item, float chance) {
-        compostables.add(item.builtInRegistryHolder(), new Compostable(chance), false);
+    protected void addCompostable(ItemLike item, float chance) {
+        compostables.add(item.asItem().builtInRegistryHolder(), new Compostable(chance), false);
     }
 }
