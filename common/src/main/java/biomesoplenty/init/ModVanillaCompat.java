@@ -6,24 +6,32 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
+import com.mojang.authlib.minecraft.client.MinecraftClient;
+import glitchcore.util.BlockHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DispensibleContainerItem;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.BlockHitResult;
+
+import java.util.*;
+import java.util.logging.Logger;
 
 import static glitchcore.util.BlockHelper.*;
 
 public class ModVanillaCompat
 {
+    public static final Map<ItemLike, Float> compostables = new HashMap<>();
+
     public static void setup()
     {
         //Dispenser Behavior
@@ -354,5 +362,10 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.HUGE_LILY_PAD);
 
         registerTillable(BOPBlocks.ORIGIN_GRASS_BLOCK, HoeItem::onlyIfAirAbove, Blocks.FARMLAND.defaultBlockState());
+    }
+
+    private static void registerCompostable(float chance, ItemLike item) {
+        compostables.put(item, chance);
+        BlockHelper.registerCompostable(chance, item);
     }
 }
