@@ -374,6 +374,7 @@
   "block.biomesoplenty.pink_hibiscus": "Hibisco rosa",
   "block.biomesoplenty.porous_flesh": "Carne porosa",
   "block.biomesoplenty.potted_burning_blossom": "Macetero con flor ardiente",
+  "block.biomesoplenty.potted_cypress_sapling": "Macetero con brote de ciprés",
   "block.biomesoplenty.potted_dead_sapling": "Macetero con brote muerto",
   "block.biomesoplenty.potted_empyreal_sapling": "Macetero con brote empíreo",
   "block.biomesoplenty.potted_endbloom": "Macetero con flor del End",
@@ -542,6 +543,8 @@
 
   "entity.biomesoplenty.boat_bop": "Bote",
   "entity.biomesoplenty.chest_boat": "Bote con cofre",
+
+  "jukebox_song.biomesoplenty.wanderer": "Tim Rurkowski - Wanderer",
   
   "trim_material.biomesoplenty.glowworm_silk": "Material de seda de lombriz luminosa",
   "trim_material.biomesoplenty.rose_quartz": "Material de cuarzo rosa",
