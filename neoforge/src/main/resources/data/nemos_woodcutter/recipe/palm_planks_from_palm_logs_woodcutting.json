@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nemos_woodcutter"
+    }
+  ],
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "#biomesoplenty:palm_logs",
+  "inputCount": 1,
+  "result": {
+    "count": 4,
+    "id": "biomesoplenty:palm_planks"
+  }
+}

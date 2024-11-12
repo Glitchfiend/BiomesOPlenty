@@ -1,0 +1,40 @@
+{
+  "forge:conditional": [
+    {
+      "parent": "minecraft:recipes/root",
+      "criteria": {
+        "has_empyreal_logs": {
+          "conditions": {
+            "items": [
+              {
+                "items": "#biomesoplenty:empyreal_logs"
+              }
+            ]
+          },
+          "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+          "conditions": {
+            "recipe": "biomesoplenty:empyreal_button"
+          },
+          "trigger": "minecraft:recipe_unlocked"
+        }
+      },
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "nemos_woodcutter"
+      },
+      "requirements": [
+        [
+          "has_the_recipe",
+          "has_empyreal_logs"
+        ]
+      ],
+      "rewards": {
+        "recipes": [
+          "biomesoplenty:empyreal_button"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nemos_woodcutter"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mahogany_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:mahogany_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nemos_woodcutter:stripped_mahogany_wood_from_mahogany_wood_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mahogany_wood"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nemos_woodcutter:stripped_mahogany_wood_from_mahogany_wood_woodcutting"
+    ]
+  }
+}

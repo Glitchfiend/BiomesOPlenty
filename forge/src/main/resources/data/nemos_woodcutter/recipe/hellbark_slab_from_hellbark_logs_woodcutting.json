@@ -1,0 +1,20 @@
+{
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "nemos_woodcutter"
+  },
+  "recipes": [
+    {
+      "recipe": {
+        "type": "nemos_woodcutter:woodcutting",
+        "ingredient": "#biomesoplenty:hellbark_logs",
+        "inputCount": 1,
+        "result": {
+          "count": 8,
+          "id": "biomesoplenty:hellbark_slab"
+        }
+      }
+    }
+  ]
+}

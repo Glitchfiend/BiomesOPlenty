@@ -1,0 +1,40 @@
+{
+  "forge:conditional": [
+    {
+      "parent": "minecraft:recipes/root",
+      "criteria": {
+        "has_dead_planks": {
+          "conditions": {
+            "items": [
+              {
+                "items": "biomesoplenty:dead_planks"
+              }
+            ]
+          },
+          "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+          "conditions": {
+            "recipe": "biomesoplenty:dead_pressure_plate"
+          },
+          "trigger": "minecraft:recipe_unlocked"
+        }
+      },
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "nemos_woodcutter"
+      },
+      "requirements": [
+        [
+          "has_the_recipe",
+          "has_dead_planks"
+        ]
+      ],
+      "rewards": {
+        "recipes": [
+          "biomesoplenty:dead_pressure_plate"
+        ]
+      }
+    }
+  ]
+}

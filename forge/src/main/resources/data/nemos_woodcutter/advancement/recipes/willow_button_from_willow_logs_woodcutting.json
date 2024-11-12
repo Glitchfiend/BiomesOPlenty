@@ -1,0 +1,40 @@
+{
+  "forge:conditional": [
+    {
+      "parent": "minecraft:recipes/root",
+      "criteria": {
+        "has_the_recipe": {
+          "conditions": {
+            "recipe": "biomesoplenty:willow_button"
+          },
+          "trigger": "minecraft:recipe_unlocked"
+        },
+        "has_willow_logs": {
+          "conditions": {
+            "items": [
+              {
+                "items": "#biomesoplenty:willow_logs"
+              }
+            ]
+          },
+          "trigger": "minecraft:inventory_changed"
+        }
+      },
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "nemos_woodcutter"
+      },
+      "requirements": [
+        [
+          "has_the_recipe",
+          "has_willow_logs"
+        ]
+      ],
+      "rewards": {
+        "recipes": [
+          "biomesoplenty:willow_button"
+        ]
+      }
+    }
+  ]
+}

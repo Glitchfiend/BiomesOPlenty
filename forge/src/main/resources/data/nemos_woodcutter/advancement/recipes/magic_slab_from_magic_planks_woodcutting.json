@@ -1,0 +1,40 @@
+{
+  "forge:conditional": [
+    {
+      "parent": "minecraft:recipes/root",
+      "criteria": {
+        "has_magic_planks": {
+          "conditions": {
+            "items": [
+              {
+                "items": "biomesoplenty:magic_planks"
+              }
+            ]
+          },
+          "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+          "conditions": {
+            "recipe": "biomesoplenty:magic_slab"
+          },
+          "trigger": "minecraft:recipe_unlocked"
+        }
+      },
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "nemos_woodcutter"
+      },
+      "requirements": [
+        [
+          "has_the_recipe",
+          "has_magic_planks"
+        ]
+      ],
+      "rewards": {
+        "recipes": [
+          "biomesoplenty:magic_slab"
+        ]
+      }
+    }
+  ]
+}

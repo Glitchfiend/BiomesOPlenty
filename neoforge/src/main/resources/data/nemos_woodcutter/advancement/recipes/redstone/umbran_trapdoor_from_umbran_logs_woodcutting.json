@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nemos_woodcutter"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nemos_woodcutter:umbran_trapdoor_from_umbran_logs_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_umbran_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#biomesoplenty:umbran_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_umbran_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nemos_woodcutter:umbran_trapdoor_from_umbran_logs_woodcutting"
+    ]
+  }
+}

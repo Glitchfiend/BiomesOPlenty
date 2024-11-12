@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nemos_woodcutter"
+    }
+  ],
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "biomesoplenty:empyreal_planks",
+  "inputCount": 1,
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:empyreal_fence"
+  }
+}

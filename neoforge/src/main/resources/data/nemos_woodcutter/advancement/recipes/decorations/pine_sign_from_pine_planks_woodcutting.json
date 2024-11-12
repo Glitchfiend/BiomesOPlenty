@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nemos_woodcutter"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pine_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:pine_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nemos_woodcutter:pine_sign_from_pine_planks_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pine_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nemos_woodcutter:pine_sign_from_pine_planks_woodcutting"
+    ]
+  }
+}

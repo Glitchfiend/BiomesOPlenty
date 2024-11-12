@@ -1,0 +1,40 @@
+{
+  "forge:conditional": [
+    {
+      "parent": "minecraft:recipes/root",
+      "criteria": {
+        "has_hellbark_logs": {
+          "conditions": {
+            "items": [
+              {
+                "items": "#biomesoplenty:hellbark_logs"
+              }
+            ]
+          },
+          "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+          "conditions": {
+            "recipe": "biomesoplenty:hellbark_trapdoor"
+          },
+          "trigger": "minecraft:recipe_unlocked"
+        }
+      },
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "nemos_woodcutter"
+      },
+      "requirements": [
+        [
+          "has_the_recipe",
+          "has_hellbark_logs"
+        ]
+      ],
+      "rewards": {
+        "recipes": [
+          "biomesoplenty:hellbark_trapdoor"
+        ]
+      }
+    }
+  ]
+}

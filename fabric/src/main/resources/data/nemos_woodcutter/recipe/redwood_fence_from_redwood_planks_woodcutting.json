@@ -1,0 +1,17 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "nemos_woodcutter"
+      ]
+    }
+  ],
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "biomesoplenty:redwood_planks",
+  "inputCount": 1,
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:redwood_fence"
+  }
+}

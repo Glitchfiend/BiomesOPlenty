@@ -1,0 +1,20 @@
+{
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "nemos_woodcutter"
+  },
+  "recipes": [
+    {
+      "recipe": {
+        "type": "nemos_woodcutter:woodcutting",
+        "ingredient": "#biomesoplenty:willow_logs",
+        "inputCount": 1,
+        "result": {
+          "count": 1,
+          "id": "biomesoplenty:willow_boat"
+        }
+      }
+    }
+  ]
+}

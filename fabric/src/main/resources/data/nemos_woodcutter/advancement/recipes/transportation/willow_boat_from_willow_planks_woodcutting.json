@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "nemos_woodcutter"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nemos_woodcutter:willow_boat_from_willow_planks_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_willow_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:willow_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_willow_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nemos_woodcutter:willow_boat_from_willow_planks_woodcutting"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "forge:conditional": [
+    {
+      "parent": "minecraft:recipes/root",
+      "criteria": {
+        "has_maple_planks": {
+          "conditions": {
+            "items": [
+              {
+                "items": "biomesoplenty:maple_planks"
+              }
+            ]
+          },
+          "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+          "conditions": {
+            "recipe": "biomesoplenty:maple_fence"
+          },
+          "trigger": "minecraft:recipe_unlocked"
+        }
+      },
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "nemos_woodcutter"
+      },
+      "requirements": [
+        [
+          "has_the_recipe",
+          "has_maple_planks"
+        ]
+      ],
+      "rewards": {
+        "recipes": [
+          "biomesoplenty:maple_fence"
+        ]
+      }
+    }
+  ]
+}

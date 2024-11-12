@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "nemos_woodcutter"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nemos_woodcutter:stripped_umbran_wood_from_umbran_wood_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_umbran_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:umbran_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_umbran_wood"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nemos_woodcutter:stripped_umbran_wood_from_umbran_wood_woodcutting"
+    ]
+  }
+}

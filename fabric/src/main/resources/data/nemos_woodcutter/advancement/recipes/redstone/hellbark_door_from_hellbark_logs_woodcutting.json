@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "nemos_woodcutter"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hellbark_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#biomesoplenty:hellbark_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nemos_woodcutter:hellbark_door_from_hellbark_logs_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hellbark_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nemos_woodcutter:hellbark_door_from_hellbark_logs_woodcutting"
+    ]
+  }
+}

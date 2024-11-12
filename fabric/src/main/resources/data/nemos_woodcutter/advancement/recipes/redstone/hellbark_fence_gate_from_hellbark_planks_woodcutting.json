@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "nemos_woodcutter"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hellbark_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:hellbark_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nemos_woodcutter:hellbark_fence_gate_from_hellbark_planks_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hellbark_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nemos_woodcutter:hellbark_fence_gate_from_hellbark_planks_woodcutting"
+    ]
+  }
+}
