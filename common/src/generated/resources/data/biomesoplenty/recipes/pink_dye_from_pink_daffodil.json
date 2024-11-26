@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "pink_dye",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:pink_daffodil"
+    }
+  ],
+  "result": {
+    "item": "minecraft:pink_dye"
+  }
+}

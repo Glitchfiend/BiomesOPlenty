@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomesoplenty:orange_sandstone"
-  },
-  "result": "biomesoplenty:orange_sandstone_stairs",
-  "count": 1
-}

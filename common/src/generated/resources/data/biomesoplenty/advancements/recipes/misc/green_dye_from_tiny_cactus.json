@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:green_dye_from_tiny_cactus"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tiny_cactus": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomesoplenty:tiny_cactus"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tiny_cactus"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:green_dye_from_tiny_cactus"
+    ]
+  }
+}

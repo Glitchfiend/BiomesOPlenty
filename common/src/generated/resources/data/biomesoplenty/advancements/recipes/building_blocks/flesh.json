@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blood_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomesoplenty:blood_bucket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:flesh"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blood_bucket"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:flesh"
+    ]
+  }
+}

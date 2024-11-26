@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:brimstone"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "biomesoplenty:brimstone_bud"
+  }
+}

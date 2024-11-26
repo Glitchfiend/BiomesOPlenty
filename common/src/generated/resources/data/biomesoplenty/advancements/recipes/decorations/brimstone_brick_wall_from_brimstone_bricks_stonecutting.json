@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brimstone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomesoplenty:brimstone_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:brimstone_brick_wall_from_brimstone_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_brimstone_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:brimstone_brick_wall_from_brimstone_bricks_stonecutting"
+    ]
+  }
+}

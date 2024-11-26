@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "biomesoplenty:brimstone"
+    },
+    "F": {
+      "item": "minecraft:fire_charge"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#F#",
+    "###"
+  ],
+  "result": {
+    "item": "biomesoplenty:brimstone_fumarole"
+  }
+}
