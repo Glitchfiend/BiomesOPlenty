@@ -36,7 +36,7 @@ public class AnomalyBlockEntity extends BlockEntity
         List<BlockState> states = new ArrayList<>(MAX_NUM_MODEL_STATES);
         var random = RandomSource.create();
         for (int i = 0; i < MAX_NUM_MODEL_STATES; i++) {
-            var block = allBlocks.get(i);
+            var block = allBlocks.get(i % allBlocks.size());
             var blockPossibleStates = block.value().getStateDefinition().getPossibleStates();
             states.add(blockPossibleStates.get(random.nextInt(blockPossibleStates.size())));
         }
