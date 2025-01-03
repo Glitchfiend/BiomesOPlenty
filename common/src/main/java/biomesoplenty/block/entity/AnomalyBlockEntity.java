@@ -8,19 +8,18 @@ import biomesoplenty.api.block.BOPBlockEntities;
 import biomesoplenty.block.AnomalyBlock;
 import com.google.common.base.Suppliers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.LinkedHashSet;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -29,9 +28,19 @@ public class AnomalyBlockEntity extends BlockEntity
     private long lastTime = -1;
     private BlockState lastState = null;
 
-    private final Supplier<LinkedHashSet<BlockState>> renderStates = Suppliers.memoize(() -> {
-        Registry<Block> blockRegistry = level.registryAccess().lookupOrThrow(Registries.BLOCK);
-        return blockRegistry.entrySet().stream().map(e -> e.getValue().defaultBlockState()).filter(state -> state.getRenderShape() == RenderShape.MODEL).collect(Collectors.toCollection(LinkedHashSet::new));
+    private static final int MAX_NUM_MODEL_STATES = 500;
+    private static final Supplier<List<BlockState>> MODEL_STATES = Suppliers.memoize(() -> {
+        // Choose MAX_NUM_MODEL_STATES random blocks first, use a random blockstate from each
+        var allBlocks = BuiltInRegistries.BLOCK.listElements().filter(b -> b.key().location().getNamespace().equals("minecraft") && b.value().defaultBlockState().getRenderShape() == RenderShape.MODEL).collect(Collectors.toCollection(ArrayList::new));
+        Collections.shuffle(allBlocks);
+        List<BlockState> states = new ArrayList<>(MAX_NUM_MODEL_STATES);
+        var random = RandomSource.create();
+        for (int i = 0; i < MAX_NUM_MODEL_STATES; i++) {
+            var block = allBlocks.get(i % allBlocks.size());
+            var blockPossibleStates = block.value().getStateDefinition().getPossibleStates();
+            states.add(blockPossibleStates.get(random.nextInt(blockPossibleStates.size())));
+        }
+        return states;
     });
 
     public AnomalyBlockEntity(BlockPos pos, BlockState state) {
@@ -52,7 +61,7 @@ public class AnomalyBlockEntity extends BlockEntity
         RandomSource random = RandomSource.create(Mth.getSeed(this.getBlockPos()));
         BlockState state = this.getBlockState();
 
-        final var renderStates = this.renderStates.get();
+        final var renderStates = MODEL_STATES.get();
         int index = random.nextInt(renderStates.size());
 
         switch (state.getValue(AnomalyBlock.ANOMALY_TYPE))
