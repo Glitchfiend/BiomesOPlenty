@@ -31,7 +31,7 @@ public class AnomalyBlockEntity extends BlockEntity
     private static final int MAX_NUM_MODEL_STATES = 500;
     private static final Supplier<List<BlockState>> MODEL_STATES = Suppliers.memoize(() -> {
         // Choose MAX_NUM_MODEL_STATES random blocks first, use a random blockstate from each
-        var allBlocks = BuiltInRegistries.BLOCK.listElements().filter(b -> b.value().defaultBlockState().getRenderShape() == RenderShape.MODEL).collect(Collectors.toCollection(ArrayList::new));
+        var allBlocks = BuiltInRegistries.BLOCK.listElements().filter(b -> b.key().location().getNamespace().equals("minecraft") && b.value().defaultBlockState().getRenderShape() == RenderShape.MODEL).collect(Collectors.toCollection(ArrayList::new));
         Collections.shuffle(allBlocks);
         List<BlockState> states = new ArrayList<>(MAX_NUM_MODEL_STATES);
         var random = RandomSource.create();
