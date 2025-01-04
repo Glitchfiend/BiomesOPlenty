@@ -18,6 +18,11 @@ public class HangingSignBlockEntityBOP extends HangingSignBlockEntity
     }
 
     @Override
+    public boolean isValidBlockState(BlockState blockState) {
+        return this.getType().isValid(blockState);
+    }
+
+    @Override
     public BlockEntityType<?> getType()
     {
         return BOPBlockEntities.HANGING_SIGN;
