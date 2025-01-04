@@ -17,7 +17,9 @@ import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.particle.*;
 import glitchcore.event.EventManager;
 import glitchcore.event.client.RegisterColorsEvent;
+import glitchcore.event.client.RegisterLayerDefinitionsEvent;
 import glitchcore.event.client.RegisterParticleSpritesEvent;
+import glitchcore.event.client.RegisterRenderersEvent;
 import glitchcore.util.RenderHelper;
 import glitchcore.util.SheetHelper;
 import net.minecraft.client.Minecraft;
@@ -53,7 +55,6 @@ public class ModClient
     public static void setup()
     {
         setupRenderTypes();
-        registerRenderers();
         registerWoodTypes();
     }
 
@@ -64,6 +65,10 @@ public class ModClient
 
         // Particles
         EventManager.addListener(ModClient::registerParticleSprites);
+
+        // Renderers
+        EventManager.addListener(ModClient::registerLayerDefinitions);
+        EventManager.addListener(ModClient::registerRenderers);
     }
 
     public static void setupRenderTypes()
@@ -264,7 +269,7 @@ public class ModClient
         RenderHelper.setRenderType(BOPFluids.LIQUID_NULL, translucentRenderType);
     }
 
-    public static void registerRenderers()
+    public static void registerLayerDefinitions(RegisterLayerDefinitionsEvent event)
     {
         // Register boat layer definitions
         LayerDefinition boatLayerDefinition = BoatModel.createBoatModel();
@@ -296,7 +301,10 @@ public class ModClient
         RenderHelper.registerLayerDefinition(ModModelLayers.HELLBARK_CHEST_BOAT, () -> chestBoatLayerDefinition);
         RenderHelper.registerLayerDefinition(ModModelLayers.EMPYREAL_BOAT, () -> boatLayerDefinition);
         RenderHelper.registerLayerDefinition(ModModelLayers.EMPYREAL_CHEST_BOAT, () -> chestBoatLayerDefinition);
+    }
 
+    public static void registerRenderers(RegisterRenderersEvent event)
+    {
         // Register block entity renderers
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<SignBlockEntityBOP>) BOPBlockEntities.SIGN, SignRenderer::new);
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<HangingSignBlockEntityBOP>)BOPBlockEntities.HANGING_SIGN, HangingSignRenderer::new);
