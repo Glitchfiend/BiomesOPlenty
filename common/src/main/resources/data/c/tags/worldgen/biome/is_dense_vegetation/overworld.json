@@ -18,10 +18,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:dead_forest",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:floodplain",
             "required": false
         },
@@ -67,10 +63,6 @@
         },
         {
             "id": "biomesoplenty:origin_valley",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:old_growth_dead_forest",
             "required": false
         },
         {
