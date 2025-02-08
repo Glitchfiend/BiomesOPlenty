@@ -2,6 +2,14 @@
 	"replace": false,
 	"values": [
         {
+            "id": "biomesoplenty:field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fir_clearing",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:grassland",
             "required": false
         },
@@ -26,7 +34,19 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:pumpkin_patch",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:shrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tundra",
             "required": false
         }
 	]
