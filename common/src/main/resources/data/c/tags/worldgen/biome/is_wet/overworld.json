@@ -22,14 +22,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:moor",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:muskeg",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:rainforest",
             "required": false
         },
