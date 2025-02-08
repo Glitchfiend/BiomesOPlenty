@@ -6,15 +6,7 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:highland",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:lavender_field",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:lush_savanna",
             "required": false
         },
         {
@@ -34,15 +26,7 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:rocky_shrubland",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:shrubland",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:tundra",
             "required": false
         }
 	]

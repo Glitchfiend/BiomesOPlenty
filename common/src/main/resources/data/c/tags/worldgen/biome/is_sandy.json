@@ -10,7 +10,11 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:dryland",
+            "id": "biomesoplenty:wasteland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wasteland_steppe",
             "required": false
         }
 	]

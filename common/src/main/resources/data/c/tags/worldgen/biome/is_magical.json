@@ -10,10 +10,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:jade_cliffs",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:mystic_grove",
             "required": false
         },
@@ -22,7 +18,7 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:crystalline_chasm",
+            "id": "biomesoplenty:ominous_woods",
             "required": false
         }
 	]

@@ -6,7 +6,23 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:aspen_glade",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:bayou",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:coniferous_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:floodplain",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fungal_jungle",
             "required": false
         },
         {
@@ -14,15 +30,23 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:jade_cliffs",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:mystic_grove",
             "required": false
         },
         {
             "id": "biomesoplenty:old_growth_woodland",
             "required": false
         },
-		{
-            "id": "biomesoplenty:overgrown_greens",
+        {
+            "id": "biomesoplenty:ominous_woods",
             "required": false
         },
         {
@@ -38,7 +62,31 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:seasonal_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowblossom_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_coniferous_forest",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:snowy_maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tropics",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wetland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:woodland",
             "required": false
         }
 	]

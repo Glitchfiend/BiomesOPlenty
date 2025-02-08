@@ -10,27 +10,11 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:field",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:floodplain",
             "required": false
         },
         {
-            "id": "biomesoplenty:forested_field",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:fungal_jungle",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:grassland",
-            "required": false
-        },
-		{
-            "id": "biomesoplenty:hot_springs",
             "required": false
         },
         {
@@ -43,18 +27,6 @@
         },
         {
             "id": "biomesoplenty:muskeg",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:mystic_grove",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:ominous_woods",
-            "required": false
-        },
-		{
-            "id": "biomesoplenty:overgrown_greens",
             "required": false
         },
         {

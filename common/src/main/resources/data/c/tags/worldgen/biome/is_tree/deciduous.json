@@ -2,15 +2,11 @@
 	"replace": false,
 	"values": [
         {
-            "id": "biomesoplenty:dune_beach",
+            "id": "biomesoplenty:auroral_garden",
             "required": false
         },
         {
-            "id": "biomesoplenty:floodplain",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:fungal_jungle",
+            "id": "biomesoplenty:aspen_glade",
             "required": false
         },
         {
@@ -18,15 +14,7 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:lavender_field",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:lush_desert",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:lush_savanna",
+            "id": "biomesoplenty:mediterranean_forest",
             "required": false
         },
         {
@@ -34,23 +22,35 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:old_growth_woodland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:origin_valley",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:orchard",
             "required": false
         },
-		{
-            "id": "biomesoplenty:overgrown_greens",
+        {
+            "id": "biomesoplenty:pumpkin_patch",
             "required": false
         },
         {
-            "id": "biomesoplenty:rainforest",
+            "id": "biomesoplenty:seasonal_forest",
             "required": false
         },
         {
-            "id": "biomesoplenty:rocky_rainforest",
+            "id": "biomesoplenty:snowblossom_grove",
             "required": false
         },
         {
-            "id": "biomesoplenty:tropics",
+            "id": "biomesoplenty:wintry_origin_valley",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:woodland",
             "required": false
         }
 	]

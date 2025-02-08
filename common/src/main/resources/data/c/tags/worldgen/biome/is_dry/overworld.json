@@ -10,15 +10,23 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:pasture",
+            "id": "biomesoplenty:lush_desert",
             "required": false
         },
         {
-            "id": "biomesoplenty:prairie",
+            "id": "biomesoplenty:lush_savanna",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:rocky_shrubland",
             "required": false
         },
         {
             "id": "biomesoplenty:shrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcanic_plains",
             "required": false
         },
         {

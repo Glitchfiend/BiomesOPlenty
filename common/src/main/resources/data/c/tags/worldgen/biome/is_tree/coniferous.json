@@ -6,7 +6,7 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:fir_clearing",
+            "id": "biomesoplenty:dead_forest",
             "required": false
         },
         {
@@ -14,10 +14,14 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:forested_field",
+            "id": "biomesoplenty:fir_clearing",
             "required": false
         },
         {
+            "id": "biomesoplenty:forested_field",
+            "required": false
+        },
+		{
             "id": "biomesoplenty:hot_springs",
             "required": false
         },
@@ -30,7 +34,15 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:old_growth_dead_forest",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:ominous_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:redwood_forest",
             "required": false
         },
         {

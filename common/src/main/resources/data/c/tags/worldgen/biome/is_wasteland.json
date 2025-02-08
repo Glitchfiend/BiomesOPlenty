@@ -2,7 +2,7 @@
 	"replace": false,
 	"values": [
         {
-            "id": "biomesoplenty:crag",
+            "id": "biomesoplenty:cold_desert",
             "required": false
         },
         {

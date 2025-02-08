@@ -28,6 +28,10 @@
         {
             "id": "biomesoplenty:snowy_maple_woods",
             "required": false
+        },
+        {
+            "id": "biomesoplenty:wintry_origin_valley",
+            "required": false
         }
 	]
 }

@@ -1,9 +1,29 @@
 {
-  "replace": false,
-  "values": [
-    {
-      "id": "biomesoplenty:highland",
-      "required": false
-    }
-  ]
+    "replace": false,
+    "values": [
+        {
+            "id": "biomesoplenty:crag",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:highland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:jade_cliffs",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:moor",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcanic_plains",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:volcano",
+            "required": false
+        }
+    ]
 }

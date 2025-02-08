@@ -18,15 +18,19 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:old_growth_woodland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:origin_valley",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:orchard",
             "required": false
         },
         {
             "id": "biomesoplenty:pumpkin_patch",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:redwood_forest",
             "required": false
         },
         {
