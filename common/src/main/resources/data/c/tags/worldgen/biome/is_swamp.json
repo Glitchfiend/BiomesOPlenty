@@ -18,6 +18,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:muskeg",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:wetland",
             "required": false
         }
