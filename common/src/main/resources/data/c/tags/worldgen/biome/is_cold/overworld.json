@@ -1,6 +1,6 @@
 {
-	"replace": false,
-	"values": [
+    "replace": false,
+    "values": [
         {
             "id": "biomesoplenty:aspen_glade",
             "required": false

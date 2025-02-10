@@ -1,6 +1,6 @@
 {
-	"replace": false,
-	"values": [
+    "replace": false,
+    "values": [
         {
             "id": "biomesoplenty:cold_desert",
             "required": false
