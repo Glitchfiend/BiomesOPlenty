@@ -22,10 +22,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:field",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:fir_clearing",
             "required": false
         },
@@ -39,18 +35,6 @@
         },
         {
             "id": "biomesoplenty:hot_springs",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:lavender_field",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:lush_desert",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:lush_savanna",
             "required": false
         },
         {
@@ -70,27 +54,7 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:orchard",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:origin_valley",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:overgrown_greens",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:pasture",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:prairie",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:pumpkin_patch",
             "required": false
         },
         {
