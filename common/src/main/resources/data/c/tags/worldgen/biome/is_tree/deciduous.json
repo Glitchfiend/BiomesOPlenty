@@ -14,6 +14,14 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:lavender_field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:maple_woods",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:mediterranean_forest",
             "required": false
         },
@@ -34,6 +42,14 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:pasture",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:prairie",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:pumpkin_patch",
             "required": false
         },
@@ -43,6 +59,10 @@
         },
         {
             "id": "biomesoplenty:snowblossom_grove",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_maple_woods",
             "required": false
         },
         {

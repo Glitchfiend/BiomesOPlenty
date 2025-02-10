@@ -70,6 +70,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:origin_valley",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:overgrown_greens",
             "required": false
         },
@@ -119,6 +123,10 @@
         },
         {
             "id": "biomesoplenty:wasteland_steppe",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:wintry_origin_valley",
             "required": false
         }
 	]

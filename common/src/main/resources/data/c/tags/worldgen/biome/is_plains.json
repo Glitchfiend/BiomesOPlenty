@@ -6,6 +6,14 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:field",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:fir_clearing",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:lavender_field",
             "required": false
         },
@@ -26,11 +34,23 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:pumpkin_patch",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:rocky_shrubland",
             "required": false
         },
         {
             "id": "biomesoplenty:shrubland",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:snowy_fir_clearing",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:tundra",
             "required": false
         }
 	]

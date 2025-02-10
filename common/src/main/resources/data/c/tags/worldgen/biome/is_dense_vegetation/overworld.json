@@ -62,10 +62,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:origin_valley",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:rainforest",
             "required": false
         },
@@ -103,10 +99,6 @@
         },
         {
             "id": "biomesoplenty:woodland",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:wintry_origin_valley",
             "required": false
         }
 	]
