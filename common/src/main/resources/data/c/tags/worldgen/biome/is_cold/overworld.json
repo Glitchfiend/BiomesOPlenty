@@ -2,6 +2,10 @@
 	"replace": false,
 	"values": [
         {
+            "id": "biomesoplenty:aspen_glade",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:auroral_garden",
             "required": false
         },
@@ -42,6 +46,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:highland",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:jade_cliffs",
             "required": false
         },
@@ -66,7 +74,15 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:pumpkin_patch",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:redwood_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:seasonal_forest",
             "required": false
         },
         {
