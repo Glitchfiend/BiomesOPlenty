@@ -34,10 +34,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:origin_valley",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:orchard",
             "required": false
         },
@@ -63,10 +59,6 @@
         },
         {
             "id": "biomesoplenty:snowy_maple_woods",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:wintry_origin_valley",
             "required": false
         },
         {

@@ -104,10 +104,6 @@
         {
             "id": "biomesoplenty:tundra",
             "required": false
-        },
-        {
-            "id": "biomesoplenty:wintry_origin_valley",
-            "required": false
         }
 	]
 }

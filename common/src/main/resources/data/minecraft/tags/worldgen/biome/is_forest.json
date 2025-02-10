@@ -22,10 +22,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:origin_valley",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:orchard",
             "required": false
         },
