@@ -6,6 +6,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:crag",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:volcanic_plains",
             "required": false
         },
