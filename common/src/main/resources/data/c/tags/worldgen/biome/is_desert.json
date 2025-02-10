@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		{
+        {
             "id": "biomesoplenty:lush_desert",
             "required": false
         },
@@ -13,5 +13,5 @@
             "id": "biomesoplenty:wasteland_steppe",
             "required": false
         }
-	]
+    ]
 }
