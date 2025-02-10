@@ -62,6 +62,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:muskeg",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:old_growth_dead_forest",
             "required": false
         },
