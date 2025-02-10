@@ -18,11 +18,7 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:rocky_shrubland",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:shrubland",
+            "id": "biomesoplenty:scrubland",
             "required": false
         },
         {
