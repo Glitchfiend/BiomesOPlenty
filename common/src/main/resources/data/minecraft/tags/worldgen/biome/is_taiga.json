@@ -34,10 +34,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:jade_cliffs",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:maple_woods",
             "required": false
         },
