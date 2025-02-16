@@ -38,10 +38,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:muskeg",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:old_growth_dead_forest",
             "required": false
         },
@@ -67,10 +63,6 @@
         },
         {
             "id": "biomesoplenty:snowy_maple_woods",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:tundra",
             "required": false
         }
     ]
