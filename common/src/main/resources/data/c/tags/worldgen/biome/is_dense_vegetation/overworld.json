@@ -118,7 +118,15 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:rocky_shrubland",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:seasonal_forest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:shrubland",
             "required": false
         },
         {
