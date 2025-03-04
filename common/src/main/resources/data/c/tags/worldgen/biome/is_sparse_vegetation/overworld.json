@@ -42,6 +42,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:muskeg",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:scrubland",
             "required": false
         },
