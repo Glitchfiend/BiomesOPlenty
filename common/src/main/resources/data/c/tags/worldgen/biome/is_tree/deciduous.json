@@ -62,6 +62,10 @@
             "required": false
         },
         {
+            "id": "biomesoplenty:wetland",
+            "required": false
+        },
+        {
             "id": "biomesoplenty:woodland",
             "required": false
         }
