@@ -5,7 +5,7 @@
             "id": "biomesoplenty:fungal_jungle",
             "required": false
         },
-	    {
+        {
             "id": "biomesoplenty:glowing_grotto",
             "required": false
         }
