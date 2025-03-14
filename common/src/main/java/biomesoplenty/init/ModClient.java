@@ -423,6 +423,7 @@ public class ModClient
         SheetHelper.addWoodType(BOPWoodTypes.MAGIC);
         SheetHelper.addWoodType(BOPWoodTypes.UMBRAN);
         SheetHelper.addWoodType(BOPWoodTypes.HELLBARK);
+        SheetHelper.addWoodType(BOPWoodTypes.EMPYREAL);
     }
 
     public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
