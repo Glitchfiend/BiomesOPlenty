@@ -1,6 +1,16 @@
 {
-  "angry_texture": "minecraft:entity/wolf/wolf_angry",
-  "biomes": "#c:has_wolf_variant/pale",
-  "tame_texture": "minecraft:entity/wolf/wolf_tame",
-  "wild_texture": "minecraft:entity/wolf/wolf"
+  "assets": {
+    "angry": "minecraft:entity/wolf/wolf_angry",
+    "tame": "minecraft:entity/wolf/wolf_tame",
+    "wild": "minecraft:entity/wolf/wolf"
+  },
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "#c:has_wolf_variant/pale"
+      },
+      "priority": 1
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-// 1.21.5	2025-04-12T14:28:00.0375799	Registries
+// 1.21.5	2025-04-12T19:04:24.9230221	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -67,7 +67,7 @@ ab147c36639094042366e17207f793aa841594a7 data/biomesoplenty/worldgen/biome/tundr
 3ff775219d852b25f97a8c57d6052b2fbca80bf4 data/biomesoplenty/worldgen/biome/volcano.json
 bef1c4a13e85e9015cf6f95989dae382c256b4fd data/biomesoplenty/worldgen/biome/wasteland.json
 ff7efe2ca35df36c32ace471f405debc7a8f5c41 data/biomesoplenty/worldgen/biome/wasteland_steppe.json
-718434b81024de6c291cf81d22e9de5d7694cfdd data/biomesoplenty/worldgen/biome/wetland.json
+44d9300bffc55b237b5d5dbce4298e2760edf78d data/biomesoplenty/worldgen/biome/wetland.json
 d1b6cc519a93f2fd124c1305c75ec0d481fcc9bd data/biomesoplenty/worldgen/biome/wintry_origin_valley.json
 38e9428b4f370e1db8dd3e226abc4a0d4e9e55b0 data/biomesoplenty/worldgen/biome/withered_abyss.json
 59655b32b97265ee46188ef3f0046bf28168e5fc data/biomesoplenty/worldgen/biome/woodland.json

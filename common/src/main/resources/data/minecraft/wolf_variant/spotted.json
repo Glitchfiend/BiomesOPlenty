@@ -1,6 +1,16 @@
 {
-  "angry_texture": "minecraft:entity/wolf/wolf_spotted_angry",
-  "biomes": "#c:has_wolf_variant/spotted",
-  "tame_texture": "minecraft:entity/wolf/wolf_spotted_tame",
-  "wild_texture": "minecraft:entity/wolf/wolf_spotted"
+  "assets": {
+    "angry": "minecraft:entity/wolf/wolf_spotted_angry",
+    "tame": "minecraft:entity/wolf/wolf_spotted_tame",
+    "wild": "minecraft:entity/wolf/wolf_spotted"
+  },
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "#c:has_wolf_variant/spotted"
+      },
+      "priority": 1
+    }
+  ]
 }

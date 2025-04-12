@@ -1,6 +1,16 @@
 {
-  "angry_texture": "minecraft:entity/wolf/wolf_snowy_angry",
-  "biomes": "#c:has_wolf_variant/snowy",
-  "tame_texture": "minecraft:entity/wolf/wolf_snowy_tame",
-  "wild_texture": "minecraft:entity/wolf/wolf_snowy"
+  "assets": {
+    "angry": "minecraft:entity/wolf/wolf_snowy_angry",
+    "tame": "minecraft:entity/wolf/wolf_snowy_tame",
+    "wild": "minecraft:entity/wolf/wolf_snowy"
+  },
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "#c:has_wolf_variant/snowy"
+      },
+      "priority": 1
+    }
+  ]
 }

@@ -1,6 +1,16 @@
 {
-  "angry_texture": "biomesoplenty:entity/wolf/wolf_spectral_angry",
-  "biomes": "#biomesoplenty:has_wolf_variant/spectral",
-  "tame_texture": "biomesoplenty:entity/wolf/wolf_spectral_tame",
-  "wild_texture": "biomesoplenty:entity/wolf/wolf_spectral"
+  "assets": {
+    "angry": "biomesoplenty:entity/wolf/wolf_spectral_angry",
+    "tame": "biomesoplenty:entity/wolf/wolf_spectral_tame",
+    "wild": "biomesoplenty:entity/wolf/wolf_spectral"
+  },
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "#biomesoplenty:has_wolf_variant/spectral"
+      },
+      "priority": 1
+    }
+  ]
 }
