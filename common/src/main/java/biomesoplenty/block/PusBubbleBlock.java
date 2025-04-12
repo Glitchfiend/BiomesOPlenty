@@ -11,6 +11,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -75,12 +76,12 @@ public class PusBubbleBlock extends Block
     }
 
     @Override
-    public void entityInside(BlockState stateIn, Level worldIn, BlockPos pos, Entity entityIn)
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier)
     {
-        if (entityIn instanceof LivingEntity)
+        if (entity instanceof LivingEntity)
         {
-            worldIn.destroyBlock(pos, false);
-            spawnParticles(worldIn, pos);
+            level.destroyBlock(pos, false);
+            spawnParticles(level, pos);
         }
     }
 

@@ -11,14 +11,15 @@ import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class SnowblossomLeavesBlock extends LeavesBlock
+public class SnowblossomLeavesBlock extends TintedParticleLeavesBlock
 {
     public SnowblossomLeavesBlock(BlockBehaviour.Properties p_273704_)
     {
-        super(p_273704_);
+        super(0.01F, p_273704_);
     }
 
     @Override

@@ -69,7 +69,7 @@
     {
       "apply": {
         "model": "biomesoplenty:block/glowshroom_block_inside",
-        "uvlock": false,
+        "uvlock": true,
         "y": 90
       },
       "when": {
@@ -79,7 +79,7 @@
     {
       "apply": {
         "model": "biomesoplenty:block/glowshroom_block_inside",
-        "uvlock": false,
+        "uvlock": true,
         "y": 180
       },
       "when": {
@@ -89,7 +89,7 @@
     {
       "apply": {
         "model": "biomesoplenty:block/glowshroom_block_inside",
-        "uvlock": false,
+        "uvlock": true,
         "y": 270
       },
       "when": {
@@ -99,7 +99,7 @@
     {
       "apply": {
         "model": "biomesoplenty:block/glowshroom_block_inside",
-        "uvlock": false,
+        "uvlock": true,
         "x": 270
       },
       "when": {
@@ -109,7 +109,7 @@
     {
       "apply": {
         "model": "biomesoplenty:block/glowshroom_block_inside",
-        "uvlock": false,
+        "uvlock": true,
         "x": 90
       },
       "when": {

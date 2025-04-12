@@ -21,7 +21,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
-import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.world.level.block.FlowerBedBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -426,8 +426,8 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.ORANGE_COSMOS);
         this.dropSelf(BOPBlocks.PINK_DAFFODIL);
         this.dropSelf(BOPBlocks.PINK_HIBISCUS);
-        this.add(BOPBlocks.WILDFLOWER, this.createPetalsDrops(BOPBlocks.WILDFLOWER));
-        this.add(BOPBlocks.WHITE_PETALS, this.createPetalsDrops(BOPBlocks.WHITE_PETALS));
+        this.add(BOPBlocks.WILDFLOWER, this.createSegmentedBlockDrops(BOPBlocks.WILDFLOWER));
+        this.add(BOPBlocks.WHITE_PETALS, this.createSegmentedBlockDrops(BOPBlocks.WHITE_PETALS));
         this.add(BOPBlocks.ICY_IRIS, (p_250918_) -> { return this.createSinglePropConditionTable(p_250918_, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER); });
         this.dropSelf(BOPBlocks.GLOWFLOWER);
         this.dropSelf(BOPBlocks.WILTED_LILY);
@@ -514,7 +514,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
     protected LootTable.Builder createCloverDrops(Block p_273240_)
     {
         return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(hasShears).add(this.applyExplosionDecay(p_273240_, LootItem.lootTableItem(p_273240_).apply(IntStream.rangeClosed(1, 4).boxed().toList(), (p_272348_) -> {
-            return SetItemCountFunction.setCount(ConstantValue.exactly((float)p_272348_.intValue())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_273240_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PinkPetalsBlock.AMOUNT, p_272348_)));
+            return SetItemCountFunction.setCount(ConstantValue.exactly((float)p_272348_.intValue())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_273240_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FlowerBedBlock.AMOUNT, p_272348_)));
         }))));
     }
 

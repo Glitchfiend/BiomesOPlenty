@@ -7,10 +7,10 @@ package biomesoplenty.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.world.level.block.FlowerBedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class WildflowerBlock extends PinkPetalsBlock
+public class WildflowerBlock extends FlowerBedBlock
 {
     public WildflowerBlock(Properties properties)
     {

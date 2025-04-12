@@ -11,6 +11,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.ItemStack;
@@ -27,7 +28,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class HugeLilyPadBlock extends BushBlock
+public class HugeLilyPadBlock extends VegetationBlockBOP
 {
     public static final MapCodec<HugeLilyPadBlock> CODEC = simpleCodec(HugeLilyPadBlock::new);
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
@@ -157,10 +158,10 @@ public class HugeLilyPadBlock extends BushBlock
             p_49499_.setBlock(blockpos, p_49501_.setValue(QUARTER, QuarterProperty.NORTH_WEST), 26);
             p_49499_.setBlock(blockpos1, p_49501_.setValue(QUARTER, QuarterProperty.NORTH_EAST), 26);
             p_49499_.setBlock(blockpos2, p_49501_.setValue(QUARTER, QuarterProperty.SOUTH_EAST), 26);
-            p_49499_.blockUpdated(p_49500_, Blocks.AIR);
-            p_49499_.blockUpdated(blockpos, Blocks.AIR);
-            p_49499_.blockUpdated(blockpos1, Blocks.AIR);
-            p_49499_.blockUpdated(blockpos2, Blocks.AIR);
+            p_49499_.updateNeighborsAt(p_49500_, Blocks.AIR);
+            p_49499_.updateNeighborsAt(blockpos, Blocks.AIR);
+            p_49499_.updateNeighborsAt(blockpos1, Blocks.AIR);
+            p_49499_.updateNeighborsAt(blockpos2, Blocks.AIR);
             p_49501_.updateNeighbourShapes(p_49499_, p_49500_, 26);
             p_49501_.updateNeighbourShapes(p_49499_, blockpos, 26);
             p_49501_.updateNeighbourShapes(p_49499_, blockpos1, 26);
@@ -169,12 +170,11 @@ public class HugeLilyPadBlock extends BushBlock
     }
 
     @Override
-    public void entityInside(BlockState p_58164_, Level p_58165_, BlockPos p_58166_, Entity p_58167_)
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier)
     {
-        super.entityInside(p_58164_, p_58165_, p_58166_, p_58167_);
-        if (p_58165_ instanceof ServerLevel && p_58167_ instanceof Boat)
+        if (level instanceof ServerLevel && entity instanceof Boat)
         {
-            p_58165_.destroyBlock(new BlockPos(p_58166_), true, p_58167_);
+            level.destroyBlock(pos, true, entity);
         }
 
     }

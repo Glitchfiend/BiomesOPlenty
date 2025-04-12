@@ -22,11 +22,11 @@
     ],
     "axis=z": [
       {
-        "model": "biomesoplenty:block/pine_log_horizontal",
+        "model": "biomesoplenty:block/pine_log",
         "x": 90
       },
       {
-        "model": "biomesoplenty:block/pine_log_knot_horizontal",
+        "model": "biomesoplenty:block/pine_log_knot",
         "x": 90
       }
     ]

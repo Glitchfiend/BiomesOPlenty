@@ -8,8 +8,10 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.block.properties.ConnectedProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -91,10 +93,8 @@ public class StringyCobwebBlock extends Block
     }
 
     @Override
-    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean p_55572_)
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean p_394545_)
     {
-        super.onRemove(state, level, pos, newState, p_55572_);
-
         Direction direction = state.getValue(FACING);
         BlockPos abovePos = pos.relative(direction).above();
         BlockPos belowPos = pos.relative(direction.getOpposite()).below();
@@ -133,8 +133,8 @@ public class StringyCobwebBlock extends Block
     }
 
     @Override
-    public void entityInside(BlockState p_58180_, Level p_58181_, BlockPos p_58182_, Entity p_58183_)
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier)
     {
-        p_58183_.setDeltaMovement(p_58183_.getDeltaMovement().multiply(0.75D, 1.0D, 0.75D));
+        entity.setDeltaMovement(entity.getDeltaMovement().multiply(0.75D, 1.0D, 0.75D));
     }
 }

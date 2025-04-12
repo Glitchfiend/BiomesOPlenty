@@ -16,7 +16,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -24,7 +23,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class LeafPileBlock extends BushBlock
+public class LeafPileBlock extends VegetationBlockBOP
 {
     public static final MapCodec<LeafPileBlock> CODEC = simpleCodec(LeafPileBlock::new);
     protected static final VoxelShape NORMAL = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);

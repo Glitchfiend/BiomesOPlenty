@@ -193,7 +193,7 @@ public class ModBiomes
         context.register(key, biome);
     }
 
-    private static void registerVillagerType(ResourceKey<Biome> key, VillagerType type)
+    private static void registerVillagerType(ResourceKey<Biome> key, ResourceKey<VillagerType> type)
     {
         if (ModConfig.isBiomeEnabled(key))
         {

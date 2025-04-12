@@ -12,6 +12,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -80,25 +81,23 @@ public class FlowerBlockBOP extends FlowerBlock
     }
     
     @Override
-    public void entityInside(BlockState stateIn, Level worldIn, BlockPos pos, Entity entityIn)
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier)
     {
-    	Block block = stateIn.getBlock();
+    	Block block = state.getBlock();
 
-        if (block == BOPBlocks.BURNING_BLOSSOM && entityIn.getType() != EntityType.HOGLIN && entityIn.getType() != EntityType.PIGLIN && entityIn.getType() != EntityType.PIGLIN_BRUTE)
+        if (block == BOPBlocks.BURNING_BLOSSOM && entity.getType() != EntityType.HOGLIN && entity.getType() != EntityType.PIGLIN && entity.getType() != EntityType.PIGLIN_BRUTE)
         {
-            if (!entityIn.fireImmune())
+            if (!entity.fireImmune())
             {
-                entityIn.setRemainingFireTicks(entityIn.getRemainingFireTicks() + 1);
-                if (entityIn.getRemainingFireTicks() == 0)
+                entity.setRemainingFireTicks(entity.getRemainingFireTicks() + 1);
+                if (entity.getRemainingFireTicks() == 0)
                 {
-                    entityIn.igniteForSeconds(1);
+                    entity.igniteForSeconds(1);
                 }
             }
 
-            entityIn.hurt(worldIn.damageSources().inFire(), 1.0F);
+            entity.hurt(level.damageSources().inFire(), 1.0F);
         }
-
-        super.entityInside(stateIn, worldIn, pos, entityIn);
     }
     
     @Override

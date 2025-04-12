@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.neoforge.datagen.BOPBlockFamilies;
 import com.google.common.collect.ImmutableMap;
+import com.mojang.math.Quadrant;
 import net.minecraft.client.color.item.GrassColorSource;
 import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -62,10 +63,10 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
             }))
             .build();
 
-    final Consumer<BlockStateGenerator> blockStateOutput;
+    final Consumer<BlockModelDefinitionGenerator> blockStateOutput;
     final BiConsumer<ResourceLocation, ModelInstance> modelOutput;
 
-    public BOPBlockModelGenerators(Consumer<BlockStateGenerator> blockStateOutput, ItemModelOutput itemModelOutput, BiConsumer<ResourceLocation, ModelInstance> modelOutput)
+    public BOPBlockModelGenerators(Consumer<BlockModelDefinitionGenerator> blockStateOutput, ItemModelOutput itemModelOutput, BiConsumer<ResourceLocation, ModelInstance> modelOutput)
     {
         super(blockStateOutput, itemModelOutput, modelOutput);
         this.blockStateOutput = blockStateOutput;
@@ -296,7 +297,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
     {
         TextureMapping textureMapping = BOPTextureMapping.leavesOverlay(block);
         ResourceLocation model = BOPModelTemplates.LEAVES_OVERLAY.create(block, textureMapping, this.modelOutput);
-        this.blockStateOutput.accept(createSimpleBlock(block, model));
+        this.blockStateOutput.accept(createSimpleBlock(block, plainVariant(model)));
         this.registerSimpleTintedItemModel(block, model, ItemModelUtils.constantTint(tint));
     }
 
@@ -341,32 +342,12 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         ResourceLocation columnKnotModel = ModelTemplates.CUBE_COLUMN.createWithSuffix(block, "_knot", logKnotMapping, this.modelOutput);
         ResourceLocation horizontalKnotModel = ModelTemplates.CUBE_COLUMN_HORIZONTAL.createWithSuffix(block, "_knot", logKnotMapping, this.modelOutput);
         this.blockStateOutput.accept(
-            MultiVariantGenerator.multiVariant(block)
+            MultiVariantGenerator.dispatch(block)
                 .with(
-                        PropertyDispatch.property(BlockStateProperties.AXIS)
-                                .select(Direction.Axis.Y, List.of(
-                                        Variant.variant().with(VariantProperties.MODEL, columnModel),
-                                        Variant.variant().with(VariantProperties.MODEL, columnKnotModel)
-                                ))
-                                .select(
-                                        Direction.Axis.Z,
-                                        List.of(
-                                                Variant.variant().with(VariantProperties.MODEL, horizontalModel).with(VariantProperties.X_ROT, VariantProperties.Rotation.R90),
-                                                Variant.variant().with(VariantProperties.MODEL, horizontalKnotModel).with(VariantProperties.X_ROT, VariantProperties.Rotation.R90)
-                                        )
-                                )
-                                .select(
-                                        Direction.Axis.X,
-                                        List.of(Variant.variant()
-                                                .with(VariantProperties.MODEL, horizontalModel)
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R90)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90),
-                                                Variant.variant()
-                                                        .with(VariantProperties.MODEL, horizontalKnotModel)
-                                                        .with(VariantProperties.X_ROT, VariantProperties.Rotation.R90)
-                                                        .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)
-                                        )
-                                )
+                        PropertyDispatch.initial(BlockStateProperties.AXIS)
+                                .select(Direction.Axis.Y, variants(plainModel(columnModel), plainModel(columnKnotModel)))
+                                .select(Direction.Axis.Z, variants(plainModel(columnModel).withXRot(Quadrant.R90), plainModel(columnKnotModel).withXRot(Quadrant.R90)))
+                                .select(Direction.Axis.X, variants(plainModel(horizontalModel).withXRot(Quadrant.R90).withYRot(Quadrant.R90), plainModel(horizontalKnotModel).withXRot(Quadrant.R90).withYRot(Quadrant.R90)))
                 )
         );
     }
@@ -378,78 +359,18 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.blockStateOutput
                 .accept(
                         MultiPartGenerator.multiPart(p_388752_)
-                                .with(Condition.condition().term(BlockStateProperties.NORTH, true), Variant.variant().with(VariantProperties.MODEL, resourcelocation))
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.EAST, true),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)
-                                                .with(VariantProperties.UV_LOCK, true)
-                                )
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.SOUTH, true),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180)
-                                                .with(VariantProperties.UV_LOCK, true)
-                                )
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.WEST, true),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)
-                                                .with(VariantProperties.UV_LOCK, true)
-                                )
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.UP, true),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation)
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R270)
-                                                .with(VariantProperties.UV_LOCK, true)
-                                )
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.DOWN, true),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation)
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R90)
-                                                .with(VariantProperties.UV_LOCK, true)
-                                )
-                                .with(Condition.condition().term(BlockStateProperties.NORTH, false), Variant.variant().with(VariantProperties.MODEL, resourcelocation1))
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.EAST, false),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation1)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)
-                                                .with(VariantProperties.UV_LOCK, false)
-                                )
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.SOUTH, false),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation1)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180)
-                                                .with(VariantProperties.UV_LOCK, false)
-                                )
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.WEST, false),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation1)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)
-                                                .with(VariantProperties.UV_LOCK, false)
-                                )
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.UP, false),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation1)
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R270)
-                                                .with(VariantProperties.UV_LOCK, false)
-                                )
-                                .with(
-                                        Condition.condition().term(BlockStateProperties.DOWN, false),
-                                        Variant.variant()
-                                                .with(VariantProperties.MODEL, resourcelocation1)
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R90)
-                                                .with(VariantProperties.UV_LOCK, false)
-                                )
+                                .with(condition().term(BlockStateProperties.NORTH, true), plainVariant(resourcelocation))
+                                .with(condition().term(BlockStateProperties.EAST, true).build(), variant(plainModel(resourcelocation).withYRot(Quadrant.R90).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.SOUTH, true).build(), variant(plainModel(resourcelocation).withYRot(Quadrant.R180).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.WEST, true).build(), variant(plainModel(resourcelocation).withYRot(Quadrant.R270).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.UP, true).build(), variant(plainModel(resourcelocation).withXRot(Quadrant.R270).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.DOWN, true).build(), variant(plainModel(resourcelocation).withXRot(Quadrant.R90).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.NORTH, false), plainVariant(resourcelocation1))
+                                .with(condition().term(BlockStateProperties.EAST, false).build(), variant(plainModel(resourcelocation1).withYRot(Quadrant.R90).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.SOUTH, false).build(), variant(plainModel(resourcelocation1).withYRot(Quadrant.R180).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.WEST, false).build(), variant(plainModel(resourcelocation1).withYRot(Quadrant.R270).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.UP, false).build(), variant(plainModel(resourcelocation1).withXRot(Quadrant.R270).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.DOWN, false).build(), variant(plainModel(resourcelocation1).withXRot(Quadrant.R90).withUvLock(true)))
                 );
         this.registerSimpleItemModel(p_388752_, TexturedModel.CUBE.createWithSuffix(p_388752_, "_inventory", this.modelOutput));
     }
@@ -466,7 +387,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         {
             TexturedModel texturedmodel = BOPBlockModelGenerators.this.texturedModels.getOrDefault(block, TexturedModel.CUBE.get(block));
             ResourceLocation resourcelocation = texturedmodel.create(block, BOPBlockModelGenerators.this.modelOutput);
-            BOPBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, resourcelocation));
+            BOPBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, plainVariant(resourcelocation)));
             return this;
         }
     }

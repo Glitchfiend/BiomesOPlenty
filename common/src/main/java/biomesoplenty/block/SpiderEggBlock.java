@@ -68,11 +68,11 @@ public class SpiderEggBlock extends Block
     }
 
     @Override
-    public void fallOn(Level p_154567_, BlockState p_154568_, BlockPos p_154569_, Entity p_154570_, float p_154571_)
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, double p_396999_)
     {
-        p_154567_.playSound((Player)null, p_154569_, BOPSounds.SPIDER_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + p_154567_.random.nextFloat() * 0.2F);
-        p_154567_.destroyBlock(p_154569_, false);
-        this.spawnSpider(p_154567_, p_154569_);
+        level.playSound((Player)null, pos, BOPSounds.SPIDER_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + level.random.nextFloat() * 0.2F);
+        level.destroyBlock(pos, false);
+        this.spawnSpider(level, pos);
     }
 
     @Override
@@ -97,7 +97,7 @@ public class SpiderEggBlock extends Block
     public void spawnSpider(Level p_154567_, BlockPos p_154569_)
     {
         CaveSpider spider = EntityType.CAVE_SPIDER.create(p_154567_, EntitySpawnReason.TRIGGERED);
-        spider.moveTo((double)p_154569_.getX() + 0.5D, (double)p_154569_.getY(), (double)p_154569_.getZ() + 0.5D, 0.0F, 0.0F);
+        spider.snapTo((double)p_154569_.getX() + 0.5D, (double)p_154569_.getY(), (double)p_154569_.getZ() + 0.5D, 0.0F, 0.0F);
         p_154567_.addFreshEntity(spider);
     }
 

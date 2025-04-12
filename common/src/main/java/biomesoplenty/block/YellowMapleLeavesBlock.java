@@ -11,13 +11,15 @@ import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.TintedParticleLeavesBlock;
+import net.minecraft.world.level.block.UntintedParticleLeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class YellowMapleLeavesBlock extends LeavesBlock
+public class YellowMapleLeavesBlock extends TintedParticleLeavesBlock
 {
-    public YellowMapleLeavesBlock(Properties p_273704_)
+    public YellowMapleLeavesBlock(Properties properties)
     {
-        super(p_273704_);
+        super(0.01F, properties);
     }
 
     @Override

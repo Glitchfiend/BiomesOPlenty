@@ -11,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
@@ -68,11 +69,11 @@ public class BrambleBlock extends PipeBlock
      }
 
      @Override
-     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn)
+     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier)
      {
-         if (entityIn instanceof Player)
+         if (entity instanceof Player)
          {
-             Player playerEntity = (Player) entityIn;
+             Player playerEntity = (Player) entity;
              playerEntity.hurt(level.damageSources().source(BOPDamageTypes.BRAMBLE), 1.0F);
          }
       }

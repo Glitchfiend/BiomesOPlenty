@@ -16,17 +16,18 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.TintedParticleLeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.OptionalInt;
 
-public class NullLeavesBlock extends LeavesBlock
+public class NullLeavesBlock extends TintedParticleLeavesBlock
 {
     public NullLeavesBlock(Properties p_273704_)
     {
-        super(p_273704_);
+        super(0.01F, p_273704_);
     }
 
     @Override
