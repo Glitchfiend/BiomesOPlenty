@@ -12,6 +12,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Blocks;
@@ -29,6 +30,7 @@ public class BOPTreePlacements
     public static final ResourceKey<PlacedFeature> ACACIA_TWIGLET_CHECKED = BOPPlacementUtils.createKey("acacia_twiglet");
     public static final ResourceKey<PlacedFeature> ACACIA_TWIGLET_SMALL_CHECKED = BOPPlacementUtils.createKey("acacia_twiglet_small");
     public static final ResourceKey<PlacedFeature> ASPEN_TREE_CHECKED = BOPPlacementUtils.createKey("aspen_tree");
+    public static final ResourceKey<PlacedFeature> AZALEA_TREE_CHECKED = BOPPlacementUtils.createKey("azalea_tree");
     public static final ResourceKey<PlacedFeature> BIG_FLOWERING_TREE_CHECKED = BOPPlacementUtils.createKey("big_flowering_tree");
     public static final ResourceKey<PlacedFeature> BIG_HELLBARK_TREE_CHECKED = BOPPlacementUtils.createKey("big_hellbark_tree");
     public static final ResourceKey<PlacedFeature> BIG_JACARANDA_TREE_CHECKED = BOPPlacementUtils.createKey("big_jacaranda_tree");
@@ -100,6 +102,7 @@ public class BOPTreePlacements
         final Holder<ConfiguredFeature<?, ?>> ACACIA_TWIGLET = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_TWIGLET);
         final Holder<ConfiguredFeature<?, ?>> ACACIA_TWIGLET_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_TWIGLET_SMALL);
         final Holder<ConfiguredFeature<?, ?>> ASPEN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ASPEN_TREE);
+        final Holder<ConfiguredFeature<?, ?>> AZALEA_TREE = configuredFeatureGetter.getOrThrow(TreeFeatures.AZALEA_TREE);
         final Holder<ConfiguredFeature<?, ?>> BIG_FLOWERING_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_FLOWERING_OAK_TREE);
         final Holder<ConfiguredFeature<?, ?>> BIG_HELLBARK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_HELLBARK_TREE);
         final Holder<ConfiguredFeature<?, ?>> BIG_JACARANDA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_JACARANDA_TREE);
@@ -167,6 +170,7 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.ACACIA_TWIGLET_CHECKED, ACACIA_TWIGLET, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BOPBlocks.ORANGE_SAND)))));
         register(context, BOPTreePlacements.ACACIA_TWIGLET_SMALL_CHECKED, ACACIA_TWIGLET_SMALL, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.SAND, BOPBlocks.ORANGE_SAND)))));
         register(context, BOPTreePlacements.ASPEN_TREE_CHECKED, ASPEN_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.YELLOW_MAPLE_SAPLING)));
+        register(context, BOPTreePlacements.AZALEA_TREE_CHECKED, AZALEA_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.AZALEA)));
         register(context, BOPTreePlacements.BIG_FLOWERING_TREE_CHECKED, BIG_FLOWERING_OAK_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.FLOWERING_OAK_SAPLING)));
         register(context, BOPTreePlacements.BIG_HELLBARK_TREE_CHECKED, BIG_HELLBARK_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.HELLBARK_SAPLING)));
         register(context, BOPTreePlacements.BIG_JACARANDA_TREE_CHECKED, BIG_JACARANDA_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.JACARANDA_SAPLING)));

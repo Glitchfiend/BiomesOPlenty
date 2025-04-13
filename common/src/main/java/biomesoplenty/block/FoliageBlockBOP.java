@@ -106,7 +106,7 @@ public class FoliageBlockBOP extends VegetationBlockBOP
             if (p_401918_.nextInt(75) == 0)
             {
                 BlockState blockstate = p_401809_.getBlockState(p_401789_.below());
-                if ((blockstate.is(Blocks.RED_SAND) || blockstate.is(BlockTags.TERRACOTTA)) && p_401918_.nextInt(5) != 0)
+                if (blockstate.is(Blocks.SAND) && p_401918_.nextInt(10) != 0)
                 {
                     return;
                 }

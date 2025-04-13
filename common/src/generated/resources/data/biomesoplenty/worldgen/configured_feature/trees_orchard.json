@@ -4,6 +4,10 @@
     "default": "biomesoplenty:flowering_oak_tree",
     "features": [
       {
+        "chance": 0.4,
+        "feature": "biomesoplenty:azalea_tree"
+      },
+      {
         "chance": 0.1,
         "feature": "biomesoplenty:big_flowering_tree"
       }

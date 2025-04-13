@@ -9,6 +9,9 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
@@ -87,5 +90,14 @@ public class DeadBranchBlock extends Block
         }
 
         return null;
+    }
+
+    @Override
+    public void animateTick(BlockState p_401875_, Level p_401809_, BlockPos p_401789_, RandomSource p_401918_)
+    {
+        if (p_401918_.nextInt(100) == 0)
+        {
+            p_401809_.playLocalSound(p_401789_.getX(), p_401789_.getY(), p_401789_.getZ(), SoundEvents.DEAD_BUSH_IDLE, SoundSource.AMBIENT, 1.0F, 1.0F, false);
+        }
     }
 }
