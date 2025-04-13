@@ -70,6 +70,7 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:patch_dry_grass_badlands",
       "biomesoplenty:trees_scrubland",
       "biomesoplenty:flower_scrubland",
       "biomesoplenty:scrub_extra",

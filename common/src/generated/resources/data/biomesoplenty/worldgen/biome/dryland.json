@@ -81,6 +81,7 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:patch_dry_grass_desert",
       "biomesoplenty:trees_dryland",
       "biomesoplenty:patch_bush_1",
       "biomesoplenty:patch_grass_6",

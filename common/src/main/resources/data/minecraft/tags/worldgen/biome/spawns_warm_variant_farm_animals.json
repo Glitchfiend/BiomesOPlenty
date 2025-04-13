@@ -25,6 +25,10 @@
       "required": false
     },
 	{
+      "id": "biomesoplenty:scrubland",
+      "required": false
+    },
+	{
       "id": "biomesoplenty:tropics",
       "required": false
     },

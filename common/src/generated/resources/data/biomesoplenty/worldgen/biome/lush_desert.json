@@ -86,11 +86,11 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:patch_dry_grass_badlands",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_cactus_decorated",
       "biomesoplenty:trees_lush_desert",
       "biomesoplenty:flower_lush_desert",
-      "biomesoplenty:patch_desert_grass",
       "biomesoplenty:sparse_dune_grass"
     ],
     [
@@ -106,6 +106,12 @@
         "maxCount": 8,
         "minCount": 8,
         "weight": 10
+      },
+      {
+        "type": "minecraft:bat",
+        "maxCount": 8,
+        "minCount": 8,
+        "weight": 10
       }
     ],
     "axolotls": [],
@@ -114,13 +120,13 @@
         "type": "minecraft:rabbit",
         "maxCount": 3,
         "minCount": 2,
-        "weight": 4
+        "weight": 12
       },
       {
-        "type": "minecraft:armadillo",
-        "maxCount": 2,
+        "type": "minecraft:camel",
+        "maxCount": 1,
         "minCount": 1,
-        "weight": 6
+        "weight": 1
       }
     ],
     "misc": [],
@@ -174,6 +180,54 @@
         "weight": 5
       },
       {
+        "type": "minecraft:spider",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:zombie",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 19
+      },
+      {
+        "type": "minecraft:zombie_villager",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
+      },
+      {
+        "type": "minecraft:skeleton",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:creeper",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:slime",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "minecraft:enderman",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:witch",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 5
+      },
+      {
         "type": "minecraft:husk",
         "maxCount": 4,
         "minCount": 4,
@@ -181,6 +235,12 @@
       }
     ],
     "underground_water_creature": [
+      {
+        "type": "minecraft:glow_squid",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 10
+      },
       {
         "type": "minecraft:glow_squid",
         "maxCount": 6,
