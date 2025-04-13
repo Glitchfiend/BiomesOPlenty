@@ -1,0 +1,13 @@
+{
+  "asset_id": "biomesoplenty:entity/cow/origin_cow",
+  "model": "normal",
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "#biomesoplenty:spawns_origin_variant_farm_animals"
+      },
+      "priority": 1
+    }
+  ]
+}

@@ -1,5 +1,8 @@
 {
   "values": [
-    "biomesoplenty:mystic_grove"
+    {
+      "id": "biomesoplenty:mystic_grove",
+      "required": false
+    }
   ]
 }
