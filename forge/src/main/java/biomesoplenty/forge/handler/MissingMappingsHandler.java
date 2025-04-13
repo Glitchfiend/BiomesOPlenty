@@ -100,6 +100,7 @@ public class MissingMappingsHandler
                 .remap("thorn", Blocks.DEAD_BUSH)
                 .remap("deathbloom", Blocks.WITHER_ROSE)
                 .remap("devilweed", BOPBlocks.SPROUT)
+                .remap("wildflower", BOPBlocks.PURPLE_WILDFLOWERS)
                 .remap("flowering_sapling", BOPBlocks.FLOWERING_OAK_SAPLING)
                 .remap("flowering_leaves", BOPBlocks.FLOWERING_OAK_LEAVES)
                 .remap("nether_crystal_block", BOPBlocks.ROSE_QUARTZ_BLOCK)

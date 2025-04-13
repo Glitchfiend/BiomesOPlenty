@@ -5,8 +5,7 @@
         "model": "biomesoplenty:block/clover_1"
       },
       "when": {
-        "facing": "north",
-        "flower_amount": "1|2|3|4"
+        "facing": "north"
       }
     },
     {
@@ -15,8 +14,7 @@
         "y": 90
       },
       "when": {
-        "facing": "east",
-        "flower_amount": "1|2|3|4"
+        "facing": "east"
       }
     },
     {
@@ -25,8 +23,7 @@
         "y": 180
       },
       "when": {
-        "facing": "south",
-        "flower_amount": "1|2|3|4"
+        "facing": "south"
       }
     },
     {
@@ -35,8 +32,7 @@
         "y": 270
       },
       "when": {
-        "facing": "west",
-        "flower_amount": "1|2|3|4"
+        "facing": "west"
       }
     },
     {

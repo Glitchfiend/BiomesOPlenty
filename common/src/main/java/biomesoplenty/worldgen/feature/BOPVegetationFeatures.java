@@ -121,7 +121,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_VIOLET = BOPFeatureUtils.createKey("flower_violet");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_WASTELAND = BOPFeatureUtils.createKey("flower_wasteland");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_WETLAND = BOPFeatureUtils.createKey("flower_wetland");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_WILDFLOWER = BOPFeatureUtils.createKey("flower_wildflower");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_PURPLE_WILDFLOWERS = BOPFeatureUtils.createKey("flower_purple_wildflower");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_ASPEN_GLADE = BOPFeatureUtils.createKey("trees_aspen_glade");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_AURORAL_GARDEN = BOPFeatureUtils.createKey("trees_auroral_garden");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_BAYOU = BOPFeatureUtils.createKey("trees_bayou");
@@ -330,10 +330,10 @@ public class BOPVegetationFeatures
         WeightedList.Builder<BlockState> builder3 = WeightedList.builder();
         for(int i = 1; i <= 4; ++i) {
             for(Direction direction : Direction.Plane.HORIZONTAL) {
-                builder3.add(BOPBlocks.WILDFLOWER.defaultBlockState().setValue(FlowerBedBlock.AMOUNT, Integer.valueOf(i)).setValue(FlowerBedBlock.FACING, direction), 1);
+                builder3.add(BOPBlocks.PURPLE_WILDFLOWERS.defaultBlockState().setValue(FlowerBedBlock.AMOUNT, Integer.valueOf(i)).setValue(FlowerBedBlock.FACING, direction), 1);
             }
         }
-        register(context, BOPVegetationFeatures.FLOWER_WILDFLOWER, Feature.FLOWER, new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder3)))));
+        register(context, BOPVegetationFeatures.FLOWER_PURPLE_WILDFLOWERS, Feature.FLOWER, new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder3)))));
 
         register(context, BOPVegetationFeatures.TREES_ASPEN_GLADE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_YELLOW_MAPLE_TREE_CHECKED, 0.05F)), ASPEN_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_AURORAL_GARDEN, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.1F), new WeightedPlacedFeature(FIR_TREE_SMALL_CHECKED, 0.1F), new WeightedPlacedFeature(FIR_TREE_CHECKED, 0.025F), new WeightedPlacedFeature(BIG_RAINBOW_BIRCH_TREE_CHECKED, 0.4F)), RAINBOW_BIRCH_TREE_CHECKED));

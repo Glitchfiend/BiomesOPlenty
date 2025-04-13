@@ -400,7 +400,7 @@ public class BOPItems
     public static Item ORANGE_COSMOS;
     public static Item PINK_DAFFODIL;
     public static Item PINK_HIBISCUS;
-    public static Item WILDFLOWER;
+    public static Item PURPLE_WILDFLOWERS;
     public static Item WHITE_PETALS;
     public static Item ICY_IRIS;
     public static Item GLOWFLOWER;

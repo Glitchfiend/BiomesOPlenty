@@ -1,4 +1,4 @@
-// 1.21.5	2025-04-12T20:14:04.3550829	Loot Tables
+// 1.21.5	2025-04-13T03:54:17.2718334	Loot Tables
 220e79635d6427547adc71c9a3595899624e7346 data/biomesoplenty/loot_table/blocks/algal_end_stone.json
 dd2b19339d5cd2e7c140672d01b47271540e8c0c data/biomesoplenty/loot_table/blocks/anomaly.json
 f92516ee35f9b379842fd0ac300baff1071c8308 data/biomesoplenty/loot_table/blocks/barley.json
@@ -274,6 +274,7 @@ aa230fd4d3a2607ec32b2eb9b36f820bfa02ff99 data/biomesoplenty/loot_table/blocks/po
 1eecca6f8700786cd31ad90037f6ed1c51ec060e data/biomesoplenty/loot_table/blocks/potted_willow_sapling.json
 441d456d995bacadfddf6cb0d4be288cfe35863e data/biomesoplenty/loot_table/blocks/potted_wilted_lily.json
 704f4e4686ef32f7348c4ed9b8c8383b58d8c41b data/biomesoplenty/loot_table/blocks/potted_yellow_maple_sapling.json
+12166ff15d1bea70ef7d7dfb03277f7f1a901369 data/biomesoplenty/loot_table/blocks/purple_wildflowers.json
 cd59586830ef59279767075556c6bdcbe44b5396 data/biomesoplenty/loot_table/blocks/pus_bubble.json
 c4489c1aa51dc3ff788019093cdc1e3270e0540e data/biomesoplenty/loot_table/blocks/rainbow_birch_leaves.json
 ced8550e85ee9120add257407f2fa42bd0533f77 data/biomesoplenty/loot_table/blocks/rainbow_birch_sapling.json
@@ -377,7 +378,6 @@ facfbf96bf60c5548d5334cc671d53a6b47beec7 data/biomesoplenty/loot_table/blocks/wh
 7e4501f1ea257eace989519f6d77212573eb1430 data/biomesoplenty/loot_table/blocks/white_sandstone_slab.json
 d5b1c638ce9fe49d2997edbcdd4fe335233b64f5 data/biomesoplenty/loot_table/blocks/white_sandstone_stairs.json
 f4d5d0aa75b2f8ff925e4954d2a86b7ea9a0ba47 data/biomesoplenty/loot_table/blocks/white_sandstone_wall.json
-5f097516ed5a4a36d18f800da0fa472b23b0f655 data/biomesoplenty/loot_table/blocks/wildflower.json
 5ae7fb6f05f6a38d849513131f5a5ad5aef4fa18 data/biomesoplenty/loot_table/blocks/willow_button.json
 2577c1b23b24c80c94144a3ada88400c8fd54393 data/biomesoplenty/loot_table/blocks/willow_door.json
 c8a1369badc70fd2e3c195fbff6de02b834a7f9a data/biomesoplenty/loot_table/blocks/willow_fence.json

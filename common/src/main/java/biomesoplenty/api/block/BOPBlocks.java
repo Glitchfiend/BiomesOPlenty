@@ -382,7 +382,7 @@ public class BOPBlocks
     public static Block ORANGE_COSMOS;
     public static Block PINK_DAFFODIL;
     public static Block PINK_HIBISCUS;
-    public static Block WILDFLOWER;
+    public static Block PURPLE_WILDFLOWERS;
     public static Block WHITE_PETALS;
     public static Block ICY_IRIS;
     public static Block GLOWFLOWER;

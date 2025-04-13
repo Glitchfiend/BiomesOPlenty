@@ -2,46 +2,42 @@
   "multipart": [
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_1"
+        "model": "biomesoplenty:block/purple_wildflowers_1"
       },
       "when": {
-        "facing": "north",
-        "flower_amount": "1|2|3|4"
+        "facing": "north"
       }
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_1",
+        "model": "biomesoplenty:block/purple_wildflowers_1",
         "y": 90
       },
       "when": {
-        "facing": "east",
-        "flower_amount": "1|2|3|4"
+        "facing": "east"
       }
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_1",
+        "model": "biomesoplenty:block/purple_wildflowers_1",
         "y": 180
       },
       "when": {
-        "facing": "south",
-        "flower_amount": "1|2|3|4"
+        "facing": "south"
       }
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_1",
+        "model": "biomesoplenty:block/purple_wildflowers_1",
         "y": 270
       },
       "when": {
-        "facing": "west",
-        "flower_amount": "1|2|3|4"
+        "facing": "west"
       }
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_2"
+        "model": "biomesoplenty:block/purple_wildflowers_2"
       },
       "when": {
         "facing": "north",
@@ -50,7 +46,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_2",
+        "model": "biomesoplenty:block/purple_wildflowers_2",
         "y": 90
       },
       "when": {
@@ -60,7 +56,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_2",
+        "model": "biomesoplenty:block/purple_wildflowers_2",
         "y": 180
       },
       "when": {
@@ -70,7 +66,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_2",
+        "model": "biomesoplenty:block/purple_wildflowers_2",
         "y": 270
       },
       "when": {
@@ -80,7 +76,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_3"
+        "model": "biomesoplenty:block/purple_wildflowers_3"
       },
       "when": {
         "facing": "north",
@@ -89,7 +85,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_3",
+        "model": "biomesoplenty:block/purple_wildflowers_3",
         "y": 90
       },
       "when": {
@@ -99,7 +95,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_3",
+        "model": "biomesoplenty:block/purple_wildflowers_3",
         "y": 180
       },
       "when": {
@@ -109,7 +105,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_3",
+        "model": "biomesoplenty:block/purple_wildflowers_3",
         "y": 270
       },
       "when": {
@@ -119,7 +115,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_4"
+        "model": "biomesoplenty:block/purple_wildflowers_4"
       },
       "when": {
         "facing": "north",
@@ -128,7 +124,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_4",
+        "model": "biomesoplenty:block/purple_wildflowers_4",
         "y": 90
       },
       "when": {
@@ -138,7 +134,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_4",
+        "model": "biomesoplenty:block/purple_wildflowers_4",
         "y": 180
       },
       "when": {
@@ -148,7 +144,7 @@
     },
     {
       "apply": {
-        "model": "biomesoplenty:block/wildflower_4",
+        "model": "biomesoplenty:block/purple_wildflowers_4",
         "y": 270
       },
       "when": {

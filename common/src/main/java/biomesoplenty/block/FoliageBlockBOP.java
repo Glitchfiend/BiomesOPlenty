@@ -8,7 +8,11 @@ import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -92,5 +96,27 @@ public class FoliageBlockBOP extends VegetationBlockBOP
         }
 
         return super.canSurvive(state, worldIn, pos);
+    }
+
+    @Override
+    public void animateTick(BlockState p_401875_, Level p_401809_, BlockPos p_401789_, RandomSource p_401918_)
+    {
+        if (this == BOPBlocks.DUNE_GRASS)
+            {
+            if (p_401918_.nextInt(75) == 0)
+            {
+                BlockState blockstate = p_401809_.getBlockState(p_401789_.below());
+                if ((blockstate.is(Blocks.RED_SAND) || blockstate.is(BlockTags.TERRACOTTA)) && p_401918_.nextInt(5) != 0)
+                {
+                    return;
+                }
+
+                BlockState blockstate1 = p_401809_.getBlockState(p_401789_.below(2));
+                if (blockstate.is(BlockTags.PLAYS_AMBIENT_DESERT_BLOCK_SOUNDS) && blockstate1.is(BlockTags.PLAYS_AMBIENT_DESERT_BLOCK_SOUNDS))
+                {
+                    p_401809_.playLocalSound(p_401789_.getX(), p_401789_.getY(), p_401789_.getZ(), SoundEvents.DEAD_BUSH_IDLE, SoundSource.AMBIENT, 1.0F, 1.0F, false);
+                }
+            }
+        }
     }
 }

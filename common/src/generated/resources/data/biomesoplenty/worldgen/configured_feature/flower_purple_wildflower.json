@@ -10,7 +10,7 @@
             "entries": [
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "north",
                     "flower_amount": "1"
@@ -20,7 +20,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "east",
                     "flower_amount": "1"
@@ -30,7 +30,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "south",
                     "flower_amount": "1"
@@ -40,7 +40,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "west",
                     "flower_amount": "1"
@@ -50,7 +50,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "north",
                     "flower_amount": "2"
@@ -60,7 +60,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "east",
                     "flower_amount": "2"
@@ -70,7 +70,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "south",
                     "flower_amount": "2"
@@ -80,7 +80,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "west",
                     "flower_amount": "2"
@@ -90,7 +90,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "north",
                     "flower_amount": "3"
@@ -100,7 +100,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "east",
                     "flower_amount": "3"
@@ -110,7 +110,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "south",
                     "flower_amount": "3"
@@ -120,7 +120,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "west",
                     "flower_amount": "3"
@@ -130,7 +130,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "north",
                     "flower_amount": "4"
@@ -140,7 +140,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "east",
                     "flower_amount": "4"
@@ -150,7 +150,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "south",
                     "flower_amount": "4"
@@ -160,7 +160,7 @@
               },
               {
                 "data": {
-                  "Name": "biomesoplenty:wildflower",
+                  "Name": "biomesoplenty:purple_wildflowers",
                   "Properties": {
                     "facing": "west",
                     "flower_amount": "4"

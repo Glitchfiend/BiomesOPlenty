@@ -174,6 +174,9 @@
     "biomesoplenty:pink_hibiscus": {
       "chance": 0.65
     },
+    "biomesoplenty:purple_wildflowers": {
+      "chance": 0.65
+    },
     "biomesoplenty:rainbow_birch_leaves": {
       "chance": 0.3
     },
@@ -254,9 +257,6 @@
     },
     "biomesoplenty:white_petals": {
       "chance": 0.3
-    },
-    "biomesoplenty:wildflower": {
-      "chance": 0.65
     },
     "biomesoplenty:willow_leaves": {
       "chance": 0.3

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flowerbed_2",
+   "textures": {
+    "flowerbed": "biomesoplenty:block/purple_wildflowers",
+    "stem": "biomesoplenty:block/purple_wildflowers_stem"
+  }
+}

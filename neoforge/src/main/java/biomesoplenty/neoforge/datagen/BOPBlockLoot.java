@@ -426,7 +426,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.ORANGE_COSMOS);
         this.dropSelf(BOPBlocks.PINK_DAFFODIL);
         this.dropSelf(BOPBlocks.PINK_HIBISCUS);
-        this.add(BOPBlocks.WILDFLOWER, this.createSegmentedBlockDrops(BOPBlocks.WILDFLOWER));
+        this.add(BOPBlocks.PURPLE_WILDFLOWERS, this.createSegmentedBlockDrops(BOPBlocks.PURPLE_WILDFLOWERS));
         this.add(BOPBlocks.WHITE_PETALS, this.createSegmentedBlockDrops(BOPBlocks.WHITE_PETALS));
         this.add(BOPBlocks.ICY_IRIS, (p_250918_) -> { return this.createSinglePropConditionTable(p_250918_, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER); });
         this.dropSelf(BOPBlocks.GLOWFLOWER);

@@ -10,9 +10,9 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.FlowerBedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class WildflowerBlock extends FlowerBedBlock
+public class PurpleWildflowerBlock extends FlowerBedBlock
 {
-    public WildflowerBlock(Properties properties)
+    public PurpleWildflowerBlock(Properties properties)
     {
         super(properties);
     }

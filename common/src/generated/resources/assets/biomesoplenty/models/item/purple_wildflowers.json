@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "biomesoplenty:item/wildflower"
+    "layer0": "biomesoplenty:item/purple_wildflowers"
   }
 }

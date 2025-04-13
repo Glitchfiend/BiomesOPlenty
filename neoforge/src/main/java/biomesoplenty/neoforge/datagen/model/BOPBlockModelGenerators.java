@@ -270,7 +270,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createBlockItemModel(BOPBlocks.ORANGE_MAPLE_LEAF_PILE);
         this.createBlockItemModel(BOPBlocks.YELLOW_MAPLE_LEAF_PILE);
         this.createBlockItemModel(BOPBlocks.BRAMBLE);
-        this.createBlockItemModel(BOPBlocks.WILDFLOWER);
+        this.createBlockItemModel(BOPBlocks.PURPLE_WILDFLOWERS);
         this.createBlockItemModel(BOPBlocks.WHITE_PETALS);
         this.createBlockItemModel(BOPBlocks.WATERGRASS);
         this.createBlockItemModel(BOPBlocks.CATTAIL);

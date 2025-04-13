@@ -404,7 +404,7 @@ public class ModItems
         WHITE_LAVENDER = registerBlock(func, BOPBlocks.WHITE_LAVENDER);
         TALL_WHITE_LAVENDER = registerBlock(func, BOPBlocks.TALL_WHITE_LAVENDER);
         BLUE_HYDRANGEA = registerBlock(func, BOPBlocks.BLUE_HYDRANGEA);
-        WILDFLOWER = registerBlock(func, BOPBlocks.WILDFLOWER);
+        PURPLE_WILDFLOWERS = registerBlock(func, BOPBlocks.PURPLE_WILDFLOWERS);
         GOLDENROD = registerBlock(func, BOPBlocks.GOLDENROD);
         ORANGE_COSMOS = registerBlock(func, BOPBlocks.ORANGE_COSMOS);
         PINK_DAFFODIL = registerBlock(func, BOPBlocks.PINK_DAFFODIL);

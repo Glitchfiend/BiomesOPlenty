@@ -223,7 +223,7 @@ public class BOPRecipeProvider extends RecipeProvider
         oneToOneConversionRecipe(Items.LIGHT_BLUE_DYE, BOPBlocks.BLUE_HYDRANGEA, "light_blue_dye", 2);
         oneToOneConversionRecipe(Items.LIGHT_BLUE_DYE, BOPBlocks.ICY_IRIS, "light_blue_dye", 2);
         oneToOneConversionRecipe(Items.LIGHT_GRAY_DYE, BOPBlocks.ENDBLOOM, "light_gray_dye");
-        oneToOneConversionRecipe(Items.MAGENTA_DYE, BOPBlocks.WILDFLOWER, "magenta_dye");
+        oneToOneConversionRecipe(Items.MAGENTA_DYE, BOPBlocks.PURPLE_WILDFLOWERS, "magenta_dye");
         oneToOneConversionRecipe(Items.ORANGE_DYE, BOPBlocks.BURNING_BLOSSOM, "orange_dye");
         oneToOneConversionRecipe(Items.ORANGE_DYE, BOPBlocks.ORANGE_COSMOS, "orange_dye");
         oneToOneConversionRecipe(Items.PINK_DYE, BOPBlocks.PINK_DAFFODIL, "pink_dye");
