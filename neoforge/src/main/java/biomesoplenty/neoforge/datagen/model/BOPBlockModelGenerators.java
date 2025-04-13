@@ -145,7 +145,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.woodProvider(BOPBlocks.DEAD_LOG).logWithHorizontal(BOPBlocks.DEAD_LOG).wood(BOPBlocks.DEAD_WOOD);
         this.woodProvider(BOPBlocks.STRIPPED_DEAD_LOG).logWithHorizontal(BOPBlocks.STRIPPED_DEAD_LOG).wood(BOPBlocks.STRIPPED_DEAD_WOOD);
         this.createHangingSign(BOPBlocks.STRIPPED_DEAD_LOG, BOPBlocks.DEAD_HANGING_SIGN, BOPBlocks.DEAD_WALL_HANGING_SIGN);
-        this.createTrivialBlock(BOPBlocks.DEAD_LEAVES, TexturedModel.LEAVES);
+        this.createTintedLeaves(BOPBlocks.DEAD_LEAVES, TexturedModel.LEAVES, -10732494);
         this.createPlantWithDefaultItem(BOPBlocks.DEAD_SAPLING, BOPBlocks.POTTED_DEAD_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
 
         // Magic
@@ -258,7 +258,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createTintedItemModel(BOPBlocks.BUSH, ItemModelUtils.constantTint(-12012264));
         this.createTintedItemModel(BOPBlocks.BRAMBLE_LEAVES, ItemModelUtils.constantTint(-12012264));
         this.registerSimpleFlatItemModel(BOPBlocks.DUNE_GRASS);
-        this.registerSimpleFlatItemModel(BOPBlocks.DESERT_GRASS);
+        this.createTintedItemModel(BOPBlocks.DESERT_GRASS, ItemModelUtils.constantTint(-10732494));
         this.registerSimpleFlatItemModel(BOPBlocks.DEAD_GRASS);
         this.registerSimpleFlatItemModel(BOPBlocks.TUNDRA_SHRUB);
         this.registerSimpleFlatItemModel(BOPBlocks.ENDERPHYTE);

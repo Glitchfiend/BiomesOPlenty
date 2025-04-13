@@ -353,6 +353,11 @@ public class ModClient
                 BOPBlocks.BUSH, BOPBlocks.FLOWERING_OAK_LEAVES, BOPBlocks.PINE_LEAVES, BOPBlocks.MAHOGANY_LEAVES,
                 BOPBlocks.PALM_LEAVES, BOPBlocks.WILLOW_LEAVES, BOPBlocks.WILLOW_VINE, BOPBlocks.BRAMBLE_LEAVES);
 
+        //Dry Foliage Coloring
+        event.register((state, world, pos, tintIndex) ->
+                        world != null && pos != null ? BiomeColors.getAverageDryFoliageColor(world, pos) : -10732494,
+                BOPBlocks.DEAD_LEAVES, BOPBlocks.DESERT_GRASS);
+
         //Rainbow Birch Leaf Coloring
         event.register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColor.FOLIAGE_DEFAULT,

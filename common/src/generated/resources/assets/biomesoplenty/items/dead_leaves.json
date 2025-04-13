@@ -1,6 +1,12 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "biomesoplenty:block/dead_leaves"
+    "model": "biomesoplenty:block/dead_leaves",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -10732494
+      }
+    ]
   }
 }

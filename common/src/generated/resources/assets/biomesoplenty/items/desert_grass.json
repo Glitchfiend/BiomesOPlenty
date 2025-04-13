@@ -1,6 +1,12 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "biomesoplenty:item/desert_grass"
+    "model": "biomesoplenty:item/desert_grass",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -10732494
+      }
+    ]
   }
 }
