@@ -73,7 +73,9 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:patch_pumpkin",
       "minecraft:patch_sugar_cane",
+      "minecraft:patch_firefly_bush_near_water",
       "biomesoplenty:trees_orchard",
       "biomesoplenty:flower_default_extended_15",
       "biomesoplenty:patch_clover_normal",

@@ -9,23 +9,19 @@
       "required": false
     },
     {
-      "id": "biomesoplenty:floodplain",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:fungal_jungle",
-      "required": false
-    },
-    {
       "id": "biomesoplenty:lush_desert",
       "required": false
     },
-    {
-      "id": "biomesoplenty:lush_savanna",
+	{
+      "id": "biomesoplenty:mediterranean_forest",
       "required": false
     },
 	{
-      "id": "biomesoplenty:scrubland",
+      "id": "biomesoplenty:pasture",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:prairie",
       "required": false
     },
 	{

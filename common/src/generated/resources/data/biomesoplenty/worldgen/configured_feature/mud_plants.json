@@ -2,10 +2,21 @@
   "type": "minecraft:simple_block",
   "config": {
     "to_place": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "biomesoplenty:glowing_moss_carpet"
-      }
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:firefly_bush"
+          },
+          "weight": 6
+        },
+        {
+          "data": {
+            "Name": "biomesoplenty:glowing_moss_carpet"
+          },
+          "weight": 25
+        }
+      ]
     }
   }
 }

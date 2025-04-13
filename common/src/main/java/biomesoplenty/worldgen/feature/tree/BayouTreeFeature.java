@@ -5,7 +5,6 @@
 package biomesoplenty.worldgen.feature.tree;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.block.WillowLeavesBlock;
 import biomesoplenty.util.biome.GeneratorUtil;
 import biomesoplenty.worldgen.feature.configurations.BayouTreeConfiguration;
 import com.mojang.serialization.Codec;
@@ -275,12 +274,6 @@ public class BayouTreeFeature extends BOPTreeFeature<BayouTreeConfiguration>
 
     public static void placeSpanishMossColumn(LevelAccessor p_236427_0_, RandomSource p_236427_1_, BlockPos.MutableBlockPos p_236427_2_, int p_236427_3_, int p_236427_4_, int p_236427_5_)
     {
-        BlockState leaves = p_236427_0_.getBlockState(p_236427_2_.above());
-        if (leaves.getBlock() == BOPBlocks.WILLOW_LEAVES)
-        {
-            p_236427_0_.setBlock(p_236427_2_.above(), leaves.setValue(WillowLeavesBlock.MOSSY, Boolean.valueOf(true)), 2);
-        }
-
         for(int i = 0; i <= p_236427_3_; ++i)
         {
             if (p_236427_0_.isEmptyBlock(p_236427_2_))
