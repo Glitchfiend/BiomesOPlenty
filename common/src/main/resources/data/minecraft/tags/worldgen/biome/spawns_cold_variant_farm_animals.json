@@ -37,11 +37,19 @@
       "required": false
     },
 	{
+      "id": "biomesoplenty:highland",
+      "required": false
+    },
+	{
       "id": "biomesoplenty:hot_springs",
       "required": false
     },
 	{
       "id": "biomesoplenty:maple_woods",
+      "required": false
+    },
+	{
+      "id": "biomesoplenty:moor",
       "required": false
     },
     {

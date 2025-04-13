@@ -10,7 +10,7 @@
         "description": {
             "translate": "advancements.biomesoplenty.root.description"
         },
-        "background": "biomesoplenty:textures/gui/advancements/backgrounds/biomesoplenty.png",
+        "background": "biomesoplenty:gui/advancements/backgrounds/biomesoplenty",
         "show_toast": false,
         "announce_to_chat": false
     },
