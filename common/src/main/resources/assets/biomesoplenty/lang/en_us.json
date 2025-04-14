@@ -597,13 +597,5 @@
   "tag.item.biomesoplenty.pine_logs": "Pine Logs",
   "tag.item.biomesoplenty.redwood_logs": "Redwood Logs",
   "tag.item.biomesoplenty.umbran_logs": "Umbran Logs",
-  "tag.item.biomesoplenty.willow_logs": "Willow Logs",
-  
-  "tag.item.sereneseasons.spring_crops": "Spring Crops",
-  "tag.item.sereneseasons.summer_crops": "Summer Crops",
-  "tag.item.sereneseasons.autumn_crops": "Autumn Crops",
-  "tag.item.sereneseasons.winter_crops": "Winter Crops",
-  
-  "tag.item.toughasnails.thermoregulator_cooling_fuel": "Thermoregulator Cooling Fuel",
-  "tag.item.toughasnails.thermoregulator_heating_fuel": "Thermoregulator Heating Fuel"
+  "tag.item.biomesoplenty.willow_logs": "Willow Logs"
 }
