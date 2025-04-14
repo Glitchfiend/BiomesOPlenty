@@ -26,6 +26,12 @@ public class ModParticles
     public static SimpleParticleType RED_MAPLE_LEAVES;
     public static SimpleParticleType ORANGE_MAPLE_LEAVES;
     public static SimpleParticleType YELLOW_MAPLE_LEAVES;
+    public static SimpleParticleType FIR_LEAVES;
+    public static SimpleParticleType REDWOOD_LEAVES;
+    public static SimpleParticleType CYPRESS_LEAVES;
+    public static SimpleParticleType MAGIC_LEAVES;
+    public static SimpleParticleType UMBRAN_LEAVES;
+    public static SimpleParticleType HELLBARK_LEAVES;
     public static SimpleParticleType END_SPORE;
     public static SimpleParticleType WISP_BUBBLE;
     public static SimpleParticleType NULL;
@@ -44,6 +50,12 @@ public class ModParticles
         RED_MAPLE_LEAVES = register(func, "red_maple_leaves",  new SimpleParticleType(false));
         ORANGE_MAPLE_LEAVES = register(func, "orange_maple_leaves",  new SimpleParticleType(false));
         YELLOW_MAPLE_LEAVES = register(func, "yellow_maple_leaves",  new SimpleParticleType(false));
+        FIR_LEAVES = register(func, "fir_leaves",  new SimpleParticleType(false));
+        REDWOOD_LEAVES = register(func, "redwood_leaves",  new SimpleParticleType(false));
+        CYPRESS_LEAVES = register(func, "cypress_leaves",  new SimpleParticleType(false));
+        MAGIC_LEAVES = register(func, "magic_leaves",  new SimpleParticleType(false));
+        UMBRAN_LEAVES = register(func, "umbran_leaves",  new SimpleParticleType(false));
+        HELLBARK_LEAVES = register(func, "hellbark_leaves",  new SimpleParticleType(false));
         END_SPORE = register(func, "end_spore",  new SimpleParticleType(false));
         WISP_BUBBLE = register(func, "wisp_bubble",  new SimpleParticleType(false));
         NULL = register(func, "null",  new SimpleParticleType(false));

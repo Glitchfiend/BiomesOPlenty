@@ -412,6 +412,36 @@ public class ModClient
                 return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
             };
         });
+        event.registerSpriteSet(ModParticles.FIR_LEAVES, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
+        event.registerSpriteSet(ModParticles.REDWOOD_LEAVES, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
+        event.registerSpriteSet(ModParticles.CYPRESS_LEAVES, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
+        event.registerSpriteSet(ModParticles.MAGIC_LEAVES, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
+        event.registerSpriteSet(ModParticles.UMBRAN_LEAVES, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
+        event.registerSpriteSet(ModParticles.HELLBARK_LEAVES, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            };
+        });
     }
 
     public static void registerWoodTypes()

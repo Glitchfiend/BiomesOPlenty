@@ -29,10 +29,12 @@ public class LargeLeafParticle extends TextureSheetParticle {
         this.friction = 1.0F;
     }
 
+    @Override
     public ParticleRenderType getRenderType() {
         return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
+    @Override
     public void tick() {
         this.xo = this.x;
         this.yo = this.y;
