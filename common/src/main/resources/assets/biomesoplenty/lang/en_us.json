@@ -583,5 +583,27 @@
   "subtitles.block.biomesoplenty.blood.ambient": "Blood gurgles",
   "subtitles.block.biomesoplenty.flesh_tendon.drip": "Blood drips",
   "subtitles.block.biomesoplenty.pus_bubble.pop": "Pus Bubble pops",
-  "subtitles.block.biomesoplenty.spider_egg.break": "Spider Egg breaks"
+  "subtitles.block.biomesoplenty.spider_egg.break": "Spider Egg breaks",
+  
+  "tag.item.biomesoplenty.dead_logs": "Dead Logs",
+  "tag.item.biomesoplenty.empyreal_logs": "Empyreal Logs",
+  "tag.item.biomesoplenty.fir_logs": "Fir Logs",
+  "tag.item.biomesoplenty.hellbark_logs": "Hellbark Logs",
+  "tag.item.biomesoplenty.jacaranda_logs": "Jacaranda Logs",
+  "tag.item.biomesoplenty.magic_logs": "Magic Logs",
+  "tag.item.biomesoplenty.mahogany_logs": "Mahogany Logs",
+  "tag.item.biomesoplenty.maple_logs": "Maple Logs",
+  "tag.item.biomesoplenty.palm_logs": "Palm Logs",
+  "tag.item.biomesoplenty.pine_logs": "Pine Logs",
+  "tag.item.biomesoplenty.redwood_logs": "Redwood Logs",
+  "tag.item.biomesoplenty.umbran_logs": "Umbran Logs",
+  "tag.item.biomesoplenty.willow_logs": "Willow Logs",
+  
+  "tag.item.sereneseasons.spring_crops": "Spring Crops",
+  "tag.item.sereneseasons.summer_crops": "Summer Crops",
+  "tag.item.sereneseasons.autumn_crops": "Autumn Crops",
+  "tag.item.sereneseasons.winter_crops": "Winter Crops",
+  
+  "tag.item.toughasnails.thermoregulator_cooling_fuel": "Thermoregulator Cooling Fuel",
+  "tag.item.toughasnails.thermoregulator_heating_fuel": "Thermoregulator Heating Fuel"
 }

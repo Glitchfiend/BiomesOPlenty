@@ -74,7 +74,7 @@ public class ModTags
         public static final TagKey<Item> HELLBARK_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "hellbark_logs"));
         public static final TagKey<Item> EMPYREAL_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "empyreal_logs"));
 
-        public static final TagKey<Item> SHEARS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "shears"));
+        public static final TagKey<Item> SHEARS = create(ResourceLocation.fromNamespaceAndPath("c", "tools/shear"));
 
         public static TagKey<Item> create(ResourceLocation name)
         {
