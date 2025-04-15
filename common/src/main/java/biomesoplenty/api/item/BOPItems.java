@@ -409,7 +409,6 @@ public class BOPItems
     public static Item ENDBLOOM;
 
     public static Item SPROUT;
-    public static Item BUSH;
     public static Item HIGH_GRASS;
     public static Item HIGH_GRASS_PLANT;
     public static Item CLOVER;

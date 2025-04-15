@@ -436,7 +436,6 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
         // Foliage
         this.add(BOPBlocks.SPROUT, (p_249038_) -> { return createGrassDrops(p_249038_); });
-        this.add(BOPBlocks.BUSH, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
         this.addStrandPlantDropTable(BOPBlocks.HIGH_GRASS, BOPBlocks.HIGH_GRASS_PLANT);
         this.add(BOPBlocks.CLOVER, createCloverDrops(BOPBlocks.CLOVER));
         this.add(BOPBlocks.HUGE_CLOVER_PETAL, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });

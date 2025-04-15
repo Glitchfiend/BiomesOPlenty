@@ -86,6 +86,7 @@
     ],
     [
       "minecraft:glow_lichen",
+      "biomesoplenty:patch_bush_1",
       "biomesoplenty:patch_grass_24",
       "biomesoplenty:patch_tall_grass_64",
       "biomesoplenty:scattered_rocks_highland"

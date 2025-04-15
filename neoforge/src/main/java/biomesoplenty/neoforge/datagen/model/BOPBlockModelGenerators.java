@@ -255,7 +255,6 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
 
         // Foliage
         this.createTintedItemModel(BOPBlocks.SPROUT, new GrassColorSource());
-        this.createTintedItemModel(BOPBlocks.BUSH, ItemModelUtils.constantTint(-12012264));
         this.createTintedItemModel(BOPBlocks.BRAMBLE_LEAVES, ItemModelUtils.constantTint(-12012264));
         this.registerSimpleFlatItemModel(BOPBlocks.DUNE_GRASS);
         this.createTintedItemModel(BOPBlocks.DESERT_GRASS, ItemModelUtils.constantTint(-10732494));

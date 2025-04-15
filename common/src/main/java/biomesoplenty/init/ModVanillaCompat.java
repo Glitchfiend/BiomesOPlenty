@@ -207,7 +207,6 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.STRINGY_COBWEB, 60, 100);
         registerFlammable(BOPBlocks.WEBBING, 60, 100);
         registerFlammable(BOPBlocks.SPROUT, 60, 100);
-        registerFlammable(BOPBlocks.BUSH, 60, 100);
         registerFlammable(BOPBlocks.HIGH_GRASS, 60, 100);
         registerFlammable(BOPBlocks.HIGH_GRASS_PLANT, 60, 100);
         registerFlammable(BOPBlocks.CLOVER, 60, 100);
@@ -327,7 +326,6 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.SPANISH_MOSS_PLANT);
 
         registerCompostable(0.5F, BOPBlocks.SPROUT);
-        registerCompostable(0.5F, BOPBlocks.BUSH);
         registerCompostable(0.5F, BOPBlocks.HIGH_GRASS);
         registerCompostable(0.5F, BOPBlocks.HIGH_GRASS_PLANT);
         registerCompostable(0.5F, BOPBlocks.CLOVER);

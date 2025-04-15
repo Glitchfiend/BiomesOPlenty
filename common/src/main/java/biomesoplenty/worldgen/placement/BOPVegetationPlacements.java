@@ -42,7 +42,6 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_BLUE_HYDRANGEA = BOPPlacementUtils.createKey("patch_blue_hydrangea");
     public static final ResourceKey<PlacedFeature> PATCH_BUSH_1 = BOPPlacementUtils.createKey("patch_bush_1");
     public static final ResourceKey<PlacedFeature> PATCH_BUSH_4 = BOPPlacementUtils.createKey("patch_bush_4");
-    public static final ResourceKey<PlacedFeature> PATCH_BUSH_10 = BOPPlacementUtils.createKey("patch_bush_10");
     public static final ResourceKey<PlacedFeature> PATCH_CATTAIL_NORMAL = BOPPlacementUtils.createKey("patch_cattail_normal");
     public static final ResourceKey<PlacedFeature> PATCH_CATTAIL_EXTRA = BOPPlacementUtils.createKey("patch_cattail_extra");
     public static final ResourceKey<PlacedFeature> PATCH_DEAD_BUSH_4 = BOPPlacementUtils.createKey("patch_dead_bush_4");
@@ -52,7 +51,6 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_FERN_2 = BOPPlacementUtils.createKey("patch_fern_2");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_4 = BOPPlacementUtils.createKey("patch_fern_4");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_8 = BOPPlacementUtils.createKey("patch_fern_8");
-    public static final ResourceKey<PlacedFeature> PATCH_FERN_16 = BOPPlacementUtils.createKey("patch_fern_16");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_1 = BOPPlacementUtils.createKey("patch_grass_1");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_3 = BOPPlacementUtils.createKey("patch_grass_3");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_6 = BOPPlacementUtils.createKey("patch_grass_6");
@@ -345,7 +343,6 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_BLUE_HYDRANGEA, PATCH_BLUE_HYDRANGEA, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_BUSH_1, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.PATCH_BUSH_4, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(3));
-        register(context, BOPVegetationPlacements.PATCH_BUSH_10, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(8));
         register(context, BOPVegetationPlacements.PATCH_CATTAIL_NORMAL, PATCH_CATTAIL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.PATCH_CATTAIL_EXTRA, PATCH_CATTAIL, VegetationPlacements.worldSurfaceSquaredWithCount(5));
         register(context, BOPVegetationPlacements.PATCH_DEAD_BUSH_4, PATCH_DEAD_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(4));
@@ -355,7 +352,6 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_FERN_2, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.PATCH_FERN_4, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(4));
         register(context, BOPVegetationPlacements.PATCH_FERN_8, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(8));
-        register(context, BOPVegetationPlacements.PATCH_FERN_16, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(16));
         register(context, BOPVegetationPlacements.PATCH_GRASS_1, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.PATCH_GRASS_3, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.PATCH_GRASS_6, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(6));

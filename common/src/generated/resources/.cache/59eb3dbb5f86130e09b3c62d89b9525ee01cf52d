@@ -1,4 +1,4 @@
-// 1.21.5	2025-04-14T00:22:24.3536695	Loot Tables
+// 1.21.5	2025-04-15T03:37:07.5867872	Loot Tables
 220e79635d6427547adc71c9a3595899624e7346 data/biomesoplenty/loot_table/blocks/algal_end_stone.json
 dd2b19339d5cd2e7c140672d01b47271540e8c0c data/biomesoplenty/loot_table/blocks/anomaly.json
 f92516ee35f9b379842fd0ac300baff1071c8308 data/biomesoplenty/loot_table/blocks/barley.json
@@ -22,7 +22,6 @@ f4b4366b13804c660ec4bdf16d6130e37457c276 data/biomesoplenty/loot_table/blocks/br
 ded471aafa33546ab8678d6fed68b845ca4ca730 data/biomesoplenty/loot_table/blocks/brimstone_cluster.json
 d70c44055b3ac4c3a7b4a9598b6fcc7e1cd40f21 data/biomesoplenty/loot_table/blocks/brimstone_fumarole.json
 49624ef1429afb0453dfd321a3e9c69cccd68a4d data/biomesoplenty/loot_table/blocks/burning_blossom.json
-0f9459c5f8f5644d736138d33bab63c6dbc81840 data/biomesoplenty/loot_table/blocks/bush.json
 d85de9ec3cbe326a5c3e3073dff5d0cfbf43f9ee data/biomesoplenty/loot_table/blocks/cattail.json
 3b8ab14e9e6f27c75b1aa6a8ed634e6310486f48 data/biomesoplenty/loot_table/blocks/chiseled_black_sandstone.json
 98187b595feab167cffe32b2cfddb47582aa4bd4 data/biomesoplenty/loot_table/blocks/chiseled_brimstone_bricks.json

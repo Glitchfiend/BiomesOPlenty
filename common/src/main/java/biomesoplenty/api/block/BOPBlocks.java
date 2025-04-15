@@ -391,7 +391,6 @@ public class BOPBlocks
     public static Block ENDBLOOM;
 
     public static Block SPROUT;
-    public static Block BUSH;
     public static Block HIGH_GRASS;
     public static Block HIGH_GRASS_PLANT;
     public static Block CLOVER;

@@ -416,7 +416,6 @@ public class ModItems
         BURNING_BLOSSOM = registerBlock(func, BOPBlocks.BURNING_BLOSSOM);
         ENDBLOOM = registerBlock(func, BOPBlocks.ENDBLOOM);
         SPROUT = registerBlock(func, BOPBlocks.SPROUT);
-        BUSH = registerBlock(func, BOPBlocks.BUSH);
         HIGH_GRASS = registerBlock(func, BOPBlocks.HIGH_GRASS);
         HIGH_GRASS_PLANT = registerBlock(func, BOPBlocks.HIGH_GRASS_PLANT);
         CLOVER = registerBlock(func, BOPBlocks.CLOVER);

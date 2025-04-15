@@ -154,7 +154,6 @@ public class ModClient
         RenderHelper.setRenderType(STRINGY_COBWEB, cutoutRenderType);
         RenderHelper.setRenderType(WEBBING, cutoutRenderType);
         RenderHelper.setRenderType(SPROUT, cutoutRenderType);
-        RenderHelper.setRenderType(BUSH, cutoutRenderType);
         RenderHelper.setRenderType(HIGH_GRASS, cutoutRenderType);
         RenderHelper.setRenderType(HIGH_GRASS_PLANT, cutoutRenderType);
         RenderHelper.setRenderType(CLOVER, cutoutRenderType);
@@ -350,8 +349,8 @@ public class ModClient
         //Foliage Coloring
         event.register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.FOLIAGE_DEFAULT,
-                BOPBlocks.BUSH, BOPBlocks.FLOWERING_OAK_LEAVES, BOPBlocks.PINE_LEAVES, BOPBlocks.MAHOGANY_LEAVES,
-                BOPBlocks.PALM_LEAVES, BOPBlocks.WILLOW_LEAVES, BOPBlocks.WILLOW_VINE, BOPBlocks.BRAMBLE_LEAVES);
+                BOPBlocks.FLOWERING_OAK_LEAVES, BOPBlocks.PINE_LEAVES, BOPBlocks.MAHOGANY_LEAVES, BOPBlocks.PALM_LEAVES, BOPBlocks.WILLOW_LEAVES,
+                BOPBlocks.WILLOW_VINE, BOPBlocks.BRAMBLE_LEAVES);
 
         //Dry Foliage Coloring
         event.register((state, world, pos, tintIndex) ->
