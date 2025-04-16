@@ -138,7 +138,7 @@
     "biomesoplenty:orange_cosmos": {
       "chance": 0.65
     },
-    "biomesoplenty:orange_maple_leaf_pile": {
+    "biomesoplenty:orange_maple_leaf_litter": {
       "chance": 0.3
     },
     "biomesoplenty:orange_maple_leaves": {
@@ -180,7 +180,7 @@
     "biomesoplenty:rainbow_birch_sapling": {
       "chance": 0.3
     },
-    "biomesoplenty:red_maple_leaf_pile": {
+    "biomesoplenty:red_maple_leaf_litter": {
       "chance": 0.3
     },
     "biomesoplenty:red_maple_leaves": {
@@ -267,7 +267,7 @@
     "biomesoplenty:wilted_lily": {
       "chance": 0.65
     },
-    "biomesoplenty:yellow_maple_leaf_pile": {
+    "biomesoplenty:yellow_maple_leaf_litter": {
       "chance": 0.3
     },
     "biomesoplenty:yellow_maple_leaves": {

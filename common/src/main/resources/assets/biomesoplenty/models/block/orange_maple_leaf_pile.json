@@ -1,6 +1,0 @@
-{
-	"parent": "biomesoplenty:block/leaf_pile",
-	"textures": {
-		"leaves": "biomesoplenty:block/orange_maple_leaf_pile"
-	}
-}

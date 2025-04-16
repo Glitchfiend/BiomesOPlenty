@@ -1,0 +1,77 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "biomesoplenty:orange_maple_leaf_litter",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "segment_amount": "1"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "biomesoplenty:orange_maple_leaf_litter",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "segment_amount": "2"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "biomesoplenty:orange_maple_leaf_litter",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "segment_amount": "3"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "biomesoplenty:orange_maple_leaf_litter",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "segment_amount": "4"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "biomesoplenty:orange_maple_leaf_litter"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "biomesoplenty:blocks/orange_maple_leaf_litter"
+}

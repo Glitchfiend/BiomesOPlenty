@@ -207,13 +207,13 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.PINE_HANGING_SIGN);
 
         this.dropSelf(BOPBlocks.RED_MAPLE_SAPLING);
-        this.add(BOPBlocks.RED_MAPLE_LEAF_PILE, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.add(BOPBlocks.RED_MAPLE_LEAF_LITTER, this.createSegmentedBlockDrops(BOPBlocks.RED_MAPLE_LEAF_LITTER));
         this.add(BOPBlocks.RED_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.RED_MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.ORANGE_MAPLE_SAPLING);
-        this.add(BOPBlocks.ORANGE_MAPLE_LEAF_PILE, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.add(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER, this.createSegmentedBlockDrops(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER));
         this.add(BOPBlocks.ORANGE_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.ORANGE_MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.YELLOW_MAPLE_SAPLING);
-        this.add(BOPBlocks.YELLOW_MAPLE_LEAF_PILE, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.add(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, this.createSegmentedBlockDrops(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER));
         this.add(BOPBlocks.YELLOW_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.YELLOW_MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.MAPLE_LOG);
         this.dropSelf(BOPBlocks.STRIPPED_MAPLE_LOG);

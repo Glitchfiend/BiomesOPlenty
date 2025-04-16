@@ -93,9 +93,9 @@
       "biomesoplenty:toadstool_normal",
       "biomesoplenty:patch_reed_5",
       "biomesoplenty:patch_grass_12",
-      "biomesoplenty:red_maple_leaf_piles",
-      "biomesoplenty:orange_maple_leaf_piles_extra",
-      "biomesoplenty:yellow_maple_leaf_piles"
+      "biomesoplenty:red_maple_leaf_litter",
+      "biomesoplenty:orange_maple_leaf_litter",
+      "biomesoplenty:yellow_maple_leaf_litter"
     ],
     [
       "minecraft:freeze_top_layer"

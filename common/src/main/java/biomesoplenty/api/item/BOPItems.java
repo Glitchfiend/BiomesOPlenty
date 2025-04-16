@@ -159,13 +159,13 @@ public class BOPItems
     public static Item PINE_CHEST_BOAT;
 
     public static Item RED_MAPLE_SAPLING;
-    public static Item RED_MAPLE_LEAF_PILE;
+    public static Item RED_MAPLE_LEAF_LITTER;
     public static Item RED_MAPLE_LEAVES;
     public static Item ORANGE_MAPLE_SAPLING;
-    public static Item ORANGE_MAPLE_LEAF_PILE;
+    public static Item ORANGE_MAPLE_LEAF_LITTER;
     public static Item ORANGE_MAPLE_LEAVES;
     public static Item YELLOW_MAPLE_SAPLING;
-    public static Item YELLOW_MAPLE_LEAF_PILE;
+    public static Item YELLOW_MAPLE_LEAF_LITTER;
     public static Item YELLOW_MAPLE_LEAVES;
     public static Item MAPLE_LOG;
     public static Item STRIPPED_MAPLE_LOG;

@@ -151,13 +151,13 @@ public class BOPBlocks
     public static Block PINE_HANGING_SIGN;
     public static Block PINE_WALL_HANGING_SIGN;
     public static Block RED_MAPLE_SAPLING;
-    public static Block RED_MAPLE_LEAF_PILE;
+    public static Block RED_MAPLE_LEAF_LITTER;
     public static Block RED_MAPLE_LEAVES;
     public static Block ORANGE_MAPLE_SAPLING;
-    public static Block ORANGE_MAPLE_LEAF_PILE;
+    public static Block ORANGE_MAPLE_LEAF_LITTER;
     public static Block ORANGE_MAPLE_LEAVES;
     public static Block YELLOW_MAPLE_SAPLING;
-    public static Block YELLOW_MAPLE_LEAF_PILE;
+    public static Block YELLOW_MAPLE_LEAF_LITTER;
     public static Block YELLOW_MAPLE_LEAVES;
     public static Block MAPLE_LOG;
     public static Block STRIPPED_MAPLE_LOG;

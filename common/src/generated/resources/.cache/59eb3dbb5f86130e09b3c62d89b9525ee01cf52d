@@ -1,4 +1,4 @@
-// 1.21.5	2025-04-15T03:37:07.5867872	Loot Tables
+// 1.21.5	2025-04-16T16:19:47.6695843	Loot Tables
 220e79635d6427547adc71c9a3595899624e7346 data/biomesoplenty/loot_table/blocks/algal_end_stone.json
 dd2b19339d5cd2e7c140672d01b47271540e8c0c data/biomesoplenty/loot_table/blocks/anomaly.json
 f92516ee35f9b379842fd0ac300baff1071c8308 data/biomesoplenty/loot_table/blocks/barley.json
@@ -194,7 +194,7 @@ bb6a31f3401b1276763bde646ae3aa6617b543ba data/biomesoplenty/loot_table/blocks/nu
 59cae5a9b580a67c61f93be01a8912f43088713e data/biomesoplenty/loot_table/blocks/null_leaves.json
 3228159dd2f67563eb4b9a64512faf6bdd14c5aa data/biomesoplenty/loot_table/blocks/null_plant.json
 cb8639b0fe6705a40c48e87fbc05d218d48fe08f data/biomesoplenty/loot_table/blocks/orange_cosmos.json
-90202e60d15376e68b12492abfc3e9c1e1bf03d5 data/biomesoplenty/loot_table/blocks/orange_maple_leaf_pile.json
+0896a01a44ea40ec1e254e62a78de974a18d5d0e data/biomesoplenty/loot_table/blocks/orange_maple_leaf_litter.json
 d54be50771689c61cf6722582a3723acee7b2a2e data/biomesoplenty/loot_table/blocks/orange_maple_leaves.json
 3eb8bde8a6e80ef86b4c2827bbb0aae88adeaafe data/biomesoplenty/loot_table/blocks/orange_maple_sapling.json
 e92cddbefb42d8c96929228258ae8b3985aea10e data/biomesoplenty/loot_table/blocks/orange_sand.json
@@ -292,7 +292,7 @@ fbbcae0643ffb4ccfe02d22cf998db62af3c6351 data/biomesoplenty/loot_table/blocks/re
 41ff5cdb1c1092b65d9571d2088ceb9990541992 data/biomesoplenty/loot_table/blocks/redwood_stairs.json
 2d2766703838307e47630d1cbea2348b083e6bdb data/biomesoplenty/loot_table/blocks/redwood_trapdoor.json
 dc7cf96d64a90f9f5194b694940cf4eafca717da data/biomesoplenty/loot_table/blocks/redwood_wood.json
-f9baa641e32de6e393e07e7a6e6c6fad8d1b6b7f data/biomesoplenty/loot_table/blocks/red_maple_leaf_pile.json
+548e31e2cfb69cae19bbd825a631fa3f8c34da91 data/biomesoplenty/loot_table/blocks/red_maple_leaf_litter.json
 b925f178e7f7450fb150507cfce59356c0d7399e data/biomesoplenty/loot_table/blocks/red_maple_leaves.json
 3a13f7f6624578c30349ad202ead94fb131abf3f data/biomesoplenty/loot_table/blocks/red_maple_sapling.json
 be5a44b5dc0404e2ed64dfcc0a3294e087059be1 data/biomesoplenty/loot_table/blocks/reed.json
@@ -395,6 +395,6 @@ d6a7c5c18e154ed2ad6931dde04beb8d4a5c00d4 data/biomesoplenty/loot_table/blocks/wi
 ddaa6cbc0ee4b3c401da2e881fea3f668956e82b data/biomesoplenty/loot_table/blocks/willow_wood.json
 1644a0c1168883044698b4265c95e0500c63bb8f data/biomesoplenty/loot_table/blocks/wilted_lily.json
 1ade6b5d7fb5b1d5814f602c74b5e0f760df8fb7 data/biomesoplenty/loot_table/blocks/wispjelly.json
-b798a41e6e250ea5e77ae4df90d6c43151bed69c data/biomesoplenty/loot_table/blocks/yellow_maple_leaf_pile.json
+d0696ec7ceff7e2fd28f24ed288ddfee11494066 data/biomesoplenty/loot_table/blocks/yellow_maple_leaf_litter.json
 08100048db025f6e70d14699ecafe4a46203175f data/biomesoplenty/loot_table/blocks/yellow_maple_leaves.json
 da953bd0fb28b893f1bd39e5e4e528bf84269f37 data/biomesoplenty/loot_table/blocks/yellow_maple_sapling.json

@@ -1,0 +1,149 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "north",
+                    "segment_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "east",
+                    "segment_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "south",
+                    "segment_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "west",
+                    "segment_amount": "1"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "north",
+                    "segment_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "east",
+                    "segment_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "south",
+                    "segment_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "west",
+                    "segment_amount": "2"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "north",
+                    "segment_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "east",
+                    "segment_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "south",
+                    "segment_amount": "3"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "biomesoplenty:orange_maple_leaf_litter",
+                  "Properties": {
+                    "facing": "west",
+                    "segment_amount": "3"
+                  }
+                },
+                "weight": 1
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 32,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

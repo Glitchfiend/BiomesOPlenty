@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_red_maple_leaves": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:red_maple_leaves"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:red_maple_leaf_litter"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_red_maple_leaves"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:red_maple_leaf_litter"
+    ]
+  }
+}

@@ -107,7 +107,7 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
                 }
                 else
                 {
-                    this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.YELLOW_MAPLE_LEAF_PILE.defaultBlockState());
+                    this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.YELLOW_MAPLE_LEAF_LITTER.defaultBlockState());
                 }
             }
 

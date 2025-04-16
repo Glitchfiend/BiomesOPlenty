@@ -1,0 +1,160 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_1"
+      },
+      "when": {
+        "facing": "north",
+        "segment_amount": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "segment_amount": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "segment_amount": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "segment_amount": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_2"
+      },
+      "when": {
+        "facing": "north",
+        "segment_amount": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "segment_amount": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "segment_amount": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "segment_amount": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_3"
+      },
+      "when": {
+        "facing": "north",
+        "segment_amount": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "segment_amount": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "segment_amount": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "segment_amount": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_4"
+      },
+      "when": {
+        "facing": "north",
+        "segment_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "segment_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "segment_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/red_maple_leaf_litter_4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "segment_amount": "4"
+      }
+    }
+  ]
+}

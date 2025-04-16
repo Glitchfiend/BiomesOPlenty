@@ -254,6 +254,9 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.registerSimpleFlatItemModel(BOPBlocks.ENDBLOOM);
 
         // Foliage
+        this.registerSimpleFlatItemModel(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER);
+        this.registerSimpleFlatItemModel(BOPBlocks.RED_MAPLE_LEAF_LITTER);
+        this.registerSimpleFlatItemModel(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER);
         this.createTintedItemModel(BOPBlocks.SPROUT, new GrassColorSource());
         this.createTintedItemModel(BOPBlocks.BRAMBLE_LEAVES, ItemModelUtils.constantTint(-12012264));
         this.registerSimpleFlatItemModel(BOPBlocks.DUNE_GRASS);
@@ -265,9 +268,6 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
 
         // Items that use a separate item texture from their block
         this.createBlockItemModel(BOPBlocks.GLOWSHROOM);
-        this.createBlockItemModel(BOPBlocks.RED_MAPLE_LEAF_PILE);
-        this.createBlockItemModel(BOPBlocks.ORANGE_MAPLE_LEAF_PILE);
-        this.createBlockItemModel(BOPBlocks.YELLOW_MAPLE_LEAF_PILE);
         this.createBlockItemModel(BOPBlocks.BRAMBLE);
         this.createBlockItemModel(BOPBlocks.PURPLE_WILDFLOWERS);
         this.createBlockItemModel(BOPBlocks.WHITE_PETALS);

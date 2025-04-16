@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "biomesoplenty:orange_maple_leaves"
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 12,
+    "id": "biomesoplenty:orange_maple_leaf_litter"
+  }
+}

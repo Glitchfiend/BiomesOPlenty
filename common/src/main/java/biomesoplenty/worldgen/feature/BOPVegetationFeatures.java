@@ -27,6 +27,7 @@ import net.minecraft.util.valueproviders.WeightedListInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerBedBlock;
+import net.minecraft.world.level.block.LeafLitterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -85,9 +86,9 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_WATERGRASS = BOPFeatureUtils.createKey("patch_watergrass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_WATERLILY_FLOWER = BOPFeatureUtils.createKey("patch_waterlily_flower");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PUMPKIN_PATCH = BOPFeatureUtils.createKey("pumpkin_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_LEAF_PILES = BOPFeatureUtils.createKey("red_maple_leaf_piles");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_LEAF_PILES = BOPFeatureUtils.createKey("orange_maple_leaf_piles");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_LEAF_PILES = BOPFeatureUtils.createKey("yellow_maple_leaf_piles");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_LEAF_LITTER = BOPFeatureUtils.createKey("red_maple_leaf_litter");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_MAPLE_LEAF_LITTER = BOPFeatureUtils.createKey("orange_maple_leaf_litter");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_MAPLE_LEAF_LITTER = BOPFeatureUtils.createKey("yellow_maple_leaf_litter");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPARSE_DUNE_GRASS = BOPFeatureUtils.createKey("sparse_dune_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINFOREST_CLIFFS_VINES = BOPFeatureUtils.createKey("rainforest_cliffs_vines");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTED_STUMP = BOPFeatureUtils.createKey("rooted_stump");
@@ -276,9 +277,9 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_WATERGRASS, Feature.RANDOM_PATCH, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS))));
         register(context, BOPVegetationFeatures.PATCH_WATERLILY_FLOWER, Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERLILY)))));
         register(context, BOPVegetationFeatures.PUMPKIN_PATCH, BOPBaseFeatures.PUMPKIN_PATCH, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPVegetationFeatures.RED_MAPLE_LEAF_PILES, BOPBaseFeatures.RED_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPVegetationFeatures.ORANGE_MAPLE_LEAF_PILES, BOPBaseFeatures.ORANGE_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPVegetationFeatures.YELLOW_MAPLE_LEAF_PILES, BOPBaseFeatures.YELLOW_MAPLE_LEAF_PILE, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.RED_MAPLE_LEAF_LITTER, Feature.RANDOM_PATCH, FeatureUtils.simpleRandomPatchConfiguration(32, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.RED_MAPLE_LEAF_LITTER, 1, 3))))));
+        register(context, BOPVegetationFeatures.ORANGE_MAPLE_LEAF_LITTER, Feature.RANDOM_PATCH, FeatureUtils.simpleRandomPatchConfiguration(32, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER, 1, 3))))));
+        register(context, BOPVegetationFeatures.YELLOW_MAPLE_LEAF_LITTER, Feature.RANDOM_PATCH, FeatureUtils.simpleRandomPatchConfiguration(32, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, 1, 3))))));
         register(context, BOPVegetationFeatures.SPARSE_DUNE_GRASS, BOPBaseFeatures.SPARSE_DUNE_GRASS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES, BOPBaseFeatures.RAINFOREST_CLIFFS_VINES, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ROOTED_STUMP, BOPBaseFeatures.ROOTED_STUMP, NoneFeatureConfiguration.INSTANCE);
@@ -381,6 +382,12 @@ public class BOPVegetationFeatures
     private static WeightedList.Builder<BlockState> flowerBedPatchBuilder(Block p_394149_)
     {
         return segmentedBlockPatchBuilder(p_394149_, 1, 4, FlowerBedBlock.AMOUNT, FlowerBedBlock.FACING);
+    }
+
+
+    public static WeightedList.Builder<BlockState> leafLitterPatchBuilder(Block block, int p_396969_, int p_394395_)
+    {
+        return segmentedBlockPatchBuilder(block, p_396969_, p_394395_, LeafLitterBlock.AMOUNT, LeafLitterBlock.FACING);
     }
 
     private static WeightedList.Builder<BlockState> segmentedBlockPatchBuilder(Block p_392074_, int p_395090_, int p_391445_, IntegerProperty p_392060_, EnumProperty<Direction> p_396039_)

@@ -1,0 +1,6 @@
+{
+  "parent": "biomesoplenty:block/template_maple_leaf_litter_2",
+  "textures": {
+    "texture": "biomesoplenty:block/yellow_maple_leaf_litter"
+  }
+}

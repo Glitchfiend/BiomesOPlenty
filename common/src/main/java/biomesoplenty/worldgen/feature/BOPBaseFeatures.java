@@ -71,9 +71,6 @@ public class BOPBaseFeatures
     public static BOPTreeFeature<PineTreeConfiguration> PINE_TREE;
     public static BOPTreeFeature<CypressTreeConfiguration> CYPRESS_TREE;
     public static Feature<NoneFeatureConfiguration> PUMPKIN_PATCH;
-    public static Feature<NoneFeatureConfiguration> RED_MAPLE_LEAF_PILE;
-    public static Feature<NoneFeatureConfiguration> ORANGE_MAPLE_LEAF_PILE;
-    public static Feature<NoneFeatureConfiguration> YELLOW_MAPLE_LEAF_PILE;
     public static Feature<NoneFeatureConfiguration> SPARSE_DUNE_GRASS;
     public static Feature<NoneFeatureConfiguration> RAINFOREST_CLIFFS_VINES;
     public static BOPTreeFeature<TaigaTreeConfiguration> REDWOOD_TREE;
@@ -155,9 +152,6 @@ public class BOPBaseFeatures
         PINE_TREE = register(func, "pine_tree", new PineTreeFeature(PineTreeConfiguration.CODEC));
         CYPRESS_TREE = register(func, "cypress_tree", new CypressTreeFeature(CypressTreeConfiguration.CODEC));
         PUMPKIN_PATCH = register(func, "pumpkin_patch", new PumpkinPatchFeature(NoneFeatureConfiguration.CODEC));
-        RED_MAPLE_LEAF_PILE = register(func, "red_maple_leaf_pile", new RedMapleLeafPileFeature(NoneFeatureConfiguration.CODEC));
-        ORANGE_MAPLE_LEAF_PILE = register(func, "orange_maple_leaf_pile", new OrangeMapleLeafPileFeature(NoneFeatureConfiguration.CODEC));
-        YELLOW_MAPLE_LEAF_PILE = register(func, "yellow_maple_leaf_pile", new YellowMapleLeafPileFeature(NoneFeatureConfiguration.CODEC));
         SPARSE_DUNE_GRASS = register(func, "sparse_dune_grass", new SparseDuneGrassFeature(NoneFeatureConfiguration.CODEC));
         RAINFOREST_CLIFFS_VINES = register(func, "rainforest_cliffs_vines", new RainforestCliffsVinesFeature(NoneFeatureConfiguration.CODEC));
         REDWOOD_TREE = register(func, "redwood_tree", new RedwoodTreeFeature(TaigaTreeConfiguration.CODEC));

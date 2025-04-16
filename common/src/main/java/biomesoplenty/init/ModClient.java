@@ -159,9 +159,9 @@ public class ModClient
         RenderHelper.setRenderType(CLOVER, cutoutRenderType);
         RenderHelper.setRenderType(HUGE_CLOVER_PETAL, cutoutRenderType);
         RenderHelper.setRenderType(HUGE_LILY_PAD, cutoutRenderType);
-        RenderHelper.setRenderType(RED_MAPLE_LEAF_PILE, cutoutRenderType);
-        RenderHelper.setRenderType(ORANGE_MAPLE_LEAF_PILE, cutoutRenderType);
-        RenderHelper.setRenderType(YELLOW_MAPLE_LEAF_PILE, cutoutRenderType);
+        RenderHelper.setRenderType(RED_MAPLE_LEAF_LITTER, cutoutRenderType);
+        RenderHelper.setRenderType(ORANGE_MAPLE_LEAF_LITTER, cutoutRenderType);
+        RenderHelper.setRenderType(YELLOW_MAPLE_LEAF_LITTER, cutoutRenderType);
         RenderHelper.setRenderType(DUNE_GRASS, cutoutRenderType);
         RenderHelper.setRenderType(DESERT_GRASS, cutoutRenderType);
         RenderHelper.setRenderType(DEAD_GRASS, cutoutRenderType);

@@ -108,6 +108,10 @@ public class MissingMappingsHandler
                 .remap("tall_wheat", BOPBlocks.BARLEY)
                 .remap("potted_clover", Blocks.FLOWER_POT)
                 .remap("potted_wildflower", Blocks.FLOWER_POT)
+                .remap("bush", Blocks.BUSH)
+                .remap("orange_maple_leaf_pile", BOPBlocks.ORANGE_MAPLE_LEAF_LITTER)
+                .remap("red_maple_leaf_pile", BOPBlocks.RED_MAPLE_LEAF_LITTER)
+                .remap("yellow_maple_leaf_pile", BOPBlocks.YELLOW_MAPLE_LEAF_LITTER)
                 .run(event);
 
         Remapper.create(Registries.ITEM)

@@ -222,13 +222,13 @@ public class ModItems
         PINE_PRESSURE_PLATE = registerBlock(func, BOPBlocks.PINE_PRESSURE_PLATE);
         PINE_BUTTON = registerBlock(func, BOPBlocks.PINE_BUTTON);
         RED_MAPLE_SAPLING = registerBlock(func, BOPBlocks.RED_MAPLE_SAPLING);
-        RED_MAPLE_LEAF_PILE = registerBlock(func, BOPBlocks.RED_MAPLE_LEAF_PILE);
+        RED_MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.RED_MAPLE_LEAF_LITTER);
         RED_MAPLE_LEAVES = registerBlock(func, BOPBlocks.RED_MAPLE_LEAVES);
         ORANGE_MAPLE_SAPLING = registerBlock(func, BOPBlocks.ORANGE_MAPLE_SAPLING);
-        ORANGE_MAPLE_LEAF_PILE = registerBlock(func, BOPBlocks.ORANGE_MAPLE_LEAF_PILE);
+        ORANGE_MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.ORANGE_MAPLE_LEAF_LITTER);
         ORANGE_MAPLE_LEAVES = registerBlock(func, BOPBlocks.ORANGE_MAPLE_LEAVES);
         YELLOW_MAPLE_SAPLING = registerBlock(func, BOPBlocks.YELLOW_MAPLE_SAPLING);
-        YELLOW_MAPLE_LEAF_PILE = registerBlock(func, BOPBlocks.YELLOW_MAPLE_LEAF_PILE);
+        YELLOW_MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.YELLOW_MAPLE_LEAF_LITTER);
         YELLOW_MAPLE_LEAVES = registerBlock(func, BOPBlocks.YELLOW_MAPLE_LEAVES);
         MAPLE_LOG = registerBlock(func, BOPBlocks.MAPLE_LOG);
         MAPLE_WOOD = registerBlock(func, BOPBlocks.MAPLE_WOOD);
