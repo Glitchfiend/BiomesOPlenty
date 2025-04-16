@@ -47,8 +47,8 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
             return false;
         }
 
-        int size = rand.nextInt(3) + 2;
-        int anomalyHeight = rand.nextInt(4);
+        int size = rand.nextInt(4) + 3;
+        int anomalyHeight = rand.nextInt(10) + 1;
 
         if (!this.checkSpace(world, startPos, size, anomalyHeight))
         {
@@ -58,7 +58,7 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
 
         BlockPos pos = startPos;
 
-        for (int y = 4; y > -128; y--)
+        for (int y = 6; y > -128; y--)
         {
             for (int x = -3; x <= size+3; x++)
             {
@@ -93,7 +93,14 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
                                 }
                                 else
                                 {
-                                    this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState());
+                                    if (rand.nextInt(4) == 0)
+                                    {
+                                        this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_BLOCK.defaultBlockState());
+                                    }
+                                    else
+                                    {
+                                        this.setBlock(world, pos.offset(x,y,z), BOPBlocks.NULL_END_STONE.defaultBlockState());
+                                    }
                                 }
                             }
                         }
@@ -140,19 +147,23 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
                     AnomalyBlock.AnomalyType type = AnomalyBlock.AnomalyType.STABLE;
                     if (y == 0 || y == size || x == 0 || x == size || z == 0 || z == size)
                     {
-                        switch (rand.nextInt(6))
+                        switch (rand.nextInt(7))
                         {
                             default:
-                            case 0:
+                            case 0: case 1:
                                 type = AnomalyBlock.AnomalyType.VOLATILE;
                                 break;
 
-                            case 1:
+                            case 2: case 3:
                                 type = AnomalyBlock.AnomalyType.QUIRKY;
                                 break;
 
-                            case 2:
+                            case 4: case 5:
                                 type = AnomalyBlock.AnomalyType.UNSTABLE;
+                                break;
+
+                            case 6:
+                                type = AnomalyBlock.AnomalyType.STABLE;
                                 break;
                         }
                     }

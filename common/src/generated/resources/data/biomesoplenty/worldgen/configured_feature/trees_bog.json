@@ -6,10 +6,6 @@
       {
         "chance": 0.4,
         "feature": "biomesoplenty:spruce_twiglet_tree"
-      },
-      {
-        "chance": 0.6,
-        "feature": "biomesoplenty:maple_twiglet_tree"
       }
     ]
   }

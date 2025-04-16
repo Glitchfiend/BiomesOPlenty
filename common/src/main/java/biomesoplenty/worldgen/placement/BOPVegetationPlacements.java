@@ -42,6 +42,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_BLUE_HYDRANGEA = BOPPlacementUtils.createKey("patch_blue_hydrangea");
     public static final ResourceKey<PlacedFeature> PATCH_BUSH_1 = BOPPlacementUtils.createKey("patch_bush_1");
     public static final ResourceKey<PlacedFeature> PATCH_BUSH_4 = BOPPlacementUtils.createKey("patch_bush_4");
+    public static final ResourceKey<PlacedFeature> PATCH_BOG_BERRY_BUSH = BOPPlacementUtils.createKey("patch_bog_berry_bush");
     public static final ResourceKey<PlacedFeature> PATCH_CATTAIL_NORMAL = BOPPlacementUtils.createKey("patch_cattail_normal");
     public static final ResourceKey<PlacedFeature> PATCH_CATTAIL_EXTRA = BOPPlacementUtils.createKey("patch_cattail_extra");
     public static final ResourceKey<PlacedFeature> PATCH_DEAD_BUSH_4 = BOPPlacementUtils.createKey("patch_dead_bush_4");
@@ -208,6 +209,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> HUGE_RED_MUSHROOM = configuredFeatureGetter.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM);
         final Holder<ConfiguredFeature<?, ?>> PATCH_BLUE_HYDRANGEA = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_BLUE_HYDRANGEA);
         final Holder<ConfiguredFeature<?, ?>> PATCH_BUSH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_BUSH);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_BERRY_BUSH = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_BERRY_BUSH);
         final Holder<ConfiguredFeature<?, ?>> PATCH_CATTAIL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_CATTAIL);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DEAD_BUSH = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_DEAD_BUSH);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DEAD_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DEAD_GRASS);
@@ -343,6 +345,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_BLUE_HYDRANGEA, PATCH_BLUE_HYDRANGEA, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_BUSH_1, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.PATCH_BUSH_4, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(3));
+        register(context, BOPVegetationPlacements.PATCH_BOG_BERRY_BUSH, PATCH_BERRY_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.PATCH_CATTAIL_NORMAL, PATCH_CATTAIL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.PATCH_CATTAIL_EXTRA, PATCH_CATTAIL, VegetationPlacements.worldSurfaceSquaredWithCount(5));
         register(context, BOPVegetationPlacements.PATCH_DEAD_BUSH_4, PATCH_DEAD_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(4));
