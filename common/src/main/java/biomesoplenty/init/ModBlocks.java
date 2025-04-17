@@ -14,6 +14,8 @@ import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.worldgen.BOPSurfaceRuleData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ColorParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -422,7 +424,7 @@ public class ModBlocks
         HELLBARK_WALL_HANGING_SIGN = register(func, "hellbark_wall_hanging_sign", p -> new WallHangingSignBlockBOP(BOPWoodTypes.HELLBARK, p), wallVariant(HELLBARK_HANGING_SIGN, true).mapColor(HELLBARK_PLANKS.defaultMapColor()).instrument(NoteBlockInstrument.BASS).forceSolidOn().noCollission().strength(1.0F));
 
         EMPYREAL_SAPLING = register(func, "empyreal_sapling", p -> new SaplingBlockBOP(BOPTreeGrowers.EMPYREAL, p), BlockBehaviour.Properties.of().mapColor(MapColor.SAND).pushReaction(PushReaction.DESTROY).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
-        EMPYREAL_LEAVES = register(func, "empyreal_leaves", p -> new TintedParticleLeavesBlock(0.001F, p), BlockBehaviour.Properties.of().mapColor(MapColor.SAND).pushReaction(PushReaction.DESTROY).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never));
+        EMPYREAL_LEAVES = register(func, "empyreal_leaves", p -> new UntintedParticleLeavesBlock(0.0025F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, -5962), p), BlockBehaviour.Properties.of().mapColor(MapColor.SAND).pushReaction(PushReaction.DESTROY).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never));
         EMPYREAL_LOG = register(func, "empyreal_log", RotatedPillarBlock::new, logProperties(MapColor.COLOR_PURPLE, MapColor.QUARTZ, SoundType.NETHER_WOOD));
         EMPYREAL_WOOD = register(func, "empyreal_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.QUARTZ).strength(2.0F).sound(SoundType.NETHER_WOOD));
         STRIPPED_EMPYREAL_LOG = register(func, "stripped_empyreal_log", RotatedPillarBlock::new, logProperties(MapColor.COLOR_PURPLE, MapColor.COLOR_PURPLE, SoundType.NETHER_WOOD));

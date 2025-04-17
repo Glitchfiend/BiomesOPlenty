@@ -48,7 +48,7 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
         }
 
         int size = rand.nextInt(4) + 3;
-        int anomalyHeight = rand.nextInt(10) + 1;
+        int anomalyHeight = rand.nextInt(8) + 2;
 
         if (!this.checkSpace(world, startPos, size, anomalyHeight))
         {
@@ -147,23 +147,19 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
                     AnomalyBlock.AnomalyType type = AnomalyBlock.AnomalyType.STABLE;
                     if (y == 0 || y == size || x == 0 || x == size || z == 0 || z == size)
                     {
-                        switch (rand.nextInt(7))
+                        switch (rand.nextInt(5))
                         {
                             default:
-                            case 0: case 1:
+                            case 0:
                                 type = AnomalyBlock.AnomalyType.VOLATILE;
                                 break;
 
-                            case 2: case 3:
+                            case 1:
                                 type = AnomalyBlock.AnomalyType.QUIRKY;
                                 break;
 
-                            case 4: case 5:
+                            case 2:
                                 type = AnomalyBlock.AnomalyType.UNSTABLE;
-                                break;
-
-                            case 6:
-                                type = AnomalyBlock.AnomalyType.STABLE;
                                 break;
                         }
                     }
