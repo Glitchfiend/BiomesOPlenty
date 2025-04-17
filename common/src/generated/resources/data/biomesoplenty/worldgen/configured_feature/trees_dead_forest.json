@@ -5,7 +5,7 @@
     "features": [
       {
         "chance": 0.2,
-        "feature": "biomesoplenty:dying_tree"
+        "feature": "biomesoplenty:dying_tree_leaf_litter"
       },
       {
         "chance": 0.3,
@@ -13,11 +13,11 @@
       },
       {
         "chance": 0.3,
-        "feature": "biomesoplenty:small_dead_tree"
+        "feature": "biomesoplenty:small_dead_tree_leaf_litter"
       },
       {
         "chance": 0.2,
-        "feature": "biomesoplenty:dead_twiglet_tree"
+        "feature": "biomesoplenty:dead_twiglet_tree_leaf_litter"
       }
     ]
   }

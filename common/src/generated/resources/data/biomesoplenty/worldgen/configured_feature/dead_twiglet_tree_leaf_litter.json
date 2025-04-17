@@ -1,5 +1,5 @@
 {
-  "type": "biomesoplenty:cypress_tree",
+  "type": "biomesoplenty:twiglet_tree",
   "config": {
     "alt_foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -15,7 +15,7 @@
           "entries": [
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "north",
                   "segment_amount": "1"
@@ -25,7 +25,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "east",
                   "segment_amount": "1"
@@ -35,7 +35,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "south",
                   "segment_amount": "1"
@@ -45,7 +45,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "west",
                   "segment_amount": "1"
@@ -55,7 +55,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "north",
                   "segment_amount": "2"
@@ -65,7 +65,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "east",
                   "segment_amount": "2"
@@ -75,7 +75,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "south",
                   "segment_amount": "2"
@@ -85,7 +85,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "west",
                   "segment_amount": "2"
@@ -95,7 +95,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "north",
                   "segment_amount": "3"
@@ -105,7 +105,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "east",
                   "segment_amount": "3"
@@ -115,7 +115,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "south",
                   "segment_amount": "3"
@@ -125,7 +125,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "west",
                   "segment_amount": "3"
@@ -146,7 +146,7 @@
           "entries": [
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "north",
                   "segment_amount": "1"
@@ -156,7 +156,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "east",
                   "segment_amount": "1"
@@ -166,7 +166,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "south",
                   "segment_amount": "1"
@@ -176,7 +176,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "west",
                   "segment_amount": "1"
@@ -186,7 +186,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "north",
                   "segment_amount": "2"
@@ -196,7 +196,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "east",
                   "segment_amount": "2"
@@ -206,7 +206,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "south",
                   "segment_amount": "2"
@@ -216,7 +216,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "west",
                   "segment_amount": "2"
@@ -226,7 +226,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "north",
                   "segment_amount": "3"
@@ -236,7 +236,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "east",
                   "segment_amount": "3"
@@ -246,7 +246,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "south",
                   "segment_amount": "3"
@@ -256,7 +256,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "west",
                   "segment_amount": "3"
@@ -266,7 +266,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "north",
                   "segment_amount": "4"
@@ -276,7 +276,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "east",
                   "segment_amount": "4"
@@ -286,7 +286,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "south",
                   "segment_amount": "4"
@@ -296,7 +296,7 @@
             },
             {
               "data": {
-                "Name": "biomesoplenty:yellow_maple_leaf_litter",
+                "Name": "minecraft:leaf_litter",
                 "Properties": {
                   "facing": "west",
                   "segment_amount": "4"
@@ -314,7 +314,7 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "biomesoplenty:yellow_maple_leaves",
+        "Name": "biomesoplenty:dead_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
@@ -328,19 +328,23 @@
         "Name": "minecraft:air"
       }
     },
-    "leaves_at_bottom": false,
-    "max_height": 20,
-    "min_height": 12,
+    "leaf_chance_even": 0.05,
+    "leaf_chance_odd": 0.25,
+    "max_height": 10,
+    "min_height": 6,
     "trunk_fruit_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:air"
+        "Name": "biomesoplenty:dead_branch",
+        "Properties": {
+          "facing": "north"
+        }
       }
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:birch_log",
+        "Name": "biomesoplenty:dead_log",
         "Properties": {
           "axis": "y"
         }

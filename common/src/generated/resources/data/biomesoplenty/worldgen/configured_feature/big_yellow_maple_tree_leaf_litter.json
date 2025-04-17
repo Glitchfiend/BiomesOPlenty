@@ -1,5 +1,5 @@
 {
-  "type": "biomesoplenty:cypress_tree",
+  "type": "biomesoplenty:big_tree",
   "config": {
     "alt_foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -311,6 +311,8 @@
         "tries": 150
       }
     ],
+    "foliage_density": 1.0,
+    "foliage_height": 5,
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -328,9 +330,8 @@
         "Name": "minecraft:air"
       }
     },
-    "leaves_at_bottom": false,
-    "max_height": 20,
-    "min_height": 12,
+    "max_height": 12,
+    "min_height": 5,
     "trunk_fruit_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -340,12 +341,13 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:birch_log",
+        "Name": "biomesoplenty:maple_log",
         "Properties": {
           "axis": "y"
         }
       }
     },
+    "trunk_width": 1,
     "vine_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

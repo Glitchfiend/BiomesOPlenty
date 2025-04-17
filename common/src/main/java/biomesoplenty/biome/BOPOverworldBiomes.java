@@ -749,8 +749,6 @@ public class BOPOverworldBiomes
             addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_SNOWY);
             addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_2);
             addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
-            addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.RED_MAPLE_LEAF_LITTER);
-
         }
 
         return biome(true, snowy ? -0.25F : 0.25F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
@@ -1082,7 +1080,6 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_10);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_5);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
-        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.ORANGE_MAPLE_LEAF_LITTER);
 
         return biomeWithColorOverrides(true, 0.4F, 0.8F, 0xDDBF4A, 0xCED14A, spawnBuilder, biomeBuilder, FOREST_MUSIC);
     }
