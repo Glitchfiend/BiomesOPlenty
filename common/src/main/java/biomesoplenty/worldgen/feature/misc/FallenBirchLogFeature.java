@@ -6,6 +6,7 @@ package biomesoplenty.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.util.SimpleBlockPredicate;
+import com.ibm.icu.text.RelativeDateTimeFormatter;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,6 +15,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.LeafLitterBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -107,7 +109,7 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
                 }
                 else
                 {
-                    this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.YELLOW_MAPLE_LEAF_LITTER.defaultBlockState());
+                    this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.YELLOW_MAPLE_LEAF_LITTER.defaultBlockState().setValue(LeafLitterBlock.AMOUNT,1+rand.nextInt(4)).setValue(LeafLitterBlock.FACING, Direction.Plane.HORIZONTAL.getRandomDirection(rand)));
                 }
             }
 
