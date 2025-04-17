@@ -17,14 +17,6 @@
       "required": false
     },
 	{
-      "id": "biomesoplenty:pasture",
-      "required": false
-    },
-	{
-      "id": "biomesoplenty:prairie",
-      "required": false
-    },
-	{
       "id": "biomesoplenty:tropics",
       "required": false
     },

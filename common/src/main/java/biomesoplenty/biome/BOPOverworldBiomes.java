@@ -217,7 +217,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_10);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biomeWithColorOverrides(true, 0.2F, 0.5F, 0xA89557, 0xC67F5B, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.2F, 0.5F, 0xA89557, 0xC67F5B, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome coldDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -235,7 +235,7 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.WASTELAND_GRASS_1);
 
-        return biomeWithColorOverrides(false, 0.25F, 0.0F, 0xAD9364, 0xB5A76C, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(false, 0.25F, 0.0F, 0xAD9364, 0xB5A76C, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome coniferousForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean isSnowy)
@@ -272,7 +272,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TOADSTOOL_NORMAL);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
-        return biome(true, isSnowy ? -0.25F : 0.45F, 0.5F, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+        return biome(true, isSnowy ? -0.25F : 0.45F, 0.5F, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome crag(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -314,7 +314,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_DEAD_FOREST);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
 
-        return biomeWithColorOverrides(true, 0.2F, 0.3F, 0xBAAD64, 0xB7B763, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.2F, 0.3F, 0xBAAD64, 0xB7B763, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome dryland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -396,7 +396,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_PURPLE_WILDFLOWERS);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biomeWithColorOverrides(true, 0.4F, 0.7F, 0x63B26D, 0x63B26D, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+        return biomeWithColorOverrides(true, 0.4F, 0.7F, 0x63B26D, 0x63B26D, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome firClearing(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean snowy)
@@ -433,7 +433,7 @@ public class BOPOverworldBiomes
             addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_1);
         }
 
-        return biome(true, snowy ? -0.25F : 0.45F, 0.5F, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+        return biome(true, snowy ? -0.25F : 0.45F, 0.5F, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome floodplain(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -529,7 +529,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_FIREFLY_BUSH_NEAR_WATER);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
 
-        return biomeWithColorOverrides(true, 0.6F, 0.7F, 0x88C57F, 0x6AB66F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.6F, 0.7F, 0x88C57F, 0x6AB66F, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome gravelBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -545,7 +545,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_CLAY);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_GRAVEL);
 
-        return biome(true, 0.45F, 0.5F, 4020182, 329011, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biome(true, 0.45F, 0.5F, 4020182, 329011, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome highland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -600,7 +600,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.HOT_SPRING_VENTS);
 
-        return biomeWithColorOverrides(true, 0.17F, 0.5F, 4445678, 270131, 0x80B497, 0x60A17B, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.17F, 0.5F, 4445678, 270131, 0x80B497, 0x60A17B, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome jacarandaGlade(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -751,7 +751,7 @@ public class BOPOverworldBiomes
             addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
         }
 
-        return biome(true, snowy ? -0.25F : 0.25F, 0.5F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biome(true, snowy ? -0.25F : 0.25F, 0.5F, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome marsh(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -849,7 +849,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPMiscOverworldPlacements.MUD_SPLATTER);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_1);
 
-        return biomeWithColorOverrides(true, 0.0F, 0.6F, 0x94966E, 0x8D9B6B, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.0F, 0.6F, 0x94966E, 0x8D9B6B, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome mysticGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -904,7 +904,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_OLD_GROWTH_DEAD_FOREST);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biomeWithColorOverrides(true, 0.3F, 0.3F, 0xBAAD64, 0xB7B763, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.3F, 0.3F, 0xBAAD64, 0xB7B763, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome ominousWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -930,7 +930,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_DEAD_GRASS);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biomeWithColorOverrides(true, 0.6F, 0.6F, 0x312346, 0x0A030C, 0x7881A5, 0x4C4A70, 0x6B487C, 0x84A1CC, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.6F, 0.6F, 0x312346, 0x0A030C, 0x7881A5, 0x4C4A70, 0x6B487C, 0x84A1CC, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome orchard(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1193,7 +1193,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_BUSH_4);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biome(true, 0.6F, 0.05F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biome(true, 0.6F, 0.05F, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome scrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1237,7 +1237,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_10);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biome(true, 0.6F, 0.05F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biome(true, 0.6F, 0.05F, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome seasonalForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1267,7 +1267,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.ORANGE_MAPLE_LEAF_LITTER);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.YELLOW_MAPLE_LEAF_LITTER);
 
-        return biomeWithColorOverrides(true, 0.4F, 0.8F, 0xDD9A4A, 0xD1B24A, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+        return biomeWithColorOverrides(true, 0.4F, 0.8F, 0xDD9A4A, 0xD1B24A, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome snowblossomGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1367,7 +1367,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TUNDRA_SHRUBS);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SCATTERED_ROCKS);
 
-        return biomeWithColorOverrides(true, 0.2F, 0.5F, 0xC08359, 0xC5975C, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biomeWithColorOverrides(true, 0.2F, 0.5F, 0xC08359, 0xC5975C, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 
     public static Biome volcano(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1512,6 +1512,6 @@ public class BOPOverworldBiomes
             addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_WOODLAND);
         }
 
-        return biomeWithColorOverrides(true, 0.8F, 0.5F, 0x9CC439, 0x85B408, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+        return biomeWithColorOverrides(true, 0.8F, 0.5F, 0x9CC439, 0x85B408, spawnBuilder, biomeBuilder, Musics.createGameMusic(BOPSounds.MUSIC_BIOME_UNUSED));
     }
 }

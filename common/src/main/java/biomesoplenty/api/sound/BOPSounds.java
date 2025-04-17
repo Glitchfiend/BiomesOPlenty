@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvent;
 public class BOPSounds
 {
 	public static Holder<SoundEvent> MUSIC_BIOME_ORIGIN_VALLEY;
+	public static Holder<SoundEvent> MUSIC_BIOME_UNUSED;
 	public static Holder<SoundEvent> MUSIC_BIOME_CRYSTALLINE_CHASM;
 	public static Holder<SoundEvent> MUSIC_BIOME_ERUPTING_INFERNO;
 	public static Holder<SoundEvent> MUSIC_BIOME_UNDERGROWTH;
