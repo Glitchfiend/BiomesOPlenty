@@ -543,8 +543,8 @@
 
   "entity.biomesoplenty.boat": "Bote",
   "entity.biomesoplenty.chest_boat": "Bote com baú",
-  "entity.biomesoplenty.dead_boat": "Bote morto",
-  "entity.biomesoplenty.dead_chest_boat": "Bote morto com baú",
+  "entity.biomesoplenty.dead_boat": "Bote de madeira morta",
+  "entity.biomesoplenty.dead_chest_boat": "Bote de madeira morta com baú",
   "entity.biomesoplenty.empyreal_boat": "Bote empíreo",
   "entity.biomesoplenty.empyreal_chest_boat": "Bote empíreo com baú",
   "entity.biomesoplenty.fir_boat": "Bote de abeto",
