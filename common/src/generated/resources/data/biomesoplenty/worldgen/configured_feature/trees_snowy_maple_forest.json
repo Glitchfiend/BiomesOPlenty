@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "biomesoplenty:red_maple_tree",
+    "default": "biomesoplenty:red_maple_tree_leaf_litter",
     "features": [
       {
         "chance": 0.4,

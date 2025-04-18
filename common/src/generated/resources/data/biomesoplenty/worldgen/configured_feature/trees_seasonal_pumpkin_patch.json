@@ -9,7 +9,11 @@
       },
       {
         "chance": 0.1,
-        "feature": "biomesoplenty:orange_maple_tree"
+        "feature": "biomesoplenty:aspen_tree"
+      },
+      {
+        "chance": 0.1,
+        "feature": "biomesoplenty:orange_maple_tree_leaf_litter"
       },
       {
         "chance": 0.05,

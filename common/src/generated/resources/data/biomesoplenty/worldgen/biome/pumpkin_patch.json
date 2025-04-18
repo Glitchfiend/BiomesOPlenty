@@ -87,12 +87,15 @@
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "biomesoplenty:trees_seasonal_pumpkin_patch",
+      "biomesoplenty:fallen_birch_log",
+      "biomesoplenty:patch_barley_sparse",
       "biomesoplenty:big_pumpkin",
       "biomesoplenty:pumpkin_patch",
       "biomesoplenty:toadstool_normal",
       "biomesoplenty:patch_sprouts_10",
       "biomesoplenty:patch_reed_5",
-      "biomesoplenty:patch_grass_6"
+      "biomesoplenty:patch_grass_6",
+      "biomesoplenty:yellow_maple_leaf_litter"
     ],
     [
       "minecraft:freeze_top_layer"

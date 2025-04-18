@@ -21,10 +21,6 @@
 	  "required": false
     },
 	{
-      "id": "biomesoplenty:jacaranda_glade",
-	  "required": false
-    },
-	{
       "id": "biomesoplenty:jade_cliffs",
 	  "required": false
     },

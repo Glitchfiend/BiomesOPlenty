@@ -48,7 +48,6 @@ public class ModBiomes
         HolderGetter<ConfiguredWorldCarver<?>> carverGetter = context.lookup(Registries.CONFIGURED_CARVER);
         HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
 
-        register(context, BOPBiomes.ASPEN_GLADE, BOPOverworldBiomes.aspenGlade(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.AURORAL_GARDEN, BOPOverworldBiomes.auroralGarden(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.BAYOU, BOPOverworldBiomes.bayou(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.BOG, BOPOverworldBiomes.bog(placedFeatureGetter, carverGetter));
@@ -67,7 +66,6 @@ public class ModBiomes
         register(context, BOPBiomes.GRAVEL_BEACH, BOPOverworldBiomes.gravelBeach(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.HIGHLAND, BOPOverworldBiomes.highland(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.HOT_SPRINGS, BOPOverworldBiomes.hotSprings(placedFeatureGetter, carverGetter));
-        register(context, BOPBiomes.JACARANDA_GLADE, BOPOverworldBiomes.jacarandaGlade(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.JADE_CLIFFS, BOPOverworldBiomes.jadeCliffs(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.LAVENDER_FIELD, BOPOverworldBiomes.lavenderField(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.LUSH_DESERT, BOPOverworldBiomes.lushDesert(placedFeatureGetter, carverGetter));
@@ -127,7 +125,6 @@ public class ModBiomes
     
     private static void registerVillagerTypes()
     {
-        registerVillagerType(BOPBiomes.ASPEN_GLADE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.AURORAL_GARDEN, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.BAYOU, VillagerType.SWAMP);
         registerVillagerType(BOPBiomes.BOG, VillagerType.SWAMP);
@@ -146,7 +143,6 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.GRAVEL_BEACH, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.HIGHLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.HOT_SPRINGS, VillagerType.TAIGA);
-        registerVillagerType(BOPBiomes.JACARANDA_GLADE, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.JADE_CLIFFS, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LAVENDER_FIELD, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.LUSH_DESERT, VillagerType.SAVANNA);

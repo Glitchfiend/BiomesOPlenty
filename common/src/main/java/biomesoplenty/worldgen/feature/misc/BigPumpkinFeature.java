@@ -7,6 +7,7 @@ package biomesoplenty.worldgen.feature.misc;
 import biomesoplenty.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -21,7 +22,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 public class BigPumpkinFeature extends Feature<NoneFeatureConfiguration>
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == Blocks.PUMPKIN || world.getBlockState(pos).getBlock() == Blocks.CARVED_PUMPKIN || world.getBlockState(pos).getBlock() == Blocks.JACK_O_LANTERN;
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == Blocks.PUMPKIN || world.getBlockState(pos).getBlock() == Blocks.CARVED_PUMPKIN || world.getBlockState(pos).getBlock() == Blocks.JACK_O_LANTERN || world.getBlockState(pos).is(BlockTags.REPLACEABLE_BY_TREES);
 
     public BigPumpkinFeature(Codec<NoneFeatureConfiguration> deserializer)
     {

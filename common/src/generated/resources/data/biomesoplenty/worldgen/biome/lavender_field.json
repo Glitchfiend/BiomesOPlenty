@@ -84,11 +84,12 @@
       "minecraft:patch_pumpkin",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_firefly_bush_near_water",
+      "biomesoplenty:trees_lavender_field",
+      "biomesoplenty:fallen_jacaranda_log",
       "biomesoplenty:patch_grass_24",
       "biomesoplenty:patch_tall_grass_64",
       "biomesoplenty:flower_lavender",
-      "biomesoplenty:patch_tall_lavender",
-      "biomesoplenty:trees_lavender_field"
+      "biomesoplenty:patch_tall_lavender"
     ],
     [
       "minecraft:freeze_top_layer"

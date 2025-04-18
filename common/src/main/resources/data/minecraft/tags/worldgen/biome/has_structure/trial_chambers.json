@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "biomesoplenty:aspen_glade",
-      "required": false
-    },
-    {
       "id": "biomesoplenty:auroral_garden",
       "required": false
     },
@@ -78,10 +74,6 @@
     },
     {
       "id": "biomesoplenty:hot_springs",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:jacaranda_glade",
       "required": false
     },
     {

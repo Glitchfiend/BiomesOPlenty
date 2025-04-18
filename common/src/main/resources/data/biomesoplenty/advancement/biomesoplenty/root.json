@@ -15,22 +15,6 @@
         "announce_to_chat": false
     },
     "criteria": {
-		"aspen_glade": {
-			"trigger": "minecraft:location",
-			"conditions": {
-				"player": [
-					{
-						"condition": "minecraft:entity_properties",
-						"entity": "this",
-						"predicate": {
-							"location": {
-								"biomes": "biomesoplenty:aspen_glade"
-							}
-						}
-					}
-				]
-			}
-		},
 		"auroral_garden": {
 			"trigger": "minecraft:location",
 			"conditions": {
@@ -425,22 +409,6 @@
 						"predicate": {
 							"location": {
 								"biomes": "biomesoplenty:hot_springs"
-							}
-						}
-					}
-				]
-			}
-		},
-		"jacaranda_glade": {
-			"trigger": "minecraft:location",
-			"conditions": {
-				"player": [
-					{
-						"condition": "minecraft:entity_properties",
-						"entity": "this",
-						"predicate": {
-							"location": {
-								"biomes": "biomesoplenty:jacaranda_glade"
 							}
 						}
 					}
@@ -1122,7 +1090,6 @@
     },
 	"requirements": [
         [
-		"aspen_glade",
 		"auroral_garden",
 		"bayou",
 		"bog",
@@ -1147,7 +1114,6 @@
 		"gravel_beach",
 		"highland",
 		"hot_springs",
-		"jacaranda_glade",
 		"jade_cliffs",
 		"lavender_field",
 		"lush_desert",

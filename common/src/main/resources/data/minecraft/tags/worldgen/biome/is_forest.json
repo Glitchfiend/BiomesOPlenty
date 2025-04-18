@@ -2,14 +2,6 @@
     "replace": false,
     "values": [
         {
-            "id": "biomesoplenty:aspen_glade",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:jacaranda_glade",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:mediterranean_forest",
             "required": false
         },

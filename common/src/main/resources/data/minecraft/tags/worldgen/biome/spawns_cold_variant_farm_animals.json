@@ -1,9 +1,5 @@
 {
   "values": [
-    {
-      "id": "biomesoplenty:aspen_glade",
-      "required": false
-    },
 	{
       "id": "biomesoplenty:auroral_garden",
       "required": false

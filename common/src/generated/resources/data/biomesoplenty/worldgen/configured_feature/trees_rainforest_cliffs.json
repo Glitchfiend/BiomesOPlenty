@@ -8,6 +8,10 @@
         "feature": "biomesoplenty:jungle_twiglet_tree"
       },
       {
+        "chance": 0.1,
+        "feature": "biomesoplenty:big_jacaranda_tree"
+      },
+      {
         "chance": 0.05,
         "feature": "biomesoplenty:mahogany_tree"
       }

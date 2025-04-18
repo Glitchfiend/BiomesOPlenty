@@ -10,10 +10,6 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:jacaranda_glade",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:maple_woods",
             "required": false
         },
