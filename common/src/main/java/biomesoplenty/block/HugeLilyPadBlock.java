@@ -13,11 +13,13 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -174,9 +176,39 @@ public class HugeLilyPadBlock extends VegetationBlockBOP
     {
         if (level instanceof ServerLevel && entity instanceof Boat)
         {
-            level.destroyBlock(pos, true, entity);
+            level.destroyBlock(new BlockPos(pos), true, entity);
+        }
+    }
+
+    @Override
+    public BlockState playerWillDestroy(Level p_52878_, BlockPos p_52879_, BlockState p_52880_, Player p_52881_)
+    {
+        if (!p_52878_.isClientSide)
+        {
+            if (p_52881_.preventsBlockDrops())
+            {
+                return super.playerWillDestroy(p_52878_, p_52879_, p_52880_, p_52881_);
+            }
+            else
+            {
+                dropResources(p_52880_, p_52878_, p_52879_, null, p_52881_, p_52881_.getMainHandItem());
+            }
         }
 
+        return super.playerWillDestroy(p_52878_, p_52879_, p_52880_, p_52881_);
+    }
+
+    @Override
+    public void playerDestroy(Level p_52865_, Player p_52866_, BlockPos p_52867_, BlockState p_52868_, @Nullable BlockEntity p_52869_, ItemStack p_52870_)
+    {
+        super.playerDestroy(p_52865_, p_52866_, p_52867_, Blocks.AIR.defaultBlockState(), p_52869_, p_52870_);
+    }
+
+    @Override
+    public boolean canSurvive(BlockState p_51028_, LevelReader p_51029_, BlockPos p_51030_)
+    {
+        BlockPos blockpos = p_51030_.below();
+        return this.mayPlaceOn(p_51029_.getBlockState(blockpos), p_51029_, blockpos);
     }
 
     @Override
