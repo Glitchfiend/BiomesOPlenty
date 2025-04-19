@@ -8,7 +8,7 @@
         "feature": "biomesoplenty:dead_twiglet_tree_leaf_litter"
       },
       {
-        "chance": 0.15,
+        "chance": 0.03,
         "feature": "biomesoplenty:dying_tree_leaf_litter"
       },
       {
