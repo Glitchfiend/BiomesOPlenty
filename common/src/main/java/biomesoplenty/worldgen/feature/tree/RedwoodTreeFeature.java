@@ -251,7 +251,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                     {
                         BlockPos local = startPos.offset(x, -y, z);
                         BlockState state = world.getBlockState(local);
-                        if (!state.isSolid() || isDirt(state)) {
+                        if (state.isAir() || state.is(BlockTags.REPLACEABLE_BY_TREES) || isDirt(state)) {
                             world.setBlock(local, Blocks.DIRT.defaultBlockState(), 3);
                         }
                     }

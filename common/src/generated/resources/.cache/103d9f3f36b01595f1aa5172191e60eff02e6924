@@ -1,4 +1,4 @@
-// 1.21.5	2025-04-18T01:29:47.8568189	Registries
+// 1.21.5	2025-04-19T05:55:57.2431005	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -34,7 +34,7 @@ c049e9ac8377f0e22ad82ddd0ec95a40e955771b data/biomesoplenty/worldgen/biome/grass
 3dad9c965bd31461a0619390aaf31c30f1bc170b data/biomesoplenty/worldgen/biome/marsh.json
 49b3c9b6dcadc2d5df9991a03dda8e68a10dae09 data/biomesoplenty/worldgen/biome/mediterranean_forest.json
 eb14b00338e6daa6d11e63298be6adb5a49096ef data/biomesoplenty/worldgen/biome/moor.json
-ec7baa7df8777e8eb419885c34b3bb78ad788e47 data/biomesoplenty/worldgen/biome/muskeg.json
+d029e0e33974d625a75712718139872bf0d9b314 data/biomesoplenty/worldgen/biome/muskeg.json
 82c49725399ffff6b9bbe811e18059292916a573 data/biomesoplenty/worldgen/biome/mystic_grove.json
 86bae459dccc129c59691be0101249223de735f5 data/biomesoplenty/worldgen/biome/old_growth_dead_forest.json
 9ae6c21447ff28fb94a1def62690d31fcaaa4bef data/biomesoplenty/worldgen/biome/old_growth_woodland.json
@@ -112,7 +112,7 @@ abd944cbc9cece95aaed80e01e5ac3b77ad2f055 data/biomesoplenty/worldgen/configured_
 732e6858936bf354d3274e1c4b4e5217a5ccaba0 data/biomesoplenty/worldgen/configured_feature/dead_coral.json
 f19dc6d254dbe6dce34fc62b39c58eefdd94b8ae data/biomesoplenty/worldgen/configured_feature/dead_coral_patch.json
 cd2b9f82f108fe30dd3a4a878bd7216a37c98091 data/biomesoplenty/worldgen/configured_feature/dead_grass.json
-685d33a990bd699a242c4d0ebc57ef308c96e421 data/biomesoplenty/worldgen/configured_feature/dead_tree_wasteland.json
+c68065c888e47a9d1aa34985c85ae4e4b57a530c data/biomesoplenty/worldgen/configured_feature/dead_tree_wasteland.json
 599fe99edb01b6d56389ca55908717765a1ea2cb data/biomesoplenty/worldgen/configured_feature/dead_twiglet_tree.json
 7ca4d336a8675331ca7dc918ea9cc278a0291876 data/biomesoplenty/worldgen/configured_feature/dead_twiglet_tree_leaf_litter.json
 b725b186faf96d8bf990458b9559690d4b630a6e data/biomesoplenty/worldgen/configured_feature/dead_twiglet_tree_small.json
