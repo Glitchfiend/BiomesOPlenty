@@ -21,7 +21,7 @@ public class ModSounds
     public static void registerSounds(BiConsumer<ResourceLocation, SoundEvent> func)
     {
         MUSIC_BIOME_ORIGIN_VALLEY = registerForHolder(func, "music.overworld.origin_valley");
-        MUSIC_BIOME_UNUSED = registerForHolder(func, "music.overworld.unused");
+        MUSIC_BIOME_NOSTALGIC = registerForHolder(func, "music.overworld.nostalgic");
         MUSIC_BIOME_CRYSTALLINE_CHASM = registerForHolder(func, "music.nether.crystalline_chasm");
         MUSIC_BIOME_ERUPTING_INFERNO = registerForHolder(func, "music.nether.erupting_inferno");
         MUSIC_BIOME_UNDERGROWTH = registerForHolder(func, "music.nether.undergrowth");

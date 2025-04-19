@@ -135,47 +135,57 @@
       }
     ]
   },
-  "music.overworld.unused": {
+  "music.overworld.nostalgic": {
     "sounds": [
       {
         "name": "minecraft:music/game/creative/aria_math",
-        "stream": true
+        "stream": true,
+		"weight": 3
       },
       {
         "name": "minecraft:music/game/creative/biome_fest",
-        "stream": true
+        "stream": true,
+		"weight": 3
       },
       {
         "name": "minecraft:music/game/creative/blind_spots",
-        "stream": true
+        "stream": true,
+		"weight": 3
       },
       {
         "name": "minecraft:music/game/creative/dreiton",
-        "stream": true
+        "stream": true,
+		"weight": 3
       },
       {
         "name": "minecraft:music/game/creative/haunt_muskie",
-        "stream": true
+        "stream": true,
+		"weight": 3
       },
       {
         "name": "minecraft:music/game/creative/taswell",
-        "stream": true
+        "stream": true,
+		"weight": 3
       },
 	  {
-        "name": "minecraft:music/menu/beginning_2",
-        "stream": true
+        "name": "minecraft:music/game/mice_on_venus",
+        "stream": true,
+		"weight": 1
       },
-      {
-        "name": "minecraft:music/menu/floating_trees",
-        "stream": true
+	  {
+        "name": "minecraft:music/game/living_mice",
+        "stream": true,
+		"weight": 1
       },
-      {
-        "name": "minecraft:music/menu/moog_city_2",
-        "stream": true
+	  {
+        "name": "minecraft:music/game/subwoofer_lullaby",
+        "stream": true,
+		"weight": 1
       },
-      {
-        "name": "minecraft:music/menu/mutation",
-        "stream": true
+	  {
+        "name": "minecraft:music/game/minecraft",
+        "stream": true,
+		"weight": 1
       }
     ]
   },
