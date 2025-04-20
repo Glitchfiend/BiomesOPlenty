@@ -38,9 +38,9 @@ public class ModBiomes
         Regions.register(new BOPNetherRegionRare(ModConfig.generation.bopNetherRareRegionWeight));
 
         // Register end biomes
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_WILDS, 9);
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_REEF, 6);
-        EndBiomeRegistry.registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 3);
+        registerHighlandsBiome(BOPBiomes.END_WILDS, 9);
+        registerHighlandsBiome(BOPBiomes.END_REEF, 6);
+        registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 3);
     }
 
     public static void bootstrapBiomes(BootstrapContext<Biome> context)
@@ -194,6 +194,14 @@ public class ModBiomes
         if (ModConfig.isBiomeEnabled(key))
         {
             VillagerType.BY_BIOME.put(key, type);
+        }
+    }
+
+    private static void registerHighlandsBiome(ResourceKey<Biome> key, int weight)
+    {
+        if (ModConfig.isBiomeEnabled(key))
+        {
+            EndBiomeRegistry.registerHighlandsBiome(key, weight);
         }
     }
 }
