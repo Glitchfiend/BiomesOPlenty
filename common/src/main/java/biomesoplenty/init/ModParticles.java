@@ -15,51 +15,51 @@ import java.util.function.Supplier;
 
 public class ModParticles
 {
-    public static SimpleParticleType DRIPPING_BLOOD;
-    public static SimpleParticleType FALLING_BLOOD;
-    public static SimpleParticleType LANDING_BLOOD;
-    public static SimpleParticleType PUS;
-    public static SimpleParticleType GLOWWORM;
-    public static SimpleParticleType STEAM;
-    public static SimpleParticleType JACARANDA_LEAVES;
-    public static SimpleParticleType SNOWBLOSSOM_LEAVES;
-    public static SimpleParticleType RED_MAPLE_LEAVES;
-    public static SimpleParticleType ORANGE_MAPLE_LEAVES;
-    public static SimpleParticleType YELLOW_MAPLE_LEAVES;
-    public static SimpleParticleType FIR_LEAVES;
-    public static SimpleParticleType REDWOOD_LEAVES;
-    public static SimpleParticleType CYPRESS_LEAVES;
-    public static SimpleParticleType MAGIC_LEAVES;
-    public static SimpleParticleType UMBRAN_LEAVES;
-    public static SimpleParticleType HELLBARK_LEAVES;
-    public static SimpleParticleType END_SPORE;
-    public static SimpleParticleType WISP_BUBBLE;
-    public static SimpleParticleType NULL;
-    public static SimpleParticleType BINARY;
+    public static final SimpleParticleType DRIPPING_BLOOD = new SimpleParticleType(false);
+    public static final SimpleParticleType FALLING_BLOOD = new SimpleParticleType(false);
+    public static final SimpleParticleType LANDING_BLOOD = new SimpleParticleType(false);
+    public static final SimpleParticleType PUS = new SimpleParticleType(false);
+    public static final SimpleParticleType GLOWWORM = new SimpleParticleType(false);
+    public static final SimpleParticleType STEAM = new SimpleParticleType(false);
+    public static final SimpleParticleType JACARANDA_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType SNOWBLOSSOM_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType RED_MAPLE_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType ORANGE_MAPLE_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType YELLOW_MAPLE_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType FIR_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType REDWOOD_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType CYPRESS_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType MAGIC_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType UMBRAN_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType HELLBARK_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType END_SPORE = new SimpleParticleType(false);
+    public static final SimpleParticleType WISP_BUBBLE = new SimpleParticleType(false);
+    public static final SimpleParticleType NULL = new SimpleParticleType(false);
+    public static final SimpleParticleType BINARY = new SimpleParticleType(false);
 
     public static void registerParticles(BiConsumer<ResourceLocation, ParticleType<?>> func)
     {
-        DRIPPING_BLOOD = register(func, "dripping_blood",  new SimpleParticleType(false));
-        FALLING_BLOOD = register(func, "falling_blood",  new SimpleParticleType(false));
-        LANDING_BLOOD = register(func, "landing_blood",  new SimpleParticleType(false));
-        PUS = register(func, "pus",  new SimpleParticleType(false));
-        GLOWWORM = register(func, "glowworm",  new SimpleParticleType(false));
-        STEAM = register(func, "steam",  new SimpleParticleType(false));
-        JACARANDA_LEAVES = register(func, "jacaranda_leaves",  new SimpleParticleType(false));
-        SNOWBLOSSOM_LEAVES = register(func, "snowblossom_leaves",  new SimpleParticleType(false));
-        RED_MAPLE_LEAVES = register(func, "red_maple_leaves",  new SimpleParticleType(false));
-        ORANGE_MAPLE_LEAVES = register(func, "orange_maple_leaves",  new SimpleParticleType(false));
-        YELLOW_MAPLE_LEAVES = register(func, "yellow_maple_leaves",  new SimpleParticleType(false));
-        FIR_LEAVES = register(func, "fir_leaves",  new SimpleParticleType(false));
-        REDWOOD_LEAVES = register(func, "redwood_leaves",  new SimpleParticleType(false));
-        CYPRESS_LEAVES = register(func, "cypress_leaves",  new SimpleParticleType(false));
-        MAGIC_LEAVES = register(func, "magic_leaves",  new SimpleParticleType(false));
-        UMBRAN_LEAVES = register(func, "umbran_leaves",  new SimpleParticleType(false));
-        HELLBARK_LEAVES = register(func, "hellbark_leaves",  new SimpleParticleType(false));
-        END_SPORE = register(func, "end_spore",  new SimpleParticleType(false));
-        WISP_BUBBLE = register(func, "wisp_bubble",  new SimpleParticleType(false));
-        NULL = register(func, "null",  new SimpleParticleType(false));
-        BINARY = register(func, "binary",  new SimpleParticleType(false));
+        register(func, "dripping_blood", DRIPPING_BLOOD);
+        register(func, "falling_blood", FALLING_BLOOD);
+        register(func, "landing_blood", LANDING_BLOOD);
+        register(func, "pus", PUS);
+        register(func, "glowworm", GLOWWORM);
+        register(func, "steam", STEAM);
+        register(func, "jacaranda_leaves", JACARANDA_LEAVES);
+        register(func, "snowblossom_leaves", SNOWBLOSSOM_LEAVES);
+        register(func, "red_maple_leaves", RED_MAPLE_LEAVES);
+        register(func, "orange_maple_leaves", ORANGE_MAPLE_LEAVES);
+        register(func, "yellow_maple_leaves", YELLOW_MAPLE_LEAVES);
+        register(func, "fir_leaves", FIR_LEAVES);
+        register(func, "redwood_leaves", REDWOOD_LEAVES);
+        register(func, "cypress_leaves", CYPRESS_LEAVES);
+        register(func, "magic_leaves", MAGIC_LEAVES);
+        register(func, "umbran_leaves", UMBRAN_LEAVES);
+        register(func, "hellbark_leaves", HELLBARK_LEAVES);
+        register(func, "end_spore", END_SPORE);
+        register(func, "wisp_bubble", WISP_BUBBLE);
+        register(func, "null", NULL);
+        register(func, "binary", BINARY);
     }
 
     private static <T extends ParticleType<? extends ParticleOptions>> T register(BiConsumer<ResourceLocation, ParticleType<?>> func, String name, T particle)
