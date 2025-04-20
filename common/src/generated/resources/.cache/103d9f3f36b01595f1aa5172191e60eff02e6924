@@ -1,4 +1,4 @@
-// 1.21.5	2025-04-19T17:15:48.215508	Registries
+// 1.21.5	2025-04-19T21:09:00.7636017	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -31,7 +31,7 @@ a906ef15aa5b32951800adcdda875f3f66dd8aa8 data/biomesoplenty/worldgen/biome/glowi
 0211e5df7e407e2281a75fd2f3e963822d6b129f data/biomesoplenty/worldgen/biome/lush_desert.json
 2fd174710dd6a2a02242899281ed3b6334c61219 data/biomesoplenty/worldgen/biome/lush_savanna.json
 34e27ef1c4369dc3935d9b48c034d61da8b10dfa data/biomesoplenty/worldgen/biome/maple_woods.json
-3dad9c965bd31461a0619390aaf31c30f1bc170b data/biomesoplenty/worldgen/biome/marsh.json
+370ffeb19bf19ad9412feeb4ec3e82eecd274a4b data/biomesoplenty/worldgen/biome/marsh.json
 49b3c9b6dcadc2d5df9991a03dda8e68a10dae09 data/biomesoplenty/worldgen/biome/mediterranean_forest.json
 eb14b00338e6daa6d11e63298be6adb5a49096ef data/biomesoplenty/worldgen/biome/moor.json
 c9314e7df3ad84d2a8af5a55c2a5720a8f5faf28 data/biomesoplenty/worldgen/biome/muskeg.json
@@ -51,7 +51,7 @@ dcb10f91a5d9bc2c7145d99037e98949be3b1bb5 data/biomesoplenty/worldgen/biome/redwo
 301c718c029b4062eeabb7b9e2149efc13295e6b data/biomesoplenty/worldgen/biome/rocky_shrubland.json
 9bbaede93236c0b018e24dd8da8723af62a32b5c data/biomesoplenty/worldgen/biome/scrubland.json
 4aea86f558a973c6146194b983125396af2dc42d data/biomesoplenty/worldgen/biome/seasonal_forest.json
-605339f83ca89cfbd87bbe0f00f095abc0ed8796 data/biomesoplenty/worldgen/biome/shrubland.json
+490c5124afcf4bf317e88bc1d816d51408bb78f0 data/biomesoplenty/worldgen/biome/shrubland.json
 312f756aa806d61e09944d247d46c08f89702c3d data/biomesoplenty/worldgen/biome/snowblossom_grove.json
 22a13f248846da751019bf95531a96fac30f5e8d data/biomesoplenty/worldgen/biome/snowy_coniferous_forest.json
 2a6aefe5a76f47647c6fc5c9e3d3ac53d482a62c data/biomesoplenty/worldgen/biome/snowy_fir_clearing.json
@@ -550,6 +550,7 @@ aab6cc8efc04152d9709e7ad8cf89d6fcd0434d4 data/biomesoplenty/worldgen/placed_feat
 5dd332a3191505d0b066d097024ad6a56d524d4d data/biomesoplenty/worldgen/placed_feature/patch_peony.json
 4b63940ce56480b7bc04a7751a0497c057d4ce7f data/biomesoplenty/worldgen/placed_feature/patch_reed_10.json
 8007064c88cf57e447764ddeee34f3830f77ea20 data/biomesoplenty/worldgen/placed_feature/patch_reed_5.json
+3cf4e901d806987415f80613d62a6289296c97c3 data/biomesoplenty/worldgen/placed_feature/patch_reed_50.json
 d8809d486f2045d984860ee9e353cf1a9503d21e data/biomesoplenty/worldgen/placed_feature/patch_sea_oats.json
 0ed8a858e8439875e069f1f8dda9055cf238d22e data/biomesoplenty/worldgen/placed_feature/patch_sprouts_1.json
 00512429d5ccb9165203c252ef769459f52dc989 data/biomesoplenty/worldgen/placed_feature/patch_sprouts_10.json

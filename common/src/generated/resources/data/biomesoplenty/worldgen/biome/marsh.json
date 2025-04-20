@@ -4,7 +4,7 @@
     "minecraft:cave_extra_underground",
     "minecraft:canyon"
   ],
-  "downfall": 0.7,
+  "downfall": 0.4,
   "effects": {
     "fog_color": 12638463,
     "mood_sound": {
@@ -80,9 +80,9 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_firefly_bush_near_water_swamp",
       "minecraft:seagrass_swamp",
-      "biomesoplenty:patch_reed_10",
+      "minecraft:patch_firefly_bush_near_water",
+      "biomesoplenty:patch_reed_50",
       "biomesoplenty:patch_grass_24",
       "biomesoplenty:patch_tall_grass_128",
       "biomesoplenty:patch_watergrass_250"

@@ -1,0 +1,19 @@
+{
+  "feature": "biomesoplenty:patch_reed",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    },
+    {
+      "type": "minecraft:count",
+      "count": 25
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

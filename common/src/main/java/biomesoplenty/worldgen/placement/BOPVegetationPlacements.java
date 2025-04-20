@@ -91,6 +91,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> WATERLILY_FLOWERS = BOPPlacementUtils.createKey("patch_waterlily_flowers");
     public static final ResourceKey<PlacedFeature> PATCH_REED_5 = BOPPlacementUtils.createKey("patch_reed_5");
     public static final ResourceKey<PlacedFeature> PATCH_REED_10 = BOPPlacementUtils.createKey("patch_reed_10");
+    public static final ResourceKey<PlacedFeature> PATCH_REED_50 = BOPPlacementUtils.createKey("patch_reed_50");
     public static final ResourceKey<PlacedFeature> PATCH_WATERGRASS_10 = BOPPlacementUtils.createKey("patch_watergrass_10");
     public static final ResourceKey<PlacedFeature> PATCH_WATERGRASS_50 = BOPPlacementUtils.createKey("patch_watergrass_50");
     public static final ResourceKey<PlacedFeature> PATCH_WATERGRASS_250 = BOPPlacementUtils.createKey("patch_watergrass_250");
@@ -385,6 +386,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.WATERLILY_FLOWERS, PATCH_WATERLILY_FLOWER, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.PATCH_REED_5, PATCH_REED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_REED_10, PATCH_REED, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_REED_50, PATCH_REED, seagrassPlacement(25));
         register(context, BOPVegetationPlacements.PATCH_WATERGRASS_10, PATCH_WATERGRASS, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_WATERGRASS_50, PATCH_WATERGRASS, seagrassPlacement(10));
         register(context, BOPVegetationPlacements.PATCH_WATERGRASS_250, PATCH_WATERGRASS, seagrassPlacement(100));
