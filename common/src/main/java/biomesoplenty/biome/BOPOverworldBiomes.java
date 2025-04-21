@@ -140,9 +140,11 @@ public class BOPOverworldBiomes
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
         spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.PIG, 4, 4));
         spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.FROG, 2, 5));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityType.BOGGED, 4, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -169,7 +171,9 @@ public class BOPOverworldBiomes
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityType.BOGGED, 4, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -193,8 +197,8 @@ public class BOPOverworldBiomes
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 1, new MobSpawnSettings.SpawnerData(EntityType.POLAR_BEAR, 1, 2));
+        spawnBuilder.creatureGenerationProbability(0.07F);
+        BiomeDefaultFeatures.snowySpawns(spawnBuilder);
         spawnBuilder.addSpawn(MobCategory.CREATURE, 2, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 2, 4));
 
         // Biome features
@@ -409,8 +413,10 @@ public class BOPOverworldBiomes
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
         spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.FROG, 2, 5));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityType.BOGGED, 4, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -707,9 +713,11 @@ public class BOPOverworldBiomes
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
         spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.PIG, 4, 4));
         spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityType.BOGGED, 4, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1406,10 +1414,12 @@ public class BOPOverworldBiomes
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
         spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.PIG, 4, 4));
         spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityType.FOX, 2, 4));
         spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.FROG, 2, 5));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityType.BOGGED, 4, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);

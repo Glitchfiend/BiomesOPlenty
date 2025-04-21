@@ -4,6 +4,7 @@
     "minecraft:cave_extra_underground",
     "minecraft:canyon"
   ],
+  "creature_spawn_probability": 0.07,
   "downfall": 0.0,
   "effects": {
     "fog_color": 12638463,
@@ -102,6 +103,12 @@
     "axolotls": [],
     "creature": [
       {
+        "type": "minecraft:rabbit",
+        "maxCount": 3,
+        "minCount": 2,
+        "weight": 10
+      },
+      {
         "type": "minecraft:polar_bear",
         "maxCount": 2,
         "minCount": 1,
@@ -138,7 +145,7 @@
         "type": "minecraft:skeleton",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 100
+        "weight": 20
       },
       {
         "type": "minecraft:creeper",
@@ -163,6 +170,12 @@
         "maxCount": 1,
         "minCount": 1,
         "weight": 5
+      },
+      {
+        "type": "minecraft:stray",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 80
       }
     ],
     "underground_water_creature": [

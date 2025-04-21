@@ -35,7 +35,7 @@ public class ModItems
         BOP_ICON = registerItem(func, "bop_icon", Item::new, new Item.Properties());
 
         ROSE_QUARTZ_CHUNK = registerItem(func, "rose_quartz_chunk", Item::new, new Item.Properties());
-        MUSIC_DISC_WANDERER = registerItem(func, "music_disc_wanderer", Item::new, new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(ModJukeboxSongs.WANDERER));
+        MUSIC_DISC_WANDERER = registerItem(func, "music_disc_wanderer", Item::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).jukeboxPlayable(ModJukeboxSongs.WANDERER));
         BLOOD_BUCKET = registerItem(func, "blood_bucket", (properties) -> new BucketItem(BOPFluids.BLOOD, properties), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
         LIQUID_NULL_BUCKET = registerItem(func, "liquid_null_bucket", (properties) -> new BucketItem(BOPFluids.LIQUID_NULL, properties), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
 
