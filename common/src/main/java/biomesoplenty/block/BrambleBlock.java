@@ -27,7 +27,7 @@ public class BrambleBlock extends PipeBlock
 
     public BrambleBlock(Block.Properties builder)
     {
-        super(0.25F, builder);
+        super(8.0F, builder);
         this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)).setValue(DOWN, Boolean.valueOf(false)));
     }
 
