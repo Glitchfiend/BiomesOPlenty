@@ -6,13 +6,10 @@ package biomesoplenty.forge.init;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.forge.core.BiomesOPlentyForge;
-import com.mojang.blaze3d.shaders.FogShape;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.FogParameters;
-import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -20,6 +17,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.ForgeMod;
@@ -30,6 +28,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import org.joml.Vector4f;
 
 import java.util.Map;
 import java.util.function.Consumer;
@@ -91,9 +90,10 @@ public class ModFluidTypes
                     }
 
                     @Override
-                    public FogParameters modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, FogParameters original)
+                    public void modifyFogRender(Camera camera, FogType type, float partialTick, FogData data, Vector4f color)
                     {
-                        return new FogParameters(0.125F, 5.0F, original.shape(), original.red(), original.green(), original.blue(), original.alpha());
+                        data.environmentalStart = 0.125F;
+                        data.environmentalEnd = 5.0F;
                     }
                 });
             }
@@ -143,9 +143,10 @@ public class ModFluidTypes
                     }
 
                     @Override
-                    public FogParameters modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, FogParameters original)
+                    public void modifyFogRender(Camera camera, FogType type, float partialTick, FogData data, Vector4f color)
                     {
-                        return new FogParameters(0.1F, 2.5F, original.shape(), original.red(), original.green(), original.blue(), original.alpha());
+                        data.environmentalStart = 0.1F;
+                        data.environmentalEnd = 2.5F;
                     }
                 });
             }

@@ -6,22 +6,21 @@ package biomesoplenty.neoforge.client;
 
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.neoforge.init.ModFluidTypes;
-import com.mojang.blaze3d.shaders.FogShape;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.FogParameters;
-import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.client.renderer.fog.FogData;
+import net.minecraft.client.renderer.fog.environment.FogEnvironment;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
+import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = BiomesOPlenty.MOD_ID)
+@EventBusSubscriber(modid = BiomesOPlenty.MOD_ID)
 public class FluidClientHandler
 {
     @SubscribeEvent
@@ -52,9 +51,10 @@ public class FluidClientHandler
             }
 
             @Override
-            public FogParameters modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, FogParameters fogParameters)
+            public void modifyFogRender(Camera camera, @Nullable FogEnvironment environment, float renderDistance, float partialTick, FogData fogData)
             {
-                return new FogParameters(0.125F, 5.0F, fogParameters.shape(), fogParameters.red(), fogParameters.green(), fogParameters.blue(), fogParameters.alpha());
+                fogData.environmentalStart = 0.125F;
+                fogData.environmentalEnd = 5.0F;
             }
         }, ModFluidTypes.BLOOD_TYPE);
 
@@ -83,9 +83,10 @@ public class FluidClientHandler
             }
 
             @Override
-            public FogParameters modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, FogParameters fogParameters)
+            public void modifyFogRender(Camera camera, @Nullable FogEnvironment environment, float renderDistance, float partialTick, FogData fogData)
             {
-                return new FogParameters(0.1F, 2.5F, fogParameters.shape(), fogParameters.red(), fogParameters.green(), fogParameters.blue(), fogParameters.alpha());
+                fogData.environmentalStart = 0.1F;
+                fogData.environmentalEnd = 2.5F;
             }
         }, ModFluidTypes.LIQUID_NULL_TYPE);
     }

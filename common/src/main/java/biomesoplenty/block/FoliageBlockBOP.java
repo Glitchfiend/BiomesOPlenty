@@ -112,7 +112,7 @@ public class FoliageBlockBOP extends VegetationBlockBOP
                 }
 
                 BlockState blockstate1 = p_401809_.getBlockState(p_401789_.below(2));
-                if (blockstate.is(BlockTags.PLAYS_AMBIENT_DESERT_BLOCK_SOUNDS) && blockstate1.is(BlockTags.PLAYS_AMBIENT_DESERT_BLOCK_SOUNDS))
+                if (blockstate.is(BlockTags.TRIGGERS_AMBIENT_DESERT_DRY_VEGETATION_BLOCK_SOUNDS) && blockstate1.is(BlockTags.TRIGGERS_AMBIENT_DESERT_DRY_VEGETATION_BLOCK_SOUNDS))
                 {
                     p_401809_.playLocalSound(p_401789_.getX(), p_401789_.getY(), p_401789_.getZ(), SoundEvents.DEAD_BUSH_IDLE, SoundSource.AMBIENT, 1.0F, 1.0F, false);
                 }

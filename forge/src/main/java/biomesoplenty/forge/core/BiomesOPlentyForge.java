@@ -9,7 +9,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.forge.init.ModFluidTypes;
 import biomesoplenty.init.*;
 import glitchcore.forge.GlitchCoreForge;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -23,13 +23,13 @@ public class BiomesOPlentyForge
 {
     public static final DeferredRegister<FluidType> FORGE_FLUID_REGISTER = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, BiomesOPlenty.MOD_ID);
 
-    public BiomesOPlentyForge()
+    public BiomesOPlentyForge(FMLJavaModLoadingContext context)
     {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(this::commonSetup);
-        bus.addListener(this::clientSetup);
+        BusGroup modBusGroup = context.getModBusGroup();
+        FMLCommonSetupEvent.getBus(modBusGroup).addListener(this::commonSetup);
+        FMLClientSetupEvent.getBus(modBusGroup).addListener(this::clientSetup);
 
-        FORGE_FLUID_REGISTER.register(bus);
+        FORGE_FLUID_REGISTER.register(modBusGroup);
 
         BiomesOPlenty.init();
         ModFluidTypes.setup();

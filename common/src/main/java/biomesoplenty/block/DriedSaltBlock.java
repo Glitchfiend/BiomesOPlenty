@@ -19,7 +19,7 @@ public class DriedSaltBlock extends Block
     }
 
     @Override
-    public void animateTick(BlockState p_393155_, Level p_394075_, BlockPos p_394564_, RandomSource p_392109_) {
-        AmbientDesertBlockSoundsPlayer.playAmbientBlockSounds(p_393155_, p_394075_, p_394564_, p_392109_);
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        AmbientDesertBlockSoundsPlayer.playAmbientSandSounds(level, pos, random);
     }
 }
