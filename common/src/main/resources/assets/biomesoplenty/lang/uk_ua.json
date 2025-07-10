@@ -3,12 +3,11 @@
   "advancements.biomesoplenty.root.description": "Дослідіть світ навколо себе",
   "advancements.biomesoplenty.all_biomes.title": "Мандрівник",
   "advancements.biomesoplenty.all_biomes.description": "Дослідіть усі біоми Biomes O' Plenty",
-
+  
   "commands.biomesoplenty.gendata.success": "Дані успішно згенеровано",
   "generator.minecraft.biomesoplenty": "Biomes O' Plenty",
   "itemGroup.biomesoplenty": "Biomes O' Plenty",
-
-  "biome.biomesoplenty.aspen_glade": "Осикова галявина",
+  
   "biome.biomesoplenty.auroral_garden": "Полярний сад",
   "biome.biomesoplenty.bayou": "Баю",
   "biome.biomesoplenty.bog": "Торфовище",
@@ -33,7 +32,6 @@
   "biome.biomesoplenty.gravel_beach": "Гравійний пляж",
   "biome.biomesoplenty.highland": "Високогір'я",
   "biome.biomesoplenty.hot_springs": "Гарячі джерела",
-  "biome.biomesoplenty.jacaranda_glade": "Жакарандова галявина",
   "biome.biomesoplenty.jade_cliffs": "Нефритові скелі",
   "biome.biomesoplenty.lavender_field": "Лавандове поле",
   "biome.biomesoplenty.lush_desert": "Заросла пустеля",
@@ -77,7 +75,7 @@
   "biome.biomesoplenty.wintry_origin_valley": "Зимова долина зародження",
   "biome.biomesoplenty.withered_abyss": "Висушена безодня",
   "biome.biomesoplenty.woodland": "Рідколісся",
-
+  
   "item.biomesoplenty.blood_bucket": "Відро крові",
   "item.biomesoplenty.bop_icon": "Іконка BOP",
   "item.biomesoplenty.dead_boat": "Мертвий човен",
@@ -110,7 +108,7 @@
   "item.biomesoplenty.umbran_chest_boat": "Тіньовий човен зі скринею",
   "item.biomesoplenty.willow_boat": "Вербовий човен",
   "item.biomesoplenty.willow_chest_boat": "Вербовий човен зі скринею",
-
+  
   "block.biomesoplenty.algal_end_stone": "Зацвілий камінь Енду",
   "block.biomesoplenty.anomaly": "§kАНОМАЛІЯ",
   "block.biomesoplenty.barley": "Ячмінь",
@@ -135,7 +133,6 @@
   "block.biomesoplenty.brimstone_cluster": "Сірчана друза",
   "block.biomesoplenty.brimstone_fumarole": "Сірчана фумарола",
   "block.biomesoplenty.burning_blossom": "Вогнецвіт",
-  "block.biomesoplenty.bush": "Кущ",
   "block.biomesoplenty.cattail": "Рогіз",
   "block.biomesoplenty.chiseled_brimstone_bricks": "Різьблена сірчана цегла",
   "block.biomesoplenty.chiseled_black_sandstone": "Різьблений чорний пісковик",
@@ -325,7 +322,7 @@
   "block.biomesoplenty.null_leaves": "� �� � �",
   "block.biomesoplenty.null_plant": "��� �����",
   "block.biomesoplenty.orange_cosmos": "Помаранчева космея",
-  "block.biomesoplenty.orange_maple_leaf_pile": "Купа помаранчевого кленового листя",
+  "block.biomesoplenty.orange_maple_leaf_litter": "Помаранчеве кленове опале листя",
   "block.biomesoplenty.orange_maple_leaves": "Помаранчеве кленове листя",
   "block.biomesoplenty.orange_maple_sapling": "Паросток помаранчевого клена",
   "block.biomesoplenty.orange_sand": "Помаранчевий пісок",
@@ -408,10 +405,11 @@
   "block.biomesoplenty.potted_willow_sapling": "Паросток верби в горщику",
   "block.biomesoplenty.potted_wilted_lily": "Зав’яла лілія в горщику",
   "block.biomesoplenty.potted_yellow_maple_sapling": "Паросток жовтого клена в горщику",
+  "block.biomesoplenty.purple_wildflowers": "Фіолетові польові квіти",
   "block.biomesoplenty.pus_bubble": "Гнійний пузир",
   "block.biomesoplenty.rainbow_birch_leaves": "Листя веселкової берези",
   "block.biomesoplenty.rainbow_birch_sapling": "Паросток веселкової берези",
-  "block.biomesoplenty.red_maple_leaf_pile": "Купа червоного кленового листя",
+  "block.biomesoplenty.red_maple_leaf_litter": "Червоне кленове опале листя",
   "block.biomesoplenty.red_maple_leaves": "Червоне кленове листя",
   "block.biomesoplenty.red_maple_sapling": "Паросток червоного клена",
   "block.biomesoplenty.redwood_button": "Секвоєва кнопка",
@@ -516,7 +514,6 @@
   "block.biomesoplenty.white_sandstone_slab": "Плита з білого пісковику",
   "block.biomesoplenty.white_sandstone_stairs": "Сходи з білого пісковику",
   "block.biomesoplenty.white_sandstone_wall": "Стіна з білого пісковику",
-  "block.biomesoplenty.wildflower": "Польова квітка",
   "block.biomesoplenty.willow_button": "Вербова кнопка",
   "block.biomesoplenty.willow_door": "Вербові двері",
   "block.biomesoplenty.willow_fence": "Вербовий паркан",
@@ -537,25 +534,65 @@
   "block.biomesoplenty.willow_wood": "Вербова деревина",
   "block.biomesoplenty.wilted_lily": "Зав’яла лілія",
   "block.biomesoplenty.wispjelly": "Щезле-желе",
-  "block.biomesoplenty.yellow_maple_leaf_pile": "Купа жовтого кленового листя",
+  "block.biomesoplenty.yellow_maple_leaf_litter": "Жовте кленове опале листя",
   "block.biomesoplenty.yellow_maple_leaves": "Жовте кленове листя",
   "block.biomesoplenty.yellow_maple_sapling": "Паросток жовтого клена",
-
+  
   "entity.biomesoplenty.boat": "Човен",
   "entity.biomesoplenty.chest_boat": "Човен зі скринею",
-
+  "entity.biomesoplenty.dead_boat": "Мертвий човен",
+  "entity.biomesoplenty.dead_chest_boat": "Мертвий човен зі скринею",
+  "entity.biomesoplenty.empyreal_boat": "Емпіреальний човен",
+  "entity.biomesoplenty.empyreal_chest_boat": "Емпіреальний човен зі скринею",
+  "entity.biomesoplenty.fir_boat": "Ялицевий човен",
+  "entity.biomesoplenty.fir_chest_boat": "Ялицевий човен зі скринею",
+  "entity.biomesoplenty.hellbark_boat": "Пекельний човен",
+  "entity.biomesoplenty.hellbark_chest_boat": "Пекельний човен зі скринею",
+  "entity.biomesoplenty.jacaranda_boat": "Жакарандовий човен",
+  "entity.biomesoplenty.jacaranda_chest_boat": "Жакарандовий човен зі скринею",
+  "entity.biomesoplenty.magic_boat": "Чарівний човен",
+  "entity.biomesoplenty.magic_chest_boat": "Чарівний човен зі скринею",
+  "entity.biomesoplenty.mahogany_boat": "Махагоновий човен",
+  "entity.biomesoplenty.mahogany_chest_boat": "Махагоновий човен зі скринею",
+  "entity.biomesoplenty.maple_boat": "Кленовий човен",
+  "entity.biomesoplenty.maple_chest_boat": "Кленовий човен зі скринею",
+  "entity.biomesoplenty.palm_boat": "Пальмовий човен",
+  "entity.biomesoplenty.palm_chest_boat": "Пальмовий човен зі скринею",
+  "entity.biomesoplenty.pine_boat": "Сосновий човен",
+  "entity.biomesoplenty.pine_chest_boat": "Сосновий човен зі скринею",
+  "entity.biomesoplenty.redwood_boat": "Секвоєвий човен",
+  "entity.biomesoplenty.redwood_chest_boat": "Секвоєвий човен зі скринею",
+  "entity.biomesoplenty.umbran_boat": "Тіньовий човен",
+  "entity.biomesoplenty.umbran_chest_boat": "Тіньовий човен зі скринею",
+  "entity.biomesoplenty.willow_boat": "Вербовий човен",
+  "entity.biomesoplenty.willow_chest_boat": "Вербовий човен зі скринею",
+  
   "jukebox_song.biomesoplenty.wanderer": "Тім Рурковські — Wanderer",
-
+  
   "trim_material.biomesoplenty.glowworm_silk": "Матеріал із шовку сяйного хробака",
   "trim_material.biomesoplenty.rose_quartz": "Рожево-кварцовий матеріал",
-
+  
   "death.attack.biomesoplenty.bramble": "%1$s проткнуто до смерті",
   "death.attack.biomesoplenty.bramble.player": "%1$s застряг у колючнику при спробі втекти від %2$s",
   "death.attack.biomesoplenty.fumarole": "%1$s запаровано живцем",
   "death.attack.biomesoplenty.fumarole.player": "%1$s прийняв смертельну парову ванну через %2$s",
-
+  
   "subtitles.block.biomesoplenty.blood.ambient": "Кров булькає",
   "subtitles.block.biomesoplenty.flesh_tendon.drip": "Кров капає",
   "subtitles.block.biomesoplenty.pus_bubble.pop": "Гнійний пузир лускає",
-  "subtitles.block.biomesoplenty.spider_egg.break": "Павуче яйце ламається"
+  "subtitles.block.biomesoplenty.spider_egg.break": "Павуче яйце ламається",
+  
+  "tag.item.biomesoplenty.dead_logs": "Мертві колоди",
+  "tag.item.biomesoplenty.empyreal_logs": "Емпіреальні колоди",
+  "tag.item.biomesoplenty.fir_logs": "Ялицеві колоди",
+  "tag.item.biomesoplenty.hellbark_logs": "Пекельні колоди",
+  "tag.item.biomesoplenty.jacaranda_logs": "Жакарандові колоди",
+  "tag.item.biomesoplenty.magic_logs": "Чарівні колоди",
+  "tag.item.biomesoplenty.mahogany_logs": "Махагонові колоди",
+  "tag.item.biomesoplenty.maple_logs": "Кленові колоди",
+  "tag.item.biomesoplenty.palm_logs": "Пальмові колоди",
+  "tag.item.biomesoplenty.pine_logs": "Соснові колоди",
+  "tag.item.biomesoplenty.redwood_logs": "Секвоєві колоди",
+  "tag.item.biomesoplenty.umbran_logs": "Тіньові колоди",
+  "tag.item.biomesoplenty.willow_logs": "Вербові колоди"
 }
