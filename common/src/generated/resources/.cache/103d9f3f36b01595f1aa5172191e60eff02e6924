@@ -1,4 +1,4 @@
-// 1.21.6	2025-06-22T15:17:31.0395907	Registries
+// 1.21.7	2025-07-11T17:04:44.1761706	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -172,7 +172,7 @@ ee716ed86b617600ee5efd34a9e41670e5585424 data/biomesoplenty/worldgen/configured_
 b826abbdc8541cbb105a993d1a262648ea687c24 data/biomesoplenty/worldgen/configured_feature/flower_wasteland.json
 b7c8479b58bf928126528554a624b24b31e271c9 data/biomesoplenty/worldgen/configured_feature/flower_wetland.json
 9aea32958474412cd6f448ded674460bc3cbf5d4 data/biomesoplenty/worldgen/configured_feature/giant_glowshroom_cave.json
-e61a36facff8a5ebc08130e6bf1d0ad698ee0c2d data/biomesoplenty/worldgen/configured_feature/giant_tree.json
+d7a56f5bdf6cb3c06f2748d2d22a8779c8354555 data/biomesoplenty/worldgen/configured_feature/giant_tree.json
 058d0fbddf7d5401d3ce43a8ff48495914d0d2a7 data/biomesoplenty/worldgen/configured_feature/glowing_grotto_ceiling_plants.json
 8548fcda4d231ff1fd559b533a744d05679ddd7d data/biomesoplenty/worldgen/configured_feature/glowing_grotto_floor_plants.json
 1cb6a8a68b979adcfa1535fb1d1db6870ebd186e data/biomesoplenty/worldgen/configured_feature/glowing_moss_patch.json
