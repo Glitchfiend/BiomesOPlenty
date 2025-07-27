@@ -47,6 +47,7 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.WILLOW_LOG, 1, 8, 4, 1),
             new ItemsForEmeralds(BOPBlocks.DEAD_LOG, 1, 8, 4, 1),
 
+            new ItemsForEmeralds(BOPBlocks.MARIGOLD, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.VIOLET, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.LAVENDER, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.WHITE_LAVENDER, 1, 1, 12, 1),
@@ -91,7 +92,6 @@ public class ModVillagerTrades
 
         VillagerTrades.ItemListing[] WANDERING_TRADER_RARE = new VillagerTrades.ItemListing[]{
             new ItemsForEmeralds(BOPBlocks.ORIGIN_SAPLING, 5, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.RAINBOW_BIRCH_SAPLING, 5, 1, 4, 1),
             new ItemsForEmeralds(BOPBlocks.MAGIC_SAPLING, 5, 1, 4, 1),
             new ItemsForEmeralds(BOPBlocks.MAGIC_LOG, 1, 8, 4, 1),
             new ItemsForEmeralds(BOPBlocks.UMBRAN_SAPLING, 5, 1, 4, 1),

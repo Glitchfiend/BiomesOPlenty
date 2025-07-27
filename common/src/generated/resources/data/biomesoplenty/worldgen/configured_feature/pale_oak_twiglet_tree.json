@@ -1,5 +1,5 @@
 {
-  "type": "biomesoplenty:big_tree",
+  "type": "biomesoplenty:twiglet_tree",
   "config": {
     "alt_foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -8,12 +8,10 @@
       }
     },
     "decorators": [],
-    "foliage_density": 1.0,
-    "foliage_height": 5,
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "biomesoplenty:rainbow_birch_leaves",
+        "Name": "minecraft:pale_oak_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
@@ -27,8 +25,10 @@
         "Name": "minecraft:air"
       }
     },
-    "max_height": 12,
-    "min_height": 5,
+    "leaf_chance_even": 0.2,
+    "leaf_chance_odd": 0.9,
+    "max_height": 2,
+    "min_height": 1,
     "trunk_fruit_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -38,13 +38,12 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:birch_log",
+        "Name": "minecraft:pale_oak_log",
         "Properties": {
           "axis": "y"
         }
       }
     },
-    "trunk_width": 1,
     "vine_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

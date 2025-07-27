@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "biomesoplenty:block/rainbow_birch_sapling"
+    "layer0": "biomesoplenty:block/marigold"
   }
 }

@@ -1,12 +1,12 @@
 {
-  "feature": "biomesoplenty:big_rainbow_birch_tree",
+  "feature": "biomesoplenty:pale_oak_twiglet_tree",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "biomesoplenty:rainbow_birch_sapling",
+          "Name": "minecraft:pale_oak_sapling",
           "Properties": {
             "stage": "0"
           }

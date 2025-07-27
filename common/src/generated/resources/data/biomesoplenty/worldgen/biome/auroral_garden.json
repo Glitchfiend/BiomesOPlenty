@@ -7,7 +7,7 @@
   "downfall": 0.5,
   "effects": {
     "fog_color": 15793661,
-    "foliage_color": 10876919,
+    "foliage_color": 13762559,
     "grass_color": 14417148,
     "mood_sound": {
       "block_search_extent": 8,
@@ -27,6 +27,12 @@
       }
     ],
     "music_volume": 1.0,
+    "particle": {
+      "options": {
+        "type": "minecraft:snowflake"
+      },
+      "probability": 0.00133875
+    },
     "sky_color": 12446972,
     "water_color": 3750089,
     "water_fog_color": 329011
@@ -38,7 +44,8 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "biomesoplenty:prismarine_spike"
     ],
     [
       "minecraft:monster_room",
@@ -108,12 +115,6 @@
     ],
     "axolotls": [],
     "creature": [
-      {
-        "type": "minecraft:sheep",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 12
-      },
       {
         "type": "minecraft:fox",
         "maxCount": 4,

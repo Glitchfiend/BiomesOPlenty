@@ -1,16 +1,16 @@
 {
-  "feature": "biomesoplenty:patch_icy_iris",
+  "feature": "biomesoplenty:prismarine_spike",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 5
+      "type": "minecraft:rarity_filter",
+      "chance": 4
     },
     {
       "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "WORLD_SURFACE_WG"
+      "heightmap": "MOTION_BLOCKING"
     },
     {
       "type": "minecraft:biome"

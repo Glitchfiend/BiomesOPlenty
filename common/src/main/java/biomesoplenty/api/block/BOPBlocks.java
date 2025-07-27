@@ -128,8 +128,7 @@ public class BOPBlocks
     public static Block CYPRESS_LEAVES;
     public static Block SNOWBLOSSOM_SAPLING;
     public static Block SNOWBLOSSOM_LEAVES;
-    public static Block RAINBOW_BIRCH_SAPLING;
-    public static Block RAINBOW_BIRCH_LEAVES;
+
     public static Block FIR_SAPLING;
     public static Block FIR_LEAVES;
     public static Block FIR_LOG;
@@ -390,6 +389,7 @@ public class BOPBlocks
     public static Block EMPYREAL_WALL_HANGING_SIGN;
 
     public static Block ROSE;
+    public static Block MARIGOLD;
     public static Block VIOLET;
     public static Block LAVENDER;
     public static Block TALL_LAVENDER;
@@ -437,7 +437,6 @@ public class BOPBlocks
     public static Block POTTED_FLOWERING_OAK_SAPLING;
     public static Block POTTED_CYPRESS_SAPLING;
     public static Block POTTED_SNOWBLOSSOM_SAPLING;
-    public static Block POTTED_RAINBOW_BIRCH_SAPLING;
     public static Block POTTED_FIR_SAPLING;
     public static Block POTTED_PINE_SAPLING;
     public static Block POTTED_RED_MAPLE_SAPLING;
@@ -454,6 +453,7 @@ public class BOPBlocks
     public static Block POTTED_HELLBARK_SAPLING;
     public static Block POTTED_EMPYREAL_SAPLING;
     public static Block POTTED_ROSE;
+    public static Block POTTED_MARIGOLD;
     public static Block POTTED_VIOLET;
     public static Block POTTED_LAVENDER;
     public static Block POTTED_WHITE_LAVENDER;

@@ -134,8 +134,6 @@ public class BOPItems
     public static Item CYPRESS_LEAVES;
     public static Item SNOWBLOSSOM_SAPLING;
     public static Item SNOWBLOSSOM_LEAVES;
-    public static Item RAINBOW_BIRCH_SAPLING;
-    public static Item RAINBOW_BIRCH_LEAVES;
 
     public static Item FIR_SAPLING;
     public static Item FIR_LEAVES;
@@ -409,6 +407,7 @@ public class BOPItems
     public static Item EMPYREAL_CHEST_BOAT;
 
     public static Item ROSE;
+    public static Item MARIGOLD;
     public static Item VIOLET;
     public static Item LAVENDER;
     public static Item TALL_LAVENDER;
@@ -458,7 +457,6 @@ public class BOPItems
     public static Item POTTED_FLOWERING_OAK_SAPLING;
     public static Item POTTED_CYPRESS_SAPLING;
     public static Item POTTED_SNOWBLOSSOM_SAPLING;
-    public static Item POTTED_RAINBOW_BIRCH_SAPLING;
     public static Item POTTED_FIR_SAPLING;
     public static Item POTTED_PINE_SAPLING;
     public static Item POTTED_RED_MAPLE_SAPLING;
@@ -475,6 +473,7 @@ public class BOPItems
     public static Item POTTED_HELLBARK_SAPLING;
     public static Item POTTED_EMPYREAL_SAPLING;
     public static Item POTTED_ROSE;
+    public static Item POTTED_MARIGOLD;
     public static Item POTTED_VIOLET;
     public static Item POTTED_LAVENDER;
     public static Item POTTED_WHITE_LAVENDER;

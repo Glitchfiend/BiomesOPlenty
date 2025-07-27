@@ -206,8 +206,6 @@ public class ModItems
         CYPRESS_LEAVES = registerBlock(func, BOPBlocks.CYPRESS_LEAVES);
         SNOWBLOSSOM_SAPLING = registerBlock(func, BOPBlocks.SNOWBLOSSOM_SAPLING);
         SNOWBLOSSOM_LEAVES = registerBlock(func, BOPBlocks.SNOWBLOSSOM_LEAVES);
-        RAINBOW_BIRCH_SAPLING = registerBlock(func, BOPBlocks.RAINBOW_BIRCH_SAPLING);
-        RAINBOW_BIRCH_LEAVES = registerBlock(func, BOPBlocks.RAINBOW_BIRCH_LEAVES);
         FIR_SAPLING = registerBlock(func, BOPBlocks.FIR_SAPLING);
         FIR_LEAVES = registerBlock(func, BOPBlocks.FIR_LEAVES);
         FIR_LOG = registerBlock(func, BOPBlocks.FIR_LOG);
@@ -415,6 +413,7 @@ public class ModItems
         EMPYREAL_PRESSURE_PLATE = registerBlock(func, BOPBlocks.EMPYREAL_PRESSURE_PLATE);
         EMPYREAL_BUTTON = registerBlock(func, BOPBlocks.EMPYREAL_BUTTON);
         ROSE = registerBlock(func, BOPBlocks.ROSE);
+        MARIGOLD = registerBlock(func, BOPBlocks.MARIGOLD);
         VIOLET = registerBlock(func, BOPBlocks.VIOLET);
         LAVENDER = registerBlock(func, BOPBlocks.LAVENDER);
         TALL_LAVENDER = registerBlock(func, BOPBlocks.TALL_LAVENDER);
@@ -458,7 +457,6 @@ public class ModItems
         POTTED_FLOWERING_OAK_SAPLING = registerBlock(func, BOPBlocks.POTTED_FLOWERING_OAK_SAPLING);
         POTTED_CYPRESS_SAPLING = registerBlock(func, BOPBlocks.POTTED_CYPRESS_SAPLING);
         POTTED_SNOWBLOSSOM_SAPLING = registerBlock(func, BOPBlocks.POTTED_SNOWBLOSSOM_SAPLING);
-        POTTED_RAINBOW_BIRCH_SAPLING = registerBlock(func, BOPBlocks.POTTED_RAINBOW_BIRCH_SAPLING);
         POTTED_FIR_SAPLING = registerBlock(func, BOPBlocks.POTTED_FIR_SAPLING);
         POTTED_PINE_SAPLING = registerBlock(func, BOPBlocks.POTTED_PINE_SAPLING);
         POTTED_RED_MAPLE_SAPLING = registerBlock(func, BOPBlocks.POTTED_RED_MAPLE_SAPLING);
@@ -475,6 +473,7 @@ public class ModItems
         POTTED_HELLBARK_SAPLING = registerBlock(func, BOPBlocks.POTTED_HELLBARK_SAPLING);
         POTTED_EMPYREAL_SAPLING = registerBlock(func, BOPBlocks.POTTED_EMPYREAL_SAPLING);
         POTTED_ROSE = registerBlock(func, BOPBlocks.POTTED_ROSE);
+        POTTED_MARIGOLD = registerBlock(func, BOPBlocks.POTTED_MARIGOLD);
         POTTED_VIOLET = registerBlock(func, BOPBlocks.POTTED_VIOLET);
         POTTED_LAVENDER = registerBlock(func, BOPBlocks.POTTED_LAVENDER);
         POTTED_WHITE_LAVENDER = registerBlock(func, BOPBlocks.POTTED_WHITE_LAVENDER);

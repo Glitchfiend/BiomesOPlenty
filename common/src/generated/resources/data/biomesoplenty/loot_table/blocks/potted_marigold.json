@@ -26,11 +26,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesoplenty:rainbow_birch_sapling"
+          "name": "biomesoplenty:marigold"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "biomesoplenty:blocks/potted_rainbow_birch_sapling"
+  "random_sequence": "biomesoplenty:blocks/potted_marigold"
 }

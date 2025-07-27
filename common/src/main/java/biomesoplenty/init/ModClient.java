@@ -86,7 +86,6 @@ public class ModClient
         RenderHelper.setRenderType(FLOWERING_OAK_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(CYPRESS_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(SNOWBLOSSOM_LEAVES, ChunkSectionLayer.TRANSLUCENT);
-        RenderHelper.setRenderType(RAINBOW_BIRCH_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(FIR_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(PINE_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(RED_MAPLE_LEAVES, ChunkSectionLayer.TRANSLUCENT);
@@ -107,7 +106,6 @@ public class ModClient
         RenderHelper.setRenderType(FLOWERING_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(CYPRESS_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(SNOWBLOSSOM_SAPLING, ChunkSectionLayer.CUTOUT);
-        RenderHelper.setRenderType(RAINBOW_BIRCH_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(FIR_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(PINE_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(RED_MAPLE_SAPLING, ChunkSectionLayer.CUTOUT);
@@ -124,6 +122,7 @@ public class ModClient
         RenderHelper.setRenderType(HELLBARK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(EMPYREAL_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(ROSE, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(MARIGOLD, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(VIOLET, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(LAVENDER, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(WHITE_LAVENDER, ChunkSectionLayer.CUTOUT);
@@ -224,7 +223,6 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_FLOWERING_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_CYPRESS_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_SNOWBLOSSOM_SAPLING, ChunkSectionLayer.CUTOUT);
-        RenderHelper.setRenderType(POTTED_RAINBOW_BIRCH_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_FIR_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_PINE_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_RED_MAPLE_SAPLING, ChunkSectionLayer.CUTOUT);
@@ -241,6 +239,7 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_HELLBARK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_EMPYREAL_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_ROSE, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(POTTED_MARIGOLD, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_VIOLET, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_LAVENDER, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_WHITE_LAVENDER, ChunkSectionLayer.CUTOUT);
@@ -354,11 +353,6 @@ public class ModClient
                         world != null && pos != null ? BiomeColors.getAverageDryFoliageColor(world, pos) : -10732494,
                 BOPBlocks.DEAD_LEAVES, BOPBlocks.DESERT_GRASS);
 
-        //Rainbow Birch Leaf Coloring
-        event.register((state, world, pos, tintIndex) ->
-                        world != null && pos != null ? getRainbowBirchColor(world, pos) : FoliageColor.FOLIAGE_DEFAULT,
-                BOPBlocks.RAINBOW_BIRCH_LEAVES);
-
         //Flowerbed Coloring
         event.register((state, world, pos, tintIndex) -> {
                     if (tintIndex != 0) { return world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(); }
@@ -455,26 +449,5 @@ public class ModClient
         SheetHelper.addWoodType(BOPWoodTypes.UMBRAN);
         SheetHelper.addWoodType(BOPWoodTypes.HELLBARK);
         SheetHelper.addWoodType(BOPWoodTypes.EMPYREAL);
-    }
-
-    public static int getRainbowBirchColor(BlockAndTintGetter world, BlockPos pos)
-    {
-        float saturation;
-        if (world.getBlockState(pos.above()).is(BlockTags.SNOW))
-        {
-            saturation = 0.3F;
-        }
-        else if (world.getBlockState(pos.above(2)).is(BlockTags.SNOW))
-        {
-            saturation = 0.45F;
-        }
-        else
-        {
-            saturation = 0.6F;
-        }
-
-        Color foliage = Color.getHSBColor(((float)pos.getX() + (float)pos.getY() + (float)pos.getZ() + (Mth.sin(((float)pos.getX() + (float)pos.getY() + (float)pos.getZ()) / 16) * 16) % 100) / 100, saturation, 1.0F);
-
-        return foliage.getRGB();
     }
 }

@@ -168,6 +168,9 @@
     "biomesoplenty:mahogany_sapling": {
       "chance": 0.3
     },
+    "biomesoplenty:marigold": {
+      "chance": 0.65
+    },
     "biomesoplenty:orange_cosmos": {
       "chance": 0.65
     },
@@ -215,12 +218,6 @@
     },
     "biomesoplenty:purple_wildflowers": {
       "chance": 0.65
-    },
-    "biomesoplenty:rainbow_birch_leaves": {
-      "chance": 0.3
-    },
-    "biomesoplenty:rainbow_birch_sapling": {
-      "chance": 0.3
     },
     "biomesoplenty:red_flower_petal_block": {
       "chance": 0.5

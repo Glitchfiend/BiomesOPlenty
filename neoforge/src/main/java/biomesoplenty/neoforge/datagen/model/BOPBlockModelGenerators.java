@@ -188,8 +188,6 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createPlantWithDefaultItem(BOPBlocks.CYPRESS_SAPLING, BOPBlocks.POTTED_CYPRESS_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         this.createTrivialBlock(BOPBlocks.SNOWBLOSSOM_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.SNOWBLOSSOM_SAPLING, BOPBlocks.POTTED_SNOWBLOSSOM_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
-        this.registerSimpleItemModel(BOPBlocks.RAINBOW_BIRCH_LEAVES, TexturedModel.LEAVES.createWithSuffix(BOPBlocks.RAINBOW_BIRCH_LEAVES, "_inventory", this.modelOutput));
-        this.createPlantWithDefaultItem(BOPBlocks.RAINBOW_BIRCH_SAPLING, BOPBlocks.POTTED_RAINBOW_BIRCH_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
 
         this.createRotatedVariantBlock(BOPBlocks.WHITE_SAND);
         this.createRotatedVariantBlock(BOPBlocks.ORANGE_SAND);
@@ -262,6 +260,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
 
         // Flowers
         this.registerSimpleFlatItemModel(BOPBlocks.ROSE);
+        this.registerSimpleFlatItemModel(BOPBlocks.MARIGOLD);
         this.registerSimpleFlatItemModel(BOPBlocks.VIOLET);
         this.registerSimpleFlatItemModel(BOPBlocks.LAVENDER);
         this.registerSimpleFlatItemModel(BOPBlocks.WHITE_LAVENDER);
