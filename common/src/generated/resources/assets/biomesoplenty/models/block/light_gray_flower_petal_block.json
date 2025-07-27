@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "biomesoplenty:block/light_gray_flower_petal_block"
+  }
+}

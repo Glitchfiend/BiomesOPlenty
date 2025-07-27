@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "lime_dye",
+  "ingredients": [
+    "biomesoplenty:lime_flower_petal_block"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:lime_dye"
+  }
+}

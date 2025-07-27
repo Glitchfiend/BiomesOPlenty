@@ -100,6 +100,24 @@ public class BOPBlocks
     public static Block STRINGY_COBWEB;
     public static Block WEBBING;
 
+    public static Block WHITE_FLOWER_PETAL_BLOCK;
+    public static Block LIGHT_GRAY_FLOWER_PETAL_BLOCK;
+    public static Block GRAY_FLOWER_PETAL_BLOCK;
+    public static Block BLACK_FLOWER_PETAL_BLOCK;
+    public static Block BROWN_FLOWER_PETAL_BLOCK;
+    public static Block RED_FLOWER_PETAL_BLOCK;
+    public static Block ORANGE_FLOWER_PETAL_BLOCK;
+    public static Block YELLOW_FLOWER_PETAL_BLOCK;
+    public static Block LIME_FLOWER_PETAL_BLOCK;
+    public static Block GREEN_FLOWER_PETAL_BLOCK;
+    public static Block CYAN_FLOWER_PETAL_BLOCK;
+    public static Block LIGHT_BLUE_FLOWER_PETAL_BLOCK;
+    public static Block BLUE_FLOWER_PETAL_BLOCK;
+    public static Block PURPLE_FLOWER_PETAL_BLOCK;
+    public static Block MAGENTA_FLOWER_PETAL_BLOCK;
+    public static Block PINK_FLOWER_PETAL_BLOCK;
+    public static Block FLOWER_STEM;
+
     public static Block ORIGIN_GRASS_BLOCK;
 
     public static Block ORIGIN_SAPLING;

@@ -3,6 +3,12 @@
     "biomesoplenty:barley": {
       "chance": 0.5
     },
+    "biomesoplenty:black_flower_petal_block": {
+      "chance": 0.5
+    },
+    "biomesoplenty:blue_flower_petal_block": {
+      "chance": 0.5
+    },
     "biomesoplenty:blue_hydrangea": {
       "chance": 0.65
     },
@@ -12,6 +18,9 @@
     "biomesoplenty:bramble_leaves": {
       "chance": 0.3
     },
+    "biomesoplenty:brown_flower_petal_block": {
+      "chance": 0.5
+    },
     "biomesoplenty:burning_blossom": {
       "chance": 0.65
     },
@@ -19,6 +28,9 @@
       "chance": 0.5
     },
     "biomesoplenty:clover": {
+      "chance": 0.5
+    },
+    "biomesoplenty:cyan_flower_petal_block": {
       "chance": 0.5
     },
     "biomesoplenty:cypress_leaves": {
@@ -63,6 +75,9 @@
     "biomesoplenty:fir_sapling": {
       "chance": 0.3
     },
+    "biomesoplenty:flower_stem": {
+      "chance": 0.5
+    },
     "biomesoplenty:flowering_oak_leaves": {
       "chance": 0.3
     },
@@ -86,6 +101,12 @@
     },
     "biomesoplenty:goldenrod": {
       "chance": 0.65
+    },
+    "biomesoplenty:gray_flower_petal_block": {
+      "chance": 0.5
+    },
+    "biomesoplenty:green_flower_petal_block": {
+      "chance": 0.5
     },
     "biomesoplenty:hellbark_leaves": {
       "chance": 0.3
@@ -117,11 +138,23 @@
     "biomesoplenty:lavender": {
       "chance": 0.65
     },
+    "biomesoplenty:light_blue_flower_petal_block": {
+      "chance": 0.5
+    },
+    "biomesoplenty:light_gray_flower_petal_block": {
+      "chance": 0.5
+    },
+    "biomesoplenty:lime_flower_petal_block": {
+      "chance": 0.5
+    },
     "biomesoplenty:lumaloop": {
       "chance": 0.3
     },
     "biomesoplenty:lumaloop_plant": {
       "chance": 0.3
+    },
+    "biomesoplenty:magenta_flower_petal_block": {
+      "chance": 0.5
     },
     "biomesoplenty:magic_leaves": {
       "chance": 0.3
@@ -137,6 +170,9 @@
     },
     "biomesoplenty:orange_cosmos": {
       "chance": 0.65
+    },
+    "biomesoplenty:orange_flower_petal_block": {
+      "chance": 0.5
     },
     "biomesoplenty:orange_maple_leaf_litter": {
       "chance": 0.3
@@ -168,8 +204,14 @@
     "biomesoplenty:pink_daffodil": {
       "chance": 0.65
     },
+    "biomesoplenty:pink_flower_petal_block": {
+      "chance": 0.5
+    },
     "biomesoplenty:pink_hibiscus": {
       "chance": 0.65
+    },
+    "biomesoplenty:purple_flower_petal_block": {
+      "chance": 0.5
     },
     "biomesoplenty:purple_wildflowers": {
       "chance": 0.65
@@ -179,6 +221,9 @@
     },
     "biomesoplenty:rainbow_birch_sapling": {
       "chance": 0.3
+    },
+    "biomesoplenty:red_flower_petal_block": {
+      "chance": 0.5
     },
     "biomesoplenty:red_maple_leaf_litter": {
       "chance": 0.3
@@ -249,6 +294,9 @@
     "biomesoplenty:waterlily": {
       "chance": 0.65
     },
+    "biomesoplenty:white_flower_petal_block": {
+      "chance": 0.5
+    },
     "biomesoplenty:white_lavender": {
       "chance": 0.65
     },
@@ -266,6 +314,9 @@
     },
     "biomesoplenty:wilted_lily": {
       "chance": 0.65
+    },
+    "biomesoplenty:yellow_flower_petal_block": {
+      "chance": 0.5
     },
     "biomesoplenty:yellow_maple_leaf_litter": {
       "chance": 0.3

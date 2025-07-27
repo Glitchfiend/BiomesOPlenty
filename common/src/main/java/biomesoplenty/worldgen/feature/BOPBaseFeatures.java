@@ -54,6 +54,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> HANGING_FLESH_TENDON;
     public static Feature<NoneFeatureConfiguration> HUGE_TOADSTOOL;
     public static Feature<NoneFeatureConfiguration> HUGE_CLOVER;
+    public static Feature<NoneFeatureConfiguration> HUGE_FLOWER;
     public static Feature<NoneFeatureConfiguration> HUGE_LILY_PAD;
     public static Feature<NoneFeatureConfiguration> HUGE_GLOWSHROOM;
     public static Feature<NoneFeatureConfiguration> INFERNO_SPLATTER;
@@ -135,6 +136,7 @@ public class BOPBaseFeatures
         HANGING_FLESH_TENDON = register(func, "hanging_flesh_tendon", new HangingFleshTendonFeature(NoneFeatureConfiguration.CODEC));
         HUGE_TOADSTOOL = register(func, "huge_toadstool", new HugeToadstoolFeature(NoneFeatureConfiguration.CODEC));
         HUGE_CLOVER = register(func, "huge_clover", new HugeCloverFeature(NoneFeatureConfiguration.CODEC));
+        HUGE_FLOWER = register(func, "huge_flower", new HugeFlowerFeature(NoneFeatureConfiguration.CODEC));
         HUGE_LILY_PAD = register(func, "huge_lily_pad", new HugeLilyPadFeature(NoneFeatureConfiguration.CODEC));
         HUGE_GLOWSHROOM = register(func, "huge_glowshroom", new HugeGlowshroomFeature(NoneFeatureConfiguration.CODEC));
         INFERNO_SPLATTER = register(func, "inferno_splatter", new InfernoSplatterFeature(NoneFeatureConfiguration.CODEC));

@@ -259,6 +259,24 @@ public class ModVanillaCompat
         registerCompostable(0.85F, BOPBlocks.GLOWSHROOM_BLOCK);
         registerCompostable(0.85F, BOPBlocks.TOADSTOOL_BLOCK);
 
+        registerCompostable(0.5F, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.GRAY_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.BLACK_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.BROWN_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.RED_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.ORANGE_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.YELLOW_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.LIME_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.GREEN_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.CYAN_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.LIGHT_BLUE_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.BLUE_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.PURPLE_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.PINK_FLOWER_PETAL_BLOCK);
+        registerCompostable(0.5F, BOPBlocks.FLOWER_STEM);
+
         registerCompostable(0.3F, BOPBlocks.ORIGIN_SAPLING);
         registerCompostable(0.3F, BOPBlocks.ORIGIN_LEAVES);
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_SAPLING);

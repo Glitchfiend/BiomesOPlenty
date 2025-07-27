@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_green_flower_petal_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:green_flower_petal_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:green_dye_from_green_flower_petal_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_green_flower_petal_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:green_dye_from_green_flower_petal_block"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:yellow_dye_from_yellow_flower_petal_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_flower_petal_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:yellow_flower_petal_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_yellow_flower_petal_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:yellow_dye_from_yellow_flower_petal_block"
+    ]
+  }
+}

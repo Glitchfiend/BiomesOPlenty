@@ -158,6 +158,24 @@ public class ModBlocks
         STRINGY_COBWEB = register(func, "stringy_cobweb", StringyCobwebBlock::new, BlockBehaviour.Properties.of().noLootTable().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.COBWEB));
         WEBBING = register(func, "webbing", WebbingBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().instabreak().sound(SoundType.COBWEB));
 
+        WHITE_FLOWER_PETAL_BLOCK = register(func, "white_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.SNOW).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        LIGHT_GRAY_FLOWER_PETAL_BLOCK = register(func, "light_gray_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        GRAY_FLOWER_PETAL_BLOCK = register(func, "gray_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_GRAY).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        BLACK_FLOWER_PETAL_BLOCK = register(func, "black_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_BLACK).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        BROWN_FLOWER_PETAL_BLOCK = register(func, "brown_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_BROWN).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        RED_FLOWER_PETAL_BLOCK = register(func, "red_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_RED).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        ORANGE_FLOWER_PETAL_BLOCK = register(func, "orange_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        YELLOW_FLOWER_PETAL_BLOCK = register(func, "yellow_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_YELLOW).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        LIME_FLOWER_PETAL_BLOCK = register(func, "lime_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_LIGHT_GREEN).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        GREEN_FLOWER_PETAL_BLOCK = register(func, "green_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_GREEN).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        CYAN_FLOWER_PETAL_BLOCK = register(func, "cyan_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_CYAN).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        LIGHT_BLUE_FLOWER_PETAL_BLOCK = register(func, "light_blue_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        BLUE_FLOWER_PETAL_BLOCK = register(func, "blue_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_BLUE).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        PURPLE_FLOWER_PETAL_BLOCK = register(func, "purple_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_PURPLE).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        MAGENTA_FLOWER_PETAL_BLOCK = register(func, "magenta_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_MAGENTA).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        PINK_FLOWER_PETAL_BLOCK = register(func, "pink_flower_petal_block", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_PINK).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+        FLOWER_STEM = register(func, "flower_stem", RotatedPillarBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.GRASS).strength(0.2F).sound(SoundType.BIG_DRIPLEAF));
+
         ORIGIN_GRASS_BLOCK = register(func, "origin_grass_block", OriginGrassBlock::new, BlockBehaviour.Properties.of().randomTicks().mapColor(MapColor.GRASS).strength(0.6F).randomTicks().sound(SoundType.GRASS));
 
         //Trees

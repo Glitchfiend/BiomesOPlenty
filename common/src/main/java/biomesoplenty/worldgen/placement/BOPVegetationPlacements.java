@@ -35,6 +35,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> HIGHLAND_ROCKS = BOPPlacementUtils.createKey("highland_rocks");
     public static final ResourceKey<PlacedFeature> HUGE_TOADSTOOL = BOPPlacementUtils.createKey("huge_toadstool");
     public static final ResourceKey<PlacedFeature> HUGE_CLOVER = BOPPlacementUtils.createKey("huge_clover");
+    public static final ResourceKey<PlacedFeature> HUGE_FLOWER = BOPPlacementUtils.createKey("huge_flower");
     public static final ResourceKey<PlacedFeature> HUGE_LILY_PAD = BOPPlacementUtils.createKey("huge_lily_pad");
     public static final ResourceKey<PlacedFeature> HUGE_RED_MUSHROOM_EXTRA = BOPPlacementUtils.createKey("huge_red_mushroom_extra");
     public static final ResourceKey<PlacedFeature> PATCH_BARLEY = BOPPlacementUtils.createKey("patch_barley");
@@ -199,6 +200,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> PATCH_CLOVER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_CLOVER);
         final Holder<ConfiguredFeature<?, ?>> HUGE_TOADSTOOL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.HUGE_TOADSTOOL);
         final Holder<ConfiguredFeature<?, ?>> HUGE_CLOVER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.HUGE_CLOVER);
+        final Holder<ConfiguredFeature<?, ?>> HUGE_FLOWER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.HUGE_FLOWER);
         final Holder<ConfiguredFeature<?, ?>> HUGE_LILY_PAD = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.HUGE_LILY_PAD);
         final Holder<ConfiguredFeature<?, ?>> PATCH_BARLEY = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_BARLEY);
         final Holder<ConfiguredFeature<?, ?>> HUGE_RED_MUSHROOM = configuredFeatureGetter.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM);
@@ -330,6 +332,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.HIGHLAND_ROCKS, HIGHLAND_ROCKS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.HUGE_TOADSTOOL, HUGE_TOADSTOOL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.HUGE_CLOVER, HUGE_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(10));
+        register(context, BOPVegetationPlacements.HUGE_FLOWER, HUGE_FLOWER, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.HUGE_LILY_PAD, HUGE_LILY_PAD, VegetationPlacements.worldSurfaceSquaredWithCount(10));
         register(context, BOPVegetationPlacements.HUGE_RED_MUSHROOM_EXTRA, HUGE_RED_MUSHROOM, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_BARLEY, PATCH_BARLEY, VegetationPlacements.worldSurfaceSquaredWithCount(10));

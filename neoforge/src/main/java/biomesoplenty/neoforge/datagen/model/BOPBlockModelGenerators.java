@@ -208,6 +208,25 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
 
         this.registerSimpleTintedItemModel(BOPBlocks.MOSSY_BLACK_SAND, ModelLocationUtils.getModelLocation(BOPBlocks.MOSSY_BLACK_SAND), new GrassColorSource());
 
+        this.createTrivialCube(BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.GRAY_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.BLACK_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.BROWN_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.RED_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.ORANGE_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.YELLOW_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.LIME_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.GREEN_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.CYAN_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.LIGHT_BLUE_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.BLUE_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.PURPLE_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK);
+        this.createTrivialCube(BOPBlocks.PINK_FLOWER_PETAL_BLOCK);
+
+        this.registerSimpleTintedItemModel(BOPBlocks.FLOWER_STEM, ModelLocationUtils.getModelLocation(BOPBlocks.FLOWER_STEM), new GrassColorSource());
+
         this.createWillowVine();
 
         //

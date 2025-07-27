@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "purple_dye",
+  "ingredients": [
+    "biomesoplenty:purple_flower_petal_block"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:purple_dye"
+  }
+}

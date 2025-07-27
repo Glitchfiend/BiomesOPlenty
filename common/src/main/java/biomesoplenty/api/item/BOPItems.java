@@ -106,6 +106,24 @@ public class BOPItems
     public static Item STRINGY_COBWEB;
     public static Item WEBBING;
 
+    public static Item WHITE_FLOWER_PETAL_BLOCK;
+    public static Item LIGHT_GRAY_FLOWER_PETAL_BLOCK;
+    public static Item GRAY_FLOWER_PETAL_BLOCK;
+    public static Item BLACK_FLOWER_PETAL_BLOCK;
+    public static Item BROWN_FLOWER_PETAL_BLOCK;
+    public static Item RED_FLOWER_PETAL_BLOCK;
+    public static Item ORANGE_FLOWER_PETAL_BLOCK;
+    public static Item YELLOW_FLOWER_PETAL_BLOCK;
+    public static Item LIME_FLOWER_PETAL_BLOCK;
+    public static Item GREEN_FLOWER_PETAL_BLOCK;
+    public static Item CYAN_FLOWER_PETAL_BLOCK;
+    public static Item LIGHT_BLUE_FLOWER_PETAL_BLOCK;
+    public static Item BLUE_FLOWER_PETAL_BLOCK;
+    public static Item PURPLE_FLOWER_PETAL_BLOCK;
+    public static Item MAGENTA_FLOWER_PETAL_BLOCK;
+    public static Item PINK_FLOWER_PETAL_BLOCK;
+    public static Item FLOWER_STEM;
+
     public static Item ORIGIN_GRASS_BLOCK;
 
     public static Item ORIGIN_SAPLING;
@@ -118,6 +136,7 @@ public class BOPItems
     public static Item SNOWBLOSSOM_LEAVES;
     public static Item RAINBOW_BIRCH_SAPLING;
     public static Item RAINBOW_BIRCH_LEAVES;
+
     public static Item FIR_SAPLING;
     public static Item FIR_LEAVES;
     public static Item FIR_LOG;

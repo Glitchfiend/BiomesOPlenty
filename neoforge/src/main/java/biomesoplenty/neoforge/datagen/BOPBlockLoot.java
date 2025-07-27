@@ -155,6 +155,24 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.addStrandPlantDropTable(BOPBlocks.HANGING_COBWEB, BOPBlocks.HANGING_COBWEB_STRAND);
         this.add(BOPBlocks.WEBBING, (p_249543_) -> { return this.createMultifaceBlockDrops(p_249543_, hasShears); });
 
+        this.dropSelf(BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.GRAY_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.BLACK_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.BROWN_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.RED_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.ORANGE_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.YELLOW_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.LIME_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.GREEN_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.CYAN_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.LIGHT_BLUE_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.BLUE_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.PURPLE_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.PINK_FLOWER_PETAL_BLOCK);
+        this.dropSelf(BOPBlocks.FLOWER_STEM);
+
         this.add(BOPBlocks.ORIGIN_GRASS_BLOCK, (p_249779_) -> { return this.createSingleItemTableWithSilkTouch(p_249779_, Blocks.DIRT); });
 
         // Woodless Trees

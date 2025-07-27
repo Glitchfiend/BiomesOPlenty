@@ -237,6 +237,24 @@ public class BOPRecipeProvider extends RecipeProvider
         oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.TALL_WHITE_LAVENDER, "white_dye", 2);
         oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.WHITE_PETALS, "white_dye");
         oneToOneConversionRecipe(Items.YELLOW_DYE, BOPBlocks.GOLDENROD, "yellow_dye", 2);
+
+        oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK, "white_dye", 4);
+        oneToOneConversionRecipe(Items.LIGHT_GRAY_DYE, BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK, "light_gray_dye", 4);
+        oneToOneConversionRecipe(Items.GRAY_DYE, BOPBlocks.GRAY_FLOWER_PETAL_BLOCK, "gray_dye", 4);
+        oneToOneConversionRecipe(Items.BLACK_DYE, BOPBlocks.BLACK_FLOWER_PETAL_BLOCK, "black_dye", 4);
+        oneToOneConversionRecipe(Items.BROWN_DYE, BOPBlocks.BROWN_FLOWER_PETAL_BLOCK, "brown_dye", 4);
+        oneToOneConversionRecipe(Items.RED_DYE, BOPBlocks.RED_FLOWER_PETAL_BLOCK, "red_dye", 4);
+        oneToOneConversionRecipe(Items.ORANGE_DYE, BOPBlocks.ORANGE_FLOWER_PETAL_BLOCK, "orange_dye", 4);
+        oneToOneConversionRecipe(Items.YELLOW_DYE, BOPBlocks.YELLOW_FLOWER_PETAL_BLOCK, "yellow_dye", 4);
+        oneToOneConversionRecipe(Items.LIME_DYE, BOPBlocks.LIME_FLOWER_PETAL_BLOCK, "lime_dye", 4);
+        oneToOneConversionRecipe(Items.GREEN_DYE, BOPBlocks.GREEN_FLOWER_PETAL_BLOCK, "green_dye", 4);
+        oneToOneConversionRecipe(Items.CYAN_DYE, BOPBlocks.CYAN_FLOWER_PETAL_BLOCK, "cyan_dye", 4);
+        oneToOneConversionRecipe(Items.LIGHT_BLUE_DYE, BOPBlocks.LIGHT_BLUE_FLOWER_PETAL_BLOCK, "light_blue_dye", 4);
+        oneToOneConversionRecipe(Items.BLUE_DYE, BOPBlocks.BLUE_FLOWER_PETAL_BLOCK, "blue_dye", 4);
+        oneToOneConversionRecipe(Items.PURPLE_DYE, BOPBlocks.PURPLE_FLOWER_PETAL_BLOCK, "purple_dye", 4);
+        oneToOneConversionRecipe(Items.MAGENTA_DYE, BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK, "magenta_dye", 4);
+        oneToOneConversionRecipe(Items.PINK_DYE, BOPBlocks.PINK_FLOWER_PETAL_BLOCK, "pink_dye", 4);
+
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.TINY_CACTUS.asItem()), RecipeCategory.MISC, Items.GREEN_DYE, 1.0F, 200).unlockedBy("has_tiny_cactus", has(BOPBlocks.TINY_CACTUS)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Items.GREEN_DYE, BOPBlocks.TINY_CACTUS));
 
         // Vanilla Parity Recipes

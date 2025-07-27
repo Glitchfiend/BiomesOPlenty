@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "magenta_dye",
+  "ingredients": [
+    "biomesoplenty:magenta_flower_petal_block"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:magenta_dye"
+  }
+}

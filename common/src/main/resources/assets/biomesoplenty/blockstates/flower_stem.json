@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "biomesoplenty:block/flower_stem",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "biomesoplenty:block/flower_stem"
+    },
+    "axis=z": {
+      "model": "biomesoplenty:block/flower_stem",
+      "x": 90
+    }
+  }
+}
