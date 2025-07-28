@@ -60,6 +60,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_12 = BOPPlacementUtils.createKey("patch_grass_12");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_24 = BOPPlacementUtils.createKey("patch_grass_24");
     public static final ResourceKey<PlacedFeature> PATCH_ICY_IRIS = BOPPlacementUtils.createKey("patch_icy_iris");
+    public static final ResourceKey<PlacedFeature> PATCH_PITCHER_PLANT = BOPPlacementUtils.createKey("patch_pitcher_plant");
     public static final ResourceKey<PlacedFeature> PATCH_LARGE_FERN_NORMAL = BOPPlacementUtils.createKey("patch_large_fern_normal");
     public static final ResourceKey<PlacedFeature> PATCH_LARGE_FERN_EXTRA = BOPPlacementUtils.createKey("patch_large_fern_extra");
     public static final ResourceKey<PlacedFeature> PATCH_SEA_OATS = BOPPlacementUtils.createKey("patch_sea_oats");
@@ -218,6 +219,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> PATCH_FERN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_FERN);
         final Holder<ConfiguredFeature<?, ?>> PATCH_GRASS = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_ICY_IRIS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_ICY_IRIS);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_PITCHER_PLANT = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_PITCHER_PLANT);
         final Holder<ConfiguredFeature<?, ?>> PATCH_LARGE_FERN = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_LARGE_FERN);
         final Holder<ConfiguredFeature<?, ?>> PATCH_SEA_OATS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_SEA_OATS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_SPROUTS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_SPROUTS);
@@ -334,7 +336,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.CLOVER_NORMAL, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.CLOVER_EXTRA, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(7));
         register(context, BOPVegetationPlacements.COLD_DESERT_ROCKS, COLD_DESERT_ROCKS, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-        register(context, BOPVegetationPlacements.PRISMARINE_SPIKE, PRISMARINE_SPIKE, RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, BOPVegetationPlacements.PRISMARINE_SPIKE, PRISMARINE_SPIKE, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.HIGHLAND_ROCKS, HIGHLAND_ROCKS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.HUGE_TOADSTOOL, HUGE_TOADSTOOL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.HUGE_CLOVER, HUGE_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(10));
@@ -361,7 +363,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_GRASS_6, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(6));
         register(context, BOPVegetationPlacements.PATCH_GRASS_12, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(12));
         register(context, BOPVegetationPlacements.PATCH_GRASS_24, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(24));
-        register(context, BOPVegetationPlacements.PATCH_ICY_IRIS, PATCH_ICY_IRIS, VegetationPlacements.worldSurfaceSquaredWithCount(5));
+        register(context, BOPVegetationPlacements.PATCH_ICY_IRIS, PATCH_ICY_IRIS, VegetationPlacements.worldSurfaceSquaredWithCount(7));
+        register(context, BOPVegetationPlacements.PATCH_PITCHER_PLANT, PATCH_PITCHER_PLANT, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_LARGE_FERN_NORMAL, PATCH_LARGE_FERN, RarityFilter.onAverageOnceEvery(7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_LARGE_FERN_EXTRA, PATCH_LARGE_FERN, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_SEA_OATS, PATCH_SEA_OATS, VegetationPlacements.worldSurfaceSquaredWithCount(5));
@@ -431,7 +434,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.ROSE_BUSH_EXTRA, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SPROUT_BONEMEAL, SPROUT_BONEMEAL, PlacementUtils.isEmpty());
         register(context, BOPVegetationPlacements.SUNFLOWER, SUNFLOWER, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.TREES_AURORAL_GARDEN, TREES_AURORAL_GARDEN, treePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
+        register(context, BOPVegetationPlacements.TREES_AURORAL_GARDEN, TREES_AURORAL_GARDEN, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_BAYOU, TREES_BAYOU, waterTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_BOG, TREES_BOG, treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_CONIFEROUS_FOREST, TREES_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));

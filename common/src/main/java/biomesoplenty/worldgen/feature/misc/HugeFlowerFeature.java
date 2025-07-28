@@ -755,7 +755,7 @@ public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
             this.setBlock(world, pos.offset(-3, 0, 0), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(-3, 0, -1), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(-3, 0, 1), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
-            this.setBlock(world, pos.offset(-4, -1, 0), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
+            this.setBlock(world, pos.offset(-4, -1, 0), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
 
             this.setBlock(world, pos.offset(1, -1, 0), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(2, 0, 0), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
@@ -764,7 +764,7 @@ public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
             this.setBlock(world, pos.offset(3, 0, 0), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(3, 0, -1), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(3, 0, 1), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
-            this.setBlock(world, pos.offset(4, -1, 0), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
+            this.setBlock(world, pos.offset(4, -1, 0), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
         }
         else
         {
@@ -775,7 +775,7 @@ public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
             this.setBlock(world, pos.offset(0, 0, -3), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(-1, 0, -3), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(1, 0, -3), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
-            this.setBlock(world, pos.offset(0, -1, -4), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
+            this.setBlock(world, pos.offset(0, -1, -4), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
 
             this.setBlock(world, pos.offset(0, -1, 1), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(0, 0, 2), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
@@ -784,7 +784,7 @@ public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
             this.setBlock(world, pos.offset(0, 0, 3), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(-1, 0, 3), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
             this.setBlock(world, pos.offset(1, 0, 3), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
-            this.setBlock(world, pos.offset(0, -1, 4), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
+            this.setBlock(world, pos.offset(0, -1, 4), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
         }
     }
 
@@ -947,7 +947,7 @@ public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
         this.setBlock(world, pos.relative(direction, 2).relative(direction.getCounterClockWise(), 1).above(1), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
         this.setBlock(world, pos.relative(direction, 3).relative(direction.getClockWise(), 1).above(1), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
         this.setBlock(world, pos.relative(direction, 3).relative(direction.getCounterClockWise(), 1).above(1), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
-        this.setBlock(world, pos.relative(direction, 4), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK.defaultBlockState());
+        this.setBlock(world, pos.relative(direction, 4), BOPBlocks.LIME_FLOWER_PETAL_BLOCK.defaultBlockState());
     }
 
     public boolean setBlock(WorldGenLevel world, BlockPos pos, BlockState state)

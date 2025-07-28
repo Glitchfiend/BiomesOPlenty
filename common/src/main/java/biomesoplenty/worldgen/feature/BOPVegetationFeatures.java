@@ -75,6 +75,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS = BOPFeatureUtils.createKey("patch_dune_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FERN = BOPFeatureUtils.createKey("patch_fern");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_ICY_IRIS = BOPFeatureUtils.createKey("patch_icy_iris");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_PITCHER_PLANT = BOPFeatureUtils.createKey("patch_pitcher_plant");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_LILAC = BOPFeatureUtils.createKey("patch_lilac");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_PEONY = BOPFeatureUtils.createKey("patch_peony");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_REED = BOPFeatureUtils.createKey("patch_reed");
@@ -264,6 +265,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_DUNE_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DUNE_GRASS))));
         register(context, BOPVegetationFeatures.PATCH_FERN, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.FERN))));
         register(context, BOPVegetationFeatures.PATCH_ICY_IRIS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ICY_IRIS))));
+        register(context, BOPVegetationFeatures.PATCH_PITCHER_PLANT, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.PITCHER_PLANT))));
         register(context, BOPVegetationFeatures.PATCH_LILAC, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.LILAC))));
         register(context, BOPVegetationFeatures.PATCH_PEONY, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.PEONY))));
         register(context, BOPVegetationFeatures.PATCH_REED, Feature.RANDOM_PATCH, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.REED))));
@@ -300,7 +302,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.FLOWER_CONIFEROUS_FOREST, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.CORNFLOWER.defaultBlockState(), 1).add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_DEFAULT_EXTENDED, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_FIELD, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.WHITE_LAVENDER.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_OVERGROWN_GREENS, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 2).add(Blocks.AZURE_BLUET.defaultBlockState(), 1)), 64));
+        register(context, BOPVegetationFeatures.FLOWER_OVERGROWN_GREENS, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.TORCHFLOWER.defaultBlockState(), 1).add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 3).add(Blocks.AZURE_BLUET.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_LAVENDER, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.LAVENDER))));
         register(context, BOPVegetationFeatures.FLOWER_MOOR, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.ALLIUM.defaultBlockState(), 1).add(BOPBlocks.VIOLET.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_MYSTIC_GROVE, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.GLOWFLOWER.defaultBlockState(), 1).add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.ALLIUM.defaultBlockState(), 1)), 64));

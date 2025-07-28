@@ -10,9 +10,15 @@
             "entries": [
               {
                 "data": {
+                  "Name": "minecraft:torchflower"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
                   "Name": "biomesoplenty:pink_daffodil"
                 },
-                "weight": 2
+                "weight": 3
               },
               {
                 "data": {
