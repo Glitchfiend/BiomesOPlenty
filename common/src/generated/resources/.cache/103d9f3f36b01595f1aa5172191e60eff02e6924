@@ -1,4 +1,4 @@
-// 1.21.8	2025-07-28T06:16:49.9723439	Registries
+// 1.21.8	2025-07-29T08:21:29.581598	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -579,7 +579,7 @@ d19125aab165d60c5099b3911538fa2f43456aa8 data/biomesoplenty/worldgen/placed_feat
 aa0d904e7a1f35d576717565f0442d01000453cc data/biomesoplenty/worldgen/placed_feature/patch_waterlily_flowers.json
 91dd2927895b0bca7463537f7bd033455c51ed99 data/biomesoplenty/worldgen/placed_feature/pine_tree.json
 51bf1f3cd23c08e9fa2c2189d39fd90371762bc3 data/biomesoplenty/worldgen/placed_feature/porous_flesh.json
-5c189fb8b1e94150233e22e549b4f78480c8dc77 data/biomesoplenty/worldgen/placed_feature/prismarine_spike.json
+9eb745407170f1f635323cafdd8a7b98751fc16a data/biomesoplenty/worldgen/placed_feature/prismarine_spike.json
 5778dd543e43fb9e71c08554abb7f350253643cf data/biomesoplenty/worldgen/placed_feature/pumpkin_patch.json
 db09e9654c16f52e231da2d5b8f06e7939ea5d69 data/biomesoplenty/worldgen/placed_feature/pus_bubbles.json
 87d9d03e05cd26120e64be061b4133c09059aa1b data/biomesoplenty/worldgen/placed_feature/rainforest_cliffs_vines.json

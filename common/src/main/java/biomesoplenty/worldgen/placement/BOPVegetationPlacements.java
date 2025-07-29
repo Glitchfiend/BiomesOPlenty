@@ -336,7 +336,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.CLOVER_NORMAL, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.CLOVER_EXTRA, PATCH_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(7));
         register(context, BOPVegetationPlacements.COLD_DESERT_ROCKS, COLD_DESERT_ROCKS, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-        register(context, BOPVegetationPlacements.PRISMARINE_SPIKE, PRISMARINE_SPIKE, VegetationPlacements.worldSurfaceSquaredWithCount(1));
+        register(context, BOPVegetationPlacements.PRISMARINE_SPIKE, PRISMARINE_SPIKE, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.HIGHLAND_ROCKS, HIGHLAND_ROCKS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.HUGE_TOADSTOOL, HUGE_TOADSTOOL, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.HUGE_CLOVER, HUGE_CLOVER, VegetationPlacements.worldSurfaceSquaredWithCount(10));
