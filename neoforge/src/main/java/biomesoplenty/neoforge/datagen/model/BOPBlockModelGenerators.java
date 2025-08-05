@@ -248,6 +248,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.registerSimpleFlatItemModel(BOPBlocks.WEBBING);
 
         this.registerSimpleFlatItemModel(BOPBlocks.TOADSTOOL);
+        this.registerSimpleFlatItemModel(BOPBlocks.GLOWSHROOM);
 
         this.registerSimpleFlatItemModel(BOPBlocks.BRIMSTONE_BUD);
         this.registerSimpleFlatItemModel(BOPBlocks.BLACKSTONE_SPINES);
@@ -285,7 +286,6 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.registerSimpleFlatItemModel(BOPBlocks.TINY_CACTUS);
 
         // Items that use a separate item texture from their block
-        this.createBlockItemModel(BOPBlocks.GLOWSHROOM);
         this.createBlockItemModel(BOPBlocks.BRAMBLE);
         this.createBlockItemModel(BOPBlocks.PURPLE_WILDFLOWERS);
         this.createBlockItemModel(BOPBlocks.WHITE_PETALS);

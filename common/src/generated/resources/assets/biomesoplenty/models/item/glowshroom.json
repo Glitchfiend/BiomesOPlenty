@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "biomesoplenty:item/glowshroom"
+    "layer0": "biomesoplenty:block/glowshroom"
   }
 }

@@ -1,4 +1,4 @@
-// 1.21.8	2025-07-27T04:59:14.6157246	Model Definitions
+// 1.21.8	2025-07-30T05:58:02.2399976	Model Definitions
 ef825e35efad633064affe44eb03aeb0bea76715 assets/biomesoplenty/blockstates/black_flower_petal_block.json
 a9fe8be3aab87a38a4648b43f43f48684f83f1c1 assets/biomesoplenty/blockstates/black_sand.json
 3670b788e3f8e8154db2b0cb2a4eec8d1d92ce02 assets/biomesoplenty/blockstates/black_sandstone.json
@@ -1470,7 +1470,7 @@ bfdd7e2f5a214592a99922521dc78cfbf1cc84f2 assets/biomesoplenty/models/item/fir_si
 0ca5a2602ea84969e1190e6593d4235814ed2404 assets/biomesoplenty/models/item/flesh_tendons.json
 c01f1ea09fc5205c87a140e288e17f466bf6263a assets/biomesoplenty/models/item/flowering_oak_sapling.json
 6e0dde34cf59e72d6ca282aec46f47bd703fe6e9 assets/biomesoplenty/models/item/glowflower.json
-66ad25e3d96fde6e443753a5cf42055a2feec7bd assets/biomesoplenty/models/item/glowshroom.json
+6c1ee40fe81bb4d3e57ec4fe8702d885c5d67907 assets/biomesoplenty/models/item/glowshroom.json
 e65bbbcbe4ed623a968f70e05adeca64288e4f23 assets/biomesoplenty/models/item/glowworm_silk.json
 2d8f7b1aee4a72adffed416d401abd42c51cb9d1 assets/biomesoplenty/models/item/goldenrod.json
 5f3b3f66950c22d43b568e0ee8576ca52b4a8d09 assets/biomesoplenty/models/item/hair.json
