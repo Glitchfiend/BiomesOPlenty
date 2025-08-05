@@ -2,6 +2,7 @@
   "carvers": "biomesoplenty:origin_cave",
   "downfall": 0.6,
   "effects": {
+    "dry_foliage_color": 3866368,
     "fog_color": 12638463,
     "foliage_color": 3866368,
     "grass_color": 10157919,

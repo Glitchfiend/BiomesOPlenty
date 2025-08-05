@@ -6,6 +6,7 @@
   ],
   "downfall": 0.8,
   "effects": {
+    "dry_foliage_color": 9411183,
     "fog_color": 16763354,
     "foliage_color": 7397557,
     "grass_color": 6934491,
