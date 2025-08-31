@@ -68,7 +68,7 @@ public class BOPEndBiomes
         MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
-        biomeBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, BOPEndPlacements.ENDSCRAPER);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPEndPlacements.ENDSCRAPER);
 
         return new Biome.BiomeBuilder()
             .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)

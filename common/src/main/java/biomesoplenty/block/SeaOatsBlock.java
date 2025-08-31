@@ -5,6 +5,7 @@
 package biomesoplenty.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
@@ -25,7 +26,7 @@ public class SeaOatsBlock extends DoublePlantBlockBOP
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER)
         {
             BlockState soil = worldReader.getBlockState(pos.below());
-            if (soil.getBlock() == Blocks.SAND)
+            if (soil.is(BlockTags.SAND))
             {
                 return true;
             }

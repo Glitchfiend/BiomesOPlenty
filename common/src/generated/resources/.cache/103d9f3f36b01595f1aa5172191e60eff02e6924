@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-31T11:51:31.3054953	Registries
+// 1.21.8	2025-08-31T15:43:36.7083186	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -13,7 +13,7 @@ baec4b5a7b88301b51b90f18d5bd05a7ff6b408f data/biomesoplenty/worldgen/biome/cryst
 4d4246604416062f14f9fe9a205a8cfcdf15c34d data/biomesoplenty/worldgen/biome/dryland.json
 b1c4703026987c0e31c9f2c6f191594c66857282 data/biomesoplenty/worldgen/biome/dune_beach.json
 cfd4b86498db61c1c86b77f0b8f4960e91bfebbf data/biomesoplenty/worldgen/biome/end_corruption.json
-fd1c6688be3dad04a30d8511598afa9e26d2c0d6 data/biomesoplenty/worldgen/biome/end_flats.json
+89756ee5e358a8d484ed5533dac07c8d3163387f data/biomesoplenty/worldgen/biome/end_flats.json
 058e739b6fcc9fcf5921544d4649351bce0d8424 data/biomesoplenty/worldgen/biome/end_reef.json
 f30ba961d2a0bf10e670720b96b2506e8cb65ebc data/biomesoplenty/worldgen/biome/end_wilds.json
 213cb5fe9f0fe2de527107eaf33f16155f51f6a8 data/biomesoplenty/worldgen/biome/erupting_inferno.json

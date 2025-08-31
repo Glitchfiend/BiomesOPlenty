@@ -17,12 +17,15 @@
   "features": [
     [],
     [],
-    [
-      "biomesoplenty:endscraper"
-    ],
+    [],
     [],
     [
       "minecraft:end_gateway_return"
+    ],
+    [],
+    [],
+    [
+      "biomesoplenty:endscraper"
     ]
   ],
   "has_precipitation": false,

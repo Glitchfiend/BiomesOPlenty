@@ -7,6 +7,7 @@ package biomesoplenty.block;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -84,7 +85,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
 
        if (this == BOPBlocks.PALM_SAPLING)
        {
-           return ground == BOPBlocks.WHITE_SAND || ground == BOPBlocks.ORANGE_SAND || ground == BOPBlocks.BLACK_SAND || ground == Blocks.RED_SAND || ground == Blocks.SAND || super.canSurvive(state, worldIn, pos);
+           return worldIn.getBlockState(pos.below()).is(BlockTags.SAND) || super.canSurvive(state, worldIn, pos);
        }
        else if (this == BOPBlocks.HELLBARK_SAPLING)
        {
