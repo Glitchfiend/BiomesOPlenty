@@ -201,7 +201,8 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.registerSimpleItemModel(BOPBlocks.THERMAL_CALCITE_VENT, ModelLocationUtils.getModelLocation(BOPBlocks.THERMAL_CALCITE_VENT, "_inventory"));
 
         this.createMushroomBlock(BOPBlocks.TOADSTOOL_BLOCK);
-        this.createGlowshroomBlock(BOPBlocks.GLOWSHROOM_BLOCK);
+        this.createMushroomBlockWithInside(BOPBlocks.GLOWSHROOM_BLOCK);
+        //this.createMushroomBlockWithInside(BOPBlocks.VOIDCAP_BLOCK);
         //this.createFullAndCarpetBlocks(BOPBlocks.GLOWING_MOSS_BLOCK, BOPBlocks.GLOWING_MOSS_CARPET);
 
         this.registerSimpleTintedItemModel(BOPBlocks.MOSSY_BLACK_SAND, ModelLocationUtils.getModelLocation(BOPBlocks.MOSSY_BLACK_SAND), new GrassColorSource());
@@ -249,6 +250,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
 
         this.registerSimpleFlatItemModel(BOPBlocks.TOADSTOOL);
         this.registerSimpleFlatItemModel(BOPBlocks.GLOWSHROOM);
+        //this.registerSimpleFlatItemModel(BOPBlocks.VOIDCAP);
 
         this.registerSimpleFlatItemModel(BOPBlocks.BRIMSTONE_BUD);
         this.registerSimpleFlatItemModel(BOPBlocks.BLACKSTONE_SPINES);
@@ -369,7 +371,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         );
     }
 
-    public void createGlowshroomBlock(Block p_388752_)
+    public void createMushroomBlockWithInside(Block p_388752_)
     {
         ResourceLocation resourcelocation = ModelTemplates.SINGLE_FACE.create(p_388752_, TextureMapping.defaultTexture(p_388752_), this.modelOutput);
         ResourceLocation resourcelocation1 = ModelLocationUtils.getModelLocation(p_388752_, "_inside");

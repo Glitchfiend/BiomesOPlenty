@@ -1,20 +1,26 @@
 {
-	"parent": "block/block",
-	"textures": {
-		"all": "block/end_stone",
-		"particle": "#all"
-	},
-	"elements": [
-		{   "from": [0, 0, 0],
-			"to": [16, 16, 16],
-			"faces": {
-				"north": { "uv": [16, 0, 0, 1], "texture": "#all", "cullface": "north" },
-				"east": { "uv": [15, 0, 16, 16], "rotation": 90, "texture": "#all", "cullface": "east" },
-				"south": { "uv": [0, 15, 16, 16], "texture": "#all", "cullface": "south" },
-				"west": { "uv": [0, 0, 1, 16], "rotation": 270, "texture": "#all", "cullface": "west" },
-				"up": { "uv": [0, 0, 16, 16], "texture": "#all", "cullface": "up" },
-				"down": { "uv": [0, 16, 16, 0], "texture": "#all", "cullface": "down" }
-			}
-		}
-	]
+  "parent": "block/block",
+  "textures": {
+    "bottom": "block/end_stone",
+    "top": "block/end_stone",
+    "north": "biomesoplenty:block/unmapped_end_stone_north",
+    "south": "biomesoplenty:block/unmapped_end_stone_south",
+    "west": "biomesoplenty:block/unmapped_end_stone_west",
+    "east": "biomesoplenty:block/unmapped_end_stone_east",
+    "particle": "#north"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 16, 16, 0 ], "texture": "#bottom", "cullface": "down" },
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#top", "cullface": "up" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#north", "cullface": "north" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#south", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#west", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#east", "cullface": "east" }
+      }
+    }
+  ]
 }

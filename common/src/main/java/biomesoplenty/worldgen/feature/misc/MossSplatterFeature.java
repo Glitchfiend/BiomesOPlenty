@@ -11,8 +11,8 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -52,7 +52,7 @@ public class MossSplatterFeature extends Feature<NoneFeatureConfiguration>
                   BlockState blockstate = worldIn.getBlockState(blockpos);
                   BlockState blockstate1 = worldIn.getBlockState(blockpos.above());
 
-                  if (blockstate.is(BlockTags.MOSS_REPLACEABLE) && (this.isAir(worldIn, blockpos.above()) || blockstate1.getBlock() instanceof BushBlock || blockstate1.getBlock() instanceof BushBlock))
+                  if (blockstate.is(BlockTags.MOSS_REPLACEABLE) && (this.isAir(worldIn, blockpos.above()) || blockstate1.getBlock() instanceof VegetationBlock))
                   {
                      worldIn.setBlock(blockpos, Blocks.MOSS_BLOCK.defaultBlockState(), 2);
                      switch (rand.nextInt(4))

@@ -48,15 +48,20 @@ public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
             return false;
         }
 
-        if (!this.checkSpace(world, startPos.above())) {
+        int height = 3 + rand.nextInt(14);
+
+        if (!this.checkSpace(world, startPos.above(), height)) {
             // Abandon if there isn't enough room
             return false;
         }
 
         BlockPos pos = startPos.above();
 
-        int height = 3 + rand.nextInt(14);
+
+
         int flowerType = rand.nextInt(6);
+        if (flowerType == 5) { height = 2 + rand.nextInt(7); }
+
         Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
 
         for (int y = 0; y < height; y++)
@@ -960,13 +965,13 @@ public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
         return false;
     }
 
-    public boolean checkSpace(WorldGenLevel world, BlockPos pos)
+    public boolean checkSpace(WorldGenLevel world, BlockPos pos, int height)
     {
-        for (int y = 0; y <= 16; y++)
+        for (int y = 0; y <= height; y++)
         {
-            for (int x = -4; x <= 4; x++)
+            for (int x = -1; x <= 1; x++)
             {
-                for (int z = -4; z <= 4; z++)
+                for (int z = -1; z <= 1; z++)
                 {
                     BlockPos pos1 = pos.offset(x, y, z);
                     if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
@@ -976,6 +981,22 @@ public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
                 }
             }
         }
+
+        for (int y = (height-1); y <= (height+10); y++)
+        {
+            for (int x = -3; x <= 3; x++)
+            {
+                for (int z = -3; z <= 3; z++)
+                {
+                    BlockPos pos1 = pos.offset(x, y, z);
+                    if (pos1.getY() >= 255 || !this.replace.matches(world, pos1))
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
         return true;
     }
 }

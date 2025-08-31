@@ -207,6 +207,22 @@
 			]
 		  }
         },
+		"end_flats": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biomes": "biomesoplenty:end_flats"
+							}
+						}
+					}
+				]
+			}
+		},
 		"end_reef": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1101,6 +1117,7 @@
 		"dryland",
 		"dune_beach",
 		"end_corruption",
+		"end_flats",
 		"end_reef",
 		"end_wilds",
 		"erupting_inferno",

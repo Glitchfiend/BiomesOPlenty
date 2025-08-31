@@ -81,6 +81,9 @@ public class BOPItems
 
     public static Item BARNACLES;
     public static Item WISPJELLY;
+    //public static Item VOIDCAP;
+    //public static Item VOIDCAP_BLOCK;
+    //public static Item VOCYLIUM;
     public static Item ALGAL_END_STONE;
     public static Item UNMAPPED_END_STONE;
     public static Item NULL_END_STONE;
@@ -488,4 +491,5 @@ public class BOPItems
     public static Item POTTED_TINY_CACTUS;
     public static Item POTTED_TOADSTOOL;
     public static Item POTTED_GLOWSHROOM;
+    //public static Item POTTED_VOIDCAP;
 }

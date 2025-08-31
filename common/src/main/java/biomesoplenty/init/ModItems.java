@@ -160,6 +160,8 @@ public class ModItems
         SMALL_ROSE_QUARTZ_BUD = registerBlock(func, BOPBlocks.SMALL_ROSE_QUARTZ_BUD);
         BARNACLES = registerBlock(func, BOPBlocks.BARNACLES);
         WISPJELLY = registerBlock(func, BOPBlocks.WISPJELLY);
+        //VOIDCAP = registerBlock(func, BOPBlocks.VOIDCAP);
+        //VOIDCAP_BLOCK = registerBlock(func, BOPBlocks.VOIDCAP_BLOCK);
         ALGAL_END_STONE = registerBlock(func, BOPBlocks.ALGAL_END_STONE);
         UNMAPPED_END_STONE = registerBlock(func, BOPBlocks.UNMAPPED_END_STONE);
         NULL_END_STONE = registerBlock(func, BOPBlocks.NULL_END_STONE);
@@ -488,6 +490,7 @@ public class ModItems
         POTTED_TINY_CACTUS = registerBlock(func, BOPBlocks.POTTED_TINY_CACTUS);
         POTTED_TOADSTOOL = registerBlock(func, BOPBlocks.POTTED_TOADSTOOL);
         POTTED_GLOWSHROOM = registerBlock(func, BOPBlocks.POTTED_GLOWSHROOM);
+        //POTTED_VOIDCAP = registerBlock(func, BOPBlocks.POTTED_VOIDCAP);
     }
 
     public static Item registerBlock(BiConsumer<ResourceLocation, Item> func, Block block)

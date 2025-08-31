@@ -34,6 +34,7 @@ public class BOPEndFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_CORAL = BOPFeatureUtils.createKey("dead_coral");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_CORAL_PATCH = BOPFeatureUtils.createKey("dead_coral_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ENDERPHYTE_BONEMEAL = BOPFeatureUtils.createKey("enderphyte_bonemeal");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ENDSCRAPER = BOPFeatureUtils.createKey("endscraper");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_END_WILDS = BOPFeatureUtils.createKey("flower_end_wilds");
     public static final ResourceKey<ConfiguredFeature<?, ?>> JAGGED_SANDSTONE = BOPFeatureUtils.createKey("jagged_sandstone");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIQUID_NULL_LAKE = BOPFeatureUtils.createKey("liquid_null_lake");
@@ -59,6 +60,7 @@ public class BOPEndFeatures
         register(context, BOPEndFeatures.DEAD_CORAL, Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_TREE, FeatureConfiguration.NONE), PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_CLAW, FeatureConfiguration.NONE), PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_MUSHROOM, FeatureConfiguration.NONE))));
         register(context, BOPEndFeatures.DEAD_CORAL_PATCH, BOPBaseFeatures.DEAD_CORAL_PATCH, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.ENDERPHYTE_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE.defaultBlockState())));
+        register(context, BOPEndFeatures.ENDSCRAPER, BOPBaseFeatures.ENDSCRAPER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.FLOWER_END_WILDS, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDBLOOM))));
         register(context, BOPEndFeatures.JAGGED_SANDSTONE, BOPBaseFeatures.JAGGED_SANDSTONE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.LIQUID_NULL_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.LIQUID_NULL), BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)));

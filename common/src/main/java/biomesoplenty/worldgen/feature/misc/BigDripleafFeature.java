@@ -13,8 +13,8 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.SmallDripleafBlock;
+import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -50,9 +50,9 @@ public class BigDripleafFeature extends Feature<NoneFeatureConfiguration>
 
                 for (int k = 0; k < max_height; k++)
                 {
-                    if (this.isAir(world, blockpos.above(k)) || world.getBlockState(blockpos.above(k)).liquid() || world.getBlockState(blockpos.above(k)).getBlock() == Blocks.BIG_DRIPLEAF || world.getBlockState(blockpos.above(k)).getBlock() instanceof BushBlock)
+                    if (this.isAir(world, blockpos.above(k)) || world.getBlockState(blockpos.above(k)).liquid() || world.getBlockState(blockpos.above(k)).getBlock() == Blocks.BIG_DRIPLEAF || world.getBlockState(blockpos.above(k)).getBlock() instanceof VegetationBlock)
                     {
-                        if (this.isAir(world, blockpos.above(k-1)) || world.getBlockState(blockpos.above(k-1)).liquid() || world.getBlockState(blockpos.above(k-1)).getBlock() == Blocks.BIG_DRIPLEAF || world.getBlockState(blockpos.above(k-1)).getBlock() instanceof BushBlock)
+                        if (this.isAir(world, blockpos.above(k-1)) || world.getBlockState(blockpos.above(k-1)).liquid() || world.getBlockState(blockpos.above(k-1)).getBlock() == Blocks.BIG_DRIPLEAF || world.getBlockState(blockpos.above(k-1)).getBlock() instanceof VegetationBlock)
                         {
                             world.setBlock(blockpos.above(k-1), copyWaterloggedFrom(world, blockpos.above(k-1), Blocks.BIG_DRIPLEAF_STEM.defaultBlockState().setValue(SmallDripleafBlock.FACING, direction)), 2);
                         }

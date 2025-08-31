@@ -135,6 +135,8 @@ public class ModBlocks
 
         BARNACLES = register(func, "barnacles", BarnaclesBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).pushReaction(PushReaction.DESTROY).replaceable().noCollission().sound(SoundType.CORAL_BLOCK));
         WISPJELLY = register(func, "wispjelly", WispjellyBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(MapColor.GLOW_LICHEN).noOcclusion().noCollission().sound(SoundType.CORAL_BLOCK).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).strength(0.2F).lightLevel((state) -> 1).emissiveRendering((state, world, pos) -> true));
+        //VOIDCAP = register(func, "voidcap", MushroomBlockBOP::new, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_BLACK).noCollission().instabreak().sound(SoundType.GRASS));
+        //VOIDCAP_BLOCK = register(func, "voidcap_block", HugeMushroomBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.COLOR_BLACK).strength(0.2F).sound(SoundType.WOOD));
         ALGAL_END_STONE = register(func, "algal_end_stone", AlgalEndStoneBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).randomTicks().requiresCorrectToolForDrops().strength(3.0F, 9.0F));
         UNMAPPED_END_STONE = register(func, "unmapped_end_stone", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(3.0F, 9.0F));
         NULL_END_STONE = register(func, "null_end_stone", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(1.5F, 4.5F));
@@ -542,6 +544,7 @@ public class ModBlocks
         POTTED_TINY_CACTUS = register(func, "potted_tiny_cactus", p -> new FlowerPotBlock(TINY_CACTUS, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
         POTTED_TOADSTOOL = register(func, "potted_toadstool", p -> new FlowerPotBlock(TOADSTOOL, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
         POTTED_GLOWSHROOM = register(func, "potted_glowshroom", p -> new FlowerPotBlock(GLOWSHROOM, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 3));
+        //POTTED_VOIDCAP = register(func, "potted_voidcap", p -> new FlowerPotBlock(VOIDCAP, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
     }
 
     private static BlockBehaviour.Properties logProperties(MapColor MapColor, MapColor MapColor2, SoundType soundType) {

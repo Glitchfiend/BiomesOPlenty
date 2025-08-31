@@ -31,6 +31,8 @@ public class BOPBiomes
     public static final ResourceKey<Biome> DUNE_BEACH = registerOverworld("dune_beach");
     public static final ResourceKey<Biome> END_WILDS = registerOverworld("end_wilds");
     public static final ResourceKey<Biome> END_REEF = registerOverworld("end_reef");
+    //public static final ResourceKey<Biome> END_MYCOSIS = registerOverworld("end_mycosis");
+    public static final ResourceKey<Biome> END_FLATS = registerOverworld("end_flats");
     public static final ResourceKey<Biome> END_CORRUPTION = registerOverworld("end_corruption");
     public static final ResourceKey<Biome> ERUPTING_INFERNO = register("erupting_inferno");
     public static final ResourceKey<Biome> FIELD = registerOverworld("field");

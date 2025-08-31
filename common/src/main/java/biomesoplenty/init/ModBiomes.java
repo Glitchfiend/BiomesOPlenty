@@ -38,9 +38,11 @@ public class ModBiomes
         Regions.register(new BOPNetherRegionRare(ModConfig.generation.bopNetherRareRegionWeight));
 
         // Register end biomes
-        registerHighlandsBiome(BOPBiomes.END_WILDS, 9);
-        registerHighlandsBiome(BOPBiomes.END_REEF, 6);
-        registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 3);
+        registerHighlandsBiome(BOPBiomes.END_WILDS, 10);
+        registerHighlandsBiome(BOPBiomes.END_REEF, 8);
+        //registerHighlandsBiome(BOPBiomes.END_MYCOSIS, 6);
+        registerHighlandsBiome(BOPBiomes.END_FLATS, 4);
+        registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 2);
     }
 
     public static void bootstrapBiomes(BootstrapContext<Biome> context)
@@ -120,6 +122,8 @@ public class ModBiomes
         // End biomes
         register(context, BOPBiomes.END_WILDS, BOPEndBiomes.endWilds(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.END_REEF, BOPEndBiomes.endReef(placedFeatureGetter, carverGetter));
+        //register(context, BOPBiomes.END_MYCOSIS, BOPEndBiomes.endMycosis(placedFeatureGetter, carverGetter));
+        register(context, BOPBiomes.END_FLATS, BOPEndBiomes.endFlats(placedFeatureGetter, carverGetter));
         register(context, BOPBiomes.END_CORRUPTION, BOPEndBiomes.endCorruption(placedFeatureGetter, carverGetter));
     }
     

@@ -27,6 +27,7 @@ public class BOPEndPlacements
     public static final ResourceKey<PlacedFeature> DEAD_CORAL = BOPPlacementUtils.createKey("dead_coral");
     public static final ResourceKey<PlacedFeature> DEAD_CORAL_PATCH = BOPPlacementUtils.createKey("dead_coral_patch");
     public static final ResourceKey<PlacedFeature> ENDERPHYTE_BONEMEAL = BOPPlacementUtils.createKey("enderphyte_bonemeal");
+    public static final ResourceKey<PlacedFeature> ENDSCRAPER = BOPPlacementUtils.createKey("endscraper");
     public static final ResourceKey<PlacedFeature> FLOWER_END_WILDS = BOPPlacementUtils.createKey("flower_end_wilds");
     public static final ResourceKey<PlacedFeature> JAGGED_SANDSTONE = BOPPlacementUtils.createKey("jagged_sandstone");
     public static final ResourceKey<PlacedFeature> LIQUID_NULL_LAKE = BOPPlacementUtils.createKey("liquid_null_lake");
@@ -50,6 +51,7 @@ public class BOPEndPlacements
         final Holder<ConfiguredFeature<?, ?>> DEAD_CORAL = configuredFeatureGetter.getOrThrow(BOPEndFeatures.DEAD_CORAL);
         final Holder<ConfiguredFeature<?, ?>> DEAD_CORAL_PATCH = configuredFeatureGetter.getOrThrow(BOPEndFeatures.DEAD_CORAL_PATCH);
         final Holder<ConfiguredFeature<?, ?>> ENDERPHYTE_BONEMEAL = configuredFeatureGetter.getOrThrow(BOPEndFeatures.ENDERPHYTE_BONEMEAL);
+        final Holder<ConfiguredFeature<?, ?>> ENDSCRAPER = configuredFeatureGetter.getOrThrow(BOPEndFeatures.ENDSCRAPER);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_END_WILDS = configuredFeatureGetter.getOrThrow(BOPEndFeatures.FLOWER_END_WILDS);
         final Holder<ConfiguredFeature<?, ?>> JAGGED_SANDSTONE = configuredFeatureGetter.getOrThrow(BOPEndFeatures.JAGGED_SANDSTONE);
         final Holder<ConfiguredFeature<?, ?>> LIQUID_NULL_LAKE = configuredFeatureGetter.getOrThrow(BOPEndFeatures.LIQUID_NULL_LAKE);
@@ -69,6 +71,7 @@ public class BOPEndPlacements
         register(context, BOPEndPlacements.DEAD_CORAL, DEAD_CORAL, List.of(CountPlacement.of(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPEndPlacements.DEAD_CORAL_PATCH, DEAD_CORAL_PATCH, List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.ENDERPHYTE_BONEMEAL, ENDERPHYTE_BONEMEAL, PlacementUtils.isEmpty());
+        register(context, BOPEndPlacements.ENDSCRAPER, ENDSCRAPER, List.of(CountPlacement.of(24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.FLOWER_END_WILDS, FLOWER_END_WILDS, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.JAGGED_SANDSTONE, JAGGED_SANDSTONE, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPEndPlacements.LIQUID_NULL_LAKE, LIQUID_NULL_LAKE, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

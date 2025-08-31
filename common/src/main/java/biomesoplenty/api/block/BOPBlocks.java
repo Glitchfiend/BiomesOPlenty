@@ -76,6 +76,9 @@ public class BOPBlocks
 
     public static Block BARNACLES;
     public static Block WISPJELLY;
+    //public static Block VOIDCAP;
+    //public static Block VOIDCAP_BLOCK;
+    //public static Block VOCYLIUM;
     public static Block ALGAL_END_STONE;
     public static Block UNMAPPED_END_STONE;
     public static Block NULL_END_STONE;
@@ -468,4 +471,5 @@ public class BOPBlocks
     public static Block POTTED_TINY_CACTUS;
     public static Block POTTED_TOADSTOOL;
     public static Block POTTED_GLOWSHROOM;
+    //public static Block POTTED_VOIDCAP;
 }

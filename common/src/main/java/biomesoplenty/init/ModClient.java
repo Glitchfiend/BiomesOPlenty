@@ -173,6 +173,7 @@ public class ModClient
         RenderHelper.setRenderType(BRAMBLE_LEAVES, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(TOADSTOOL, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(GLOWSHROOM, ChunkSectionLayer.CUTOUT);
+        //RenderHelper.setRenderType(VOIDCAP, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(PUS_BUBBLE, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(FLESH_TENDONS, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(FLESH_TENDONS_STRAND, ChunkSectionLayer.CUTOUT);
@@ -254,6 +255,7 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_TINY_CACTUS, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_TOADSTOOL, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_GLOWSHROOM, ChunkSectionLayer.CUTOUT);
+        //RenderHelper.setRenderType(POTTED_VOIDCAP, ChunkSectionLayer.CUTOUT);
 
         RenderHelper.setRenderType(BLOOD, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(BOPFluids.BLOOD, ChunkSectionLayer.TRANSLUCENT);

@@ -258,6 +258,7 @@ public class ModVanillaCompat
         //Compostable Blocks
         registerCompostable(0.85F, BOPBlocks.GLOWSHROOM_BLOCK);
         registerCompostable(0.85F, BOPBlocks.TOADSTOOL_BLOCK);
+        //registerCompostable(0.85F, BOPBlocks.VOIDCAP_BLOCK);
 
         registerCompostable(0.5F, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
         registerCompostable(0.5F, BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
@@ -373,6 +374,7 @@ public class ModVanillaCompat
 
         registerCompostable(0.65F, BOPBlocks.TOADSTOOL);
         registerCompostable(0.65F, BOPBlocks.GLOWSHROOM);
+        //registerCompostable(0.65F, BOPBlocks.VOIDCAP);
         registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_BLOCK);
         registerCompostable(0.65F, BOPBlocks.HUGE_LILY_PAD);
 

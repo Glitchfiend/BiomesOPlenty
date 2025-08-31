@@ -13,8 +13,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -27,7 +27,7 @@ import net.minecraft.world.level.material.Fluids;
 public class FallenJacarandaLogFeature extends Feature<NoneFeatureConfiguration>
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.COARSE_DIRT;
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof BushBlock;
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof VegetationBlock;
 
     public FallenJacarandaLogFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -99,13 +99,13 @@ public class FallenJacarandaLogFeature extends Feature<NoneFeatureConfiguration>
             this.setBlock(world, pos.relative(direction, i), BOPBlocks.JACARANDA_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
 
             BlockState blockAbove = world.getBlockState(pos.above().relative(direction, i));
-            if (blockAbove.isAir() || blockAbove.getBlock() instanceof BushBlock)
+            if (blockAbove.isAir() || blockAbove.getBlock() instanceof VegetationBlock)
             {
                 this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.SPROUT.defaultBlockState());
             }
 
             BlockState blockBelow = world.getBlockState(pos.below().relative(direction, i));
-            if (blockBelow.isAir() || blockBelow.getFluidState().is(Fluids.WATER) || blockBelow.getBlock() instanceof BushBlock)
+            if (blockBelow.isAir() || blockBelow.getFluidState().is(Fluids.WATER) || blockBelow.getBlock() instanceof VegetationBlock)
             {
                 this.setBlock(world, pos.below().relative(direction, i), Blocks.HANGING_ROOTS.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(world.isWaterAt(pos.below().relative(direction, i)))));
             }

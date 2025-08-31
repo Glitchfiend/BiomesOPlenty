@@ -4,6 +4,10 @@
       "id": "biomesoplenty:end_corruption",
       "required": false
     },
+    {
+      "id": "biomesoplenty:end_flats",
+      "required": false
+    },
 	{
       "id": "biomesoplenty:end_reef",
       "required": false

@@ -146,6 +146,10 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.add(BOPBlocks.TOADSTOOL_BLOCK, (p_248785_) -> { return this.createMushroomBlockDrop(p_248785_, BOPBlocks.TOADSTOOL); });
         this.dropSelf(BOPBlocks.GLOWSHROOM);
         this.add(BOPBlocks.GLOWSHROOM_BLOCK, (p_248785_) -> { return this.createMushroomBlockDrop(p_248785_, BOPBlocks.GLOWSHROOM); });
+        //this.dropSelf(BOPBlocks.VOIDCAP);
+        //this.add(BOPBlocks.VOIDCAP_BLOCK, (p_248785_) -> { return this.createMushroomBlockDrop(p_248785_, BOPBlocks.VOIDCAP); });
+
+        // Moss
         this.dropSelf(BOPBlocks.GLOWING_MOSS_BLOCK);
         this.dropSelf(BOPBlocks.GLOWING_MOSS_CARPET);
         this.addStrandPlantDropTable(BOPBlocks.GLOWWORM_SILK, BOPBlocks.GLOWWORM_SILK_STRAND);
@@ -512,6 +516,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropPottedContents(BOPBlocks.POTTED_TINY_CACTUS);
         this.dropPottedContents(BOPBlocks.POTTED_TOADSTOOL);
         this.dropPottedContents(BOPBlocks.POTTED_GLOWSHROOM);
+        //this.dropPottedContents(BOPBlocks.POTTED_VOIDCAP);
     }
 
     @Override

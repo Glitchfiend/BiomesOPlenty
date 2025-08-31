@@ -29,6 +29,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> JAGGED_SANDSTONE;
     public static Feature<NoneFeatureConfiguration> MONOLITH;
     public static Feature<NoneFeatureConfiguration> ANOMALY;
+    public static Feature<NoneFeatureConfiguration> ENDSCRAPER;
     public static Feature<NoneFeatureConfiguration> BIG_DRIPLEAF;
     public static Feature<NoneFeatureConfiguration> BIG_PUMPKIN;
     public static Feature<NoneFeatureConfiguration> BLACK_SAND_SPLATTER;
@@ -110,6 +111,7 @@ public class BOPBaseFeatures
         WISPJELLY = register(func, "wispjelly", new WispjellyFeature(NoneFeatureConfiguration.CODEC));
         JAGGED_SANDSTONE = register(func, "jagged_sandstone", new JaggedSandstoneFeature(NoneFeatureConfiguration.CODEC));
         ANOMALY = register(func, "anomaly", new AnomalyFeature(NoneFeatureConfiguration.CODEC));
+        ENDSCRAPER = register(func, "endscraper", new EndscraperFeature(NoneFeatureConfiguration.CODEC));
         MONOLITH = register(func, "monolith", new MonolithFeature(NoneFeatureConfiguration.CODEC));
         BIG_DRIPLEAF = register(func, "big_dripleaf", new BigDripleafFeature(NoneFeatureConfiguration.CODEC));
         BIG_PUMPKIN = register(func, "big_pumpkin", new BigPumpkinFeature(NoneFeatureConfiguration.CODEC));
