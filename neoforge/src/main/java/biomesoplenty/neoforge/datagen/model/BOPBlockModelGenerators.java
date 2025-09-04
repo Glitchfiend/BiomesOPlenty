@@ -262,6 +262,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.registerSimpleFlatItemModel(BOPBlocks.NULL_PLANT);
 
         // Flowers
+        this.registerSimpleFlatItemModel(BOPBlocks.FLOWER_BUD);
         this.registerSimpleFlatItemModel(BOPBlocks.ROSE);
         this.registerSimpleFlatItemModel(BOPBlocks.MARIGOLD);
         this.registerSimpleFlatItemModel(BOPBlocks.VIOLET);

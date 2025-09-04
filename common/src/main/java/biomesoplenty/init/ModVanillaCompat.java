@@ -318,6 +318,7 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.EMPYREAL_LEAVES);
         registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_CARPET);
 
+        registerCompostable(0.65F, BOPBlocks.FLOWER_BUD);
         registerCompostable(0.65F, BOPBlocks.ROSE);
         registerCompostable(0.65F, BOPBlocks.MARIGOLD);
         registerCompostable(0.65F, BOPBlocks.VIOLET);

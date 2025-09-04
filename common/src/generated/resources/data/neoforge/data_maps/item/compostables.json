@@ -75,6 +75,9 @@
     "biomesoplenty:fir_sapling": {
       "chance": 0.3
     },
+    "biomesoplenty:flower_bud": {
+      "chance": 0.65
+    },
     "biomesoplenty:flower_stem": {
       "chance": 0.5
     },

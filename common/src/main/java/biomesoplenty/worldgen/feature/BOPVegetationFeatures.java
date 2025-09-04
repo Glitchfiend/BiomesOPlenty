@@ -74,6 +74,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DESERT_GRASS = BOPFeatureUtils.createKey("patch_desert_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS = BOPFeatureUtils.createKey("patch_dune_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FERN = BOPFeatureUtils.createKey("patch_fern");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FLOWER_BUDS = BOPFeatureUtils.createKey("patch_flower_buds");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_ICY_IRIS = BOPFeatureUtils.createKey("patch_icy_iris");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_PITCHER_PLANT = BOPFeatureUtils.createKey("patch_pitcher_plant");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_LILAC = BOPFeatureUtils.createKey("patch_lilac");
@@ -264,6 +265,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_DESERT_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DESERT_GRASS))));
         register(context, BOPVegetationFeatures.PATCH_DUNE_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DUNE_GRASS))));
         register(context, BOPVegetationFeatures.PATCH_FERN, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.FERN))));
+        register(context, BOPVegetationFeatures.PATCH_FLOWER_BUDS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.FLOWER_BUD))));
         register(context, BOPVegetationFeatures.PATCH_ICY_IRIS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ICY_IRIS))));
         register(context, BOPVegetationFeatures.PATCH_PITCHER_PLANT, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.PITCHER_PLANT))));
         register(context, BOPVegetationFeatures.PATCH_LILAC, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.LILAC))));

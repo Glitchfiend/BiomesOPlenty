@@ -47,6 +47,7 @@ public class ModVillagerTrades
             new ItemsForEmeralds(BOPBlocks.WILLOW_LOG, 1, 8, 4, 1),
             new ItemsForEmeralds(BOPBlocks.DEAD_LOG, 1, 8, 4, 1),
 
+            new ItemsForEmeralds(BOPBlocks.FLOWER_BUD, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.MARIGOLD, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.VIOLET, 1, 1, 12, 1),
             new ItemsForEmeralds(BOPBlocks.LAVENDER, 1, 1, 12, 1),

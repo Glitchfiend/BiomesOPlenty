@@ -121,6 +121,7 @@ public class ModClient
         RenderHelper.setRenderType(UMBRAN_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(HELLBARK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(EMPYREAL_SAPLING, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(FLOWER_BUD, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(ROSE, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(MARIGOLD, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(VIOLET, ChunkSectionLayer.CUTOUT);
@@ -239,6 +240,7 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_UMBRAN_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_HELLBARK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_EMPYREAL_SAPLING, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(POTTED_FLOWER_BUD, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_ROSE, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_MARIGOLD, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_VIOLET, ChunkSectionLayer.CUTOUT);
@@ -341,8 +343,8 @@ public class ModClient
         //Grass Coloring
         event.register((state, world, pos, tintIndex) ->
                         world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D),
-                BOPBlocks.FLOWER_STEM, BOPBlocks.MOSSY_BLACK_SAND, BOPBlocks.SPROUT, BOPBlocks.HIGH_GRASS, BOPBlocks.HIGH_GRASS_PLANT, BOPBlocks.CLOVER,
-                BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.BARLEY, BOPBlocks.WATERGRASS, BOPBlocks.POTTED_SPROUT);
+                BOPBlocks.FLOWER_STEM, BOPBlocks.MOSSY_BLACK_SAND, BOPBlocks.SPROUT, BOPBlocks.HIGH_GRASS, BOPBlocks.HIGH_GRASS_PLANT,
+                BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.BARLEY, BOPBlocks.WATERGRASS, BOPBlocks.POTTED_SPROUT);
 
         //Foliage Coloring
         event.register((state, world, pos, tintIndex) ->

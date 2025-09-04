@@ -414,6 +414,7 @@ public class ModItems
         EMPYREAL_TRAPDOOR = registerBlock(func, BOPBlocks.EMPYREAL_TRAPDOOR);
         EMPYREAL_PRESSURE_PLATE = registerBlock(func, BOPBlocks.EMPYREAL_PRESSURE_PLATE);
         EMPYREAL_BUTTON = registerBlock(func, BOPBlocks.EMPYREAL_BUTTON);
+        FLOWER_BUD = registerBlock(func, BOPBlocks.FLOWER_BUD);
         ROSE = registerBlock(func, BOPBlocks.ROSE);
         MARIGOLD = registerBlock(func, BOPBlocks.MARIGOLD);
         VIOLET = registerBlock(func, BOPBlocks.VIOLET);
@@ -474,6 +475,7 @@ public class ModItems
         POTTED_UMBRAN_SAPLING = registerBlock(func, BOPBlocks.POTTED_UMBRAN_SAPLING);
         POTTED_HELLBARK_SAPLING = registerBlock(func, BOPBlocks.POTTED_HELLBARK_SAPLING);
         POTTED_EMPYREAL_SAPLING = registerBlock(func, BOPBlocks.POTTED_EMPYREAL_SAPLING);
+        POTTED_FLOWER_BUD = registerBlock(func, BOPBlocks.POTTED_FLOWER_BUD);
         POTTED_ROSE = registerBlock(func, BOPBlocks.POTTED_ROSE);
         POTTED_MARIGOLD = registerBlock(func, BOPBlocks.POTTED_MARIGOLD);
         POTTED_VIOLET = registerBlock(func, BOPBlocks.POTTED_VIOLET);

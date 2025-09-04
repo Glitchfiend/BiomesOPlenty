@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-31T11:51:31.2924494	Model Definitions
+// 1.21.8	2025-09-04T11:08:46.3520397	Model Definitions
 ef825e35efad633064affe44eb03aeb0bea76715 assets/biomesoplenty/blockstates/black_flower_petal_block.json
 a9fe8be3aab87a38a4648b43f43f48684f83f1c1 assets/biomesoplenty/blockstates/black_sand.json
 3670b788e3f8e8154db2b0cb2a4eec8d1d92ce02 assets/biomesoplenty/blockstates/black_sandstone.json
@@ -446,6 +446,7 @@ fb904e4b09ae49f96bee80121c00046b20a1e464 assets/biomesoplenty/items/fir_wood.jso
 c960a55a6ea1349cc3429e8e1a5c2901d16939ec assets/biomesoplenty/items/flesh_tendons_strand.json
 d5a98ab03468259b73c15bf8315d7a51574df143 assets/biomesoplenty/items/flowering_oak_leaves.json
 385bf22577bc1f860aa5cd5212ef55aef7e01724 assets/biomesoplenty/items/flowering_oak_sapling.json
+e2d6cc966a297bebfc3c04785d8826bcba57e6bf assets/biomesoplenty/items/flower_bud.json
 c55a2a15fb3763525180849dfc341bc28bab5053 assets/biomesoplenty/items/flower_stem.json
 c3cd3cd6047a31fdb00240bc3ac82e2ad77dd42d assets/biomesoplenty/items/glowflower.json
 859c25077c8b8de4f333350b31dc8dd35a411720 assets/biomesoplenty/items/glowing_moss_block.json
@@ -624,6 +625,7 @@ f284344a6416364e374590d17e2ad1b7f1cbc2ee assets/biomesoplenty/items/pink_flower_
 3bfd44ecd20f3ff2410139ad46ec81a2e27c154f assets/biomesoplenty/items/potted_endbloom.json
 f624c8b818306c0b322c48c91ea40dcf15da042c assets/biomesoplenty/items/potted_fir_sapling.json
 04684beaba7b94f57f69542a8922e7970fccee9a assets/biomesoplenty/items/potted_flowering_oak_sapling.json
+a3282aadcdf3c7b9865dcce0cfd6ec78b6a82395 assets/biomesoplenty/items/potted_flower_bud.json
 750185a344dbe65f392d34db0251619b2663fcdc assets/biomesoplenty/items/potted_glowflower.json
 ccfff3808f041d4c8076134738f809aa5cf16148 assets/biomesoplenty/items/potted_glowshroom.json
 f17c20da497fbd6065a57264fcb80878b9398345 assets/biomesoplenty/items/potted_hellbark_sapling.json
@@ -1469,6 +1471,7 @@ d3a5932c1d653fd0e3211ab71e63b14ea6ef65fa assets/biomesoplenty/models/item/fir_ha
 bfdd7e2f5a214592a99922521dc78cfbf1cc84f2 assets/biomesoplenty/models/item/fir_sign.json
 0ca5a2602ea84969e1190e6593d4235814ed2404 assets/biomesoplenty/models/item/flesh_tendons.json
 c01f1ea09fc5205c87a140e288e17f466bf6263a assets/biomesoplenty/models/item/flowering_oak_sapling.json
+4683e64ffa56afd9e22f38537ce110422ed055b1 assets/biomesoplenty/models/item/flower_bud.json
 6e0dde34cf59e72d6ca282aec46f47bd703fe6e9 assets/biomesoplenty/models/item/glowflower.json
 6c1ee40fe81bb4d3e57ec4fe8702d885c5d67907 assets/biomesoplenty/models/item/glowshroom.json
 e65bbbcbe4ed623a968f70e05adeca64288e4f23 assets/biomesoplenty/models/item/glowworm_silk.json

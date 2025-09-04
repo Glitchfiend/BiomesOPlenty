@@ -27,12 +27,6 @@
       }
     ],
     "music_volume": 1.0,
-    "particle": {
-      "options": {
-        "type": "minecraft:snowflake"
-      },
-      "probability": 8.925E-4
-    },
     "sky_color": 12446972,
     "water_color": 3750089,
     "water_fog_color": 329011

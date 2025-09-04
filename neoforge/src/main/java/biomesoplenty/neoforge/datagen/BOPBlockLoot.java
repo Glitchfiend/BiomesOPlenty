@@ -435,6 +435,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.EMPYREAL_HANGING_SIGN);
 
         // Flowers
+        this.add(BOPBlocks.FLOWER_BUD, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
         this.dropSelf(BOPBlocks.ROSE);
         this.dropSelf(BOPBlocks.MARIGOLD);
         this.dropSelf(BOPBlocks.VIOLET);
@@ -500,6 +501,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropPottedContents(BOPBlocks.POTTED_UMBRAN_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_HELLBARK_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_EMPYREAL_SAPLING);
+        this.dropPottedContents(BOPBlocks.POTTED_FLOWER_BUD);
         this.dropPottedContents(BOPBlocks.POTTED_ROSE);
         this.dropPottedContents(BOPBlocks.POTTED_MARIGOLD);
         this.dropPottedContents(BOPBlocks.POTTED_VIOLET);

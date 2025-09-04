@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-31T11:51:31.3034953	Loot Tables
+// 1.21.8	2025-09-04T07:00:34.2652902	Loot Tables
 220e79635d6427547adc71c9a3595899624e7346 data/biomesoplenty/loot_table/blocks/algal_end_stone.json
 dd2b19339d5cd2e7c140672d01b47271540e8c0c data/biomesoplenty/loot_table/blocks/anomaly.json
 f92516ee35f9b379842fd0ac300baff1071c8308 data/biomesoplenty/loot_table/blocks/barley.json
@@ -98,6 +98,7 @@ dafd7e47a71b5cc62c5d80e5f14271bc7943851e data/biomesoplenty/loot_table/blocks/fi
 bb0e65f8357935fc3559e11e529bf7c7ac94bde4 data/biomesoplenty/loot_table/blocks/flesh_tendons_strand.json
 2ea020e010525779078649f39a6abf5ae04387e2 data/biomesoplenty/loot_table/blocks/flowering_oak_leaves.json
 b21464079eb54d1e0b069992e5d3bcd5bc43b2d5 data/biomesoplenty/loot_table/blocks/flowering_oak_sapling.json
+dad629d25a58f429a995d5d582516bc5c2f875b2 data/biomesoplenty/loot_table/blocks/flower_bud.json
 3e1f7b9ab94e4b4a647f9680b518754c624a31a8 data/biomesoplenty/loot_table/blocks/flower_stem.json
 80a8718a04e843baee1fe397808a239211ce5ab1 data/biomesoplenty/loot_table/blocks/glowflower.json
 4b3d0e4e8bbdfcf1f1e8844140eb2bc48aa0337f data/biomesoplenty/loot_table/blocks/glowing_moss_block.json
@@ -259,6 +260,7 @@ b749bb66649dd083dd622a2b16d41818c4dc1aa1 data/biomesoplenty/loot_table/blocks/po
 a399f4b15af1e2a7fdfd86d652783b2822b4ff67 data/biomesoplenty/loot_table/blocks/potted_endbloom.json
 a1cb75c243125bdd6dd9169788a253b670a4b935 data/biomesoplenty/loot_table/blocks/potted_fir_sapling.json
 f0d85ff27c182507dc95398f3e9222011e5cf34c data/biomesoplenty/loot_table/blocks/potted_flowering_oak_sapling.json
+5fb4bc7764f7da7756f0253ac6d985273033980e data/biomesoplenty/loot_table/blocks/potted_flower_bud.json
 d04fbc7b0d291fe197b82aa0636a49dcf45cc0a0 data/biomesoplenty/loot_table/blocks/potted_glowflower.json
 dd4a15089aaed2619979e63f247309fbc4bc0026 data/biomesoplenty/loot_table/blocks/potted_glowshroom.json
 eaab7d8dde9787e12e0b947cbdf93c69cdbf2fe0 data/biomesoplenty/loot_table/blocks/potted_hellbark_sapling.json

@@ -462,6 +462,7 @@ public class ModBlocks
         EMPYREAL_WALL_HANGING_SIGN = register(func, "empyreal_wall_hanging_sign", p -> new WallHangingSignBlockBOP(BOPWoodTypes.EMPYREAL, p), wallVariant(EMPYREAL_HANGING_SIGN, true).mapColor(EMPYREAL_PLANKS.defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F));
 
         //Flowers
+        FLOWER_BUD = register(func, "flower_bud", FlowerBudBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ));
         ROSE = register(func, "rose", p -> new FlowerBlockBOP(MobEffects.SLOWNESS, p), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ));
         MARIGOLD = register(func, "marigold", p -> new FlowerBlockBOP(MobEffects.SPEED, p), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ));
         VIOLET = register(func, "violet", p -> new FlowerBlockBOP(MobEffects.NAUSEA, p), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ));
@@ -528,6 +529,7 @@ public class ModBlocks
         POTTED_UMBRAN_SAPLING = register(func, "potted_umbran_sapling", p -> new FlowerPotBlock(UMBRAN_SAPLING, p),  BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
         POTTED_HELLBARK_SAPLING = register(func, "potted_hellbark_sapling", p -> new FlowerPotBlock(HELLBARK_SAPLING, p),  BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
         POTTED_EMPYREAL_SAPLING = register(func, "potted_empyreal_sapling", p -> new FlowerPotBlock(EMPYREAL_SAPLING, p),  BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
+        POTTED_FLOWER_BUD = register(func, "potted_flower_bud", p -> new FlowerPotBlock(FLOWER_BUD, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
         POTTED_ROSE = register(func, "potted_rose", p -> new FlowerPotBlock(ROSE, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
         POTTED_MARIGOLD = register(func, "potted_marigold", p -> new FlowerPotBlock(MARIGOLD, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
         POTTED_VIOLET = register(func, "potted_violet", p -> new FlowerPotBlock(VIOLET, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());

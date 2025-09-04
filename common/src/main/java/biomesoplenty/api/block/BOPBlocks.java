@@ -391,6 +391,7 @@ public class BOPBlocks
     public static Block EMPYREAL_HANGING_SIGN;
     public static Block EMPYREAL_WALL_HANGING_SIGN;
 
+    public static Block FLOWER_BUD;
     public static Block ROSE;
     public static Block MARIGOLD;
     public static Block VIOLET;
@@ -455,6 +456,7 @@ public class BOPBlocks
     public static Block POTTED_UMBRAN_SAPLING;
     public static Block POTTED_HELLBARK_SAPLING;
     public static Block POTTED_EMPYREAL_SAPLING;
+    public static Block POTTED_FLOWER_BUD;
     public static Block POTTED_ROSE;
     public static Block POTTED_MARIGOLD;
     public static Block POTTED_VIOLET;

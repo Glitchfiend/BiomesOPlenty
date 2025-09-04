@@ -409,6 +409,7 @@ public class BOPItems
     public static Item EMPYREAL_BOAT;
     public static Item EMPYREAL_CHEST_BOAT;
 
+    public static Item FLOWER_BUD;
     public static Item ROSE;
     public static Item MARIGOLD;
     public static Item VIOLET;
@@ -475,6 +476,7 @@ public class BOPItems
     public static Item POTTED_UMBRAN_SAPLING;
     public static Item POTTED_HELLBARK_SAPLING;
     public static Item POTTED_EMPYREAL_SAPLING;
+    public static Item POTTED_FLOWER_BUD;
     public static Item POTTED_ROSE;
     public static Item POTTED_MARIGOLD;
     public static Item POTTED_VIOLET;
