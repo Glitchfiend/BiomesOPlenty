@@ -361,8 +361,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_FERN_2, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.PATCH_FERN_4, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(4));
         register(context, BOPVegetationPlacements.PATCH_FERN_8, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(8));
-        register(context, BOPVegetationPlacements.PATCH_FLOWER_BUDS, PATCH_FLOWER_BUDS, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-        register(context, BOPVegetationPlacements.PATCH_FLOWER_BUDS_EXTRA, PATCH_FLOWER_BUDS, VegetationPlacements.worldSurfaceSquaredWithCount(6));
+        register(context, BOPVegetationPlacements.PATCH_FLOWER_BUDS, PATCH_FLOWER_BUDS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, BOPVegetationPlacements.PATCH_FLOWER_BUDS_EXTRA, PATCH_FLOWER_BUDS, VegetationPlacements.worldSurfaceSquaredWithCount(12));
         register(context, BOPVegetationPlacements.PATCH_GRASS_1, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.PATCH_GRASS_3, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.PATCH_GRASS_6, PATCH_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(6));
@@ -436,7 +436,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.LILAC_EXTRA, PATCH_LILAC, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PEONY, PATCH_PEONY, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.ROSE_BUSH_NORMAL, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.ROSE_BUSH_EXTRA, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.ROSE_BUSH_EXTRA, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.SPROUT_BONEMEAL, SPROUT_BONEMEAL, PlacementUtils.isEmpty());
         register(context, BOPVegetationPlacements.SUNFLOWER, SUNFLOWER, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.TREES_AURORAL_GARDEN, TREES_AURORAL_GARDEN, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));

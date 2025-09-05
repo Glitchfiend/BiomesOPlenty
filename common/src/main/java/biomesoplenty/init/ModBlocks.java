@@ -462,7 +462,7 @@ public class ModBlocks
         EMPYREAL_WALL_HANGING_SIGN = register(func, "empyreal_wall_hanging_sign", p -> new WallHangingSignBlockBOP(BOPWoodTypes.EMPYREAL, p), wallVariant(EMPYREAL_HANGING_SIGN, true).mapColor(EMPYREAL_PLANKS.defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollission().strength(1.0F));
 
         //Flowers
-        FLOWER_BUD = register(func, "flower_bud", FlowerBudBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ));
+        FLOWER_BUD = register(func, "flower_bud", FlowerBudBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ));
         ROSE = register(func, "rose", p -> new FlowerBlockBOP(MobEffects.SLOWNESS, p), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ));
         MARIGOLD = register(func, "marigold", p -> new FlowerBlockBOP(MobEffects.SPEED, p), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ));
         VIOLET = register(func, "violet", p -> new FlowerBlockBOP(MobEffects.NAUSEA, p), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ));

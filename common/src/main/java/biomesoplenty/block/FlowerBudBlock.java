@@ -26,7 +26,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class FlowerBudBlock extends VegetationBlockBOP implements BonemealableBlock
 {
     public static final MapCodec<FlowerBudBlock> CODEC = simpleCodec(FlowerBudBlock::new);
-    protected static final VoxelShape NORMAL = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape NORMAL = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 8.0D, 11.0D);
 
     public FlowerBudBlock(Properties properties)
     {
