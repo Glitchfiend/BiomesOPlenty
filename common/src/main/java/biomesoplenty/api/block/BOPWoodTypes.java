@@ -13,6 +13,7 @@ import static net.minecraft.world.level.block.state.properties.WoodType.register
 
 public class BOPWoodTypes
 {
+    public static final WoodType ORIGIN_OAK = register(new WoodType(BOPAPI.MOD_ID + ":origin_oak", BOPBlockSetTypes.ORIGIN_OAK));
     public static final WoodType FIR = register(new WoodType(BOPAPI.MOD_ID + ":fir", BOPBlockSetTypes.FIR));
     public static final WoodType PINE = register(new WoodType(BOPAPI.MOD_ID + ":pine", BOPBlockSetTypes.PINE));
     public static final WoodType MAPLE = register(new WoodType(BOPAPI.MOD_ID + ":maple", BOPBlockSetTypes.MAPLE, SoundType.CHERRY_WOOD, SoundType.CHERRY_WOOD_HANGING_SIGN, SoundEvents.CHERRY_WOOD_FENCE_GATE_CLOSE, SoundEvents.CHERRY_WOOD_FENCE_GATE_OPEN));

@@ -10,13 +10,13 @@
             "entries": [
               {
                 "data": {
-                  "Name": "biomesoplenty:rose"
+                  "Name": "biomesoplenty:origin_rose"
                 },
                 "weight": 1
               },
               {
                 "data": {
-                  "Name": "minecraft:dandelion"
+                  "Name": "biomesoplenty:origin_dandelion"
                 },
                 "weight": 1
               }

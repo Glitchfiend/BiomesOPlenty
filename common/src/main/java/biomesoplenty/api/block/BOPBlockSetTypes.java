@@ -13,6 +13,7 @@ import static net.minecraft.world.level.block.state.properties.BlockSetType.regi
 
 public class BOPBlockSetTypes
 {
+    public static final BlockSetType ORIGIN_OAK = register(new BlockSetType(BOPAPI.MOD_ID + ":origin_oak"));
     public static final BlockSetType FIR = register(new BlockSetType(BOPAPI.MOD_ID + ":fir"));
     public static final BlockSetType PINE = register(new BlockSetType(BOPAPI.MOD_ID + ":pine"));
     public static final BlockSetType MAPLE = register(new BlockSetType(BOPAPI.MOD_ID + ":maple", true, true, true, BlockSetType.PressurePlateSensitivity.EVERYTHING, SoundType.CHERRY_WOOD, SoundEvents.CHERRY_WOOD_DOOR_CLOSE, SoundEvents.CHERRY_WOOD_DOOR_OPEN, SoundEvents.CHERRY_WOOD_TRAPDOOR_CLOSE, SoundEvents.CHERRY_WOOD_TRAPDOOR_OPEN, SoundEvents.CHERRY_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.CHERRY_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.CHERRY_WOOD_BUTTON_CLICK_OFF, SoundEvents.CHERRY_WOOD_BUTTON_CLICK_ON));

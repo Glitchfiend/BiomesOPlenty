@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#biomesoplenty:fir_logs",
+    "#biomesoplenty:origin_oak_logs",
+	"#biomesoplenty:fir_logs",
 	"#biomesoplenty:pine_logs",
 	"#biomesoplenty:maple_logs",
 	"#biomesoplenty:redwood_logs",

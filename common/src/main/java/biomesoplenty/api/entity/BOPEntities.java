@@ -10,6 +10,8 @@ import net.minecraft.world.entity.vehicle.ChestBoat;
 
 public class BOPEntities
 {
+    public static EntityType<Boat> ORIGIN_OAK_BOAT;
+    public static EntityType<ChestBoat> ORIGIN_OAK_CHEST_BOAT;
     public static EntityType<Boat> FIR_BOAT;
     public static EntityType<ChestBoat> FIR_CHEST_BOAT;
     public static EntityType<Boat> PINE_BOAT;

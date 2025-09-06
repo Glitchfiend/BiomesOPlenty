@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "biomesoplenty:block/origin_oak_planks"
+  }
+}

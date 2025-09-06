@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:origin_leaves",
 	"biomesoplenty:flowering_oak_leaves",
 	"biomesoplenty:cypress_leaves",
 	"biomesoplenty:snowblossom_leaves",
+	"biomesoplenty:origin_oak_leaves",
 	"biomesoplenty:fir_leaves",
 	"biomesoplenty:pine_leaves",
 	"biomesoplenty:red_maple_leaves",

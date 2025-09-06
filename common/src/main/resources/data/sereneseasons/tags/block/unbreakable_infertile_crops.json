@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:origin_sapling",
 	"biomesoplenty:flowering_oak_sapling",
 	"biomesoplenty:cypress_sapling",
 	"biomesoplenty:snowblossom_sapling",
+	"biomesoplenty:origin_oak_sapling",
 	"biomesoplenty:fir_sapling",
 	"biomesoplenty:pine_sapling",
 	"biomesoplenty:red_maple_sapling",
@@ -35,6 +35,7 @@
 	"biomesoplenty:null_plant",
 	"biomesoplenty:high_grass",
 	"biomesoplenty:high_grass_plant",
+	"biomesoplenty:flower_bud",
 	"biomesoplenty:tall_lavender",
 	"biomesoplenty:tall_white_lavender",
 	"biomesoplenty:blue_hydrangea",

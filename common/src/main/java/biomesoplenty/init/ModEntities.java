@@ -25,6 +25,12 @@ public class ModEntities
 {
     public static void registerEntities(BiConsumer<ResourceLocation, EntityType<?>> func)
     {
+        ORIGIN_OAK_BOAT = register(
+                func, "origin_oak_boat", EntityType.Builder.of(boatFactory(() -> BOPItems.ORIGIN_OAK_BOAT), MobCategory.MISC).noLootTable().sized(1.375F, 0.5625F).eyeHeight(0.5625F).clientTrackingRange(10)
+        );
+        ORIGIN_OAK_CHEST_BOAT = register(
+                func, "origin_oak_chest_boat", EntityType.Builder.of(chestBoatFactory(() -> BOPItems.ORIGIN_OAK_CHEST_BOAT), MobCategory.MISC).noLootTable().sized(1.375F, 0.5625F).eyeHeight(0.5625F).clientTrackingRange(10)
+        );
         FIR_BOAT = register(
                 func, "fir_boat", EntityType.Builder.of(boatFactory(() -> BOPItems.FIR_BOAT), MobCategory.MISC).noLootTable().sized(1.375F, 0.5625F).eyeHeight(0.5625F).clientTrackingRange(10)
         );

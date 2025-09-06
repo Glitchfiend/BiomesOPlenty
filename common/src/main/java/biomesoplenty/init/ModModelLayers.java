@@ -10,6 +10,8 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ModModelLayers 
 {
+    public static final ModelLayerLocation ORIGIN_OAK_BOAT = register("boat/origin_oak");
+    public static final ModelLayerLocation ORIGIN_OAK_CHEST_BOAT = register("chest_boat/origin_oak");
     public static final ModelLayerLocation FIR_BOAT = register("boat/fir");
     public static final ModelLayerLocation FIR_CHEST_BOAT = register("chest_boat/fir");
     public static final ModelLayerLocation PINE_BOAT = register("boat/pine");

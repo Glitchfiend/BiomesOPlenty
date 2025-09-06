@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomesoplenty:block/origin_oak_slab"
+    },
+    "type=double": {
+      "model": "biomesoplenty:block/origin_oak_planks"
+    },
+    "type=top": {
+      "model": "biomesoplenty:block/origin_oak_slab_top"
+    }
+  }
+}

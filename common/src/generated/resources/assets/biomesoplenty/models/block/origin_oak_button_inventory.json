@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "biomesoplenty:block/origin_oak_planks"
+  }
+}

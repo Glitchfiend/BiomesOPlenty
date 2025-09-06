@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:fir_planks",
+    "biomesoplenty:origin_oak_planks",
+	"biomesoplenty:fir_planks",
 	"biomesoplenty:pine_planks",
 	"biomesoplenty:maple_planks",
 	"biomesoplenty:redwood_planks",

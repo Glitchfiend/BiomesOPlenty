@@ -39,6 +39,8 @@ public class ModItems
         BLOOD_BUCKET = registerItem(func, "blood_bucket", (properties) -> new BucketItem(BOPFluids.BLOOD, properties), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
         LIQUID_NULL_BUCKET = registerItem(func, "liquid_null_bucket", (properties) -> new BucketItem(BOPFluids.LIQUID_NULL, properties), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
 
+        ORIGIN_OAK_SIGN = registerBlock(func, BOPBlocks.ORIGIN_OAK_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.ORIGIN_OAK_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
+        ORIGIN_OAK_HANGING_SIGN = registerBlock(func, BOPBlocks.ORIGIN_OAK_HANGING_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.ORIGIN_OAK_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
         FIR_SIGN = registerBlock(func, BOPBlocks.FIR_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.FIR_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
         FIR_HANGING_SIGN = registerBlock(func, BOPBlocks.FIR_HANGING_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.FIR_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
         PINE_SIGN = registerBlock(func, BOPBlocks.PINE_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.PINE_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
@@ -66,6 +68,8 @@ public class ModItems
         EMPYREAL_SIGN = registerBlock(func, BOPBlocks.EMPYREAL_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.EMPYREAL_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
         EMPYREAL_HANGING_SIGN = registerBlock(func, BOPBlocks.EMPYREAL_HANGING_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.EMPYREAL_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
 
+        ORIGIN_OAK_BOAT = registerItem(func, "origin_oak_boat", (properties) -> new BoatItem(BOPEntities.ORIGIN_OAK_BOAT, properties), new Item.Properties().stacksTo(1));
+        ORIGIN_OAK_CHEST_BOAT = registerItem(func, "origin_oak_chest_boat", (properties) -> new BoatItem(BOPEntities.ORIGIN_OAK_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
         FIR_BOAT = registerItem(func, "fir_boat", (properties) -> new BoatItem(BOPEntities.FIR_BOAT, properties), new Item.Properties().stacksTo(1));
         FIR_CHEST_BOAT = registerItem(func, "fir_chest_boat", (properties) -> new BoatItem(BOPEntities.FIR_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
         PINE_BOAT = registerItem(func, "pine_boat", (properties) -> new BoatItem(BOPEntities.PINE_BOAT, properties), new Item.Properties().stacksTo(1));
@@ -200,14 +204,30 @@ public class ModItems
         PINK_FLOWER_PETAL_BLOCK = registerBlock(func, BOPBlocks.PINK_FLOWER_PETAL_BLOCK);
         FLOWER_STEM = registerBlock(func, BOPBlocks.FLOWER_STEM);
         ORIGIN_GRASS_BLOCK = registerBlock(func, BOPBlocks.ORIGIN_GRASS_BLOCK);
-        ORIGIN_SAPLING = registerBlock(func, BOPBlocks.ORIGIN_SAPLING);
-        ORIGIN_LEAVES = registerBlock(func, BOPBlocks.ORIGIN_LEAVES);
+
         FLOWERING_OAK_SAPLING = registerBlock(func, BOPBlocks.FLOWERING_OAK_SAPLING);
         FLOWERING_OAK_LEAVES = registerBlock(func, BOPBlocks.FLOWERING_OAK_LEAVES);
         CYPRESS_SAPLING = registerBlock(func, BOPBlocks.CYPRESS_SAPLING);
         CYPRESS_LEAVES = registerBlock(func, BOPBlocks.CYPRESS_LEAVES);
         SNOWBLOSSOM_SAPLING = registerBlock(func, BOPBlocks.SNOWBLOSSOM_SAPLING);
         SNOWBLOSSOM_LEAVES = registerBlock(func, BOPBlocks.SNOWBLOSSOM_LEAVES);
+
+        ORIGIN_OAK_SAPLING = registerBlock(func, BOPBlocks.ORIGIN_OAK_SAPLING);
+        ORIGIN_OAK_LEAVES = registerBlock(func, BOPBlocks.ORIGIN_OAK_LEAVES);
+        ORIGIN_OAK_LOG = registerBlock(func, BOPBlocks.ORIGIN_OAK_LOG);
+        ORIGIN_OAK_WOOD = registerBlock(func, BOPBlocks.ORIGIN_OAK_WOOD);
+        STRIPPED_ORIGIN_OAK_LOG = registerBlock(func, BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
+        STRIPPED_ORIGIN_OAK_WOOD = registerBlock(func, BOPBlocks.STRIPPED_ORIGIN_OAK_WOOD);
+        ORIGIN_OAK_PLANKS = registerBlock(func, BOPBlocks.ORIGIN_OAK_PLANKS);
+        ORIGIN_OAK_STAIRS = registerBlock(func, BOPBlocks.ORIGIN_OAK_STAIRS);
+        ORIGIN_OAK_SLAB = registerBlock(func, BOPBlocks.ORIGIN_OAK_SLAB);
+        ORIGIN_OAK_FENCE = registerBlock(func, BOPBlocks.ORIGIN_OAK_FENCE);
+        ORIGIN_OAK_FENCE_GATE = registerBlock(func, BOPBlocks.ORIGIN_OAK_FENCE_GATE);
+        ORIGIN_OAK_DOOR = registerBlock(func, BOPBlocks.ORIGIN_OAK_DOOR);
+        ORIGIN_OAK_TRAPDOOR = registerBlock(func, BOPBlocks.ORIGIN_OAK_TRAPDOOR);
+        ORIGIN_OAK_PRESSURE_PLATE = registerBlock(func, BOPBlocks.ORIGIN_OAK_PRESSURE_PLATE);
+        ORIGIN_OAK_BUTTON = registerBlock(func, BOPBlocks.ORIGIN_OAK_BUTTON);
+
         FIR_SAPLING = registerBlock(func, BOPBlocks.FIR_SAPLING);
         FIR_LEAVES = registerBlock(func, BOPBlocks.FIR_LEAVES);
         FIR_LOG = registerBlock(func, BOPBlocks.FIR_LOG);
@@ -223,6 +243,7 @@ public class ModItems
         FIR_TRAPDOOR = registerBlock(func, BOPBlocks.FIR_TRAPDOOR);
         FIR_PRESSURE_PLATE = registerBlock(func, BOPBlocks.FIR_PRESSURE_PLATE);
         FIR_BUTTON = registerBlock(func, BOPBlocks.FIR_BUTTON);
+
         PINE_SAPLING = registerBlock(func, BOPBlocks.PINE_SAPLING);
         PINE_LEAVES = registerBlock(func, BOPBlocks.PINE_LEAVES);
         PINE_LOG = registerBlock(func, BOPBlocks.PINE_LOG);
@@ -238,6 +259,7 @@ public class ModItems
         PINE_TRAPDOOR = registerBlock(func, BOPBlocks.PINE_TRAPDOOR);
         PINE_PRESSURE_PLATE = registerBlock(func, BOPBlocks.PINE_PRESSURE_PLATE);
         PINE_BUTTON = registerBlock(func, BOPBlocks.PINE_BUTTON);
+
         RED_MAPLE_SAPLING = registerBlock(func, BOPBlocks.RED_MAPLE_SAPLING);
         RED_MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.RED_MAPLE_LEAF_LITTER);
         RED_MAPLE_LEAVES = registerBlock(func, BOPBlocks.RED_MAPLE_LEAVES);
@@ -260,6 +282,7 @@ public class ModItems
         MAPLE_TRAPDOOR = registerBlock(func, BOPBlocks.MAPLE_TRAPDOOR);
         MAPLE_PRESSURE_PLATE = registerBlock(func, BOPBlocks.MAPLE_PRESSURE_PLATE);
         MAPLE_BUTTON = registerBlock(func, BOPBlocks.MAPLE_BUTTON);
+
         REDWOOD_SAPLING = registerBlock(func, BOPBlocks.REDWOOD_SAPLING);
         REDWOOD_LEAVES = registerBlock(func, BOPBlocks.REDWOOD_LEAVES);
         REDWOOD_LOG = registerBlock(func, BOPBlocks.REDWOOD_LOG);
@@ -275,6 +298,7 @@ public class ModItems
         REDWOOD_TRAPDOOR = registerBlock(func, BOPBlocks.REDWOOD_TRAPDOOR);
         REDWOOD_PRESSURE_PLATE = registerBlock(func, BOPBlocks.REDWOOD_PRESSURE_PLATE);
         REDWOOD_BUTTON = registerBlock(func, BOPBlocks.REDWOOD_BUTTON);
+
         MAHOGANY_SAPLING = registerBlock(func, BOPBlocks.MAHOGANY_SAPLING);
         MAHOGANY_LEAVES = registerBlock(func, BOPBlocks.MAHOGANY_LEAVES);
         MAHOGANY_LOG = registerBlock(func, BOPBlocks.MAHOGANY_LOG);
@@ -290,6 +314,7 @@ public class ModItems
         MAHOGANY_TRAPDOOR = registerBlock(func, BOPBlocks.MAHOGANY_TRAPDOOR);
         MAHOGANY_PRESSURE_PLATE = registerBlock(func, BOPBlocks.MAHOGANY_PRESSURE_PLATE);
         MAHOGANY_BUTTON = registerBlock(func, BOPBlocks.MAHOGANY_BUTTON);
+
         JACARANDA_SAPLING = registerBlock(func, BOPBlocks.JACARANDA_SAPLING);
         JACARANDA_LEAVES = registerBlock(func, BOPBlocks.JACARANDA_LEAVES);
         JACARANDA_LOG = registerBlock(func, BOPBlocks.JACARANDA_LOG);
@@ -305,6 +330,7 @@ public class ModItems
         JACARANDA_TRAPDOOR = registerBlock(func, BOPBlocks.JACARANDA_TRAPDOOR);
         JACARANDA_PRESSURE_PLATE = registerBlock(func, BOPBlocks.JACARANDA_PRESSURE_PLATE);
         JACARANDA_BUTTON = registerBlock(func, BOPBlocks.JACARANDA_BUTTON);
+
         PALM_SAPLING = registerBlock(func, BOPBlocks.PALM_SAPLING);
         PALM_LEAVES = registerBlock(func, BOPBlocks.PALM_LEAVES);
         PALM_LOG = registerBlock(func, BOPBlocks.PALM_LOG);
@@ -320,6 +346,7 @@ public class ModItems
         PALM_TRAPDOOR = registerBlock(func, BOPBlocks.PALM_TRAPDOOR);
         PALM_PRESSURE_PLATE = registerBlock(func, BOPBlocks.PALM_PRESSURE_PLATE);
         PALM_BUTTON = registerBlock(func, BOPBlocks.PALM_BUTTON);
+
         WILLOW_SAPLING = registerBlock(func, BOPBlocks.WILLOW_SAPLING);
         WILLOW_VINE = registerBlock(func, BOPBlocks.WILLOW_VINE);
         SPANISH_MOSS = registerBlock(func, BOPBlocks.SPANISH_MOSS);
@@ -338,6 +365,7 @@ public class ModItems
         WILLOW_TRAPDOOR = registerBlock(func, BOPBlocks.WILLOW_TRAPDOOR);
         WILLOW_PRESSURE_PLATE = registerBlock(func, BOPBlocks.WILLOW_PRESSURE_PLATE);
         WILLOW_BUTTON = registerBlock(func, BOPBlocks.WILLOW_BUTTON);
+
         DEAD_SAPLING = registerBlock(func, BOPBlocks.DEAD_SAPLING);
         DEAD_BRANCH = registerBlock(func, BOPBlocks.DEAD_BRANCH);
         DEAD_LEAVES = registerBlock(func, BOPBlocks.DEAD_LEAVES);
@@ -354,6 +382,7 @@ public class ModItems
         DEAD_TRAPDOOR = registerBlock(func, BOPBlocks.DEAD_TRAPDOOR);
         DEAD_PRESSURE_PLATE = registerBlock(func, BOPBlocks.DEAD_PRESSURE_PLATE);
         DEAD_BUTTON = registerBlock(func, BOPBlocks.DEAD_BUTTON);
+
         MAGIC_SAPLING = registerBlock(func, BOPBlocks.MAGIC_SAPLING);
         MAGIC_LEAVES = registerBlock(func, BOPBlocks.MAGIC_LEAVES);
         MAGIC_LOG = registerBlock(func, BOPBlocks.MAGIC_LOG);
@@ -369,6 +398,7 @@ public class ModItems
         MAGIC_TRAPDOOR = registerBlock(func, BOPBlocks.MAGIC_TRAPDOOR);
         MAGIC_PRESSURE_PLATE = registerBlock(func, BOPBlocks.MAGIC_PRESSURE_PLATE);
         MAGIC_BUTTON = registerBlock(func, BOPBlocks.MAGIC_BUTTON);
+
         UMBRAN_SAPLING = registerBlock(func, BOPBlocks.UMBRAN_SAPLING);
         UMBRAN_LEAVES = registerBlock(func, BOPBlocks.UMBRAN_LEAVES);
         UMBRAN_LOG = registerBlock(func, BOPBlocks.UMBRAN_LOG);
@@ -384,6 +414,7 @@ public class ModItems
         UMBRAN_TRAPDOOR = registerBlock(func, BOPBlocks.UMBRAN_TRAPDOOR);
         UMBRAN_PRESSURE_PLATE = registerBlock(func, BOPBlocks.UMBRAN_PRESSURE_PLATE);
         UMBRAN_BUTTON = registerBlock(func, BOPBlocks.UMBRAN_BUTTON);
+
         HELLBARK_SAPLING = registerBlock(func, BOPBlocks.HELLBARK_SAPLING);
         HELLBARK_LEAVES = registerBlock(func, BOPBlocks.HELLBARK_LEAVES);
         HELLBARK_LOG = registerBlock(func, BOPBlocks.HELLBARK_LOG);
@@ -399,6 +430,7 @@ public class ModItems
         HELLBARK_TRAPDOOR = registerBlock(func, BOPBlocks.HELLBARK_TRAPDOOR);
         HELLBARK_PRESSURE_PLATE = registerBlock(func, BOPBlocks.HELLBARK_PRESSURE_PLATE);
         HELLBARK_BUTTON = registerBlock(func, BOPBlocks.HELLBARK_BUTTON);
+
         EMPYREAL_SAPLING = registerBlock(func, BOPBlocks.EMPYREAL_SAPLING);
         EMPYREAL_LEAVES = registerBlock(func, BOPBlocks.EMPYREAL_LEAVES);
         EMPYREAL_LOG = registerBlock(func, BOPBlocks.EMPYREAL_LOG);
@@ -414,8 +446,10 @@ public class ModItems
         EMPYREAL_TRAPDOOR = registerBlock(func, BOPBlocks.EMPYREAL_TRAPDOOR);
         EMPYREAL_PRESSURE_PLATE = registerBlock(func, BOPBlocks.EMPYREAL_PRESSURE_PLATE);
         EMPYREAL_BUTTON = registerBlock(func, BOPBlocks.EMPYREAL_BUTTON);
+
         FLOWER_BUD = registerBlock(func, BOPBlocks.FLOWER_BUD);
-        ROSE = registerBlock(func, BOPBlocks.ROSE);
+        ORIGIN_DANDELION = registerBlock(func, BOPBlocks.ORIGIN_DANDELION);
+        ORIGIN_ROSE = registerBlock(func, BOPBlocks.ORIGIN_ROSE);
         MARIGOLD = registerBlock(func, BOPBlocks.MARIGOLD);
         VIOLET = registerBlock(func, BOPBlocks.VIOLET);
         LAVENDER = registerBlock(func, BOPBlocks.LAVENDER);
@@ -456,10 +490,11 @@ public class ModItems
         TINY_CACTUS = registerBlock(func, BOPBlocks.TINY_CACTUS);
         BRAMBLE = registerBlock(func, BOPBlocks.BRAMBLE);
         BRAMBLE_LEAVES = registerBlock(func, BOPBlocks.BRAMBLE_LEAVES);
-        POTTED_ORIGIN_SAPLING = registerBlock(func, BOPBlocks.POTTED_ORIGIN_SAPLING);
+
         POTTED_FLOWERING_OAK_SAPLING = registerBlock(func, BOPBlocks.POTTED_FLOWERING_OAK_SAPLING);
         POTTED_CYPRESS_SAPLING = registerBlock(func, BOPBlocks.POTTED_CYPRESS_SAPLING);
         POTTED_SNOWBLOSSOM_SAPLING = registerBlock(func, BOPBlocks.POTTED_SNOWBLOSSOM_SAPLING);
+        POTTED_ORIGIN_OAK_SAPLING = registerBlock(func, BOPBlocks.POTTED_ORIGIN_OAK_SAPLING);
         POTTED_FIR_SAPLING = registerBlock(func, BOPBlocks.POTTED_FIR_SAPLING);
         POTTED_PINE_SAPLING = registerBlock(func, BOPBlocks.POTTED_PINE_SAPLING);
         POTTED_RED_MAPLE_SAPLING = registerBlock(func, BOPBlocks.POTTED_RED_MAPLE_SAPLING);
@@ -476,7 +511,8 @@ public class ModItems
         POTTED_HELLBARK_SAPLING = registerBlock(func, BOPBlocks.POTTED_HELLBARK_SAPLING);
         POTTED_EMPYREAL_SAPLING = registerBlock(func, BOPBlocks.POTTED_EMPYREAL_SAPLING);
         POTTED_FLOWER_BUD = registerBlock(func, BOPBlocks.POTTED_FLOWER_BUD);
-        POTTED_ROSE = registerBlock(func, BOPBlocks.POTTED_ROSE);
+        POTTED_ORIGIN_DANDELION = registerBlock(func, BOPBlocks.POTTED_ORIGIN_DANDELION);
+        POTTED_ORIGIN_ROSE = registerBlock(func, BOPBlocks.POTTED_ORIGIN_ROSE);
         POTTED_MARIGOLD = registerBlock(func, BOPBlocks.POTTED_MARIGOLD);
         POTTED_VIOLET = registerBlock(func, BOPBlocks.POTTED_VIOLET);
         POTTED_LAVENDER = registerBlock(func, BOPBlocks.POTTED_LAVENDER);

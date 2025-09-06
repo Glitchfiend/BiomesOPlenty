@@ -180,8 +180,6 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.add(BOPBlocks.ORIGIN_GRASS_BLOCK, (p_249779_) -> { return this.createSingleItemTableWithSilkTouch(p_249779_, Blocks.DIRT); });
 
         // Woodless Trees
-        this.dropSelf(BOPBlocks.ORIGIN_SAPLING);
-        this.add(BOPBlocks.ORIGIN_LEAVES, (p_280934_) -> { return this.createOakLeavesDrops(p_280934_, BOPBlocks.ORIGIN_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.FLOWERING_OAK_SAPLING);
         this.add(BOPBlocks.FLOWERING_OAK_LEAVES, (p_280934_) -> { return this.createOakLeavesDrops(p_280934_, BOPBlocks.FLOWERING_OAK_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.CYPRESS_SAPLING);
@@ -190,6 +188,24 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.add(BOPBlocks.SNOWBLOSSOM_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.SNOWBLOSSOM_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
 
         // Wood
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_SAPLING);
+        this.add(BOPBlocks.ORIGIN_OAK_LEAVES, (p_280940_) -> { return this.createOakLeavesDrops(p_280940_, BOPBlocks.ORIGIN_OAK_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_LOG);
+        this.dropSelf(BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_WOOD);
+        this.dropSelf(BOPBlocks.STRIPPED_ORIGIN_OAK_WOOD);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_PLANKS);
+        this.add(BOPBlocks.ORIGIN_OAK_SLAB, (p_251629_) -> { return this.createSlabItemTable(p_251629_); });
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_STAIRS);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_FENCE);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_FENCE_GATE);
+        this.add(BOPBlocks.ORIGIN_OAK_DOOR, (p_272365_) -> { return this.createDoorTable(p_272365_); });
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_TRAPDOOR);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_PRESSURE_PLATE);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_BUTTON);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_SIGN);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_HANGING_SIGN);
+
         this.dropSelf(BOPBlocks.FIR_SAPLING);
         this.add(BOPBlocks.FIR_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.FIR_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.FIR_LOG);
@@ -436,7 +452,8 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
         // Flowers
         this.add(BOPBlocks.FLOWER_BUD, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.dropSelf(BOPBlocks.ROSE);
+        this.dropSelf(BOPBlocks.ORIGIN_DANDELION);
+        this.dropSelf(BOPBlocks.ORIGIN_ROSE);
         this.dropSelf(BOPBlocks.MARIGOLD);
         this.dropSelf(BOPBlocks.VIOLET);
         this.dropSelf(BOPBlocks.LAVENDER);
@@ -482,10 +499,10 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.add(BOPBlocks.BRAMBLE_LEAVES, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
 
         // Potted Plants
-        this.dropPottedContents(BOPBlocks.POTTED_ORIGIN_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_FLOWERING_OAK_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_CYPRESS_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_SNOWBLOSSOM_SAPLING);
+        this.dropPottedContents(BOPBlocks.POTTED_ORIGIN_OAK_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_FIR_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_PINE_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_RED_MAPLE_SAPLING);
@@ -502,7 +519,8 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropPottedContents(BOPBlocks.POTTED_HELLBARK_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_EMPYREAL_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_FLOWER_BUD);
-        this.dropPottedContents(BOPBlocks.POTTED_ROSE);
+        this.dropPottedContents(BOPBlocks.POTTED_ORIGIN_DANDELION);
+        this.dropPottedContents(BOPBlocks.POTTED_ORIGIN_ROSE);
         this.dropPottedContents(BOPBlocks.POTTED_MARIGOLD);
         this.dropPottedContents(BOPBlocks.POTTED_VIOLET);
         this.dropPottedContents(BOPBlocks.POTTED_LAVENDER);

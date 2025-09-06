@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#biomesoplenty:origin_oak_logs"
+  ],
+  "result": {
+    "count": 4,
+    "id": "biomesoplenty:origin_oak_planks"
+  }
+}

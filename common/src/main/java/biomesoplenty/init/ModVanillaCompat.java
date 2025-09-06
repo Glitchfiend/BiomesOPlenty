@@ -55,10 +55,19 @@ public class ModVanillaCompat
         DispenserBlock.registerBehavior(BOPItems.LIQUID_NULL_BUCKET, dispenseBucketBehavior);
 
         //Flammability
-        registerFlammable(BOPBlocks.ORIGIN_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.FLOWERING_OAK_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.CYPRESS_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.SNOWBLOSSOM_LEAVES, 30, 60);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_LEAVES, 30, 60);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_LOG, 5, 5);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_WOOD, 5, 5);
+        registerFlammable(BOPBlocks.STRIPPED_ORIGIN_OAK_LOG, 5, 5);
+        registerFlammable(BOPBlocks.STRIPPED_ORIGIN_OAK_WOOD, 5, 5);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_PLANKS, 5, 20);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_SLAB, 5, 20);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_STAIRS, 5, 20);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_FENCE, 5, 20);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_FENCE_GATE, 5, 20);
         registerFlammable(BOPBlocks.FIR_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.FIR_LOG, 5, 5);
         registerFlammable(BOPBlocks.FIR_WOOD, 5, 5);
@@ -181,7 +190,8 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.EMPYREAL_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.EMPYREAL_FENCE, 5, 20);
         registerFlammable(BOPBlocks.EMPYREAL_FENCE_GATE, 5, 20);
-        registerFlammable(BOPBlocks.ROSE, 60, 100);
+        registerFlammable(BOPBlocks.ORIGIN_DANDELION, 60, 100);
+        registerFlammable(BOPBlocks.ORIGIN_ROSE, 60, 100);
         registerFlammable(BOPBlocks.MARIGOLD, 60, 100);
         registerFlammable(BOPBlocks.VIOLET, 60, 100);
         registerFlammable(BOPBlocks.LAVENDER, 60, 100);
@@ -225,6 +235,8 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.BARLEY, 60, 100);
 
         //Log Stripping
+        registerStrippable(BOPBlocks.ORIGIN_OAK_LOG, BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
+        registerStrippable(BOPBlocks.ORIGIN_OAK_WOOD, BOPBlocks.STRIPPED_ORIGIN_OAK_WOOD);
         registerStrippable(BOPBlocks.FIR_LOG, BOPBlocks.STRIPPED_FIR_LOG);
         registerStrippable(BOPBlocks.FIR_WOOD, BOPBlocks.STRIPPED_FIR_WOOD);
         registerStrippable(BOPBlocks.PINE_LOG, BOPBlocks.STRIPPED_PINE_LOG);
@@ -278,14 +290,14 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.PINK_FLOWER_PETAL_BLOCK);
         registerCompostable(0.5F, BOPBlocks.FLOWER_STEM);
 
-        registerCompostable(0.3F, BOPBlocks.ORIGIN_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.ORIGIN_LEAVES);
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_SAPLING);
         registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_LEAVES);
         registerCompostable(0.3F, BOPBlocks.CYPRESS_SAPLING);
         registerCompostable(0.3F, BOPBlocks.CYPRESS_LEAVES);
         registerCompostable(0.3F, BOPBlocks.SNOWBLOSSOM_SAPLING);
         registerCompostable(0.3F, BOPBlocks.SNOWBLOSSOM_LEAVES);
+        registerCompostable(0.3F, BOPBlocks.ORIGIN_OAK_SAPLING);
+        registerCompostable(0.3F, BOPBlocks.ORIGIN_OAK_LEAVES);
         registerCompostable(0.3F, BOPBlocks.FIR_SAPLING);
         registerCompostable(0.3F, BOPBlocks.FIR_LEAVES);
         registerCompostable(0.3F, BOPBlocks.PINE_SAPLING);
@@ -319,7 +331,8 @@ public class ModVanillaCompat
         registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_CARPET);
 
         registerCompostable(0.65F, BOPBlocks.FLOWER_BUD);
-        registerCompostable(0.65F, BOPBlocks.ROSE);
+        registerCompostable(0.65F, BOPBlocks.ORIGIN_DANDELION);
+        registerCompostable(0.65F, BOPBlocks.ORIGIN_ROSE);
         registerCompostable(0.65F, BOPBlocks.MARIGOLD);
         registerCompostable(0.65F, BOPBlocks.VIOLET);
         registerCompostable(0.65F, BOPBlocks.LAVENDER);

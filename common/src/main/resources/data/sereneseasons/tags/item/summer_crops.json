@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-	"biomesoplenty:origin_sapling",
 	"biomesoplenty:flowering_oak_sapling",
 	"biomesoplenty:cypress_sapling",
+	"biomesoplenty:origin_oak_sapling",
 	"biomesoplenty:redwood_sapling",
 	"biomesoplenty:mahogany_sapling",
 	"biomesoplenty:jacaranda_sapling",
@@ -13,6 +13,7 @@
 	"biomesoplenty:hellbark_sapling",
 	"biomesoplenty:empyreal_sapling",
 	"biomesoplenty:toadstool",
-	"biomesoplenty:glowshroom"
+	"biomesoplenty:glowshroom",
+	"biomesoplenty:flower_bud"
   ]
 }

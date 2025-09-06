@@ -188,7 +188,7 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> BIG_RED_MAPLE_TREE_LEAF_LITTER_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_RED_MAPLE_TREE_LEAF_LITTER_CHECKED);
         final Holder<PlacedFeature> BIG_OAK_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_OAK_TREE_CHECKED);
         final Holder<PlacedFeature> BIG_ORANGE_MAPLE_TREE_LEAF_LITTER_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_ORANGE_MAPLE_TREE_LEAF_LITTER_CHECKED);
-        final Holder<PlacedFeature> BIG_ORIGIN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_ORIGIN_TREE_CHECKED);
+        final Holder<PlacedFeature> BIG_ORIGIN_OAK_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_ORIGIN_OAK_TREE_CHECKED);
         final Holder<PlacedFeature> BIG_YELLOW_MAPLE_TREE_LEAF_LITTER_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_YELLOW_MAPLE_TREE_LEAF_LITTER_CHECKED);
         final Holder<PlacedFeature> BAYOU_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BAYOU_TREE_CHECKED);
         final Holder<PlacedFeature> BAYOU_TREE_MEDIUM_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BAYOU_TREE_MEDIUM_CHECKED);
@@ -214,7 +214,7 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> MAPLE_TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.MAPLE_TWIGLET_TREE_CHECKED);
         final Holder<PlacedFeature> OAK_BUSH_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.OAK_BUSH_CHECKED);
         final Holder<PlacedFeature> ORANGE_MAPLE_TREE_LEAF_LITTER_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORANGE_MAPLE_TREE_LEAF_LITTER_CHECKED);
-        final Holder<PlacedFeature> ORIGIN_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORIGIN_TREE_CHECKED);
+        final Holder<PlacedFeature> ORIGIN_OAK_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ORIGIN_OAK_TREE_CHECKED);
         final Holder<PlacedFeature> PALE_OAK_TWIGLET_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.PALE_OAK_TWIGLET_TREE_CHECKED);
         final Holder<PlacedFeature> PALM_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.PALM_TREE_CHECKED);
         final Holder<PlacedFeature> PINE_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.PINE_TREE_CHECKED);
@@ -309,7 +309,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.FLOWER_MOOR, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.ALLIUM.defaultBlockState(), 1).add(BOPBlocks.VIOLET.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_MYSTIC_GROVE, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.GLOWFLOWER.defaultBlockState(), 1).add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.ALLIUM.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_OMINOUS_WOODS, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.WITHER_ROSE))));
-        register(context, BOPVegetationFeatures.FLOWER_ORIGIN_VALLEY, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.ROSE.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
+        register(context, BOPVegetationFeatures.FLOWER_ORIGIN_VALLEY, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.ORIGIN_ROSE.defaultBlockState(), 1).add(BOPBlocks.ORIGIN_DANDELION.defaultBlockState(), 1)), 64));
         register(context, BOPVegetationFeatures.FLOWER_POPPY, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.POPPY))));
         register(context, BOPVegetationFeatures.FLOWER_PURPLE_WILDFLOWERS, Feature.FLOWER, new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(flowerBedPatchBuilder(BOPBlocks.PURPLE_WILDFLOWERS))))));
         register(context, BOPVegetationFeatures.FLOWER_RAINFOREST, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.ORANGE_COSMOS.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
@@ -343,7 +343,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_MYSTIC_GROVE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_MAGIC_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(GIANT_TREE_CHECKED, 0.025F)), MAGIC_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_OMINOUS_WOODS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(DEAD_TWIGLET_TREE_LEAF_LITTER_CHECKED, 0.05F), new WeightedPlacedFeature(DYING_TREE_LEAF_LITTER_CHECKED, 0.03F), new WeightedPlacedFeature(TALL_UMBRAN_TREE_CHECKED, 0.7F)), UMBRAN_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_ORCHARD, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(AZALEA_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.1F)), FLOWERING_OAK_TREE_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_ORIGIN_VALLEY, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_ORIGIN_TREE_CHECKED, 0.1F)), ORIGIN_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_ORIGIN_VALLEY, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_ORIGIN_OAK_TREE_CHECKED, 0.1F)), ORIGIN_OAK_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_PRAIRIE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_OAK_TREE_CHECKED, 0.1F)), SPARSE_OAK_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_RAINFOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(JUNGLE_TREE_CHECKED, 0.1F)), MAHOGANY_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_RAINFOREST_CLIFFS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(JUNGLE_TWIGLET_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(BIG_JACARANDA_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(MAHOGANY_TREE_CHECKED, 0.05F)), OAK_BUSH_CHECKED));

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    "minecraft:chest",
+    "biomesoplenty:origin_oak_boat"
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:origin_oak_chest_boat"
+  }
+}

@@ -25,6 +25,7 @@ public class ModTags
     {
         private static void setup() {}
 
+        public static final TagKey<Block> ORIGIN_OAK_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "origin_oak_logs"));
         public static final TagKey<Block> FIR_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "fir_logs"));
         public static final TagKey<Block> PINE_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "pine_logs"));
         public static final TagKey<Block> MAPLE_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "maple_logs"));
@@ -60,6 +61,7 @@ public class ModTags
     {
         private static void setup() {}
 
+        public static final TagKey<Item> ORIGIN_OAK_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "origin_oak_logs"));
         public static final TagKey<Item> FIR_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "fir_logs"));
         public static final TagKey<Item> PINE_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "pine_logs"));
         public static final TagKey<Item> MAPLE_LOGS = create(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "maple_logs"));

@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-	"biomesoplenty:origin_sapling",
 	"biomesoplenty:snowblossom_sapling",
+	"biomesoplenty:origin_oak_sapling",
 	"biomesoplenty:fir_sapling",
 	"biomesoplenty:pine_sapling",
 	"biomesoplenty:dead_sapling",

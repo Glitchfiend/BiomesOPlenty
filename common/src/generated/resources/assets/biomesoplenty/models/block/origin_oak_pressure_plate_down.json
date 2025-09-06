@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_down",
+  "textures": {
+    "texture": "biomesoplenty:block/origin_oak_planks"
+  }
+}

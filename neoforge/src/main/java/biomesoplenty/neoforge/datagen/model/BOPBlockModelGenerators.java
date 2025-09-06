@@ -80,6 +80,13 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
                 .filter(BlockFamily::shouldGenerateModel)
                 .forEach(p_386718_ -> this.family(p_386718_.getBaseBlock()).generateFor(p_386718_));
 
+        // Origin Oak
+        this.woodProvider(BOPBlocks.ORIGIN_OAK_LOG).logWithHorizontal(BOPBlocks.ORIGIN_OAK_LOG).wood(BOPBlocks.ORIGIN_OAK_WOOD);
+        this.woodProvider(BOPBlocks.STRIPPED_ORIGIN_OAK_LOG).logWithHorizontal(BOPBlocks.STRIPPED_ORIGIN_OAK_LOG).wood(BOPBlocks.STRIPPED_ORIGIN_OAK_WOOD);
+        this.createHangingSign(BOPBlocks.STRIPPED_ORIGIN_OAK_LOG, BOPBlocks.ORIGIN_OAK_HANGING_SIGN, BOPBlocks.ORIGIN_OAK_WALL_HANGING_SIGN);
+        this.createTrivialBlock(BOPBlocks.ORIGIN_OAK_LEAVES, TexturedModel.LEAVES);
+        this.createPlantWithDefaultItem(BOPBlocks.ORIGIN_OAK_SAPLING, BOPBlocks.POTTED_ORIGIN_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+
         // Fir
         this.woodProvider(BOPBlocks.FIR_LOG).logWithHorizontal(BOPBlocks.FIR_LOG).wood(BOPBlocks.FIR_WOOD);
         this.woodProvider(BOPBlocks.STRIPPED_FIR_LOG).logWithHorizontal(BOPBlocks.STRIPPED_FIR_LOG).wood(BOPBlocks.STRIPPED_FIR_WOOD);
@@ -180,8 +187,6 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         // Other trees
         this.registerSimpleItemModel(BOPBlocks.NULL_LEAVES, ModelLocationUtils.getModelLocation(BOPBlocks.NULL_LEAVES, "_alt"));
 
-        this.createTrivialBlock(BOPBlocks.ORIGIN_LEAVES, TexturedModel.LEAVES);
-        this.createPlantWithDefaultItem(BOPBlocks.ORIGIN_SAPLING, BOPBlocks.POTTED_ORIGIN_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         this.createLeavesOverlay(BOPBlocks.FLOWERING_OAK_LEAVES, FoliageColor.FOLIAGE_DEFAULT);
         this.createPlantWithDefaultItem(BOPBlocks.FLOWERING_OAK_SAPLING, BOPBlocks.POTTED_FLOWERING_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         this.createTrivialBlock(BOPBlocks.CYPRESS_LEAVES, TexturedModel.LEAVES);
@@ -263,7 +268,8 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
 
         // Flowers
         this.registerSimpleFlatItemModel(BOPBlocks.FLOWER_BUD);
-        this.registerSimpleFlatItemModel(BOPBlocks.ROSE);
+        this.registerSimpleFlatItemModel(BOPBlocks.ORIGIN_DANDELION);
+        this.registerSimpleFlatItemModel(BOPBlocks.ORIGIN_ROSE);
         this.registerSimpleFlatItemModel(BOPBlocks.MARIGOLD);
         this.registerSimpleFlatItemModel(BOPBlocks.VIOLET);
         this.registerSimpleFlatItemModel(BOPBlocks.LAVENDER);

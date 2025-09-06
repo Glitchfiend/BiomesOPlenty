@@ -123,14 +123,32 @@ public class BOPBlocks
 
     public static Block ORIGIN_GRASS_BLOCK;
 
-    public static Block ORIGIN_SAPLING;
-    public static Block ORIGIN_LEAVES;
     public static Block FLOWERING_OAK_SAPLING;
     public static Block FLOWERING_OAK_LEAVES;
     public static Block CYPRESS_SAPLING;
     public static Block CYPRESS_LEAVES;
     public static Block SNOWBLOSSOM_SAPLING;
     public static Block SNOWBLOSSOM_LEAVES;
+
+    public static Block ORIGIN_OAK_SAPLING;
+    public static Block ORIGIN_OAK_LEAVES;
+    public static Block ORIGIN_OAK_LOG;
+    public static Block STRIPPED_ORIGIN_OAK_LOG;
+    public static Block ORIGIN_OAK_WOOD;
+    public static Block STRIPPED_ORIGIN_OAK_WOOD;
+    public static Block ORIGIN_OAK_PLANKS;
+    public static Block ORIGIN_OAK_SLAB;
+    public static Block ORIGIN_OAK_STAIRS;
+    public static Block ORIGIN_OAK_FENCE;
+    public static Block ORIGIN_OAK_FENCE_GATE;
+    public static Block ORIGIN_OAK_DOOR;
+    public static Block ORIGIN_OAK_TRAPDOOR;
+    public static Block ORIGIN_OAK_PRESSURE_PLATE;
+    public static Block ORIGIN_OAK_BUTTON;
+    public static Block ORIGIN_OAK_SIGN;
+    public static Block ORIGIN_OAK_WALL_SIGN;
+    public static Block ORIGIN_OAK_HANGING_SIGN;
+    public static Block ORIGIN_OAK_WALL_HANGING_SIGN;
 
     public static Block FIR_SAPLING;
     public static Block FIR_LEAVES;
@@ -151,6 +169,7 @@ public class BOPBlocks
     public static Block FIR_WALL_SIGN;
     public static Block FIR_HANGING_SIGN;
     public static Block FIR_WALL_HANGING_SIGN;
+
     public static Block PINE_SAPLING;
     public static Block PINE_LEAVES;
     public static Block PINE_LOG;
@@ -170,6 +189,7 @@ public class BOPBlocks
     public static Block PINE_WALL_SIGN;
     public static Block PINE_HANGING_SIGN;
     public static Block PINE_WALL_HANGING_SIGN;
+
     public static Block RED_MAPLE_SAPLING;
     public static Block RED_MAPLE_LEAF_LITTER;
     public static Block RED_MAPLE_LEAVES;
@@ -196,6 +216,7 @@ public class BOPBlocks
     public static Block MAPLE_WALL_SIGN;
     public static Block MAPLE_HANGING_SIGN;
     public static Block MAPLE_WALL_HANGING_SIGN;
+
     public static Block REDWOOD_SAPLING;
     public static Block REDWOOD_LEAVES;
     public static Block REDWOOD_LOG;
@@ -215,6 +236,7 @@ public class BOPBlocks
     public static Block REDWOOD_WALL_SIGN;
     public static Block REDWOOD_HANGING_SIGN;
     public static Block REDWOOD_WALL_HANGING_SIGN;
+
     public static Block MAHOGANY_SAPLING;
     public static Block MAHOGANY_LEAVES;
     public static Block MAHOGANY_LOG;
@@ -234,6 +256,7 @@ public class BOPBlocks
     public static Block MAHOGANY_WALL_SIGN;
     public static Block MAHOGANY_HANGING_SIGN;
     public static Block MAHOGANY_WALL_HANGING_SIGN;
+
     public static Block JACARANDA_SAPLING;
     public static Block JACARANDA_LEAVES;
     public static Block JACARANDA_LOG;
@@ -253,6 +276,7 @@ public class BOPBlocks
     public static Block JACARANDA_WALL_SIGN;
     public static Block JACARANDA_HANGING_SIGN;
     public static Block JACARANDA_WALL_HANGING_SIGN;
+
     public static Block PALM_SAPLING;
     public static Block PALM_LEAVES;
     public static Block PALM_LOG;
@@ -272,6 +296,7 @@ public class BOPBlocks
     public static Block PALM_WALL_SIGN;
     public static Block PALM_HANGING_SIGN;
     public static Block PALM_WALL_HANGING_SIGN;
+
     public static Block WILLOW_SAPLING;
     public static Block WILLOW_VINE;
     public static Block SPANISH_MOSS;
@@ -294,6 +319,7 @@ public class BOPBlocks
     public static Block WILLOW_WALL_SIGN;
     public static Block WILLOW_HANGING_SIGN;
     public static Block WILLOW_WALL_HANGING_SIGN;
+
     public static Block DEAD_SAPLING;
     public static Block DEAD_BRANCH;
     public static Block DEAD_LEAVES;
@@ -314,6 +340,7 @@ public class BOPBlocks
     public static Block DEAD_WALL_SIGN;
     public static Block DEAD_HANGING_SIGN;
     public static Block DEAD_WALL_HANGING_SIGN;
+
     public static Block MAGIC_SAPLING;
     public static Block MAGIC_LEAVES;
     public static Block MAGIC_LOG;
@@ -333,6 +360,7 @@ public class BOPBlocks
     public static Block MAGIC_WALL_SIGN;
     public static Block MAGIC_HANGING_SIGN;
     public static Block MAGIC_WALL_HANGING_SIGN;
+
     public static Block UMBRAN_SAPLING;
     public static Block UMBRAN_LEAVES;
     public static Block UMBRAN_LOG;
@@ -352,6 +380,7 @@ public class BOPBlocks
     public static Block UMBRAN_WALL_SIGN;
     public static Block UMBRAN_HANGING_SIGN;
     public static Block UMBRAN_WALL_HANGING_SIGN;
+
     public static Block HELLBARK_SAPLING;
     public static Block HELLBARK_LEAVES;
     public static Block HELLBARK_LOG;
@@ -371,6 +400,7 @@ public class BOPBlocks
     public static Block HELLBARK_WALL_SIGN;
     public static Block HELLBARK_HANGING_SIGN;
     public static Block HELLBARK_WALL_HANGING_SIGN;
+
     public static Block EMPYREAL_SAPLING;
     public static Block EMPYREAL_LEAVES;
     public static Block EMPYREAL_LOG;
@@ -392,7 +422,8 @@ public class BOPBlocks
     public static Block EMPYREAL_WALL_HANGING_SIGN;
 
     public static Block FLOWER_BUD;
-    public static Block ROSE;
+    public static Block ORIGIN_DANDELION;
+    public static Block ORIGIN_ROSE;
     public static Block MARIGOLD;
     public static Block VIOLET;
     public static Block LAVENDER;
@@ -437,10 +468,10 @@ public class BOPBlocks
     public static Block BRAMBLE;
     public static Block BRAMBLE_LEAVES;
 
-    public static Block POTTED_ORIGIN_SAPLING;
     public static Block POTTED_FLOWERING_OAK_SAPLING;
     public static Block POTTED_CYPRESS_SAPLING;
     public static Block POTTED_SNOWBLOSSOM_SAPLING;
+    public static Block POTTED_ORIGIN_OAK_SAPLING;
     public static Block POTTED_FIR_SAPLING;
     public static Block POTTED_PINE_SAPLING;
     public static Block POTTED_RED_MAPLE_SAPLING;
@@ -457,7 +488,8 @@ public class BOPBlocks
     public static Block POTTED_HELLBARK_SAPLING;
     public static Block POTTED_EMPYREAL_SAPLING;
     public static Block POTTED_FLOWER_BUD;
-    public static Block POTTED_ROSE;
+    public static Block POTTED_ORIGIN_DANDELION;
+    public static Block POTTED_ORIGIN_ROSE;
     public static Block POTTED_MARIGOLD;
     public static Block POTTED_VIOLET;
     public static Block POTTED_LAVENDER;

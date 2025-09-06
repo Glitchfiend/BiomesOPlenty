@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "biomesoplenty:fir_button",
+    "biomesoplenty:origin_oak_button",
+	"biomesoplenty:fir_button",
 	"biomesoplenty:pine_button",
 	"biomesoplenty:maple_button",
 	"biomesoplenty:redwood_button",

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "biomesoplenty:block/origin_oak_leaves"
+  }
+}

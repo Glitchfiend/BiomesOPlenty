@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+	"biomesoplenty:origin_oak_wall_sign",
 	"biomesoplenty:fir_wall_sign",
 	"biomesoplenty:pine_wall_sign",
 	"biomesoplenty:maple_wall_sign",

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+	"biomesoplenty:origin_oak_fence_gate",
     "biomesoplenty:fir_fence_gate",
 	"biomesoplenty:pine_fence_gate",
 	"biomesoplenty:maple_fence_gate",

@@ -129,14 +129,32 @@ public class BOPItems
 
     public static Item ORIGIN_GRASS_BLOCK;
 
-    public static Item ORIGIN_SAPLING;
-    public static Item ORIGIN_LEAVES;
     public static Item FLOWERING_OAK_SAPLING;
     public static Item FLOWERING_OAK_LEAVES;
     public static Item CYPRESS_SAPLING;
     public static Item CYPRESS_LEAVES;
     public static Item SNOWBLOSSOM_SAPLING;
     public static Item SNOWBLOSSOM_LEAVES;
+
+    public static Item ORIGIN_OAK_SAPLING;
+    public static Item ORIGIN_OAK_LEAVES;
+    public static Item ORIGIN_OAK_LOG;
+    public static Item STRIPPED_ORIGIN_OAK_LOG;
+    public static Item ORIGIN_OAK_WOOD;
+    public static Item STRIPPED_ORIGIN_OAK_WOOD;
+    public static Item ORIGIN_OAK_PLANKS;
+    public static Item ORIGIN_OAK_SLAB;
+    public static Item ORIGIN_OAK_STAIRS;
+    public static Item ORIGIN_OAK_FENCE;
+    public static Item ORIGIN_OAK_FENCE_GATE;
+    public static Item ORIGIN_OAK_DOOR;
+    public static Item ORIGIN_OAK_TRAPDOOR;
+    public static Item ORIGIN_OAK_PRESSURE_PLATE;
+    public static Item ORIGIN_OAK_BUTTON;
+    public static Item ORIGIN_OAK_SIGN;
+    public static Item ORIGIN_OAK_HANGING_SIGN;
+    public static Item ORIGIN_OAK_BOAT;
+    public static Item ORIGIN_OAK_CHEST_BOAT;
 
     public static Item FIR_SAPLING;
     public static Item FIR_LEAVES;
@@ -410,7 +428,8 @@ public class BOPItems
     public static Item EMPYREAL_CHEST_BOAT;
 
     public static Item FLOWER_BUD;
-    public static Item ROSE;
+    public static Item ORIGIN_DANDELION;
+    public static Item ORIGIN_ROSE;
     public static Item MARIGOLD;
     public static Item VIOLET;
     public static Item LAVENDER;
@@ -457,10 +476,10 @@ public class BOPItems
 
     public static Item MUSIC_DISC_WANDERER;
 
-    public static Item POTTED_ORIGIN_SAPLING;
     public static Item POTTED_FLOWERING_OAK_SAPLING;
     public static Item POTTED_CYPRESS_SAPLING;
     public static Item POTTED_SNOWBLOSSOM_SAPLING;
+    public static Item POTTED_ORIGIN_OAK_SAPLING;
     public static Item POTTED_FIR_SAPLING;
     public static Item POTTED_PINE_SAPLING;
     public static Item POTTED_RED_MAPLE_SAPLING;
@@ -477,7 +496,8 @@ public class BOPItems
     public static Item POTTED_HELLBARK_SAPLING;
     public static Item POTTED_EMPYREAL_SAPLING;
     public static Item POTTED_FLOWER_BUD;
-    public static Item POTTED_ROSE;
+    public static Item POTTED_ORIGIN_DANDELION;
+    public static Item POTTED_ORIGIN_ROSE;
     public static Item POTTED_MARIGOLD;
     public static Item POTTED_VIOLET;
     public static Item POTTED_LAVENDER;

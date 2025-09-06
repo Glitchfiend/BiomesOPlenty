@@ -82,10 +82,10 @@ public class ModClient
         RenderHelper.setRenderType(GLOWING_MOSS_BLOCK, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(GLOWING_MOSS_CARPET, ChunkSectionLayer.CUTOUT);
 
-        RenderHelper.setRenderType(ORIGIN_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(FLOWERING_OAK_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(CYPRESS_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(SNOWBLOSSOM_LEAVES, ChunkSectionLayer.TRANSLUCENT);
+        RenderHelper.setRenderType(ORIGIN_OAK_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(FIR_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(PINE_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(RED_MAPLE_LEAVES, ChunkSectionLayer.TRANSLUCENT);
@@ -102,10 +102,10 @@ public class ModClient
         RenderHelper.setRenderType(HELLBARK_LEAVES, ChunkSectionLayer.TRANSLUCENT);
         RenderHelper.setRenderType(EMPYREAL_LEAVES, ChunkSectionLayer.TRANSLUCENT);
 
-        RenderHelper.setRenderType(ORIGIN_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(FLOWERING_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(CYPRESS_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(SNOWBLOSSOM_SAPLING, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(ORIGIN_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(FIR_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(PINE_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(RED_MAPLE_SAPLING, ChunkSectionLayer.CUTOUT);
@@ -122,7 +122,8 @@ public class ModClient
         RenderHelper.setRenderType(HELLBARK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(EMPYREAL_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(FLOWER_BUD, ChunkSectionLayer.CUTOUT);
-        RenderHelper.setRenderType(ROSE, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(ORIGIN_DANDELION, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(ORIGIN_ROSE, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(MARIGOLD, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(VIOLET, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(LAVENDER, ChunkSectionLayer.CUTOUT);
@@ -194,6 +195,7 @@ public class ModClient
         RenderHelper.setRenderType(LUMALOOP_PLANT, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(SPIDER_EGG, ChunkSectionLayer.CUTOUT);
 
+        RenderHelper.setRenderType(ORIGIN_OAK_DOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(FIR_DOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(PINE_DOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(MAPLE_DOOR, ChunkSectionLayer.CUTOUT);
@@ -207,6 +209,7 @@ public class ModClient
         RenderHelper.setRenderType(UMBRAN_DOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(HELLBARK_DOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(EMPYREAL_DOOR, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(ORIGIN_OAK_TRAPDOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(FIR_TRAPDOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(PINE_TRAPDOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(MAPLE_TRAPDOOR, ChunkSectionLayer.CUTOUT);
@@ -221,10 +224,10 @@ public class ModClient
         RenderHelper.setRenderType(HELLBARK_TRAPDOOR, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(EMPYREAL_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 
-        RenderHelper.setRenderType(POTTED_ORIGIN_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_FLOWERING_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_CYPRESS_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_SNOWBLOSSOM_SAPLING, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(POTTED_ORIGIN_OAK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_FIR_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_PINE_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_RED_MAPLE_SAPLING, ChunkSectionLayer.CUTOUT);
@@ -241,7 +244,8 @@ public class ModClient
         RenderHelper.setRenderType(POTTED_HELLBARK_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_EMPYREAL_SAPLING, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_FLOWER_BUD, ChunkSectionLayer.CUTOUT);
-        RenderHelper.setRenderType(POTTED_ROSE, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(POTTED_ORIGIN_DANDELION, ChunkSectionLayer.CUTOUT);
+        RenderHelper.setRenderType(POTTED_ORIGIN_ROSE, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_MARIGOLD, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_VIOLET, ChunkSectionLayer.CUTOUT);
         RenderHelper.setRenderType(POTTED_LAVENDER, ChunkSectionLayer.CUTOUT);
@@ -274,6 +278,8 @@ public class ModClient
         LayerDefinition boatLayerDefinition = BoatModel.createBoatModel();
         LayerDefinition chestBoatLayerDefinition = BoatModel.createChestBoatModel();
 
+        RenderHelper.registerLayerDefinition(ModModelLayers.ORIGIN_OAK_BOAT, () -> boatLayerDefinition);
+        RenderHelper.registerLayerDefinition(ModModelLayers.ORIGIN_OAK_CHEST_BOAT, () -> chestBoatLayerDefinition);
         RenderHelper.registerLayerDefinition(ModModelLayers.FIR_BOAT, () -> boatLayerDefinition);
         RenderHelper.registerLayerDefinition(ModModelLayers.FIR_CHEST_BOAT, () -> chestBoatLayerDefinition);
         RenderHelper.registerLayerDefinition(ModModelLayers.PINE_BOAT, () -> boatLayerDefinition);
@@ -310,6 +316,8 @@ public class ModClient
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<AnomalyBlockEntity>)BOPBlockEntities.ANOMALY, AnomalyRenderer::new);
 
         // Register entity renderers
+        RenderHelper.registerEntityRenderer(BOPEntities.ORIGIN_OAK_BOAT, context -> new BoatRenderer(context, ModModelLayers.ORIGIN_OAK_BOAT));
+        RenderHelper.registerEntityRenderer(BOPEntities.ORIGIN_OAK_CHEST_BOAT, context -> new BoatRenderer(context, ModModelLayers.ORIGIN_OAK_CHEST_BOAT));
         RenderHelper.registerEntityRenderer(BOPEntities.FIR_BOAT, context -> new BoatRenderer(context, ModModelLayers.FIR_BOAT));
         RenderHelper.registerEntityRenderer(BOPEntities.FIR_CHEST_BOAT, context -> new BoatRenderer(context, ModModelLayers.FIR_CHEST_BOAT));
         RenderHelper.registerEntityRenderer(BOPEntities.PINE_BOAT, context -> new BoatRenderer(context, ModModelLayers.PINE_BOAT));
@@ -440,6 +448,7 @@ public class ModClient
 
     public static void registerWoodTypes()
     {
+        SheetHelper.addWoodType(BOPWoodTypes.ORIGIN_OAK);
         SheetHelper.addWoodType(BOPWoodTypes.FIR);
         SheetHelper.addWoodType(BOPWoodTypes.PINE);
         SheetHelper.addWoodType(BOPWoodTypes.MAPLE);

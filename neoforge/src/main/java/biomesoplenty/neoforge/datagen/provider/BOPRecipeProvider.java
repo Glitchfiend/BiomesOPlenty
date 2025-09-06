@@ -36,6 +36,7 @@ public class BOPRecipeProvider extends RecipeProvider
         generateForEnabledBlockFamiliesBOP(FeatureFlagSet.of(FeatureFlags.VANILLA));
 
         // Planks from Logs
+        planksFromLogs(BOPBlocks.ORIGIN_OAK_PLANKS, ModTags.Items.ORIGIN_OAK_LOGS, 4);
         planksFromLogs(BOPBlocks.FIR_PLANKS, ModTags.Items.FIR_LOGS, 4);
         planksFromLogs(BOPBlocks.PINE_PLANKS, ModTags.Items.PINE_LOGS, 4);
         planksFromLogs(BOPBlocks.MAPLE_PLANKS, ModTags.Items.MAPLE_LOGS, 4);
@@ -51,6 +52,7 @@ public class BOPRecipeProvider extends RecipeProvider
         planksFromLogs(BOPBlocks.EMPYREAL_PLANKS, ModTags.Items.EMPYREAL_LOGS, 4);
 
         // Wood from Logs
+        woodFromLogs(BOPBlocks.ORIGIN_OAK_WOOD, BOPBlocks.ORIGIN_OAK_LOG);
         woodFromLogs(BOPBlocks.FIR_WOOD, BOPBlocks.FIR_LOG);
         woodFromLogs(BOPBlocks.PINE_WOOD, BOPBlocks.PINE_LOG);
         woodFromLogs(BOPBlocks.MAPLE_WOOD, BOPBlocks.MAPLE_LOG);
@@ -64,6 +66,7 @@ public class BOPRecipeProvider extends RecipeProvider
         woodFromLogs(BOPBlocks.UMBRAN_WOOD, BOPBlocks.UMBRAN_LOG);
         woodFromLogs(BOPBlocks.HELLBARK_WOOD, BOPBlocks.HELLBARK_LOG);
         woodFromLogs(BOPBlocks.EMPYREAL_WOOD, BOPBlocks.EMPYREAL_LOG);
+        woodFromLogs(BOPBlocks.STRIPPED_ORIGIN_OAK_WOOD, BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
         woodFromLogs(BOPBlocks.STRIPPED_FIR_WOOD, BOPBlocks.STRIPPED_FIR_LOG);
         woodFromLogs(BOPBlocks.STRIPPED_PINE_WOOD, BOPBlocks.STRIPPED_PINE_LOG);
         woodFromLogs(BOPBlocks.STRIPPED_MAPLE_WOOD, BOPBlocks.STRIPPED_MAPLE_LOG);
@@ -79,6 +82,7 @@ public class BOPRecipeProvider extends RecipeProvider
         woodFromLogs(BOPBlocks.STRIPPED_EMPYREAL_WOOD, BOPBlocks.STRIPPED_EMPYREAL_LOG);
 
         // Boats
+        woodenBoat(BOPItems.ORIGIN_OAK_BOAT, BOPBlocks.ORIGIN_OAK_PLANKS);
         woodenBoat(BOPItems.FIR_BOAT, BOPBlocks.FIR_PLANKS);
         woodenBoat(BOPItems.PINE_BOAT, BOPBlocks.PINE_PLANKS);
         woodenBoat(BOPItems.MAPLE_BOAT, BOPBlocks.MAPLE_PLANKS);
@@ -92,6 +96,7 @@ public class BOPRecipeProvider extends RecipeProvider
         woodenBoat(BOPItems.UMBRAN_BOAT, BOPBlocks.UMBRAN_PLANKS);
         woodenBoat(BOPItems.HELLBARK_BOAT, BOPBlocks.HELLBARK_PLANKS);
         woodenBoat(BOPItems.EMPYREAL_BOAT, BOPBlocks.EMPYREAL_PLANKS);
+        chestBoat(BOPItems.ORIGIN_OAK_CHEST_BOAT, BOPItems.ORIGIN_OAK_BOAT);
         chestBoat(BOPItems.FIR_CHEST_BOAT, BOPItems.FIR_BOAT);
         chestBoat(BOPItems.PINE_CHEST_BOAT, BOPItems.PINE_BOAT);
         chestBoat(BOPItems.MAPLE_CHEST_BOAT, BOPItems.MAPLE_BOAT);
@@ -107,6 +112,7 @@ public class BOPRecipeProvider extends RecipeProvider
         chestBoat(BOPItems.EMPYREAL_CHEST_BOAT, BOPItems.EMPYREAL_BOAT);
 
         // Hanging Signs
+        hangingSign(BOPItems.ORIGIN_OAK_HANGING_SIGN, BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
         hangingSign(BOPItems.FIR_HANGING_SIGN, BOPBlocks.STRIPPED_FIR_LOG);
         hangingSign(BOPItems.PINE_HANGING_SIGN, BOPBlocks.STRIPPED_PINE_LOG);
         hangingSign(BOPItems.MAPLE_HANGING_SIGN, BOPBlocks.STRIPPED_MAPLE_LOG);
@@ -211,7 +217,7 @@ public class BOPRecipeProvider extends RecipeProvider
         this.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.FLESH).define('#', Items.ROTTEN_FLESH).define('B', BOPItems.BLOOD_BUCKET).pattern(" # ").pattern("#B#").pattern(" # ").unlockedBy("has_blood_bucket", has(BOPItems.BLOOD_BUCKET)).save(output);
         this.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ROSE_QUARTZ_BLOCK).define('#', BOPItems.ROSE_QUARTZ_CHUNK).pattern("##").pattern("##").unlockedBy("has_rose_quartz_chunk", has(BOPItems.ROSE_QUARTZ_CHUNK)).save(output);
 
-        // Leaf Piles
+        // Leaf Litter
         this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.RED_MAPLE_LEAF_LITTER, 12).define('#', BOPBlocks.RED_MAPLE_LEAVES).pattern("###").unlockedBy("has_red_maple_leaves", has(BOPBlocks.RED_MAPLE_LEAVES)).save(output);
         this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.ORANGE_MAPLE_LEAF_LITTER, 12).define('#', BOPBlocks.ORANGE_MAPLE_LEAVES).pattern("###").unlockedBy("has_orange_maple_leaves", has(BOPBlocks.ORANGE_MAPLE_LEAVES)).save(output);
         this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, 12).define('#', BOPBlocks.YELLOW_MAPLE_LEAVES).pattern("###").unlockedBy("has_yellow_maple_leaves", has(BOPBlocks.YELLOW_MAPLE_LEAVES)).save(output);
@@ -232,11 +238,12 @@ public class BOPRecipeProvider extends RecipeProvider
         oneToOneConversionRecipe(Items.PURPLE_DYE, BOPBlocks.LAVENDER, "purple_dye");
         oneToOneConversionRecipe(Items.PURPLE_DYE, BOPBlocks.TALL_LAVENDER, "purple_dye", 2);
         oneToOneConversionRecipe(Items.PURPLE_DYE, BOPBlocks.VIOLET, "purple_dye");
-        oneToOneConversionRecipe(Items.RED_DYE, BOPBlocks.ROSE, "red_dye");
+        oneToOneConversionRecipe(Items.RED_DYE, BOPBlocks.ORIGIN_ROSE, "red_dye");
         oneToOneConversionRecipe(Items.RED_DYE, BOPBlocks.WATERLILY, "red_dye");
         oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.WHITE_LAVENDER, "white_dye");
         oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.TALL_WHITE_LAVENDER, "white_dye", 2);
         oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.WHITE_PETALS, "white_dye");
+        oneToOneConversionRecipe(Items.YELLOW_DYE, BOPBlocks.ORIGIN_DANDELION, "yellow_dye");
         oneToOneConversionRecipe(Items.YELLOW_DYE, BOPBlocks.GOLDENROD, "yellow_dye", 2);
 
         oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK, "white_dye", 4);

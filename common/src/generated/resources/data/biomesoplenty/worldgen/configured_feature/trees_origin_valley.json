@@ -1,11 +1,11 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "biomesoplenty:origin_tree",
+    "default": "biomesoplenty:origin_oak_tree",
     "features": [
       {
         "chance": 0.1,
-        "feature": "biomesoplenty:big_origin_tree"
+        "feature": "biomesoplenty:big_origin_oak_tree"
       }
     ]
   }

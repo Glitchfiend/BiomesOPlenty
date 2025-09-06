@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "biomesoplenty:block/origin_oak_pressure_plate"
+    },
+    "powered=true": {
+      "model": "biomesoplenty:block/origin_oak_pressure_plate_down"
+    }
+  }
+}

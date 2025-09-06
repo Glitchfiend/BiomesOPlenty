@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:origin_oak_log",
+    "biomesoplenty:origin_oak_wood",
+    "biomesoplenty:stripped_origin_oak_log",
+    "biomesoplenty:stripped_origin_oak_wood"
+  ]
+}
