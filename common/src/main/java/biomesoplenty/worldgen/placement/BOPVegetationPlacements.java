@@ -127,6 +127,8 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> GOLDENROD = BOPPlacementUtils.createKey("goldenrod");
     public static final ResourceKey<PlacedFeature> LILAC_NORMAL = BOPPlacementUtils.createKey("patch_lilac_normal");
     public static final ResourceKey<PlacedFeature> LILAC_EXTRA = BOPPlacementUtils.createKey("patch_lilac_extra");
+    public static final ResourceKey<PlacedFeature> ORIGIN_DANDELION_BONEMEAL = BOPPlacementUtils.createKey("origin_dandelion_bonemeal");
+    public static final ResourceKey<PlacedFeature> ORIGIN_ROSE_BONEMEAL = BOPPlacementUtils.createKey("origin_rose_bonemeal");
     public static final ResourceKey<PlacedFeature> PEONY = BOPPlacementUtils.createKey("patch_peony");
     public static final ResourceKey<PlacedFeature> ROSE_BUSH_NORMAL = BOPPlacementUtils.createKey("rose_bush_normal");
     public static final ResourceKey<PlacedFeature> ROSE_BUSH_EXTRA = BOPPlacementUtils.createKey("rose_bush_extra");
@@ -264,6 +266,8 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> FLOWER_WASTELAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_WASTELAND);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_WETLAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_WETLAND);
         final Holder<ConfiguredFeature<?, ?>> GOLDENROD = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.GOLDENROD);
+        final Holder<ConfiguredFeature<?, ?>> ORIGIN_DANDELION_BONEMEAL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ORIGIN_DANDELION_BONEMEAL);
+        final Holder<ConfiguredFeature<?, ?>> ORIGIN_ROSE_BONEMEAL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ORIGIN_ROSE_BONEMEAL);
         final Holder<ConfiguredFeature<?, ?>> PATCH_LILAC = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_LILAC);
         final Holder<ConfiguredFeature<?, ?>> PATCH_PEONY = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_PEONY);
         final Holder<ConfiguredFeature<?, ?>> ROSE_BUSH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.ROSE_BUSH);
@@ -434,6 +438,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.GOLDENROD, GOLDENROD, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.LILAC_NORMAL, PATCH_LILAC, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.LILAC_EXTRA, PATCH_LILAC, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.ORIGIN_DANDELION_BONEMEAL, ORIGIN_DANDELION_BONEMEAL, PlacementUtils.isEmpty());
+        register(context, BOPVegetationPlacements.ORIGIN_ROSE_BONEMEAL, ORIGIN_ROSE_BONEMEAL, PlacementUtils.isEmpty());
         register(context, BOPVegetationPlacements.PEONY, PATCH_PEONY, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.ROSE_BUSH_NORMAL, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.ROSE_BUSH_EXTRA, ROSE_BUSH, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

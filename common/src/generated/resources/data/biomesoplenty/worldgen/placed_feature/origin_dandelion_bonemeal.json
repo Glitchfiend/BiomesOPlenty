@@ -1,0 +1,12 @@
+{
+  "feature": "biomesoplenty:origin_dandelion_bonemeal",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      }
+    }
+  ]
+}

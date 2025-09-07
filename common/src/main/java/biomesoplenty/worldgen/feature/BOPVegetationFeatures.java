@@ -99,6 +99,8 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE_BUSH = BOPFeatureUtils.createKey("rose_bush");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SCATTERED_ROCKS = BOPFeatureUtils.createKey("scattered_rocks");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SCRUB = BOPFeatureUtils.createKey("scrub");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORIGIN_DANDELION_BONEMEAL = BOPFeatureUtils.createKey("origin_dandelion_bonemeal");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORIGIN_ROSE_BONEMEAL = BOPFeatureUtils.createKey("origin_rose_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPROUT_BONEMEAL = BOPFeatureUtils.createKey("sprout_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNFLOWER = BOPFeatureUtils.createKey("sunflower");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHORT_BAMBOO = BOPFeatureUtils.createKey("short_bamboo");
@@ -289,6 +291,8 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.ROSE_BUSH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ROSE_BUSH))));
         register(context, BOPVegetationFeatures.SCATTERED_ROCKS, BOPBaseFeatures.SCATTERED_ROCKS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.SCRUB, BOPBaseFeatures.SCRUB, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.ORIGIN_DANDELION_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ORIGIN_DANDELION.defaultBlockState())));
+        register(context, BOPVegetationFeatures.ORIGIN_ROSE_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ORIGIN_ROSE.defaultBlockState())));
         register(context, BOPVegetationFeatures.SPROUT_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT.defaultBlockState())));
         register(context, BOPVegetationFeatures.SUNFLOWER, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.SUNFLOWER))));
         register(context, BOPVegetationFeatures.SHORT_BAMBOO, BOPBaseFeatures.SHORT_BAMBOO, NoneFeatureConfiguration.INSTANCE);
