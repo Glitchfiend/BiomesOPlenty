@@ -55,6 +55,7 @@ public class BOPMiscOverworldFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> MUD_SPLATTER = BOPFeatureUtils.createKey("mud_splatter");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_LAKE = BOPFeatureUtils.createKey("water_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOT_SPRING_LAKE = BOPFeatureUtils.createKey("hot_spring_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OBSIDIAN_LAKE = BOPFeatureUtils.createKey("obsidian_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LAVA_LAKE_VOLCANO = BOPFeatureUtils.createKey("lava_lake_volcano");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRING_LAVA_VOLCANO = BOPFeatureUtils.createKey("spring_lava_volcano");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRING_WATER_EXTRA = BOPFeatureUtils.createKey("spring_water_extra");
@@ -89,6 +90,7 @@ public class BOPMiscOverworldFeatures
         register(context, BOPMiscOverworldFeatures.MUD_SPLATTER, BOPBaseFeatures.MUD_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.WATER_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.WATER.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
         register(context, BOPMiscOverworldFeatures.HOT_SPRING_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.WATER.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
+        register(context, BOPMiscOverworldFeatures.OBSIDIAN_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.OBSIDIAN.defaultBlockState()), BlockStateProvider.simple(BOPBlocks.BLACK_SANDSTONE.defaultBlockState())));
         register(context, BOPMiscOverworldFeatures.LAVA_LAKE_VOLCANO, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.LAVA.defaultBlockState()), BlockStateProvider.simple(Blocks.AIR.defaultBlockState())));
         register(context, BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO, Feature.SPRING, new SpringConfiguration(Fluids.LAVA.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.BASALT, Blocks.SMOOTH_BASALT, Blocks.MAGMA_BLOCK, BOPBlocks.BLACK_SANDSTONE)));
         register(context, BOPMiscOverworldFeatures.SPRING_WATER_EXTRA, Feature.SPRING, new SpringConfiguration(Fluids.WATER.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.DIRT, Blocks.TERRACOTTA, Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.CYAN_TERRACOTTA, Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.BLUE_TERRACOTTA, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE, BOPBlocks.ORANGE_SANDSTONE)));

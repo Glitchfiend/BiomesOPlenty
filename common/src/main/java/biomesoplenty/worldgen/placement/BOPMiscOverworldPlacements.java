@@ -49,6 +49,7 @@ public class BOPMiscOverworldPlacements
     public static final ResourceKey<PlacedFeature> LAKE_WATER_EXTRA = BOPPlacementUtils.createKey("lake_water_extra");
     public static final ResourceKey<PlacedFeature> LAKE_WATER_MARSH = BOPPlacementUtils.createKey("lake_water_marsh");
     public static final ResourceKey<PlacedFeature> LAKE_HOT_SPRING = BOPPlacementUtils.createKey("lake_hot_spring");
+    public static final ResourceKey<PlacedFeature> LAKE_OBSIDIAN = BOPPlacementUtils.createKey("lake_obsidian");
     public static final ResourceKey<PlacedFeature> LAKE_LAVA_SURFACE_EXTRA = BOPPlacementUtils.createKey("lake_lava_surface_extra");
     public static final ResourceKey<PlacedFeature> SPRING_LAVA_VOLCANO = BOPPlacementUtils.createKey("spring_lava_volcano");
     public static final ResourceKey<PlacedFeature> SPRING_WATER_EXTRA = BOPPlacementUtils.createKey("spring_water_extra");
@@ -83,6 +84,7 @@ public class BOPMiscOverworldPlacements
         final Holder<ConfiguredFeature<?, ?>> MUD_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.MUD_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> LAKE_WATER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.WATER_LAKE);
         final Holder<ConfiguredFeature<?, ?>> LAKE_HOT_SPRING = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.HOT_SPRING_LAKE);
+        final Holder<ConfiguredFeature<?, ?>> LAKE_OBSIDIAN = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.OBSIDIAN_LAKE);
         final Holder<ConfiguredFeature<?, ?>> LAKE_LAVA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.LAVA_LAKE_VOLCANO);
         final Holder<ConfiguredFeature<?, ?>> SPRING_LAVA_VOLCANO = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO);
         final Holder<ConfiguredFeature<?, ?>> SPRING_WATER_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_WATER_EXTRA);
@@ -115,6 +117,7 @@ public class BOPMiscOverworldPlacements
         register(context, BOPMiscOverworldPlacements.LAKE_WATER_EXTRA, LAKE_WATER, CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.LAKE_WATER_MARSH, LAKE_WATER, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.LAKE_HOT_SPRING, LAKE_HOT_SPRING, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+        register(context, BOPMiscOverworldPlacements.LAKE_OBSIDIAN, LAKE_OBSIDIAN, RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.LAKE_LAVA_SURFACE_EXTRA, LAKE_LAVA, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, BOPMiscOverworldPlacements.SPRING_LAVA_VOLCANO, SPRING_LAVA_VOLCANO, List.of(CountPlacement.of(96), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(96), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.SPRING_WATER_EXTRA, SPRING_WATER_EXTRA, List.of(CountPlacement.of(96), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(72), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
