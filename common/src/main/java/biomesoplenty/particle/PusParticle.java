@@ -6,13 +6,15 @@ package biomesoplenty.particle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.RandomSource;
 
-public class PusParticle extends TextureSheetParticle
+public class PusParticle extends SingleQuadParticle
 {
-    PusParticle(ClientLevel p_107074_, double p_107075_, double p_107076_, double p_107077_)
+    PusParticle(ClientLevel p_107074_, double p_107075_, double p_107076_, double p_107077_, TextureAtlasSprite sprite)
     {
-        super(p_107074_, p_107075_, p_107076_, p_107077_, 0.0D, 0.0D, 0.0D);
+        super(p_107074_, p_107075_, p_107076_, p_107077_, 0.0D, 0.0D, 0.0D, sprite);
         this.gravity = 0.75F;
         this.friction = 0.999F;
         this.xd *= (double)0.8F;
@@ -21,11 +23,6 @@ public class PusParticle extends TextureSheetParticle
         this.yd = (double)(this.random.nextFloat() * 0.4F + 0.05F);
         this.quadSize *= this.random.nextFloat() * 2.0F + 0.2F;
         this.lifetime = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
-    }
-
-    @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
     @Override
@@ -40,19 +37,24 @@ public class PusParticle extends TextureSheetParticle
         return this.quadSize * (1.0F - f * f);
     }
 
+    @Override
+    public SingleQuadParticle.Layer getLayer()
+    {
+        return SingleQuadParticle.Layer.OPAQUE;
+    }
+
     public static class Provider implements ParticleProvider<SimpleParticleType>
     {
         private final SpriteSet sprite;
 
-        public Provider(SpriteSet p_107092_) {
-            this.sprite = p_107092_;
+        public Provider(SpriteSet sprite) {
+            this.sprite = sprite;
         }
 
-        public Particle createParticle(SimpleParticleType p_107103_, ClientLevel p_107104_, double p_107105_, double p_107106_, double p_107107_, double p_107108_, double p_107109_, double p_107110_)
+        @Override
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double xo, double yo, double zo, double xd, double yd, double zd, RandomSource random)
         {
-            PusParticle pusparticle = new PusParticle(p_107104_, p_107105_, p_107106_, p_107107_);
-            pusparticle.pickSprite(this.sprite);
-            return pusparticle;
+            return new PusParticle(level, xo, yo, zo, this.sprite.get(random));
         }
     }
 }

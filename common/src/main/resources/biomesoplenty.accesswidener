@@ -34,3 +34,6 @@ accessible field net/minecraft/world/entity/npc/VillagerType BY_BIOME Ljava/util
 
 # Block Entities
 accessible method net/minecraft/world/level/block/entity/BlockEntityType <init> (Lnet/minecraft/world/level/block/entity/BlockEntityType$BlockEntitySupplier;Ljava/util/Set;)V
+
+# Particles
+accessible class net/minecraft/client/particle/ParticleResources$SpriteParticleRegistration

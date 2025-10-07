@@ -6,13 +6,15 @@ package biomesoplenty.particle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.RandomSource;
 
-public class WispBubbleParticle extends TextureSheetParticle
+public class WispBubbleParticle extends SingleQuadParticle
 {
-    WispBubbleParticle(ClientLevel p_105856_, double p_105857_, double p_105858_, double p_105859_, double p_105860_, double p_105861_, double p_105862_)
+    WispBubbleParticle(ClientLevel p_105856_, double p_105857_, double p_105858_, double p_105859_, double p_105860_, double p_105861_, double p_105862_, TextureAtlasSprite sprite)
     {
-        super(p_105856_, p_105857_, p_105858_, p_105859_);
+        super(p_105856_, p_105857_, p_105858_, p_105859_, sprite);
         this.setSize(0.025F, 0.025F);
         this.quadSize *= this.random.nextFloat() * 1.0F + 0.2F;
         this.lifetime = this.random.nextInt(64) + 64;
@@ -52,8 +54,9 @@ public class WispBubbleParticle extends TextureSheetParticle
     }
 
     @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+    public SingleQuadParticle.Layer getLayer()
+    {
+        return SingleQuadParticle.Layer.OPAQUE;
     }
 
     public static class Provider implements ParticleProvider<SimpleParticleType>
@@ -64,11 +67,11 @@ public class WispBubbleParticle extends TextureSheetParticle
             this.sprites = p_105899_;
         }
 
-        public Particle createParticle(SimpleParticleType p_105910_, ClientLevel p_105911_, double p_105912_, double p_105913_, double p_105914_, double p_105915_, double p_105916_, double p_105917_)
+        @Override
+        public Particle createParticle(SimpleParticleType p_105910_, ClientLevel p_105911_, double p_105912_, double p_105913_, double p_105914_, double p_105915_, double p_105916_, double p_105917_, RandomSource random)
         {
-            WispBubbleParticle particle = new WispBubbleParticle(p_105911_, p_105912_, p_105913_, p_105914_, p_105915_, p_105916_, p_105917_);
+            WispBubbleParticle particle = new WispBubbleParticle(p_105911_, p_105912_, p_105913_, p_105914_, p_105915_, p_105916_, p_105917_, this.sprites.get(random));
             particle.setAlpha(0.375F);
-            particle.pickSprite(this.sprites);
             return particle;
         }
     }

@@ -288,7 +288,7 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                     int chainHeight = world.getRandom().nextInt(roomHeight);
                     for (int y = 0; y < chainHeight; y++)
                     {
-                        this.setBlock(world, pos.offset(x,(roomHeight-1)-y,z), Blocks.CHAIN.defaultBlockState());
+                        this.setBlock(world, pos.offset(x,(roomHeight-1)-y,z), Blocks.IRON_CHAIN.defaultBlockState());
                     }
                 }
             }

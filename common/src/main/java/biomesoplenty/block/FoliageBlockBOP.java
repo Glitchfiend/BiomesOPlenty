@@ -60,7 +60,7 @@ public class FoliageBlockBOP extends VegetationBlockBOP
     @Override
     public void playerDestroy(Level worldIn, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity te, ItemStack stack)
     {
-        if (!worldIn.isClientSide && stack.getItem() == Items.SHEARS)
+        if (!worldIn.isClientSide() && stack.getItem() == Items.SHEARS)
         {
             player.awardStat(Stats.BLOCK_MINED.get(this));
             player.causeFoodExhaustion(0.005F);

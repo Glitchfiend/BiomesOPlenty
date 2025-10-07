@@ -2,10 +2,11 @@ package biomesoplenty.particle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleRenderType;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 
-public class NormalLeafParticle extends TextureSheetParticle {
+public class NormalLeafParticle extends SingleQuadParticle {
     private static final float ACCELERATION_SCALE = 0.0025F;
     private static final int INITIAL_LIFETIME = 300;
     private static final int CURVE_ENDPOINT_TIME = 300;
@@ -19,9 +20,9 @@ public class NormalLeafParticle extends TextureSheetParticle {
     private double zaFlowScale;
     private double swirlPeriod;
 
-    public NormalLeafParticle(ClientLevel p_377646_, double p_377442_, double p_376050_, double p_377918_, SpriteSet p_376948_)
+    public NormalLeafParticle(ClientLevel p_377646_, double p_377442_, double p_376050_, double p_377918_, SpriteSet p_376948_, TextureAtlasSprite sprite)
     {
-        super(p_377646_, p_377442_, p_376050_, p_377918_);
+        super(p_377646_, p_377442_, p_376050_, p_377918_, sprite);
         this.setSprite(p_376948_.get(this.random.nextInt(4), 4));
         this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -30.0 : 30.0);
         this.particleRandom = this.random.nextFloat();
@@ -42,7 +43,10 @@ public class NormalLeafParticle extends TextureSheetParticle {
     }
 
     @Override
-    public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_OPAQUE; }
+    public SingleQuadParticle.Layer getLayer()
+    {
+        return SingleQuadParticle.Layer.OPAQUE;
+    }
 
     @Override
     public void tick() {

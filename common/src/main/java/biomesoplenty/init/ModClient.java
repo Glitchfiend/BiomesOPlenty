@@ -29,6 +29,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
@@ -390,58 +391,58 @@ public class ModClient
         event.registerSpriteSet(ModParticles.NULL, NullParticle.Provider::new);
         event.registerSpriteSet(ModParticles.BINARY, BinaryParticle.Provider::new);
         event.registerSpriteSet(ModParticles.JACARANDA_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.SNOWBLOSSOM_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.RED_MAPLE_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.ORANGE_MAPLE_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.YELLOW_MAPLE_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.FIR_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.REDWOOD_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.CYPRESS_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.MAGIC_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.UMBRAN_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
         event.registerSpriteSet(ModParticles.HELLBARK_LEAVES, (p_277215_) -> {
-            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_) -> {
-                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_);
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
     }

@@ -6,13 +6,15 @@ package biomesoplenty.particle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.RandomSource;
 
-public class EndSporeParticle extends TextureSheetParticle
+public class EndSporeParticle extends SingleQuadParticle
 {
-    EndSporeParticle(ClientLevel p_105856_, double p_105857_, double p_105858_, double p_105859_, double p_105860_, double p_105861_, double p_105862_)
+    EndSporeParticle(ClientLevel p_105856_, double p_105857_, double p_105858_, double p_105859_, double p_105860_, double p_105861_, double p_105862_, TextureAtlasSprite texture)
     {
-        super(p_105856_, p_105857_, p_105858_, p_105859_);
+        super(p_105856_, p_105857_, p_105858_, p_105859_, texture);
         this.setSize(0.05F, 0.05F);
         this.lifetime = this.random.nextInt(128) + 32;
         this.xd = (double)((this.random.nextFloat() - this.random.nextFloat()) / 100.0F);
@@ -37,23 +39,23 @@ public class EndSporeParticle extends TextureSheetParticle
     }
 
     @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public SingleQuadParticle.Layer getLayer()
+    {
+        return SingleQuadParticle.Layer.OPAQUE;
     }
 
     public static class Provider implements ParticleProvider<SimpleParticleType>
     {
-        private final SpriteSet sprites;
+        private final SpriteSet sprite;
 
-        public Provider(SpriteSet p_105899_) {
-            this.sprites = p_105899_;
+        public Provider(SpriteSet sprite) {
+            this.sprite = sprite;
         }
 
-        public Particle createParticle(SimpleParticleType p_105910_, ClientLevel p_105911_, double p_105912_, double p_105913_, double p_105914_, double p_105915_, double p_105916_, double p_105917_)
+        @Override
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double xo, double yo, double zo, double xd, double yd, double zd, RandomSource random)
         {
-            EndSporeParticle particle = new EndSporeParticle(p_105911_, p_105912_, p_105913_, p_105914_, p_105915_, p_105916_, p_105917_);
-            particle.pickSprite(this.sprites);
-            return particle;
+            return new EndSporeParticle(level, xo, yo, zo, xd, yd, zd, this.sprite.get(random));
         }
     }
 }

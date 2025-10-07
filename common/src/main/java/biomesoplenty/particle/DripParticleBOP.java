@@ -8,23 +8,25 @@ import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.init.ModParticles;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 
-public class DripParticleBOP extends TextureSheetParticle
+public class DripParticleBOP extends SingleQuadParticle
 {
     private final Fluid type;
     protected boolean isGlowing;
 
-    DripParticleBOP(ClientLevel p_106051_, double p_106052_, double p_106053_, double p_106054_, Fluid p_106055_)
+    DripParticleBOP(ClientLevel p_106051_, double p_106052_, double p_106053_, double p_106054_, Fluid p_106055_, TextureAtlasSprite sprite)
     {
-        super(p_106051_, p_106052_, p_106053_, p_106054_);
+        super(p_106051_, p_106052_, p_106053_, p_106054_, sprite);
         this.setSize(0.01F, 0.01F);
         this.gravity = 0.06F;
         this.type = p_106055_;
@@ -35,8 +37,9 @@ public class DripParticleBOP extends TextureSheetParticle
     }
 
     @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public SingleQuadParticle.Layer getLayer()
+    {
+        return SingleQuadParticle.Layer.OPAQUE;
     }
 
     @Override
@@ -84,8 +87,8 @@ public class DripParticleBOP extends TextureSheetParticle
     static class DripHangParticle extends DripParticleBOP {
         private final ParticleOptions fallingParticle;
 
-        DripHangParticle(ClientLevel p_106085_, double p_106086_, double p_106087_, double p_106088_, Fluid p_106089_, ParticleOptions p_106090_) {
-            super(p_106085_, p_106086_, p_106087_, p_106088_, p_106089_);
+        DripHangParticle(ClientLevel p_106085_, double p_106086_, double p_106087_, double p_106088_, Fluid p_106089_, ParticleOptions p_106090_, TextureAtlasSprite sprite) {
+            super(p_106085_, p_106086_, p_106087_, p_106088_, p_106089_, sprite);
             this.fallingParticle = p_106090_;
             this.gravity *= 0.02F;
             this.lifetime = 40;
@@ -108,9 +111,9 @@ public class DripParticleBOP extends TextureSheetParticle
 
     static class DripLandParticle extends DripParticleBOP
     {
-        DripLandParticle(ClientLevel p_106102_, double p_106103_, double p_106104_, double p_106105_, Fluid p_106106_)
+        DripLandParticle(ClientLevel p_106102_, double p_106103_, double p_106104_, double p_106105_, Fluid p_106106_, TextureAtlasSprite sprite)
         {
-            super(p_106102_, p_106103_, p_106104_, p_106105_, p_106106_);
+            super(p_106102_, p_106103_, p_106104_, p_106105_, p_106106_, sprite);
             this.lifetime = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
         }
     }
@@ -119,9 +122,9 @@ public class DripParticleBOP extends TextureSheetParticle
     {
         protected final ParticleOptions landParticle;
 
-        FallAndLandParticle(ClientLevel p_106116_, double p_106117_, double p_106118_, double p_106119_, Fluid p_106120_, ParticleOptions p_106121_)
+        FallAndLandParticle(ClientLevel p_106116_, double p_106117_, double p_106118_, double p_106119_, Fluid p_106120_, ParticleOptions p_106121_, TextureAtlasSprite sprite)
         {
-            super(p_106116_, p_106117_, p_106118_, p_106119_, p_106120_);
+            super(p_106116_, p_106117_, p_106118_, p_106119_, p_106120_, sprite);
             this.landParticle = p_106121_;
         }
 
@@ -138,14 +141,14 @@ public class DripParticleBOP extends TextureSheetParticle
 
     static class FallingParticle extends DripParticleBOP
     {
-        FallingParticle(ClientLevel p_106132_, double p_106133_, double p_106134_, double p_106135_, Fluid p_106136_)
+        FallingParticle(ClientLevel p_106132_, double p_106133_, double p_106134_, double p_106135_, Fluid p_106136_, TextureAtlasSprite sprite)
         {
-            this(p_106132_, p_106133_, p_106134_, p_106135_, p_106136_, (int)(64.0D / (Math.random() * 0.8D + 0.2D)));
+            this(p_106132_, p_106133_, p_106134_, p_106135_, p_106136_, (int)(64.0D / (Math.random() * 0.8D + 0.2D)), sprite);
         }
 
-        FallingParticle(ClientLevel p_172022_, double p_172023_, double p_172024_, double p_172025_, Fluid p_172026_, int p_172027_)
+        FallingParticle(ClientLevel p_172022_, double p_172023_, double p_172024_, double p_172025_, Fluid p_172026_, int p_172027_, TextureAtlasSprite sprite)
         {
-            super(p_172022_, p_172023_, p_172024_, p_172025_, p_172026_);
+            super(p_172022_, p_172023_, p_172024_, p_172025_, p_172026_, sprite);
             this.lifetime = p_172027_;
         }
 
@@ -161,8 +164,8 @@ public class DripParticleBOP extends TextureSheetParticle
 
     static class BloodFallAndLandParticle extends DripParticleBOP.FallAndLandParticle
     {
-        BloodFallAndLandParticle(ClientLevel p_106146_, double p_106147_, double p_106148_, double p_106149_, Fluid p_106150_, ParticleOptions p_106151_) {
-            super(p_106146_, p_106147_, p_106148_, p_106149_, p_106150_, p_106151_);
+        BloodFallAndLandParticle(ClientLevel p_106146_, double p_106147_, double p_106148_, double p_106149_, Fluid p_106150_, ParticleOptions p_106151_, TextureAtlasSprite sprite) {
+            super(p_106146_, p_106147_, p_106148_, p_106149_, p_106150_, p_106151_, sprite);
         }
 
         protected void postMoveUpdate() {
@@ -175,19 +178,21 @@ public class DripParticleBOP extends TextureSheetParticle
         }
     }
 
-    public static class BloodFallProvider implements ParticleProvider<SimpleParticleType> {
+    public static class BloodFallProvider implements ParticleProvider<SimpleParticleType>
+    {
         protected final SpriteSet sprite;
 
-        public BloodFallProvider(SpriteSet p_106163_) {
-            this.sprite = p_106163_;
+        public BloodFallProvider(SpriteSet p_106184_)
+        {
+            this.sprite = p_106184_;
         }
 
-        public Particle createParticle(SimpleParticleType p_106174_, ClientLevel p_106175_, double p_106176_, double p_106177_, double p_106178_, double p_106179_, double p_106180_, double p_106181_)
+        @Override
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double xo, double yo, double zo, double xd, double yd, double zd, RandomSource random)
         {
-            DripParticleBOP dripparticle = new DripParticleBOP.BloodFallAndLandParticle(p_106175_, p_106176_, p_106177_, p_106178_, Fluids.EMPTY, ModParticles.LANDING_BLOOD);
+            DripParticleBOP.DripHangParticle dripparticle = new DripParticleBOP.DripHangParticle(level, xo, yo, zo, Fluids.EMPTY, ModParticles.LANDING_BLOOD, this.sprite.get(random));
             dripparticle.gravity = 0.01F;
             dripparticle.setColor(0.443F, 0.141F, 0.149F);
-            dripparticle.pickSprite(this.sprite);
             return dripparticle;
         }
     }
@@ -201,13 +206,13 @@ public class DripParticleBOP extends TextureSheetParticle
             this.sprite = p_106184_;
         }
 
-        public TextureSheetParticle createParticle(SimpleParticleType p_106195_, ClientLevel p_106196_, double p_106197_, double p_106198_, double p_106199_, double p_106200_, double p_106201_, double p_106202_)
+        @Override
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double xo, double yo, double zo, double xd, double yd, double zd, RandomSource random)
         {
-            DripParticleBOP.DripHangParticle dripparticle$driphangparticle = new DripParticleBOP.DripHangParticle(p_106196_, p_106197_, p_106198_, p_106199_, Fluids.EMPTY, ModParticles.FALLING_BLOOD);
+            DripParticleBOP.DripHangParticle dripparticle$driphangparticle = new DripParticleBOP.DripHangParticle(level, xo, yo, zo, Fluids.EMPTY, ModParticles.FALLING_BLOOD, this.sprite.get(random));
             dripparticle$driphangparticle.gravity *= 0.01F;
             dripparticle$driphangparticle.lifetime = 100;
             dripparticle$driphangparticle.setColor(0.443F, 0.141F, 0.149F);
-            dripparticle$driphangparticle.pickSprite(this.sprite);
             return dripparticle$driphangparticle;
         }
     }
@@ -220,12 +225,12 @@ public class DripParticleBOP extends TextureSheetParticle
             this.sprite = p_106205_;
         }
 
-        public Particle createParticle(SimpleParticleType p_106216_, ClientLevel p_106217_, double p_106218_, double p_106219_, double p_106220_, double p_106221_, double p_106222_, double p_106223_)
+        @Override
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double xo, double yo, double zo, double xd, double yd, double zd, RandomSource random)
         {
-            DripParticleBOP dripparticle = new DripParticleBOP.DripLandParticle(p_106217_, p_106218_, p_106219_, p_106220_, Fluids.EMPTY);
+            DripParticleBOP dripparticle = new DripParticleBOP.DripLandParticle(level, xo, yo, zo, Fluids.EMPTY, this.sprite.get(random));
             dripparticle.lifetime = (int)(128.0D / (Math.random() * 0.8D + 0.2D));
             dripparticle.setColor(0.443F, 0.141F, 0.149F);
-            dripparticle.pickSprite(this.sprite);
             return dripparticle;
         }
     }

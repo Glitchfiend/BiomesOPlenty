@@ -153,7 +153,7 @@ public class HugeLilyPadBlock extends VegetationBlockBOP
     public void setPlacedBy(Level p_49499_, BlockPos p_49500_, BlockState p_49501_, @Nullable LivingEntity p_49502_, ItemStack p_49503_)
     {
         super.setPlacedBy(p_49499_, p_49500_, p_49501_, p_49502_, p_49503_);
-        if (!p_49499_.isClientSide) {
+        if (!p_49499_.isClientSide()) {
             BlockPos blockpos = p_49500_.relative(p_49501_.getValue(FACING));
             BlockPos blockpos1 = blockpos.relative(p_49501_.getValue(FACING).getClockWise());
             BlockPos blockpos2 = p_49500_.relative(p_49501_.getValue(FACING).getClockWise());
@@ -183,7 +183,7 @@ public class HugeLilyPadBlock extends VegetationBlockBOP
     @Override
     public BlockState playerWillDestroy(Level p_52878_, BlockPos p_52879_, BlockState p_52880_, Player p_52881_)
     {
-        if (!p_52878_.isClientSide)
+        if (!p_52878_.isClientSide())
         {
             if (p_52881_.preventsBlockDrops())
             {

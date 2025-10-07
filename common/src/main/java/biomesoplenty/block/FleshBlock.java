@@ -95,7 +95,7 @@ public class FleshBlock extends Block
     {
         if (stack.is(ModTags.Items.SHEARS) && state.getBlock() == BOPBlocks.FLESH)
         {
-            if (!level.isClientSide)
+            if (!level.isClientSide())
             {
                 Direction direction = hitResult.getDirection();
                 Direction direction1 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
@@ -104,7 +104,7 @@ public class FleshBlock extends Block
                 ItemEntity itementity = new ItemEntity(level, (double)pos.getX() + 0.5D + (double)direction1.getStepX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction1.getStepZ() * 0.65D, new ItemStack(Items.ROTTEN_FLESH, 1));
                 itementity.setDeltaMovement(0.05D * (double)direction1.getStepX() + level.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction1.getStepZ() + level.random.nextDouble() * 0.02D);
                 level.addFreshEntity(itementity);
-                stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                stack.hurtAndBreak(1, player, hand);
                 level.gameEvent(player, GameEvent.SHEAR, pos);
                 player.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
             }

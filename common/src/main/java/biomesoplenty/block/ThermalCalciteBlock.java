@@ -66,12 +66,12 @@ public class ThermalCalciteBlock extends Block
     {
         if (stack.is(ItemTags.PICKAXES) && state.getBlock() == BOPBlocks.THERMAL_CALCITE)
         {
-            if (!level.isClientSide)
+            if (!level.isClientSide())
             {
                 int distance = state.getValue(DISTANCE);
                 level.playSound((Player)null, pos, SoundEvents.CALCITE_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
                 level.setBlock(pos, BOPBlocks.THERMAL_CALCITE_VENT.defaultBlockState().setValue(DISTANCE, distance), 11);
-                stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                stack.hurtAndBreak(1, player, hand);
                 level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
             }

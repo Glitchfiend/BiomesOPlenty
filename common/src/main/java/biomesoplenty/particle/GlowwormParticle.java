@@ -6,19 +6,21 @@ package biomesoplenty.particle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 
-public class GlowwormParticle extends TextureSheetParticle
+public class GlowwormParticle extends SingleQuadParticle
 {
     private final Fluid type;
 
-    GlowwormParticle(ClientLevel p_106051_, double p_106052_, double p_106053_, double p_106054_, Fluid p_106055_)
+    GlowwormParticle(ClientLevel p_106051_, double p_106052_, double p_106053_, double p_106054_, Fluid p_106055_, TextureAtlasSprite sprite)
     {
-        super(p_106051_, p_106052_, p_106053_, p_106054_);
+        super(p_106051_, p_106052_, p_106053_, p_106054_, sprite);
         this.setSize(0.01F, 0.01F);
         this.gravity = 0.06F;
         this.type = p_106055_;
@@ -30,8 +32,9 @@ public class GlowwormParticle extends TextureSheetParticle
     }
 
     @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public SingleQuadParticle.Layer getLayer()
+    {
+        return SingleQuadParticle.Layer.OPAQUE;
     }
 
     @Override
@@ -80,14 +83,14 @@ public class GlowwormParticle extends TextureSheetParticle
 
     static class FallingParticle extends GlowwormParticle
     {
-        FallingParticle(ClientLevel p_106132_, double p_106133_, double p_106134_, double p_106135_, Fluid p_106136_)
+        FallingParticle(ClientLevel p_106132_, double p_106133_, double p_106134_, double p_106135_, Fluid p_106136_, TextureAtlasSprite sprite)
         {
-            this(p_106132_, p_106133_, p_106134_, p_106135_, p_106136_, (int)(64.0D / (Math.random() * 0.8D + 0.2D)));
+            this(p_106132_, p_106133_, p_106134_, p_106135_, p_106136_, (int)(64.0D / (Math.random() * 0.8D + 0.2D)), sprite);
         }
 
-        FallingParticle(ClientLevel p_172022_, double p_172023_, double p_172024_, double p_172025_, Fluid p_172026_, int p_172027_)
+        FallingParticle(ClientLevel p_172022_, double p_172023_, double p_172024_, double p_172025_, Fluid p_172026_, int p_172027_, TextureAtlasSprite sprite)
         {
-            super(p_172022_, p_172023_, p_172024_, p_172025_, p_172026_);
+            super(p_172022_, p_172023_, p_172024_, p_172025_, p_172026_, sprite);
             this.lifetime = p_172027_;
         }
 
@@ -104,15 +107,15 @@ public class GlowwormParticle extends TextureSheetParticle
     {
         protected final SpriteSet sprite;
 
-        public Provider(SpriteSet p_106163_) {
-            this.sprite = p_106163_;
+        public Provider(SpriteSet p_106205_) {
+            this.sprite = p_106205_;
         }
 
-        public Particle createParticle(SimpleParticleType p_106174_, ClientLevel p_106175_, double p_106176_, double p_106177_, double p_106178_, double p_106179_, double p_106180_, double p_106181_)
+        @Override
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double xo, double yo, double zo, double xd, double yd, double zd, RandomSource random)
         {
-            GlowwormParticle glowwormparticle = new GlowwormParticle.FallingParticle(p_106175_, p_106176_, p_106177_, p_106178_, Fluids.EMPTY);
+            GlowwormParticle glowwormparticle = new GlowwormParticle.FallingParticle(level, xo, yo, zo, Fluids.EMPTY, this.sprite.get(random));
             glowwormparticle.gravity = 0.025F;
-            glowwormparticle.pickSprite(this.sprite);
             return glowwormparticle;
         }
     }
