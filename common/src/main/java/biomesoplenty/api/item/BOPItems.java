@@ -151,6 +151,7 @@ public class BOPItems
     public static Item ORIGIN_OAK_TRAPDOOR;
     public static Item ORIGIN_OAK_PRESSURE_PLATE;
     public static Item ORIGIN_OAK_BUTTON;
+    public static Item ORIGIN_OAK_SHELF;
     public static Item ORIGIN_OAK_SIGN;
     public static Item ORIGIN_OAK_HANGING_SIGN;
     public static Item ORIGIN_OAK_BOAT;
@@ -171,6 +172,7 @@ public class BOPItems
     public static Item FIR_TRAPDOOR;
     public static Item FIR_PRESSURE_PLATE;
     public static Item FIR_BUTTON;
+    public static Item FIR_SHELF;
     public static Item FIR_SIGN;
     public static Item FIR_HANGING_SIGN;
     public static Item FIR_BOAT;
@@ -191,6 +193,7 @@ public class BOPItems
     public static Item PINE_TRAPDOOR;
     public static Item PINE_PRESSURE_PLATE;
     public static Item PINE_BUTTON;
+    public static Item PINE_SHELF;
     public static Item PINE_SIGN;
     public static Item PINE_HANGING_SIGN;
     public static Item PINE_BOAT;
@@ -218,6 +221,7 @@ public class BOPItems
     public static Item MAPLE_TRAPDOOR;
     public static Item MAPLE_PRESSURE_PLATE;
     public static Item MAPLE_BUTTON;
+    public static Item MAPLE_SHELF;
     public static Item MAPLE_SIGN;
     public static Item MAPLE_HANGING_SIGN;
     public static Item MAPLE_BOAT;
@@ -238,6 +242,7 @@ public class BOPItems
     public static Item REDWOOD_TRAPDOOR;
     public static Item REDWOOD_PRESSURE_PLATE;
     public static Item REDWOOD_BUTTON;
+    public static Item REDWOOD_SHELF;
     public static Item REDWOOD_SIGN;
     public static Item REDWOOD_HANGING_SIGN;
     public static Item REDWOOD_BOAT;
@@ -258,6 +263,7 @@ public class BOPItems
     public static Item MAHOGANY_TRAPDOOR;
     public static Item MAHOGANY_PRESSURE_PLATE;
     public static Item MAHOGANY_BUTTON;
+    public static Item MAHOGANY_SHELF;
     public static Item MAHOGANY_SIGN;
     public static Item MAHOGANY_HANGING_SIGN;
     public static Item MAHOGANY_BOAT;
@@ -278,6 +284,7 @@ public class BOPItems
     public static Item JACARANDA_TRAPDOOR;
     public static Item JACARANDA_PRESSURE_PLATE;
     public static Item JACARANDA_BUTTON;
+    public static Item JACARANDA_SHELF;
     public static Item JACARANDA_SIGN;
     public static Item JACARANDA_HANGING_SIGN;
     public static Item JACARANDA_BOAT;
@@ -298,6 +305,7 @@ public class BOPItems
     public static Item PALM_TRAPDOOR;
     public static Item PALM_PRESSURE_PLATE;
     public static Item PALM_BUTTON;
+    public static Item PALM_SHELF;
     public static Item PALM_SIGN;
     public static Item PALM_HANGING_SIGN;
     public static Item PALM_BOAT;
@@ -321,6 +329,7 @@ public class BOPItems
     public static Item WILLOW_TRAPDOOR;
     public static Item WILLOW_PRESSURE_PLATE;
     public static Item WILLOW_BUTTON;
+    public static Item WILLOW_SHELF;
     public static Item WILLOW_SIGN;
     public static Item WILLOW_HANGING_SIGN;
     public static Item WILLOW_BOAT;
@@ -342,6 +351,7 @@ public class BOPItems
     public static Item DEAD_TRAPDOOR;
     public static Item DEAD_PRESSURE_PLATE;
     public static Item DEAD_BUTTON;
+    public static Item DEAD_SHELF;
     public static Item DEAD_SIGN;
     public static Item DEAD_HANGING_SIGN;
     public static Item DEAD_BOAT;
@@ -362,6 +372,7 @@ public class BOPItems
     public static Item MAGIC_TRAPDOOR;
     public static Item MAGIC_PRESSURE_PLATE;
     public static Item MAGIC_BUTTON;
+    public static Item MAGIC_SHELF;
     public static Item MAGIC_SIGN;
     public static Item MAGIC_HANGING_SIGN;
     public static Item MAGIC_BOAT;
@@ -382,6 +393,7 @@ public class BOPItems
     public static Item UMBRAN_TRAPDOOR;
     public static Item UMBRAN_PRESSURE_PLATE;
     public static Item UMBRAN_BUTTON;
+    public static Item UMBRAN_SHELF;
     public static Item UMBRAN_SIGN;
     public static Item UMBRAN_HANGING_SIGN;
     public static Item UMBRAN_BOAT;
@@ -402,6 +414,7 @@ public class BOPItems
     public static Item HELLBARK_TRAPDOOR;
     public static Item HELLBARK_PRESSURE_PLATE;
     public static Item HELLBARK_BUTTON;
+    public static Item HELLBARK_SHELF;
     public static Item HELLBARK_SIGN;
     public static Item HELLBARK_HANGING_SIGN;
     public static Item HELLBARK_BOAT;
@@ -422,6 +435,7 @@ public class BOPItems
     public static Item EMPYREAL_TRAPDOOR;
     public static Item EMPYREAL_PRESSURE_PLATE;
     public static Item EMPYREAL_BUTTON;
+    public static Item EMPYREAL_SHELF;
     public static Item EMPYREAL_SIGN;
     public static Item EMPYREAL_HANGING_SIGN;
     public static Item EMPYREAL_BOAT;

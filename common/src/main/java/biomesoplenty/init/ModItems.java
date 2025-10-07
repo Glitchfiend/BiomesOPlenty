@@ -8,15 +8,19 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import static biomesoplenty.api.item.BOPItems.*;
 
@@ -227,6 +231,7 @@ public class ModItems
         ORIGIN_OAK_TRAPDOOR = registerBlock(func, BOPBlocks.ORIGIN_OAK_TRAPDOOR);
         ORIGIN_OAK_PRESSURE_PLATE = registerBlock(func, BOPBlocks.ORIGIN_OAK_PRESSURE_PLATE);
         ORIGIN_OAK_BUTTON = registerBlock(func, BOPBlocks.ORIGIN_OAK_BUTTON);
+        ORIGIN_OAK_SHELF = registerBlock(func, BOPBlocks.ORIGIN_OAK_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         FIR_SAPLING = registerBlock(func, BOPBlocks.FIR_SAPLING);
         FIR_LEAVES = registerBlock(func, BOPBlocks.FIR_LEAVES);
@@ -243,6 +248,7 @@ public class ModItems
         FIR_TRAPDOOR = registerBlock(func, BOPBlocks.FIR_TRAPDOOR);
         FIR_PRESSURE_PLATE = registerBlock(func, BOPBlocks.FIR_PRESSURE_PLATE);
         FIR_BUTTON = registerBlock(func, BOPBlocks.FIR_BUTTON);
+        FIR_SHELF = registerBlock(func, BOPBlocks.FIR_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         PINE_SAPLING = registerBlock(func, BOPBlocks.PINE_SAPLING);
         PINE_LEAVES = registerBlock(func, BOPBlocks.PINE_LEAVES);
@@ -259,6 +265,7 @@ public class ModItems
         PINE_TRAPDOOR = registerBlock(func, BOPBlocks.PINE_TRAPDOOR);
         PINE_PRESSURE_PLATE = registerBlock(func, BOPBlocks.PINE_PRESSURE_PLATE);
         PINE_BUTTON = registerBlock(func, BOPBlocks.PINE_BUTTON);
+        PINE_SHELF = registerBlock(func, BOPBlocks.PINE_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         RED_MAPLE_SAPLING = registerBlock(func, BOPBlocks.RED_MAPLE_SAPLING);
         RED_MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.RED_MAPLE_LEAF_LITTER);
@@ -282,6 +289,7 @@ public class ModItems
         MAPLE_TRAPDOOR = registerBlock(func, BOPBlocks.MAPLE_TRAPDOOR);
         MAPLE_PRESSURE_PLATE = registerBlock(func, BOPBlocks.MAPLE_PRESSURE_PLATE);
         MAPLE_BUTTON = registerBlock(func, BOPBlocks.MAPLE_BUTTON);
+        MAPLE_SHELF = registerBlock(func, BOPBlocks.MAPLE_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         REDWOOD_SAPLING = registerBlock(func, BOPBlocks.REDWOOD_SAPLING);
         REDWOOD_LEAVES = registerBlock(func, BOPBlocks.REDWOOD_LEAVES);
@@ -298,6 +306,7 @@ public class ModItems
         REDWOOD_TRAPDOOR = registerBlock(func, BOPBlocks.REDWOOD_TRAPDOOR);
         REDWOOD_PRESSURE_PLATE = registerBlock(func, BOPBlocks.REDWOOD_PRESSURE_PLATE);
         REDWOOD_BUTTON = registerBlock(func, BOPBlocks.REDWOOD_BUTTON);
+        REDWOOD_SHELF = registerBlock(func, BOPBlocks.REDWOOD_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         MAHOGANY_SAPLING = registerBlock(func, BOPBlocks.MAHOGANY_SAPLING);
         MAHOGANY_LEAVES = registerBlock(func, BOPBlocks.MAHOGANY_LEAVES);
@@ -314,6 +323,7 @@ public class ModItems
         MAHOGANY_TRAPDOOR = registerBlock(func, BOPBlocks.MAHOGANY_TRAPDOOR);
         MAHOGANY_PRESSURE_PLATE = registerBlock(func, BOPBlocks.MAHOGANY_PRESSURE_PLATE);
         MAHOGANY_BUTTON = registerBlock(func, BOPBlocks.MAHOGANY_BUTTON);
+        MAHOGANY_SHELF = registerBlock(func, BOPBlocks.MAHOGANY_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         JACARANDA_SAPLING = registerBlock(func, BOPBlocks.JACARANDA_SAPLING);
         JACARANDA_LEAVES = registerBlock(func, BOPBlocks.JACARANDA_LEAVES);
@@ -330,6 +340,7 @@ public class ModItems
         JACARANDA_TRAPDOOR = registerBlock(func, BOPBlocks.JACARANDA_TRAPDOOR);
         JACARANDA_PRESSURE_PLATE = registerBlock(func, BOPBlocks.JACARANDA_PRESSURE_PLATE);
         JACARANDA_BUTTON = registerBlock(func, BOPBlocks.JACARANDA_BUTTON);
+        JACARANDA_SHELF = registerBlock(func, BOPBlocks.JACARANDA_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         PALM_SAPLING = registerBlock(func, BOPBlocks.PALM_SAPLING);
         PALM_LEAVES = registerBlock(func, BOPBlocks.PALM_LEAVES);
@@ -346,6 +357,7 @@ public class ModItems
         PALM_TRAPDOOR = registerBlock(func, BOPBlocks.PALM_TRAPDOOR);
         PALM_PRESSURE_PLATE = registerBlock(func, BOPBlocks.PALM_PRESSURE_PLATE);
         PALM_BUTTON = registerBlock(func, BOPBlocks.PALM_BUTTON);
+        PALM_SHELF = registerBlock(func, BOPBlocks.PALM_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         WILLOW_SAPLING = registerBlock(func, BOPBlocks.WILLOW_SAPLING);
         WILLOW_VINE = registerBlock(func, BOPBlocks.WILLOW_VINE);
@@ -365,6 +377,7 @@ public class ModItems
         WILLOW_TRAPDOOR = registerBlock(func, BOPBlocks.WILLOW_TRAPDOOR);
         WILLOW_PRESSURE_PLATE = registerBlock(func, BOPBlocks.WILLOW_PRESSURE_PLATE);
         WILLOW_BUTTON = registerBlock(func, BOPBlocks.WILLOW_BUTTON);
+        WILLOW_SHELF = registerBlock(func, BOPBlocks.WILLOW_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         DEAD_SAPLING = registerBlock(func, BOPBlocks.DEAD_SAPLING);
         DEAD_BRANCH = registerBlock(func, BOPBlocks.DEAD_BRANCH);
@@ -382,6 +395,7 @@ public class ModItems
         DEAD_TRAPDOOR = registerBlock(func, BOPBlocks.DEAD_TRAPDOOR);
         DEAD_PRESSURE_PLATE = registerBlock(func, BOPBlocks.DEAD_PRESSURE_PLATE);
         DEAD_BUTTON = registerBlock(func, BOPBlocks.DEAD_BUTTON);
+        DEAD_SHELF = registerBlock(func, BOPBlocks.DEAD_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         MAGIC_SAPLING = registerBlock(func, BOPBlocks.MAGIC_SAPLING);
         MAGIC_LEAVES = registerBlock(func, BOPBlocks.MAGIC_LEAVES);
@@ -398,6 +412,7 @@ public class ModItems
         MAGIC_TRAPDOOR = registerBlock(func, BOPBlocks.MAGIC_TRAPDOOR);
         MAGIC_PRESSURE_PLATE = registerBlock(func, BOPBlocks.MAGIC_PRESSURE_PLATE);
         MAGIC_BUTTON = registerBlock(func, BOPBlocks.MAGIC_BUTTON);
+        MAGIC_SHELF = registerBlock(func, BOPBlocks.MAGIC_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         UMBRAN_SAPLING = registerBlock(func, BOPBlocks.UMBRAN_SAPLING);
         UMBRAN_LEAVES = registerBlock(func, BOPBlocks.UMBRAN_LEAVES);
@@ -414,6 +429,7 @@ public class ModItems
         UMBRAN_TRAPDOOR = registerBlock(func, BOPBlocks.UMBRAN_TRAPDOOR);
         UMBRAN_PRESSURE_PLATE = registerBlock(func, BOPBlocks.UMBRAN_PRESSURE_PLATE);
         UMBRAN_BUTTON = registerBlock(func, BOPBlocks.UMBRAN_BUTTON);
+        UMBRAN_SHELF = registerBlock(func, BOPBlocks.UMBRAN_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         HELLBARK_SAPLING = registerBlock(func, BOPBlocks.HELLBARK_SAPLING);
         HELLBARK_LEAVES = registerBlock(func, BOPBlocks.HELLBARK_LEAVES);
@@ -430,6 +446,7 @@ public class ModItems
         HELLBARK_TRAPDOOR = registerBlock(func, BOPBlocks.HELLBARK_TRAPDOOR);
         HELLBARK_PRESSURE_PLATE = registerBlock(func, BOPBlocks.HELLBARK_PRESSURE_PLATE);
         HELLBARK_BUTTON = registerBlock(func, BOPBlocks.HELLBARK_BUTTON);
+        HELLBARK_SHELF = registerBlock(func, BOPBlocks.HELLBARK_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         EMPYREAL_SAPLING = registerBlock(func, BOPBlocks.EMPYREAL_SAPLING);
         EMPYREAL_LEAVES = registerBlock(func, BOPBlocks.EMPYREAL_LEAVES);
@@ -446,6 +463,7 @@ public class ModItems
         EMPYREAL_TRAPDOOR = registerBlock(func, BOPBlocks.EMPYREAL_TRAPDOOR);
         EMPYREAL_PRESSURE_PLATE = registerBlock(func, BOPBlocks.EMPYREAL_PRESSURE_PLATE);
         EMPYREAL_BUTTON = registerBlock(func, BOPBlocks.EMPYREAL_BUTTON);
+        EMPYREAL_SHELF = registerBlock(func, BOPBlocks.EMPYREAL_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
         FLOWER_BUD = registerBlock(func, BOPBlocks.FLOWER_BUD);
         ORIGIN_DANDELION = registerBlock(func, BOPBlocks.ORIGIN_DANDELION);
@@ -539,6 +557,11 @@ public class ModItems
     public static Item registerBlock(BiConsumer<ResourceLocation, Item> func, Block block, BiFunction<Block, Item.Properties, Item> factory)
     {
         return registerBlock(func, block, factory, new Item.Properties());
+    }
+
+    public static Item registerBlock(BiConsumer<ResourceLocation, Item> func, Block block, UnaryOperator<Item.Properties> operator)
+    {
+        return registerBlock(func, block, (p_371022_, p_371023_) -> new BlockItem(p_371022_, operator.apply(p_371023_)), new Item.Properties());
     }
 
     public static Item registerBlock(BiConsumer<ResourceLocation, Item> func, Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties properties)

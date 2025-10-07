@@ -111,6 +111,22 @@ public class BOPRecipeProvider extends RecipeProvider
         chestBoat(BOPItems.HELLBARK_CHEST_BOAT, BOPItems.HELLBARK_BOAT);
         chestBoat(BOPItems.EMPYREAL_CHEST_BOAT, BOPItems.EMPYREAL_BOAT);
 
+        // Shelves
+        shelf(BOPBlocks.ORIGIN_OAK_SHELF, BOPItems.STRIPPED_ORIGIN_OAK_LOG);
+        shelf(BOPBlocks.FIR_SHELF, BOPItems.STRIPPED_FIR_LOG);
+        shelf(BOPBlocks.PINE_SHELF, BOPItems.STRIPPED_PINE_LOG);
+        shelf(BOPBlocks.MAPLE_SHELF, BOPItems.STRIPPED_MAPLE_LOG);
+        shelf(BOPBlocks.REDWOOD_SHELF, BOPItems.STRIPPED_REDWOOD_LOG);
+        shelf(BOPBlocks.MAHOGANY_SHELF, BOPItems.STRIPPED_MAHOGANY_LOG);
+        shelf(BOPBlocks.JACARANDA_SHELF, BOPItems.STRIPPED_JACARANDA_LOG);
+        shelf(BOPBlocks.PALM_SHELF, BOPItems.STRIPPED_PALM_LOG);
+        shelf(BOPBlocks.WILLOW_SHELF, BOPItems.STRIPPED_WILLOW_LOG);
+        shelf(BOPBlocks.DEAD_SHELF, BOPItems.STRIPPED_DEAD_LOG);
+        shelf(BOPBlocks.MAGIC_SHELF, BOPItems.STRIPPED_MAGIC_LOG);
+        shelf(BOPBlocks.UMBRAN_SHELF, BOPItems.STRIPPED_UMBRAN_LOG);
+        shelf(BOPBlocks.HELLBARK_SHELF, BOPItems.STRIPPED_HELLBARK_LOG);
+        shelf(BOPBlocks.EMPYREAL_SHELF, BOPItems.STRIPPED_EMPYREAL_LOG);
+
         // Hanging Signs
         hangingSign(BOPItems.ORIGIN_OAK_HANGING_SIGN, BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
         hangingSign(BOPItems.FIR_HANGING_SIGN, BOPBlocks.STRIPPED_FIR_LOG);

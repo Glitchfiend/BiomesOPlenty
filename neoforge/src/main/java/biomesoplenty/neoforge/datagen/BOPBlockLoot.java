@@ -203,6 +203,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.ORIGIN_OAK_TRAPDOOR);
         this.dropSelf(BOPBlocks.ORIGIN_OAK_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.ORIGIN_OAK_BUTTON);
+        this.dropSelf(BOPBlocks.ORIGIN_OAK_SHELF);
         this.dropSelf(BOPBlocks.ORIGIN_OAK_SIGN);
         this.dropSelf(BOPBlocks.ORIGIN_OAK_HANGING_SIGN);
 
@@ -221,6 +222,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.FIR_TRAPDOOR);
         this.dropSelf(BOPBlocks.FIR_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.FIR_BUTTON);
+        this.dropSelf(BOPBlocks.FIR_SHELF);
         this.dropSelf(BOPBlocks.FIR_SIGN);
         this.dropSelf(BOPBlocks.FIR_HANGING_SIGN);
 
@@ -239,6 +241,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.PINE_TRAPDOOR);
         this.dropSelf(BOPBlocks.PINE_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.PINE_BUTTON);
+        this.dropSelf(BOPBlocks.PINE_SHELF);
         this.dropSelf(BOPBlocks.PINE_SIGN);
         this.dropSelf(BOPBlocks.PINE_HANGING_SIGN);
 
@@ -264,6 +267,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.MAPLE_TRAPDOOR);
         this.dropSelf(BOPBlocks.MAPLE_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.MAPLE_BUTTON);
+        this.dropSelf(BOPBlocks.MAPLE_SHELF);
         this.dropSelf(BOPBlocks.MAPLE_SIGN);
         this.dropSelf(BOPBlocks.MAPLE_HANGING_SIGN);
 
@@ -282,6 +286,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.REDWOOD_TRAPDOOR);
         this.dropSelf(BOPBlocks.REDWOOD_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.REDWOOD_BUTTON);
+        this.dropSelf(BOPBlocks.REDWOOD_SHELF);
         this.dropSelf(BOPBlocks.REDWOOD_SIGN);
         this.dropSelf(BOPBlocks.REDWOOD_HANGING_SIGN);
 
@@ -300,6 +305,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.MAHOGANY_TRAPDOOR);
         this.dropSelf(BOPBlocks.MAHOGANY_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.MAHOGANY_BUTTON);
+        this.dropSelf(BOPBlocks.MAHOGANY_SHELF);
         this.dropSelf(BOPBlocks.MAHOGANY_SIGN);
         this.dropSelf(BOPBlocks.MAHOGANY_HANGING_SIGN);
 
@@ -318,6 +324,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.JACARANDA_TRAPDOOR);
         this.dropSelf(BOPBlocks.JACARANDA_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.JACARANDA_BUTTON);
+        this.dropSelf(BOPBlocks.JACARANDA_SHELF);
         this.dropSelf(BOPBlocks.JACARANDA_SIGN);
         this.dropSelf(BOPBlocks.JACARANDA_HANGING_SIGN);
 
@@ -336,6 +343,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.PALM_TRAPDOOR);
         this.dropSelf(BOPBlocks.PALM_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.PALM_BUTTON);
+        this.dropSelf(BOPBlocks.PALM_SHELF);
         this.dropSelf(BOPBlocks.PALM_SIGN);
         this.dropSelf(BOPBlocks.PALM_HANGING_SIGN);
 
@@ -356,6 +364,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.WILLOW_TRAPDOOR);
         this.dropSelf(BOPBlocks.WILLOW_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.WILLOW_BUTTON);
+        this.dropSelf(BOPBlocks.WILLOW_SHELF);
         this.dropSelf(BOPBlocks.WILLOW_SIGN);
         this.dropSelf(BOPBlocks.WILLOW_HANGING_SIGN);
 
@@ -375,6 +384,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.DEAD_TRAPDOOR);
         this.dropSelf(BOPBlocks.DEAD_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.DEAD_BUTTON);
+        this.dropSelf(BOPBlocks.DEAD_SHELF);
         this.dropSelf(BOPBlocks.DEAD_SIGN);
         this.dropSelf(BOPBlocks.DEAD_HANGING_SIGN);
 
@@ -393,6 +403,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.MAGIC_TRAPDOOR);
         this.dropSelf(BOPBlocks.MAGIC_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.MAGIC_BUTTON);
+        this.dropSelf(BOPBlocks.MAGIC_SHELF);
         this.dropSelf(BOPBlocks.MAGIC_SIGN);
         this.dropSelf(BOPBlocks.MAGIC_HANGING_SIGN);
 
@@ -411,6 +422,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.UMBRAN_TRAPDOOR);
         this.dropSelf(BOPBlocks.UMBRAN_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.UMBRAN_BUTTON);
+        this.dropSelf(BOPBlocks.UMBRAN_SHELF);
         this.dropSelf(BOPBlocks.UMBRAN_SIGN);
         this.dropSelf(BOPBlocks.UMBRAN_HANGING_SIGN);
 
@@ -429,6 +441,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.HELLBARK_TRAPDOOR);
         this.dropSelf(BOPBlocks.HELLBARK_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.HELLBARK_BUTTON);
+        this.dropSelf(BOPBlocks.HELLBARK_SHELF);
         this.dropSelf(BOPBlocks.HELLBARK_SIGN);
         this.dropSelf(BOPBlocks.HELLBARK_HANGING_SIGN);
 
@@ -447,6 +460,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.EMPYREAL_TRAPDOOR);
         this.dropSelf(BOPBlocks.EMPYREAL_PRESSURE_PLATE);
         this.dropSelf(BOPBlocks.EMPYREAL_BUTTON);
+        this.dropSelf(BOPBlocks.EMPYREAL_SHELF);
         this.dropSelf(BOPBlocks.EMPYREAL_SIGN);
         this.dropSelf(BOPBlocks.EMPYREAL_HANGING_SIGN);
 

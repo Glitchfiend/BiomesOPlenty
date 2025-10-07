@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "biomesoplenty:origin_oak_shelf",
+	"biomesoplenty:fir_shelf",
+	"biomesoplenty:pine_shelf",
+	"biomesoplenty:maple_shelf",
+	"biomesoplenty:redwood_shelf",
+	"biomesoplenty:mahogany_shelf",
+	"biomesoplenty:jacaranda_shelf",
+	"biomesoplenty:palm_shelf",
+	"biomesoplenty:willow_shelf",
+	"biomesoplenty:dead_shelf",
+	"biomesoplenty:magic_shelf",
+	"biomesoplenty:umbran_shelf",
+	"biomesoplenty:hellbark_shelf",
+	"biomesoplenty:empyreal_shelf"
+  ]
+}

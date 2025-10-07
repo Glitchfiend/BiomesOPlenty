@@ -145,6 +145,7 @@ public class BOPBlocks
     public static Block ORIGIN_OAK_TRAPDOOR;
     public static Block ORIGIN_OAK_PRESSURE_PLATE;
     public static Block ORIGIN_OAK_BUTTON;
+    public static Block ORIGIN_OAK_SHELF;
     public static Block ORIGIN_OAK_SIGN;
     public static Block ORIGIN_OAK_WALL_SIGN;
     public static Block ORIGIN_OAK_HANGING_SIGN;
@@ -165,6 +166,7 @@ public class BOPBlocks
     public static Block FIR_TRAPDOOR;
     public static Block FIR_PRESSURE_PLATE;
     public static Block FIR_BUTTON;
+    public static Block FIR_SHELF;
     public static Block FIR_SIGN;
     public static Block FIR_WALL_SIGN;
     public static Block FIR_HANGING_SIGN;
@@ -185,6 +187,7 @@ public class BOPBlocks
     public static Block PINE_TRAPDOOR;
     public static Block PINE_PRESSURE_PLATE;
     public static Block PINE_BUTTON;
+    public static Block PINE_SHELF;
     public static Block PINE_SIGN;
     public static Block PINE_WALL_SIGN;
     public static Block PINE_HANGING_SIGN;
@@ -212,6 +215,7 @@ public class BOPBlocks
     public static Block MAPLE_TRAPDOOR;
     public static Block MAPLE_PRESSURE_PLATE;
     public static Block MAPLE_BUTTON;
+    public static Block MAPLE_SHELF;
     public static Block MAPLE_SIGN;
     public static Block MAPLE_WALL_SIGN;
     public static Block MAPLE_HANGING_SIGN;
@@ -232,6 +236,7 @@ public class BOPBlocks
     public static Block REDWOOD_TRAPDOOR;
     public static Block REDWOOD_PRESSURE_PLATE;
     public static Block REDWOOD_BUTTON;
+    public static Block REDWOOD_SHELF;
     public static Block REDWOOD_SIGN;
     public static Block REDWOOD_WALL_SIGN;
     public static Block REDWOOD_HANGING_SIGN;
@@ -252,6 +257,7 @@ public class BOPBlocks
     public static Block MAHOGANY_TRAPDOOR;
     public static Block MAHOGANY_PRESSURE_PLATE;
     public static Block MAHOGANY_BUTTON;
+    public static Block MAHOGANY_SHELF;
     public static Block MAHOGANY_SIGN;
     public static Block MAHOGANY_WALL_SIGN;
     public static Block MAHOGANY_HANGING_SIGN;
@@ -272,6 +278,7 @@ public class BOPBlocks
     public static Block JACARANDA_TRAPDOOR;
     public static Block JACARANDA_PRESSURE_PLATE;
     public static Block JACARANDA_BUTTON;
+    public static Block JACARANDA_SHELF;
     public static Block JACARANDA_SIGN;
     public static Block JACARANDA_WALL_SIGN;
     public static Block JACARANDA_HANGING_SIGN;
@@ -292,6 +299,7 @@ public class BOPBlocks
     public static Block PALM_TRAPDOOR;
     public static Block PALM_PRESSURE_PLATE;
     public static Block PALM_BUTTON;
+    public static Block PALM_SHELF;
     public static Block PALM_SIGN;
     public static Block PALM_WALL_SIGN;
     public static Block PALM_HANGING_SIGN;
@@ -315,6 +323,7 @@ public class BOPBlocks
     public static Block WILLOW_TRAPDOOR;
     public static Block WILLOW_PRESSURE_PLATE;
     public static Block WILLOW_BUTTON;
+    public static Block WILLOW_SHELF;
     public static Block WILLOW_SIGN;
     public static Block WILLOW_WALL_SIGN;
     public static Block WILLOW_HANGING_SIGN;
@@ -336,6 +345,7 @@ public class BOPBlocks
     public static Block DEAD_TRAPDOOR;
     public static Block DEAD_PRESSURE_PLATE;
     public static Block DEAD_BUTTON;
+    public static Block DEAD_SHELF;
     public static Block DEAD_SIGN;
     public static Block DEAD_WALL_SIGN;
     public static Block DEAD_HANGING_SIGN;
@@ -356,6 +366,7 @@ public class BOPBlocks
     public static Block MAGIC_TRAPDOOR;
     public static Block MAGIC_PRESSURE_PLATE;
     public static Block MAGIC_BUTTON;
+    public static Block MAGIC_SHELF;
     public static Block MAGIC_SIGN;
     public static Block MAGIC_WALL_SIGN;
     public static Block MAGIC_HANGING_SIGN;
@@ -376,6 +387,7 @@ public class BOPBlocks
     public static Block UMBRAN_TRAPDOOR;
     public static Block UMBRAN_PRESSURE_PLATE;
     public static Block UMBRAN_BUTTON;
+    public static Block UMBRAN_SHELF;
     public static Block UMBRAN_SIGN;
     public static Block UMBRAN_WALL_SIGN;
     public static Block UMBRAN_HANGING_SIGN;
@@ -396,6 +408,7 @@ public class BOPBlocks
     public static Block HELLBARK_TRAPDOOR;
     public static Block HELLBARK_PRESSURE_PLATE;
     public static Block HELLBARK_BUTTON;
+    public static Block HELLBARK_SHELF;
     public static Block HELLBARK_SIGN;
     public static Block HELLBARK_WALL_SIGN;
     public static Block HELLBARK_HANGING_SIGN;
@@ -416,6 +429,7 @@ public class BOPBlocks
     public static Block EMPYREAL_TRAPDOOR;
     public static Block EMPYREAL_PRESSURE_PLATE;
     public static Block EMPYREAL_BUTTON;
+    public static Block EMPYREAL_SHELF;
     public static Block EMPYREAL_SIGN;
     public static Block EMPYREAL_WALL_SIGN;
     public static Block EMPYREAL_HANGING_SIGN;

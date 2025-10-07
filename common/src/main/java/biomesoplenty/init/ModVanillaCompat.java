@@ -68,6 +68,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.ORIGIN_OAK_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.ORIGIN_OAK_FENCE, 5, 20);
         registerFlammable(BOPBlocks.ORIGIN_OAK_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.ORIGIN_OAK_SHELF, 30, 20);
         registerFlammable(BOPBlocks.FIR_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.FIR_LOG, 5, 5);
         registerFlammable(BOPBlocks.FIR_WOOD, 5, 5);
@@ -78,6 +79,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.FIR_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.FIR_FENCE, 5, 20);
         registerFlammable(BOPBlocks.FIR_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.FIR_SHELF, 30, 20);
         registerFlammable(BOPBlocks.PINE_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.PINE_LOG, 5, 5);
         registerFlammable(BOPBlocks.PINE_WOOD, 5, 5);
@@ -88,6 +90,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.PINE_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.PINE_FENCE, 5, 20);
         registerFlammable(BOPBlocks.PINE_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.PINE_SHELF, 30, 20);
         registerFlammable(BOPBlocks.RED_MAPLE_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.ORANGE_MAPLE_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.YELLOW_MAPLE_LEAVES, 30, 60);
@@ -100,6 +103,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.MAPLE_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.MAPLE_FENCE, 5, 20);
         registerFlammable(BOPBlocks.MAPLE_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.MAPLE_SHELF, 30, 20);
         registerFlammable(BOPBlocks.REDWOOD_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.REDWOOD_LOG, 5, 5);
         registerFlammable(BOPBlocks.REDWOOD_WOOD, 5, 5);
@@ -110,6 +114,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.REDWOOD_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.REDWOOD_FENCE, 5, 20);
         registerFlammable(BOPBlocks.REDWOOD_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.REDWOOD_SHELF, 30, 20);
         registerFlammable(BOPBlocks.MAHOGANY_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.MAHOGANY_LOG, 5, 5);
         registerFlammable(BOPBlocks.MAHOGANY_WOOD, 5, 5);
@@ -120,6 +125,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.MAHOGANY_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.MAHOGANY_FENCE, 5, 20);
         registerFlammable(BOPBlocks.MAHOGANY_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.MAHOGANY_SHELF, 30, 20);
         registerFlammable(BOPBlocks.JACARANDA_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.JACARANDA_LOG, 5, 5);
         registerFlammable(BOPBlocks.JACARANDA_WOOD, 5, 5);
@@ -130,6 +136,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.JACARANDA_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.JACARANDA_FENCE, 5, 20);
         registerFlammable(BOPBlocks.JACARANDA_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.JACARANDA_SHELF, 30, 20);
         registerFlammable(BOPBlocks.PALM_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.PALM_LOG, 5, 5);
         registerFlammable(BOPBlocks.PALM_WOOD, 5, 5);
@@ -140,6 +147,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.PALM_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.PALM_FENCE, 5, 20);
         registerFlammable(BOPBlocks.PALM_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.PALM_SHELF, 30, 20);
         registerFlammable(BOPBlocks.WILLOW_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.WILLOW_LOG, 5, 5);
         registerFlammable(BOPBlocks.WILLOW_WOOD, 5, 5);
@@ -150,6 +158,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.WILLOW_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.WILLOW_FENCE, 5, 20);
         registerFlammable(BOPBlocks.WILLOW_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.WILLOW_SHELF, 30, 20);
         registerFlammable(BOPBlocks.DEAD_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.DEAD_LOG, 5, 5);
         registerFlammable(BOPBlocks.DEAD_WOOD, 5, 5);
@@ -160,6 +169,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.DEAD_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.DEAD_FENCE, 5, 20);
         registerFlammable(BOPBlocks.DEAD_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.DEAD_SHELF, 30, 20);
         registerFlammable(BOPBlocks.MAGIC_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.MAGIC_LOG, 5, 5);
         registerFlammable(BOPBlocks.MAGIC_WOOD, 5, 5);
@@ -170,6 +180,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.MAGIC_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.MAGIC_FENCE, 5, 20);
         registerFlammable(BOPBlocks.MAGIC_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.MAGIC_SHELF, 30, 20);
         registerFlammable(BOPBlocks.UMBRAN_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.UMBRAN_LOG, 5, 5);
         registerFlammable(BOPBlocks.UMBRAN_WOOD, 5, 5);
@@ -180,6 +191,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.UMBRAN_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.UMBRAN_FENCE, 5, 20);
         registerFlammable(BOPBlocks.UMBRAN_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.UMBRAN_SHELF, 30, 20);
         registerFlammable(BOPBlocks.EMPYREAL_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.EMPYREAL_LOG, 5, 5);
         registerFlammable(BOPBlocks.EMPYREAL_WOOD, 5, 5);
@@ -190,6 +202,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.EMPYREAL_STAIRS, 5, 20);
         registerFlammable(BOPBlocks.EMPYREAL_FENCE, 5, 20);
         registerFlammable(BOPBlocks.EMPYREAL_FENCE_GATE, 5, 20);
+        registerFlammable(BOPBlocks.EMPYREAL_SHELF, 30, 20);
         registerFlammable(BOPBlocks.ORIGIN_DANDELION, 60, 100);
         registerFlammable(BOPBlocks.ORIGIN_ROSE, 60, 100);
         registerFlammable(BOPBlocks.MARIGOLD, 60, 100);

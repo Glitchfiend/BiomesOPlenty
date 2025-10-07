@@ -86,6 +86,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_ORIGIN_OAK_LOG, BOPBlocks.ORIGIN_OAK_HANGING_SIGN, BOPBlocks.ORIGIN_OAK_WALL_HANGING_SIGN);
         this.createTrivialBlock(BOPBlocks.ORIGIN_OAK_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.ORIGIN_OAK_SAPLING, BOPBlocks.POTTED_ORIGIN_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.ORIGIN_OAK_SHELF, BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
 
         // Fir
         this.woodProvider(BOPBlocks.FIR_LOG).logWithHorizontal(BOPBlocks.FIR_LOG).wood(BOPBlocks.FIR_WOOD);
@@ -93,6 +94,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_FIR_LOG, BOPBlocks.FIR_HANGING_SIGN, BOPBlocks.FIR_WALL_HANGING_SIGN);
         this.createTrivialBlock(BOPBlocks.FIR_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.FIR_SAPLING, BOPBlocks.POTTED_FIR_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.FIR_SHELF, BOPBlocks.STRIPPED_FIR_LOG);
 
         // Pine
         this.woodProvider(BOPBlocks.PINE_LOG).wood(BOPBlocks.PINE_WOOD);
@@ -101,6 +103,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_PINE_LOG, BOPBlocks.PINE_HANGING_SIGN, BOPBlocks.PINE_WALL_HANGING_SIGN);
         this.createLeavesOverlay(BOPBlocks.PINE_LEAVES, FoliageColor.FOLIAGE_DEFAULT);
         this.createPlantWithDefaultItem(BOPBlocks.PINE_SAPLING, BOPBlocks.POTTED_PINE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.PINE_SHELF, BOPBlocks.STRIPPED_PINE_LOG);
 
         // Maple
         this.woodProvider(BOPBlocks.MAPLE_LOG).logWithHorizontal(BOPBlocks.MAPLE_LOG).wood(BOPBlocks.MAPLE_WOOD);
@@ -112,6 +115,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createPlantWithDefaultItem(BOPBlocks.ORANGE_MAPLE_SAPLING, BOPBlocks.POTTED_ORANGE_MAPLE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         this.createPlantWithDefaultItem(BOPBlocks.RED_MAPLE_SAPLING, BOPBlocks.POTTED_RED_MAPLE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         this.createPlantWithDefaultItem(BOPBlocks.YELLOW_MAPLE_SAPLING, BOPBlocks.POTTED_YELLOW_MAPLE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.MAPLE_SHELF, BOPBlocks.STRIPPED_MAPLE_LOG);
 
         // Redwood
         this.woodProvider(BOPBlocks.REDWOOD_LOG).logWithHorizontal(BOPBlocks.REDWOOD_LOG).wood(BOPBlocks.REDWOOD_WOOD);
@@ -119,6 +123,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_REDWOOD_LOG, BOPBlocks.REDWOOD_HANGING_SIGN, BOPBlocks.REDWOOD_WALL_HANGING_SIGN);
         this.createTrivialBlock(BOPBlocks.REDWOOD_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.REDWOOD_SAPLING, BOPBlocks.POTTED_REDWOOD_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.REDWOOD_SHELF, BOPBlocks.STRIPPED_REDWOOD_LOG);
 
         // Mahogany
         this.woodProvider(BOPBlocks.MAHOGANY_LOG).logWithHorizontal(BOPBlocks.MAHOGANY_LOG).wood(BOPBlocks.MAHOGANY_WOOD);
@@ -126,6 +131,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_MAHOGANY_LOG, BOPBlocks.MAHOGANY_HANGING_SIGN, BOPBlocks.MAHOGANY_WALL_HANGING_SIGN);
         this.createTintedLeaves(BOPBlocks.MAHOGANY_LEAVES, TexturedModel.LEAVES, FoliageColor.FOLIAGE_DEFAULT);
         this.createPlantWithDefaultItem(BOPBlocks.MAHOGANY_SAPLING, BOPBlocks.POTTED_MAHOGANY_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.MAHOGANY_SHELF, BOPBlocks.STRIPPED_MAHOGANY_LOG);
 
         // Jacaranda
         this.woodProvider(BOPBlocks.JACARANDA_LOG).logWithHorizontal(BOPBlocks.JACARANDA_LOG).wood(BOPBlocks.JACARANDA_WOOD);
@@ -133,6 +139,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_JACARANDA_LOG, BOPBlocks.JACARANDA_HANGING_SIGN, BOPBlocks.JACARANDA_WALL_HANGING_SIGN);
         this.createTrivialBlock(BOPBlocks.JACARANDA_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.JACARANDA_SAPLING, BOPBlocks.POTTED_JACARANDA_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.JACARANDA_SHELF, BOPBlocks.STRIPPED_JACARANDA_LOG);
 
         // Palm
         this.woodProvider(BOPBlocks.PALM_LOG).logWithHorizontal(BOPBlocks.PALM_LOG).wood(BOPBlocks.PALM_WOOD);
@@ -140,6 +147,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_PALM_LOG, BOPBlocks.PALM_HANGING_SIGN, BOPBlocks.PALM_WALL_HANGING_SIGN);
         this.createTintedLeaves(BOPBlocks.PALM_LEAVES, TexturedModel.LEAVES, FoliageColor.FOLIAGE_DEFAULT);
         this.createPlantWithDefaultItem(BOPBlocks.PALM_SAPLING, BOPBlocks.POTTED_PALM_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.PALM_SHELF, BOPBlocks.STRIPPED_PALM_LOG);
 
         // Willow
         this.woodProvider(BOPBlocks.WILLOW_LOG).logWithHorizontal(BOPBlocks.WILLOW_LOG).wood(BOPBlocks.WILLOW_WOOD);
@@ -147,6 +155,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_WILLOW_LOG, BOPBlocks.WILLOW_HANGING_SIGN, BOPBlocks.WILLOW_WALL_HANGING_SIGN);
         this.createTintedLeaves(BOPBlocks.WILLOW_LEAVES, TexturedModel.LEAVES, FoliageColor.FOLIAGE_DEFAULT);
         this.createPlantWithDefaultItem(BOPBlocks.WILLOW_SAPLING, BOPBlocks.POTTED_WILLOW_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.WILLOW_SHELF, BOPBlocks.STRIPPED_WILLOW_LOG);
 
         // Dead
         this.woodProvider(BOPBlocks.DEAD_LOG).logWithHorizontal(BOPBlocks.DEAD_LOG).wood(BOPBlocks.DEAD_WOOD);
@@ -154,6 +163,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_DEAD_LOG, BOPBlocks.DEAD_HANGING_SIGN, BOPBlocks.DEAD_WALL_HANGING_SIGN);
         this.createTintedLeaves(BOPBlocks.DEAD_LEAVES, TexturedModel.LEAVES, -10732494);
         this.createPlantWithDefaultItem(BOPBlocks.DEAD_SAPLING, BOPBlocks.POTTED_DEAD_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.DEAD_SHELF, BOPBlocks.STRIPPED_DEAD_LOG);
 
         // Magic
         this.woodProvider(BOPBlocks.MAGIC_LOG).logWithHorizontal(BOPBlocks.MAGIC_LOG).wood(BOPBlocks.MAGIC_WOOD);
@@ -161,6 +171,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_MAGIC_LOG, BOPBlocks.MAGIC_HANGING_SIGN, BOPBlocks.MAGIC_WALL_HANGING_SIGN);
         this.createTrivialBlock(BOPBlocks.MAGIC_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.MAGIC_SAPLING, BOPBlocks.POTTED_MAGIC_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.MAGIC_SHELF, BOPBlocks.STRIPPED_MAGIC_LOG);
 
         // Umbran
         this.woodProvider(BOPBlocks.UMBRAN_LOG).wood(BOPBlocks.UMBRAN_WOOD);
@@ -169,6 +180,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_UMBRAN_LOG, BOPBlocks.UMBRAN_HANGING_SIGN, BOPBlocks.UMBRAN_WALL_HANGING_SIGN);
         this.createTrivialBlock(BOPBlocks.UMBRAN_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.UMBRAN_SAPLING, BOPBlocks.POTTED_UMBRAN_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.UMBRAN_SHELF, BOPBlocks.STRIPPED_UMBRAN_LOG);
 
         // Hellbark
         this.woodProvider(BOPBlocks.HELLBARK_LOG).logWithHorizontal(BOPBlocks.HELLBARK_LOG).wood(BOPBlocks.HELLBARK_WOOD);
@@ -176,6 +188,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_HELLBARK_LOG, BOPBlocks.HELLBARK_HANGING_SIGN, BOPBlocks.HELLBARK_WALL_HANGING_SIGN);
         this.createTrivialBlock(BOPBlocks.HELLBARK_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.HELLBARK_SAPLING, BOPBlocks.POTTED_HELLBARK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.HELLBARK_SHELF, BOPBlocks.STRIPPED_HELLBARK_LOG);
 
         // Empyreal
         this.woodProvider(BOPBlocks.EMPYREAL_LOG).logWithHorizontal(BOPBlocks.EMPYREAL_LOG).wood(BOPBlocks.EMPYREAL_WOOD);
@@ -183,6 +196,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createHangingSign(BOPBlocks.STRIPPED_EMPYREAL_LOG, BOPBlocks.EMPYREAL_HANGING_SIGN, BOPBlocks.EMPYREAL_WALL_HANGING_SIGN);
         this.createTrivialBlock(BOPBlocks.EMPYREAL_LEAVES, TexturedModel.LEAVES);
         this.createPlantWithDefaultItem(BOPBlocks.EMPYREAL_SAPLING, BOPBlocks.POTTED_EMPYREAL_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createShelf(BOPBlocks.EMPYREAL_SHELF, BOPBlocks.STRIPPED_EMPYREAL_LOG);
 
         // Other trees
         this.registerSimpleItemModel(BOPBlocks.NULL_LEAVES, ModelLocationUtils.getModelLocation(BOPBlocks.NULL_LEAVES, "_alt"));
