@@ -134,29 +134,29 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                 //Bars
                 if (x == 0 && z == 0)
                 {
-                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.IRON_BARS.defaultBlockState().setValue(IronBarsBlock.SOUTH, true).setValue(IronBarsBlock.EAST, true));
+                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.SOUTH, true).setValue(IronBarsBlock.EAST, true));
                 }
                 else if (x == 0 && z == size)
                 {
-                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.IRON_BARS.defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.EAST, true));
+                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.EAST, true));
                 }
                 else if (x == size && z == 0)
                 {
-                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.IRON_BARS.defaultBlockState().setValue(IronBarsBlock.SOUTH, true).setValue(IronBarsBlock.WEST, true));
+                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.SOUTH, true).setValue(IronBarsBlock.WEST, true));
                 }
                 else if (x == size && z == size)
                 {
-                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.IRON_BARS.defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.WEST, true));
+                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.WEST, true));
                 }
                 else
                 {
                     if (x == 0 || x == size)
                     {
-                        this.setBlock(world, startPos.offset(x,height+1,z), Blocks.IRON_BARS.defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.SOUTH, true));
+                        this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.SOUTH, true));
                     }
                     if (z == 0 || z == size)
                     {
-                        this.setBlock(world, startPos.offset(x,height+1,z), Blocks.IRON_BARS.defaultBlockState().setValue(IronBarsBlock.EAST, true).setValue(IronBarsBlock.WEST, true));
+                        this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.EAST, true).setValue(IronBarsBlock.WEST, true));
                     }
                 }
             }
@@ -288,7 +288,7 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                     int chainHeight = world.getRandom().nextInt(roomHeight);
                     for (int y = 0; y < chainHeight; y++)
                     {
-                        this.setBlock(world, pos.offset(x,(roomHeight-1)-y,z), Blocks.IRON_CHAIN.defaultBlockState());
+                        this.setBlock(world, pos.offset(x,(roomHeight-1)-y,z), Blocks.COPPER_CHAIN.waxedWeathered().defaultBlockState());
                     }
                 }
             }
