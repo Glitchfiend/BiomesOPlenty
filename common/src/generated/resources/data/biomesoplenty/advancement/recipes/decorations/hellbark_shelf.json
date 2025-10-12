@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_hellbark_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:stripped_hellbark_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:hellbark_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_hellbark_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:hellbark_shelf"
+    ]
+  }
+}

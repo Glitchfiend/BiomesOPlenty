@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_willow_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:stripped_willow_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:willow_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_willow_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:willow_shelf"
+    ]
+  }
+}

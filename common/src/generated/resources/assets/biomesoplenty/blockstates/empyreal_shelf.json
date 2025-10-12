@@ -1,0 +1,402 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_unpowered"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_unpowered",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_unpowered",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_unpowered",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_unconnected"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_unconnected",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_unconnected",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_unconnected",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_left"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_left",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_left",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_left",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_center"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_center",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_center",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_center",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_right"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_right",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_right",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "biomesoplenty:block/empyreal_shelf_right",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      }
+    }
+  ]
+}

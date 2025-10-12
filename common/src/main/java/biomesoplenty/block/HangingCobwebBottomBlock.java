@@ -39,7 +39,7 @@ public class HangingCobwebBottomBlock extends HangingStrandBottomBlock {
     }
 
     @Override
-    protected void entityInside(BlockState state, Level p_154264_, BlockPos p_154265_, Entity entity, InsideBlockEffectApplier p_405853_)
+    protected void entityInside(BlockState state, Level p_154264_, BlockPos p_154265_, Entity entity, InsideBlockEffectApplier p_405853_, boolean b)
     {
         entity.makeStuckInBlock(state, new Vec3(0.75D, (double)0.5F, 0.75D));
     }

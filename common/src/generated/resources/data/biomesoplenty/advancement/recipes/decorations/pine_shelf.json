@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_pine_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:stripped_pine_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:pine_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_pine_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:pine_shelf"
+    ]
+  }
+}

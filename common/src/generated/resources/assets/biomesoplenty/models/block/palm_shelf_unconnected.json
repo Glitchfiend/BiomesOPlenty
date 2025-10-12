@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_unconnected",
+  "textures": {
+    "all": "biomesoplenty:block/palm_shelf",
+    "particle": "biomesoplenty:block/stripped_palm_log"
+  }
+}

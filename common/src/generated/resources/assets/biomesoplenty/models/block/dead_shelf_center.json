@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_center",
+  "textures": {
+    "all": "biomesoplenty:block/dead_shelf",
+    "particle": "biomesoplenty:block/stripped_dead_log"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_right",
+  "textures": {
+    "all": "biomesoplenty:block/umbran_shelf",
+    "particle": "biomesoplenty:block/stripped_umbran_log"
+  }
+}

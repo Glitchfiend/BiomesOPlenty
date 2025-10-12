@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_inventory",
+  "textures": {
+    "all": "biomesoplenty:block/hellbark_shelf",
+    "particle": "biomesoplenty:block/stripped_hellbark_log"
+  }
+}

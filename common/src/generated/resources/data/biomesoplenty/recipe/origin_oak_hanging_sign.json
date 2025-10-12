@@ -4,7 +4,7 @@
   "group": "hanging_sign",
   "key": {
     "#": "biomesoplenty:stripped_origin_oak_log",
-    "X": "minecraft:chain"
+    "X": "minecraft:iron_chain"
   },
   "pattern": [
     "X X",

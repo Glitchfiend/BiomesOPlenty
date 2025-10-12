@@ -172,7 +172,7 @@ public class HugeLilyPadBlock extends VegetationBlockBOP
     }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier)
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean b)
     {
         if (level instanceof ServerLevel && entity instanceof Boat)
         {

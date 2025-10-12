@@ -69,7 +69,7 @@ public class BrambleBlock extends PipeBlock
      }
 
      @Override
-     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier)
+     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean b)
      {
          if (entity instanceof Player)
          {

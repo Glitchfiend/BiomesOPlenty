@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_body",
+  "textures": {
+    "all": "biomesoplenty:block/origin_oak_shelf",
+    "particle": "biomesoplenty:block/stripped_origin_oak_log"
+  }
+}

@@ -41,7 +41,7 @@ public class HangingCobwebBlock extends HangingStrandBlock
     }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier)
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean b)
     {
         entity.makeStuckInBlock(state, new Vec3(0.75D, (double)0.5F, 0.75D));
     }
