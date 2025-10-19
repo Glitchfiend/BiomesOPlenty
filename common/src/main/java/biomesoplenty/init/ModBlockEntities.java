@@ -9,6 +9,7 @@ import biomesoplenty.block.HangingSignBlockEntityBOP;
 import biomesoplenty.block.entity.AnomalyBlockEntity;
 import biomesoplenty.block.entity.SignBlockEntityBOP;
 import biomesoplenty.core.BiomesOPlenty;
+import glitchcore.util.BlockHelper;
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.datafix.fixes.References;
@@ -34,6 +35,8 @@ public class ModBlockEntities
                         ORIGIN_OAK_WALL_HANGING_SIGN, FIR_WALL_HANGING_SIGN, PINE_WALL_HANGING_SIGN, MAPLE_WALL_HANGING_SIGN, REDWOOD_WALL_HANGING_SIGN, MAHOGANY_WALL_HANGING_SIGN, JACARANDA_WALL_HANGING_SIGN, PALM_WALL_HANGING_SIGN, WILLOW_WALL_HANGING_SIGN, DEAD_WALL_HANGING_SIGN, MAGIC_WALL_HANGING_SIGN, UMBRAN_WALL_HANGING_SIGN, HELLBARK_WALL_HANGING_SIGN, EMPYREAL_WALL_HANGING_SIGN));
 
         BOPBlockEntities.ANOMALY = register(func, "anomaly", AnomalyBlockEntity::new, Set.of(ANOMALY));
+
+        BlockHelper.addBlockEntityBlocks(BlockEntityType.SHELF, ORIGIN_OAK_SHELF, FIR_SHELF, PINE_SHELF, MAPLE_SHELF, REDWOOD_SHELF, MAHOGANY_SHELF, JACARANDA_SHELF, PALM_SHELF, WILLOW_SHELF, DEAD_SHELF, MAGIC_SHELF, UMBRAN_SHELF, HELLBARK_SHELF, EMPYREAL_SHELF);
     }
 
     private static <T extends BlockEntity> BlockEntityType<?> register(BiConsumer<ResourceLocation, BlockEntityType<?>> func, String name, BlockEntityType.BlockEntitySupplier<T> supplier, Set<Block> blocks)
