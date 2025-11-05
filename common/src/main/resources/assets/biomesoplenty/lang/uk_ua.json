@@ -630,10 +630,10 @@
   "biomesoplenty.music.game.nether.redhead": "LudoCrypt — Redhead",
   "biomesoplenty.music.game.nether.timber": "LudoCrypt — Timber",
 
-  "trim_material.biomesoplenty.glowworm_silk": "Шовково-сяйний матеріал",
+  "trim_material.biomesoplenty.glowworm_silk": "Сяйно-шовковий матеріал",
   "trim_material.biomesoplenty.rose_quartz": "Рожево-кварцовий матеріал",
 
-  "death.attack.biomesoplenty.bramble": "%1$s проткнуто до смерті",
+  "death.attack.biomesoplenty.bramble": "%1$s проткнуто до смерти",
   "death.attack.biomesoplenty.bramble.player": "%1$s застряг у колючнику при спробі втекти від %2$s",
   "death.attack.biomesoplenty.fumarole": "%1$s запаровано живцем",
   "death.attack.biomesoplenty.fumarole.player": "%1$s прийняв смертельну парову ванну через %2$s",
