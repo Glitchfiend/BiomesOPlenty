@@ -1,4 +1,4 @@
-// 1.21.11	2025-12-14T19:11:43.4131059	Registries
+// 1.21.11	2025-12-14T14:42:14.3759983	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -10,7 +10,7 @@ c584999581f7a24fb3a3731a981659ae940ee20f data/biomesoplenty/worldgen/biome/conif
 5339a2f7b877035931e8de3c85b312064d45fb5e data/biomesoplenty/worldgen/biome/crag.json
 0bd62df30f51ae737f83ed726c298e21c503f5b2 data/biomesoplenty/worldgen/biome/crystalline_chasm.json
 02308fed9e06890d742dcb590daa8c20fbcf200e data/biomesoplenty/worldgen/biome/dead_forest.json
-182a9513872b651aa0fb9dd96d98d276c421348d data/biomesoplenty/worldgen/biome/dryland.json
+3222f4595c1117bdc3b84dc7c7c96e348e60f16d data/biomesoplenty/worldgen/biome/dryland.json
 c3f5368af8788439397e8633c7bd5ce225c4bce0 data/biomesoplenty/worldgen/biome/dune_beach.json
 e22cec1b72c3419bf5a6fe9aa96e26e42677445c data/biomesoplenty/worldgen/biome/end_corruption.json
 8c60bccee6e336b33787153a7a3e188ce957c979 data/biomesoplenty/worldgen/biome/end_flats.json
@@ -30,7 +30,7 @@ b273745db6e65904bcab7559b228f7e3f26e877d data/biomesoplenty/worldgen/biome/highl
 c1cbb06b558105446e02ac671c0428b785d7a032 data/biomesoplenty/worldgen/biome/jade_cliffs.json
 6365c4b8911f1e72fce9fe7d11994825929f85d0 data/biomesoplenty/worldgen/biome/lavender_field.json
 56c1aec63a55656775ea5a08ba9a8ca9011d7685 data/biomesoplenty/worldgen/biome/lush_desert.json
-1d5d3c4a167c9b501075f7aace2b863242c85b13 data/biomesoplenty/worldgen/biome/lush_savanna.json
+16731c89f774359103b0aef8ff117dd06e06e3bd data/biomesoplenty/worldgen/biome/lush_savanna.json
 4b108b5a0b68affa4fe8a815feef2d8c7e0bd389 data/biomesoplenty/worldgen/biome/maple_woods.json
 1e91f3c8cfd928859e55dc4eb3d302b37037e5a1 data/biomesoplenty/worldgen/biome/marsh.json
 c684cce8840faa4bbf165f28bc4122f031950b58 data/biomesoplenty/worldgen/biome/mediterranean_forest.json
@@ -64,8 +64,8 @@ ca857457c265466beab69929ab34cd01d8c760e2 data/biomesoplenty/worldgen/biome/tropi
 ccb13a32cb2699aeb6430b59637ba42b2e9d67ed data/biomesoplenty/worldgen/biome/visceral_heap.json
 a0a4822cbb06cdd7a0e3b713cec5b90efb69598c data/biomesoplenty/worldgen/biome/volcanic_plains.json
 e2de60d1ac06a2fb81d486c440ba9e671653388d data/biomesoplenty/worldgen/biome/volcano.json
-8156e27fa236e2c1ad6bc0df69124f14f9601b45 data/biomesoplenty/worldgen/biome/wasteland.json
-ab86e82f382a2bc9f02f687d95afbabdbd647408 data/biomesoplenty/worldgen/biome/wasteland_steppe.json
+862f00e2759b2a572c8ff8d99f0e4b731edddda3 data/biomesoplenty/worldgen/biome/wasteland.json
+3f310eaa8a82724f0e49eeb25934c2e433c8ab08 data/biomesoplenty/worldgen/biome/wasteland_steppe.json
 bf429341640db096e4402f94c7441ea909d327c5 data/biomesoplenty/worldgen/biome/wetland.json
 9793801f32a51c4bc30c70c89ce8a3ed5d08f40e data/biomesoplenty/worldgen/biome/wintry_origin_valley.json
 ec882ad406a10e3c24a507958ff518356ccb0f92 data/biomesoplenty/worldgen/biome/withered_abyss.json

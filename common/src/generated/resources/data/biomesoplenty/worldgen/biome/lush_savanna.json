@@ -224,6 +224,12 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 80
+      },
+      {
+        "type": "minecraft:parched",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 50
       }
     ],
     "underground_water_creature": [
