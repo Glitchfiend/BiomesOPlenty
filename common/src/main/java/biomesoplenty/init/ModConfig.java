@@ -40,7 +40,7 @@ public class ModConfig
 
     public static boolean isBiomeEnabled(ResourceKey<Biome> key)
     {
-        if (key == null || !key.location().getNamespace().equals(BiomesOPlenty.MOD_ID))
+        if (key == null || !key.identifier().getNamespace().equals(BiomesOPlenty.MOD_ID))
             return false;
 
         String optionName = getBiomeConfigOptionName(key);
@@ -67,7 +67,7 @@ public class ModConfig
 
     private static String getBiomeConfigOptionName(ResourceKey<Biome> key)
     {
-        return key.location().getPath() + "_enabled";
+        return key.identifier().getPath() + "_enabled";
     }
 
     private static void addBiomeToggle(ResourceKey<Biome> key)

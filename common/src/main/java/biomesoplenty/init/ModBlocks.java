@@ -18,7 +18,7 @@ import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.effect.MobEffects;
@@ -39,7 +39,7 @@ import static biomesoplenty.api.block.BOPBlocks.*;
 
 public class ModBlocks
 {
-    public static void setup(BiConsumer<ResourceLocation, Block> func)
+    public static void setup(BiConsumer<Identifier, Block> func)
     {
         registerBlocks(func);
         registerSurfaceRules();
@@ -52,7 +52,7 @@ public class ModBlocks
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.end());
     }
 
-    private static void registerBlocks(BiConsumer<ResourceLocation, Block> func)
+    private static void registerBlocks(BiConsumer<Identifier, Block> func)
     {
         // ([A-Z_]*) = register\(func, "([a-z_]+)", new ([A-Za-z]+)\(.*(BlockBehaviour.Properties.*)\)\);
 
@@ -602,21 +602,21 @@ public class ModBlocks
         return blockbehaviour$properties1;
     }
 
-    private static Block register(BiConsumer<ResourceLocation, Block> func, ResourceKey<Block> key, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties)
+    private static Block register(BiConsumer<Identifier, Block> func, ResourceKey<Block> key, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties)
     {
         Block block = factory.apply(properties.setId(key));
-        func.accept(key.location(), block);
+        func.accept(key.identifier(), block);
         return block;
     }
 
-    private static Block register(BiConsumer<ResourceLocation, Block> func, String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties)
+    private static Block register(BiConsumer<Identifier, Block> func, String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties)
     {
         return register(func, blockId(name), factory, properties);
     }
 
     private static ResourceKey<Block> blockId(String name)
     {
-        return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
     }
 
     private static Boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {

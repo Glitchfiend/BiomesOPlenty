@@ -45,7 +45,7 @@ public class DataGenerationHandler
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        var datapackProvider = generator.addProvider(true, new DatapackBuiltinEntriesProvider(output, lookupProvider, BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
+        generator.addProvider(true, new DatapackBuiltinEntriesProvider(output, lookupProvider, BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
 
         // Recipes
         generator.addProvider(true, new BOPRecipeProvider.Runner(output, event.getLookupProvider()));

@@ -18,7 +18,7 @@ public class BiomeUtil
             if (key == null)
                 continue;
 
-            if (ModConfig.isBiomeEnabled(key) || key.location().getNamespace().equals("minecraft"))
+            if (ModConfig.isBiomeEnabled(key) || key.identifier().getNamespace().equals("minecraft"))
                 return key;
         }
 

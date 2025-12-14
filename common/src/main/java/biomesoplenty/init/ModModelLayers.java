@@ -6,7 +6,7 @@ package biomesoplenty.init;
 
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class ModModelLayers 
 {
@@ -51,6 +51,6 @@ public class ModModelLayers
 
     private static ModelLayerLocation createLocation(String name, String layer)
     {
-        return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), layer);
+        return new ModelLayerLocation(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), layer);
     }
 }

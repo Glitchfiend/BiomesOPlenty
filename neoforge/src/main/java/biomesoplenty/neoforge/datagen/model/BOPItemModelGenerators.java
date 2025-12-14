@@ -9,16 +9,16 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.function.BiConsumer;
 
 public class BOPItemModelGenerators extends ItemModelGenerators
 {
     private final ItemModelOutput itemModelOutput;
-    private final BiConsumer<ResourceLocation, ModelInstance> modelOutput;
+    private final BiConsumer<Identifier, ModelInstance> modelOutput;
 
-    public BOPItemModelGenerators(ItemModelOutput itemModelOutput, BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
+    public BOPItemModelGenerators(ItemModelOutput itemModelOutput, BiConsumer<Identifier, ModelInstance> modelOutput) {
         super(itemModelOutput, modelOutput);
         this.itemModelOutput = itemModelOutput;
         this.modelOutput = modelOutput;

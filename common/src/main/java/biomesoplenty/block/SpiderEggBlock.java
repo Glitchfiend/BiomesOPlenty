@@ -15,7 +15,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.CaveSpider;
+import net.minecraft.world.entity.monster.spider.CaveSpider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
@@ -26,6 +26,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -80,7 +81,7 @@ public class SpiderEggBlock extends Block
     {
         super.spawnAfterBreak(p_54188_, level, p_54190_, p_54191_, p_222953_);
         HolderLookup.RegistryLookup<Enchantment> registrylookup = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-        if (level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(registrylookup.getOrThrow(Enchantments.SILK_TOUCH), p_54191_) == 0)
+        if (level.getGameRules().get(GameRules.BLOCK_DROPS) && EnchantmentHelper.getItemEnchantmentLevel(registrylookup.getOrThrow(Enchantments.SILK_TOUCH), p_54191_) == 0)
         {
             this.spawnSpider(level, p_54190_);
         }

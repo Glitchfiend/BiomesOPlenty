@@ -10,9 +10,7 @@ import biomesoplenty.block.entity.AnomalyBlockEntity;
 import biomesoplenty.block.entity.SignBlockEntityBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import glitchcore.util.BlockHelper;
-import net.minecraft.Util;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.datafix.fixes.References;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -24,7 +22,7 @@ import static biomesoplenty.api.block.BOPBlocks.*;
 
 public class ModBlockEntities
 {
-    public static void registerBlockEntities(BiConsumer<ResourceLocation, BlockEntityType<?>> func)
+    public static void registerBlockEntities(BiConsumer<Identifier, BlockEntityType<?>> func)
     {
         BOPBlockEntities.SIGN = register(func, "sign", SignBlockEntityBOP::new, Set.of(
                 ORIGIN_OAK_SIGN, FIR_SIGN, PINE_SIGN, MAPLE_SIGN, REDWOOD_SIGN, MAHOGANY_SIGN, JACARANDA_SIGN, PALM_SIGN, WILLOW_SIGN, DEAD_SIGN, MAGIC_SIGN, UMBRAN_SIGN, HELLBARK_SIGN, EMPYREAL_SIGN,
@@ -39,10 +37,10 @@ public class ModBlockEntities
         BlockHelper.addBlockEntityBlocks(BlockEntityType.SHELF, ORIGIN_OAK_SHELF, FIR_SHELF, PINE_SHELF, MAPLE_SHELF, REDWOOD_SHELF, MAHOGANY_SHELF, JACARANDA_SHELF, PALM_SHELF, WILLOW_SHELF, DEAD_SHELF, MAGIC_SHELF, UMBRAN_SHELF, HELLBARK_SHELF, EMPYREAL_SHELF);
     }
 
-    private static <T extends BlockEntity> BlockEntityType<?> register(BiConsumer<ResourceLocation, BlockEntityType<?>> func, String name, BlockEntityType.BlockEntitySupplier<T> supplier, Set<Block> blocks)
+    private static <T extends BlockEntity> BlockEntityType<?> register(BiConsumer<Identifier, BlockEntityType<?>> func, String name, BlockEntityType.BlockEntitySupplier<T> supplier, Set<Block> blocks)
     {
         var type = new BlockEntityType(supplier, blocks);
-        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), type);
+        func.accept(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), type);
         return type;
     }
 }

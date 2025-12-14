@@ -17,7 +17,7 @@ import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.core.Direction;
 import net.minecraft.data.BlockFamily;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -64,9 +64,9 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
             .build();
 
     final Consumer<BlockModelDefinitionGenerator> blockStateOutput;
-    final BiConsumer<ResourceLocation, ModelInstance> modelOutput;
+    final BiConsumer<Identifier, ModelInstance> modelOutput;
 
-    public BOPBlockModelGenerators(Consumer<BlockModelDefinitionGenerator> blockStateOutput, ItemModelOutput itemModelOutput, BiConsumer<ResourceLocation, ModelInstance> modelOutput)
+    public BOPBlockModelGenerators(Consumer<BlockModelDefinitionGenerator> blockStateOutput, ItemModelOutput itemModelOutput, BiConsumer<Identifier, ModelInstance> modelOutput)
     {
         super(blockStateOutput, itemModelOutput, modelOutput);
         this.blockStateOutput = blockStateOutput;
@@ -336,7 +336,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
     public void createLeavesOverlay(Block block, int tint)
     {
         TextureMapping textureMapping = BOPTextureMapping.leavesOverlay(block);
-        ResourceLocation model = BOPModelTemplates.LEAVES_OVERLAY.create(block, textureMapping, this.modelOutput);
+        Identifier model = BOPModelTemplates.LEAVES_OVERLAY.create(block, textureMapping, this.modelOutput);
         this.blockStateOutput.accept(createSimpleBlock(block, plainVariant(model)));
         this.registerSimpleTintedItemModel(block, model, ItemModelUtils.constantTint(tint));
     }
@@ -351,36 +351,36 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
     public void createWillowVine()
     {
         this.createMultifaceBlockStates(BOPBlocks.WILLOW_VINE);
-        ResourceLocation resourcelocation = this.createFlatItemModelWithBlockTexture(BOPItems.WILLOW_VINE, BOPBlocks.WILLOW_VINE);
-        this.registerSimpleTintedItemModel(BOPBlocks.WILLOW_VINE, resourcelocation, ItemModelUtils.constantTint(FoliageColor.FOLIAGE_DEFAULT));
+        Identifier Identifier = this.createFlatItemModelWithBlockTexture(BOPItems.WILLOW_VINE, BOPBlocks.WILLOW_VINE);
+        this.registerSimpleTintedItemModel(BOPBlocks.WILLOW_VINE, Identifier, ItemModelUtils.constantTint(FoliageColor.FOLIAGE_DEFAULT));
     }
 
     public void createBlockItemModel(Block block)
     {
-        ResourceLocation resourcelocation = this.createFlatItemModel(block.asItem());
-        this.registerSimpleItemModel(block, resourcelocation);
+        Identifier Identifier = this.createFlatItemModel(block.asItem());
+        this.registerSimpleItemModel(block, Identifier);
     }
 
     public void createTintedBlockItemModel(Block block, ItemTintSource tint)
     {
-        ResourceLocation resourcelocation = this.createFlatItemModel(block.asItem());
-        this.registerSimpleTintedItemModel(block, resourcelocation, tint);
+        Identifier Identifier = this.createFlatItemModel(block.asItem());
+        this.registerSimpleTintedItemModel(block, Identifier, tint);
     }
 
     public void createTintedItemModel(Block block, ItemTintSource tint)
     {
-        ResourceLocation resourcelocation = this.createFlatItemModelWithBlockTexture(block.asItem(), block);
-        this.registerSimpleTintedItemModel(block, resourcelocation, tint);
+        Identifier Identifier = this.createFlatItemModelWithBlockTexture(block.asItem(), block);
+        this.registerSimpleTintedItemModel(block, Identifier, tint);
     }
 
     public void logWithKnot(Block block)
     {
         var logMapping = TextureMapping.logColumn(block);
         var logKnotMapping = BOPTextureMapping.logColumnKnot(block);
-        ResourceLocation columnModel = ModelTemplates.CUBE_COLUMN.create(block, logMapping, this.modelOutput);
-        ResourceLocation horizontalModel = ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(block, logMapping, this.modelOutput);
-        ResourceLocation columnKnotModel = ModelTemplates.CUBE_COLUMN.createWithSuffix(block, "_knot", logKnotMapping, this.modelOutput);
-        ResourceLocation horizontalKnotModel = ModelTemplates.CUBE_COLUMN_HORIZONTAL.createWithSuffix(block, "_knot", logKnotMapping, this.modelOutput);
+        Identifier columnModel = ModelTemplates.CUBE_COLUMN.create(block, logMapping, this.modelOutput);
+        Identifier horizontalModel = ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(block, logMapping, this.modelOutput);
+        Identifier columnKnotModel = ModelTemplates.CUBE_COLUMN.createWithSuffix(block, "_knot", logKnotMapping, this.modelOutput);
+        Identifier horizontalKnotModel = ModelTemplates.CUBE_COLUMN_HORIZONTAL.createWithSuffix(block, "_knot", logKnotMapping, this.modelOutput);
         this.blockStateOutput.accept(
             MultiVariantGenerator.dispatch(block)
                 .with(
@@ -394,23 +394,23 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
 
     public void createMushroomBlockWithInside(Block p_388752_)
     {
-        ResourceLocation resourcelocation = ModelTemplates.SINGLE_FACE.create(p_388752_, TextureMapping.defaultTexture(p_388752_), this.modelOutput);
-        ResourceLocation resourcelocation1 = ModelLocationUtils.getModelLocation(p_388752_, "_inside");
+        Identifier Identifier = ModelTemplates.SINGLE_FACE.create(p_388752_, TextureMapping.defaultTexture(p_388752_), this.modelOutput);
+        Identifier Identifier1 = ModelLocationUtils.getModelLocation(p_388752_, "_inside");
         this.blockStateOutput
                 .accept(
                         MultiPartGenerator.multiPart(p_388752_)
-                                .with(condition().term(BlockStateProperties.NORTH, true), plainVariant(resourcelocation))
-                                .with(condition().term(BlockStateProperties.EAST, true).build(), variant(plainModel(resourcelocation).withYRot(Quadrant.R90).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.SOUTH, true).build(), variant(plainModel(resourcelocation).withYRot(Quadrant.R180).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.WEST, true).build(), variant(plainModel(resourcelocation).withYRot(Quadrant.R270).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.UP, true).build(), variant(plainModel(resourcelocation).withXRot(Quadrant.R270).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.DOWN, true).build(), variant(plainModel(resourcelocation).withXRot(Quadrant.R90).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.NORTH, false), plainVariant(resourcelocation1))
-                                .with(condition().term(BlockStateProperties.EAST, false).build(), variant(plainModel(resourcelocation1).withYRot(Quadrant.R90).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.SOUTH, false).build(), variant(plainModel(resourcelocation1).withYRot(Quadrant.R180).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.WEST, false).build(), variant(plainModel(resourcelocation1).withYRot(Quadrant.R270).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.UP, false).build(), variant(plainModel(resourcelocation1).withXRot(Quadrant.R270).withUvLock(true)))
-                                .with(condition().term(BlockStateProperties.DOWN, false).build(), variant(plainModel(resourcelocation1).withXRot(Quadrant.R90).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.NORTH, true), plainVariant(Identifier))
+                                .with(condition().term(BlockStateProperties.EAST, true).build(), variant(plainModel(Identifier).withYRot(Quadrant.R90).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.SOUTH, true).build(), variant(plainModel(Identifier).withYRot(Quadrant.R180).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.WEST, true).build(), variant(plainModel(Identifier).withYRot(Quadrant.R270).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.UP, true).build(), variant(plainModel(Identifier).withXRot(Quadrant.R270).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.DOWN, true).build(), variant(plainModel(Identifier).withXRot(Quadrant.R90).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.NORTH, false), plainVariant(Identifier1))
+                                .with(condition().term(BlockStateProperties.EAST, false).build(), variant(plainModel(Identifier1).withYRot(Quadrant.R90).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.SOUTH, false).build(), variant(plainModel(Identifier1).withYRot(Quadrant.R180).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.WEST, false).build(), variant(plainModel(Identifier1).withYRot(Quadrant.R270).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.UP, false).build(), variant(plainModel(Identifier1).withXRot(Quadrant.R270).withUvLock(true)))
+                                .with(condition().term(BlockStateProperties.DOWN, false).build(), variant(plainModel(Identifier1).withXRot(Quadrant.R90).withUvLock(true)))
                 );
         this.registerSimpleItemModel(p_388752_, TexturedModel.CUBE.createWithSuffix(p_388752_, "_inventory", this.modelOutput));
     }
@@ -426,8 +426,8 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         public BlockModelGenerators.BlockFamilyProvider fullBlockVariant(Block block)
         {
             TexturedModel texturedmodel = BOPBlockModelGenerators.this.texturedModels.getOrDefault(block, TexturedModel.CUBE.get(block));
-            ResourceLocation resourcelocation = texturedmodel.create(block, BOPBlockModelGenerators.this.modelOutput);
-            BOPBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, plainVariant(resourcelocation)));
+            Identifier Identifier = texturedmodel.create(block, BOPBlockModelGenerators.this.modelOutput);
+            BOPBlockModelGenerators.this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, plainVariant(Identifier)));
             return this;
         }
     }

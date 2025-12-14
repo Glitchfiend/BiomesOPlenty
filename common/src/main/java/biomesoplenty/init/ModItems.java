@@ -11,7 +11,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
@@ -26,13 +26,13 @@ import static biomesoplenty.api.item.BOPItems.*;
 
 public class ModItems
 {
-    public static void setup(BiConsumer<ResourceLocation, Item> func)
+    public static void setup(BiConsumer<Identifier, Item> func)
     {
         registerItems(func);
         ModVanillaCompat.setup();
     }
 
-    private static void registerItems(BiConsumer<ResourceLocation, Item> func)
+    private static void registerItems(BiConsumer<Identifier, Item> func)
     {
         registerBlockItems(func);
 
@@ -102,7 +102,7 @@ public class ModItems
         EMPYREAL_CHEST_BOAT = registerItem(func, "empyreal_chest_boat", (properties) -> new BoatItem(BOPEntities.EMPYREAL_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
     }
 
-    public static void registerBlockItems(BiConsumer<ResourceLocation, Item> func)
+    public static void registerBlockItems(BiConsumer<Identifier, Item> func)
     {
         BLOOD = registerBlock(func, BOPBlocks.BLOOD);
         LIQUID_NULL = registerBlock(func, BOPBlocks.LIQUID_NULL);
@@ -549,51 +549,51 @@ public class ModItems
         //POTTED_VOIDCAP = registerBlock(func, BOPBlocks.POTTED_VOIDCAP);
     }
 
-    public static Item registerBlock(BiConsumer<ResourceLocation, Item> func, Block block)
+    public static Item registerBlock(BiConsumer<Identifier, Item> func, Block block)
     {
         return registerBlock(func, block, BlockItem::new);
     }
 
-    public static Item registerBlock(BiConsumer<ResourceLocation, Item> func, Block block, BiFunction<Block, Item.Properties, Item> factory)
+    public static Item registerBlock(BiConsumer<Identifier, Item> func, Block block, BiFunction<Block, Item.Properties, Item> factory)
     {
         return registerBlock(func, block, factory, new Item.Properties());
     }
 
-    public static Item registerBlock(BiConsumer<ResourceLocation, Item> func, Block block, UnaryOperator<Item.Properties> operator)
+    public static Item registerBlock(BiConsumer<Identifier, Item> func, Block block, UnaryOperator<Item.Properties> operator)
     {
         return registerBlock(func, block, (p_371022_, p_371023_) -> new BlockItem(p_371022_, operator.apply(p_371023_)), new Item.Properties());
     }
 
-    public static Item registerBlock(BiConsumer<ResourceLocation, Item> func, Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties properties)
+    public static Item registerBlock(BiConsumer<Identifier, Item> func, Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties properties)
     {
         return registerItem(func, blockIdToItemId(block.builtInRegistryHolder().key()), p_370785_ -> factory.apply(block, p_370785_), properties.useBlockDescriptionPrefix()
         );
     }
 
-    private static Item registerItem(BiConsumer<ResourceLocation, Item> func, ResourceKey<Item> key, Function<Item.Properties, Item> factory, Item.Properties properties)
+    private static Item registerItem(BiConsumer<Identifier, Item> func, ResourceKey<Item> key, Function<Item.Properties, Item> factory, Item.Properties properties)
     {
         Item item = factory.apply(properties.setId(key));
-        func.accept(key.location(), item);
+        func.accept(key.identifier(), item);
         return item;
     }
 
-    private static Item registerItem(BiConsumer<ResourceLocation, Item> func, String name, Function<Item.Properties, Item> factory, Item.Properties properties)
+    private static Item registerItem(BiConsumer<Identifier, Item> func, String name, Function<Item.Properties, Item> factory, Item.Properties properties)
     {
         return registerItem(func, itemId(name), factory, properties);
     }
 
-    private static Item registerItem(BiConsumer<ResourceLocation, Item> func, String name, Item.Properties properties)
+    private static Item registerItem(BiConsumer<Identifier, Item> func, String name, Item.Properties properties)
     {
         return registerItem(func, itemId(name), Item::new, properties);
     }
 
     private static ResourceKey<Item> blockIdToItemId(ResourceKey<Block> key)
     {
-        return ResourceKey.create(Registries.ITEM, key.location());
+        return ResourceKey.create(Registries.ITEM, key.identifier());
     }
 
     private static ResourceKey<Item> itemId(String name)
     {
-        return ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
     }
 }

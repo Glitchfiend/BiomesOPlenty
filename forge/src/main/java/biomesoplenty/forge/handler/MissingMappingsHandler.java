@@ -12,7 +12,7 @@ import biomesoplenty.forge.core.BiomesOPlentyForge;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Block;
@@ -219,8 +219,8 @@ public class MissingMappingsHandler
     private static class Remapper<T>
     {
         private final ResourceKey<Registry<T>> registryKey;
-        private Map<ResourceLocation, T> remaps = new HashMap<>();
-        private Map<ResourceLocation, ResourceKey<T>> remapResourceKeys = new HashMap<>();
+        private Map<Identifier, T> remaps = new HashMap<>();
+        private Map<Identifier, ResourceKey<T>> remapResourceKeys = new HashMap<>();
 
         private Remapper(ResourceKey<Registry<T>> registryKey)
         {
@@ -234,7 +234,7 @@ public class MissingMappingsHandler
 
         public Remapper<T> remap(String oldId, T replacement)
         {
-            this.remaps.put(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, oldId), replacement);
+            this.remaps.put(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, oldId), replacement);
             return this;
         }
 
@@ -245,7 +245,7 @@ public class MissingMappingsHandler
 
         public Remapper<T> remap(String oldId, ResourceKey<T> replacement)
         {
-            this.remapResourceKeys.put(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, oldId), replacement);
+            this.remapResourceKeys.put(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, oldId), replacement);
             return this;
         }
 
@@ -262,9 +262,9 @@ public class MissingMappingsHandler
                     IForgeRegistry<T> registry = mapping.getRegistry();
                     ResourceKey<T> replacement = this.remapResourceKeys.get(mapping.getKey());
 
-                    if (registry.containsKey(replacement.location()))
+                    if (registry.containsKey(replacement.identifier()))
                     {
-                        mapping.remap(registry.getValue(replacement.location()));
+                        mapping.remap(registry.getValue(replacement.identifier()));
                     }
                 }
             }

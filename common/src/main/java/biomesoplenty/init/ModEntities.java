@@ -8,12 +8,12 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.entity.vehicle.ChestBoat;
+import net.minecraft.world.entity.vehicle.boat.Boat;
+import net.minecraft.world.entity.vehicle.boat.ChestBoat;
 import net.minecraft.world.item.Item;
 
 import java.util.function.BiConsumer;
@@ -23,7 +23,7 @@ import static biomesoplenty.api.entity.BOPEntities.*;
 
 public class ModEntities
 {
-    public static void registerEntities(BiConsumer<ResourceLocation, EntityType<?>> func)
+    public static void registerEntities(BiConsumer<Identifier, EntityType<?>> func)
     {
         ORIGIN_OAK_BOAT = register(
                 func, "origin_oak_boat", EntityType.Builder.of(boatFactory(() -> BOPItems.ORIGIN_OAK_BOAT), MobCategory.MISC).noLootTable().sized(1.375F, 0.5625F).eyeHeight(0.5625F).clientTrackingRange(10)
@@ -111,21 +111,21 @@ public class ModEntities
         );
     }
 
-    private static <T extends Entity> EntityType<T> register(BiConsumer<ResourceLocation, EntityType<?>> func, ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder)
+    private static <T extends Entity> EntityType<T> register(BiConsumer<Identifier, EntityType<?>> func, ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder)
     {
         var type = builder.build(key);
-        func.accept(key.location(), type);
+        func.accept(key.identifier(), type);
         return type;
     }
 
-    private static <T extends Entity> EntityType<T> register(BiConsumer<ResourceLocation, EntityType<?>> func, String name, EntityType.Builder<T> builder)
+    private static <T extends Entity> EntityType<T> register(BiConsumer<Identifier, EntityType<?>> func, String name, EntityType.Builder<T> builder)
     {
         return register(func, entityId(name), builder);
     }
 
     private static ResourceKey<EntityType<?>> entityId(String name)
     {
-        return ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
     }
 
     private static EntityType.EntityFactory<Boat> boatFactory(Supplier<Item> dropItem)

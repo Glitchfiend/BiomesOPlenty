@@ -1,42 +1,38 @@
 plugins {
-    id "net.neoforged.gradle.userdev" version "7.0.192"
-    id "net.neoforged.gradle.mixin" version "7.+"
+    id 'net.neoforged.moddev' version '2.0.124'
     id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 base.archivesName.set("${mod_name}-neoforge")
 
-mixin {
-    config "${mod_id}.mixins.json"
-    config "${mod_id}.neoforge.mixins.json"
-}
-
-minecraft {
-    mappings {
-        channel = official()
-        version.put "minecraft", minecraft_version
+neoForge {
+    version = neoforge_version
+    // Automatically enable neoforge AccessTransformers if the file exists
+    def at = project(':Common').file('src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) {
+        accessTransformers.from(at.absolutePath)
     }
-    accessTransformers.file('src/main/resources/META-INF/accesstransformer.cfg')
-}
-
-runs {
-    configureEach {
-        modSource project.sourceSets.main
+    def resources = project(':Common').file('src/generated/resources/').getAbsolutePath()
+    runs {
+        configureEach {
+            systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
+            ideName = "NeoForge ${it.name.capitalize()} (${project.path})" // Unify the run config names with fabric
+        }
+        client {
+            client()
+        }
+        data {
+            clientData()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', resources, '--existing', resources
+        }
+        server {
+            server()
+        }
     }
-
-    client {
-        workingDirectory.set(project.file('run'))
-        systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
-    }
-
-    server {
-        workingDirectory.set(project.file('run'))
-        systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
-        programArgument '--nogui'
-    }
-
-    clientData {
-        programArguments.addAll '--mod', project.mod_id, '--all', '--output', project(':Common').file('src/generated/resources/').getAbsolutePath(), '--existing', project(':Common').file('src/main/resources/').getAbsolutePath()
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
     }
 }
 

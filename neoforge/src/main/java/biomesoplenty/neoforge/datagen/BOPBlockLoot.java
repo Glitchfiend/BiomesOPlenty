@@ -6,8 +6,8 @@ import biomesoplenty.block.HugeLilyPadBlock;
 import biomesoplenty.block.properties.QuarterProperty;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModTags;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -556,7 +556,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
     @Override
     protected Iterable<Block> getKnownBlocks()
     {
-        return BuiltInRegistries.BLOCK.entrySet().stream().filter(e -> e.getKey().location().getNamespace().equals(BiomesOPlenty.MOD_ID)).map(Map.Entry::getValue).toList();
+        return BuiltInRegistries.BLOCK.entrySet().stream().filter(e -> e.getKey().identifier().getNamespace().equals(BiomesOPlenty.MOD_ID)).map(Map.Entry::getValue).toList();
     }
 
     @Override

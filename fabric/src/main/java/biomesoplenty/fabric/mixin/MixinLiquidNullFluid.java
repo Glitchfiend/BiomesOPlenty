@@ -41,13 +41,13 @@ public abstract class MixinLiquidNullFluid
     private void updateBuffer(ByteBuffer byteBuffer, int i, Vector4f vector4f, float f, float g, float h, float j, float k, float l) {}
 
     @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
-    private void setupFog(Camera camera, int i, boolean bl, DeltaTracker deltaTracker, float f, ClientLevel level, CallbackInfoReturnable<Vector4f> cir)
+    private void setupFog(Camera camera, int i, DeltaTracker deltaTracker, float f, ClientLevel level, CallbackInfoReturnable<Vector4f> cir)
     {
-        BlockPos blockPos = camera.getBlockPosition();
+        BlockPos blockPos = camera.blockPosition();
         FluidState fluidState = level.getFluidState(blockPos);
         Fluid fluid = fluidState.getType();
 
-        if(camera.getPosition().y > blockPos.getY() + fluidState.getHeight(level, blockPos))
+        if(camera.position().y > blockPos.getY() + fluidState.getHeight(level, blockPos))
         {
             return;
         }
@@ -59,7 +59,7 @@ public abstract class MixinLiquidNullFluid
         Vector4f vector4f = new Vector4f(0.6274509803921569F, 0.12549019607843137F, 0.9411764705882353F, 0.5F);
         float h = (float)(i * 16);
 
-        Entity entity = camera.getEntity();
+        Entity entity = camera.entity();
         FogData fogData = new FogData();
 
         float j = Mth.clamp(h / 10.0F, 4.0F, 64.0F);

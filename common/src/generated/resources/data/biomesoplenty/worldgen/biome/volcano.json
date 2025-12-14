@@ -1,4 +1,32 @@
 {
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "mood": {
+        "block_search_extent": 8,
+        "offset": 2.0,
+        "sound": "minecraft:ambient.cave",
+        "tick_delay": 6000
+      }
+    },
+    "minecraft:audio/background_music": {
+      "default": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.overworld.jagged_peaks"
+      }
+    },
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:white_ash"
+        },
+        "probability": 0.059046667
+      }
+    ],
+    "minecraft:visual/fog_color": "#7f7f7f",
+    "minecraft:visual/sky_color": "#77a8ff",
+    "minecraft:visual/water_fog_color": "#041633"
+  },
   "carvers": [
     "minecraft:cave",
     "minecraft:cave_extra_underground",
@@ -6,37 +34,10 @@
   ],
   "downfall": 0.3,
   "effects": {
-    "dry_foliage_color": 9927274,
-    "fog_color": 8355711,
-    "foliage_color": 5537090,
-    "grass_color": 4878395,
-    "mood_sound": {
-      "block_search_extent": 8,
-      "offset": 2.0,
-      "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000
-    },
-    "music": [
-      {
-        "data": {
-          "max_delay": 24000,
-          "min_delay": 12000,
-          "replace_current_music": false,
-          "sound": "minecraft:music.overworld.jagged_peaks"
-        },
-        "weight": 1
-      }
-    ],
-    "music_volume": 1.0,
-    "particle": {
-      "options": {
-        "type": "minecraft:white_ash"
-      },
-      "probability": 0.059046667
-    },
-    "sky_color": 7842047,
-    "water_color": 4566514,
-    "water_fog_color": 267827
+    "dry_foliage_color": "#977a6a",
+    "foliage_color": "#547d42",
+    "grass_color": "#4a703b",
+    "water_color": "#45adf2"
   },
   "features": [
     [],

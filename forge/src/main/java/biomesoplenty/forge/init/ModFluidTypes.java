@@ -12,7 +12,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.BlockGetter;
@@ -67,21 +67,21 @@ public class ModFluidTypes
             {
                 consumer.accept(new IClientFluidTypeExtensions()
                 {
-                    private static final ResourceLocation BLOOD_UNDERWATER = ResourceLocation.parse("biomesoplenty:textures/block/blood_underwater.png"),
-                            BLOOD_STILL = ResourceLocation.parse("biomesoplenty:block/blood_still"),
-                            BLOOD_FLOW = ResourceLocation.parse("biomesoplenty:block/blood_flow");
+                    private static final Identifier BLOOD_UNDERWATER = Identifier.parse("biomesoplenty:textures/block/blood_underwater.png"),
+                            BLOOD_STILL = Identifier.parse("biomesoplenty:block/blood_still"),
+                            BLOOD_FLOW = Identifier.parse("biomesoplenty:block/blood_flow");
 
                     @Override
-                    public ResourceLocation getStillTexture()
+                    public Identifier getStillTexture()
                     {
                         return BLOOD_STILL;
                     }
 
                     @Override
-                    public ResourceLocation getFlowingTexture() { return BLOOD_FLOW; }
+                    public Identifier getFlowingTexture() { return BLOOD_FLOW; }
 
                     @Override
-                    public ResourceLocation getRenderOverlayTexture(Minecraft mc) { return BLOOD_UNDERWATER; }
+                    public Identifier getRenderOverlayTexture(Minecraft mc) { return BLOOD_UNDERWATER; }
 
                     @Override
                     public Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor)
@@ -120,21 +120,21 @@ public class ModFluidTypes
             {
                 consumer.accept(new IClientFluidTypeExtensions()
                 {
-                    private static final ResourceLocation LIQUID_NULL_UNDERWATER = ResourceLocation.parse("biomesoplenty:textures/block/liquid_null_underwater.png"),
-                            LIQUID_NULL_STILL = ResourceLocation.parse("biomesoplenty:block/liquid_null_still"),
-                            LIQUID_NULL_FLOW = ResourceLocation.parse("biomesoplenty:block/liquid_null_flow");
+                    private static final Identifier LIQUID_NULL_UNDERWATER = Identifier.parse("biomesoplenty:textures/block/liquid_null_underwater.png"),
+                            LIQUID_NULL_STILL = Identifier.parse("biomesoplenty:block/liquid_null_still"),
+                            LIQUID_NULL_FLOW = Identifier.parse("biomesoplenty:block/liquid_null_flow");
 
                     @Override
-                    public ResourceLocation getStillTexture()
+                    public Identifier getStillTexture()
                     {
                         return LIQUID_NULL_STILL;
                     }
 
                     @Override
-                    public ResourceLocation getFlowingTexture() { return LIQUID_NULL_FLOW; }
+                    public Identifier getFlowingTexture() { return LIQUID_NULL_FLOW; }
 
                     @Override
-                    public ResourceLocation getRenderOverlayTexture(Minecraft mc) { return LIQUID_NULL_UNDERWATER; }
+                    public Identifier getRenderOverlayTexture(Minecraft mc) { return LIQUID_NULL_UNDERWATER; }
 
                     @Override
                     public Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor)

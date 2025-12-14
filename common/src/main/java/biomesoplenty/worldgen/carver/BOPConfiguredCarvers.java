@@ -9,7 +9,7 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.world.level.block.Block;
@@ -32,6 +32,6 @@ public class BOPConfiguredCarvers
 
     private static ResourceKey<ConfiguredWorldCarver<?>> createKey(String name)
     {
-        return ResourceKey.create(Registries.CONFIGURED_CARVER, ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.CONFIGURED_CARVER, Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
     }
 }

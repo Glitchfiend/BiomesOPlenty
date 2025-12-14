@@ -8,7 +8,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.worldgen.feature.configurations.*;
 import biomesoplenty.worldgen.feature.misc.*;
 import biomesoplenty.worldgen.feature.tree.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -101,7 +101,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> BARNACLES;
     public static BOPLakeFeature LAKE;
 
-    public static void registerFeatures(BiConsumer<ResourceLocation, Feature<?>> func)
+    public static void registerFeatures(BiConsumer<Identifier, Feature<?>> func)
     {
         BASIC_TREE = register(func, "basic_tree", new BasicTreeFeature(BasicTreeConfiguration.CODEC));
         HIGH_GRASS = register(func, "high_grass", new HighGrassFeature(NoneFeatureConfiguration.CODEC));
@@ -185,9 +185,9 @@ public class BOPBaseFeatures
         LAKE = register(func, "lake", new BOPLakeFeature(LakeFeature.Configuration.CODEC));
     }
 
-    private static <C extends FeatureConfiguration, F extends Feature<C>> F register(BiConsumer<ResourceLocation, Feature<?>> func, String name, F feature)
+    private static <C extends FeatureConfiguration, F extends Feature<C>> F register(BiConsumer<Identifier, Feature<?>> func, String name, F feature)
     {
-        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), feature);
+        func.accept(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), feature);
         return feature;
     }
 }

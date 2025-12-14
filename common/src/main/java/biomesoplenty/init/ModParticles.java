@@ -8,7 +8,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -37,7 +37,7 @@ public class ModParticles
     public static final SimpleParticleType NULL = new SimpleParticleType(false);
     public static final SimpleParticleType BINARY = new SimpleParticleType(false);
 
-    public static void registerParticles(BiConsumer<ResourceLocation, ParticleType<?>> func)
+    public static void registerParticles(BiConsumer<Identifier, ParticleType<?>> func)
     {
         register(func, "dripping_blood", DRIPPING_BLOOD);
         register(func, "falling_blood", FALLING_BLOOD);
@@ -62,9 +62,9 @@ public class ModParticles
         register(func, "binary", BINARY);
     }
 
-    private static <T extends ParticleType<? extends ParticleOptions>> T register(BiConsumer<ResourceLocation, ParticleType<?>> func, String name, T particle)
+    private static <T extends ParticleType<? extends ParticleOptions>> T register(BiConsumer<Identifier, ParticleType<?>> func, String name, T particle)
     {
-        func.accept(ResourceLocation.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), particle);
+        func.accept(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name), particle);
         return particle;
     }
 }
