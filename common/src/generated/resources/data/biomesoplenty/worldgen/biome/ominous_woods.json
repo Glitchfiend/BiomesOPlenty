@@ -11,7 +11,11 @@
     "minecraft:audio/background_music": {},
     "minecraft:visual/fog_color": "#7881a5",
     "minecraft:visual/sky_color": "#84a1cc",
-    "minecraft:visual/water_fog_color": "#0a030c"
+    "minecraft:visual/water_fog_color": "#0a030c",
+    "minecraft:visual/water_fog_end_distance": {
+      "argument": 0.85,
+      "modifier": "multiply"
+    }
   },
   "carvers": [
     "minecraft:cave",

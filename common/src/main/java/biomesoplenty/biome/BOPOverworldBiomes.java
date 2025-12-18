@@ -24,6 +24,7 @@ import net.minecraft.sounds.Musics;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.attribute.*;
+import net.minecraft.world.attribute.modifier.FloatModifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
@@ -50,46 +51,102 @@ public class BOPOverworldBiomes
         return Mth.hsvToRgb(0.62222224F - $$1 * 0.05F, 0.5F + $$1 * 0.1F, 1.0F);
     }
 
+    // Basic
     private static Biome biome(boolean hasPrecipitation, float temperature, float downfall, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
     {
         return biome(hasPrecipitation, temperature, downfall, 4159204, 329011, spawnBuilder, biomeBuilder, music);
     }
 
+    //Basic + Closer Water Fog
+    private static Biome biomeWithCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
+    {
+        return biomeWithCloserWaterFog(hasPrecipitation, temperature, downfall, 4159204, 329011, spawnBuilder, biomeBuilder, music);
+    }
+
+    // Grass and Foliage Color
     private static Biome biomeWithColorOverrides(boolean hasPrecipitation, float temperature, float downfall, int grassColor, int foliageColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
     {
         return biomeWithColorOverrides(hasPrecipitation, temperature, downfall, 4159204, 329011, grassColor, foliageColor, spawnBuilder, biomeBuilder, music);
     }
 
+    // Grass and Foliage Color + Closer Water Fog
+    private static Biome biomeWithColorOverridesAndCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, int grassColor, int foliageColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
+    {
+        return biomeWithColorOverridesAndCloserWaterFog(hasPrecipitation, temperature, downfall, 4159204, 329011, grassColor, foliageColor, spawnBuilder, biomeBuilder, music);
+    }
+
+    /////////////////////////////////////////////
+
+    // Water Color
     private static Biome biome(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
     {
         return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(temperature))
                 .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 12638463)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(temperature))
                 .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
                 .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
+    // Water Color + Closer Water Fog
+    private static Biome biomeWithCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
+    {
+        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
+                .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, 12638463)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(temperature))
+                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
+                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+    }
+
+    // Water and Fog Color
     private static Biome biome(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
     {
         return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
                 .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
                 .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
                 .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
+    // Water and Fog Color + Closer Water Fog
+    private static Biome biomeWithCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
+    {
+        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
+                .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
+                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
+                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+    }
+
+    // Water, Grass, and Foliage Color
     private static Biome biomeWithColorOverrides(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int grassColor, int foliageColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
     {
         return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(temperature))
                 .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 12638463)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(temperature))
                 .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
                 .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
+    // Water, Grass, and Foliage Color + Closer Water Fog
+    private static Biome biomeWithColorOverridesAndCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int grassColor, int foliageColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
+    {
+        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
+                .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, 12638463)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(temperature))
+                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
+                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+    }
+
+    // Water, Grass, Foliage, and Dry Foliage Color
     private static Biome biomeWithColorOverrides(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int grassColor, int foliageColor, int dryFoliageColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
     {
         return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
@@ -100,39 +157,100 @@ public class BOPOverworldBiomes
                 .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).dryFoliageColorOverride(dryFoliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    private static Biome biomeWithColorOverrides(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int dryFoliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)    {
+    // Water, Grass, Foliage, and Dry Foliage Color + Closer Water Fog
+    private static Biome biomeWithColorOverridesAndCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int grassColor, int foliageColor, int dryFoliageColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
+    {
         return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
                 .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
-                .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, 12638463)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(temperature))
                 .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
                 .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).dryFoliageColorOverride(dryFoliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
+    // Water, Grass, Foliage, Fog, and Sky Color
     private static Biome biomeWithColorOverrides(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
     {
         return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
                 .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
                 .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
                 .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
+    // Water, Grass, Foliage, Fog, and Sky Color + Closer Water Fog
+    private static Biome biomeWithColorOverridesAndCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)
+    {
+        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
+                .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
+                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
+                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+    }
+
+    // Water, Grass, Foliage, Fog, Sky, and Dry Foliage Color
+    private static Biome biomeWithColorOverrides(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int dryFoliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)    {
+        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
+                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
+                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).dryFoliageColorOverride(dryFoliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+    }
+
+    // Water, Grass, Foliage, Fog, Sky, and Dry Foliage Color + Closer Water Fog
+    private static Biome biomeWithColorOverridesAndCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int dryFoliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, BackgroundMusic music)    {
+        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
+                .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
+                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
+                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).dryFoliageColorOverride(dryFoliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+    }
+
+    // Water, Grass, Foliage, Fog, and Sky Color + Particles
     private static Biome biomeWithColorOverridesAndParticles(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, ParticleOptions particleOptions, float particleProbability, @Nullable BackgroundMusic music)
     {
         return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
                 .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
                 .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(particleOptions, particleProbability))
                 .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
                 .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
+    // Water, Grass, Foliage, Fog, Sky, and Dry Foliage Color + Particles
     private static Biome biomeWithColorOverridesAndParticles(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int dryFoliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, ParticleOptions particleOptions, float particleProbability, @Nullable BackgroundMusic music)
     {
-        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall).setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor).setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor).setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(particleOptions, particleProbability)).setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).dryFoliageColorOverride(dryFoliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
+                .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(particleOptions, particleProbability))
+                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
+                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).dryFoliageColorOverride(dryFoliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
+
+    // Water, Grass, Foliage, Fog, Sky, and Dry Foliage Color + Particles + Closer Water Fog
+    private static Biome biomeWithColorOverridesAndParticlesAndCloserWaterFog(boolean hasPrecipitation, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor, int grassColor, int foliageColor, int dryFoliageColor, int skyColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, ParticleOptions particleOptions, float particleProbability, @Nullable BackgroundMusic music)
+    {
+        return (new Biome.BiomeBuilder()).hasPrecipitation(hasPrecipitation).temperature(temperature).downfall(downfall)
+                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, waterFogColor)
+                .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
+                .setAttribute(EnvironmentAttributes.FOG_COLOR, fogColor)
+                .setAttribute(EnvironmentAttributes.SKY_COLOR, skyColor)
+                .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(particleOptions, particleProbability))
+                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS).setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, music)
+                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).grassColorOverride(grassColor).foliageColorOverride(foliageColor).dryFoliageColorOverride(dryFoliageColor).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+    }
+
+    /////////////////////////////////////////////
 
     private static void addFeature(BiomeGenerationSettings.Builder builder, GenerationStep.Decoration step, ResourceKey<PlacedFeature> feature)
     {
@@ -212,7 +330,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.LILY_PAD_10);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
-        return biomeWithColorOverrides(true, 0.95F, 0.9F, 0x62AF84, 0x0C211C, 0x6FAA50, 0x8BDB67, spawnBuilder, biomeBuilder, SWAMP_MUSIC);
+        return biomeWithColorOverridesAndCloserWaterFog(true, 0.95F, 0.9F, 0x62AF84, 0x0C211C, 0x6FAA50, 0x8BDB67, spawnBuilder, biomeBuilder, SWAMP_MUSIC);
     }
 
     public static Biome bog(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -238,7 +356,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_REED_10);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biomeWithColorOverrides(true, 0.2F, 0.5F, 0xA89557, 0xC67F5B, spawnBuilder, biomeBuilder, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC));
+        return biomeWithColorOverridesAndCloserWaterFog(true, 0.2F, 0.5F, 0xA89557, 0xC67F5B, spawnBuilder, biomeBuilder, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC));
     }
 
     public static Biome coldDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -483,7 +601,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_50);
 
-        return biomeWithColorOverrides(true, 1.2F, 2.0F, 0x3FAABE, 0x041A2C, 0x7FD43D, 0x5BCD25, spawnBuilder, biomeBuilder, JUNGLE_MUSIC);
+        return biomeWithColorOverridesAndCloserWaterFog(true, 1.2F, 2.0F, 0x3FAABE, 0x041A2C, 0x7FD43D, 0x5BCD25, spawnBuilder, biomeBuilder, JUNGLE_MUSIC);
     }
 
     public static Biome fungalJungle(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -512,7 +630,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_12);
 
-        return biomeWithColorOverrides(true, 0.9F, 0.9F, 0x3FDF64, 0x042F18, 0xE1ED63, 0xCCE525, 0xE0E522, 0x62DCEA, spawnBuilder, biomeBuilder, JUNGLE_MUSIC);
+        return biomeWithColorOverridesAndCloserWaterFog(true, 0.9F, 0.9F, 0x3FDF64, 0x042F18, 0xE1ED63, 0xCCE525, 0xE0E522, 0x62DCEA, spawnBuilder, biomeBuilder, JUNGLE_MUSIC);
     }
 
     public static Biome glowingGrotto(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -783,7 +901,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_128);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_250);
 
-        return biome(true, 0.65F, 0.4F, spawnBuilder, biomeBuilder, SWAMP_MUSIC);
+        return biomeWithCloserWaterFog(true, 0.65F, 0.4F, spawnBuilder, biomeBuilder, SWAMP_MUSIC);
     }
 
     public static Biome mediterraneanForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -893,7 +1011,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
-        return biomeWithColorOverrides(true, 0.7F, 0.8F, 0x9C3FE4, 0x2E0533, 0xFFC9DA, 0x69CFDB, 0x70E0B5, 0x8F9A6F, 0xAAEFFF, spawnBuilder, biomeBuilder, MAGICAL_MUSIC);
+        return biomeWithColorOverridesAndCloserWaterFog(true, 0.7F, 0.8F, 0x9C3FE4, 0x2E0533, 0xFFC9DA, 0x69CFDB, 0x70E0B5, 0x8F9A6F, 0xAAEFFF, spawnBuilder, biomeBuilder, MAGICAL_MUSIC);
     }
 
     public static Biome oldGrowthDeadForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -939,7 +1057,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_DEAD_GRASS);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biomeWithColorOverrides(true, 0.6F, 0.6F, 0x312346, 0x0A030C, 0x7881A5, 0x4C4A70, 0x6B487C, 0x856D62, 0x84A1CC, spawnBuilder, biomeBuilder, BackgroundMusic.EMPTY);
+        return biomeWithColorOverridesAndCloserWaterFog(true, 0.6F, 0.6F, 0x312346, 0x0A030C, 0x7881A5, 0x4C4A70, 0x6B487C, 0x856D62, 0x84A1CC, spawnBuilder, biomeBuilder, BackgroundMusic.EMPTY);
     }
 
     public static Biome orchard(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1131,7 +1249,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_12);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
-        return biomeWithColorOverrides(true, 1.2F, 2.0F, 0x3FDF99, 0x042F26, 0xA7E140, 0x88E140, spawnBuilder, biomeBuilder, JUNGLE_MUSIC);
+        return biomeWithColorOverridesAndCloserWaterFog(true, 1.2F, 2.0F, 0x3FDF99, 0x042F26, 0xA7E140, 0x88E140, spawnBuilder, biomeBuilder, JUNGLE_MUSIC);
     }
 
     public static Biome rockyRainforest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1162,7 +1280,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
-        return biomeWithColorOverrides(true, 1.2F, 2.0F, 0x3FDF99, 0x042F26, 0xA7E140, 0x88E140, spawnBuilder, biomeBuilder, JUNGLE_MUSIC);
+        return biomeWithColorOverridesAndCloserWaterFog(true, 1.2F, 2.0F, 0x3FDF99, 0x042F26, 0xA7E140, 0x88E140, spawnBuilder, biomeBuilder, JUNGLE_MUSIC);
     }
 
     public static Biome redwoodForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1407,7 +1525,7 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
         BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
 
-        return biomeWithColorOverridesAndParticles(false, 0.95F, 0.3F, 4566514, 267827, 0x7F7F7F, 0x4A703B, 0x547D42, 0x977A6A, calculateSkyColor(0.95F), spawnBuilder, biomeBuilder, ParticleTypes.WHITE_ASH, 0.059046667F, MOUNTAIN_MUSIC);
+        return biomeWithColorOverridesAndParticlesAndCloserWaterFog(false, 0.95F, 0.3F, 4566514, 267827, 0x7F7F7F, 0x4A703B, 0x547D42, 0x977A6A, calculateSkyColor(0.95F), spawnBuilder, biomeBuilder, ParticleTypes.WHITE_ASH, 0.059046667F, MOUNTAIN_MUSIC);
     }
 
     public static Biome volcanicPlains(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1428,7 +1546,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SPROUTS_10);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
-        return biomeWithColorOverrides(false, 0.95F, 0.3F, 4566514, 267827, 0x4A703B, 0x547D42, 0xA06F5D, spawnBuilder, biomeBuilder, BackgroundMusic.EMPTY);
+        return biomeWithColorOverridesAndCloserWaterFog(false, 0.95F, 0.3F, 4566514, 267827, 0x4A703B, 0x547D42, 0xA06F5D, spawnBuilder, biomeBuilder, BackgroundMusic.EMPTY);
     }
 
     public static Biome wasteland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1448,7 +1566,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_WASTELAND);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.WASTELAND_GRASS_2);
 
-        return biomeWithColorOverridesAndParticles(false, 2.0F, 0.0F, 0x433721, 0x0C0C03, 0xDBDDC1, 0xAD9364, 0xB5A76C, 0xA08963, 0x89A3B7, spawnBuilder, biomeBuilder, ParticleTypes.MYCELIUM, 0.00357F, DESERT_MUSIC);
+        return biomeWithColorOverridesAndParticlesAndCloserWaterFog(false, 2.0F, 0.0F, 0x433721, 0x0C0C03, 0xDBDDC1, 0xAD9364, 0xB5A76C, 0xA08963, 0x89A3B7, spawnBuilder, biomeBuilder, ParticleTypes.MYCELIUM, 0.00357F, DESERT_MUSIC);
     }
 
     public static Biome wastelandSteppe(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1466,7 +1584,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.WASTELAND_GRASS_2);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return biomeWithColorOverrides(false, 2.0F, 0.0F, 0x405682, 0x08081B, 0xCDDADF, 0xC9B986, 0xC7C38F, 0xA18454, 0x7CA8D6, spawnBuilder, biomeBuilder, DESERT_MUSIC);
+        return biomeWithColorOverridesAndCloserWaterFog(false, 2.0F, 0.0F, 0x405682, 0x08081B, 0xCDDADF, 0xC9B986, 0xC7C38F, 0xA18454, 0x7CA8D6, spawnBuilder, biomeBuilder, DESERT_MUSIC);
     }
 
     public static Biome wetland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -1499,7 +1617,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
-        return biomeWithColorOverrides(true, 0.6F, 0.7F, 0x272179, 0x0C031B, 0x5A935F, 0x4F9657, spawnBuilder, biomeBuilder, SWAMP_MUSIC);
+        return biomeWithColorOverridesAndCloserWaterFog(true, 0.6F, 0.7F, 0x272179, 0x0C031B, 0x5A935F, 0x4F9657, spawnBuilder, biomeBuilder, SWAMP_MUSIC);
     }
 
     public static Biome woodland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean dense)

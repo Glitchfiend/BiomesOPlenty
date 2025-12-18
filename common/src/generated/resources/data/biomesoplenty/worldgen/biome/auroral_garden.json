@@ -16,6 +16,7 @@
       }
     },
     "minecraft:visual/fog_color": "#f0fdfd",
+    "minecraft:visual/sky_color": "#bdecfc",
     "minecraft:visual/water_fog_color": "#050533"
   },
   "carvers": [
