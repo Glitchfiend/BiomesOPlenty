@@ -382,7 +382,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_DUNE_GRASS);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_SEA_OATS);
 
-        return baseBiome(7F, 0.4F)
+        return baseBiome(0.7F, 0.4F)
             .mobSpawnSettings(spawnBuilder.build())
             .generationSettings(biomeBuilder.build()).build();
     }

@@ -1,6 +1,6 @@
 {
   "attributes": {
-    "minecraft:visual/sky_color": "#65bcff"
+    "minecraft:visual/sky_color": "#79a6ff"
   },
   "carvers": [
     "minecraft:cave",
@@ -145,5 +145,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 7.0
+  "temperature": 0.7
 }
