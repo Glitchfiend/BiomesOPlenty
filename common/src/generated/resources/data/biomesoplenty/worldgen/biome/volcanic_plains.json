@@ -1,16 +1,19 @@
 {
   "attributes": {
-    "minecraft:audio/ambient_sounds": {
-      "mood": {
-        "block_search_extent": 8,
-        "offset": 2.0,
-        "sound": "minecraft:ambient.cave",
-        "tick_delay": 6000
-      }
+    "minecraft:gameplay/snow_golem_melts": true,
+    "minecraft:visual/cloud_fog_end_distance": {
+      "argument": 0.5,
+      "modifier": "multiply"
     },
-    "minecraft:audio/background_music": {},
-    "minecraft:visual/fog_color": "#c0d8ff",
+    "minecraft:visual/fog_end_distance": {
+      "argument": 0.5,
+      "modifier": "multiply"
+    },
     "minecraft:visual/sky_color": "#77a8ff",
+    "minecraft:visual/sky_fog_end_distance": {
+      "argument": 0.5,
+      "modifier": "multiply"
+    },
     "minecraft:visual/water_fog_color": "#041633",
     "minecraft:visual/water_fog_end_distance": {
       "argument": 0.85,

@@ -1,13 +1,5 @@
 {
   "attributes": {
-    "minecraft:audio/ambient_sounds": {
-      "mood": {
-        "block_search_extent": 8,
-        "offset": 2.0,
-        "sound": "minecraft:ambient.cave",
-        "tick_delay": 6000
-      }
-    },
     "minecraft:audio/background_music": {
       "default": {
         "max_delay": 24000,
@@ -15,9 +7,7 @@
         "sound": "biomesoplenty:music.overworld.nostalgic"
       }
     },
-    "minecraft:visual/fog_color": "#c0d8ff",
-    "minecraft:visual/sky_color": "#7da2ff",
-    "minecraft:visual/water_fog_color": "#050533"
+    "minecraft:visual/sky_color": "#7da2ff"
   },
   "carvers": [
     "minecraft:cave",
@@ -28,7 +18,7 @@
   "effects": {
     "foliage_color": "#b7b763",
     "grass_color": "#baad64",
-    "water_color": "#3f76e4"
+    "water_color": "#3938c9"
   },
   "features": [
     [],

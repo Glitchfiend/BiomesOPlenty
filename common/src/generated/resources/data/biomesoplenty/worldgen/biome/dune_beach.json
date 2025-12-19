@@ -1,17 +1,6 @@
 {
   "attributes": {
-    "minecraft:audio/ambient_sounds": {
-      "mood": {
-        "block_search_extent": 8,
-        "offset": 2.0,
-        "sound": "minecraft:ambient.cave",
-        "tick_delay": 6000
-      }
-    },
-    "minecraft:audio/background_music": {},
-    "minecraft:visual/fog_color": "#c0d8ff",
-    "minecraft:visual/sky_color": "#79a6ff",
-    "minecraft:visual/water_fog_color": "#050533"
+    "minecraft:visual/sky_color": "#65bcff"
   },
   "carvers": [
     "minecraft:cave",
@@ -156,5 +145,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.7
+  "temperature": 7.0
 }

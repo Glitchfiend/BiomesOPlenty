@@ -1,17 +1,7 @@
 {
   "attributes": {
-    "minecraft:audio/ambient_sounds": {
-      "mood": {
-        "block_search_extent": 8,
-        "offset": 2.0,
-        "sound": "minecraft:ambient.cave",
-        "tick_delay": 6000
-      }
-    },
-    "minecraft:audio/background_music": {},
-    "minecraft:visual/fog_color": "#c0d8ff",
-    "minecraft:visual/sky_color": "#76a9ff",
-    "minecraft:visual/water_fog_color": "#050533"
+    "minecraft:gameplay/snow_golem_melts": true,
+    "minecraft:visual/sky_color": "#76a9ff"
   },
   "carvers": [
     "minecraft:cave",

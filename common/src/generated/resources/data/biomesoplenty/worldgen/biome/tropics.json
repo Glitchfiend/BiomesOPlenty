@@ -1,13 +1,5 @@
 {
   "attributes": {
-    "minecraft:audio/ambient_sounds": {
-      "mood": {
-        "block_search_extent": 8,
-        "offset": 2.0,
-        "sound": "minecraft:ambient.cave",
-        "tick_delay": 6000
-      }
-    },
     "minecraft:audio/background_music": {
       "default": {
         "max_delay": 24000,
@@ -15,6 +7,8 @@
         "sound": "minecraft:music.overworld.jungle"
       }
     },
+    "minecraft:gameplay/can_pillager_patrol_spawn": false,
+    "minecraft:gameplay/increased_fire_burnout": true,
     "minecraft:visual/fog_color": "#b2edff",
     "minecraft:visual/sky_color": "#66bcff",
     "minecraft:visual/water_fog_color": "#041f33"
