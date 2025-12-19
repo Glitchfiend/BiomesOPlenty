@@ -9,6 +9,7 @@
     },
     "minecraft:gameplay/can_pillager_patrol_spawn": false,
     "minecraft:gameplay/increased_fire_burnout": true,
+    "minecraft:visual/cloud_color": "#00ffffff",
     "minecraft:visual/fog_color": "#b2edff",
     "minecraft:visual/sky_color": "#66bcff",
     "minecraft:visual/water_fog_color": "#041f33"

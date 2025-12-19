@@ -7,6 +7,7 @@
         "sound": "minecraft:music.overworld.cherry_grove"
       }
     },
+    "minecraft:visual/cloud_color": "#997ffff4",
     "minecraft:visual/fog_color": "#ffc9da",
     "minecraft:visual/sky_color": "#aaefff",
     "minecraft:visual/water_fog_color": "#2e0533",

@@ -22,6 +22,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.Music;
 import net.minecraft.sounds.Musics;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.ARGB;
 import net.minecraft.util.Mth;
 import net.minecraft.world.attribute.*;
 import net.minecraft.world.attribute.modifier.FloatModifier;
@@ -32,18 +33,8 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
-import javax.annotation.Nullable;
-
 public class BOPOverworldBiomes
 {
-    private static final BackgroundMusic FOREST_MUSIC = new BackgroundMusic(SoundEvents.MUSIC_BIOME_FOREST);
-    private static final BackgroundMusic SWAMP_MUSIC = new BackgroundMusic(SoundEvents.MUSIC_BIOME_SWAMP);
-    private static final BackgroundMusic JUNGLE_MUSIC = new BackgroundMusic(SoundEvents.MUSIC_BIOME_JUNGLE);
-    private static final BackgroundMusic CAVE_MUSIC = new BackgroundMusic(SoundEvents.MUSIC_BIOME_DRIPSTONE_CAVES);
-    private static final BackgroundMusic MOUNTAIN_MUSIC = new BackgroundMusic(SoundEvents.MUSIC_BIOME_JAGGED_PEAKS);
-    private static final BackgroundMusic DESERT_MUSIC = new BackgroundMusic(SoundEvents.MUSIC_BIOME_DESERT);
-    private static final BackgroundMusic MAGICAL_MUSIC = new BackgroundMusic(SoundEvents.MUSIC_BIOME_CHERRY_GROVE);
-
     protected static int calculateSkyColor(float color)
     {
         float $$1 = color / 3.0F;
@@ -111,6 +102,7 @@ public class BOPOverworldBiomes
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x050533)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xF0FDFD)
             .setAttribute(EnvironmentAttributes.SKY_COLOR, 0xBDECFC)
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.white(0.2F))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_CHERRY_GROVE))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
@@ -555,6 +547,7 @@ public class BOPOverworldBiomes
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xE1ED63)
             .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x62DCEA)
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(0.4F, 0xFF7FBF))
             .setAttribute(EnvironmentAttributes.INCREASED_FIRE_BURNOUT, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_JUNGLE))
             .specialEffects(
@@ -848,8 +841,6 @@ public class BOPOverworldBiomes
 
         return baseBiome(0.9F, 0.5F)
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 267827)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xFFFFFF)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0xFFFFFF)
             .setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_DESERT))
             .specialEffects(
@@ -1078,6 +1069,7 @@ public class BOPOverworldBiomes
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xFFC9DA)
             .setAttribute(EnvironmentAttributes.SKY_COLOR, 0xAAEFFF)
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(0.6F, 0x7FFFF4))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_CHERRY_GROVE))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
@@ -1149,9 +1141,10 @@ public class BOPOverworldBiomes
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x7881A5)
             .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x84A1CC)
-            .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.1F)
-            .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.1F)
-            .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.1F)
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(0.8F, 0x666D8C))
+            .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.15F)
+            .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.15F)
+            .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.15F)
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
                     .waterColor(0x312346)
@@ -1238,6 +1231,7 @@ public class BOPOverworldBiomes
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x050533)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xC0D8FF)
             .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x88BBFF)
+            //.setAttribute(EnvironmentAttributes.CLOUD_HEIGHT, 108.33F)
             .setAttribute(EnvironmentAttributes.CAN_PILLAGER_PATROL_SPAWN, false)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_ORIGIN_VALLEY))
             .specialEffects(
@@ -1721,6 +1715,7 @@ public class BOPOverworldBiomes
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 270131)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xB2EDFF)
             .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x66BCFF)
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.white(0.0F))
             .setAttribute(EnvironmentAttributes.INCREASED_FIRE_BURNOUT, true)
             .setAttribute(EnvironmentAttributes.CAN_PILLAGER_PATROL_SPAWN, false)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_JUNGLE))
@@ -1791,6 +1786,7 @@ public class BOPOverworldBiomes
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 267827)
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x7F7F7F)
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(1.0F, 0x7F7F7F))
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
             .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
             .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
@@ -1831,6 +1827,7 @@ public class BOPOverworldBiomes
             .hasPrecipitation(false)
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 267827)
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(0.8F, 0xBEBEBE))
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
             .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
             .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)

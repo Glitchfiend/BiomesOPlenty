@@ -1,13 +1,5 @@
 {
   "attributes": {
-    "minecraft:audio/ambient_sounds": {
-      "mood": {
-        "block_search_extent": 8,
-        "offset": 2.0,
-        "sound": "minecraft:ambient.cave",
-        "tick_delay": 6000
-      }
-    },
     "minecraft:visual/ambient_particles": [
       {
         "particle": {
@@ -15,10 +7,7 @@
         },
         "probability": 3.75E-4
       }
-    ],
-    "minecraft:visual/fog_color": "#a080a0",
-    "minecraft:visual/sky_color": "#000000",
-    "minecraft:visual/water_fog_color": "#050533"
+    ]
   },
   "carvers": [],
   "downfall": 0.5,

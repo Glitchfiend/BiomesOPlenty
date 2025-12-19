@@ -32,6 +32,14 @@ public class BOPNetherBiomes
 {
     //public static final Holder.Reference<SoundEvent> AMETHYST_BLOCK_CHIME = BuiltInRegistries.SOUND_EVENT.createIntrusiveHolder(SoundEvents.AMETHYST_BLOCK_CHIME);
 
+    private static Biome.BiomeBuilder baseBiome() {
+        return new Biome.BiomeBuilder()
+            .hasPrecipitation(false)
+            .temperature(2.0F)
+            .downfall(0.0F)
+            .specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build());
+    }
+
     private static void addFeature(BiomeGenerationSettings.Builder builder, GenerationStep.Decoration step, ResourceKey<PlacedFeature> feature)
     {
         builder.addFeature(step, feature);
@@ -57,16 +65,13 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.LOCAL_MODIFICATIONS, BOPNetherPlacements.LARGE_ROSE_QUARTZ);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.SMALL_CRYSTAL);
 
-        return new Biome.BiomeBuilder()
-                .hasPrecipitation(false).temperature(2.0F).downfall(0.0F)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, BOPOverworldBiomes.calculateSkyColor(2.0F))
-                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
-                .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x59002C)
-                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_CRIMSON_FOREST_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)), Collections.emptyList()))
-                .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.ELECTRIC_SPARK, 0.0008925F))
-                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_CRYSTALLINE_CHASM))
-                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
-                .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+        return baseBiome()
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x59002C)
+            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_CRIMSON_FOREST_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)), Collections.emptyList()))
+            .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.ELECTRIC_SPARK, 0.0008925F))
+            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_CRYSTALLINE_CHASM))
+            .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
+            .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
     public static Biome eruptingInferno(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -99,16 +104,13 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.BRIMSTONE_BUD);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.BRIMSTONE_CLUSTER);
 
-        return new Biome.BiomeBuilder()
-                .hasPrecipitation(false).temperature(2.0F).downfall(0.0F)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, BOPOverworldBiomes.calculateSkyColor(2.0F))
-                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
-                .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x4F2B13)
-                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))))
-                .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SMOKE, 0.00023065104F))
-                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_ERUPTING_INFERNO))
-                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
-                .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+        return baseBiome()
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x4F2B13)
+            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))))
+            .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SMOKE, 0.00023065104F))
+            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_ERUPTING_INFERNO))
+            .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
+            .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
     public static Biome undergrowth(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -140,16 +142,13 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.DEAD_GRASS_45);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.NETHER_VINES);
 
-        return new Biome.BiomeBuilder()
-                .hasPrecipitation(false).temperature(2.0F).downfall(0.0F)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, BOPOverworldBiomes.calculateSkyColor(2.0F))
-                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
-                .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x1C2109)
-                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_WARPED_FOREST_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D))))
-                .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
-                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_UNDERGROWTH))
-                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
-                .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+        return baseBiome()
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x1C2109)
+            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_WARPED_FOREST_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D))))
+            .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
+            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_UNDERGROWTH))
+            .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
+            .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
     public static Biome visceralHeap(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -177,16 +176,13 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.EYEBULB);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.HAIR);
 
-        return new Biome.BiomeBuilder()
-                .hasPrecipitation(false).temperature(2.0F).downfall(0.0F)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, BOPOverworldBiomes.calculateSkyColor(2.0F))
-                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
-                .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x601F18)
-                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_NETHER_WASTES_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))))
-                .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
-                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_VISCERAL_HEAP))
-                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
-                .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+        return baseBiome()
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x601F18)
+            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_NETHER_WASTES_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))))
+            .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
+            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_VISCERAL_HEAP))
+            .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
+            .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
     public static Biome witheredAbyss(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
@@ -204,15 +200,12 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.BLACKSTONE_SPINES);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.BLACKSTONE_BULBS);
 
-        return new Biome.BiomeBuilder()
-                .hasPrecipitation(false).temperature(2.0F).downfall(0.0F)
-                .setAttribute(EnvironmentAttributes.SKY_COLOR, BOPOverworldBiomes.calculateSkyColor(2.0F))
-                .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
-                .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x0A0711)
-                .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))))
-                .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
-                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_WITHERED_ABYSS))
-                .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).grassColorOverride(0x312C36).foliageColorOverride(0x312C36).build())
-                .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
+        return baseBiome()
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x0A0711)
+            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))))
+            .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
+            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_WITHERED_ABYSS))
+            .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).grassColorOverride(0x312C36).foliageColorOverride(0x312C36).build())
+            .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 }

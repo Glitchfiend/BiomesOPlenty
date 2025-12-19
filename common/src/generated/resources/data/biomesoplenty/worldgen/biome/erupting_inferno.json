@@ -28,9 +28,7 @@
         "probability": 2.3065104E-4
       }
     ],
-    "minecraft:visual/fog_color": "#4f2b13",
-    "minecraft:visual/sky_color": "#6eb1ff",
-    "minecraft:visual/water_fog_color": "#050533"
+    "minecraft:visual/fog_color": "#4f2b13"
   },
   "carvers": "minecraft:nether_cave",
   "downfall": 0.0,

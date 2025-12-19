@@ -8,6 +8,7 @@
       }
     },
     "minecraft:gameplay/increased_fire_burnout": true,
+    "minecraft:visual/cloud_color": "#66ff7fbf",
     "minecraft:visual/fog_color": "#e1ed63",
     "minecraft:visual/sky_color": "#62dcea",
     "minecraft:visual/water_fog_color": "#042f18",

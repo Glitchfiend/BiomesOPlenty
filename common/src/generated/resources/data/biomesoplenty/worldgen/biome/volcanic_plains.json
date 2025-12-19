@@ -1,6 +1,7 @@
 {
   "attributes": {
     "minecraft:gameplay/snow_golem_melts": true,
+    "minecraft:visual/cloud_color": "#ccbebebe",
     "minecraft:visual/cloud_fog_end_distance": {
       "argument": 0.5,
       "modifier": "multiply"

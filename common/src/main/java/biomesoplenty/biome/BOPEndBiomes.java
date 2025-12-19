@@ -10,7 +10,6 @@ import biomesoplenty.worldgen.placement.BOPVegetationPlacements;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.data.worldgen.placement.EndPlacements;
 import net.minecraft.world.attribute.AmbientParticle;
-import net.minecraft.world.attribute.AmbientSounds;
 import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -19,6 +18,14 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class BOPEndBiomes
 {
+    private static Biome.BiomeBuilder baseBiome() {
+        return new Biome.BiomeBuilder()
+            .hasPrecipitation(false)
+            .temperature(0.5F)
+            .downfall(0.5F)
+            .specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build());
+    }
+
     public static Biome endWilds(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
     {
         MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
@@ -29,13 +36,8 @@ public class BOPEndBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.PATCH_ENDERPHYTES);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.LUMALOOP);
 
-        return new Biome.BiomeBuilder()
-            .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 10518688)
+        return baseBiome()
             .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ModParticles.END_SPORE, 0.005F))
-            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS)
             .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0xEAB35D).foliageColorOverride(0xEAB35D).waterColor(4159204).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
@@ -53,13 +55,9 @@ public class BOPEndBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.WISPJELLY);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_DEAD_GRASS);
 
-        return new Biome.BiomeBuilder()
-            .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0)
+        return baseBiome()
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x434949)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 10518688)
             .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ModParticles.WISP_BUBBLE, 0.001F))
-            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS)
             .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0xE5FFFC).foliageColorOverride(0xE5FFFC).waterColor(0xE5FFFC).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
@@ -70,12 +68,7 @@ public class BOPEndBiomes
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
 
-        return new Biome.BiomeBuilder()
-            .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 10518688)
-            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS)
+        return baseBiome()
             .specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
@@ -87,12 +80,8 @@ public class BOPEndBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPEndPlacements.ENDSCRAPER);
 
-        return new Biome.BiomeBuilder()
-            .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0)
+        return baseBiome()
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x497164)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 10518688)
-            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS)
             .specialEffects(new BiomeSpecialEffects.Builder().waterColor(0x66A977).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
@@ -109,12 +98,7 @@ public class BOPEndBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.TREES_END_CORRUPTION);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPEndPlacements.PATCH_NULL_PLANTS);
 
-        return new Biome.BiomeBuilder()
-            .hasPrecipitation(false).temperature(0.5F).downfall(0.5F)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 10518688)
-            .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.LEGACY_CAVE_SETTINGS)
+        return baseBiome()
             .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ModParticles.BINARY, 0.000375F))
             .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0x7CBD6B).foliageColorOverride(0x48B518).waterColor(4159204).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();

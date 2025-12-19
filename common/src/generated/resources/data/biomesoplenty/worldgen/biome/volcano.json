@@ -16,6 +16,7 @@
         "probability": 0.059046667
       }
     ],
+    "minecraft:visual/cloud_color": "#ff7f7f7f",
     "minecraft:visual/cloud_fog_end_distance": {
       "argument": 0.25,
       "modifier": "multiply"

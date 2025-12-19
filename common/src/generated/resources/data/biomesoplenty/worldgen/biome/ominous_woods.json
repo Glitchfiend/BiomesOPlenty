@@ -1,17 +1,18 @@
 {
   "attributes": {
+    "minecraft:visual/cloud_color": "#cc666d8c",
     "minecraft:visual/cloud_fog_end_distance": {
-      "argument": 0.1,
+      "argument": 0.15,
       "modifier": "multiply"
     },
     "minecraft:visual/fog_color": "#7881a5",
     "minecraft:visual/fog_end_distance": {
-      "argument": 0.1,
+      "argument": 0.15,
       "modifier": "multiply"
     },
     "minecraft:visual/sky_color": "#84a1cc",
     "minecraft:visual/sky_fog_end_distance": {
-      "argument": 0.1,
+      "argument": 0.15,
       "modifier": "multiply"
     },
     "minecraft:visual/water_fog_color": "#0a030c",
