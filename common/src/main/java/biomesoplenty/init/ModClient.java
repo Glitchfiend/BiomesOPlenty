@@ -372,6 +372,90 @@ public class ModClient
         event.registerSpriteSet(ModParticles.WISP_BUBBLE, WispBubbleParticle.Provider::new);
         event.registerSpriteSet(ModParticles.NULL, NullParticle.Provider::new);
         event.registerSpriteSet(ModParticles.BINARY, BinaryParticle.Provider::new);
+
+        event.registerSpriteSet(ModParticles.WHITE_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.LIGHT_GRAY_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.GRAY_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.BLACK_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.BROWN_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.RED_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.ORANGE_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.YELLOW_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.LIME_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.GREEN_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.CYAN_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.LIGHT_BLUE_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.BLUE_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.PURPLE_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.MAGENTA_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+        event.registerSpriteSet(ModParticles.PINK_FLOWER_PETAL, (p_277215_) -> {
+            return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
+                return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
+            };
+        });
+
+        /////////////
+
         event.registerSpriteSet(ModParticles.JACARANDA_LEAVES, (p_277215_) -> {
             return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
                 return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));

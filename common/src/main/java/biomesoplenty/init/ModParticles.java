@@ -21,6 +21,24 @@ public class ModParticles
     public static final SimpleParticleType PUS = new SimpleParticleType(false);
     public static final SimpleParticleType GLOWWORM = new SimpleParticleType(false);
     public static final SimpleParticleType STEAM = new SimpleParticleType(false);
+
+    public static final SimpleParticleType WHITE_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType LIGHT_GRAY_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType GRAY_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType BLACK_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType BROWN_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType RED_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType ORANGE_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType YELLOW_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType LIME_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType GREEN_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType CYAN_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType LIGHT_BLUE_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType BLUE_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType PURPLE_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType MAGENTA_FLOWER_PETAL = new SimpleParticleType(false);
+    public static final SimpleParticleType PINK_FLOWER_PETAL = new SimpleParticleType(false);
+
     public static final SimpleParticleType JACARANDA_LEAVES = new SimpleParticleType(false);
     public static final SimpleParticleType SNOWBLOSSOM_LEAVES = new SimpleParticleType(false);
     public static final SimpleParticleType RED_MAPLE_LEAVES = new SimpleParticleType(false);
@@ -32,6 +50,7 @@ public class ModParticles
     public static final SimpleParticleType MAGIC_LEAVES = new SimpleParticleType(false);
     public static final SimpleParticleType UMBRAN_LEAVES = new SimpleParticleType(false);
     public static final SimpleParticleType HELLBARK_LEAVES = new SimpleParticleType(false);
+
     public static final SimpleParticleType END_SPORE = new SimpleParticleType(false);
     public static final SimpleParticleType WISP_BUBBLE = new SimpleParticleType(false);
     public static final SimpleParticleType NULL = new SimpleParticleType(false);
@@ -45,6 +64,24 @@ public class ModParticles
         register(func, "pus", PUS);
         register(func, "glowworm", GLOWWORM);
         register(func, "steam", STEAM);
+
+        register(func, "white_flower_petal", WHITE_FLOWER_PETAL);
+        register(func, "light_gray_flower_petal", LIGHT_GRAY_FLOWER_PETAL);
+        register(func, "gray_flower_petal", GRAY_FLOWER_PETAL);
+        register(func, "black_flower_petal", BLACK_FLOWER_PETAL);
+        register(func, "brown_flower_petal", BROWN_FLOWER_PETAL);
+        register(func, "red_flower_petal", RED_FLOWER_PETAL);
+        register(func, "orange_flower_petal", ORANGE_FLOWER_PETAL);
+        register(func, "yellow_flower_petal", YELLOW_FLOWER_PETAL);
+        register(func, "lime_flower_petal", LIME_FLOWER_PETAL);
+        register(func, "green_flower_petal", GREEN_FLOWER_PETAL);
+        register(func, "cyan_flower_petal", CYAN_FLOWER_PETAL);
+        register(func, "light_blue_flower_petal", LIGHT_BLUE_FLOWER_PETAL);
+        register(func, "blue_flower_petal", BLUE_FLOWER_PETAL);
+        register(func, "purple_flower_petal", PURPLE_FLOWER_PETAL);
+        register(func, "magenta_flower_petal", MAGENTA_FLOWER_PETAL);
+        register(func, "pink_flower_petal", PINK_FLOWER_PETAL);
+
         register(func, "jacaranda_leaves", JACARANDA_LEAVES);
         register(func, "snowblossom_leaves", SNOWBLOSSOM_LEAVES);
         register(func, "red_maple_leaves", RED_MAPLE_LEAVES);
@@ -56,6 +93,7 @@ public class ModParticles
         register(func, "magic_leaves", MAGIC_LEAVES);
         register(func, "umbran_leaves", UMBRAN_LEAVES);
         register(func, "hellbark_leaves", HELLBARK_LEAVES);
+
         register(func, "end_spore", END_SPORE);
         register(func, "wisp_bubble", WISP_BUBBLE);
         register(func, "null", NULL);
