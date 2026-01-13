@@ -42,6 +42,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_BARLEY = BOPPlacementUtils.createKey("patch_barley");
     public static final ResourceKey<PlacedFeature> PATCH_BARLEY_SPARSE = BOPPlacementUtils.createKey("patch_barley_sparse");
     public static final ResourceKey<PlacedFeature> PATCH_BLUE_HYDRANGEA = BOPPlacementUtils.createKey("patch_blue_hydrangea");
+    public static final ResourceKey<PlacedFeature> PATCH_BLUE_HYDRANGEA_EXTRA = BOPPlacementUtils.createKey("patch_blue_hydrangea_extra");
     public static final ResourceKey<PlacedFeature> PATCH_BUSH_1 = BOPPlacementUtils.createKey("patch_bush_1");
     public static final ResourceKey<PlacedFeature> PATCH_BUSH_4 = BOPPlacementUtils.createKey("patch_bush_4");
     public static final ResourceKey<PlacedFeature> PATCH_BOG_BERRY_BUSH = BOPPlacementUtils.createKey("patch_bog_berry_bush");
@@ -119,6 +120,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> FLOWER_SHRUBLAND = BOPPlacementUtils.createKey("flower_shrubland");
     public static final ResourceKey<PlacedFeature> FLOWER_SNOWBLOSSOM_GROVE = BOPPlacementUtils.createKey("flower_snowblossom_grove");
     public static final ResourceKey<PlacedFeature> FLOWER_SNOWY = BOPPlacementUtils.createKey("flower_snowy");
+    public static final ResourceKey<PlacedFeature> FLOWER_SUBTROPICS = BOPPlacementUtils.createKey("flower_subtropics");
     public static final ResourceKey<PlacedFeature> FLOWER_TROPICS = BOPPlacementUtils.createKey("flower_tropics");
     public static final ResourceKey<PlacedFeature> FLOWER_VIOLET = BOPPlacementUtils.createKey("flower_violet");
     public static final ResourceKey<PlacedFeature> FLOWER_WASTELAND = BOPPlacementUtils.createKey("flower_wasteland");
@@ -173,6 +175,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> TREES_SNOWBLOSSOM_GROVE = BOPPlacementUtils.createKey("trees_snowblossom_grove");
     public static final ResourceKey<PlacedFeature> TREES_SNOWY_CONIFEROUS_FOREST = BOPPlacementUtils.createKey("trees_snowy_coniferous_forest");
     public static final ResourceKey<PlacedFeature> TREES_SNOWY_MAPLE_FOREST = BOPPlacementUtils.createKey("trees_snowy_maple_forest");
+    public static final ResourceKey<PlacedFeature> TREES_SUBTROPICS = BOPPlacementUtils.createKey("trees_subtropics");
     public static final ResourceKey<PlacedFeature> TREES_TROPICS = BOPPlacementUtils.createKey("trees_tropics");
     public static final ResourceKey<PlacedFeature> TREES_TUNDRA = BOPPlacementUtils.createKey("trees_tundra");
     public static final ResourceKey<PlacedFeature> TREES_VOLCANIC_PLAINS = BOPPlacementUtils.createKey("trees_volcanic_plains");
@@ -261,6 +264,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> FLOWER_SHRUBLAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_SHRUBLAND);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_SNOWBLOSSOM_GROVE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_SNOWBLOSSOM_GROVE);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_SNOWY = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_SNOWY);
+        final Holder<ConfiguredFeature<?, ?>> FLOWER_SUBTROPICS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_SUBTROPICS);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_TROPICS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_TROPICS);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_VIOLET = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_VIOLET);
         final Holder<ConfiguredFeature<?, ?>> FLOWER_WASTELAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FLOWER_WASTELAND);
@@ -311,6 +315,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> TREES_SNOWBLOSSOM_GROVE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SNOWBLOSSOM_GROVE);
         final Holder<ConfiguredFeature<?, ?>> TREES_SNOWY_CONIFEROUS_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_SNOWY_MAPLE_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SNOWY_MAPLE_FOREST);
+        final Holder<ConfiguredFeature<?, ?>> TREES_SUBTROPICS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_SUBTROPICS);
         final Holder<ConfiguredFeature<?, ?>> TREES_TROPICS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_TROPICS);
         final Holder<ConfiguredFeature<?, ?>> TREES_TUNDRA = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_TUNDRA);
         final Holder<ConfiguredFeature<?, ?>> TWIGLET_TREE_VOLCANO = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TWIGLET_TREE_VOLCANO);
@@ -352,7 +357,8 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.HUGE_RED_MUSHROOM_EXTRA, HUGE_RED_MUSHROOM, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.PATCH_BARLEY, PATCH_BARLEY, VegetationPlacements.worldSurfaceSquaredWithCount(10));
         register(context, BOPVegetationPlacements.PATCH_BARLEY_SPARSE, PATCH_BARLEY, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.PATCH_BLUE_HYDRANGEA, PATCH_BLUE_HYDRANGEA, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_BLUE_HYDRANGEA, PATCH_BLUE_HYDRANGEA, List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_BLUE_HYDRANGEA_EXTRA, PATCH_BLUE_HYDRANGEA, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_BUSH_1, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.PATCH_BUSH_4, PATCH_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(3));
         register(context, BOPVegetationPlacements.PATCH_BOG_BERRY_BUSH, PATCH_BERRY_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(2));
@@ -430,6 +436,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.FLOWER_SHRUBLAND, FLOWER_SHRUBLAND, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_SNOWBLOSSOM_GROVE, FLOWER_SNOWBLOSSOM_GROVE, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.FLOWER_SNOWY, FLOWER_SNOWY, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FLOWER_SUBTROPICS, FLOWER_SUBTROPICS, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_TROPICS, FLOWER_TROPICS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FLOWER_VIOLET, FLOWER_VIOLET, VegetationPlacements.worldSurfaceSquaredWithCount(1));
         register(context, BOPVegetationPlacements.FLOWER_WASTELAND, FLOWER_WASTELAND, List.of(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -484,6 +491,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_SNOWBLOSSOM_GROVE, TREES_SNOWBLOSSOM_GROVE, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1), BOPBlocks.SNOWBLOSSOM_SAPLING));
         register(context, BOPVegetationPlacements.TREES_SNOWY_CONIFEROUS_FOREST, TREES_SNOWY_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_SNOWY_MAPLE_FOREST, TREES_SNOWY_MAPLE_FOREST, treePlacement(PlacementUtils.countExtra(8, 0.1F, 1)));
+        register(context, BOPVegetationPlacements.TREES_SUBTROPICS, TREES_SUBTROPICS, treePlacement(PlacementUtils.countExtra(1, 0.2F, 2)));
         register(context, BOPVegetationPlacements.TREES_TROPICS, TREES_TROPICS, treePlacement(PlacementUtils.countExtra(9, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_TUNDRA, TREES_TUNDRA, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_VOLCANIC_PLAINS, TWIGLET_TREE_VOLCANO, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));

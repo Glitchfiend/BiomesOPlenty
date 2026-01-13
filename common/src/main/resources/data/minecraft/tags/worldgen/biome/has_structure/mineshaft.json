@@ -13,10 +13,6 @@
             "id": "biomesoplenty:glowing_grotto",
             "required": false
         },
-        {
-            "id": "biomesoplenty:grassland",
-            "required": false
-        },
 		{
             "id": "biomesoplenty:hot_springs",
             "required": false
@@ -71,6 +67,10 @@
         },
         {
             "id": "biomesoplenty:spider_nest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:subtropics",
             "required": false
         },
         {

@@ -2,10 +2,6 @@
   "replace": false,
   "values": [
     {
-      "id": "biomesoplenty:grassland",
-      "required": false
-    },
-    {
       "id": "biomesoplenty:mediterranean_forest",
       "required": false
     },
@@ -15,6 +11,10 @@
     },
     {
       "id": "biomesoplenty:shrubland",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:subtropics",
       "required": false
     }
   ]

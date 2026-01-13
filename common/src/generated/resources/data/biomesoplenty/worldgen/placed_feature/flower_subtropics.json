@@ -1,9 +1,9 @@
 {
-  "feature": "biomesoplenty:patch_blue_hydrangea",
+  "feature": "biomesoplenty:flower_subtropics",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 12
+      "chance": 4
     },
     {
       "type": "minecraft:in_square"

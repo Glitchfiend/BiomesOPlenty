@@ -10,15 +10,21 @@
             "entries": [
               {
                 "data": {
-                  "Name": "biomesoplenty:pink_daffodil"
+                  "Name": "minecraft:torchflower"
                 },
-                "weight": 3
+                "weight": 1
               },
               {
                 "data": {
-                  "Name": "minecraft:azure_bluet"
+                  "Name": "minecraft:lily_of_the_valley"
                 },
-                "weight": 1
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "minecraft:dandelion"
+                },
+                "weight": 3
               }
             ]
           }

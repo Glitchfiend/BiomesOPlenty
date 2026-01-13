@@ -25,7 +25,7 @@ public class BOPSecondaryOverworldBiomeBuilder extends BOPOverworldBiomeBuilder
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null, null,                    null,                          BOPBiomes.SNOWBLOSSOM_GROVE, BOPBiomes.OLD_GROWTH_DEAD_FOREST},
             {null, BOPBiomes.PUMPKIN_PATCH, BOPBiomes.PUMPKIN_PATCH,       null,                        null},
-            {null, null,                    null,                          BOPBiomes.ROCKY_SHRUBLAND,   BOPBiomes.GRASSLAND},
+            {null, null,                    null,                          BOPBiomes.ROCKY_SHRUBLAND,   BOPBiomes.SUBTROPICS},
             {null, null,                    BOPBiomes.OLD_GROWTH_WOODLAND, BOPBiomes.VOLCANIC_PLAINS,   null},
             {null, null,                    null,                          null,                        null}
     };

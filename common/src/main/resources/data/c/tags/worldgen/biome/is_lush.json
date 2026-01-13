@@ -45,6 +45,10 @@
             "id": "biomesoplenty:rocky_rainforest",
             "required": false
         },
+		{
+			"id": "biomesoplenty:subtropics",
+			"required": false
+        },
         {
             "id": "biomesoplenty:tropics",
             "required": false

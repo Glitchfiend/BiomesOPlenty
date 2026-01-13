@@ -25,10 +25,6 @@
             "id": "biomesoplenty:fungal_jungle",
             "required": false
         },
-        {
-            "id": "biomesoplenty:grassland",
-            "required": false
-        },
 		{
             "id": "biomesoplenty:hot_springs",
             "required": false
@@ -63,6 +59,10 @@
         },
         {
             "id": "biomesoplenty:rocky_rainforest",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:subtropics",
             "required": false
         },
         {

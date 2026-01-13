@@ -367,22 +367,6 @@
 			]
 		  }
         },
-		"grassland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biomes": "biomesoplenty:grassland"
-				  }
-				}
-			  }
-			]
-		  }
-        },
 		"gravel_beach": {
 			"trigger": "minecraft:location",
 			"conditions": {
@@ -911,6 +895,22 @@
 			]
 		  }
         },
+		"subtropics": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biomes": "biomesoplenty:subtropics"
+							}
+						}
+					}
+				]
+			}
+		},
         "tropics": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1127,7 +1127,6 @@
 		"forested_field",
 		"fungal_jungle",
 		"glowing_grotto",
-		"grassland",
 		"gravel_beach",
 		"highland",
 		"hot_springs",
@@ -1162,6 +1161,7 @@
 		"snowy_fir_clearing",
 		"snowy_maple_woods",
 		"spider_nest",
+		"subtropics",
 		"tropics",
 		"tundra",
 		"undergrowth",

@@ -352,22 +352,6 @@
 			]
 		  }
         },
-		"grassland": {
-            "trigger": "minecraft:location",
-            "conditions": {
-			"player": [
-			  {
-				"condition": "minecraft:entity_properties",
-				"entity": "this",
-				"predicate": {
-				  "location": {
-					"biomes": "biomesoplenty:grassland"
-				  }
-				}
-			  }
-			]
-		  }
-        },
 		"gravel_beach": {
 			"trigger": "minecraft:location",
 			"conditions": {
@@ -912,6 +896,22 @@
 			]
 		  }
         },
+		"subtropics": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"player": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"location": {
+								"biomes": "biomesoplenty:subtropics"
+							}
+						}
+					}
+				]
+			}
+		},
         "tropics": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -1170,9 +1170,6 @@
 		"glowing_grotto"
 		],
 		[
-		"grassland"
-		],
-		[
 		"gravel_beach"
 		],
 		[
@@ -1273,6 +1270,9 @@
 		],
 		[
 		"spider_nest"
+		],
+		[
+		"subtropics"
 		],
 		[
 		"tropics"

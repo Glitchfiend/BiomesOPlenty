@@ -2,10 +2,6 @@
 	"replace": false,
 	"values": [
         {
-            "id": "biomesoplenty:grassland",
-            "required": false
-        },
-        {
             "id": "biomesoplenty:highland",
             "required": false
         },
@@ -40,6 +36,10 @@
         {
             "id": "biomesoplenty:shrubland",
             "required": false
+        },
+        {
+			"id": "biomesoplenty:subtropics",
+			"required": false
         },
         {
             "id": "biomesoplenty:tundra",

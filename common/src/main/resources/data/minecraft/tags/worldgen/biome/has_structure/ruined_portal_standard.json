@@ -13,10 +13,6 @@
             "id": "biomesoplenty:scrubland",
             "required": false
         },
-        {
-            "id": "biomesoplenty:grassland",
-            "required": false
-        },
 		{
             "id": "biomesoplenty:hot_springs",
             "required": false
@@ -55,6 +51,10 @@
         },
         {
             "id": "biomesoplenty:snowy_maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:subtropics",
             "required": false
         }
     ]

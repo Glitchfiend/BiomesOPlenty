@@ -41,7 +41,6 @@ public class BOPBiomes
     public static final ResourceKey<Biome> FORESTED_FIELD = registerOverworld("forested_field");
     public static final ResourceKey<Biome> FUNGAL_JUNGLE = registerOverworld("fungal_jungle");
     public static final ResourceKey<Biome> GLOWING_GROTTO = register("glowing_grotto");
-    public static final ResourceKey<Biome> GRASSLAND = registerOverworld("grassland");
     public static final ResourceKey<Biome> GRAVEL_BEACH = registerOverworld("gravel_beach");
     public static final ResourceKey<Biome> HIGHLAND = registerOverworld("highland");
     public static final ResourceKey<Biome> HOT_SPRINGS = registerOverworld("hot_springs");
@@ -76,6 +75,7 @@ public class BOPBiomes
     public static final ResourceKey<Biome> SNOWY_FIR_CLEARING = registerOverworld("snowy_fir_clearing");
     public static final ResourceKey<Biome> SNOWY_MAPLE_WOODS = registerOverworld("snowy_maple_woods");
     public static final ResourceKey<Biome> SPIDER_NEST = register("spider_nest");
+    public static final ResourceKey<Biome> SUBTROPICS = registerOverworld("subtropics");
     public static final ResourceKey<Biome> TROPICS = registerOverworld("tropics");
     public static final ResourceKey<Biome> TUNDRA = registerOverworld("tundra");
     public static final ResourceKey<Biome> UNDERGROWTH = register("undergrowth");

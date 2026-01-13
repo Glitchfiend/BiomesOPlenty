@@ -25,10 +25,6 @@
             "id": "biomesoplenty:cold_desert",
             "required": false
         },
-		{
-            "id": "biomesoplenty:grassland",
-            "required": false
-        },
         {
             "id": "biomesoplenty:snowy_coniferous_forest",
             "required": false
@@ -47,6 +43,10 @@
         },
         {
             "id": "biomesoplenty:maple_woods",
+            "required": false
+        },
+        {
+            "id": "biomesoplenty:subtropics",
             "required": false
         },
         {

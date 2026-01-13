@@ -1,12 +1,5 @@
 {
   "attributes": {
-    "minecraft:audio/background_music": {
-      "default": {
-        "max_delay": 24000,
-        "min_delay": 12000,
-        "sound": "biomesoplenty:music.overworld.nostalgic"
-      }
-    },
     "minecraft:visual/sky_color": "#7aa5ff"
   },
   "carvers": [
@@ -16,8 +9,8 @@
   ],
   "downfall": 0.7,
   "effects": {
-    "foliage_color": "#6ab66f",
-    "grass_color": "#88c57f",
+    "foliage_color": "#67b96c",
+    "grass_color": "#86c87c",
     "water_color": "#3f76e4"
   },
   "features": [
@@ -61,7 +54,9 @@
       "minecraft:ore_lapis",
       "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
-      "minecraft:underwater_magma"
+      "minecraft:underwater_magma",
+      "minecraft:disk_clay",
+      "biomesoplenty:disk_surface_clay"
     ],
     [],
     [
@@ -70,9 +65,16 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane_desert",
       "minecraft:patch_firefly_bush_near_water",
-      "biomesoplenty:patch_grass_3"
+      "biomesoplenty:trees_subtropics",
+      "biomesoplenty:flower_subtropics",
+      "biomesoplenty:patch_blue_hydrangea",
+      "biomesoplenty:patch_sprouts_1",
+      "biomesoplenty:patch_grass_12",
+      "biomesoplenty:patch_tall_grass_6"
     ],
     [
       "minecraft:freeze_top_layer"

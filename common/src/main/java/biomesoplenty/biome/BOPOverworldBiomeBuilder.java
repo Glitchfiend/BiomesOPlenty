@@ -148,7 +148,7 @@ public class BOPOverworldBiomeBuilder
     protected final ResourceKey<Biome>[][] MIDDLE_BIOMES_BOP = new ResourceKey[][]{
             {BOPBiomes.COLD_DESERT,       BOPBiomes.COLD_DESERT,       BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPBiomes.SNOWY_CONIFEROUS_FOREST, BOPBiomes.SNOWY_CONIFEROUS_FOREST},
             {BOPBiomes.CONIFEROUS_FOREST, BOPBiomes.CONIFEROUS_FOREST, BOPBiomes.CONIFEROUS_FOREST,       BOPBiomes.FIELD,                   BOPBiomes.FIELD},
-            {BOPBiomes.PASTURE,           BOPBiomes.PRAIRIE,           BOPBiomes.REDWOOD_FOREST,          BOPBiomes.OVERGROWN_GREENS,        BOPBiomes.OVERGROWN_GREENS},
+            {BOPBiomes.PASTURE,           BOPBiomes.PRAIRIE,           BOPBiomes.REDWOOD_FOREST,          BOPBiomes.OVERGROWN_GREENS,        BOPBiomes.SUBTROPICS},
             {BOPBiomes.SCRUBLAND,         BOPBiomes.SCRUBLAND,         BOPBiomes.WOODLAND,                BOPBiomes.RAINFOREST,              BOPBiomes.RAINFOREST},
             {BOPBiomes.DRYLAND,           BOPBiomes.DRYLAND,           BOPBiomes.LUSH_DESERT,             BOPBiomes.LUSH_DESERT,             BOPBiomes.LUSH_DESERT}
     };
@@ -156,7 +156,7 @@ public class BOPOverworldBiomeBuilder
     protected final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT_BOP = new ResourceKey[][]{
             {null,              null,                   BOPBiomes.SNOWY_FIR_CLEARING,  BOPBiomes.SNOWY_FIR_CLEARING, BOPBiomes.SNOWY_MAPLE_WOODS},
             {null,              BOPBiomes.FIR_CLEARING, null,                          null,                         BOPBiomes.FORESTED_FIELD},
-            {null,              null,                   null,                          null,                         BOPBiomes.GRASSLAND},
+            {null,              null,                   null,                          null,                         null},
             {null,              null,                   BOPBiomes.OLD_GROWTH_WOODLAND, null,                         BOPBiomes.ROCKY_RAINFOREST},
             {null,              null,                   null,                          BOPBiomes.LUSH_SAVANNA,       BOPBiomes.LUSH_SAVANNA}
     };
