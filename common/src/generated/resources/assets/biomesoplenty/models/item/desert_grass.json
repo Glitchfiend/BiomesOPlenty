@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "biomesoplenty:block/desert_grass"
+    "layer0": "biomesoplenty:item/desert_grass"
   }
 }
