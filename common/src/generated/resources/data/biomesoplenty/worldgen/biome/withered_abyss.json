@@ -20,14 +20,6 @@
         "sound": "biomesoplenty:music.nether.withered_abyss"
       }
     },
-    "minecraft:visual/ambient_particles": [
-      {
-        "particle": {
-          "type": "minecraft:spore_blossom_air"
-        },
-        "probability": 0.00357
-      }
-    ],
     "minecraft:visual/fog_color": "#0a0711"
   },
   "carvers": "minecraft:nether_cave",

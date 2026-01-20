@@ -179,7 +179,6 @@ public class BOPNetherBiomes
         return baseBiome()
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x601F18)
             .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_NETHER_WASTES_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))))
-            .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_VISCERAL_HEAP))
             .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
             .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
@@ -203,7 +202,6 @@ public class BOPNetherBiomes
         return baseBiome()
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x0A0711)
             .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))))
-            .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_WITHERED_ABYSS))
             .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).grassColorOverride(0x312C36).foliageColorOverride(0x312C36).build())
             .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();

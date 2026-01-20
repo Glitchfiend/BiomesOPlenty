@@ -1,4 +1,4 @@
-// 1.21.11	2026-01-13T07:17:38.1906068	Registries
+// 1.21.11	2026-01-20T04:46:01.9940221	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -61,14 +61,14 @@ c7c854c294aad989eda8d084d8c4ae69274aaca0 data/biomesoplenty/worldgen/biome/subtr
 1182507f36b00d75388cbace47b20e7451988a32 data/biomesoplenty/worldgen/biome/tropics.json
 723e778a61e2220fbad8fc086a5ef4900e194b7a data/biomesoplenty/worldgen/biome/tundra.json
 2181977330c9c25486f1d67d4181e1a4d0ed749b data/biomesoplenty/worldgen/biome/undergrowth.json
-e0c188110d315c427c02cb83a3a181e8ea37aeed data/biomesoplenty/worldgen/biome/visceral_heap.json
+6c724a4a906c13a2aa229af1daf783d915f271ec data/biomesoplenty/worldgen/biome/visceral_heap.json
 65ed011558d0aa92525be0ddad6bfa2540a68a5c data/biomesoplenty/worldgen/biome/volcanic_plains.json
 f576a72c439d0cbb4516e25b043029be55d99dc1 data/biomesoplenty/worldgen/biome/volcano.json
 4181d5d36abced03a5f4bbecc28a1f0236d291ae data/biomesoplenty/worldgen/biome/wasteland.json
 e90a091a7796705f5a680f09a214f9f1274f2f21 data/biomesoplenty/worldgen/biome/wasteland_steppe.json
 b44ac892d2dc1370cf561e164a9b6945aca491eb data/biomesoplenty/worldgen/biome/wetland.json
 70f9d58cc3e2009983fd66589b7b27028124ada0 data/biomesoplenty/worldgen/biome/wintry_origin_valley.json
-905a123cda019eb1e2f233bb9326fcfaa851811a data/biomesoplenty/worldgen/biome/withered_abyss.json
+74f3d81bdb3f2091b6034fe9be49e6dc4079cd84 data/biomesoplenty/worldgen/biome/withered_abyss.json
 8bac0c3c132b0dec668ab6fccfefa1d7c4942170 data/biomesoplenty/worldgen/biome/woodland.json
 a4d5101a19a38da4f42164b672b74766edb26bc9 data/biomesoplenty/worldgen/configured_carver/origin_cave.json
 002c55f5e2c8d1f8e4dc04266adb4716b5d17763 data/biomesoplenty/worldgen/configured_feature/acacia_bush_tree.json
