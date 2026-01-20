@@ -29,7 +29,6 @@
   "biome.biomesoplenty.forested_field": "Лісисте поле",
   "biome.biomesoplenty.fungal_jungle": "Грибні джунглі",
   "biome.biomesoplenty.glowing_grotto": "Сяйний ґрот",
-  "biome.biomesoplenty.grassland": "Луг",
   "biome.biomesoplenty.gravel_beach": "Гравійний пляж",
   "biome.biomesoplenty.highland": "Високогір'я",
   "biome.biomesoplenty.hot_springs": "Гарячі джерела",
@@ -63,7 +62,8 @@
   "biome.biomesoplenty.snowy_coniferous_forest": "Засніжений хвойний ліс",
   "biome.biomesoplenty.snowy_fir_clearing": "Засніжена ялицева галявина",
   "biome.biomesoplenty.snowy_maple_woods": "Засніжений кленовий ліс",
-  "biome.biomesoplenty.spider_nest": "Павуче гніздо",
+  "biome.biomesoplenty.spider_nest": "Павуче гніздо"
+  "biome.biomesoplenty.subtropics": "Субтропіки",
   "biome.biomesoplenty.tropics": "Тропіки",
   "biome.biomesoplenty.tundra": "Тундра",
   "biome.biomesoplenty.undergrowth": "Підлісок",
