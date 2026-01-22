@@ -125,6 +125,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
         // Rose Quartz
         this.dropSelf(BOPBlocks.ROSE_QUARTZ_BLOCK);
+        this.dropOther(BOPBlocks.BUDDING_ROSE_QUARTZ_BLOCK, BOPBlocks.ROSE_QUARTZ_BLOCK);
         this.add(BOPBlocks.ROSE_QUARTZ_CLUSTER, (p_252201_) -> { return createSilkTouchDispatchTable(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).apply(ApplyBonusCount.addOreBonusCount(lookup.getOrThrow(Enchantments.FORTUNE))).when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(itemLookup, ItemTags.CLUSTER_MAX_HARVESTABLES))).otherwise(this.applyExplosionDecay(p_252201_, LootItem.lootTableItem(BOPItems.ROSE_QUARTZ_CHUNK).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))); });
         this.dropWhenSilkTouch(BOPBlocks.SMALL_ROSE_QUARTZ_BUD);
         this.dropWhenSilkTouch(BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD);

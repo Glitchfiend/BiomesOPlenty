@@ -162,6 +162,7 @@ public class ModItems
         BLACKSTONE_SPINES = registerBlock(func, BOPBlocks.BLACKSTONE_SPINES);
         BLACKSTONE_BULB = registerBlock(func, BOPBlocks.BLACKSTONE_BULB);
         ROSE_QUARTZ_BLOCK = registerBlock(func, BOPBlocks.ROSE_QUARTZ_BLOCK);
+        BUDDING_ROSE_QUARTZ_BLOCK = registerBlock(func, BOPBlocks.BUDDING_ROSE_QUARTZ_BLOCK);
         ROSE_QUARTZ_CLUSTER = registerBlock(func, BOPBlocks.ROSE_QUARTZ_CLUSTER);
         LARGE_ROSE_QUARTZ_BUD = registerBlock(func, BOPBlocks.LARGE_ROSE_QUARTZ_BUD);
         MEDIUM_ROSE_QUARTZ_BUD = registerBlock(func, BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD);

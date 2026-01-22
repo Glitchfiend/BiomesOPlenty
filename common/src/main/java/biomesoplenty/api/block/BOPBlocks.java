@@ -69,6 +69,7 @@ public class BOPBlocks
     public static Block BLACKSTONE_BULB;
 
     public static Block ROSE_QUARTZ_BLOCK;
+    public static Block BUDDING_ROSE_QUARTZ_BLOCK;
     public static Block ROSE_QUARTZ_CLUSTER;
     public static Block LARGE_ROSE_QUARTZ_BUD;
     public static Block MEDIUM_ROSE_QUARTZ_BUD;

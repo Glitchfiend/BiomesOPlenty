@@ -72,6 +72,7 @@ public class BOPItems
     public static Item BLACKSTONE_BULB;
 
     public static Item ROSE_QUARTZ_BLOCK;
+    public static Item BUDDING_ROSE_QUARTZ_BLOCK;
     public static Item ROSE_QUARTZ_CLUSTER;
     public static Item LARGE_ROSE_QUARTZ_BUD;
     public static Item MEDIUM_ROSE_QUARTZ_BUD;
