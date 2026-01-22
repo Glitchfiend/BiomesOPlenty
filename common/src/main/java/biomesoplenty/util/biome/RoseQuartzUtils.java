@@ -85,32 +85,6 @@ public class RoseQuartzUtils
 
     }
 
-    public static void growPointedRoseQuartz(WorldGenLevel p_159644_, BlockPos p_159645_, Direction p_159646_, int p_159647_, boolean p_159648_) {
-        BlockPos.MutableBlockPos blockpos$mutableblockpos = p_159645_.mutable();
-        buildBaseToTipColumn(p_159646_, p_159647_, p_159648_, (p_159635_) -> {
-            if (p_159635_.is(Blocks.POINTED_DRIPSTONE)) {
-                p_159635_ = p_159635_.setValue(PointedDripstoneBlock.WATERLOGGED, Boolean.valueOf(p_159644_.isWaterAt(blockpos$mutableblockpos)));
-            }
-
-            p_159644_.setBlock(blockpos$mutableblockpos, p_159635_, 2);
-            blockpos$mutableblockpos.move(p_159646_);
-        });
-    }
-
-    public static boolean placeRoseQuartzBlockIfPossible(WorldGenLevel p_159637_, BlockPos p_159638_)
-    {
-        BlockState blockstate = p_159637_.getBlockState(p_159638_);
-        if (blockstate.is(Blocks.NETHERRACK))
-        {
-            p_159637_.setBlock(p_159638_, BOPBlocks.ROSE_QUARTZ_BLOCK.defaultBlockState(), 2);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     public static BlockState createPointedRoseQuartz(Direction p_159657_, DripstoneThickness p_159658_)
     {
         return Blocks.POINTED_DRIPSTONE.defaultBlockState().setValue(PointedDripstoneBlock.TIP_DIRECTION, p_159657_).setValue(PointedDripstoneBlock.THICKNESS, p_159658_);
@@ -123,7 +97,7 @@ public class RoseQuartzUtils
 
     public static boolean isRoseQuartzBase(BlockState p_159663_)
     {
-        return p_159663_.is(BOPBlocks.ROSE_QUARTZ_BLOCK) || p_159663_.is(Blocks.NETHERRACK);
+        return p_159663_.is(BOPBlocks.ROSE_QUARTZ_BLOCK) || p_159663_.is(BOPBlocks.BUDDING_ROSE_QUARTZ_BLOCK) || p_159663_.is(Blocks.NETHERRACK);
     }
 
     public static boolean isEmptyOrWater(BlockState p_159665_)

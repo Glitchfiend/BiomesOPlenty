@@ -186,7 +186,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
                                 if (RoseQuartzUtils.isEmptyOrWaterOrLava(p_159993_, blockpos) || p_159993_.getBlockState(blockpos).is(BlockTags.CRYSTAL_SOUND_BLOCKS) || p_159993_.getBlockState(blockpos).getBlock() instanceof AmethystClusterBlock)
                                 {
                                     flag = true;
-                                    Block block = BOPBlocks.ROSE_QUARTZ_BLOCK;
+                                    Block block = p_159994_.nextInt(12) == 0 ? BOPBlocks.BUDDING_ROSE_QUARTZ_BLOCK : BOPBlocks.ROSE_QUARTZ_BLOCK;
                                     p_159993_.setBlock(blockpos, block.defaultBlockState(), 2);
 
                                     for (Direction direction : Direction.values())
