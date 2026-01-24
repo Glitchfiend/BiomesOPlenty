@@ -51,6 +51,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> PATCH_DEAD_BUSH_4 = BOPPlacementUtils.createKey("patch_dead_bush_4");
     public static final ResourceKey<PlacedFeature> PATCH_DEAD_GRASS = BOPPlacementUtils.createKey("patch_dead_grass");
     public static final ResourceKey<PlacedFeature> PATCH_DESERT_GRASS = BOPPlacementUtils.createKey("patch_desert_grass");
+    public static final ResourceKey<PlacedFeature> PATCH_DRY_GRASS_EXTRA = BOPPlacementUtils.createKey("patch_dry_grass_extra");
     public static final ResourceKey<PlacedFeature> PATCH_DUNE_GRASS = BOPPlacementUtils.createKey("patch_dune_grass");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_2 = BOPPlacementUtils.createKey("patch_fern_2");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_4 = BOPPlacementUtils.createKey("patch_fern_4");
@@ -222,6 +223,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> PATCH_DEAD_BUSH = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_DEAD_BUSH);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DEAD_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DEAD_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DESERT_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DESERT_GRASS);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_DRY_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DRY_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DUNE_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_FERN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_FERN);
         final Holder<ConfiguredFeature<?, ?>> PATCH_FLOWER_BUDS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_FLOWER_BUDS);
@@ -367,6 +369,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.PATCH_DEAD_BUSH_4, PATCH_DEAD_BUSH, VegetationPlacements.worldSurfaceSquaredWithCount(4));
         register(context, BOPVegetationPlacements.PATCH_DEAD_GRASS, PATCH_DEAD_GRASS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.PATCH_DESERT_GRASS, PATCH_DESERT_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(1));
+        register(context, BOPVegetationPlacements.PATCH_DRY_GRASS_EXTRA, PATCH_DRY_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(4));
         register(context, BOPVegetationPlacements.PATCH_DUNE_GRASS, PATCH_DUNE_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(4));
         register(context, BOPVegetationPlacements.PATCH_FERN_2, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, BOPVegetationPlacements.PATCH_FERN_4, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(4));

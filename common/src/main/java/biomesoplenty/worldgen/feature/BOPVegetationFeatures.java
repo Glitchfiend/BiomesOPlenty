@@ -72,6 +72,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_CLOVER = BOPFeatureUtils.createKey("patch_clover");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DEAD_GRASS = BOPFeatureUtils.createKey("patch_dead_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DESERT_GRASS = BOPFeatureUtils.createKey("patch_desert_grass");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DRY_GRASS = BOPFeatureUtils.createKey("patch_dry_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS = BOPFeatureUtils.createKey("patch_dune_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FERN = BOPFeatureUtils.createKey("patch_fern");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FLOWER_BUDS = BOPFeatureUtils.createKey("patch_flower_buds");
@@ -269,6 +270,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_CLOVER, Feature.RANDOM_PATCH, new RandomPatchConfiguration(96, 2, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(flowerBedPatchBuilder(BOPBlocks.CLOVER))))));
         register(context, BOPVegetationFeatures.PATCH_DEAD_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DEAD_GRASS))));
         register(context, BOPVegetationFeatures.PATCH_DESERT_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DESERT_GRASS))));
+        register(context, BOPVegetationFeatures.PATCH_DRY_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.SHORT_DRY_GRASS.defaultBlockState(), 3).add(Blocks.TALL_DRY_GRASS.defaultBlockState(), 1).build()))));
         register(context, BOPVegetationFeatures.PATCH_DUNE_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DUNE_GRASS))));
         register(context, BOPVegetationFeatures.PATCH_FERN, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.FERN))));
         register(context, BOPVegetationFeatures.PATCH_FLOWER_BUDS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.FLOWER_BUD))));

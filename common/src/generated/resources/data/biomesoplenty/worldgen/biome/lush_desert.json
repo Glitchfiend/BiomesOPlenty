@@ -77,11 +77,11 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_dry_grass_badlands",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_cactus_decorated",
       "biomesoplenty:trees_lush_desert",
       "biomesoplenty:flower_lush_desert",
+      "biomesoplenty:patch_dry_grass_extra",
       "biomesoplenty:sparse_dune_grass"
     ],
     [
