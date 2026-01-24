@@ -1,4 +1,4 @@
-// 1.21.11	2026-01-20T04:46:01.9940221	Registries
+// 1.21.11	2026-01-24T03:02:22.8336956	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -21,7 +21,7 @@ dfcf3eba4918e7f7ce6b069fd9670165f285becd data/biomesoplenty/worldgen/biome/end_c
 1e9e28a14a992b8b852244dbc9fbf939c7be23e7 data/biomesoplenty/worldgen/biome/fir_clearing.json
 3e289b3cccd310a296d9d09bc6347d27aa6c12d5 data/biomesoplenty/worldgen/biome/floodplain.json
 a9384a46bbfbdd27a46dafec1fe0b81808e049bc data/biomesoplenty/worldgen/biome/forested_field.json
-628385f5bcb9a196af582e0b26fafa17f98e8710 data/biomesoplenty/worldgen/biome/fungal_jungle.json
+8394775e53fbf86c374ddbb79c25970cf5744c4f data/biomesoplenty/worldgen/biome/fungal_jungle.json
 0af4d3cb803ddb64c624fff841e0f5d847dfe08b data/biomesoplenty/worldgen/biome/glowing_grotto.json
 051c5cea85fda2b4a40fbd0916a9aca1aab95720 data/biomesoplenty/worldgen/biome/gravel_beach.json
 6936a9e04e1469d723dbd9a6508e3793f6f072c7 data/biomesoplenty/worldgen/biome/highland.json

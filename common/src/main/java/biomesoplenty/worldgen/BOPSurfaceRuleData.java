@@ -25,6 +25,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource STONE = makeStateRule(Blocks.STONE);
     private static final SurfaceRules.RuleSource DIRT = makeStateRule(Blocks.DIRT);
     private static final SurfaceRules.RuleSource PODZOL = makeStateRule(Blocks.PODZOL);
+    private static final SurfaceRules.RuleSource MYCELIUM = makeStateRule(Blocks.MYCELIUM);
     private static final SurfaceRules.RuleSource COARSE_DIRT = makeStateRule(Blocks.COARSE_DIRT);
     private static final SurfaceRules.RuleSource GRAVEL = makeStateRule(Blocks.GRAVEL);
     private static final SurfaceRules.RuleSource SAND = makeStateRule(Blocks.SAND);
@@ -225,6 +226,10 @@ public class BOPSurfaceRuleData
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.HOT_SPRINGS),
                                 SurfaceRules.ifTrue(surfaceNoiseAbove(2.0D), COARSE_DIRT)
+                            ),
+                            SurfaceRules.ifTrue(
+                                SurfaceRules.isBiome(BOPBiomes.FUNGAL_JUNGLE),
+                                SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.PATCH, 0.05D, 0.2D), MYCELIUM)
                             ),
                             SurfaceRules.ifTrue(
                                 SurfaceRules.isBiome(BOPBiomes.OLD_GROWTH_WOODLAND),
