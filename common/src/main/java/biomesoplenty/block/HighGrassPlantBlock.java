@@ -58,6 +58,6 @@ public class HighGrassPlantBlock extends GrowingPlantBodyBlock
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean b)
     {
-        entity.setDeltaMovement(entity.getDeltaMovement().multiply(0.5D, 1.0D, 0.5D));
+        entity.setDeltaMovement(entity.getDeltaMovement().multiply(0.8D, 1.0D, 0.8D));
     }
 }
