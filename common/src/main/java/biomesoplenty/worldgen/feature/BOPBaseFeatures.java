@@ -47,6 +47,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> FALLEN_LOG;
     public static Feature<NoneFeatureConfiguration> FALLEN_FIR_LOG;
     public static Feature<NoneFeatureConfiguration> FALLEN_BIRCH_LOG;
+    public static Feature<NoneFeatureConfiguration> FALLEN_DEAD_LOG;
     public static Feature<NoneFeatureConfiguration> FALLEN_JACARANDA_LOG;
     public static Feature<NoneFeatureConfiguration> FLESH_TENDON;
     public static Feature<NoneFeatureConfiguration> GIANT_GLOWSHROOM;
@@ -130,6 +131,7 @@ public class BOPBaseFeatures
         FALLEN_LOG = register(func, "fallen_log", new FallenLogFeature(NoneFeatureConfiguration.CODEC));
         FALLEN_FIR_LOG = register(func, "fallen_fir_log", new FallenFirLogFeature(NoneFeatureConfiguration.CODEC));
         FALLEN_BIRCH_LOG = register(func, "fallen_birch_log", new FallenBirchLogFeature(NoneFeatureConfiguration.CODEC));
+        FALLEN_DEAD_LOG = register(func, "fallen_dead_log", new FallenDeadLogFeature(NoneFeatureConfiguration.CODEC));
         FALLEN_JACARANDA_LOG = register(func, "fallen_jacaranda_log", new FallenJacarandaLogFeature(NoneFeatureConfiguration.CODEC));
         FLESH_TENDON = register(func, "flesh_tendon", new FleshTendonFeature(NoneFeatureConfiguration.CODEC));
         GIANT_GLOWSHROOM = register(func, "giant_glowshroom", new GiantGlowshroomFeature(NoneFeatureConfiguration.CODEC));

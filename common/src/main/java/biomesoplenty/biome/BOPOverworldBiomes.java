@@ -317,7 +317,7 @@ public class BOPOverworldBiomes
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
-                    .waterColor(0x3938C9)
+                    .waterColor(4159204)
                     .grassColorOverride(0xBAAD64)
                     .foliageColorOverride(0xB7B763)
                     .build()
@@ -1070,6 +1070,7 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addLeafLitterPatch(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder, false);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_OLD_GROWTH_DEAD_FOREST);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FALLEN_DEAD_LOG);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
         return baseBiome(0.3F, 0.3F)

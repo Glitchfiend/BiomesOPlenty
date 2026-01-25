@@ -55,6 +55,7 @@ public class BOPVegetationFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LOG = BOPFeatureUtils.createKey("fallen_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = BOPFeatureUtils.createKey("fallen_fir_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_BIRCH_LOG = BOPFeatureUtils.createKey("fallen_birch_log");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_DEAD_LOG = BOPFeatureUtils.createKey("fallen_dead_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_JACARANDA_LOG = BOPFeatureUtils.createKey("fallen_jacaranda_log");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDENROD = BOPFeatureUtils.createKey("goldenrod");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOT_SPRING_VENTS = BOPFeatureUtils.createKey("hot_spring_vents");
@@ -253,6 +254,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.FALLEN_LOG, BOPBaseFeatures.FALLEN_LOG, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.FALLEN_FIR_LOG, BOPBaseFeatures.FALLEN_FIR_LOG, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.FALLEN_BIRCH_LOG, BOPBaseFeatures.FALLEN_BIRCH_LOG, NoneFeatureConfiguration.INSTANCE);
+        register(context, BOPVegetationFeatures.FALLEN_DEAD_LOG, BOPBaseFeatures.FALLEN_DEAD_LOG, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.FALLEN_JACARANDA_LOG, BOPBaseFeatures.FALLEN_JACARANDA_LOG, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.GOLDENROD, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GOLDENROD))));
         register(context, BOPVegetationFeatures.HOT_SPRING_VENTS, BOPBaseFeatures.HOT_SPRING_VENTS, NoneFeatureConfiguration.INSTANCE);

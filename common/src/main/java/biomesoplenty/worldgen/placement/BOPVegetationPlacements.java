@@ -203,6 +203,7 @@ public class BOPVegetationPlacements
     public static final ResourceKey<PlacedFeature> FALLEN_LOG = BOPPlacementUtils.createKey("fallen_log");
     public static final ResourceKey<PlacedFeature> FALLEN_FIR_LOG = BOPPlacementUtils.createKey("fallen_fir_log");
     public static final ResourceKey<PlacedFeature> FALLEN_BIRCH_LOG = BOPPlacementUtils.createKey("fallen_birch_log");
+    public static final ResourceKey<PlacedFeature> FALLEN_DEAD_LOG = BOPPlacementUtils.createKey("fallen_dead_log");
     public static final ResourceKey<PlacedFeature> FALLEN_JACARANDA_LOG = BOPPlacementUtils.createKey("fallen_jacaranda_log");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context)
@@ -342,6 +343,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> FALLEN_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_LOG);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_FIR_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_FIR_LOG);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_BIRCH_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_BIRCH_LOG);
+        final Holder<ConfiguredFeature<?, ?>> FALLEN_DEAD_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_DEAD_LOG);
         final Holder<ConfiguredFeature<?, ?>> FALLEN_JACARANDA_LOG = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.FALLEN_JACARANDA_LOG);
         final Holder<ConfiguredFeature<?, ?>> HIGHLAND_ROCKS = configuredFeatureGetter.getOrThrow(MiscOverworldFeatures.FOREST_ROCK);
         final Holder<ConfiguredFeature<?, ?>> COLD_DESERT_ROCKS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.COLD_DESERT_ROCKS);
@@ -521,6 +523,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.FALLEN_LOG, FALLEN_LOG, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_FIR_LOG, FALLEN_FIR_LOG, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_BIRCH_LOG, FALLEN_BIRCH_LOG, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FALLEN_DEAD_LOG, FALLEN_DEAD_LOG, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_JACARANDA_LOG, FALLEN_JACARANDA_LOG, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     }
 
