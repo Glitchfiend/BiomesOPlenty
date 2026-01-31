@@ -4,11 +4,12 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "biomesoplenty.refmap.json",
   "mixins": [
-
+    "MixinEntity"
   ],
   "client": [
     "MixinBloodFluid",
-    "MixinLiquidNullFluid"
+    "MixinLiquidNullFluid",
+    "MixinScreenEffectRenderer"
   ],
   "injectors": {
     "defaultRequire": 1

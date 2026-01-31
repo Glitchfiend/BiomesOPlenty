@@ -16,10 +16,11 @@ public class ModClientFabric
         FluidRenderHandlerRegistry.INSTANCE.register(BOPFluids.BLOOD, BOPFluids.FLOWING_BLOOD, new SimpleFluidRenderHandler(
                 Identifier.parse("biomesoplenty:block/blood_still"),
                 Identifier.parse("biomesoplenty:block/blood_flow"),
-                Identifier.parse("biomesoplenty:textures/block/blood_underwater.png")));
+                Identifier.parse("biomesoplenty:block/blood_underwater")));
+
         FluidRenderHandlerRegistry.INSTANCE.register(BOPFluids.LIQUID_NULL, BOPFluids.FLOWING_LIQUID_NULL, new SimpleFluidRenderHandler(
                 Identifier.parse("biomesoplenty:block/liquid_null_still"),
                 Identifier.parse("biomesoplenty:block/liquid_null_flow"),
-                Identifier.parse("biomesoplenty:textures/block/liquid_null_underwater.png")));
+                Identifier.parse("biomesoplenty:block/liquid_null_underwater")));
     }
 }
