@@ -86,16 +86,26 @@ public class ErodedPillarFeature extends Feature<NoneFeatureConfiguration>
     private void setPillarBlock(BlockPos pos, LevelAccessor level, RandomSource random, int heightFromTop, int height)
     {
         BlockState state = level.getBlockState(pos);
-        if (state.isAir() || state.is(Blocks.DIRT) || state.is(Blocks.STONE) || state.is(Blocks.WATER)) {
+        BlockState stateBelow = level.getBlockState(pos.below());
+
+        if (state.isAir() || state.is(Blocks.DIRT) || state.is(Blocks.STONE) || state.is(Blocks.WATER))
+        {
             // Return grass blocks below to dirt
             if (level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK))
             {
                 this.setBlock(level, pos.below(), Blocks.DIRT.defaultBlockState());
             }
 
-            if (heightFromTop <= random.nextInt((int)(height * 0.6))) {
+            if (heightFromTop <= random.nextInt((int)(height * 0.6)))
+            {
                 this.setBlock(level, pos, Blocks.GRASS_BLOCK.defaultBlockState());
-            } else {
+            }
+            else if (heightFromTop == height && stateBelow.is(BlockTags.DIRT) && random.nextDouble() > 0.5)
+            {
+                this.setBlock(level, pos, Blocks.DIRT.defaultBlockState());
+            }
+            else
+            {
                 this.setBlock(level, pos, Blocks.STONE.defaultBlockState());
             }
         }
