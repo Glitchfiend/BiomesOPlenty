@@ -52,7 +52,7 @@ public class SteamParticle extends SingleQuadParticle
     @Override
     public SingleQuadParticle.Layer getLayer()
     {
-        return SingleQuadParticle.Layer.OPAQUE;
+        return SingleQuadParticle.Layer.TRANSLUCENT;
     }
 
     public static class Provider implements ParticleProvider<SimpleParticleType>

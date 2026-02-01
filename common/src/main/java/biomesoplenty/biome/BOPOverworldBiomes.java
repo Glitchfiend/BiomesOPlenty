@@ -693,6 +693,7 @@ public class BOPOverworldBiomes
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        addFeature(biomeBuilder, GenerationStep.Decoration.RAW_GENERATION, BOPMiscOverworldPlacements.JADE_CLIFFS_ERODED_PILLARS);
         globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
@@ -701,8 +702,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_JADE_CLIFFS);
 
-        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
-        //addFeature(biomeBuilder, GenerationStep.Decoration.LOCAL_MODIFICATIONS, BOPMiscOverworldPlacements.JADE_CLIFFS_ERODED_PILLARS);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
         return baseBiome(0.8F, 0.85F)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xBBD1D5)

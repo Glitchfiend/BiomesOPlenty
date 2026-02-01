@@ -130,7 +130,7 @@ public class BOPMiscOverworldPlacements
         register(context, BOPMiscOverworldPlacements.SPRING_WATER_EXTRA, SPRING_WATER_EXTRA, List.of(CountPlacement.of(96), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(72), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.ORIGIN_GRAVEL_CLIFFS, ORIGIN_GRAVEL_CLIFFS, BiomeFilter.biome());
 
-        register(context, BOPMiscOverworldPlacements.JADE_CLIFFS_ERODED_PILLARS, JADE_CLIFFS_ERODED_PILLARS, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
+        register(context, BOPMiscOverworldPlacements.JADE_CLIFFS_ERODED_PILLARS, JADE_CLIFFS_ERODED_PILLARS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
     }
 
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)

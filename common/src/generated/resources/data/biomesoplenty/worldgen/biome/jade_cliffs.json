@@ -23,7 +23,9 @@
     "water_color": "#3f76e4"
   },
   "features": [
-    [],
+    [
+      "biomesoplenty:jade_cliffs_eroded_pillars"
+    ],
     [
       "minecraft:lake_lava_underground",
       "minecraft:lake_lava_surface"
@@ -80,7 +82,7 @@
       "minecraft:glow_lichen",
       "minecraft:patch_sugar_cane",
       "biomesoplenty:trees_jade_cliffs",
-      "biomesoplenty:patch_grass_6"
+      "biomesoplenty:patch_grass_12"
     ],
     [
       "minecraft:freeze_top_layer"

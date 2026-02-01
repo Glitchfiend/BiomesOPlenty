@@ -6,12 +6,15 @@ package biomesoplenty.worldgen.feature.misc;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -34,18 +37,22 @@ public class ErodedPillarFeature extends Feature<NoneFeatureConfiguration>
         WorldGenLevel level = context.level();
         RandomSource random = context.random();
         int width = BASE_RADIUS;
-        int height = random.nextInt(15) + 50;
-        if (random.nextDouble() > 0.9) {
-            height += random.nextInt(19) + 7;
+        int height = random.nextInt(10) + 10;
+        if (random.nextDouble() > 0.75) {
+            height += random.nextInt(15) + 15;
         }
 
         int radius = Math.min(height + random.nextInt(7) - random.nextInt(5), width);
 
-        for (int x = -width; x < width; x++) {
-            for (int z = -width; z < width; z++) {
-                for (int y = 0; y < height; y++) {
+        for (int x = -width; x < width; x++)
+        {
+            for (int z = -width; z < width; z++)
+            {
+                for (int y = 0; y < height; y++)
+                {
                     int k2 = this.heightDependentRadiusSteep(random, y, height, radius);
-                    if (x < k2) {
+                    if (x < k2)
+                    {
                         this.generateBlock(level, random, pos, height, x, y, z, k2);
                     }
                 }
@@ -111,12 +118,12 @@ public class ErodedPillarFeature extends Feature<NoneFeatureConfiguration>
     }
 
     private boolean belowIsAir(BlockGetter p_66046_, BlockPos p_66047_) {
-        return p_66046_.getBlockState(p_66047_.below()).isAir();
+        return p_66046_.getBlockState(p_66047_.below()).isAir() || p_66046_.getBlockState(p_66047_.below()).getBlock() instanceof LeavesBlock || p_66046_.getBlockState(p_66047_.below()).getBlock() instanceof VegetationBlock || p_66046_.getBlockState(p_66047_.below()).is(BlockTags.REPLACEABLE);
     }
 
     private void smooth(LevelAccessor level, BlockPos pos, int radius, int height)
     {
-        int i = radius / 2;
+        int i = radius;
 
         for (int j = -i; j <= i; j++) {
             for (int k = -i; k <= i; k++) {

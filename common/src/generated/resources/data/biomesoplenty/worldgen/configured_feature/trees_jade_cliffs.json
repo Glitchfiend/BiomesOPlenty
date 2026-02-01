@@ -4,7 +4,7 @@
     "default": "biomesoplenty:spruce_bush",
     "features": [
       {
-        "chance": 0.075,
+        "chance": 0.15,
         "feature": "biomesoplenty:pine_tree"
       }
     ]
