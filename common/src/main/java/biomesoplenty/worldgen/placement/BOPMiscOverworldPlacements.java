@@ -56,6 +56,8 @@ public class BOPMiscOverworldPlacements
     public static final ResourceKey<PlacedFeature> SPRING_WATER_EXTRA = BOPPlacementUtils.createKey("spring_water_extra");
     public static final ResourceKey<PlacedFeature> ORIGIN_GRAVEL_CLIFFS = BOPPlacementUtils.createKey("origin_gravel_cliffs");
 
+    public static final ResourceKey<PlacedFeature> JADE_CLIFFS_ERODED_PILLARS = BOPPlacementUtils.createKey("jade_cliffs_eroded_pillars");
+
     public static void bootstrap(BootstrapContext<PlacedFeature> context)
     {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -92,6 +94,8 @@ public class BOPMiscOverworldPlacements
         final Holder<ConfiguredFeature<?, ?>> SPRING_WATER_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_WATER_EXTRA);
         final Holder<ConfiguredFeature<?, ?>> ORIGIN_GRAVEL_CLIFFS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.ORIGIN_GRAVEL_CLIFFS);
 
+        final Holder<ConfiguredFeature<?, ?>> JADE_CLIFFS_ERODED_PILLARS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.ERODED_PILLAR);
+
         register(context, BOPMiscOverworldPlacements.CRAG_MOSS, CRAG_MOSS, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.CRAG_SPLATTER, CRAG_SPLATTER, List.of(CountPlacement.of(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.DISK_BLACK_SAND, DISK_BLACK_SAND, List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(Fluids.WATER)), BiomeFilter.biome()));
@@ -125,6 +129,8 @@ public class BOPMiscOverworldPlacements
         register(context, BOPMiscOverworldPlacements.SPRING_LAVA_VOLCANO, SPRING_LAVA_VOLCANO, List.of(CountPlacement.of(96), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(96), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.SPRING_WATER_EXTRA, SPRING_WATER_EXTRA, List.of(CountPlacement.of(96), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(72), VerticalAnchor.absolute(192)), BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.ORIGIN_GRAVEL_CLIFFS, ORIGIN_GRAVEL_CLIFFS, BiomeFilter.biome());
+
+        register(context, BOPMiscOverworldPlacements.JADE_CLIFFS_ERODED_PILLARS, JADE_CLIFFS_ERODED_PILLARS, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
     }
 
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)

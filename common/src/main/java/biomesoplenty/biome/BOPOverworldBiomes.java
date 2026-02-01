@@ -702,6 +702,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_JADE_CLIFFS);
 
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
+        //addFeature(biomeBuilder, GenerationStep.Decoration.LOCAL_MODIFICATIONS, BOPMiscOverworldPlacements.JADE_CLIFFS_ERODED_PILLARS);
 
         return baseBiome(0.8F, 0.85F)
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xBBD1D5)

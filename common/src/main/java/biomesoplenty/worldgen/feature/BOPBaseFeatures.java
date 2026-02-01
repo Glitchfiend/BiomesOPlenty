@@ -100,6 +100,7 @@ public class BOPBaseFeatures
     public static Feature<NoneFeatureConfiguration> DEAD_CORAL_MUSHROOM;
     public static Feature<NoneFeatureConfiguration> DEAD_CORAL_CLAW;
     public static Feature<NoneFeatureConfiguration> BARNACLES;
+    public static Feature<NoneFeatureConfiguration> ERODED_PILLAR;
     public static BOPLakeFeature LAKE;
 
     public static void registerFeatures(BiConsumer<Identifier, Feature<?>> func)
@@ -184,6 +185,7 @@ public class BOPBaseFeatures
         DEAD_CORAL_MUSHROOM = register(func, "dead_coral_mushroom", new DeadCoralMushroomFeature(NoneFeatureConfiguration.CODEC));
         DEAD_CORAL_CLAW = register(func, "dead_coral_claw", new DeadCoralClawFeature(NoneFeatureConfiguration.CODEC));
         BARNACLES = register(func, "barnacles", new BarnacleFeature(NoneFeatureConfiguration.CODEC));
+        ERODED_PILLAR = register(func, "eroded_pillar", new ErodedPillarFeature(NoneFeatureConfiguration.CODEC));
         LAKE = register(func, "lake", new BOPLakeFeature(LakeFeature.Configuration.CODEC));
     }
 
