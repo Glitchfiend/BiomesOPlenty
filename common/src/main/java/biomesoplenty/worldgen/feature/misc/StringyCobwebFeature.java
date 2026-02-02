@@ -14,7 +14,6 @@ import net.minecraft.core.SectionPos;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,20 +23,20 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
 {
-    public static final int MIN_DISTANCE = 2;
-    public static final int MAX_DISTANCE = 32;
+    private static final int MIN_DISTANCE = 2;
+    private static final int MAX_DISTANCE = 32;
 
     public StringyCobwebFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
         super(deserializer);
     }
 
-    public static boolean canPlace(WorldGenLevel world, BlockPos pos, int length, Direction dir)
+    public boolean canPlace(WorldGenLevel world, BlockPos pos, int length, Direction dir)
     {
         BlockPos belowPos = pos.below();
         BlockState belowState = world.getBlockState(belowPos);
 
-        if (!isStringyCobwebReplaceable(world.getBlockState(pos)) || !belowState.isFaceSturdy(world, belowPos, Direction.UP) || !respectsCutoff((WorldGenRegion)world, pos))
+        if ((!world.getBlockState(pos).isAir() && world.getBlockState(pos).getBlock() != Blocks.COBWEB && world.getBlockState(pos).getBlock() != Blocks.GLOW_LICHEN && world.getBlockState(pos).getBlock() != BOPBlocks.WEBBING) || !belowState.isFaceSturdy(world, belowPos, Direction.UP) || !this.respectsCutoff((WorldGenRegion)world, pos))
         {
             return false;
         }
@@ -49,7 +48,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
             nextStringPos = nextStringPos.relative(dir, 1).above(1);
             BlockState nextStringState = world.getBlockState(nextStringPos);
 
-            if ((!nextStringState.isAir() && world.getBlockState(nextStringPos).getBlock() != Blocks.COBWEB && world.getBlockState(nextStringPos).getBlock() != Blocks.GLOW_LICHEN && world.getBlockState(nextStringPos).getBlock() != BOPBlocks.WEBBING) || !respectsCutoff((WorldGenRegion)world, nextStringPos))
+            if ((!nextStringState.isAir() && world.getBlockState(nextStringPos).getBlock() != Blocks.COBWEB && world.getBlockState(nextStringPos).getBlock() != Blocks.GLOW_LICHEN && world.getBlockState(nextStringPos).getBlock() != BOPBlocks.WEBBING) || !this.respectsCutoff((WorldGenRegion)world, nextStringPos))
             {
                 return false;
             }
@@ -58,7 +57,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         BlockPos abovePos = nextStringPos.above();
         BlockState aboveState = world.getBlockState(abovePos);
 
-        if (!aboveState.isFaceSturdy(world, abovePos, Direction.DOWN) || !respectsCutoff((WorldGenRegion)world, nextStringPos))
+        if (!aboveState.isFaceSturdy(world, abovePos, Direction.DOWN) || !this.respectsCutoff((WorldGenRegion)world, nextStringPos))
         {
             return false;
         }
@@ -68,7 +67,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
 
     public void placeCobweb(WorldGenLevel world, BlockPos pos, int length, Direction dir)
     {
-        if (respectsCutoff((WorldGenRegion)world, pos))
+        if (this.respectsCutoff((WorldGenRegion)world, pos))
         {
             world.setBlock(pos, BOPBlocks.STRINGY_COBWEB.defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.BOTTOM), 2);
         }
@@ -79,13 +78,13 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         {
             nextStringPos = nextStringPos.relative(dir, 1).above(1);
 
-            if (respectsCutoff((WorldGenRegion)world, nextStringPos))
+            if (this.respectsCutoff((WorldGenRegion)world, nextStringPos))
             {
                 world.setBlock(nextStringPos, BOPBlocks.STRINGY_COBWEB.defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.MIDDLE), 2);
             }
         }
 
-        if (respectsCutoff((WorldGenRegion)world, nextStringPos))
+        if (this.respectsCutoff((WorldGenRegion)world, nextStringPos))
         {
             world.setBlock(nextStringPos, BOPBlocks.STRINGY_COBWEB.defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.TOP), 2);
         }
@@ -115,7 +114,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         return k > 0;
     }
 
-    private static boolean respectsCutoff(WorldGenRegion region, BlockPos pos)
+    private boolean respectsCutoff(WorldGenRegion region, BlockPos pos)
     {
         int i = SectionPos.blockToSectionCoord(pos.getX());
         int j = SectionPos.blockToSectionCoord(pos.getZ());
@@ -129,10 +128,5 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         }
 
         return false;
-    }
-
-    public static boolean isStringyCobwebReplaceable(BlockState state)
-    {
-        return state.isAir() || state.is(Blocks.COBWEB) || state.is(Blocks.GLOW_LICHEN) ||state.is(BOPBlocks.WEBBING);
     }
 }

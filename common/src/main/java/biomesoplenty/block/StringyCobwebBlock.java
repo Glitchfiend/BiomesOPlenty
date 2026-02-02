@@ -112,7 +112,24 @@ public class StringyCobwebBlock extends Block
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext context)
     {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+        BlockState blockstate = super.getStateForPlacement(context);
+        Level LevelReader = context.getLevel();
+        BlockPos blockpos = context.getClickedPos();
+        Direction[] adirection = context.getNearestLookingDirections();
+
+        for (Direction direction : adirection)
+        {
+            if (direction.getAxis().isHorizontal())
+            {
+                blockstate = blockstate.setValue(FACING, direction.getOpposite());
+                if (blockstate.canSurvive(LevelReader, blockpos))
+                {
+                    return blockstate;
+                }
+            }
+        }
+
+        return null;
     }
 
     @Override

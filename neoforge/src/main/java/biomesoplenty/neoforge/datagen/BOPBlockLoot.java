@@ -158,7 +158,6 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropWhenSilkTouch(BOPBlocks.SPIDER_EGG);
         this.addStrandPlantDropTable(BOPBlocks.HANGING_COBWEB, BOPBlocks.HANGING_COBWEB_STRAND);
         this.add(BOPBlocks.WEBBING, (p_249543_) -> { return this.createMultifaceBlockDrops(p_249543_, hasShears); });
-        this.add(BOPBlocks.STRINGY_COBWEB, this::createShearsOnlyDrop);
 
         this.dropSelf(BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
         this.dropSelf(BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
