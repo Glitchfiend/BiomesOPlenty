@@ -8,6 +8,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.item.StringyCobwebBlockItem;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -188,7 +189,7 @@ public class ModItems
         SPIDER_EGG = registerBlock(func, BOPBlocks.SPIDER_EGG);
         HANGING_COBWEB = registerBlock(func, BOPBlocks.HANGING_COBWEB);
         HANGING_COBWEB_STRAND = registerBlock(func, BOPBlocks.HANGING_COBWEB_STRAND);
-        STRINGY_COBWEB = registerBlock(func, BOPBlocks.STRINGY_COBWEB);
+        STRINGY_COBWEB = registerBlock(func, BOPBlocks.STRINGY_COBWEB, StringyCobwebBlockItem::new);
         WEBBING = registerBlock(func, BOPBlocks.WEBBING);
         WHITE_FLOWER_PETAL_BLOCK = registerBlock(func, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
         LIGHT_GRAY_FLOWER_PETAL_BLOCK = registerBlock(func, BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
