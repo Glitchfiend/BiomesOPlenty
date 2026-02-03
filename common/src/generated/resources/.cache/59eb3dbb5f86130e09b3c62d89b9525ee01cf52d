@@ -1,4 +1,4 @@
-// 1.21.11	2025-12-14T19:08:52.0329625	Loot Tables
+// 1.21.11	2026-02-02T12:23:59.0428365	Loot Tables
 220e79635d6427547adc71c9a3595899624e7346 data/biomesoplenty/loot_table/blocks/algal_end_stone.json
 dd2b19339d5cd2e7c140672d01b47271540e8c0c data/biomesoplenty/loot_table/blocks/anomaly.json
 f92516ee35f9b379842fd0ac300baff1071c8308 data/biomesoplenty/loot_table/blocks/barley.json
@@ -359,6 +359,7 @@ eede3e032ad48fed87c081f84bce948e8c12042d data/biomesoplenty/loot_table/blocks/sm
 2d29f22b8058ea90fd6f212a0e1070dabf61ac2f data/biomesoplenty/loot_table/blocks/spanish_moss_plant.json
 180c5ffa95aeb8419f321dd07d7c748a3eab22a4 data/biomesoplenty/loot_table/blocks/spider_egg.json
 3608f44906b209563b6f6e1f0f8389b621ba4604 data/biomesoplenty/loot_table/blocks/sprout.json
+d6c2b3a6cb324dbb143c16c03cd9b2fbc0e90cf7 data/biomesoplenty/loot_table/blocks/stringy_cobweb.json
 489f44d49ed121ce20d14c7f966b9e6eb2887da3 data/biomesoplenty/loot_table/blocks/stripped_dead_log.json
 64ac2ce7f4056d6f47833b6d870f8a968826e89e data/biomesoplenty/loot_table/blocks/stripped_dead_wood.json
 584f75bcd650fac246ee798b36d888b4631c5d4b data/biomesoplenty/loot_table/blocks/stripped_empyreal_log.json
