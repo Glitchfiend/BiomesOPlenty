@@ -7,6 +7,7 @@ package biomesoplenty.item;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.block.StringyCobwebBlock;
 import biomesoplenty.block.properties.ConnectedProperty;
+import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.worldgen.feature.misc.StringyCobwebFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,6 +15,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class StringyCobwebBlockItem extends BlockItem
@@ -50,12 +52,13 @@ public class StringyCobwebBlockItem extends BlockItem
         world.setBlock(pos, BOPBlocks.STRINGY_COBWEB.defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.BOTTOM), 11);
         BlockPos nextStringPos = pos;
 
-        for (int i = 0; i < length; ++i)
+        for (int i = 0; i < length - 1; ++i)
         {
             nextStringPos = nextStringPos.relative(dir, 1).above(1);
             world.setBlock(nextStringPos, BOPBlocks.STRINGY_COBWEB.defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.MIDDLE), 27);
         }
 
+        // Set the end of the string to the top state
         world.setBlock(nextStringPos, BOPBlocks.STRINGY_COBWEB.defaultBlockState().setValue(StringyCobwebBlock.FACING, dir).setValue(StringyCobwebBlock.CONNECTED, ConnectedProperty.TOP), 27);
     }
 
@@ -65,27 +68,27 @@ public class StringyCobwebBlockItem extends BlockItem
         BlockState belowState = level.getBlockState(belowPos);
 
         if (!StringyCobwebFeature.isStringyCobwebReplaceable(level.getBlockState(pos)) || !belowState.isFaceSturdy(level, belowPos, Direction.UP))
-        {
             return 0;
-        }
 
-        BlockPos nextStringPos = pos;
-        int length;
+        BlockPos stringTopPos = pos;
+        int length = 1;
 
-        for (length = 1; length < StringyCobwebFeature.MAX_DISTANCE; length++)
+        for (; length < StringyCobwebFeature.MAX_DISTANCE; ++length)
         {
-            nextStringPos = nextStringPos.relative(dir, 1).above(1);
-            BlockState nextStringState = level.getBlockState(nextStringPos);
+            BlockPos nextPos = stringTopPos.relative(dir, 1).above(1);
 
-            if (!StringyCobwebFeature.isStringyCobwebReplaceable(nextStringState))
+            if (!StringyCobwebFeature.isStringyCobwebReplaceable(level.getBlockState(nextPos)))
                 break;
+
+            stringTopPos = nextPos;
         }
 
-        BlockPos abovePos = nextStringPos.above();
+        BlockPos abovePos = stringTopPos.above();
         BlockState aboveState = level.getBlockState(abovePos);
 
-        if (!aboveState.isFaceSturdy(level, abovePos, Direction.DOWN))
+        if (!aboveState.isFaceSturdy(level, abovePos, Direction.DOWN)) {
             return 0;
+        }
 
         return length;
     }
