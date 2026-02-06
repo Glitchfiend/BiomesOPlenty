@@ -12,7 +12,7 @@
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "duration": 0,
+          "duration": 100,
           "id": "minecraft:invisibility"
         }
       ]

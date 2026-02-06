@@ -295,7 +295,7 @@ public class BOPRecipeProvider extends RecipeProvider
 
             if (!key.identifier().getNamespace().equals(BiomesOPlenty.MOD_ID))
                 return;
-            
+
             SuspiciousEffectHolder suspiciousStewEffect = SuspiciousEffectHolder.tryGet(item);
             if (suspiciousStewEffect != null) {
                 this.suspiciousStew(item, suspiciousStewEffect);
