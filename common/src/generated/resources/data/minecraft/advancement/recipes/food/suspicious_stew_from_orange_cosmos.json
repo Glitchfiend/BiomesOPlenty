@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orange_cosmos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:orange_cosmos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:suspicious_stew_from_orange_cosmos"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orange_cosmos"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:suspicious_stew_from_orange_cosmos"
+    ]
+  }
+}
