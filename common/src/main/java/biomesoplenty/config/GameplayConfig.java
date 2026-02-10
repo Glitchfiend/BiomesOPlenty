@@ -11,6 +11,7 @@ import glitchcore.util.Environment;
 public class GameplayConfig extends Config
 {
     public boolean wanderingTraderTrades;
+    public boolean highGrassPlantSlowerMovement;
 
     public GameplayConfig()
     {
@@ -21,5 +22,6 @@ public class GameplayConfig extends Config
     public void load()
     {
         wanderingTraderTrades = add("general.wandering_trader_trades", true, "Add various BOP resources to the Wandering Trader trade pool.");
+        highGrassPlantSlowerMovement = add("blocks.high_grass_plant_slower_movement", true, "Slow down player when inside high grass plant block.");
     }
 }
