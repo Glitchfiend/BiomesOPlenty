@@ -17,7 +17,7 @@
   "biome.biomesoplenty.crystalline_chasm": "Кристалічна прірва",
   "biome.biomesoplenty.dead_forest": "Мертвий ліс",
   "biome.biomesoplenty.dryland": "Сухоземлі",
-  "biome.biomesoplenty.dune_beach": "Дюновий пляж",
+  "biome.biomesoplenty.dune_beach": "Дюнний пляж",
   "biome.biomesoplenty.end_corruption": "Зіпсований Енд",
   "biome.biomesoplenty.end_flats": "Рівнини Енду",
   "biome.biomesoplenty.end_reef": "Риф Енду",
@@ -89,7 +89,7 @@
   "item.biomesoplenty.hellbark_chest_boat": "Пекельний човен зі скринею",
   "item.biomesoplenty.jacaranda_boat": "Жакарандовий човен",
   "item.biomesoplenty.jacaranda_chest_boat": "Жакарандовий човен зі скринею",
-  "item.biomesoplenty.liquid_null_bucket": "Відро ����",
+  "item.biomesoplenty.liquid_null_bucket": "Відро     ",
   "item.biomesoplenty.magic_boat": "Чарівний човен",
   "item.biomesoplenty.magic_chest_boat": "Чарівний човен зі скринею",
   "item.biomesoplenty.mahogany_boat": "Махагоновий човен",
@@ -176,7 +176,7 @@
   "block.biomesoplenty.dead_wood": "Мертва деревина",
   "block.biomesoplenty.desert_grass": "Пустельна трава",
   "block.biomesoplenty.dried_salt": "Висушена сіль",
-  "block.biomesoplenty.dune_grass": "Дюнова трава",
+  "block.biomesoplenty.dune_grass": "Дюнна трава",
   "block.biomesoplenty.empyreal_button": "Емпіреальна кнопка",
   "block.biomesoplenty.empyreal_door": "Емпіреальні двері",
   "block.biomesoplenty.empyreal_fence": "Емпіреальний паркан",
@@ -658,5 +658,6 @@
   "tag.item.biomesoplenty.umbran_logs": "Тіньові колоди",
   "tag.item.biomesoplenty.willow_logs": "Вербові колоди",
 
-  "modmenu.descriptionTranslation.biomesoplenty": "Додає більше 50 нових біомів, блоків та багато іншого!"
+  "modmenu.descriptionTranslation.biomesoplenty": "Додає більше 50 нових біомів, блоків та багато іншого!",
+  "fml.menu.mods.info.description.biomesoplenty": "Додає більше 50 нових біомів, блоків та багато іншого!"
 }
