@@ -10,6 +10,7 @@ import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.neoforge.datagen.BOPBlockFamilies;
 import biomesoplenty.init.ModTags;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SuspiciousEffectHolder;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -286,6 +288,19 @@ public class BOPRecipeProvider extends RecipeProvider
         this.shapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.MOSSY_STONE_BRICKS).requires(Blocks.STONE_BRICKS).requires(BOPBlocks.WILLOW_VINE).group("mossy_stone_bricks").unlockedBy("has_willow_vine", has(BOPBlocks.WILLOW_VINE)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Blocks.MOSSY_STONE_BRICKS, BOPBlocks.WILLOW_VINE));
         this.shapeless(RecipeCategory.FOOD, Items.RABBIT_STEW).requires(Items.BAKED_POTATO).requires(Items.COOKED_RABBIT).requires(Items.BOWL).requires(Items.CARROT).requires(BOPBlocks.TOADSTOOL).group("rabbit_stew").unlockedBy("has_cooked_rabbit", has(Items.COOKED_RABBIT)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Items.RABBIT_STEW, BOPItems.TOADSTOOL));
         this.shaped(RecipeCategory.REDSTONE, Blocks.TNT).define('#', Ingredient.of(BOPBlocks.WHITE_SAND, BOPBlocks.ORANGE_SAND, BOPBlocks.BLACK_SAND)).define('X', Items.GUNPOWDER).pattern("X#X").pattern("#X#").pattern("X#X").unlockedBy("has_gunpowder", has(Items.GUNPOWDER)).save(this.output, BiomesOPlenty.MOD_ID + ":" + "tnt_from_bop_sand");
+
+        BuiltInRegistries.ITEM.entrySet().forEach(entry -> {
+            var key = entry.getKey();
+            var item = entry.getValue();
+
+            if (!key.identifier().getNamespace().equals(BiomesOPlenty.MOD_ID))
+                return;
+
+            SuspiciousEffectHolder suspiciousStewEffect = SuspiciousEffectHolder.tryGet(item);
+            if (suspiciousStewEffect != null) {
+                this.suspiciousStew(item, suspiciousStewEffect);
+            }
+        });
     }
 
     protected void generateForEnabledBlockFamiliesBOP(FeatureFlagSet flags) {

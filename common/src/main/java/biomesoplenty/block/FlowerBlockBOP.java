@@ -33,7 +33,12 @@ public class FlowerBlockBOP extends FlowerBlock
 	
     public FlowerBlockBOP(Holder<MobEffect> effect, Block.Properties properties)
     {
-        super(effect, 0, properties);
+        this(effect, 5, properties);
+    }
+
+    public FlowerBlockBOP(Holder<MobEffect> effect, float duration, Block.Properties properties)
+    {
+        super(effect, duration, properties);
     }
 
     @Override

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:suspicious_stew_from_white_lavender"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_lavender": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:white_lavender"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_lavender"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:suspicious_stew_from_white_lavender"
+    ]
+  }
+}
