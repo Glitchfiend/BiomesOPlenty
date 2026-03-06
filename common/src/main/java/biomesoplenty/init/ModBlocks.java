@@ -581,6 +581,8 @@ public class ModBlocks
         POTTED_TOADSTOOL = register(func, "potted_toadstool", p -> new FlowerPotBlock(TOADSTOOL, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
         POTTED_GLOWSHROOM = register(func, "potted_glowshroom", p -> new FlowerPotBlock(GLOWSHROOM, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak().lightLevel((state) -> 3));
         //POTTED_VOIDCAP = register(func, "potted_voidcap", p -> new FlowerPotBlock(VOIDCAP, p), BlockBehaviour.Properties.of().noOcclusion().pushReaction(PushReaction.DESTROY).instabreak());
+
+        ModLegacy.setupBlocks();
     }
 
     private static BlockBehaviour.Properties logProperties(MapColor MapColor, MapColor MapColor2, SoundType soundType) {

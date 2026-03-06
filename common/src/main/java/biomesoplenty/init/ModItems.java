@@ -548,6 +548,8 @@ public class ModItems
         POTTED_TOADSTOOL = registerBlock(func, BOPBlocks.POTTED_TOADSTOOL);
         POTTED_GLOWSHROOM = registerBlock(func, BOPBlocks.POTTED_GLOWSHROOM);
         //POTTED_VOIDCAP = registerBlock(func, BOPBlocks.POTTED_VOIDCAP);
+
+        ModLegacy.setupItems();
     }
 
     public static Item registerBlock(BiConsumer<Identifier, Item> func, Block block)

@@ -29,6 +29,8 @@ public class BiomesOPlenty
         ModTags.setup();
         addRegistrars();
         addHandlers();
+
+        ModLegacy.setupBiomes();
     }
 
     private static void addRegistrars()
