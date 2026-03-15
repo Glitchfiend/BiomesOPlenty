@@ -190,7 +190,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
         // Wood
         this.dropSelf(BOPBlocks.ORIGIN_OAK_SAPLING);
-        this.add(BOPBlocks.ORIGIN_OAK_LEAVES, (p_280940_) -> { return this.createOakLeavesDrops(p_280940_, BOPBlocks.ORIGIN_OAK_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
+        this.add(BOPBlocks.ORIGIN_OAK_LEAVES, (p_280940_) -> { return this.createOriginLeavesDrops(p_280940_, BOPBlocks.ORIGIN_OAK_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.ORIGIN_OAK_LOG);
         this.dropSelf(BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
         this.dropSelf(BOPBlocks.ORIGIN_OAK_WOOD);
@@ -595,6 +595,11 @@ public class BOPBlockLoot extends BlockLootSubProvider
     protected LootTable.Builder createLeavesDrops(Block p_250088_, Block p_250731_, float... p_248949_) {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         return this.createSilkTouchOrShearsDispatchTable(p_250088_, ((LootPoolSingletonContainer.Builder)this.applyExplosionCondition(p_250088_, LootItem.lootTableItem(p_250731_))).when(BonusLevelTableCondition.bonusLevelFlatChance(registrylookup.getOrThrow(Enchantments.FORTUNE), p_248949_))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(this.doesNotHaveShearsOrSilkTouch()).add(((LootPoolSingletonContainer.Builder)this.applyExplosionDecay(p_250088_, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))).when(BonusLevelTableCondition.bonusLevelFlatChance(registrylookup.getOrThrow(Enchantments.FORTUNE), NORMAL_LEAVES_STICK_CHANCES))));
+    }
+
+    protected LootTable.Builder createOriginLeavesDrops(Block p_250088_, Block p_250731_, float... p_248949_) {
+        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        return this.createSilkTouchOrShearsDispatchTable(p_250088_, ((LootPoolSingletonContainer.Builder)this.applyExplosionCondition(p_250088_, LootItem.lootTableItem(p_250731_))).when(BonusLevelTableCondition.bonusLevelFlatChance(registrylookup.getOrThrow(Enchantments.FORTUNE), p_248949_))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(this.doesNotHaveShearsOrSilkTouch()));
     }
 
     @Override
