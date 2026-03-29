@@ -1,98 +1,49 @@
 plugins {
-    id "net.minecraftforge.gradle" version "6.+"
-    id "org.spongepowered.mixin" version "0.7-SNAPSHOT"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id 'net.minecraftforge.gradle' version '[7.0.17,8)'
+    id "de.maxhenkel.cursegradle" version "1.5.1"
 }
 
 base.archivesName.set("${mod_name}-forge")
 
-mixin {
-    add sourceSets.main, "${mod_id}.refmap.json"
-    config("${mod_id}.mixins.json")
-    config("${mod_id}.forge.mixins.json")
-}
-
-// As of 1.20.6 Forge no longer has reobf tasks. This has broken mixins adding configs correctly into the manifest file
-// See: https://github.com/SpongePowered/MixinGradle/blob/f800b26d2b180d98d9aa9355e5b3086d71218508/src/main/groovy/org/spongepowered/asm/gradle/plugins/MixinExtension.groovy#L184
-// Instead, we will do it ourselves.
-jar {
-    manifest {
-        attributes([
-            'MixinConfigs': "${mod_id}.mixins.json" + "," + "${mod_id}.forge.mixins.json",
-        ])
-    }
-}
-
 minecraft {
     mappings channel: 'official', version: minecraft_version
-    copyIdeResources = true //Calls processResources when in dev
-
-    if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
-        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-    }
-
-    reobf = false
+    accessTransformers = files(project(":Common").file('src/main/resources/META-INF/accesstransformer.cfg'))
 
     runs {
-        client {
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            taskName 'Client'
-            mods {
-                modClientRun {
-                    source sourceSets.main
-                }
-            }
+        configureEach {
+            workingDir = layout.projectDirectory.dir('run')
+
+            systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
+            systemProperty 'forge.enabledGameTestNamespaces', 'examplemod'
         }
 
-        server {
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            taskName 'Server'
-            mods {
-                modServerRun {
-                    source sourceSets.main
-                }
-            }
+        register('client') {
+            args "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}.forge.mixins.json"
+        }
+
+        register('server') {
+            args '--nogui', "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}.forge.mixins.json"
         }
     }
+}
+
+configurations {
+    shade
+    implementation.extendsFrom shade
+}
+
+sourceSets.main.resources.srcDir 'src/generated/resources'
+
+repositories {
+    minecraft.mavenizer(it) // In Kotlin, it = this
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    compileOnly project(":Common")
-    implementation 'com.github.glitchfiend:GlitchCore-forge:' + minecraft_version + '-' + glitchcore_version
-    implementation 'com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-
-    // Hack fix for now, force jopt-simple to be exactly 5.0.4 because Mojang ships that version, but some transtive dependencies request 6.0+
-    implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    source(project(":Common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).configureEach {
-    source(project(":Common").sourceSets.main.allJava)
-}
-
-tasks.named("sourcesJar", Jar) {
-    from(project(":Common").sourceSets.main.allSource)
-}
-
-processResources {
-    from project(":Common").sourceSets.main.resources
-}
-
-// Merge the resources and classes into the same directory.
-// This is done because java expects modules to be in a single directory.
-// And if we have it in multiple we have to do performance intensive hacks like having the UnionFileSystem
-// This will eventually be migrated to ForgeGradle so modders don't need to manually do it. But that is later.
-sourceSets.each {
-    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
-    it.output.resourcesDir = dir
-    it.java.destinationDirectory = dir
+    implementation minecraft.dependency("net.minecraftforge:forge:${minecraft_version}-${forge_version}")
+    annotationProcessor 'org.spongepowered:mixin:0.8.7:processor'
 }
 
 curseforge {
@@ -110,11 +61,6 @@ curseforge {
 
         mainArtifact(jar) {
             displayName = "${mod_display_name} ${name} ${version}"
-        }
-
-        relations {
-            requiredDependency 'glitchcore'
-            requiredDependency 'terrablender'
         }
     }
 }

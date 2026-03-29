@@ -1,6 +1,6 @@
 plugins {
-    id 'net.neoforged.moddev' version '2.0.124'
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id 'net.neoforged.moddev' version '2.0.141'
+    id "de.maxhenkel.cursegradle" version "1.5.1"
 }
 
 base.archivesName.set("${mod_name}-neoforge")
@@ -12,7 +12,6 @@ neoForge {
     if (at.exists()) {
         accessTransformers.from(at.absolutePath)
     }
-    def resources = project(':Common').file('src/generated/resources/').getAbsolutePath()
     runs {
         configureEach {
             systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
@@ -20,13 +19,19 @@ neoForge {
         }
         client {
             client()
+            gameDirectory = this.mkdir(this.file("runs/client"))
         }
         data {
             clientData()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', resources, '--existing', resources
+            gameDirectory = this.mkdir(this.file("runs/data"))
+            // DataGen can be run by - "./gradlew :neoforge:runData" in Terminal.
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
         server {
             server()
+            this.file("runs/server").createParentDirectories()
+            gameDirectory = this.mkdir(this.file("runs/server"))
         }
     }
     mods {
@@ -36,34 +41,24 @@ neoForge {
     }
 }
 
-dependencies {
-    implementation "net.neoforged:neoforge:${neoforge_version}"
-    compileOnly project(":Common")
-    implementation 'com.github.glitchfiend:GlitchCore-neoforge:' + minecraft_version + '-' + glitchcore_version
-    implementation 'com.github.glitchfiend:TerraBlender-neoforge:' + minecraft_version + '-' + terrablender_version
-}
+sourceSets.main.resources { srcDir 'src/generated/resources' }
 
-// NeoGradle compiles the game, but we don't want to add our common code to the game's code
-TaskCollection.metaClass.excludingNeoTasks = { ->
-    delegate.matching { !it.name.startsWith("neo") }
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements'].each { variant ->
+    configurations.named("$variant") {
+        attributes {
+            attribute(loaderAttribute, 'neoforge')
+        }
+    }
 }
-
-tasks.withType(JavaCompile).excludingNeoTasks().configureEach {
-    source(project(":Common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).excludingNeoTasks().configureEach {
-    source(project(":Common").sourceSets.main.allJava)
-}
-
-tasks.named("sourcesJar", Jar) {
-    from(project(":Common").sourceSets.main.allSource)
-}
-
-tasks.withType(ProcessResources).excludingNeoTasks().configureEach {
-    from project(":Common").sourceSets.main.resources
-    filesMatching("${mod_id}.mixins.json") {
-        expand "refmap_target": "${mod_id}."
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName, it.getTaskName(null, 'jarJar')].each { variant ->
+        configurations.named("$variant") {
+            attributes {
+                attribute(loaderAttribute, 'neoforge')
+            }
+        }
     }
 }
 
@@ -82,11 +77,6 @@ curseforge {
 
         mainArtifact(jar) {
             displayName = "${mod_display_name} ${name} ${version}"
-        }
-
-        relations {
-            requiredDependency 'glitchcore'
-            requiredDependency 'terrablender-neoforge'
         }
     }
 }

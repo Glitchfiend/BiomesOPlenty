@@ -1,19 +1,14 @@
 plugins {
-    id "fabric-loom" version "1.13-SNAPSHOT"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id "net.fabricmc.fabric-loom" version "1.15-SNAPSHOT"
+    id "de.maxhenkel.cursegradle" version "1.5.1"
 }
 
 base.archivesName.set("${mod_name}-fabric")
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
-    compileOnly project(":Common")
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    modImplementation "com.github.glitchfiend:GlitchCore-fabric:${minecraft_version}-${glitchcore_version}"
-    modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
-    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
+    implementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
     include implementation("net.jodah:typetools:0.6.3")
@@ -21,9 +16,6 @@ dependencies {
 
 loom {
     accessWidenerPath = project(":Common").file("src/main/resources/${mod_id}.accesswidener")
-    mixin {
-        defaultRefmapName.set("${mod_id}.refmap.json")
-    }
     runs {
         client {
             client()
@@ -40,12 +32,23 @@ loom {
     }
 }
 
-processResources {
-    from project(":Common").sourceSets.main.resources
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements', 'includeInternal', 'modCompileClasspath'].each { variant ->
+    configurations.named("$variant") {
+        attributes {
+            attribute(loaderAttribute, 'fabric')
+        }
+    }
 }
-
-tasks.withType(JavaCompile) {
-    source(project(":Common").sourceSets.main.allSource)
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant->
+        configurations.named("$variant") {
+            attributes {
+                attribute(loaderAttribute, 'fabric')
+            }
+        }
+    }
 }
 
 curseforge {
@@ -61,14 +64,12 @@ curseforge {
         addGameVersion minecraft_version
         addGameVersion name
 
-        mainArtifact(remapJar) {
+        mainArtifact(jar) {
             displayName = "${mod_display_name} ${name} ${version}"
         }
 
         relations {
             requiredDependency 'fabric-api'
-            requiredDependency 'glitchcore'
-            requiredDependency 'terrablender-fabric'
         }
     }
 }
