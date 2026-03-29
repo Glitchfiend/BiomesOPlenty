@@ -171,7 +171,7 @@ public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguratio
                     //Randomly prevent the generation of leaves on the corners of each layer
                     if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || world.getRandom().nextInt(4) == 0)
                     {
-                        if (config.altFoliageProvider.getState(world.getRandom(), pos) != Blocks.AIR.defaultBlockState())
+                        if (config.altFoliageProvider.getState(world, world.getRandom(), pos) != Blocks.AIR.defaultBlockState())
                         {
                             if (world.getRandom().nextInt(4) == 0)
                             {
