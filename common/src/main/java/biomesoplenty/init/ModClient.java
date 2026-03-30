@@ -6,7 +6,6 @@ package biomesoplenty.init;
 
 import biomesoplenty.api.block.BOPBlockEntities;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.block.BOPWoodTypes;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.block.HangingSignBlockEntityBOP;
@@ -20,19 +19,14 @@ import glitchcore.event.client.RegisterLayerDefinitionsEvent;
 import glitchcore.event.client.RegisterParticleSpritesEvent;
 import glitchcore.event.client.RegisterRenderersEvent;
 import glitchcore.util.RenderHelper;
-import glitchcore.util.SheetHelper;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
-import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-
-import static biomesoplenty.api.block.BOPBlocks.*;
 
 public class ModClient
 {

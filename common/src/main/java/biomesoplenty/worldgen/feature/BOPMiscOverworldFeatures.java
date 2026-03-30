@@ -6,6 +6,7 @@ package biomesoplenty.worldgen.feature;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -21,7 +22,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SpringConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedStateProvider;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.List;
@@ -70,7 +71,7 @@ public class BOPMiscOverworldFeatures
         register(context, BOPMiscOverworldFeatures.BONE_SPINE, BOPBaseFeatures.BONE_SPINE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.CRAG_MOSS, BOPBaseFeatures.CRAG_MOSS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPMiscOverworldFeatures.CRAG_SPLATTER, BOPBaseFeatures.CRAG_SPLATTER, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPMiscOverworldFeatures.DISK_BLACK_SAND, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.BLACK_SAND), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));
+        register(context, BOPMiscOverworldFeatures.DISK_BLACK_SAND, Feature.DISK, new DiskConfiguration(new RuleBasedStateProvider(BlockStateProvider.simple(BOPBlocks.BLACK_SAND), List.of()), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));
         register(context, BOPMiscOverworldFeatures.DISK_CALCITE, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.CALCITE), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.PODZOL, Blocks.SAND, Blocks.GRAVEL, Blocks.GRANITE, Blocks.ANDESITE, Blocks.DIORITE, Blocks.COAL_ORE, Blocks.IRON_ORE, Blocks.STONE, Blocks.CALCITE)), UniformInt.of(3, 7), 2));
         register(context, BOPMiscOverworldFeatures.DISK_GRAVEL_EXTRA, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.GRAVEL), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(1, 4), 2));
         register(context, BOPMiscOverworldFeatures.DISK_ORANGE_SAND, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(BOPBlocks.ORANGE_SAND), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));

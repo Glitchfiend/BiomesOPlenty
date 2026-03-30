@@ -290,9 +290,12 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_WATERGRASS, Feature.SIMPLE_BLOCK, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS))));
         register(context, BOPVegetationFeatures.PATCH_WATERLILY_FLOWER, Feature.SIMPLE_BLOCK, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERLILY)))));
         register(context, BOPVegetationFeatures.PUMPKIN_PATCH, BOPBaseFeatures.PUMPKIN_PATCH, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPVegetationFeatures.RED_MAPLE_LEAF_LITTER, Feature.SIMPLE_BLOCK, FeatureUtils.simpleRandomPatchConfiguration(32, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.RED_MAPLE_LEAF_LITTER, 1, 3))))));
-        register(context, BOPVegetationFeatures.ORANGE_MAPLE_LEAF_LITTER, Feature.SIMPLE_BLOCK, FeatureUtils.simpleRandomPatchConfiguration(32, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER, 1, 3))))));
-        register(context, BOPVegetationFeatures.YELLOW_MAPLE_LEAF_LITTER, Feature.SIMPLE_BLOCK, FeatureUtils.simpleRandomPatchConfiguration(32, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, 1, 3))))));
+
+        // Leaf litter
+        FeatureUtils.register(context, BOPVegetationFeatures.RED_MAPLE_LEAF_LITTER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.RED_MAPLE_LEAF_LITTER, 1, 3))));
+        FeatureUtils.register(context, BOPVegetationFeatures.ORANGE_MAPLE_LEAF_LITTER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER, 1, 3))));
+        FeatureUtils.register(context, BOPVegetationFeatures.YELLOW_MAPLE_LEAF_LITTER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(leafLitterPatchBuilder(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, 1, 3))));
+
         register(context, BOPVegetationFeatures.SPARSE_DUNE_GRASS, BOPBaseFeatures.SPARSE_DUNE_GRASS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.RAINFOREST_CLIFFS_VINES, BOPBaseFeatures.RAINFOREST_CLIFFS_VINES, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.ROOTED_STUMP, BOPBaseFeatures.ROOTED_STUMP, NoneFeatureConfiguration.INSTANCE);
@@ -313,27 +316,28 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TOADSTOOL_NORMAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TOADSTOOL)));
         register(context, BOPVegetationFeatures.WASTELAND_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.DESERT_GRASS.defaultBlockState(), 1).add(BOPBlocks.DEAD_GRASS.defaultBlockState(), 2).build())));
 
-        register(context, BOPVegetationFeatures.FLOWER_CONIFEROUS_FOREST, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.CORNFLOWER.defaultBlockState(), 1).add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_DEFAULT_EXTENDED, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_FIELD, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.WHITE_LAVENDER.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_OVERGROWN_GREENS, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 3).add(Blocks.AZURE_BLUET.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_LAVENDER, Feature.FLOWER, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.LAVENDER)));
-        register(context, BOPVegetationFeatures.FLOWER_MOOR, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.ALLIUM.defaultBlockState(), 1).add(BOPBlocks.VIOLET.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_MYSTIC_GROVE, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.GLOWFLOWER.defaultBlockState(), 1).add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.ALLIUM.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_OMINOUS_WOODS, Feature.FLOWER, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.WITHER_ROSE)));
-        register(context, BOPVegetationFeatures.FLOWER_ORIGIN_VALLEY, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.ORIGIN_ROSE.defaultBlockState(), 1).add(BOPBlocks.ORIGIN_DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_POPPY, Feature.FLOWER, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.POPPY)));
-        register(context, BOPVegetationFeatures.FLOWER_PURPLE_WILDFLOWERS, Feature.FLOWER, new SimpleBlockConfiguration(new WeightedStateProvider(flowerBedPatchBuilder(BOPBlocks.PURPLE_WILDFLOWERS))));
-        register(context, BOPVegetationFeatures.FLOWER_RAINFOREST, Feature.SIMPLE_BLOCK, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.ORANGE_COSMOS.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_SEASONAL_FOREST, Feature.FLOWER, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.MARIGOLD)));
-        register(context, BOPVegetationFeatures.FLOWER_SHRUBLAND, Feature.FLOWER, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ALLIUM)));
+        // Flowers
+        register(context, BOPVegetationFeatures.FLOWER_CONIFEROUS_FOREST, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.CORNFLOWER.defaultBlockState(), 1).add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_DEFAULT_EXTENDED, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.OXEYE_DAISY.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_FIELD, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.WHITE_LAVENDER.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_OVERGROWN_GREENS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 3).add(Blocks.AZURE_BLUET.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_LAVENDER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.LAVENDER)));
+        register(context, BOPVegetationFeatures.FLOWER_MOOR, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.ALLIUM.defaultBlockState(), 1).add(BOPBlocks.VIOLET.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_MYSTIC_GROVE, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.GLOWFLOWER.defaultBlockState(), 1).add(BOPBlocks.PINK_DAFFODIL.defaultBlockState(), 1).add(Blocks.AZURE_BLUET.defaultBlockState(), 1).add(Blocks.ALLIUM.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_OMINOUS_WOODS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.WITHER_ROSE)));
+        register(context, BOPVegetationFeatures.FLOWER_ORIGIN_VALLEY, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.ORIGIN_ROSE.defaultBlockState(), 1).add(BOPBlocks.ORIGIN_DANDELION.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_POPPY, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.POPPY)));
+        register(context, BOPVegetationFeatures.FLOWER_PURPLE_WILDFLOWERS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(flowerBedPatchBuilder(BOPBlocks.PURPLE_WILDFLOWERS))));
+        register(context, BOPVegetationFeatures.FLOWER_RAINFOREST, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.ORANGE_COSMOS.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_SEASONAL_FOREST, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.MARIGOLD)));
+        register(context, BOPVegetationFeatures.FLOWER_SHRUBLAND, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ALLIUM)));
         register(context, BOPVegetationFeatures.FLOWER_SNOWBLOSSOM_GROVE, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(flowerBedPatchBuilder(BOPBlocks.WHITE_PETALS))));
-        register(context, BOPVegetationFeatures.FLOWER_SNOWY, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.VIOLET.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_SUBTROPICS, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.TORCHFLOWER.defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 2).add(Blocks.BLUE_ORCHID.defaultBlockState(), 3)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_TROPICS, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.PINK_HIBISCUS.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
-        register(context, BOPVegetationFeatures.FLOWER_VIOLET, Feature.FLOWER, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.VIOLET)));
-        register(context, BOPVegetationFeatures.FLOWER_WASTELAND, Feature.FLOWER, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WILTED_LILY)));
-        register(context, BOPVegetationFeatures.FLOWER_WETLAND, Feature.FLOWER, grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.BLUE_ORCHID.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1)), 64));
+        register(context, BOPVegetationFeatures.FLOWER_SNOWY, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.VIOLET.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_SUBTROPICS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.TORCHFLOWER.defaultBlockState(), 1).add(Blocks.LILY_OF_THE_VALLEY.defaultBlockState(), 2).add(Blocks.BLUE_ORCHID.defaultBlockState(), 3))));
+        register(context, BOPVegetationFeatures.FLOWER_TROPICS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.PINK_HIBISCUS.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1))));
+        register(context, BOPVegetationFeatures.FLOWER_VIOLET, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.VIOLET)));
+        register(context, BOPVegetationFeatures.FLOWER_WASTELAND, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WILTED_LILY)));
+        register(context, BOPVegetationFeatures.FLOWER_WETLAND, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.BLUE_ORCHID.defaultBlockState(), 1).add(Blocks.POPPY.defaultBlockState(), 1).add(Blocks.DANDELION.defaultBlockState(), 1))));
 
         register(context, BOPVegetationFeatures.TREES_AURORAL_GARDEN, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FLOWERING_OAK_BUSH_CHECKED, 0.2F)), PALE_OAK_TWIGLET_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_BAYOU, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BAYOU_TREE_MEDIUM_CHECKED, 0.3F)), BAYOU_TREE_CHECKED));
@@ -378,15 +382,28 @@ public class BOPVegetationFeatures
     private static TreeConfiguration.TreeConfigurationBuilder snowblossom() {
         return (new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.CHERRY_LOG), new CherryTrunkPlacer(7, 1, 0, new WeightedListInt(WeightedList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()), UniformInt.of(2, 4), UniformInt.of(-4, -3), UniformInt.of(-1, 0)), BlockStateProvider.simple(BOPBlocks.SNOWBLOSSOM_LEAVES), new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F), new TwoLayersFeatureSize(1, 0, 2))).ignoreVines();
     }
-    
-    private static RandomPatchConfiguration grassPatch(BlockStateProvider stateProvider, int tries)
-    {
-        return FeatureUtils.simpleRandomPatchConfiguration(tries, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(stateProvider)));
-    }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> RandomPatchConfiguration waterPatchConfiguration(F feature, FC configuration, int tries)
     {
         return FeatureUtils.simpleRandomPatchConfiguration(tries, PlacementUtils.filtered(feature, configuration, BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.WATER)));
+    }
+
+    public static WeightedList.Builder<BlockState> leafLitterPatchBuilder(Block block, int minState, int maxState)
+    {
+        return segmentedBlockPatchBuilder(block, minState, maxState, LeafLitterBlock.AMOUNT, LeafLitterBlock.FACING);
+    }
+
+    private static WeightedList.Builder<BlockState> segmentedBlockPatchBuilder(Block block, int minState, int maxState, IntegerProperty amountProperty, EnumProperty<Direction> directionProperty)
+    {
+        WeightedList.Builder<BlockState> segmentedBlockBuild = WeightedList.builder();
+
+        for (int amount = minState; amount <= maxState; amount++) {
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                segmentedBlockBuild.add(block.defaultBlockState().setValue(amountProperty, amount).setValue(directionProperty, direction), 1);
+            }
+        }
+
+        return segmentedBlockBuild;
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> RandomPatchConfiguration waterPatchConfiguration(F feature, FC configuration)
@@ -397,27 +414,6 @@ public class BOPVegetationFeatures
     private static WeightedList.Builder<BlockState> flowerBedPatchBuilder(Block p_394149_)
     {
         return segmentedBlockPatchBuilder(p_394149_, 1, 4, FlowerBedBlock.AMOUNT, FlowerBedBlock.FACING);
-    }
-
-
-    public static WeightedList.Builder<BlockState> leafLitterPatchBuilder(Block block, int p_396969_, int p_394395_)
-    {
-        return segmentedBlockPatchBuilder(block, p_396969_, p_394395_, LeafLitterBlock.AMOUNT, LeafLitterBlock.FACING);
-    }
-
-    private static WeightedList.Builder<BlockState> segmentedBlockPatchBuilder(Block p_392074_, int p_395090_, int p_391445_, IntegerProperty p_392060_, EnumProperty<Direction> p_396039_)
-    {
-        WeightedList.Builder<BlockState> builder = WeightedList.builder();
-
-        for (int i = p_395090_; i <= p_391445_; i++)
-        {
-            for (Direction direction : Direction.Plane.HORIZONTAL)
-            {
-                builder.add(p_392074_.defaultBlockState().setValue(p_392060_, i).setValue(p_396039_, direction), 1);
-            }
-        }
-
-        return builder;
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)
