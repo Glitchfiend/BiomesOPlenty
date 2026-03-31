@@ -1,156 +1,109 @@
 package biomesoplenty.init;
 
-import biomesoplenty.api.block.BOPBlocks;
-import com.google.common.collect.ImmutableMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.ItemStack;
+import biomesoplenty.api.item.BOPItems;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.trading.ItemCost;
-import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.trading.TradeCost;
+import net.minecraft.world.item.trading.VillagerTrade;
+
+import java.util.List;
+import java.util.Optional;
+
+import static biomesoplenty.api.entity.BOPVillagerTrades.*;
 
 public class ModVillagerTrades
 {
-    public static void addWanderingVillagerTrades(WandererTradesEvent event)
-    {
-        //Cost, Amount, Trades Until Disabled, Villager XP
-        VillagerTrades.ItemListing[] WANDERING_TRADER_GENERIC = new VillagerTrades.ItemListing[]{
-            new ItemsForEmeralds(BOPBlocks.FLOWERING_OAK_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.CYPRESS_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.SNOWBLOSSOM_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.FIR_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.PINE_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.RED_MAPLE_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.ORANGE_MAPLE_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.YELLOW_MAPLE_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.REDWOOD_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.MAHOGANY_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.JACARANDA_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.PALM_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.WILLOW_SAPLING, 5, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.DEAD_SAPLING, 5, 1, 8, 1),
+    public static Holder<VillagerTrade> bootstrap(BootstrapContext<VillagerTrade> context) {
+        HolderGetter<Item> items = context.lookup(Registries.ITEM);
 
-            new ItemsForEmeralds(BOPBlocks.FIR_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.PINE_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.MAPLE_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.REDWOOD_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.MAHOGANY_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.JACARANDA_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.PALM_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.WILLOW_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.DEAD_LOG, 1, 8, 4, 1),
+        // Common trades
+        context.register(WANDERING_TRADER_EMERALD_FLOWERING_OAK_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.FLOWERING_OAK_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_CYPRESS_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.CYPRESS_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_SNOWBLOSSOM_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.SNOWBLOSSOM_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_FIR_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.FIR_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_PINE_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.PINE_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_RED_MAPLE_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.RED_MAPLE_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_ORANGE_MAPLE_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.ORANGE_MAPLE_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_YELLOW_MAPLE_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.YELLOW_MAPLE_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_REDWOOD_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.REDWOOD_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_MAHOGANY_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.MAHOGANY_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_JACARANDA_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.JACARANDA_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_PALM_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.PALM_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WILLOW_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.WILLOW_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_DEAD_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.DEAD_SAPLING, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
 
-            new ItemsForEmeralds(BOPBlocks.FLOWER_BUD, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.MARIGOLD, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.VIOLET, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.LAVENDER, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.WHITE_LAVENDER, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.PURPLE_WILDFLOWERS, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.WHITE_PETALS, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.ORANGE_COSMOS, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.PINK_DAFFODIL, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.PINK_HIBISCUS, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.WATERLILY, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.WILTED_LILY, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.TALL_LAVENDER, 2, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.TALL_WHITE_LAVENDER, 2, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.BLUE_HYDRANGEA, 2, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.GOLDENROD, 2, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.CLOVER, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.TOADSTOOL, 1, 3, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.GLOWSHROOM, 2, 3, 3, 1),
-            new ItemsForEmeralds(BOPBlocks.GLOWING_MOSS_BLOCK, 2, 2, 5, 1),
-            new ItemsForEmeralds(BOPBlocks.WILLOW_VINE, 1, 3, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.SPANISH_MOSS, 1, 3, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.HANGING_COBWEB, 1, 3, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.HIGH_GRASS, 1, 1, 12, 1),
-            new ItemsForEmeralds(BOPBlocks.DUNE_GRASS, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.DESERT_GRASS, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.DEAD_GRASS, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.TUNDRA_SHRUB, 1, 1, 8, 1),
+        context.register(WANDERING_TRADER_EMERALD_FIR_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.FIR_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_PINE_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.PINE_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_MAPLE_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.MAPLE_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_REDWOOD_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.REDWOOD_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_MAHOGANY_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.MAHOGANY_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_JACARANDA_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.JACARANDA_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_PALM_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.PALM_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WILLOW_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.WILLOW_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_DEAD_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.DEAD_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_FLOWER_BUD, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.FLOWER_BUD, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_MARIGOLD, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.MARIGOLD, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_VIOLET, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.VIOLET, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_LAVENDER, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.LAVENDER, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WHITE_LAVENDER, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.WHITE_LAVENDER, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_PURPLE_WILDFLOWERS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.PURPLE_WILDFLOWERS, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WHITE_PETALS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.WHITE_PETALS, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_ORANGE_COSMOS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.ORANGE_COSMOS, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_PINK_DAFFODIL, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.PINK_DAFFODIL, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_PINK_HIBISCUS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.PINK_HIBISCUS, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WATERLILY, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.WATERLILY, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WILTED_LILY, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.WILTED_LILY, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_TALL_LAVENDER, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.TALL_LAVENDER, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_TALL_WHITE_LAVENDER, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.TALL_WHITE_LAVENDER, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_BLUE_HYDRANGEA, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.BLUE_HYDRANGEA, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_GOLDENROD, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.GOLDENROD, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_CLOVER, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.CLOVER, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_TOADSTOOL, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.TOADSTOOL, 3), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_GLOWSHROOM, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.GLOWSHROOM, 3), 3, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_GLOWING_MOSS_BLOCK, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.GLOWING_MOSS_BLOCK, 2), 5, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WILLOW_VINE, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.WILLOW_VINE, 3), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_SPANISH_MOSS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.SPANISH_MOSS, 3), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_HANGING_COBWEB, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.HANGING_COBWEB, 3), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_HIGH_GRASS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.HIGH_GRASS, 1), 12, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_DUNE_GRASS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.DUNE_GRASS, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_DESERT_GRASS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.DESERT_GRASS, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_DEAD_GRASS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.DEAD_GRASS, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_TUNDRA_SHRUB, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.TUNDRA_SHRUB, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_HUGE_CLOVER_PETAL, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.HUGE_CLOVER_PETAL, 4), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_HUGE_LILY_PAD, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.HUGE_LILY_PAD, 2), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_CATTAIL, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.CATTAIL, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_SEA_OATS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.SEA_OATS, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_REED, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.REED, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WATERGRASS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.WATERGRASS, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_TINY_CACTUS, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.TINY_CACTUS, 1), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_WHITE_SAND, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.WHITE_SAND, 4), 6, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_ORANGE_SAND, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.ORANGE_SAND, 4), 6, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_BLACK_SAND, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.BLACK_SAND, 4), 6, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_DRIED_SALT, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.DRIED_SALT, 6), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_THERMAL_CALCITE, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.THERMAL_CALCITE, 6), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_ORIGIN_OAK_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.ORIGIN_OAK_SAPLING, 1), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_MAGIC_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.MAGIC_SAPLING, 1), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_MAGIC_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.MAGIC_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_UMBRAN_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.UMBRAN_SAPLING, 1), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_UMBRAN_LOG, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.UMBRAN_LOG, 8), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_HELLBARK_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.HELLBARK_SAPLING, 1), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_EMPYREAL_SAPLING, new VillagerTrade(new TradeCost(Items.EMERALD, 5), new ItemStackTemplate(BOPItems.EMPYREAL_SAPLING, 1), 4, 1, 0.05F, Optional.empty(), List.of()));
 
-            new ItemsForEmeralds(BOPBlocks.HUGE_CLOVER_PETAL, 1, 4, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.HUGE_LILY_PAD, 1, 2, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.CATTAIL, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.SEA_OATS, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.REED, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.WATERGRASS, 1, 1, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.TINY_CACTUS, 1, 1, 8, 1),
-
-            new ItemsForEmeralds(BOPBlocks.WHITE_SAND, 1, 4, 6, 1),
-            new ItemsForEmeralds(BOPBlocks.ORANGE_SAND, 1, 4, 6, 1),
-            new ItemsForEmeralds(BOPBlocks.BLACK_SAND, 1, 4, 6, 1),
-            new ItemsForEmeralds(BOPBlocks.DRIED_SALT, 1, 6, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.THERMAL_CALCITE, 1, 6, 8, 1)
-        };
-
-        VillagerTrades.ItemListing[] WANDERING_TRADER_RARE = new VillagerTrades.ItemListing[]{
-            new ItemsForEmeralds(BOPBlocks.ORIGIN_OAK_SAPLING, 5, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.MAGIC_SAPLING, 5, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.MAGIC_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.UMBRAN_SAPLING, 5, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.UMBRAN_LOG, 1, 8, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.HELLBARK_SAPLING, 5, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.EMPYREAL_SAPLING, 5, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.ORIGIN_GRASS_BLOCK, 2, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.ORIGIN_DANDELION, 1, 1, 6, 1),
-            new ItemsForEmeralds(BOPBlocks.ORIGIN_ROSE, 1, 1, 6, 1),
-            new ItemsForEmeralds(BOPBlocks.GLOWFLOWER, 1, 2, 5, 1),
-            new ItemsForEmeralds(BOPBlocks.BURNING_BLOSSOM, 1, 1, 6, 1),
-            new ItemsForEmeralds(BOPBlocks.ICY_IRIS, 2, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.BRIMSTONE, 2, 4, 8, 1),
-            new ItemsForEmeralds(BOPBlocks.BRAMBLE, 1, 1, 4, 1),
-            new ItemsForEmeralds(BOPBlocks.GLOWWORM_SILK, 6, 1, 2, 1),
-            new ItemsForEmeralds(BOPBlocks.SPIDER_EGG, 6, 1, 1, 1)};
-
-        for (VillagerTrades.ItemListing trade : WANDERING_TRADER_GENERIC)
-        {
-            event.addGenericTrade(trade);
-        }
-        for (VillagerTrades.ItemListing trade : WANDERING_TRADER_RARE)
-        {
-            event.addRareTrade(trade);
-        }
-    }
-
-    static class ItemsForEmeralds implements VillagerTrades.ItemListing {
-        private final ItemStack itemStack;
-        private final int emeraldCost;
-        private final int numberOfItems;
-        private final int maxUses;
-        private final int villagerXp;
-        private final float priceMultiplier;
-
-        public ItemsForEmeralds(Block p_35765_, int p_35766_, int p_35767_, int p_35768_, int p_35769_) {
-            this(new ItemStack(p_35765_), p_35766_, p_35767_, p_35768_, p_35769_);
-        }
-
-        public ItemsForEmeralds(ItemStack p_35752_, int p_35753_, int p_35754_, int p_35755_, int p_35756_) {
-            this(p_35752_, p_35753_, p_35754_, p_35755_, p_35756_, 0.05F);
-        }
-
-        public ItemsForEmeralds(ItemStack p_35758_, int p_35759_, int p_35760_, int p_35761_, int p_35762_, float p_35763_) {
-            this.itemStack = p_35758_;
-            this.emeraldCost = p_35759_;
-            this.numberOfItems = p_35760_;
-            this.maxUses = p_35761_;
-            this.villagerXp = p_35762_;
-            this.priceMultiplier = p_35763_;
-        }
-
-        @Override
-        public MerchantOffer getOffer(ServerLevel serverLevel, Entity p_219699_, RandomSource p_219700_)
-        {
-            return new MerchantOffer(new ItemCost(Items.EMERALD, this.emeraldCost), new ItemStack(this.itemStack.getItem(), this.numberOfItems), this.maxUses, this.villagerXp, this.priceMultiplier);
-        }
-
-    }
-
-    private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> p_35631_) {
-        return new Int2ObjectOpenHashMap<>(p_35631_);
+        // Rare trades
+        context.register(WANDERING_TRADER_EMERALD_ORIGIN_GRASS_BLOCK, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.ORIGIN_GRASS_BLOCK, 1), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_ORIGIN_DANDELION, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.ORIGIN_DANDELION, 1), 6, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_ORIGIN_ROSE, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.ORIGIN_ROSE, 1), 6, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_GLOWFLOWER, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.GLOWFLOWER, 2), 5, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_BURNING_BLOSSOM, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.BURNING_BLOSSOM, 1), 6, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_ICY_IRIS, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.ICY_IRIS, 1), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_BRIMSTONE, new VillagerTrade(new TradeCost(Items.EMERALD, 2), new ItemStackTemplate(BOPItems.BRIMSTONE, 4), 8, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_BRAMBLE, new VillagerTrade(new TradeCost(Items.EMERALD, 1), new ItemStackTemplate(BOPItems.BRAMBLE, 1), 4, 1, 0.05F, Optional.empty(), List.of()));
+        context.register(WANDERING_TRADER_EMERALD_GLOWWORM_SILK, new VillagerTrade(new TradeCost(Items.EMERALD, 6), new ItemStackTemplate(BOPItems.GLOWWORM_SILK, 1), 2, 1, 0.05F, Optional.empty(), List.of()));
+        return context.register(WANDERING_TRADER_EMERALD_SPIDER_EGG, new VillagerTrade(new TradeCost(Items.EMERALD, 6), new ItemStackTemplate(BOPItems.SPIDER_EGG, 1), 1, 1, 0.05F, Optional.empty(), List.of()));
     }
 }

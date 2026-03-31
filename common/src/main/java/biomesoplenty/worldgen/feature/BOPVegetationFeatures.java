@@ -383,10 +383,10 @@ public class BOPVegetationFeatures
         return (new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.CHERRY_LOG), new CherryTrunkPlacer(7, 1, 0, new WeightedListInt(WeightedList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()), UniformInt.of(2, 4), UniformInt.of(-4, -3), UniformInt.of(-1, 0)), BlockStateProvider.simple(BOPBlocks.SNOWBLOSSOM_LEAVES), new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F), new TwoLayersFeatureSize(1, 0, 2))).ignoreVines();
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> RandomPatchConfiguration waterPatchConfiguration(F feature, FC configuration, int tries)
-    {
-        return FeatureUtils.simpleRandomPatchConfiguration(tries, PlacementUtils.filtered(feature, configuration, BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.WATER)));
-    }
+//    private static <FC extends FeatureConfiguration, F extends Feature<FC>> RandomPatchConfiguration waterPatchConfiguration(F feature, FC configuration, int tries)
+//    {
+//        return FeatureUtils.simpleRandomPatchConfiguration(tries, PlacementUtils.filtered(feature, configuration, BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.WATER)));
+//    }
 
     public static WeightedList.Builder<BlockState> leafLitterPatchBuilder(Block block, int minState, int maxState)
     {
@@ -406,10 +406,10 @@ public class BOPVegetationFeatures
         return segmentedBlockBuild;
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> RandomPatchConfiguration waterPatchConfiguration(F feature, FC configuration)
-    {
-        return waterPatchConfiguration(feature, configuration, 96);
-    }
+//    private static <FC extends FeatureConfiguration, F extends Feature<FC>> RandomPatchConfiguration waterPatchConfiguration(F feature, FC configuration)
+//    {
+//        return waterPatchConfiguration(feature, configuration, 96);
+//    }
 
     private static WeightedList.Builder<BlockState> flowerBedPatchBuilder(Block p_394149_)
     {

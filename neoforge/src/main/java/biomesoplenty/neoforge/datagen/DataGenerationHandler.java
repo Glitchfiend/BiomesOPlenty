@@ -8,9 +8,11 @@ import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModBiomes;
 import biomesoplenty.init.ModDamageTypes;
 import biomesoplenty.init.ModJukeboxSongs;
+import biomesoplenty.init.ModVillagerTrades;
 import biomesoplenty.neoforge.datagen.provider.BOPDataMapProvider;
 import biomesoplenty.neoforge.datagen.provider.BOPLootTableProvider;
 import biomesoplenty.neoforge.datagen.provider.BOPRecipeProvider;
+import biomesoplenty.neoforge.datagen.provider.BOPVillagerTradesTagsProvider;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
 import biomesoplenty.util.worldgen.BOPPlacementUtils;
 import biomesoplenty.worldgen.carver.BOPConfiguredCarvers;
@@ -36,7 +38,8 @@ public class DataGenerationHandler
             .add(Registries.PLACED_FEATURE, BOPPlacementUtils::bootstrap)
             .add(Registries.BIOME, ModBiomes::bootstrapBiomes)
             .add(Registries.DAMAGE_TYPE, ModDamageTypes::bootstrap)
-            .add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap);
+            .add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap)
+            .add(Registries.VILLAGER_TRADE, ModVillagerTrades::bootstrap);
 
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent.Client event)
@@ -45,7 +48,7 @@ public class DataGenerationHandler
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(true, new DatapackBuiltinEntriesProvider(output, lookupProvider, BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
+        var datapackProvider = generator.addProvider(true, new DatapackBuiltinEntriesProvider(output, lookupProvider, BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
 
         // Recipes
         generator.addProvider(true, new BOPRecipeProvider.Runner(output, event.getLookupProvider()));
@@ -55,6 +58,8 @@ public class DataGenerationHandler
 
         // Data Maps
         generator.addProvider(true, new BOPDataMapProvider(output, lookupProvider));
+
+        generator.addProvider(true, new BOPVillagerTradesTagsProvider(output, datapackProvider));
 
         // Client
         generator.addProvider(true, new BOPModelProvider(output));
