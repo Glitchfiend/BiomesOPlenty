@@ -27,6 +27,14 @@ minecraft {
     }
 }
 
+jar {
+    manifest {
+        attributes([
+                'MixinConfigs': "${mod_id}.mixins.json" + "," + "${mod_id}.forge.mixins.json",
+        ])
+    }
+}
+
 configurations {
     shade
     implementation.extendsFrom shade
