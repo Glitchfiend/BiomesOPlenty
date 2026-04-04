@@ -48,7 +48,7 @@ public class WispBubbleParticle extends SingleQuadParticle
     }
 
     @Override
-    public int getLightColor(float p_234080_)
+    public int getLightCoords(float p_234080_)
     {
         return 216;
     }

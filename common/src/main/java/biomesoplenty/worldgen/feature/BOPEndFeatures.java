@@ -61,15 +61,15 @@ public class BOPEndFeatures
         register(context, BOPEndFeatures.DEAD_CORAL_PATCH, BOPBaseFeatures.DEAD_CORAL_PATCH, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.ENDERPHYTE_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE.defaultBlockState())));
         register(context, BOPEndFeatures.ENDSCRAPER, BOPBaseFeatures.ENDSCRAPER, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPEndFeatures.FLOWER_END_WILDS, Feature.FLOWER, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDBLOOM))));
+        register(context, BOPEndFeatures.FLOWER_END_WILDS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDBLOOM)));
         register(context, BOPEndFeatures.JAGGED_SANDSTONE, BOPBaseFeatures.JAGGED_SANDSTONE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.LIQUID_NULL_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.LIQUID_NULL), BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)));
         register(context, BOPEndFeatures.LIQUID_NULL_SPRING, Feature.SPRING, new SpringConfiguration(BOPFluids.LIQUID_NULL.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.END_STONE, BOPBlocks.NULL_END_STONE, BOPBlocks.UNMAPPED_END_STONE)));
         register(context, BOPEndFeatures.LUMALOOP, BOPBaseFeatures.LUMALOOP, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.MONOLITH, BOPBaseFeatures.MONOLITH, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.NULL_PLANT_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.NULL_PLANT.defaultBlockState())));
-        register(context, BOPEndFeatures.PATCH_ENDERPHYTES, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE))));
-        register(context, BOPEndFeatures.PATCH_NULL_PLANTS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.NULL_PLANT))));
+        register(context, BOPEndFeatures.PATCH_ENDERPHYTES, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE)));
+        register(context, BOPEndFeatures.PATCH_NULL_PLANTS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.NULL_PLANT)));
         register(context, BOPEndFeatures.TIDEPOOL, BOPBaseFeatures.TIDEPOOL, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.TREES_END_CORRUPTION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(NULL_TREE_CHECKED, 0.075F)), NULL_TREE_CHECKED));
         register(context, BOPEndFeatures.TREES_END_WILDS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(EMPYREAL_TREE_CHECKED, 0.075F)), EMPYREAL_TREE_CHECKED));

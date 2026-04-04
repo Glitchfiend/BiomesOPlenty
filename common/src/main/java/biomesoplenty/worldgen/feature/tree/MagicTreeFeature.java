@@ -102,7 +102,7 @@ public class MagicTreeFeature extends BOPTreeFeature<MagicTreeConfiguration>
         }
     }
 
-    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos start, int height, MagicTreeConfiguration config)
+    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos start, int height, MagicTreeConfiguration config)
     {
         int endHeight = height;
 
@@ -134,7 +134,7 @@ public class MagicTreeFeature extends BOPTreeFeature<MagicTreeConfiguration>
         }
     }
 
-    private void generateLargeOrb(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos middle, MagicTreeConfiguration config)
+    private void generateLargeOrb(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos middle, MagicTreeConfiguration config)
     {
         BlockPos pos = middle;
 
@@ -177,7 +177,7 @@ public class MagicTreeFeature extends BOPTreeFeature<MagicTreeConfiguration>
         }
     }
 
-    private void generateMediumOrb(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos middle, MagicTreeConfiguration config)
+    private void generateMediumOrb(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos middle, MagicTreeConfiguration config)
     {
         BlockPos pos = middle;
 
@@ -225,7 +225,7 @@ public class MagicTreeFeature extends BOPTreeFeature<MagicTreeConfiguration>
         this.placeLeaves(world, pos.offset(0,3,2), leaves, config);
     }
 
-    private void generateSmallOrb(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos middle, MagicTreeConfiguration config)
+    private void generateSmallOrb(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos middle, MagicTreeConfiguration config)
     {
         BlockPos pos = middle;
 

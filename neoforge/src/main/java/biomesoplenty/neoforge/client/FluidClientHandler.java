@@ -28,26 +28,17 @@ public class FluidClientHandler
     {
         event.registerFluidType(new IClientFluidTypeExtensions()
         {
-            private static final Identifier BLOOD_UNDERWATER = Identifier.parse("biomesoplenty:textures/block/blood_underwater.png"),
-                    BLOOD_STILL = Identifier.parse("biomesoplenty:block/blood_still"),
-                    BLOOD_FLOW = Identifier.parse("biomesoplenty:block/blood_flow");
-
-            @Override
-            public Identifier getStillTexture()
-            {
-                return BLOOD_STILL;
-            }
-
-            @Override
-            public Identifier getFlowingTexture() { return BLOOD_FLOW; }
+            private static final Identifier BLOOD_UNDERWATER = Identifier.parse("biomesoplenty:textures/block/blood_underwater.png");
 
             @Override
             public Identifier getRenderOverlayTexture(Minecraft mc) { return BLOOD_UNDERWATER; }
 
             @Override
-            public Vector4f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector4f fluidFogColor)
+            public void modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector4f fluidFogColor)
             {
-                return new Vector4f(0.407F, 0.121F, 0.137F, fluidFogColor.w);
+                fluidFogColor.x = 0.407F;
+                fluidFogColor.y = 0.121F;
+                fluidFogColor.z = 0.137F;
             }
 
             @Override
@@ -65,21 +56,14 @@ public class FluidClientHandler
                     LIQUID_NULL_FLOW = Identifier.parse("biomesoplenty:block/liquid_null_flow");
 
             @Override
-            public Identifier getStillTexture()
-            {
-                return LIQUID_NULL_STILL;
-            }
-
-            @Override
-            public Identifier getFlowingTexture() { return LIQUID_NULL_FLOW; }
-
-            @Override
             public Identifier getRenderOverlayTexture(Minecraft mc) { return LIQUID_NULL_UNDERWATER; }
 
             @Override
-            public Vector4f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector4f fluidFogColor)
+            public void modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector4f fluidFogColor)
             {
-                return new Vector4f(0.0F, 0.0F, 0.0F, 0.0F);
+                fluidFogColor.x = 0;
+                fluidFogColor.y = 0;
+                fluidFogColor.z = 0;
             }
 
             @Override

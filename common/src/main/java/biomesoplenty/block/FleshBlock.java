@@ -102,7 +102,7 @@ public class FleshBlock extends Block
                 level.playSound((Player)null, pos, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 1.0F);
                 level.setBlock(pos, BOPBlocks.POROUS_FLESH.defaultBlockState(), 11);
                 ItemEntity itementity = new ItemEntity(level, (double)pos.getX() + 0.5D + (double)direction1.getStepX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction1.getStepZ() * 0.65D, new ItemStack(Items.ROTTEN_FLESH, 1));
-                itementity.setDeltaMovement(0.05D * (double)direction1.getStepX() + level.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction1.getStepZ() + level.random.nextDouble() * 0.02D);
+                itementity.setDeltaMovement(0.05D * (double)direction1.getStepX() + level.getRandom().nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction1.getStepZ() + level.getRandom().nextDouble() * 0.02D);
                 level.addFreshEntity(itementity);
                 stack.hurtAndBreak(1, player, hand);
                 level.gameEvent(player, GameEvent.SHEAR, pos);

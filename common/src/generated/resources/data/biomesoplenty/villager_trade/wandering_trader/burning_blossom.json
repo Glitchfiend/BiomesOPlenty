@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "id": "biomesoplenty:burning_blossom"
+  },
+  "max_uses": 6.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "minecraft:emerald"
+  }
+}

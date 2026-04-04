@@ -26,11 +26,6 @@ public class PusParticle extends SingleQuadParticle
     }
 
     @Override
-    public int getLightColor(float p_106065_) {
-        return super.getLightColor(p_106065_);
-    }
-
-    @Override
     public float getQuadSize(float p_107089_)
     {
         float f = ((float)this.age + p_107089_) / (float)this.lifetime;

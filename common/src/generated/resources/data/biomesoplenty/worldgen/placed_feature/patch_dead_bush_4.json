@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:patch_dead_bush",
+  "feature": "minecraft:dead_bush",
   "placement": [
     {
       "type": "minecraft:count",

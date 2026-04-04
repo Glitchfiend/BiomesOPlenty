@@ -57,8 +57,8 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
                 else
                 {
                     int i = (int)((float)column$range.height() * largedripstoneconfiguration.maxColumnRadiusToCaveHeightRatio);
-                    int j = Mth.clamp(i, largedripstoneconfiguration.columnRadius.getMinValue(), largedripstoneconfiguration.columnRadius.getMaxValue());
-                    int k = Mth.randomBetweenInclusive(random, largedripstoneconfiguration.columnRadius.getMinValue(), j);
+                    int j = Mth.clamp(i, largedripstoneconfiguration.columnRadius.minInclusive(), largedripstoneconfiguration.columnRadius.maxInclusive());
+                    int k = Mth.randomBetweenInclusive(random, largedripstoneconfiguration.columnRadius.minInclusive(), j);
                     LargeRoseQuartzFeature.LargeRoseQuartz largedripstonefeature$largedripstone = makeRoseQuartz(blockpos.atY(column$range.ceiling() - 1), false, random, k, largedripstoneconfiguration.stalactiteBluntness, largedripstoneconfiguration.heightScale);
                     LargeRoseQuartzFeature.LargeRoseQuartz largedripstonefeature$largedripstone1 = makeRoseQuartz(blockpos.atY(column$range.floor() + 1), true, random, k, largedripstoneconfiguration.stalagmiteBluntness, largedripstoneconfiguration.heightScale);
                     LargeRoseQuartzFeature.WindOffsetter largedripstonefeature$windoffsetter;

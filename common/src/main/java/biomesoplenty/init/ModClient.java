@@ -12,6 +12,7 @@ import biomesoplenty.block.HangingSignBlockEntityBOP;
 import biomesoplenty.block.entity.AnomalyBlockEntity;
 import biomesoplenty.block.entity.SignBlockEntityBOP;
 import biomesoplenty.client.renderer.AnomalyRenderer;
+import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.particle.*;
 import glitchcore.event.EventManager;
 import glitchcore.event.client.RegisterColorsEvent;
@@ -19,14 +20,27 @@ import glitchcore.event.client.RegisterLayerDefinitionsEvent;
 import glitchcore.event.client.RegisterParticleSpritesEvent;
 import glitchcore.event.client.RegisterRenderersEvent;
 import glitchcore.util.RenderHelper;
+import net.minecraft.client.color.block.BlockTintSource;
+import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
+import net.minecraft.client.renderer.blockentity.AbstractSignRenderer;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.StandingSignRenderer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
+import net.minecraft.client.resources.model.sprite.SpriteId;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.WoodType;
+
+import java.util.List;
 
 public class ModClient
 {
@@ -87,7 +101,7 @@ public class ModClient
     public static void registerRenderers(RegisterRenderersEvent event)
     {
         // Register block entity renderers
-        RenderHelper.registerBlockEntityRenderer((BlockEntityType<SignBlockEntityBOP>) BOPBlockEntities.SIGN, SignRenderer::new);
+        RenderHelper.registerBlockEntityRenderer((BlockEntityType<SignBlockEntityBOP>) BOPBlockEntities.SIGN, StandingSignRenderer::new);
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<HangingSignBlockEntityBOP>)BOPBlockEntities.HANGING_SIGN, HangingSignRenderer::new);
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<AnomalyBlockEntity>)BOPBlockEntities.ANOMALY, AnomalyRenderer::new);
 
@@ -125,32 +139,52 @@ public class ModClient
     public static void registerBlockColors(RegisterColorsEvent.Block event)
     {
         //Grass Coloring
-        event.register((state, world, pos, tintIndex) ->
-                        world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.get(0.5D, 1.0D),
-                BOPBlocks.FLOWER_STEM, BOPBlocks.MOSSY_BLACK_SAND, BOPBlocks.SPROUT, BOPBlocks.HIGH_GRASS, BOPBlocks.HIGH_GRASS_PLANT,
-                BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.BARLEY, BOPBlocks.WATERGRASS, BOPBlocks.POTTED_SPROUT);
+        event.register(List.of(
+                new BlockTintSource()
+                {
+                    @Override
+                    public int color(BlockState state) {
+                        return GrassColor.get(0.5D, 1.0D);
+                    }
+
+                    @Override
+                    public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
+                        return BiomeColors.getAverageGrassColor(level, pos);
+                    }
+                }
+            ),
+            BOPBlocks.FLOWER_STEM, BOPBlocks.MOSSY_BLACK_SAND, BOPBlocks.SPROUT, BOPBlocks.HIGH_GRASS, BOPBlocks.HIGH_GRASS_PLANT,
+            BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.BARLEY, BOPBlocks.WATERGRASS, BOPBlocks.POTTED_SPROUT);
 
         //Foliage Coloring
-        event.register((state, world, pos, tintIndex) ->
-                        world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.FOLIAGE_DEFAULT,
+        event.register(List.of(BlockTintSources.foliage()),
                 BOPBlocks.FLOWERING_OAK_LEAVES, BOPBlocks.PINE_LEAVES, BOPBlocks.MAHOGANY_LEAVES, BOPBlocks.PALM_LEAVES, BOPBlocks.WILLOW_LEAVES,
                 BOPBlocks.WILLOW_VINE, BOPBlocks.BRAMBLE_LEAVES);
 
         //Dry Foliage Coloring
-        event.register((state, world, pos, tintIndex) ->
-                        world != null && pos != null ? BiomeColors.getAverageDryFoliageColor(world, pos) : -10732494,
+        event.register(List.of(BlockTintSources.dryFoliage()),
                 BOPBlocks.DEAD_LEAVES, BOPBlocks.DESERT_GRASS);
 
         //Flowerbed Coloring
-        event.register((state, world, pos, tintIndex) -> {
-                    if (tintIndex != 0) { return world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(); }
-                    else { return -1; }},
+        event.register(List.of(BlockTintSources.grass()),
                 BOPBlocks.WHITE_PETALS, BOPBlocks.PURPLE_WILDFLOWERS);
 
         //Lily Pad Coloring
-        event.register((state, world, pos, tintIndex) -> {
-                    return world != null && pos != null ? 2129968 : 7455580; },
-                BOPBlocks.HUGE_LILY_PAD);
+        event.register(List.of(
+                new BlockTintSource()
+                {
+                    @Override
+                    public int color(BlockState state) {
+                        return 7455580;
+                    }
+
+                    @Override
+                    public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
+                        return 2129968;
+                    }
+                }
+        ),
+        BOPBlocks.HUGE_LILY_PAD);
     }
 
     public static void registerParticleSprites(RegisterParticleSpritesEvent event)
@@ -308,19 +342,35 @@ public class ModClient
 
     public static void registerWoodTypes()
     {
-        SheetHelper.addWoodType(BOPWoodTypes.ORIGIN_OAK);
-        SheetHelper.addWoodType(BOPWoodTypes.FIR);
-        SheetHelper.addWoodType(BOPWoodTypes.PINE);
-        SheetHelper.addWoodType(BOPWoodTypes.MAPLE);
-        SheetHelper.addWoodType(BOPWoodTypes.REDWOOD);
-        SheetHelper.addWoodType(BOPWoodTypes.MAHOGANY);
-        SheetHelper.addWoodType(BOPWoodTypes.JACARANDA);
-        SheetHelper.addWoodType(BOPWoodTypes.PALM);
-        SheetHelper.addWoodType(BOPWoodTypes.WILLOW);
-        SheetHelper.addWoodType(BOPWoodTypes.DEAD);
-        SheetHelper.addWoodType(BOPWoodTypes.MAGIC);
-        SheetHelper.addWoodType(BOPWoodTypes.UMBRAN);
-        SheetHelper.addWoodType(BOPWoodTypes.HELLBARK);
-        SheetHelper.addWoodType(BOPWoodTypes.EMPYREAL);
+        addWoodType(BOPWoodTypes.ORIGIN_OAK);
+        addWoodType(BOPWoodTypes.FIR);
+        addWoodType(BOPWoodTypes.PINE);
+        addWoodType(BOPWoodTypes.MAPLE);
+        addWoodType(BOPWoodTypes.REDWOOD);
+        addWoodType(BOPWoodTypes.MAHOGANY);
+        addWoodType(BOPWoodTypes.JACARANDA);
+        addWoodType(BOPWoodTypes.PALM);
+        addWoodType(BOPWoodTypes.WILLOW);
+        addWoodType(BOPWoodTypes.DEAD);
+        addWoodType(BOPWoodTypes.MAGIC);
+        addWoodType(BOPWoodTypes.UMBRAN);
+        addWoodType(BOPWoodTypes.HELLBARK);
+        addWoodType(BOPWoodTypes.EMPYREAL);
+    }
+
+    private static void addWoodType(WoodType woodType)
+    {
+        Sheets.SIGN_SPRITES.put(woodType, createSignSprite(woodType));
+        Sheets.HANGING_SIGN_SPRITES.put(woodType, createHangingSignSprite(woodType));
+    }
+
+    private static SpriteId createSignSprite(WoodType type)
+    {
+        return Sheets.SIGN_MAPPER.apply(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, type.name()));
+    }
+
+    private static SpriteId createHangingSignSprite(WoodType type)
+    {
+        return Sheets.HANGING_SIGN_MAPPER.apply(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, type.name()));
     }
 }

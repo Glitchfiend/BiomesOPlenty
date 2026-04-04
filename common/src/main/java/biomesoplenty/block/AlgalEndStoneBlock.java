@@ -11,6 +11,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -41,7 +42,7 @@ public class AlgalEndStoneBlock extends Block implements BonemealableBlock
         }
         else
         {
-            int i = LightEngine.getLightBlockInto(state, aboveState, Direction.UP, aboveState.getLightBlock());
+            int i = LightEngine.getLightBlockInto(state, aboveState, Direction.UP, aboveState.getLightDampening());
             return i < 15;
         }
     }
@@ -90,21 +91,12 @@ public class AlgalEndStoneBlock extends Block implements BonemealableBlock
             if (blockstate1.isAir()) {
                 Holder<PlacedFeature> holder;
                 if (p_221271_.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = p_221270_.getBiome(blockpos1).value().getGenerationSettings().getFlowerFeatures();
-                    if (list.isEmpty()) {
-                        continue;
+                    List<ConfiguredFeature<?, ?>> features = p_221270_.getBiome(blockpos1).value().getGenerationSettings().getBoneMealFeatures();
+                    if (!features.isEmpty()) {
+                        ConfiguredFeature<?, ?> placementFeature = Util.getRandom(features, p_221271_);
+                        placementFeature.place(p_221270_, p_221270_.getChunkSource().getGenerator(), p_221271_, blockpos1);
                     }
-
-                    holder = ((RandomPatchConfiguration)list.get(0).config()).feature();
-                } else {
-                    if (!optional.isPresent()) {
-                        continue;
-                    }
-
-                    holder = optional.get();
                 }
-
-                holder.value().place(p_221270_, p_221270_.getChunkSource().getGenerator(), p_221271_, blockpos1);
             }
         }
     }

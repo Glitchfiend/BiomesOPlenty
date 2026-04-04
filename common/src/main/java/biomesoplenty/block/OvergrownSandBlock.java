@@ -41,7 +41,7 @@ public class OvergrownSandBlock extends ColoredFallingBlock implements Bonemeala
         }
         else
         {
-            int i = LightEngine.getLightBlockInto(state, aboveState, Direction.UP, aboveState.getLightBlock());
+            int i = LightEngine.getLightBlockInto(state, aboveState, Direction.UP, aboveState.getLightDampening());
             return i < 15;
         }
     }

@@ -40,7 +40,7 @@ public class BOPTreeConfiguration extends TreeConfiguration
 
     protected BOPTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators)
     {
-        super(trunkProvider, null, foliageProvider, null, null, null, new TwoLayersFeatureSize(1, 0, 1), decorators, false, false);
+        super(trunkProvider, null, foliageProvider, null, null, null, decorators, false, null);
 
         this.vineProvider = vineProvider;
         this.hangingProvider = hangingProvider;

@@ -8,6 +8,7 @@ import biomesoplenty.api.entity.BOPVillagerTrades;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.KeyTagProvider;
 import net.minecraft.resources.ResourceKey;
@@ -18,8 +19,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class BOPVillagerTradesTagsProvider extends KeyTagProvider<VillagerTrade>
 {
-    public BOPVillagerTradesTagsProvider(PackOutput output, ResourceKey<? extends Registry<VillagerTrade>> registryKey, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, registryKey, lookupProvider, BiomesOPlenty.MOD_ID);
+    public BOPVillagerTradesTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, Registries.VILLAGER_TRADE, lookupProvider, BiomesOPlenty.MOD_ID);
     }
 
     @Override

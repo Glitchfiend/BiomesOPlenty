@@ -85,7 +85,7 @@ public class TwigletTreeFeature extends BOPTreeFeature<TwigletTreeConfiguration>
             for (Direction dir : Direction.Plane.HORIZONTAL)
             {
                 BlockPos fruitPos = pos.offset(dir.getStepX(), y, dir.getStepZ());
-                BlockState trunkFruit = config.trunkFruitProvider.getState(random, fruitPos);
+                BlockState trunkFruit = config.trunkFruitProvider.getState(world, random, fruitPos);
 
                 if (trunkFruit.getBlock() != Blocks.AIR && random.nextInt(4) == 0)
                 {
@@ -102,9 +102,9 @@ public class TwigletTreeFeature extends BOPTreeFeature<TwigletTreeConfiguration>
         return true;
     }
 
-    private void generateTrunkFruit(LevelAccessor world, int age, BlockPos pos, Direction direction, TwigletTreeConfiguration config)
+    private void generateTrunkFruit(WorldGenLevel world, int age, BlockPos pos, Direction direction, TwigletTreeConfiguration config)
     {
-        BlockState trunkFruit = config.trunkFruitProvider.getState(world.getRandom(), pos);
+        BlockState trunkFruit = config.trunkFruitProvider.getState(world, world.getRandom(), pos);
 
         if (trunkFruit == Blocks.COCOA.defaultBlockState())
         {

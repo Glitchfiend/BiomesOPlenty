@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "id": "biomesoplenty:umbran_sapling"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 5.0,
+    "id": "minecraft:emerald"
+  }
+}

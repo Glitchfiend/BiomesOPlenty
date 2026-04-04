@@ -1,0 +1,11 @@
+{
+  "gives": {
+    "id": "biomesoplenty:blue_hydrangea"
+  },
+  "max_uses": 8.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 2.0,
+    "id": "minecraft:emerald"
+  }
+}

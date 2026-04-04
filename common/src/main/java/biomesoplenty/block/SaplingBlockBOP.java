@@ -69,7 +69,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    @Override
    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state)
    {
-      return (double)worldIn.random.nextFloat() < 0.45D;
+      return (double)worldIn.getRandom().nextFloat() < 0.45D;
    }
 
    @Override

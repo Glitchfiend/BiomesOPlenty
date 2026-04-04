@@ -1,6 +1,10 @@
 {
-  "type": "minecraft:forest_rock",
+  "type": "minecraft:block_blob",
   "config": {
+    "can_place_on": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "minecraft:forest_rock_can_place_on"
+    },
     "state": {
       "Name": "minecraft:cobblestone"
     }

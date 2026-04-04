@@ -58,7 +58,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
     }
 
     // generates a layer of leafs
-    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, FoliagePlacer.FoliageSetter leaves, TaigaTreeConfiguration config)
+    public void generateLeafLayer(WorldGenLevel world, RandomSource rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, FoliagePlacer.FoliageSetter leaves, TaigaTreeConfiguration config)
     {
         int start = trunkStart - leavesRadius;
         int end = trunkEnd + leavesRadius;
@@ -80,7 +80,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
         }
     }
 
-    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TaigaTreeConfiguration config)
+    public void generateBranch(WorldGenLevel world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TaigaTreeConfiguration config)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.getClockWise();
@@ -251,7 +251,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                     {
                         BlockPos local = startPos.offset(x, -y, z);
                         BlockState state = world.getBlockState(local);
-                        if (state.isAir() || state.is(BlockTags.REPLACEABLE_BY_TREES) || isDirt(state)) {
+                        if (state.isAir() || state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.DIRT)) {
                             world.setBlock(local, Blocks.DIRT.defaultBlockState(), 3);
                         }
                     }
@@ -262,7 +262,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
         return true;
     }
 
-    protected boolean generateBush(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, RandomSource random, BlockPos pos, TaigaTreeConfiguration config)
+    protected boolean generateBush(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, RandomSource random, BlockPos pos, TaigaTreeConfiguration config)
     {
         int height = 2;
 
@@ -285,7 +285,7 @@ public class RedwoodTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                     //Randomly prevent the generation of leaves on the corners of each layer
                     if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius)
                     {
-                        if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
+                        if (config.altFoliageProvider.getState(world, random, pos) != Blocks.AIR.defaultBlockState())
                         {
                             if (random.nextInt(4) == 0)
                             {

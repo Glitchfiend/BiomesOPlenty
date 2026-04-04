@@ -1,5 +1,6 @@
 {
   "asset_id": "biomesoplenty:entity/chicken/origin_chicken",
+  "baby_asset_id": "biomesoplenty:entity/chicken/baby_origin_chicken",
   "model": "normal",
   "spawn_conditions": [
     {

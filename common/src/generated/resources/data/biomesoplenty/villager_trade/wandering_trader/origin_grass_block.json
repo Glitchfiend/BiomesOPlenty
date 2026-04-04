@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "id": "biomesoplenty:origin_grass_block"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 2.0,
+    "id": "minecraft:emerald"
+  }
+}

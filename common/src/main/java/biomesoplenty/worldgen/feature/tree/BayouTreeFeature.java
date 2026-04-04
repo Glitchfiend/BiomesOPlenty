@@ -61,7 +61,7 @@ public class BayouTreeFeature extends BOPTreeFeature<BayouTreeConfiguration>
     }
 
     // generates a layer of leaves
-    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, FoliagePlacer.FoliageSetter leaves, BayouTreeConfiguration config)
+    public void generateLeafLayer(WorldGenLevel world, RandomSource rand, BlockPos pos, int leavesRadius, FoliagePlacer.FoliageSetter leaves, BayouTreeConfiguration config)
     {
         int start = -leavesRadius;
         int end = leavesRadius;
@@ -87,7 +87,7 @@ public class BayouTreeFeature extends BOPTreeFeature<BayouTreeConfiguration>
         }
     }
 
-    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, BayouTreeConfiguration config)
+    public void generateBranch(WorldGenLevel world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, BayouTreeConfiguration config)
     {
         Direction.Axis axis = direction.getAxis();
         Direction sideways = direction.getClockWise();
@@ -293,16 +293,16 @@ public class BayouTreeFeature extends BOPTreeFeature<BayouTreeConfiguration>
     }
 
     @Override
-    public boolean placeLeaves(LevelAccessor level, BlockPos pos, FoliagePlacer.FoliageSetter leaves, BayouTreeConfiguration config)
+    public boolean placeLeaves(WorldGenLevel level, BlockPos pos, FoliagePlacer.FoliageSetter leaves, BayouTreeConfiguration config)
     {
         if (isAirOrLeaves(level, pos))
         {
-            leaves.set(pos, config.foliageProvider.getState(level.getRandom(), pos));
+            leaves.set(pos, config.foliageProvider.getState(level, level.getRandom(), pos));
             return true;
         }
         else if (level.getBlockState(pos).getFluidState().is(Fluids.WATER))
         {
-            leaves.set(pos, config.foliageProvider.getState(level.getRandom(), pos).setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(level.isWaterAt(pos))));
+            leaves.set(pos, config.foliageProvider.getState(level, level.getRandom(), pos).setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(level.isWaterAt(pos))));
             return true;
         }
 

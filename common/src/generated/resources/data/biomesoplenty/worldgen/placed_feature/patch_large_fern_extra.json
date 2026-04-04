@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:patch_large_fern",
+  "feature": "minecraft:large_fern",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

@@ -68,16 +68,16 @@ public class BOPNetherFeatures
         final Holder<PlacedFeature> BIG_HELLBARK_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_HELLBARK_TREE_CHECKED);
         final Holder<PlacedFeature> HELLBARK_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.HELLBARK_TREE_CHECKED);
 
-        register(context, BOPNetherFeatures.BLACKSTONE_BULB, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BLACKSTONE_BULB))));
-        register(context, BOPNetherFeatures.BLACKSTONE_SPINES, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BLACKSTONE_SPINES))));
+        register(context, BOPNetherFeatures.BLACKSTONE_BULB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BLACKSTONE_BULB)));
+        register(context, BOPNetherFeatures.BLACKSTONE_SPINES, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BLACKSTONE_SPINES)));
         register(context, BOPNetherFeatures.BLOOD_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.BLOOD), BlockStateProvider.simple(BOPBlocks.FLESH)));
         register(context, BOPNetherFeatures.BLOOD_SPRING, Feature.SPRING, new SpringConfiguration(BOPFluids.BLOOD.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.NETHERRACK, BOPBlocks.FLESH, BOPBlocks.POROUS_FLESH)));
-        register(context, BOPNetherFeatures.BRIMSTONE_BUD, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_BUD))));
-        register(context, BOPNetherFeatures.BRIMSTONE_CLUSTER, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_CLUSTER))));
-        register(context, BOPNetherFeatures.DEAD_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DEAD_GRASS))));
-        register(context, BOPNetherFeatures.EYEBULB, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.EYEBULB))));
+        register(context, BOPNetherFeatures.BRIMSTONE_BUD, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_BUD)));
+        register(context, BOPNetherFeatures.BRIMSTONE_CLUSTER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_CLUSTER)));
+        register(context, BOPNetherFeatures.DEAD_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DEAD_GRASS)));
+        register(context, BOPNetherFeatures.EYEBULB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.EYEBULB)));
         register(context, BOPNetherFeatures.FLESH_TENDON, BOPBaseFeatures.FLESH_TENDON, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPNetherFeatures.HAIR, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.HAIR))));
+        register(context, BOPNetherFeatures.HAIR, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.HAIR)));
         register(context, BOPNetherFeatures.HANGING_FLESH_TENDON, BOPBaseFeatures.HANGING_FLESH_TENDON, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.INFERNO_LAVA_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.LAVA), BlockStateProvider.simple(BOPBlocks.BRIMSTONE)));
         register(context, BOPNetherFeatures.INFERNO_LAVA_SPRING, Feature.SPRING, new SpringConfiguration(Fluids.LAVA.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.NETHERRACK)));
@@ -89,12 +89,12 @@ public class BOPNetherFeatures
         register(context, BOPNetherFeatures.NETHER_VINES, BOPBaseFeatures.NETHER_VINES, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.OBSIDIAN_SPLATTER, BOPBaseFeatures.OBSIDIAN_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.POROUS_FLESH, Feature.ORE, new OreConfiguration(new TagMatchTest(ModTags.Blocks.FLESH), BOPBlocks.POROUS_FLESH.defaultBlockState(), 16));
-        register(context, BOPNetherFeatures.PUS_BUBBLES, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.PUS_BUBBLE))));
+        register(context, BOPNetherFeatures.PUS_BUBBLES, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.PUS_BUBBLE)));
         register(context, BOPNetherFeatures.SMALL_CRYSTAL, BOPBaseFeatures.SMALL_CRYSTAL, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.SMALL_FUMAROLE, BOPBaseFeatures.SMALL_FUMAROLE, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPNetherFeatures.SPROUTS_UNDERGROWTH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT))));
+        register(context, BOPNetherFeatures.SPROUTS_UNDERGROWTH, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT)));
         register(context, BOPNetherFeatures.TREES_UNDERGROWTH, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(BIG_HELLBARK_TREE_CHECKED, 0.4F)), HELLBARK_TREE_CHECKED));
-        register(context, BOPNetherFeatures.UNDERGROWTH_FLOWERS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BURNING_BLOSSOM))));
+        register(context, BOPNetherFeatures.UNDERGROWTH_FLOWERS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BURNING_BLOSSOM)));
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, F feature, FC configuration)

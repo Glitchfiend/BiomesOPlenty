@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:patch_tall_grass",
+  "feature": "minecraft:tall_grass",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

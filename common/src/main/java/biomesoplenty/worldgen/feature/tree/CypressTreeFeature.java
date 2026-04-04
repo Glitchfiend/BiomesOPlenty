@@ -114,7 +114,7 @@ public class CypressTreeFeature extends BOPTreeFeature<CypressTreeConfiguration>
     }
 
     // generates a layer of leafs with the given radius
-    public void generateLeafLayer(LevelAccessor world, BlockPos pos, int radius, FoliagePlacer.FoliageSetter leaves, CypressTreeConfiguration config)
+    public void generateLeafLayer(WorldGenLevel world, BlockPos pos, int radius, FoliagePlacer.FoliageSetter leaves, CypressTreeConfiguration config)
     {
         for(int x = -radius; x <= radius; x++)
         {

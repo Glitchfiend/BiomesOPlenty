@@ -44,7 +44,7 @@ public class AnomalyBlock extends BaseEntityBlock
     public BlockState getStateForPlacement(BlockPlaceContext p_49479_)
     {
         AnomalyType type;
-        switch (p_49479_.getLevel().random.nextInt(4))
+        switch (p_49479_.getLevel().getRandom().nextInt(4))
         {
             default:
             case 0:

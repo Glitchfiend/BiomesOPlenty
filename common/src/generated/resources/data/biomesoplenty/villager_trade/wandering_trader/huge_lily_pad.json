@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "count": 2,
+    "id": "biomesoplenty:huge_lily_pad"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "minecraft:emerald"
+  }
+}

@@ -43,6 +43,8 @@ repositories {
 
 dependencies {
     implementation minecraft.dependency("net.minecraftforge:forge:${minecraft_version}-${forge_version}")
+    implementation 'com.github.glitchfiend:GlitchCore-forge:' + minecraft_version + '-' + glitchcore_version
+    implementation 'com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version
     annotationProcessor 'org.spongepowered:mixin:0.8.7:processor'
 }
 

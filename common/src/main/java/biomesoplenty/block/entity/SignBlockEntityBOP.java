@@ -6,6 +6,7 @@ package biomesoplenty.block.entity;
 
 import biomesoplenty.api.block.BOPBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -13,6 +14,6 @@ public class SignBlockEntityBOP extends SignBlockEntity
 {
     public SignBlockEntityBOP(BlockPos pos, BlockState state)
     {
-        super(BOPBlockEntities.SIGN, pos, state);
+        super((BlockEntityType<? extends SignBlockEntity>) BOPBlockEntities.SIGN, pos, state);
     }
 }

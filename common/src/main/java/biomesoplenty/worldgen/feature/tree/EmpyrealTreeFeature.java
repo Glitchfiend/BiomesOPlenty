@@ -279,7 +279,7 @@ public class EmpyrealTreeFeature extends BOPTreeFeature<EmpyrealTreeConfiguratio
     }
 
     // generate the top of the tree
-    public void generateTop(LevelAccessor world, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, EmpyrealTreeConfiguration config)
+    public void generateTop(WorldGenLevel world, BlockPos pos, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, EmpyrealTreeConfiguration config)
     {
         placeLeaves(world, pos.offset(0, 0, 0), leaves, config);
         placeLeaves(world, pos.offset(1, 0, 0), leaves, config);

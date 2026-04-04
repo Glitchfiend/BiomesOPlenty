@@ -118,7 +118,7 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                                 BlockPos leavesPos = new BlockPos(x, y, z);
                                 if (this.canReplace(world, leavesPos))
                                 {
-                                    if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
+                                    if (config.altFoliageProvider.getState(world, random, pos) != Blocks.AIR.defaultBlockState())
                                     {
                                         if (random.nextInt(4) == 0)
                                         {
@@ -136,7 +136,7 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                                 }
 
                                 int hanging_height = random.nextInt(2) + 1;
-                                if (config.hangingProvider.getState(random, pos) != Blocks.AIR.defaultBlockState() && random.nextInt(2) == 0)
+                                if (config.hangingProvider.getState(world, random, pos) != Blocks.AIR.defaultBlockState() && random.nextInt(2) == 0)
                                 {
                                     for (int i = 0; i < hanging_height; i++)
                                     {
@@ -153,7 +153,7 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
 
                 this.generateTrunk(world, pos, height, logs, config);
 
-                if (config.vineProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
+                if (config.vineProvider.getState(world, random, pos) != Blocks.AIR.defaultBlockState())
                 {
                     for (int y = pos.getY() - leavesLayers + height; y <= pos.getY() + height; y++)
                     {
@@ -202,7 +202,7 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                     }
                 }
 
-                if (config.trunkFruitProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
+                if (config.trunkFruitProvider.getState(world, random, pos) != Blocks.AIR.defaultBlockState())
                 {
                     if (random.nextInt(5) == 0 && height > 5)
                     {
@@ -229,7 +229,7 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
         }
     }
 
-    protected void generateTrunk(LevelAccessor world, BlockPos start, int height, BiConsumer<BlockPos, BlockState> logs, BasicTreeConfiguration config)
+    protected void generateTrunk(WorldGenLevel world, BlockPos start, int height, BiConsumer<BlockPos, BlockState> logs, BasicTreeConfiguration config)
     {
         //Create the trunk from the bottom up, using < to ensure it is covered with one layer of leaves
         for (int layer = 0; layer < height; ++layer)
@@ -242,26 +242,26 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
         }
     }
 
-    private void generateTrunkFruit(LevelAccessor world, RandomSource random, int age, BlockPos pos, Direction direction, BasicTreeConfiguration config)
+    private void generateTrunkFruit(WorldGenLevel world, RandomSource random, int age, BlockPos pos, Direction direction, BasicTreeConfiguration config)
     {
-        if (config.trunkFruitProvider.getState(random, pos) == Blocks.COCOA.defaultBlockState())
+        if (config.trunkFruitProvider.getState(world, random, pos) == Blocks.COCOA.defaultBlockState())
         {
-            this.setBlock(world, pos, config.trunkFruitProvider.getState(random, pos).setValue(CocoaBlock.AGE, Integer.valueOf(age)).setValue(CocoaBlock.FACING, direction));
+            this.setBlock(world, pos, config.trunkFruitProvider.getState(world, random, pos).setValue(CocoaBlock.AGE, Integer.valueOf(age)).setValue(CocoaBlock.FACING, direction));
         }
         else
         {
-            this.setBlock(world, pos, config.trunkFruitProvider.getState(random, pos).setValue(CocoaBlock.FACING, direction));
+            this.setBlock(world, pos, config.trunkFruitProvider.getState(world, random, pos).setValue(CocoaBlock.FACING, direction));
         }
     }
 
-    private BlockState getVineStateForSide(RandomSource random, BlockPos pos, Direction side, BasicTreeConfiguration config)
+    private BlockState getVineStateForSide(WorldGenLevel level, RandomSource random, BlockPos pos, Direction side, BasicTreeConfiguration config)
     {
-        return config.vineProvider.getState(random, pos).getBlock() instanceof VineBlock ? config.vineProvider.getState(random, pos).setValue(VineBlock.getPropertyForFace(side), Boolean.valueOf(true)) : config.vineProvider.getState(random, pos);
+        return config.vineProvider.getState(level, random, pos).getBlock() instanceof VineBlock ? config.vineProvider.getState(level, random, pos).setValue(VineBlock.getPropertyForFace(side), Boolean.valueOf(true)) : config.vineProvider.getState(level, random, pos);
     }
 
-    private void extendVines(LevelAccessor world, RandomSource random, BlockPos pos, Direction side, BasicTreeConfiguration config)
+    private void extendVines(WorldGenLevel world, RandomSource random, BlockPos pos, Direction side, BasicTreeConfiguration config)
     {
-        BlockState vineState = this.getVineStateForSide(random, pos, side, config);
+        BlockState vineState = this.getVineStateForSide(world, random, pos, side, config);
         this.setBlock(world, pos, vineState);
 
         int length = 4;

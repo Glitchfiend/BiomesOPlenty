@@ -9,6 +9,7 @@ import biomesoplenty.worldgen.feature.BOPTreeFeatures;
 import biomesoplenty.worldgen.feature.BOPVegetationFeatures;
 import biomesoplenty.util.worldgen.BOPPlacementUtils;
 import com.google.common.collect.ImmutableList;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +21,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 
@@ -219,22 +221,22 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> HUGE_RED_MUSHROOM = configuredFeatureGetter.getOrThrow(TreeFeatures.HUGE_RED_MUSHROOM);
         final Holder<ConfiguredFeature<?, ?>> PATCH_BLUE_HYDRANGEA = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_BLUE_HYDRANGEA);
         final Holder<ConfiguredFeature<?, ?>> PATCH_BUSH = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_BUSH);
-        final Holder<ConfiguredFeature<?, ?>> PATCH_BERRY_BUSH = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_BERRY_BUSH);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_BERRY_BUSH = configuredFeatureGetter.getOrThrow(VegetationFeatures.BERRY_BUSH);
         final Holder<ConfiguredFeature<?, ?>> PATCH_CATTAIL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_CATTAIL);
-        final Holder<ConfiguredFeature<?, ?>> PATCH_DEAD_BUSH = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_DEAD_BUSH);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_DEAD_BUSH = configuredFeatureGetter.getOrThrow(VegetationFeatures.DEAD_BUSH);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DEAD_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DEAD_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DESERT_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DESERT_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DRY_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DRY_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_DUNE_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_FERN = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_FERN);
         final Holder<ConfiguredFeature<?, ?>> PATCH_FLOWER_BUDS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_FLOWER_BUDS);
-        final Holder<ConfiguredFeature<?, ?>> PATCH_GRASS = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_GRASS);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_GRASS = configuredFeatureGetter.getOrThrow(VegetationFeatures.GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_ICY_IRIS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_ICY_IRIS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_PITCHER_PLANT = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_PITCHER_PLANT);
-        final Holder<ConfiguredFeature<?, ?>> PATCH_LARGE_FERN = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_LARGE_FERN);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_LARGE_FERN = configuredFeatureGetter.getOrThrow(VegetationFeatures.LARGE_FERN);
         final Holder<ConfiguredFeature<?, ?>> PATCH_SEA_OATS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_SEA_OATS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_SPROUTS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_SPROUTS);
-        final Holder<ConfiguredFeature<?, ?>> PATCH_TALL_GRASS = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_TALL_GRASS);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_TALL_GRASS = configuredFeatureGetter.getOrThrow(VegetationFeatures.TALL_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_TALL_LAVENDER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_TALL_LAVENDER);
         final Holder<ConfiguredFeature<?, ?>> PATCH_TALL_WHITE_LAVENDER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_TALL_WHITE_LAVENDER);
         final Holder<ConfiguredFeature<?, ?>> PATCH_TINY_CACTUS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_TINY_CACTUS);
@@ -247,7 +249,7 @@ public class BOPVegetationPlacements
         final Holder<ConfiguredFeature<?, ?>> DRIPSTONE_SPLATTER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.DRIPSTONE_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> MYCELIUM_SPLATTER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.MYCELIUM_SPLATTER);
         final Holder<ConfiguredFeature<?, ?>> TOADSTOOL_NORMAL = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TOADSTOOL_NORMAL);
-        final Holder<ConfiguredFeature<?, ?>> PATCH_WATERLILY = configuredFeatureGetter.getOrThrow(VegetationFeatures.PATCH_WATERLILY);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_WATERLILY = configuredFeatureGetter.getOrThrow(VegetationFeatures.WATERLILY);
         final Holder<ConfiguredFeature<?, ?>> PATCH_REED = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_REED);
         final Holder<ConfiguredFeature<?, ?>> PATCH_WATERGRASS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_WATERGRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_WATERLILY_FLOWER = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.PATCH_WATERLILY_FLOWER);
@@ -416,10 +418,10 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.LILY_PAD_10, PATCH_WATERLILY, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, BOPVegetationPlacements.LILY_PAD_15, PATCH_WATERLILY, VegetationPlacements.worldSurfaceSquaredWithCount(15));
         register(context, BOPVegetationPlacements.WATERLILY_FLOWERS, PATCH_WATERLILY_FLOWER, VegetationPlacements.worldSurfaceSquaredWithCount(3));
-        register(context, BOPVegetationPlacements.PATCH_REED_5, PATCH_REED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.PATCH_REED_10, PATCH_REED, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_REED_5, PATCH_REED, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.WATER))));
+        register(context, BOPVegetationPlacements.PATCH_REED_10, PATCH_REED, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.WATER))));
         register(context, BOPVegetationPlacements.PATCH_REED_50, PATCH_REED, seagrassPlacement(25));
-        register(context, BOPVegetationPlacements.PATCH_WATERGRASS_10, PATCH_WATERGRASS, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.PATCH_WATERGRASS_10, PATCH_WATERGRASS, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.WATER))));
         register(context, BOPVegetationPlacements.PATCH_WATERGRASS_50, PATCH_WATERGRASS, seagrassPlacement(10));
         register(context, BOPVegetationPlacements.PATCH_WATERGRASS_250, PATCH_WATERGRASS, seagrassPlacement(100));
         register(context, BOPVegetationPlacements.FLOWER_LAVENDER, FLOWER_LAVENDER, VegetationPlacements.worldSurfaceSquaredWithCount(15));
@@ -533,7 +535,7 @@ public class BOPVegetationPlacements
     }
 
     private static List<PlacementModifier> seagrassPlacement(int p_195234_) {
-        return List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, CountPlacement.of(p_195234_), BiomeFilter.biome());
+        return List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, CountPlacement.of(p_195234_), BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.WATER)));
     }
     
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)

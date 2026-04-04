@@ -87,7 +87,7 @@ public class PusBubbleBlock extends Block
 
     public static void spawnParticles(Level p_55480_, BlockPos pos)
     {
-        RandomSource rand = p_55480_.random;
+        RandomSource rand = p_55480_.getRandom();
 
         for (int i = 0; i < 10; i++)
         {

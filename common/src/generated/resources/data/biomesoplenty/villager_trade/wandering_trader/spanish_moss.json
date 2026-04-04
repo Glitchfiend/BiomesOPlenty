@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "count": 3,
+    "id": "biomesoplenty:spanish_moss"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "minecraft:emerald"
+  }
+}

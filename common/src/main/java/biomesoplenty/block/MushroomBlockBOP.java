@@ -39,7 +39,7 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
         BlockPos below = pos.below();
         BlockState ground = level.getBlockState(below);
 
-        return ground.is(BlockTags.MUSHROOM_GROW_BLOCK) || this.mayPlaceOn(ground, level, below);
+        return ground.is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT) || this.mayPlaceOn(ground, level, below);
     }
 
     @Override

@@ -1,53 +1,34 @@
 {
-  "type": "minecraft:flower",
+  "type": "minecraft:simple_block",
   "config": {
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:weighted_state_provider",
-            "entries": [
-              {
-                "data": {
-                  "Name": "biomesoplenty:glowflower"
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "biomesoplenty:pink_daffodil"
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "minecraft:azure_bluet"
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "minecraft:allium"
-                },
-                "weight": 1
-              }
-            ]
-          }
-        }
-      },
-      "placement": [
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
         {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "minecraft:air"
-          }
+          "data": {
+            "Name": "biomesoplenty:glowflower"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "biomesoplenty:pink_daffodil"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "minecraft:azure_bluet"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "minecraft:allium"
+          },
+          "weight": 1
         }
       ]
-    },
-    "tries": 64,
-    "xz_spread": 7,
-    "y_spread": 3
+    }
   }
 }

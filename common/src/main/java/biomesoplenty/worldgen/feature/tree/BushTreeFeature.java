@@ -62,7 +62,7 @@ public class BushTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                     //Randomly prevent the generation of leaves on the corners of each layer
                     if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius || random.nextInt(2) != 0)
                     {
-                        if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
+                        if (config.altFoliageProvider.getState(world, random, pos) != Blocks.AIR.defaultBlockState())
                         {
                             if (random.nextInt(4) == 0)
                             {

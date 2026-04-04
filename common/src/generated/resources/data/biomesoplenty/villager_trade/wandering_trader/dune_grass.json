@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "id": "biomesoplenty:dune_grass"
+  },
+  "max_uses": 8.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "minecraft:emerald"
+  }
+}

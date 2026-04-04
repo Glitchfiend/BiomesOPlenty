@@ -4,6 +4,11 @@
     "tame": "biomesoplenty:entity/wolf/wolf_spectral_tame",
     "wild": "biomesoplenty:entity/wolf/wolf_spectral"
   },
+  "baby_assets": {
+    "angry": "biomesoplenty:entity/wolf/baby_wolf_spectral_angry",
+    "tame": "biomesoplenty:entity/wolf/baby_wolf_spectral_tame",
+    "wild": "biomesoplenty:entity/wolf/baby_wolf_spectral"
+  },
   "spawn_conditions": [
     {
       "condition": {

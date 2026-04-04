@@ -18,6 +18,7 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -245,8 +246,8 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> WILLOW_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.WILLOW_TREE_CHECKED);
         final Holder<PlacedFeature> YELLOW_MAPLE_TREE_LEAF_LITTER_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.YELLOW_MAPLE_TREE_LEAF_LITTER_CHECKED);
 
-        register(context, BOPVegetationFeatures.COLD_DESERT_ROCKS, Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.COBBLESTONE.defaultBlockState()));
-        register(context, BOPVegetationFeatures.PRISMARINE_SPIKE, Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.PRISMARINE.defaultBlockState()));
+        register(context, BOPVegetationFeatures.COLD_DESERT_ROCKS, Feature.BLOCK_BLOB, new BlockBlobConfiguration(Blocks.COBBLESTONE.defaultBlockState(), BlockPredicate.matchesTag(BlockTags.FOREST_ROCK_CAN_PLACE_ON)));
+        register(context, BOPVegetationFeatures.PRISMARINE_SPIKE, Feature.BLOCK_BLOB, new BlockBlobConfiguration(Blocks.PRISMARINE.defaultBlockState(), BlockPredicate.matchesTag(BlockTags.FOREST_ROCK_CAN_PLACE_ON)));
         register(context, BOPVegetationFeatures.HIGH_GRASS, BOPBaseFeatures.HIGH_GRASS, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.BIG_DRIPLEAF, BOPBaseFeatures.BIG_DRIPLEAF, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPVegetationFeatures.BIG_PUMPKIN, BOPBaseFeatures.BIG_PUMPKIN, NoneFeatureConfiguration.INSTANCE);
@@ -269,7 +270,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_BLUE_HYDRANGEA, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BLUE_HYDRANGEA)));
         register(context, BOPVegetationFeatures.PATCH_BUSH, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.BUSH)));
         register(context, BOPVegetationFeatures.PATCH_CATTAIL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.CATTAIL)));
-        register(context, BOPVegetationFeatures.PATCH_CLOVER, Feature.SIMPLE_BLOCK, new RandomPatchConfiguration(96, 2, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(flowerBedPatchBuilder(BOPBlocks.CLOVER))))));
+        register(context, BOPVegetationFeatures.PATCH_CLOVER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(flowerBedPatchBuilder(BOPBlocks.CLOVER))));
         register(context, BOPVegetationFeatures.PATCH_DEAD_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DEAD_GRASS)));
         register(context, BOPVegetationFeatures.PATCH_DESERT_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DESERT_GRASS)));
         register(context, BOPVegetationFeatures.PATCH_DRY_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.SHORT_DRY_GRASS.defaultBlockState(), 3).add(Blocks.TALL_DRY_GRASS.defaultBlockState(), 1).build())));
@@ -280,15 +281,15 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.PATCH_PITCHER_PLANT, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.PITCHER_PLANT)));
         register(context, BOPVegetationFeatures.PATCH_LILAC, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.LILAC)));
         register(context, BOPVegetationFeatures.PATCH_PEONY, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.PEONY)));
-        register(context, BOPVegetationFeatures.PATCH_REED, Feature.SIMPLE_BLOCK, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.REED))));
+        register(context, BOPVegetationFeatures.PATCH_REED, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.REED)));
         register(context, BOPVegetationFeatures.PATCH_SEA_OATS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SEA_OATS)));
         register(context, BOPVegetationFeatures.PATCH_SPROUTS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.SPROUT)));
         register(context, BOPVegetationFeatures.PATCH_TALL_LAVENDER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TALL_LAVENDER)));
-        register(context, BOPVegetationFeatures.PATCH_TALL_WHITE_LAVENDER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.TALL_WHITE_LAVENDER.defaultBlockState(), 3).add(BOPBlocks.WHITE_LAVENDER.defaultBlockState(), 1).build())), List.of(), 512);
+        register(context, BOPVegetationFeatures.PATCH_TALL_WHITE_LAVENDER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.TALL_WHITE_LAVENDER.defaultBlockState(), 3).add(BOPBlocks.WHITE_LAVENDER.defaultBlockState(), 1).build())));
         register(context, BOPVegetationFeatures.PATCH_TINY_CACTUS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TINY_CACTUS)));
         register(context, BOPVegetationFeatures.PATCH_TUNDRA_SHRUBS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.TUNDRA_SHRUB)));
-        register(context, BOPVegetationFeatures.PATCH_WATERGRASS, Feature.SIMPLE_BLOCK, waterPatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS))));
-        register(context, BOPVegetationFeatures.PATCH_WATERLILY_FLOWER, Feature.SIMPLE_BLOCK, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERLILY)))));
+        register(context, BOPVegetationFeatures.PATCH_WATERGRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERGRASS)));
+        register(context, BOPVegetationFeatures.PATCH_WATERLILY_FLOWER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.WATERLILY)));
         register(context, BOPVegetationFeatures.PUMPKIN_PATCH, BOPBaseFeatures.PUMPKIN_PATCH, NoneFeatureConfiguration.INSTANCE);
 
         // Leaf litter
@@ -385,7 +386,7 @@ public class BOPVegetationFeatures
 
 //    private static <FC extends FeatureConfiguration, F extends Feature<FC>> RandomPatchConfiguration waterPatchConfiguration(F feature, FC configuration, int tries)
 //    {
-//        return FeatureUtils.simpleRandomPatchConfiguration(tries, PlacementUtils.filtered(feature, configuration, BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.WATER)));
+//        return FeatureUtils.simpleRandomPatchConfiguration(tries, ));
 //    }
 
     public static WeightedList.Builder<BlockState> leafLitterPatchBuilder(Block block, int minState, int maxState)

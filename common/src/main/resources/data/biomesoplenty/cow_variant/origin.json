@@ -1,5 +1,6 @@
 {
   "asset_id": "biomesoplenty:entity/cow/origin_cow",
+  "baby_asset_id": "biomesoplenty:entity/cow/origin_baby_cow",
   "model": "normal",
   "spawn_conditions": [
     {

@@ -17,6 +17,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -152,7 +153,7 @@ public class BOPRecipeProvider extends RecipeProvider
         stairBuilder(BOPBlocks.WHITE_SANDSTONE_STAIRS, Ingredient.of(BOPBlocks.WHITE_SANDSTONE, BOPBlocks.CHISELED_WHITE_SANDSTONE, BOPBlocks.CUT_WHITE_SANDSTONE)).unlockedBy("has_white_sandstone", has(BOPBlocks.WHITE_SANDSTONE)).unlockedBy("has_chiseled_white_sandstone", has(BOPBlocks.CHISELED_WHITE_SANDSTONE)).unlockedBy("has_cut_white_sandstone", has(BOPBlocks.CUT_WHITE_SANDSTONE)).save(output);
         cut(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_WHITE_SANDSTONE, BOPBlocks.WHITE_SANDSTONE);
         wall(RecipeCategory.DECORATIONS, BOPBlocks.WHITE_SANDSTONE_WALL, BOPBlocks.WHITE_SANDSTONE);
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.WHITE_SANDSTONE), RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_WHITE_SANDSTONE.asItem(), 0.1F, 200).unlockedBy("has_white_sandstone", has(BOPBlocks.WHITE_SANDSTONE)).save(output);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.WHITE_SANDSTONE), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, BOPBlocks.SMOOTH_WHITE_SANDSTONE.asItem(), 0.1F, 200).unlockedBy("has_white_sandstone", has(BOPBlocks.WHITE_SANDSTONE)).save(output);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_WHITE_SANDSTONE, BOPBlocks.WHITE_SANDSTONE);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.WHITE_SANDSTONE_SLAB, BOPBlocks.WHITE_SANDSTONE, 2);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_WHITE_SANDSTONE_SLAB, BOPBlocks.WHITE_SANDSTONE, 2);
@@ -170,7 +171,7 @@ public class BOPRecipeProvider extends RecipeProvider
         stairBuilder(BOPBlocks.ORANGE_SANDSTONE_STAIRS, Ingredient.of(BOPBlocks.ORANGE_SANDSTONE, BOPBlocks.CHISELED_ORANGE_SANDSTONE, BOPBlocks.CUT_ORANGE_SANDSTONE)).unlockedBy("has_orange_sandstone", has(BOPBlocks.ORANGE_SANDSTONE)).unlockedBy("has_chiseled_orange_sandstone", has(BOPBlocks.CHISELED_ORANGE_SANDSTONE)).unlockedBy("has_cut_orange_sandstone", has(BOPBlocks.CUT_ORANGE_SANDSTONE)).save(output);
         cut(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_ORANGE_SANDSTONE, BOPBlocks.ORANGE_SANDSTONE);
         wall(RecipeCategory.DECORATIONS, BOPBlocks.ORANGE_SANDSTONE_WALL, BOPBlocks.ORANGE_SANDSTONE);
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.ORANGE_SANDSTONE), RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_ORANGE_SANDSTONE.asItem(), 0.1F, 200).unlockedBy("has_orange_sandstone", has(BOPBlocks.ORANGE_SANDSTONE)).save(output);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.ORANGE_SANDSTONE), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, BOPBlocks.SMOOTH_ORANGE_SANDSTONE.asItem(), 0.1F, 200).unlockedBy("has_orange_sandstone", has(BOPBlocks.ORANGE_SANDSTONE)).save(output);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_ORANGE_SANDSTONE, BOPBlocks.ORANGE_SANDSTONE);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORANGE_SANDSTONE_SLAB, BOPBlocks.ORANGE_SANDSTONE, 2);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_ORANGE_SANDSTONE_SLAB, BOPBlocks.ORANGE_SANDSTONE, 2);
@@ -188,7 +189,7 @@ public class BOPRecipeProvider extends RecipeProvider
         stairBuilder(BOPBlocks.BLACK_SANDSTONE_STAIRS, Ingredient.of(BOPBlocks.BLACK_SANDSTONE, BOPBlocks.CHISELED_BLACK_SANDSTONE, BOPBlocks.CUT_BLACK_SANDSTONE)).unlockedBy("has_black_sandstone", has(BOPBlocks.BLACK_SANDSTONE)).unlockedBy("has_chiseled_black_sandstone", has(BOPBlocks.CHISELED_BLACK_SANDSTONE)).unlockedBy("has_cut_black_sandstone", has(BOPBlocks.CUT_BLACK_SANDSTONE)).save(output);
         cut(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_BLACK_SANDSTONE, BOPBlocks.BLACK_SANDSTONE);
         wall(RecipeCategory.DECORATIONS, BOPBlocks.BLACK_SANDSTONE_WALL, BOPBlocks.BLACK_SANDSTONE);
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.BLACK_SANDSTONE), RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_BLACK_SANDSTONE.asItem(), 0.1F, 200).unlockedBy("has_black_sandstone", has(BOPBlocks.BLACK_SANDSTONE)).save(output);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.BLACK_SANDSTONE), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, BOPBlocks.SMOOTH_BLACK_SANDSTONE.asItem(), 0.1F, 200).unlockedBy("has_black_sandstone", has(BOPBlocks.BLACK_SANDSTONE)).save(output);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_BLACK_SANDSTONE, BOPBlocks.BLACK_SANDSTONE);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BLACK_SANDSTONE_SLAB, BOPBlocks.BLACK_SANDSTONE, 2);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CUT_BLACK_SANDSTONE_SLAB, BOPBlocks.BLACK_SANDSTONE, 2);
@@ -281,7 +282,7 @@ public class BOPRecipeProvider extends RecipeProvider
         oneToOneConversionRecipe(Items.MAGENTA_DYE, BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK, "magenta_dye", 4);
         oneToOneConversionRecipe(Items.PINK_DYE, BOPBlocks.PINK_FLOWER_PETAL_BLOCK, "pink_dye", 4);
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.TINY_CACTUS.asItem()), RecipeCategory.MISC, Items.GREEN_DYE, 1.0F, 200).unlockedBy("has_tiny_cactus", has(BOPBlocks.TINY_CACTUS)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Items.GREEN_DYE, BOPBlocks.TINY_CACTUS));
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.TINY_CACTUS.asItem()), RecipeCategory.MISC, CookingBookCategory.BLOCKS, Items.GREEN_DYE, 1.0F, 200).unlockedBy("has_tiny_cactus", has(BOPBlocks.TINY_CACTUS)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Items.GREEN_DYE, BOPBlocks.TINY_CACTUS));
 
         // Vanilla Parity Recipes
         this.shapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.MOSSY_COBBLESTONE).requires(Blocks.COBBLESTONE).requires(BOPBlocks.WILLOW_VINE).group("mossy_cobblestone").unlockedBy("has_willow_vine", has(BOPBlocks.WILLOW_VINE)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Blocks.MOSSY_COBBLESTONE, BOPBlocks.WILLOW_VINE));
@@ -304,7 +305,7 @@ public class BOPRecipeProvider extends RecipeProvider
     }
 
     protected void generateForEnabledBlockFamiliesBOP(FeatureFlagSet flags) {
-        BOPBlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateRecipe).forEach((family) -> generateRecipes(family, flags));
+        BOPBlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateCraftingRecipe).forEach((family) -> generateRecipes(family, flags));
     }
 
     protected void planksFromLogs(RecipeOutput output, ItemLike planks, ItemLike log, int count)

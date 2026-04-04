@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:patch_berry_bush",
+  "feature": "minecraft:berry_bush",
   "placement": [
     {
       "type": "minecraft:count",

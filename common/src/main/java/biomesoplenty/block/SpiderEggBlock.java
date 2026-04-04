@@ -63,7 +63,7 @@ public class SpiderEggBlock extends Block
     @Override
     public void onProjectileHit(Level p_57381_, BlockState p_57382_, BlockHitResult p_57383_, Projectile p_57384_)
     {
-        p_57381_.playSound((Player)null, p_57383_.getBlockPos(), BOPSounds.SPIDER_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + p_57381_.random.nextFloat() * 0.2F);
+        p_57381_.playSound((Player)null, p_57383_.getBlockPos(), BOPSounds.SPIDER_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + p_57381_.getRandom().nextFloat() * 0.2F);
         p_57381_.destroyBlock(p_57383_.getBlockPos(), false);
         this.spawnSpider(p_57381_, p_57383_.getBlockPos());
     }
@@ -71,7 +71,7 @@ public class SpiderEggBlock extends Block
     @Override
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, double p_396999_)
     {
-        level.playSound((Player)null, pos, BOPSounds.SPIDER_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + level.random.nextFloat() * 0.2F);
+        level.playSound((Player)null, pos, BOPSounds.SPIDER_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + level.getRandom().nextFloat() * 0.2F);
         level.destroyBlock(pos, false);
         this.spawnSpider(level, pos);
     }

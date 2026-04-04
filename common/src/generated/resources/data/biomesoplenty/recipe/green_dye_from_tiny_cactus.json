@@ -1,11 +1,10 @@
 {
   "type": "minecraft:smelting",
-  "category": "misc",
+  "category": "blocks",
   "cookingtime": 200,
   "experience": 1.0,
   "ingredient": "biomesoplenty:tiny_cactus",
   "result": {
-    "count": 1,
     "id": "minecraft:green_dye"
   }
 }

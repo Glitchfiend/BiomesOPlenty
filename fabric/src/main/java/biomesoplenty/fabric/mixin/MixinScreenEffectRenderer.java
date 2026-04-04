@@ -5,23 +5,16 @@
 package biomesoplenty.fabric.mixin;
 
 import biomesoplenty.api.block.BOPFluids;
-import biomesoplenty.fabric.extensions.IBOPFabricEntityExtension;
+import biomesoplenty.init.ModTags;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
-import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
-import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.LightTexture;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.ScreenEffectRenderer;
-import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
@@ -47,18 +40,13 @@ public class MixinScreenEffectRenderer
     private MultiBufferSource bufferSource;
 
     @Inject(method = "renderScreenEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;isOnFire()Z"), locals = LocalCapture.CAPTURE_FAILHARD)
-    public void onRenderScreenDoorEffect(boolean bl, float f, SubmitNodeCollector submitNodeCollector, CallbackInfo ci, PoseStack poseStack)
+    public void onRenderScreenDoorEffect(final boolean isFirstPerson, final boolean isSleeping, final float partialTicks, final SubmitNodeCollector submitNodeCollector, final boolean hideGui, CallbackInfo ci, PoseStack poseStack)
     {
-        FluidState state = ((IBOPFabricEntityExtension)this.minecraft.player).getFluidStateOnEyes();
-        if (state == null) return;
-
-        Fluid fluid = state.getType();
-
-        if (fluid == BOPFluids.BLOOD || fluid == BOPFluids.FLOWING_BLOOD)
+        if (this.minecraft.player.isEyeInFluid(ModTags.Fluids.BLOOD))
         {
             renderOverlay(this.minecraft, poseStack, this.bufferSource, Identifier.parse("biomesoplenty:textures/block/blood_underwater.png"));
         }
-        else if (fluid == BOPFluids.LIQUID_NULL || fluid == BOPFluids.FLOWING_LIQUID_NULL)
+        else if (this.minecraft.player.isEyeInFluid(ModTags.Fluids.NULL))
         {
             renderOverlay(this.minecraft, poseStack, this.bufferSource, Identifier.parse("biomesoplenty:textures/block/liquid_null_underwater.png"));
         }
@@ -67,7 +55,7 @@ public class MixinScreenEffectRenderer
     private static void renderOverlay(Minecraft minecraft, PoseStack poseStack, MultiBufferSource multiBufferSource, Identifier location)
     {
         BlockPos blockPos = BlockPos.containing(minecraft.player.getX(), minecraft.player.getEyeY(), minecraft.player.getZ());
-        float f = LightTexture.getBrightness(minecraft.player.level().dimensionType(), minecraft.player.level().getMaxLocalRawBrightness(blockPos));
+        float f = Lightmap.getBrightness(minecraft.player.level().dimensionType(), minecraft.player.level().getMaxLocalRawBrightness(blockPos));
         int i = ARGB.colorFromFloat(0.1F, f, f, f);
         float g = 4.0F;
         float h = -1.0F;

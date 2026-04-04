@@ -5,6 +5,7 @@
 package biomesoplenty.api.block;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.SignBlockEntity;
 
 public class BOPBlockEntities
 {

@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "count": 3,
+    "id": "biomesoplenty:glowshroom"
+  },
+  "max_uses": 3.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 2.0,
+    "id": "minecraft:emerald"
+  }
+}

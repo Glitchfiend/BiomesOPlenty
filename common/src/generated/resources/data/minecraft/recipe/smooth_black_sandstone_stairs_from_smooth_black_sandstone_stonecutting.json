@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "biomesoplenty:smooth_black_sandstone",
   "result": {
-    "count": 1,
     "id": "biomesoplenty:smooth_black_sandstone_stairs"
   }
 }

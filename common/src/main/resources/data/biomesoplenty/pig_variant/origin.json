@@ -1,5 +1,6 @@
 {
   "asset_id": "biomesoplenty:entity/pig/origin_pig",
+  "baby_asset_id": "biomesoplenty:entity/pig/origin_baby_pig",
   "model": "normal",
   "spawn_conditions": [
     {

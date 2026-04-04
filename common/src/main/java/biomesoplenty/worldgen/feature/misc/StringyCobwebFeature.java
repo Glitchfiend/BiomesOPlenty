@@ -120,8 +120,8 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         int i = SectionPos.blockToSectionCoord(pos.getX());
         int j = SectionPos.blockToSectionCoord(pos.getZ());
         ChunkPos chunkpos = region.getCenter();
-        int k = Math.abs(chunkpos.x - i);
-        int l = Math.abs(chunkpos.z - j);
+        int k = Math.abs(chunkpos.x() - i);
+        int l = Math.abs(chunkpos.z() - j);
 
         if (k <= region.generatingStep.blockStateWriteRadius() && l <= region.generatingStep.blockStateWriteRadius())
         {

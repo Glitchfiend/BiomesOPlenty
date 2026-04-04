@@ -23,8 +23,8 @@
     {
       "type": "minecraft:environment_scan",
       "allowed_search_condition": {
-        "type": "minecraft:matching_blocks",
-        "blocks": "minecraft:air"
+        "type": "minecraft:matching_block_tag",
+        "tag": "minecraft:air"
       },
       "direction_of_search": "up",
       "max_steps": 12,

@@ -44,7 +44,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     // radius is the radius of the section from the center
     // direction is the direction the cross section is pointed, 0 for x, 1
     // for y, 2 for z material is the index number for the material to use
-    private void crossSection(LevelAccessor world, BlockPos pos, float radius, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
+    private void crossSection(WorldGenLevel world, BlockPos pos, float radius, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
     {
         final int r = (int)((double)radius + trunkHeightScale);
 
@@ -58,7 +58,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
                     if (this.canReplace(world, blockpos))
                     {
                         // Mojang sets leaves via the method used for logs. Probably intentional?
-                        if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
+                        if (config.altFoliageProvider.getState(world, random, pos) != Blocks.AIR.defaultBlockState())
                         {
                             int rand = random.nextInt(4);
 
@@ -78,7 +78,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
                     }
 
                     int hanging_height = random.nextInt(3) + 1;
-                    if (config.hangingProvider.getState(random, pos) != Blocks.AIR.defaultBlockState() && random.nextInt(4) == 0)
+                    if (config.hangingProvider.getState(world, random, pos) != Blocks.AIR.defaultBlockState() && random.nextInt(4) == 0)
                     {
                         for (int i = 0; i < hanging_height; i++)
                         {
@@ -159,7 +159,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     // Generate a cluster of foliage, with the base at blockPos
     // The shape of the cluster is derived from foliageShape
     // crossection is called to make each level.
-    private void foliageCluster(LevelAccessor world, BlockPos pos, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
+    private void foliageCluster(WorldGenLevel world, BlockPos pos, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
     {
         for (int y = 0; y < config.foliageHeight; y++)
         {
@@ -174,7 +174,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     // Examples:
     // If the third block searched is stone, return 2
     // If the first block searched is lava, return 0
-    private int checkLineAndOptionallySet(LevelAccessor world, BlockPos startPos, BlockPos endPos, boolean set, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
+    private int checkLineAndOptionallySet(WorldGenLevel world, BlockPos startPos, BlockPos endPos, boolean set, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
     {
         if (!set && Objects.equals(startPos, endPos)) {
             return -1;
@@ -245,7 +245,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
         return axis;
     }
 
-    private void makeFoliage(LevelAccessor worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
+    private void makeFoliage(WorldGenLevel worldIn, int height, BlockPos pos, List<FoliageCoordinates> coordinates, RandomSource random, FoliagePlacer.FoliageSetter leaves, BigTreeConfiguration config)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
@@ -261,7 +261,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
         return (double)localY >= (double)height * 0.2D;
     }
 
-    private void makeTrunk(LevelAccessor world, BlockPos pos, int height, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
+    private void makeTrunk(WorldGenLevel world, BlockPos pos, int height, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
     {
         this.checkLineAndOptionallySet(world, pos, pos.above(height), true, logs, config);
 
@@ -288,7 +288,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
         }
     }
 
-    private void makeBranches(LevelAccessor world, int height, BlockPos origin, List<FoliageCoordinates> coordinates, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
+    private void makeBranches(WorldGenLevel world, int height, BlockPos origin, List<FoliageCoordinates> coordinates, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
     {
         for (FoliageCoordinates coordinate : coordinates)
         {
@@ -386,7 +386,7 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
         }
     }
 
-    private int checkLocation(LevelAccessor world, BlockPos pos, int height, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
+    private int checkLocation(WorldGenLevel world, BlockPos pos, int height, BiConsumer<BlockPos, BlockState> logs, BigTreeConfiguration config)
     {
         int step = this.checkLineAndOptionallySet(world, pos, pos.above(height - 1), false, logs, config);
 

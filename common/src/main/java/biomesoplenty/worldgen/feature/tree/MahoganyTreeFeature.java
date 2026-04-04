@@ -103,7 +103,7 @@ public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguratio
         }
     }
 
-    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos start, int height, MahoganyTreeConfiguration config)
+    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos start, int height, MahoganyTreeConfiguration config)
     {
         int endHeight = height;
 
@@ -126,7 +126,7 @@ public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguratio
         generateBranch(logs, leaves, world, branchStartPos, Direction.WEST, config);
     }
 
-    private void generateBranch(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos middle, Direction direction, MahoganyTreeConfiguration config)
+    private void generateBranch(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos middle, Direction direction, MahoganyTreeConfiguration config)
     {
         BlockPos pos = middle;
         int length = 1 + world.getRandom().nextInt(2);

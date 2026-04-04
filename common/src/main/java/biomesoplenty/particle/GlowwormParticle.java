@@ -38,9 +38,9 @@ public class GlowwormParticle extends SingleQuadParticle
     }
 
     @Override
-    public int getLightColor(float p_107086_)
+    public int getLightCoords(float p_107086_)
     {
-        int i = super.getLightColor(p_107086_);
+        int i = super.getLightCoords(p_107086_);
         int j = 240;
         int k = i >> 16 & 255;
         return 240 | k << 16;

@@ -103,7 +103,7 @@ public class PineTreeFeature extends BOPTreeFeature<PineTreeConfiguration>
         }
     }
 
-    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos start, int height, PineTreeConfiguration config)
+    protected void generateTrunk(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos start, int height, PineTreeConfiguration config)
     {
         int endHeight = height;
 
@@ -191,7 +191,7 @@ public class PineTreeFeature extends BOPTreeFeature<PineTreeConfiguration>
         this.placeLeaves(world, topStartPos.offset(-1,4,0), leaves, config);
     }
 
-    private void generateBranch(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, BlockPos middle, Direction direction, int length, PineTreeConfiguration config)
+    private void generateBranch(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos middle, Direction direction, int length, PineTreeConfiguration config)
     {
         BlockPos pos = middle;
 

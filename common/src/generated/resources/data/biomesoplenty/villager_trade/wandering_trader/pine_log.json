@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "count": 8,
+    "id": "biomesoplenty:pine_log"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "minecraft:emerald"
+  }
+}

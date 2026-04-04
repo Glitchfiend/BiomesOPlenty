@@ -10,8 +10,6 @@ import glitchcore.util.Environment;
 
 public class GameplayConfig extends Config
 {
-    public boolean wanderingTraderTrades;
-
     public GameplayConfig()
     {
         super(Environment.getConfigPath().resolve(BiomesOPlenty.MOD_ID + "/gameplay.toml"));
@@ -20,6 +18,6 @@ public class GameplayConfig extends Config
     @Override
     public void load()
     {
-        wanderingTraderTrades = add("general.wandering_trader_trades", true, "Add various BOP resources to the Wandering Trader trade pool.");
+
     }
 }
