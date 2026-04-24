@@ -17,7 +17,7 @@ apply plugin: 'org.jetbrains.gradle.plugin.idea-ext'
 apply plugin: 'net.minecraftforge.gradleutils'
 
 changelog {
-    fromTag '1.0.0'
+    from '19.0.0'
 }
 
 ext {
