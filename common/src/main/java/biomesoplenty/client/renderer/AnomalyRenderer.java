@@ -43,7 +43,7 @@ public class AnomalyRenderer implements BlockEntityRenderer<AnomalyBlockEntity, 
     public void extractRenderState(AnomalyBlockEntity blockEntity, AnomalyRenderState renderState, float $$2, Vec3 $$3, @Nullable ModelFeatureRenderer.CrumblingOverlay $$4)
     {
         BlockEntityRenderState.extractBase(blockEntity, renderState, $$4);
-        renderState.state = blockEntity.getRenderState();
+        renderState.state = blockEntity.getBlockState();
         this.blockModelResolver.update(renderState.anomalyRenderState, blockEntity.getRenderState(), BLOCK_DISPLAY_CONTEXT);
     }
 
