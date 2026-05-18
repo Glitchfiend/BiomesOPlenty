@@ -154,7 +154,7 @@ public class ModClient
                 }
             ),
             BOPBlocks.FLOWER_STEM, BOPBlocks.MOSSY_BLACK_SAND, BOPBlocks.SPROUT, BOPBlocks.HIGH_GRASS, BOPBlocks.HIGH_GRASS_PLANT,
-            BOPBlocks.CLOVER, BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.BARLEY, BOPBlocks.WATERGRASS, BOPBlocks.POTTED_SPROUT);
+            BOPBlocks.HUGE_CLOVER_PETAL, BOPBlocks.BARLEY, BOPBlocks.WATERGRASS, BOPBlocks.POTTED_SPROUT);
 
         //Foliage Coloring
         event.register(List.of(BlockTintSources.foliage()),
@@ -167,7 +167,7 @@ public class ModClient
 
         //Flowerbed Coloring
         event.register(List.of(BlockTintSources.grass()),
-                BOPBlocks.WHITE_PETALS, BOPBlocks.PURPLE_WILDFLOWERS);
+                BOPBlocks.CLOVER, BOPBlocks.WHITE_PETALS, BOPBlocks.PURPLE_WILDFLOWERS);
 
         //Lily Pad Coloring
         event.register(List.of(

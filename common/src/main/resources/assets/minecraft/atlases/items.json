@@ -1,0 +1,18 @@
+{
+    "sources": [
+        {
+            "type": "minecraft:paletted_permutations",
+            "textures": [
+                "minecraft:trims/items/leggings_trim",
+                "minecraft:trims/items/chestplate_trim",
+                "minecraft:trims/items/helmet_trim",
+                "minecraft:trims/items/boots_trim"
+            ],
+            "palette_key": "minecraft:trims/color_palettes/trim_palette",
+            "permutations": {
+				"rose_quartz": "biomesoplenty:trims/color_palettes/rose_quartz",
+				"glowworm_silk": "biomesoplenty:trims/color_palettes/glowworm_silk"
+            }
+        }
+    ]
+}
