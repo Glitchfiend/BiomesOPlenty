@@ -42,37 +42,33 @@ public abstract class MixinBloodFluid
     private void updateBuffer(ByteBuffer byteBuffer, int i, Vector4f vector4f, float f, float g, float h, float j, float k, float l) {}
 
     @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
-    private void setupFog(Camera camera, int i, DeltaTracker deltaTracker, float f, ClientLevel level, CallbackInfoReturnable<Vector4f> cir)
+    private void setupFog(Camera camera, int i, DeltaTracker deltaTracker, float f, ClientLevel level, CallbackInfoReturnable<FogData> cir)
     {
         BlockPos blockPos = camera.blockPosition();
         FluidState fluidState = level.getFluidState(blockPos);
         Fluid fluid = fluidState.getType();
 
-        if(camera.position().y > blockPos.getY() + fluidState.getHeight(level, blockPos))
-        {
+        if (camera.position().y > blockPos.getY() + fluidState.getHeight(level, blockPos))
             return;
-        }
 
         if (!BOPFluids.BLOOD.isSame(fluid))
             return;
 
-        float g = deltaTracker.getGameTimeDeltaPartialTick(false);
-        Vector4f vector4f = new Vector4f(0.407F, 0.121F, 0.137F, 1.0F);
         float h = (float)(i * 16);
 
-        Entity entity = camera.entity();
         FogData fogData = new FogData();
 
         float j = Mth.clamp(h / 10.0F, 4.0F, 64.0F);
+
         fogData.renderDistanceStart = h - j;
         fogData.renderDistanceEnd = h;
         fogData.environmentalStart = 0.125F;
         fogData.environmentalEnd = 5.0F;
 
-        try (GpuBuffer.MappedView mappedView = RenderSystem.getDevice().createCommandEncoder().mapBuffer(this.regularBuffer.currentBuffer(), false, true)) {
-            this.updateBuffer(mappedView.data(), 0, vector4f, fogData.environmentalStart, fogData.environmentalEnd, fogData.renderDistanceStart, fogData.renderDistanceEnd, fogData.skyEnd, fogData.cloudEnd);
-        }
+        // These may or may not exist depending on MC version
+        fogData.skyEnd = 0.0F;
+        fogData.cloudEnd = 0.0F;
 
-        cir.setReturnValue(vector4f);
+        cir.setReturnValue(fogData);
     }
 }
