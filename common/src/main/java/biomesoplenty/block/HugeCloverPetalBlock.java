@@ -58,7 +58,7 @@ public class HugeCloverPetalBlock extends HorizontalDirectionalBlock
     }
 
     protected boolean mayPlaceOn(BlockState p_200014_1_, BlockGetter p_200014_2_, BlockPos p_200014_3_) {
-        return p_200014_1_.is(BlockTags.DIRT);
+        return p_200014_1_.is(BlockTags.SUPPORTS_VEGETATION);
     }
 
     @Override

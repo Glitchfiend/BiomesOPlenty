@@ -9,6 +9,8 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
@@ -214,9 +216,9 @@ public class HugeLilyPadBlock extends VegetationBlockBOP
     @Override
     protected boolean mayPlaceOn(BlockState p_58174_, BlockGetter p_58175_, BlockPos p_58176_)
     {
-        FluidState fluidstate = p_58175_.getFluidState(p_58176_);
-        FluidState fluidstate1 = p_58175_.getFluidState(p_58176_.above());
-        return (fluidstate.getType() == Fluids.WATER || p_58174_.getBlock() instanceof IceBlock) && fluidstate1.getType() == Fluids.EMPTY;
+        FluidState fluidState = p_58175_.getFluidState(p_58176_);
+        FluidState fluidState1 = p_58175_.getFluidState(p_58176_.above());
+        return (fluidState.is(FluidTags.SUPPORTS_LILY_PAD) || p_58174_.is(BlockTags.SUPPORTS_LILY_PAD)) && fluidState1.getType() == Fluids.EMPTY;
     }
 
     @Override

@@ -43,7 +43,7 @@ public class BigDripleafFeature extends Feature<NoneFeatureConfiguration>
         for(int j = 0; j < 32; ++j)
         {
             BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-            if (world.getBlockState(blockpos.below()).is(BlockTags.DIRT))
+            if (world.getBlockState(blockpos.below()).is(BlockTags.SUPPORTS_VEGETATION))
             {
                 int max_height = rand.nextInt(3) + 1;
                 Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);

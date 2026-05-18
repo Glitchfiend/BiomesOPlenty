@@ -51,7 +51,7 @@ public class HighGrassPlantBlock extends GrowingPlantBodyBlock
         }
         else
         {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.is(BlockTags.DIRT);
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.is(BlockTags.SUPPORTS_VEGETATION);
         }
     }
 

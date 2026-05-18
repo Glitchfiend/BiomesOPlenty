@@ -38,7 +38,7 @@ public class SmallDripleafFeature extends Feature<NoneFeatureConfiguration>
         for(int j = 0; j < 64; ++j)
         {
             BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-            if (world.getBlockState(blockpos).liquid() && world.getBlockState(blockpos.below()).is(BlockTags.DIRT))
+            if (world.getBlockState(blockpos).liquid() && world.getBlockState(blockpos.below()).is(BlockTags.SUPPORTS_VEGETATION))
             {
                 DoublePlantBlock.placeAt(world, Blocks.SMALL_DRIPLEAF.defaultBlockState().setValue(SmallDripleafBlock.FACING, Direction.Plane.HORIZONTAL.getRandomDirection(rand)), blockpos, 2);
 

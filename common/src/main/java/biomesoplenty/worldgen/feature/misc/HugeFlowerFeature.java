@@ -23,7 +23,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class HugeFlowerFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).is(BlockTags.DIRT);
+    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).is(BlockTags.SUPPORTS_VEGETATION);
     protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof VegetationBlock || world.getBlockState(pos).getBlock() instanceof VegetationBlock || world.getBlockState(pos).getBlock() == BOPBlocks.HIGH_GRASS || world.getBlockState(pos).getBlock() == BOPBlocks.HIGH_GRASS_PLANT;
 
     public HugeFlowerFeature(Codec<NoneFeatureConfiguration> deserializer)

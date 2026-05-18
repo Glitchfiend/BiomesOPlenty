@@ -99,7 +99,7 @@ public class HighGrassBlock extends GrowingPlantHeadBlock
         }
         else
         {
-            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.is(BlockTags.DIRT);
+            return block == this.getHeadBlock() || block == this.getBodyBlock() || blockstate.is(BlockTags.SUPPORTS_VEGETATION);
         }
     }
 }

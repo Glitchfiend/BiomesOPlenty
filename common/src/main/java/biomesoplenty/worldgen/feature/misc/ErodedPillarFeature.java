@@ -100,7 +100,7 @@ public class ErodedPillarFeature extends Feature<NoneFeatureConfiguration>
             {
                 this.setBlock(level, pos, Blocks.GRASS_BLOCK.defaultBlockState());
             }
-            else if (heightFromTop == height && stateBelow.is(BlockTags.DIRT) && random.nextDouble() > 0.5)
+            else if (heightFromTop == height && stateBelow.is(BlockTags.SUPPORTS_VEGETATION) && random.nextDouble() > 0.5)
             {
                 this.setBlock(level, pos, Blocks.DIRT.defaultBlockState());
             }

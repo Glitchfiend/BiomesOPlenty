@@ -45,7 +45,7 @@ public class TinyCactusBlock extends VegetationBlockBOP
     {
         BlockState groundState = worldIn.getBlockState(pos.below());
 
-        return groundState.is(BlockTags.DIRT) || groundState.is(BlockTags.SAND);
+        return groundState.is(BlockTags.SUPPORTS_VEGETATION) || groundState.is(BlockTags.SAND);
     }
 
     @Override

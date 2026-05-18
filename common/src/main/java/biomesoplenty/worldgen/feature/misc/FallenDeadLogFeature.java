@@ -139,7 +139,7 @@ public class FallenDeadLogFeature extends Feature<NoneFeatureConfiguration>
             {
                 this.setBlock(world, pos.below().relative(direction, i), Blocks.HANGING_ROOTS.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(world.isWaterAt(pos.below().relative(direction, i)))));
             }
-            if (blockBelow.is(BlockTags.DIRT))
+            if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
             {
                 super.setBlock(world, pos.below().relative(direction, i), Blocks.ROOTED_DIRT.defaultBlockState());
             }
