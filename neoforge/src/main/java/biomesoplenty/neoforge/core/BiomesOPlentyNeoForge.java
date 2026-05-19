@@ -5,10 +5,14 @@
 
 package biomesoplenty.neoforge.core;
 
+import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.init.ModClient;
 import biomesoplenty.neoforge.init.ModFluidTypes;
 import glitchcore.neoforge.GlitchCoreNeoForge;
+import net.minecraft.client.renderer.block.FluidModel;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;

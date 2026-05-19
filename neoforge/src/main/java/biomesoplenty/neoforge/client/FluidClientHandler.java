@@ -4,16 +4,20 @@
  ******************************************************************************/
 package biomesoplenty.neoforge.client;
 
+import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.neoforge.init.ModFluidTypes;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.block.FluidModel;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.environment.FogEnvironment;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import org.jetbrains.annotations.Nullable;
@@ -23,6 +27,22 @@ import org.joml.Vector4f;
 @EventBusSubscriber(modid = BiomesOPlenty.MOD_ID)
 public class FluidClientHandler
 {
+    @SubscribeEvent
+    public static void onRegisterFluidModels(RegisterFluidModelsEvent event)
+    {
+        event.register(new FluidModel.Unbaked(
+                new Material(Identifier.parse("biomesoplenty:block/blood_still")),
+                new Material(Identifier.parse("biomesoplenty:block/blood_flow")),
+                new Material(Identifier.parse("biomesoplenty:block/blood_underwater")),
+                null), BOPFluids.BLOOD, BOPFluids.FLOWING_BLOOD);
+
+        event.register(new FluidModel.Unbaked(
+                new Material(Identifier.parse("biomesoplenty:block/liquid_null_still")),
+                new Material(Identifier.parse("biomesoplenty:block/liquid_null_flow")),
+                new Material(Identifier.parse("biomesoplenty:block/liquid_null_underwater")),
+                null), BOPFluids.LIQUID_NULL, BOPFluids.FLOWING_LIQUID_NULL);
+    }
+
     @SubscribeEvent
     public static void onRegisterClientExtensions(RegisterClientExtensionsEvent event)
     {

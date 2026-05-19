@@ -166,7 +166,7 @@ public class ModClient
                 BOPBlocks.DEAD_LEAVES, BOPBlocks.DESERT_GRASS);
 
         //Flowerbed Coloring
-        event.register(List.of(BlockTintSources.grass()),
+        event.register(List.of(BlockTintSources.constant(-1), BlockTintSources.grass()),
                 BOPBlocks.CLOVER, BOPBlocks.WHITE_PETALS, BOPBlocks.PURPLE_WILDFLOWERS);
 
         //Lily Pad Coloring
@@ -175,12 +175,12 @@ public class ModClient
                 {
                     @Override
                     public int color(BlockState state) {
-                        return 7455580;
+                        return 0xFF71C11C;
                     }
 
                     @Override
                     public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                        return 2129968;
+                        return 0xFF208030;
                     }
                 }
         ),
