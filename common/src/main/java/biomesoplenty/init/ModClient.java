@@ -8,9 +8,7 @@ import biomesoplenty.api.block.BOPBlockEntities;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPWoodTypes;
 import biomesoplenty.api.entity.BOPEntities;
-import biomesoplenty.block.HangingSignBlockEntityBOP;
 import biomesoplenty.block.entity.AnomalyBlockEntity;
-import biomesoplenty.block.entity.SignBlockEntityBOP;
 import biomesoplenty.client.renderer.AnomalyRenderer;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.particle.*;
@@ -27,14 +25,10 @@ import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.block.BlockAndTintGetter;
-import net.minecraft.client.renderer.blockentity.AbstractSignRenderer;
-import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
-import net.minecraft.client.renderer.blockentity.StandingSignRenderer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -101,8 +95,6 @@ public class ModClient
     public static void registerRenderers(RegisterRenderersEvent event)
     {
         // Register block entity renderers
-        RenderHelper.registerBlockEntityRenderer((BlockEntityType<SignBlockEntityBOP>) BOPBlockEntities.SIGN, StandingSignRenderer::new);
-        RenderHelper.registerBlockEntityRenderer((BlockEntityType<HangingSignBlockEntityBOP>)BOPBlockEntities.HANGING_SIGN, HangingSignRenderer::new);
         RenderHelper.registerBlockEntityRenderer((BlockEntityType<AnomalyBlockEntity>)BOPBlockEntities.ANOMALY, AnomalyRenderer::new);
 
         // Register entity renderers

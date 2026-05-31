@@ -9,7 +9,5 @@ import net.minecraft.world.level.block.entity.SignBlockEntity;
 
 public class BOPBlockEntities
 {
-    public static BlockEntityType<?> SIGN;
-    public static BlockEntityType<?> HANGING_SIGN;
     public static BlockEntityType<?> ANOMALY;
 }
