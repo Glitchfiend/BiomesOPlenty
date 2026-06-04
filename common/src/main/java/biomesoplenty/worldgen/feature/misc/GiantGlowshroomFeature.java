@@ -66,6 +66,21 @@ public class GiantGlowshroomFeature extends Feature<NoneFeatureConfiguration>
             for (int z = -(radius-1); z <= (radius-1); z++)
             {
                 this.setBlock(world, pos.offset(x, height, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+
+                if (rand.nextInt(3) == 0)
+                {
+                    this.setBlock(world,pos.offset(x, height + 1, z), BOPBlocks.GLOWSHROOM.defaultBlockState());
+                }
+
+                if (rand.nextInt(1) == 0)
+                {
+                    int length = rand.nextInt(8);
+                    for (int i = 0; i < length; i++)
+                    {
+                        this.setBlock(world,pos.offset(x, height - 1 - i, z), BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState());
+                    }
+                    this.setBlock(world,pos.offset(x, height - 1 - length, z), BOPBlocks.GLOWWORM_SILK.defaultBlockState());
+                }
             }
         }
 
@@ -83,21 +98,81 @@ public class GiantGlowshroomFeature extends Feature<NoneFeatureConfiguration>
                     {
                         this.setBlock(world, pos.offset(x, height - 1, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.WEST, false));
                         this.setBlock(world, pos.offset(x, height - 2, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.WEST, false));
+
+                        if (rand.nextInt(3) == 0)
+                        {
+                            this.setBlock(world,pos.offset(x, height, z), BOPBlocks.GLOWSHROOM.defaultBlockState());
+                        }
+
+                        if (rand.nextInt(1) == 0)
+                        {
+                            int length = rand.nextInt(8);
+                            for (int i = 0; i < length; i++)
+                            {
+                                this.setBlock(world,pos.offset(x, height - 2 - i, z), BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState());
+                            }
+                            this.setBlock(world,pos.offset(x, height - 2 - length, z), BOPBlocks.GLOWWORM_SILK.defaultBlockState());
+                        }
                     }
                     if (x == -radius)
                     {
                         this.setBlock(world, pos.offset(x, height - 1, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.EAST, false));
                         this.setBlock(world, pos.offset(x, height - 2, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.EAST, false));
+
+                        if (rand.nextInt(3) == 0)
+                        {
+                            this.setBlock(world,pos.offset(x, height, z), BOPBlocks.GLOWSHROOM.defaultBlockState());
+                        }
+
+                        if (rand.nextInt(1) == 0)
+                        {
+                            int length = rand.nextInt(8);
+                            for (int i = 0; i < length; i++)
+                            {
+                                this.setBlock(world,pos.offset(x, height - 2 - i, z), BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState());
+                            }
+                            this.setBlock(world,pos.offset(x, height - 2 - length, z), BOPBlocks.GLOWWORM_SILK.defaultBlockState());
+                        }
                     }
                     if (z == radius)
                     {
                         this.setBlock(world, pos.offset(x, height - 1, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.NORTH, false));
                         this.setBlock(world, pos.offset(x, height - 2, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.NORTH, false));
+
+                        if (rand.nextInt(3) == 0)
+                        {
+                            this.setBlock(world,pos.offset(x, height, z), BOPBlocks.GLOWSHROOM.defaultBlockState());
+                        }
+
+                        if (rand.nextInt(1) == 0)
+                        {
+                            int length = rand.nextInt(8);
+                            for (int i = 0; i < length; i++)
+                            {
+                                this.setBlock(world,pos.offset(x, height - 2 - i, z), BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState());
+                            }
+                            this.setBlock(world,pos.offset(x, height - 2 - length, z), BOPBlocks.GLOWWORM_SILK.defaultBlockState());
+                        }
                     }
                     if (z == -radius)
                     {
                         this.setBlock(world, pos.offset(x, height - 1, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.SOUTH, false));
                         this.setBlock(world, pos.offset(x, height - 2, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.SOUTH, false));
+
+                        if (rand.nextInt(3) == 0)
+                        {
+                            this.setBlock(world,pos.offset(x, height, z), BOPBlocks.GLOWSHROOM.defaultBlockState());
+                        }
+
+                        if (rand.nextInt(1) == 0)
+                        {
+                            int length = rand.nextInt(8);
+                            for (int i = 0; i < length; i++)
+                            {
+                                this.setBlock(world,pos.offset(x, height - 2 - i, z), BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState());
+                            }
+                            this.setBlock(world,pos.offset(x, height - 2 - length, z), BOPBlocks.GLOWWORM_SILK.defaultBlockState());
+                        }
                     }
                 }
             }

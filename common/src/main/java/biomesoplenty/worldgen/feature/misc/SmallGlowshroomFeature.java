@@ -65,6 +65,21 @@ public class SmallGlowshroomFeature extends Feature<NoneFeatureConfiguration>
             for (int z = -1; z <= 1; z++)
             {
                 this.setBlock(world, pos.offset(x, height, z), BOPBlocks.GLOWSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, false));
+
+                if (rand.nextInt(6) == 0)
+                {
+                    this.setBlock(world,pos.offset(x, height + 1, z), BOPBlocks.GLOWSHROOM.defaultBlockState());
+                }
+
+                if (rand.nextInt(3) == 0)
+                {
+                    int length = rand.nextInt(2);
+                    for (int i = 0; i < length; i++)
+                    {
+                        this.setBlock(world,pos.offset(x, height - 1 - i, z), BOPBlocks.GLOWWORM_SILK_STRAND.defaultBlockState());
+                    }
+                    this.setBlock(world,pos.offset(x, height - 1 - length, z), BOPBlocks.GLOWWORM_SILK.defaultBlockState());
+                }
             }
         }
 
