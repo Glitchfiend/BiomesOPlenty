@@ -582,7 +582,16 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.EXTRA_GLOW_LICHEN);
 
         return baseBiome(0.5F, 0.5F)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x1F78B7)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x408ADA)
+            .setAttribute(EnvironmentAttributes.BLOCK_LIGHT_TINT, 0x408ADA)
+            .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.75F)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_LUSH_CAVES))
+            .specialEffects(
+                new BiomeSpecialEffects.Builder()
+                    .waterColor(0x87F9FF)
+                    .build()
+            )
             .mobSpawnSettings(spawnBuilder.build())
             .generationSettings(biomeBuilder.build()).build();
     }
