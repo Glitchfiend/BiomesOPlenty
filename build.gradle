@@ -24,7 +24,7 @@ changelog {
 
 ext {
     mod_version = gitversion.getTagOffset()
-    changelog_file = rootProject.file("build/changelog.txt")
+    changelog_file = rootProject.tasks.createChangelog.outputFile
     trimChangelog = (String text) -> {
         def m = text =~ /(?s) - (?:[0-9.]+) (.+?)(?=( - )|$)/
         return '```\n' + m[0][1].replaceAll(/(?m)^ */, '')
