@@ -9,19 +9,21 @@ buildscript {
     dependencies {
         classpath 'com.modrinth.minotaur:Minotaur:2.+'
         classpath 'gradle.plugin.org.jetbrains.gradle.plugin.idea-ext:gradle-idea-ext:1.2' // Required for NeoGradle
-        classpath 'net.minecraftforge:gradleutils:2.6.4' // Required for changelog generation
+        classpath 'net.minecraftforge.gitversion:net.minecraftforge.gitversion.gradle.plugin:3.1.7'
+        classpath 'net.minecraftforge.changelog:net.minecraftforge.changelog.gradle.plugin:3.2.2'
     }
 }
 
 apply plugin: 'org.jetbrains.gradle.plugin.idea-ext'
-apply plugin: 'net.minecraftforge.gradleutils'
+apply plugin: 'net.minecraftforge.gitversion'
+apply plugin: 'net.minecraftforge.changelog'
 
 changelog {
     from '19.0.0'
 }
 
 ext {
-    mod_version = gradleutils.getTagOffsetVersion()
+    mod_version = gitversion.getTagOffset()
     changelog_file = rootProject.file("build/changelog.txt")
     trimChangelog = (String text) -> {
         def m = text =~ /(?s) - (?:[0-9.]+) (.+?)(?=( - )|$)/
