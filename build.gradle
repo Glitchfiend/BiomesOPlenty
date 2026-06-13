@@ -52,6 +52,8 @@ subprojects {
         options.compilerArgs += ["-Xmaxerrs", "10000"]
     }
 
+    compileJava.dependsOn createChangelog
+
     version = rootProject.version
 
     jar {
