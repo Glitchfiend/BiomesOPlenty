@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "purple_dye",
   "ingredients": [
     "biomesoplenty:violet"

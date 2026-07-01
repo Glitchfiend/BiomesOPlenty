@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "shelf",
   "key": {
     "#": "biomesoplenty:stripped_hellbark_log"

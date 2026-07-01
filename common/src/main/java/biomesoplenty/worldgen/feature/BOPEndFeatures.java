@@ -17,8 +17,10 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
@@ -57,13 +59,18 @@ public class BOPEndFeatures
 
         register(context, BOPEndFeatures.ANOMALY, BOPBaseFeatures.ANOMALY, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.BARNACLES, BOPBaseFeatures.BARNACLES, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPEndFeatures.DEAD_CORAL, Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_TREE, FeatureConfiguration.NONE), PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_CLAW, FeatureConfiguration.NONE), PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_MUSHROOM, FeatureConfiguration.NONE))));
+        register(context, BOPEndFeatures.DEAD_CORAL, Feature.SIMPLE_RANDOM_SELECTOR, new CompositeFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_TREE, FeatureConfiguration.NONE), PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_CLAW, FeatureConfiguration.NONE), PlacementUtils.inlinePlaced(BOPBaseFeatures.DEAD_CORAL_MUSHROOM, FeatureConfiguration.NONE))));
         register(context, BOPEndFeatures.DEAD_CORAL_PATCH, BOPBaseFeatures.DEAD_CORAL_PATCH, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.ENDERPHYTE_BONEMEAL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDERPHYTE.defaultBlockState())));
         register(context, BOPEndFeatures.ENDSCRAPER, BOPBaseFeatures.ENDSCRAPER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.FLOWER_END_WILDS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ENDBLOOM)));
         register(context, BOPEndFeatures.JAGGED_SANDSTONE, BOPBaseFeatures.JAGGED_SANDSTONE, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPEndFeatures.LIQUID_NULL_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.LIQUID_NULL), BlockStateProvider.simple(BOPBlocks.NULL_END_STONE)));
+        register(context, BOPEndFeatures.LIQUID_NULL_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(
+                BlockStateProvider.simple(BOPBlocks.LIQUID_NULL), BlockStateProvider.simple(BOPBlocks.NULL_END_STONE),
+                BlockPredicate.alwaysTrue(),
+                BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.FEATURES_CANNOT_REPLACE)),
+                BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE))
+        ));
         register(context, BOPEndFeatures.LIQUID_NULL_SPRING, Feature.SPRING, new SpringConfiguration(BOPFluids.LIQUID_NULL.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.END_STONE, BOPBlocks.NULL_END_STONE, BOPBlocks.UNMAPPED_END_STONE)));
         register(context, BOPEndFeatures.LUMALOOP, BOPBaseFeatures.LUMALOOP, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPEndFeatures.MONOLITH, BOPBaseFeatures.MONOLITH, NoneFeatureConfiguration.INSTANCE);

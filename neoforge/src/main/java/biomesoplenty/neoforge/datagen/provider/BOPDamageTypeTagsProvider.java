@@ -9,15 +9,13 @@ import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.KeyTagProvider;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.damagesource.DamageTypes;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BOPDamageTypeTagsProvider extends KeyTagProvider<DamageType>
+public class BOPDamageTypeTagsProvider extends TagsProvider<DamageType>
 {
     public BOPDamageTypeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider)
     {

@@ -19,6 +19,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -54,6 +55,7 @@ public class BOPCaveFeatures
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context)
     {
+        HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, BOPCaveFeatures.GLOWING_GROTTO_FLOOR_PLANTS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(BOPBlocks.GLOWSHROOM.defaultBlockState(), 6).add(BOPBlocks.GLOWING_MOSS_CARPET.defaultBlockState(), 25))));
@@ -62,14 +64,14 @@ public class BOPCaveFeatures
         register(context, BOPCaveFeatures.GLOWING_GROTTO_CEILING_PLANTS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.GLOWWORM_SILK)));
         final Holder<ConfiguredFeature<?, ?>> GLOWING_GROTTO_CEILING_PLANTS = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.GLOWING_GROTTO_CEILING_PLANTS);
 
-        register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK), PlacementUtils.inlinePlaced(GLOWING_GROTTO_FLOOR_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.5F, UniformInt.of(4, 7), 0.3F));
-        register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK), PlacementUtils.inlinePlaced(GLOWING_GROTTO_FLOOR_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.4F, UniformInt.of(1, 2), 0.75F));
-        register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH_BONEMEAL_BOTTOM, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK), PlacementUtils.inlinePlaced(GLOWING_GROTTO_CEILING_PLANTS), CaveSurface.CEILING, ConstantInt.of(1), 0.0F, 5, 0.4F, UniformInt.of(1, 2), 0.75F));
+        register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(blocks.getOrThrow(BlockTags.MOSS_REPLACEABLE), BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK), PlacementUtils.inlinePlaced(GLOWING_GROTTO_FLOOR_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.5F, UniformInt.of(4, 7), 0.3F));
+        register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(blocks.getOrThrow(BlockTags.MOSS_REPLACEABLE), BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK), PlacementUtils.inlinePlaced(GLOWING_GROTTO_FLOOR_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.4F, UniformInt.of(1, 2), 0.75F));
+        register(context, BOPCaveFeatures.GLOWING_MOSS_PATCH_BONEMEAL_BOTTOM, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(blocks.getOrThrow(BlockTags.MOSS_REPLACEABLE), BlockStateProvider.simple(BOPBlocks.GLOWING_MOSS_BLOCK), PlacementUtils.inlinePlaced(GLOWING_GROTTO_CEILING_PLANTS), CaveSurface.CEILING, ConstantInt.of(1), 0.0F, 5, 0.4F, UniformInt.of(1, 2), 0.75F));
 
         register(context, BOPCaveFeatures.MUD_PLANTS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.FIREFLY_BUSH.defaultBlockState(), 6).add(BOPBlocks.GLOWING_MOSS_CARPET.defaultBlockState(), 25))));
         final Holder<ConfiguredFeature<?, ?>> MUD_PLANTS = configuredFeatureGetter.getOrThrow(BOPCaveFeatures.MUD_PLANTS);
 
-        register(context, BOPCaveFeatures.MUD_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(Blocks.MUD), PlacementUtils.inlinePlaced(MUD_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.05F, UniformInt.of(4, 7), 0.3F));
+        register(context, BOPCaveFeatures.MUD_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(blocks.getOrThrow(BlockTags.MOSS_REPLACEABLE), BlockStateProvider.simple(Blocks.MUD), PlacementUtils.inlinePlaced(MUD_PLANTS), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.05F, UniformInt.of(4, 7), 0.3F));
         register(context, BOPCaveFeatures.GLOWWORM_SILK, Feature.BLOCK_COLUMN, new BlockColumnConfiguration(List.of(BlockColumnConfiguration.layer(new WeightedListInt(WeightedList.<IntProvider>builder().add(UniformInt.of(0, 11), 2).add(UniformInt.of(0, 5), 3).add(UniformInt.of(0, 2), 10).build()), BlockStateProvider.simple(BOPBlocks.GLOWWORM_SILK_STRAND)), BlockColumnConfiguration.layer(ConstantInt.of(1), BlockStateProvider.simple(BOPBlocks.GLOWWORM_SILK))), Direction.DOWN, BlockPredicate.ONLY_IN_AIR_PREDICATE, true));
         register(context, BOPCaveFeatures.GIANT_GLOWSHROOM_CAVE, BOPBaseFeatures.GIANT_GLOWSHROOM, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPCaveFeatures.HUGE_GLOWSHROOM_CAVE, BOPBaseFeatures.HUGE_GLOWSHROOM, NoneFeatureConfiguration.INSTANCE);

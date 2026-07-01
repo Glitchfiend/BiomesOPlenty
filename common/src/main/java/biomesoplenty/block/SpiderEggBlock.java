@@ -15,6 +15,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.monster.spider.CaveSpider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -97,7 +98,7 @@ public class SpiderEggBlock extends Block
 
     public void spawnSpider(Level p_154567_, BlockPos p_154569_)
     {
-        CaveSpider spider = EntityType.CAVE_SPIDER.create(p_154567_, EntitySpawnReason.TRIGGERED);
+        CaveSpider spider = EntityTypes.CAVE_SPIDER.create(p_154567_, EntitySpawnReason.TRIGGERED);
         spider.snapTo((double)p_154569_.getX() + 0.5D, (double)p_154569_.getY(), (double)p_154569_.getZ() + 0.5D, 0.0F, 0.0F);
         p_154567_.addFreshEntity(spider);
     }

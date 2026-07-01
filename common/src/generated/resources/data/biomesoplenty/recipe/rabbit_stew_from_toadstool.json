@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "rabbit_stew",
   "ingredients": [
     "minecraft:baked_potato",

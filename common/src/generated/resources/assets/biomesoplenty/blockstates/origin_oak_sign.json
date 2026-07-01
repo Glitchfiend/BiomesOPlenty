@@ -1,7 +1,64 @@
 {
   "variants": {
-    "": {
-      "model": "biomesoplenty:block/origin_oak_sign"
+    "rotation=0": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_0"
+    },
+    "rotation=1": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_1"
+    },
+    "rotation=10": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_2",
+      "y": 180
+    },
+    "rotation=11": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_3",
+      "y": 180
+    },
+    "rotation=12": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_0",
+      "y": 270
+    },
+    "rotation=13": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_1",
+      "y": 270
+    },
+    "rotation=14": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_2",
+      "y": 270
+    },
+    "rotation=15": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_3",
+      "y": 270
+    },
+    "rotation=2": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_2"
+    },
+    "rotation=3": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_3"
+    },
+    "rotation=4": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_0",
+      "y": 90
+    },
+    "rotation=5": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_1",
+      "y": 90
+    },
+    "rotation=6": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_2",
+      "y": 90
+    },
+    "rotation=7": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_3",
+      "y": 90
+    },
+    "rotation=8": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_0",
+      "y": 180
+    },
+    "rotation=9": {
+      "model": "biomesoplenty:block/origin_oak_sign_rot_1",
+      "y": 180
     }
   }
 }

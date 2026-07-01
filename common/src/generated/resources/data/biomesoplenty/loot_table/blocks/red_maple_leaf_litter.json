@@ -2,13 +2,11 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
               "conditions": [
                 {
                   "block": "biomesoplenty:red_maple_leaf_litter",
@@ -22,7 +20,6 @@
               "function": "minecraft:set_count"
             },
             {
-              "add": false,
               "conditions": [
                 {
                   "block": "biomesoplenty:red_maple_leaf_litter",
@@ -36,7 +33,6 @@
               "function": "minecraft:set_count"
             },
             {
-              "add": false,
               "conditions": [
                 {
                   "block": "biomesoplenty:red_maple_leaf_litter",
@@ -50,7 +46,6 @@
               "function": "minecraft:set_count"
             },
             {
-              "add": false,
               "conditions": [
                 {
                   "block": "biomesoplenty:red_maple_leaf_litter",

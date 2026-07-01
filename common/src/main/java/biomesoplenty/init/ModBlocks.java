@@ -23,6 +23,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -42,14 +43,6 @@ public class ModBlocks
     public static void setup(BiConsumer<Identifier, Block> func)
     {
         registerBlocks(func);
-        registerSurfaceRules();
-    }
-
-    private static void registerSurfaceRules()
-    {
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.overworld());
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.nether());
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.end());
     }
 
     private static void registerBlocks(BiConsumer<Identifier, Block> func)
@@ -125,7 +118,7 @@ public class ModBlocks
         BRIMSTONE_CLUSTER = register(func, "brimstone_cluster", BrimstoneClusterBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).pushReaction(PushReaction.DESTROY).strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.NONE));
         BRIMSTONE_BUD = register(func, "brimstone_bud", BrimstoneBudBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).pushReaction(PushReaction.DESTROY).noCollision().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ));
         BLACKSTONE_SPINES = register(func, "blackstone_spines", BlackstoneDecorationBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.DESTROY).noCollision().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ));
-        BLACKSTONE_BULB = register(func, "blackstone_bulb", BlackstoneDecorationBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.DESTROY).noCollision().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true));
+        BLACKSTONE_BULB = register(func, "blackstone_bulb", BlackstoneDecorationBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.DESTROY).noCollision().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 2).emissiveRendering(state -> true));
 
         ROSE_QUARTZ_BLOCK = register(func, "rose_quartz_block", AmethystBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.CRIMSON_STEM).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().lightLevel((state) -> 10));
         ROSE_QUARTZ_CLUSTER = register(func, "rose_quartz_cluster", p -> new AmethystClusterBlock(7, 3, p), BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).forceSolidOn().mapColor(MapColor.CRIMSON_STEM).noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel((state) -> 8));
@@ -134,7 +127,7 @@ public class ModBlocks
         SMALL_ROSE_QUARTZ_BUD = register(func, "small_rose_quartz_bud", p -> new AmethystClusterBlock(3, 4, p), BlockBehaviour.Properties.ofFullCopy(ROSE_QUARTZ_CLUSTER).pushReaction(PushReaction.DESTROY).forceSolidOn().sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((state) -> 5));
 
         BARNACLES = register(func, "barnacles", BarnaclesBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).pushReaction(PushReaction.DESTROY).replaceable().noCollision().sound(SoundType.CORAL_BLOCK));
-        WISPJELLY = register(func, "wispjelly", WispjellyBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(MapColor.GLOW_LICHEN).noOcclusion().noCollision().sound(SoundType.CORAL_BLOCK).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).strength(0.2F).lightLevel((state) -> 1).emissiveRendering((state, world, pos) -> true));
+        WISPJELLY = register(func, "wispjelly", WispjellyBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(MapColor.GLOW_LICHEN).noOcclusion().noCollision().sound(SoundType.CORAL_BLOCK).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).strength(0.2F).lightLevel((state) -> 1).emissiveRendering(state -> true));
         //VOIDCAP = register(func, "voidcap", MushroomBlockBOP::new, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_BLACK).noCollision().instabreak().sound(SoundType.GRASS));
         //VOIDCAP_BLOCK = register(func, "voidcap_block", HugeMushroomBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.COLOR_BLACK).strength(0.2F).sound(SoundType.WOOD));
         ALGAL_END_STONE = register(func, "algal_end_stone", AlgalEndStoneBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).randomTicks().requiresCorrectToolForDrops().strength(3.0F, 9.0F));
@@ -148,11 +141,11 @@ public class ModBlocks
         TOADSTOOL = register(func, "toadstool", MushroomBlockBOP::new, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_ORANGE).noCollision().instabreak().sound(SoundType.GRASS));
         TOADSTOOL_BLOCK = register(func, "toadstool_block", HugeMushroomBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.COLOR_ORANGE).strength(0.2F).sound(SoundType.WOOD));
         GLOWSHROOM = register(func, "glowshroom", MushroomBlockBOP::new, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIAMOND).noCollision().instabreak().sound(SoundType.GRASS).lightLevel((state) -> 3));
-        GLOWSHROOM_BLOCK = register(func, "glowshroom_block", HugeMushroomBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10).emissiveRendering((state, world, pos) -> true));
+        GLOWSHROOM_BLOCK = register(func, "glowshroom_block", HugeMushroomBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.DIAMOND).strength(0.2F).sound(SoundType.WOOD).lightLevel((state) -> 10).emissiveRendering(state -> true));
         GLOWING_MOSS_BLOCK = register(func, "glowing_moss_block", GlowingMossBlock::new, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS).lightLevel((state) -> 3));
         GLOWING_MOSS_CARPET = register(func, "glowing_moss_carpet", CarpetBlock::new, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.DIAMOND).strength(0.1F).sound(SoundType.MOSS_CARPET).lightLevel((state) -> 3));
-        GLOWWORM_SILK = register(func, "glowworm_silk", GlowwormSilkBottomBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollision().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true));
-        GLOWWORM_SILK_STRAND = register(func, "glowworm_silk_strand", GlowwormSilkBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollision().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering((state, world, pos) -> true));
+        GLOWWORM_SILK = register(func, "glowworm_silk", GlowwormSilkBottomBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollision().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering(state -> true));
+        GLOWWORM_SILK_STRAND = register(func, "glowworm_silk_strand", GlowwormSilkBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollision().instabreak().sound(SoundType.WOOL).lightLevel((state) -> 2).emissiveRendering(state -> true));
 
         SPIDER_EGG = register(func, "spider_egg", SpiderEggBlock::new, BlockBehaviour.Properties.of().strength(0.1F).mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).sound(SoundType.COBWEB).lightLevel((state) -> 5));
         HANGING_COBWEB = register(func, "hanging_cobweb", HangingCobwebBottomBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollision().instabreak().sound(SoundType.COBWEB));
@@ -626,6 +619,6 @@ public class ModBlocks
     }
 
     private static Boolean ocelotOrParrot(BlockState p_50822_, BlockGetter p_50823_, BlockPos p_50824_, EntityType<?> p_50825_) {
-        return p_50825_ == EntityType.OCELOT || p_50825_ == EntityType.PARROT;
+        return p_50825_ == EntityTypes.OCELOT || p_50825_ == EntityTypes.PARROT;
     }
 }

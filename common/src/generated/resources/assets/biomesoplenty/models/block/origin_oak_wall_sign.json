@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_wall_sign",
+  "textures": {
+    "all": "biomesoplenty:block/origin_oak_sign",
+    "particle": "biomesoplenty:block/origin_oak_planks"
+  }
+}

@@ -7,17 +7,15 @@ package biomesoplenty.neoforge.datagen.provider;
 import biomesoplenty.api.entity.BOPVillagerTrades;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.KeyTagProvider;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.VillagerTradeTags;
 import net.minecraft.world.item.trading.VillagerTrade;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BOPVillagerTradesTagsProvider extends KeyTagProvider<VillagerTrade>
+public class BOPVillagerTradesTagsProvider extends TagsProvider<VillagerTrade>
 {
     public BOPVillagerTradesTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, Registries.VILLAGER_TRADE, lookupProvider, BiomesOPlenty.MOD_ID);

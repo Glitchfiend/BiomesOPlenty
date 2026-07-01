@@ -12,6 +12,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -90,7 +91,7 @@ public class FlowerBlockBOP extends FlowerBlock
     {
     	Block block = state.getBlock();
 
-        if (block == BOPBlocks.BURNING_BLOSSOM && entity.getType() != EntityType.HOGLIN && entity.getType() != EntityType.PIGLIN && entity.getType() != EntityType.PIGLIN_BRUTE)
+        if (block == BOPBlocks.BURNING_BLOSSOM && entity.getType() != EntityTypes.HOGLIN && entity.getType() != EntityTypes.PIGLIN && entity.getType() != EntityTypes.PIGLIN_BRUTE)
         {
             if (!entity.fireImmune())
             {

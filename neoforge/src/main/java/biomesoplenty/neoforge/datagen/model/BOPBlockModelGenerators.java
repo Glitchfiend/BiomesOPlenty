@@ -13,6 +13,7 @@ import net.minecraft.client.color.item.GrassColorSource;
 import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
+import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.core.Direction;
@@ -331,6 +332,13 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createTintedBlockItemModel(BOPBlocks.HUGE_CLOVER_PETAL, new GrassColorSource());
         this.createTintedBlockItemModel(BOPBlocks.HIGH_GRASS, new GrassColorSource());
         this.createTintedBlockItemModel(BOPBlocks.HUGE_LILY_PAD, ItemModelUtils.constantTint(-9321636));
+    }
+
+    public void createHangingSign(final Block particleBlock, final Block hangingSign, final Block wallHangingSign) {
+        MultiVariant model = this.createParticleOnlyBlockModel(hangingSign, particleBlock);
+        this.blockStateOutput.accept(createSimpleBlock(hangingSign, model));
+        this.blockStateOutput.accept(createSimpleBlock(wallHangingSign, model));
+        this.registerSimpleFlatItemModel(hangingSign.asItem());
     }
 
     public void createLeavesOverlay(Block block, int tint)

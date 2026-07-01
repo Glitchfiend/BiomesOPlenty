@@ -5,6 +5,7 @@
 package biomesoplenty.worldgen.feature;
 
 import biomesoplenty.core.BiomesOPlenty;
+import biomesoplenty.worldgen.BOPSurfaceRuleData;
 import biomesoplenty.worldgen.feature.configurations.*;
 import biomesoplenty.worldgen.feature.misc.*;
 import biomesoplenty.worldgen.feature.tree.*;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.LargeDripstoneConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import terrablender.api.SurfaceRuleManager;
 
 import java.util.function.BiConsumer;
 
@@ -187,6 +189,11 @@ public class BOPBaseFeatures
         BARNACLES = register(func, "barnacles", new BarnacleFeature(NoneFeatureConfiguration.CODEC));
         ERODED_PILLAR = register(func, "eroded_pillar", new ErodedPillarFeature(NoneFeatureConfiguration.CODEC));
         LAKE = register(func, "lake", new BOPLakeFeature(LakeFeature.Configuration.CODEC));
+
+        // Register surface rules
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.overworld());
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.nether());
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.end());
     }
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(BiConsumer<Identifier, Feature<?>> func, String name, F feature)

@@ -25,6 +25,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerBedBlock;
@@ -178,6 +179,8 @@ public class BOPVegetationFeatures
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context)
     {
         HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
+        HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
+        BlockStateProvider belowTrunkProvider = TreeConfiguration.defaultPlaceBelowTreeTrunkProvider(biomes);
 
         final Holder<PlacedFeature> FANCY_OAK_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.FANCY_OAK_CHECKED);
         final Holder<PlacedFeature> JUNGLE_TREE_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.JUNGLE_TREE_CHECKED);
@@ -370,7 +373,7 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_SCRUBLAND, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SPRUCE_TWIGLET_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(TALL_TWIGLET_TREE_CHECKED, 0.1F)), ACACIA_TWIGLET_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SEASONAL_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_LEAF_LITTER_CHECKED, 0.05F), new WeightedPlacedFeature(FANCY_OAK_CHECKED, 0.025F), new WeightedPlacedFeature(RED_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.2F), new WeightedPlacedFeature(YELLOW_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.3F), new WeightedPlacedFeature(BIG_RED_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_YELLOW_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_ORANGE_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.1F)), ORANGE_MAPLE_TREE_LEAF_LITTER_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.2F), new WeightedPlacedFeature(ASPEN_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(ORANGE_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_ORANGE_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.05F)), TWIGLET_TREE_CHECKED));
-        register(context, BOPVegetationFeatures.TREES_SNOWBLOSSOM_GROVE, Feature.TREE, snowblossom().build());
+        register(context, BOPVegetationFeatures.TREES_SNOWBLOSSOM_GROVE, Feature.TREE, snowblossom(belowTrunkProvider).build());
         register(context, BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(FIR_TREE_CHECKED, 0.4F)), FIR_TREE_LARGE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SNOWY_MAPLE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(BIG_RED_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.2F)), RED_MAPLE_TREE_LEAF_LITTER_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SUBTROPICS, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(WILLOW_TREE_CHECKED, 0.05F), new WeightedPlacedFeature(BIG_BIRCH_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_FLOWERING_TREE_CHECKED, 0.2F), new WeightedPlacedFeature(PALM_TWIGLET_TREE_CHECKED, 0.2F)), BIG_OAK_TREE_CHECKED));
@@ -380,8 +383,25 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_WETLAND, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(WILLOW_TREE_CHECKED, 0.25F)), TALL_SPRUCE_TREE_CHECKED));
     }
 
-    private static TreeConfiguration.TreeConfigurationBuilder snowblossom() {
-        return (new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.CHERRY_LOG), new CherryTrunkPlacer(7, 1, 0, new WeightedListInt(WeightedList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()), UniformInt.of(2, 4), UniformInt.of(-4, -3), UniformInt.of(-1, 0)), BlockStateProvider.simple(BOPBlocks.SNOWBLOSSOM_LEAVES), new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F), new TwoLayersFeatureSize(1, 0, 2))).ignoreVines();
+    private static TreeConfiguration.TreeConfigurationBuilder snowblossom(final BlockStateProvider belowTrunkProvider) {
+        return new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(Blocks.CHERRY_LOG),
+                new CherryTrunkPlacer(
+                        7,
+                        1,
+                        0,
+                        new WeightedListInt(
+                                WeightedList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()
+                        ),
+                        UniformInt.of(2, 4),
+                        UniformInt.of(-4, -3),
+                        UniformInt.of(-1, 0)
+                ),
+                BlockStateProvider.simple(BOPBlocks.SNOWBLOSSOM_LEAVES),
+                new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F),
+                new TwoLayersFeatureSize(1, 0, 2),
+                belowTrunkProvider
+        ).ignoreVines();
     }
 
 //    private static <FC extends FeatureConfiguration, F extends Feature<FC>> RandomPatchConfiguration waterPatchConfiguration(F feature, FC configuration, int tries)

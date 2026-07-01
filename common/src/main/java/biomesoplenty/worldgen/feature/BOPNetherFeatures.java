@@ -17,10 +17,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
@@ -63,6 +65,7 @@ public class BOPNetherFeatures
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context)
     {
+        HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
         HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
 
         final Holder<PlacedFeature> BIG_HELLBARK_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.BIG_HELLBARK_TREE_CHECKED);
@@ -70,7 +73,13 @@ public class BOPNetherFeatures
 
         register(context, BOPNetherFeatures.BLACKSTONE_BULB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BLACKSTONE_BULB)));
         register(context, BOPNetherFeatures.BLACKSTONE_SPINES, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BLACKSTONE_SPINES)));
-        register(context, BOPNetherFeatures.BLOOD_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BOPBlocks.BLOOD), BlockStateProvider.simple(BOPBlocks.FLESH)));
+        register(context, BOPNetherFeatures.BLOOD_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(
+                BlockStateProvider.simple(BOPBlocks.BLOOD),
+                BlockStateProvider.simple(BOPBlocks.FLESH),
+                BlockPredicate.alwaysTrue(),
+                BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.FEATURES_CANNOT_REPLACE)),
+                BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE))
+        ));
         register(context, BOPNetherFeatures.BLOOD_SPRING, Feature.SPRING, new SpringConfiguration(BOPFluids.BLOOD.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.NETHERRACK, BOPBlocks.FLESH, BOPBlocks.POROUS_FLESH)));
         register(context, BOPNetherFeatures.BRIMSTONE_BUD, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_BUD)));
         register(context, BOPNetherFeatures.BRIMSTONE_CLUSTER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_CLUSTER)));
@@ -79,11 +88,17 @@ public class BOPNetherFeatures
         register(context, BOPNetherFeatures.FLESH_TENDON, BOPBaseFeatures.FLESH_TENDON, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.HAIR, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.HAIR)));
         register(context, BOPNetherFeatures.HANGING_FLESH_TENDON, BOPBaseFeatures.HANGING_FLESH_TENDON, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPNetherFeatures.INFERNO_LAVA_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.LAVA), BlockStateProvider.simple(BOPBlocks.BRIMSTONE)));
+        register(context, BOPNetherFeatures.INFERNO_LAVA_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(
+                BlockStateProvider.simple(Blocks.LAVA),
+                BlockStateProvider.simple(BOPBlocks.BRIMSTONE),
+                BlockPredicate.alwaysTrue(),
+                BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.FEATURES_CANNOT_REPLACE)),
+                BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE))
+        ));
         register(context, BOPNetherFeatures.INFERNO_LAVA_SPRING, Feature.SPRING, new SpringConfiguration(Fluids.LAVA.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.NETHERRACK)));
         register(context, BOPNetherFeatures.INFERNO_SPLATTER, BOPBaseFeatures.INFERNO_SPLATTER, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.LARGE_FUMAROLE, BOPBaseFeatures.LARGE_FUMAROLE, NoneFeatureConfiguration.INSTANCE);
-        register(context, BOPNetherFeatures.LARGE_ROSE_QUARTZ, BOPBaseFeatures.LARGE_ROSE_QUARTZ, new LargeDripstoneConfiguration(30, UniformInt.of(3, 7), UniformFloat.of(0.3F, 1.8F), 0.33F, UniformFloat.of(0.3F, 0.9F), UniformFloat.of(0.4F, 1.0F), UniformFloat.of(0.0F, 0.3F), 4, 0.6F));
+        register(context, BOPNetherFeatures.LARGE_ROSE_QUARTZ, BOPBaseFeatures.LARGE_ROSE_QUARTZ, new LargeDripstoneConfiguration(blocks.getOrThrow(BlockTags.DRIPSTONE_REPLACEABLE),30, UniformInt.of(3, 7), UniformFloat.of(0.3F, 1.8F), 0.33F, UniformFloat.of(0.3F, 0.9F), UniformFloat.of(0.4F, 1.0F), UniformFloat.of(0.0F, 0.3F), 4, 0.6F));
         register(context, BOPNetherFeatures.NETHER_BONE_SPINE, BOPBaseFeatures.BONE_SPINE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.NETHER_BRAMBLE, BOPBaseFeatures.BRAMBLE, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.NETHER_VINES, BOPBaseFeatures.NETHER_VINES, NoneFeatureConfiguration.INSTANCE);

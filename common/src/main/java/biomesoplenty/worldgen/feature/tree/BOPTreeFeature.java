@@ -9,6 +9,7 @@ import biomesoplenty.worldgen.feature.configurations.BOPTreeConfiguration;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
@@ -116,7 +117,7 @@ public abstract class BOPTreeFeature<FC extends BOPTreeConfiguration> extends Tr
     {
         return TreeFeature.isAirOrLeaves(level, pos) || level.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
-            return state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE || block == BOPBlocks.DEAD_BRANCH || block == Blocks.MOSS_CARPET || block == BOPBlocks.SPANISH_MOSS || block instanceof VegetationBlock;
+            return state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockItemTags.SAPLINGS.block()) || block == Blocks.VINE || block == BOPBlocks.WILLOW_VINE || block == BOPBlocks.DEAD_BRANCH || block == Blocks.MOSS_CARPET || block == BOPBlocks.SPANISH_MOSS || block instanceof VegetationBlock;
         });
     }
 

@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
-      "model": "biomesoplenty:block/maple_sign"
+    "facing=east": {
+      "model": "biomesoplenty:block/maple_wall_sign",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "biomesoplenty:block/maple_wall_sign",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "biomesoplenty:block/maple_wall_sign"
+    },
+    "facing=west": {
+      "model": "biomesoplenty:block/maple_wall_sign",
+      "y": 90
     }
   }
 }

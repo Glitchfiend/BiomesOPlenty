@@ -13,7 +13,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.DripstoneThickness;
+import net.minecraft.world.level.block.state.properties.SpeleothemThickness;
 
 import java.util.function.Consumer;
 
@@ -68,19 +68,19 @@ public class RoseQuartzUtils
 
     public static void buildBaseToTipColumn(Direction p_159652_, int p_159653_, boolean p_159654_, Consumer<BlockState> p_159655_) {
         if (p_159653_ >= 3) {
-            p_159655_.accept(createPointedRoseQuartz(p_159652_, DripstoneThickness.BASE));
+            p_159655_.accept(createPointedRoseQuartz(p_159652_, SpeleothemThickness.BASE));
 
             for(int i = 0; i < p_159653_ - 3; ++i) {
-                p_159655_.accept(createPointedRoseQuartz(p_159652_, DripstoneThickness.MIDDLE));
+                p_159655_.accept(createPointedRoseQuartz(p_159652_, SpeleothemThickness.MIDDLE));
             }
         }
 
         if (p_159653_ >= 2) {
-            p_159655_.accept(createPointedRoseQuartz(p_159652_, DripstoneThickness.FRUSTUM));
+            p_159655_.accept(createPointedRoseQuartz(p_159652_, SpeleothemThickness.FRUSTUM));
         }
 
         if (p_159653_ >= 1) {
-            p_159655_.accept(createPointedRoseQuartz(p_159652_, p_159654_ ? DripstoneThickness.TIP_MERGE : DripstoneThickness.TIP));
+            p_159655_.accept(createPointedRoseQuartz(p_159652_, p_159654_ ? SpeleothemThickness.TIP_MERGE : SpeleothemThickness.TIP));
         }
 
     }
@@ -111,7 +111,7 @@ public class RoseQuartzUtils
         }
     }
 
-    public static BlockState createPointedRoseQuartz(Direction p_159657_, DripstoneThickness p_159658_)
+    public static BlockState createPointedRoseQuartz(Direction p_159657_, SpeleothemThickness p_159658_)
     {
         return Blocks.POINTED_DRIPSTONE.defaultBlockState().setValue(PointedDripstoneBlock.TIP_DIRECTION, p_159657_).setValue(PointedDripstoneBlock.THICKNESS, p_159658_);
     }

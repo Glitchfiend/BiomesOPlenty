@@ -40,7 +40,6 @@ public class ModClient
 {
     public static void setup()
     {
-        registerWoodTypes();
     }
 
     public static void addClientHandlers()
@@ -330,39 +329,5 @@ public class ModClient
                 return new NormalLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
-    }
-
-    public static void registerWoodTypes()
-    {
-        addWoodType(BOPWoodTypes.ORIGIN_OAK);
-        addWoodType(BOPWoodTypes.FIR);
-        addWoodType(BOPWoodTypes.PINE);
-        addWoodType(BOPWoodTypes.MAPLE);
-        addWoodType(BOPWoodTypes.REDWOOD);
-        addWoodType(BOPWoodTypes.MAHOGANY);
-        addWoodType(BOPWoodTypes.JACARANDA);
-        addWoodType(BOPWoodTypes.PALM);
-        addWoodType(BOPWoodTypes.WILLOW);
-        addWoodType(BOPWoodTypes.DEAD);
-        addWoodType(BOPWoodTypes.MAGIC);
-        addWoodType(BOPWoodTypes.UMBRAN);
-        addWoodType(BOPWoodTypes.HELLBARK);
-        addWoodType(BOPWoodTypes.EMPYREAL);
-    }
-
-    private static void addWoodType(WoodType woodType)
-    {
-        Sheets.SIGN_SPRITES.put(woodType, createSignSprite(woodType));
-        Sheets.HANGING_SIGN_SPRITES.put(woodType, createHangingSignSprite(woodType));
-    }
-
-    private static SpriteId createSignSprite(WoodType type)
-    {
-        return Sheets.SIGN_MAPPER.apply(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, type.name()));
-    }
-
-    private static SpriteId createHangingSignSprite(WoodType type)
-    {
-        return Sheets.HANGING_SIGN_MAPPER.apply(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, type.name()));
     }
 }

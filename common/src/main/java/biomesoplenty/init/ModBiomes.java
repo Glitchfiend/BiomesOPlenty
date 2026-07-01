@@ -8,6 +8,7 @@ import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.biome.BOPEndBiomes;
 import biomesoplenty.biome.BOPNetherBiomes;
 import biomesoplenty.biome.BOPOverworldBiomes;
+import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.worldgen.*;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import terrablender.api.EndBiomeRegistry;
 import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 public class ModBiomes
 {
@@ -43,6 +45,8 @@ public class ModBiomes
         //registerHighlandsBiome(BOPBiomes.END_MYCOSIS, 6);
         registerHighlandsBiome(BOPBiomes.END_FLATS, 4);
         registerHighlandsBiome(BOPBiomes.END_CORRUPTION, 2);
+
+
     }
 
     public static void bootstrapBiomes(BootstrapContext<Biome> context)

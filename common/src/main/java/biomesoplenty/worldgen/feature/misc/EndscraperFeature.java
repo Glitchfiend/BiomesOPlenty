@@ -122,41 +122,41 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                 //Blocks
                 if (x == 0 || x == size || z == 0 || z == size)
                 {
-                    BlockState edgeBlock = Blocks.WAXED_WEATHERED_CUT_COPPER.defaultBlockState();
-                    if (world.getRandom().nextInt(2) == 0) { edgeBlock = Blocks.WAXED_WEATHERED_COPPER.defaultBlockState(); }
+                    BlockState edgeBlock = Blocks.CUT_COPPER.waxed().weathered().defaultBlockState();
+                    if (world.getRandom().nextInt(2) == 0) { edgeBlock = Blocks.COPPER_BLOCK.waxed().weathered().defaultBlockState(); }
                     this.setBlock(world, startPos.offset(x,height,z), edgeBlock);
                 }
                 else
                 {
-                    this.setBlock(world, startPos.offset(x,height,z), Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB.defaultBlockState());
+                    this.setBlock(world, startPos.offset(x,height,z), Blocks.CUT_COPPER_SLAB.waxed().weathered().defaultBlockState());
                 }
 
                 //Bars
                 if (x == 0 && z == 0)
                 {
-                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.SOUTH, true).setValue(IronBarsBlock.EAST, true));
+                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxed().weathered().defaultBlockState().setValue(IronBarsBlock.SOUTH, true).setValue(IronBarsBlock.EAST, true));
                 }
                 else if (x == 0 && z == size)
                 {
-                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.EAST, true));
+                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxed().weathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.EAST, true));
                 }
                 else if (x == size && z == 0)
                 {
-                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.SOUTH, true).setValue(IronBarsBlock.WEST, true));
+                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxed().weathered().defaultBlockState().setValue(IronBarsBlock.SOUTH, true).setValue(IronBarsBlock.WEST, true));
                 }
                 else if (x == size && z == size)
                 {
-                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.WEST, true));
+                    this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxed().weathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.WEST, true));
                 }
                 else
                 {
                     if (x == 0 || x == size)
                     {
-                        this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.SOUTH, true));
+                        this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxed().weathered().defaultBlockState().setValue(IronBarsBlock.NORTH, true).setValue(IronBarsBlock.SOUTH, true));
                     }
                     if (z == 0 || z == size)
                     {
-                        this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxedWeathered().defaultBlockState().setValue(IronBarsBlock.EAST, true).setValue(IronBarsBlock.WEST, true));
+                        this.setBlock(world, startPos.offset(x,height+1,z), Blocks.COPPER_BARS.waxed().weathered().defaultBlockState().setValue(IronBarsBlock.EAST, true).setValue(IronBarsBlock.WEST, true));
                     }
                 }
             }
@@ -174,8 +174,8 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
         {
             for (int z = 0; z <= size; z++)
             {
-                BlockState separatorBlock = Blocks.WAXED_WEATHERED_CUT_COPPER.defaultBlockState();
-                if (world.getRandom().nextInt(2) == 0) { separatorBlock = Blocks.WAXED_WEATHERED_COPPER.defaultBlockState(); }
+                BlockState separatorBlock = Blocks.CUT_COPPER.waxed().weathered().defaultBlockState();
+                if (world.getRandom().nextInt(2) == 0) { separatorBlock = Blocks.COPPER_BLOCK.waxed().weathered().defaultBlockState(); }
                 this.setBlock(world, pos.offset(x,0,z), separatorBlock);
             }
         }
@@ -197,9 +197,9 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                         if ((z % 3 == 1 || z % 3 == 2))
                         {
                             //Bottom Window
-                            if (y % 3 == 1) { wallBlock = Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.WEST).setValue(TrapDoorBlock.HALF, Half.BOTTOM).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
+                            if (y % 3 == 1) { wallBlock = Blocks.COPPER_TRAPDOOR.waxed().weathered().defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.WEST).setValue(TrapDoorBlock.HALF, Half.BOTTOM).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
                             //Top Window
-                            else if (y % 3 == 2) { wallBlock = Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.WEST).setValue(TrapDoorBlock.HALF, Half.TOP).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
+                            else if (y % 3 == 2) { wallBlock = Blocks.COPPER_TRAPDOOR.waxed().weathered().defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.WEST).setValue(TrapDoorBlock.HALF, Half.TOP).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
                             //Wall
                             else if (world.getRandom().nextInt(5) == 0) { wallBlock = Blocks.END_STONE.defaultBlockState(); }
                             else { wallBlock = Blocks.END_STONE_BRICKS.defaultBlockState(); }
@@ -216,9 +216,9 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                         if ((z % 3 == 1 || z % 3 == 2))
                         {
                             //Bottom Window
-                            if (y % 3 == 1) { wallBlock = Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.EAST).setValue(TrapDoorBlock.HALF, Half.BOTTOM).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
+                            if (y % 3 == 1) { wallBlock = Blocks.COPPER_TRAPDOOR.waxed().weathered().defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.EAST).setValue(TrapDoorBlock.HALF, Half.BOTTOM).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
                             //Top Window
-                            else if (y % 3 == 2) { wallBlock = Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.EAST).setValue(TrapDoorBlock.HALF, Half.TOP).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
+                            else if (y % 3 == 2) { wallBlock = Blocks.COPPER_TRAPDOOR.waxed().weathered().defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.EAST).setValue(TrapDoorBlock.HALF, Half.TOP).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
                             //Wall
                             else if (world.getRandom().nextInt(5) == 0) { wallBlock = Blocks.END_STONE.defaultBlockState(); }
                             else { wallBlock = Blocks.END_STONE_BRICKS.defaultBlockState(); }
@@ -235,9 +235,9 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                         if ((x % 3 == 1 || x % 3 == 2))
                         {
                             //Bottom Window
-                            if (y % 3 == 1) { wallBlock = Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.NORTH).setValue(TrapDoorBlock.HALF, Half.BOTTOM).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
+                            if (y % 3 == 1) { wallBlock = Blocks.COPPER_TRAPDOOR.waxed().weathered().defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.NORTH).setValue(TrapDoorBlock.HALF, Half.BOTTOM).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
                             //Top Window
-                            else if (y % 3 == 2) { wallBlock = Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.NORTH).setValue(TrapDoorBlock.HALF, Half.TOP).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
+                            else if (y % 3 == 2) { wallBlock = Blocks.COPPER_TRAPDOOR.waxed().weathered().defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.NORTH).setValue(TrapDoorBlock.HALF, Half.TOP).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
                             //Wall
                             else if (world.getRandom().nextInt(5) == 0) { wallBlock = Blocks.END_STONE.defaultBlockState(); }
                             else { wallBlock = Blocks.END_STONE_BRICKS.defaultBlockState(); }
@@ -254,9 +254,9 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                         if ((x % 3 == 1 || x % 3 == 2))
                         {
                             //Bottom Window
-                            if (y % 3 == 1) { wallBlock = Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.SOUTH).setValue(TrapDoorBlock.HALF, Half.BOTTOM).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
+                            if (y % 3 == 1) { wallBlock = Blocks.COPPER_TRAPDOOR.waxed().weathered().defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.SOUTH).setValue(TrapDoorBlock.HALF, Half.BOTTOM).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
                             //Top Window
-                            else if (y % 3 == 2) { wallBlock = Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR.defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.SOUTH).setValue(TrapDoorBlock.HALF, Half.TOP).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
+                            else if (y % 3 == 2) { wallBlock = Blocks.COPPER_TRAPDOOR.waxed().weathered().defaultBlockState().setValue(TrapDoorBlock.FACING, Direction.SOUTH).setValue(TrapDoorBlock.HALF, Half.TOP).setValue(TrapDoorBlock.OPEN, !windowsOpen); }
                             //Wall
                             else if (world.getRandom().nextInt(5) == 0) { wallBlock = Blocks.END_STONE.defaultBlockState(); }
                             else { wallBlock = Blocks.END_STONE_BRICKS.defaultBlockState(); }
@@ -288,7 +288,7 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                     int chainHeight = world.getRandom().nextInt(roomHeight);
                     for (int y = 0; y < chainHeight; y++)
                     {
-                        this.setBlock(world, pos.offset(x,(roomHeight-1)-y,z), Blocks.COPPER_CHAIN.waxedWeathered().defaultBlockState());
+                        this.setBlock(world, pos.offset(x,(roomHeight-1)-y,z), Blocks.COPPER_CHAIN.waxed().weathered().defaultBlockState());
                     }
                 }
             }
@@ -305,7 +305,7 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
             {
                 if ((x % 3 == 1 || x % 3 == 2) && (z % 3 == 1 || z % 3 == 2))
                 {
-                    this.setBlock(world, pos.offset(x,(roomHeight-1),z), Blocks.WAXED_WEATHERED_CHISELED_COPPER.defaultBlockState());
+                    this.setBlock(world, pos.offset(x,(roomHeight-1),z), Blocks.CHISELED_COPPER.waxed().weathered().defaultBlockState());
                 }
                 if (x % 3 == 0 && z % 3 == 0)
                 {
@@ -316,8 +316,8 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
                     if (world.getRandom().nextInt(2) == 0) { hingeSide = DoorHingeSide.RIGHT; }
                     if (world.getRandom().nextInt(2) == 0) { open = true; }
 
-                    this.setBlock(world, pos.offset(x,1,z), Blocks.WAXED_WEATHERED_COPPER_DOOR.defaultBlockState().setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER).setValue(DoorBlock.FACING, direction).setValue(DoorBlock.HINGE, hingeSide).setValue(DoorBlock.OPEN, open));
-                    this.setBlock(world, pos.offset(x,2,z), Blocks.WAXED_WEATHERED_COPPER_DOOR.defaultBlockState().setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER).setValue(DoorBlock.FACING, direction).setValue(DoorBlock.HINGE, hingeSide).setValue(DoorBlock.OPEN, open));
+                    this.setBlock(world, pos.offset(x,1,z), Blocks.COPPER_DOOR.waxed().weathered().defaultBlockState().setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER).setValue(DoorBlock.FACING, direction).setValue(DoorBlock.HINGE, hingeSide).setValue(DoorBlock.OPEN, open));
+                    this.setBlock(world, pos.offset(x,2,z), Blocks.COPPER_DOOR.waxed().weathered().defaultBlockState().setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER).setValue(DoorBlock.FACING, direction).setValue(DoorBlock.HINGE, hingeSide).setValue(DoorBlock.OPEN, open));
                 }
             }
         }
@@ -366,7 +366,7 @@ public class EndscraperFeature extends Feature<NoneFeatureConfiguration>
             {
                 if (x == 1 || x == (size-1) || z == 1 || z == (size-1))
                 {
-                    this.setBlock(world, pos.offset(x,1,z), Blocks.WAXED_WEATHERED_COPPER_GRATE.defaultBlockState().setValue(WaterloggedTransparentBlock.WATERLOGGED, true));
+                    this.setBlock(world, pos.offset(x,1,z), Blocks.COPPER_GRATE.waxed().weathered().defaultBlockState().setValue(WaterloggedTransparentBlock.WATERLOGGED, true));
                 }
                 else
                 {

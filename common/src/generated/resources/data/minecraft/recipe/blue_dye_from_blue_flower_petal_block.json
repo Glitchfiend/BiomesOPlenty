@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "blue_dye",
   "ingredients": [
     "biomesoplenty:blue_flower_petal_block"

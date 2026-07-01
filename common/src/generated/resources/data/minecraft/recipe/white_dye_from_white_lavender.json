@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "white_dye",
   "ingredients": [
     "biomesoplenty:white_lavender"

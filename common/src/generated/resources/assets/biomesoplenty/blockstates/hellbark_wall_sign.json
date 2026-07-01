@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
-      "model": "biomesoplenty:block/hellbark_sign"
+    "facing=east": {
+      "model": "biomesoplenty:block/hellbark_wall_sign",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "biomesoplenty:block/hellbark_wall_sign",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "biomesoplenty:block/hellbark_wall_sign"
+    },
+    "facing=west": {
+      "model": "biomesoplenty:block/hellbark_wall_sign",
+      "y": 90
     }
   }
 }

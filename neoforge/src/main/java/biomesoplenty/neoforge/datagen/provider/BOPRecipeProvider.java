@@ -16,10 +16,12 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SuspiciousEffectHolder;
 
@@ -242,47 +244,47 @@ public class BOPRecipeProvider extends RecipeProvider
         this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, 12).define('#', BOPBlocks.YELLOW_MAPLE_LEAVES).pattern("###").unlockedBy("has_yellow_maple_leaves", has(BOPBlocks.YELLOW_MAPLE_LEAVES)).save(output);
 
         // Dyes
-        oneToOneConversionRecipe(Items.BROWN_DYE, BOPBlocks.CATTAIL, "brown_dye", 2);
-        oneToOneConversionRecipe(Items.CYAN_DYE, BOPBlocks.GLOWFLOWER, "cyan_dye");
-        oneToOneConversionRecipe(Items.GRAY_DYE, BOPBlocks.WILTED_LILY, "gray_dye");
-        oneToOneConversionRecipe(Items.LIGHT_BLUE_DYE, BOPBlocks.BLUE_HYDRANGEA, "light_blue_dye", 2);
-        oneToOneConversionRecipe(Items.LIGHT_BLUE_DYE, BOPBlocks.ICY_IRIS, "light_blue_dye", 2);
-        oneToOneConversionRecipe(Items.LIGHT_GRAY_DYE, BOPBlocks.ENDBLOOM, "light_gray_dye");
-        oneToOneConversionRecipe(Items.MAGENTA_DYE, BOPBlocks.PURPLE_WILDFLOWERS, "magenta_dye");
-        oneToOneConversionRecipe(Items.ORANGE_DYE, BOPBlocks.BURNING_BLOSSOM, "orange_dye");
-        oneToOneConversionRecipe(Items.ORANGE_DYE, BOPBlocks.ORANGE_COSMOS, "orange_dye");
-        oneToOneConversionRecipe(Items.ORANGE_DYE, BOPBlocks.MARIGOLD, "orange_dye");
-        oneToOneConversionRecipe(Items.PINK_DYE, BOPBlocks.PINK_DAFFODIL, "pink_dye");
-        oneToOneConversionRecipe(Items.PINK_DYE, BOPBlocks.PINK_HIBISCUS, "pink_dye");
-        oneToOneConversionRecipe(Items.PURPLE_DYE, BOPBlocks.LAVENDER, "purple_dye");
-        oneToOneConversionRecipe(Items.PURPLE_DYE, BOPBlocks.TALL_LAVENDER, "purple_dye", 2);
-        oneToOneConversionRecipe(Items.PURPLE_DYE, BOPBlocks.VIOLET, "purple_dye");
-        oneToOneConversionRecipe(Items.RED_DYE, BOPBlocks.ORIGIN_ROSE, "red_dye");
-        oneToOneConversionRecipe(Items.RED_DYE, BOPBlocks.WATERLILY, "red_dye");
-        oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.WHITE_LAVENDER, "white_dye");
-        oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.TALL_WHITE_LAVENDER, "white_dye", 2);
-        oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.WHITE_PETALS, "white_dye");
-        oneToOneConversionRecipe(Items.YELLOW_DYE, BOPBlocks.ORIGIN_DANDELION, "yellow_dye");
-        oneToOneConversionRecipe(Items.YELLOW_DYE, BOPBlocks.GOLDENROD, "yellow_dye", 2);
+        oneToOneConversionRecipe(Items.DYE.brown(), BOPBlocks.CATTAIL, "brown_dye", 2);
+        oneToOneConversionRecipe(Items.DYE.cyan(), BOPBlocks.GLOWFLOWER, "cyan_dye");
+        oneToOneConversionRecipe(Items.DYE.gray(), BOPBlocks.WILTED_LILY, "gray_dye");
+        oneToOneConversionRecipe(Items.DYE.lightBlue(), BOPBlocks.BLUE_HYDRANGEA, "light_blue_dye", 2);
+        oneToOneConversionRecipe(Items.DYE.lightBlue(), BOPBlocks.ICY_IRIS, "light_blue_dye", 2);
+        oneToOneConversionRecipe(Items.DYE.lightGray(), BOPBlocks.ENDBLOOM, "light_gray_dye");
+        oneToOneConversionRecipe(Items.DYE.magenta(), BOPBlocks.PURPLE_WILDFLOWERS, "magenta_dye");
+        oneToOneConversionRecipe(Items.DYE.orange(), BOPBlocks.BURNING_BLOSSOM, "orange_dye");
+        oneToOneConversionRecipe(Items.DYE.orange(), BOPBlocks.ORANGE_COSMOS, "orange_dye");
+        oneToOneConversionRecipe(Items.DYE.orange(), BOPBlocks.MARIGOLD, "orange_dye");
+        oneToOneConversionRecipe(Items.DYE.pink(), BOPBlocks.PINK_DAFFODIL, "pink_dye");
+        oneToOneConversionRecipe(Items.DYE.pink(), BOPBlocks.PINK_HIBISCUS, "pink_dye");
+        oneToOneConversionRecipe(Items.DYE.purple(), BOPBlocks.LAVENDER, "purple_dye");
+        oneToOneConversionRecipe(Items.DYE.purple(), BOPBlocks.TALL_LAVENDER, "purple_dye", 2);
+        oneToOneConversionRecipe(Items.DYE.purple(), BOPBlocks.VIOLET, "purple_dye");
+        oneToOneConversionRecipe(Items.DYE.red(), BOPBlocks.ORIGIN_ROSE, "red_dye");
+        oneToOneConversionRecipe(Items.DYE.red(), BOPBlocks.WATERLILY, "red_dye");
+        oneToOneConversionRecipe(Items.DYE.white(), BOPBlocks.WHITE_LAVENDER, "white_dye");
+        oneToOneConversionRecipe(Items.DYE.white(), BOPBlocks.TALL_WHITE_LAVENDER, "white_dye", 2);
+        oneToOneConversionRecipe(Items.DYE.white(), BOPBlocks.WHITE_PETALS, "white_dye");
+        oneToOneConversionRecipe(Items.DYE.yellow(), BOPBlocks.ORIGIN_DANDELION, "yellow_dye");
+        oneToOneConversionRecipe(Items.DYE.yellow(), BOPBlocks.GOLDENROD, "yellow_dye", 2);
 
-        oneToOneConversionRecipe(Items.WHITE_DYE, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK, "white_dye", 4);
-        oneToOneConversionRecipe(Items.LIGHT_GRAY_DYE, BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK, "light_gray_dye", 4);
-        oneToOneConversionRecipe(Items.GRAY_DYE, BOPBlocks.GRAY_FLOWER_PETAL_BLOCK, "gray_dye", 4);
-        oneToOneConversionRecipe(Items.BLACK_DYE, BOPBlocks.BLACK_FLOWER_PETAL_BLOCK, "black_dye", 4);
-        oneToOneConversionRecipe(Items.BROWN_DYE, BOPBlocks.BROWN_FLOWER_PETAL_BLOCK, "brown_dye", 4);
-        oneToOneConversionRecipe(Items.RED_DYE, BOPBlocks.RED_FLOWER_PETAL_BLOCK, "red_dye", 4);
-        oneToOneConversionRecipe(Items.ORANGE_DYE, BOPBlocks.ORANGE_FLOWER_PETAL_BLOCK, "orange_dye", 4);
-        oneToOneConversionRecipe(Items.YELLOW_DYE, BOPBlocks.YELLOW_FLOWER_PETAL_BLOCK, "yellow_dye", 4);
-        oneToOneConversionRecipe(Items.LIME_DYE, BOPBlocks.LIME_FLOWER_PETAL_BLOCK, "lime_dye", 4);
-        oneToOneConversionRecipe(Items.GREEN_DYE, BOPBlocks.GREEN_FLOWER_PETAL_BLOCK, "green_dye", 4);
-        oneToOneConversionRecipe(Items.CYAN_DYE, BOPBlocks.CYAN_FLOWER_PETAL_BLOCK, "cyan_dye", 4);
-        oneToOneConversionRecipe(Items.LIGHT_BLUE_DYE, BOPBlocks.LIGHT_BLUE_FLOWER_PETAL_BLOCK, "light_blue_dye", 4);
-        oneToOneConversionRecipe(Items.BLUE_DYE, BOPBlocks.BLUE_FLOWER_PETAL_BLOCK, "blue_dye", 4);
-        oneToOneConversionRecipe(Items.PURPLE_DYE, BOPBlocks.PURPLE_FLOWER_PETAL_BLOCK, "purple_dye", 4);
-        oneToOneConversionRecipe(Items.MAGENTA_DYE, BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK, "magenta_dye", 4);
-        oneToOneConversionRecipe(Items.PINK_DYE, BOPBlocks.PINK_FLOWER_PETAL_BLOCK, "pink_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.white(), BOPBlocks.WHITE_FLOWER_PETAL_BLOCK, "white_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.lightGray(), BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK, "light_gray_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.gray(), BOPBlocks.GRAY_FLOWER_PETAL_BLOCK, "gray_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.black(), BOPBlocks.BLACK_FLOWER_PETAL_BLOCK, "black_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.brown(), BOPBlocks.BROWN_FLOWER_PETAL_BLOCK, "brown_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.red(), BOPBlocks.RED_FLOWER_PETAL_BLOCK, "red_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.orange(), BOPBlocks.ORANGE_FLOWER_PETAL_BLOCK, "orange_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.yellow(), BOPBlocks.YELLOW_FLOWER_PETAL_BLOCK, "yellow_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.lime(), BOPBlocks.LIME_FLOWER_PETAL_BLOCK, "lime_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.green(), BOPBlocks.GREEN_FLOWER_PETAL_BLOCK, "green_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.cyan(), BOPBlocks.CYAN_FLOWER_PETAL_BLOCK, "cyan_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.lightBlue(), BOPBlocks.LIGHT_BLUE_FLOWER_PETAL_BLOCK, "light_blue_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.blue(), BOPBlocks.BLUE_FLOWER_PETAL_BLOCK, "blue_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.purple(), BOPBlocks.PURPLE_FLOWER_PETAL_BLOCK, "purple_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.magenta(), BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK, "magenta_dye", 4);
+        oneToOneConversionRecipe(Items.DYE.pink(), BOPBlocks.PINK_FLOWER_PETAL_BLOCK, "pink_dye", 4);
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.TINY_CACTUS.asItem()), RecipeCategory.MISC, CookingBookCategory.BLOCKS, Items.GREEN_DYE, 1.0F, 200).unlockedBy("has_tiny_cactus", has(BOPBlocks.TINY_CACTUS)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Items.GREEN_DYE, BOPBlocks.TINY_CACTUS));
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BOPBlocks.TINY_CACTUS.asItem()), RecipeCategory.MISC, CookingBookCategory.BLOCKS, Items.DYE.green(), 1.0F, 200).unlockedBy("has_tiny_cactus", has(BOPBlocks.TINY_CACTUS)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Items.DYE.green(), BOPBlocks.TINY_CACTUS));
 
         // Vanilla Parity Recipes
         this.shapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.MOSSY_COBBLESTONE).requires(Blocks.COBBLESTONE).requires(BOPBlocks.WILLOW_VINE).group("mossy_cobblestone").unlockedBy("has_willow_vine", has(BOPBlocks.WILLOW_VINE)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(Blocks.MOSSY_COBBLESTONE, BOPBlocks.WILLOW_VINE));
@@ -329,6 +331,11 @@ public class BOPRecipeProvider extends RecipeProvider
 
     protected void oneToOneConversionRecipe(RecipeOutput p_301230_, ItemLike p_176558_, ItemLike p_176559_, @Nullable String p_176560_, int p_176561_) {
         this.shapeless(RecipeCategory.MISC, p_176558_, p_176561_).requires(p_176559_).group(p_176560_).unlockedBy(getHasName(p_176559_), has(p_176559_)).save(p_301230_, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(p_176558_, p_176559_));
+    }
+
+    protected void hangingSign(Item sign, Block ingredient)
+    {
+        hangingSignBuilder(sign, Ingredient.of(ingredient));
     }
 
     public static class Runner extends RecipeProvider.Runner

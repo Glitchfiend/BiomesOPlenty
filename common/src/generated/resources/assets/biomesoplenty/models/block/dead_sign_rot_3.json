@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_3",
+  "textures": {
+    "all": "biomesoplenty:block/dead_sign",
+    "particle": "biomesoplenty:block/dead_planks"
+  }
+}

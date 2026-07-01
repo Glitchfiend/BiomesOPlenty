@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
-      "model": "biomesoplenty:block/fir_sign"
+    "facing=east": {
+      "model": "biomesoplenty:block/fir_wall_sign",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "biomesoplenty:block/fir_wall_sign",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "biomesoplenty:block/fir_wall_sign"
+    },
+    "facing=west": {
+      "model": "biomesoplenty:block/fir_wall_sign",
+      "y": 90
     }
   }
 }

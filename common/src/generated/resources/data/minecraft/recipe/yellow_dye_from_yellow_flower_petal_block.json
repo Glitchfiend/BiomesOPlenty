@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "yellow_dye",
   "ingredients": [
     "biomesoplenty:yellow_flower_petal_block"
