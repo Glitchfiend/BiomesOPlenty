@@ -190,10 +190,7 @@ public class BOPBaseFeatures
         ERODED_PILLAR = register(func, "eroded_pillar", new ErodedPillarFeature(NoneFeatureConfiguration.CODEC));
         LAKE = register(func, "lake", new BOPLakeFeature(LakeFeature.Configuration.CODEC));
 
-        // Register surface rules
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.overworld());
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.nether());
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData.end());
+
     }
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(BiConsumer<Identifier, Feature<?>> func, String name, F feature)

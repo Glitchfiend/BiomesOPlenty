@@ -66,9 +66,8 @@ public class BOPSurfaceRuleData
         return SurfaceRules.state(p_194811_.defaultBlockState());
     }
 
-    public static SurfaceRules.RuleSource overworld()
+    public static SurfaceRules.RuleSource overworld(HolderGetter<Biome> biomes)
     {
-        HolderGetter<Biome> biomes = VanillaRegistries.createLookup().lookupOrThrow(Registries.BIOME);
         SurfaceRules.RuleSource surfaceRules = SurfaceRules.sequence(
             makeBOPOverworldRules(biomes));
 
@@ -81,9 +80,8 @@ public class BOPSurfaceRuleData
         }));
     }
 
-    public static SurfaceRules.RuleSource nether()
+    public static SurfaceRules.RuleSource nether(HolderGetter<Biome> biomes)
     {
-        HolderGetter<Biome> biomes = VanillaRegistries.createLookup().lookupOrThrow(Registries.BIOME);
         SurfaceRules.ConditionSource surfacerules$conditionsource1 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(32), 0);
         SurfaceRules.ConditionSource isTop5Blocks = SurfaceRules.yBlockCheck(VerticalAnchor.belowTop(5), 0);
         SurfaceRules.ConditionSource isHole = SurfaceRules.hole();
@@ -338,9 +336,8 @@ public class BOPSurfaceRuleData
         );
     }
 
-    public static SurfaceRules.RuleSource end()
+    public static SurfaceRules.RuleSource end(HolderGetter<Biome> biomes)
     {
-        HolderGetter<Biome> biomes = VanillaRegistries.createLookup().lookupOrThrow(Registries.BIOME);
         SurfaceRules.RuleSource whiteSandstoneLining = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, WHITE_SANDSTONE), WHITE_SAND);
 
         return SurfaceRules.sequence(

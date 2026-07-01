@@ -9,6 +9,7 @@ import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.item.StringyCobwebBlockItem;
+import biomesoplenty.worldgen.BOPSurfaceRuleData;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import terrablender.api.SurfaceRuleManager;
 
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -101,6 +103,12 @@ public class ModItems
         HELLBARK_CHEST_BOAT = registerItem(func, "hellbark_chest_boat", (properties) -> new BoatItem(BOPEntities.HELLBARK_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
         EMPYREAL_BOAT = registerItem(func, "empyreal_boat", (properties) -> new BoatItem(BOPEntities.EMPYREAL_BOAT, properties), new Item.Properties().stacksTo(1));
         EMPYREAL_CHEST_BOAT = registerItem(func, "empyreal_chest_boat", (properties) -> new BoatItem(BOPEntities.EMPYREAL_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
+
+
+        // Register surface rules
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData::overworld);
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData::nether);
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData::end);
     }
 
     public static void registerBlockItems(BiConsumer<Identifier, Item> func)
