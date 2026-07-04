@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_orpiment_bricks": {
+    "has_orpiment": {
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:orpiment_bricks"
+            "items": "biomesoplenty:orpiment"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:chiseled_orpiment_from_orpiment_bricks_stonecutting"
+        "recipe": "minecraft:polished_orpiment_from_orpiment_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_orpiment_bricks"
+      "has_orpiment"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:chiseled_orpiment_from_orpiment_bricks_stonecutting"
+      "minecraft:polished_orpiment_from_orpiment_stonecutting"
     ]
   }
 }

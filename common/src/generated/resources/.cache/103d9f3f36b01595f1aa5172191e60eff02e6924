@@ -1,4 +1,4 @@
-// 26.2	2026-07-03T23:18:33.7615132	Registries
+// 26.2	2026-07-04T11:40:43.6742787	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -105,7 +105,7 @@ a9384a46bbfbdd27a46dafec1fe0b81808e049bc data/biomesoplenty/worldgen/biome/fores
 69f01567fd160d97fe8daa9109b47982a5a7f8ae data/biomesoplenty/worldgen/biome/glowing_grotto.json
 051c5cea85fda2b4a40fbd0916a9aca1aab95720 data/biomesoplenty/worldgen/biome/gravel_beach.json
 6936a9e04e1469d723dbd9a6508e3793f6f072c7 data/biomesoplenty/worldgen/biome/highland.json
-4d0f501fe6b0155637589c899106d7a9bb66ddc1 data/biomesoplenty/worldgen/biome/hot_springs.json
+be4c9d53d3bcd7a0e5d783a41172a854cd3b34ff data/biomesoplenty/worldgen/biome/hot_springs.json
 9c69bef3593f7c028381f724b88c8748ca46f59a data/biomesoplenty/worldgen/biome/jade_cliffs.json
 7d6b86297189fc2987aba93fdb98a73b754cdf09 data/biomesoplenty/worldgen/biome/lavender_field.json
 e14766b7a0dc701e9dbf8d46c0069832a4246a96 data/biomesoplenty/worldgen/biome/lush_desert.json

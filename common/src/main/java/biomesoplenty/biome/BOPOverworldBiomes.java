@@ -686,7 +686,7 @@ public class BOPOverworldBiomes
 
         return baseBiome(0.17F, 0.5F)
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 270131)
-            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC))
+            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_SULFUR_CAVES))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
                     .waterColor(4445678)

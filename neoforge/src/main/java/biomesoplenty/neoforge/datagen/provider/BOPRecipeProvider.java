@@ -210,6 +210,7 @@ public class BOPRecipeProvider extends RecipeProvider
         wall(RecipeCategory.DECORATIONS, BOPBlocks.SPHALERITE_WALL, BOPBlocks.SPHALERITE);
         stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.SPHALERITE_WALL, BOPBlocks.SPHALERITE);
         this.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_SPHALERITE, 4).define('#', BOPBlocks.SPHALERITE).pattern("##").pattern("##").unlockedBy("has_sphalerite", has(BOPBlocks.SPHALERITE)).save(output);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_SPHALERITE, BOPBlocks.SPHALERITE);
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_SPHALERITE_SLAB, Ingredient.of(BOPBlocks.POLISHED_SPHALERITE)).unlockedBy("has_polished_sphalerite", has(BOPBlocks.POLISHED_SPHALERITE)).save(output);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_SPHALERITE_SLAB, BOPBlocks.SPHALERITE, 2);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_SPHALERITE_SLAB, BOPBlocks.POLISHED_SPHALERITE, 2);
@@ -235,7 +236,6 @@ public class BOPRecipeProvider extends RecipeProvider
         stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.SPHALERITE_BRICK_WALL, BOPBlocks.SPHALERITE);
         stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.SPHALERITE_BRICK_WALL, BOPBlocks.POLISHED_SPHALERITE);
         chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_SPHALERITE, Ingredient.of(BOPBlocks.SPHALERITE_SLAB)).unlockedBy("has_sphalerite_slab", has(BOPBlocks.SPHALERITE_SLAB)).unlockedBy("has_chiseled_sphalerite", has(BOPBlocks.CHISELED_SPHALERITE)).save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_SPHALERITE, BOPBlocks.SPHALERITE_BRICKS);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_SPHALERITE, BOPBlocks.SPHALERITE);
         this.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POTENT_SPHALERITE, 1).define('#', BOPBlocks.SPHALERITE).pattern("###").pattern("###").pattern("###").unlockedBy("has_sphalerite", has(BOPBlocks.SPHALERITE)).save(output);
 
@@ -247,6 +247,7 @@ public class BOPRecipeProvider extends RecipeProvider
         wall(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_WALL, BOPBlocks.ORPIMENT);
         stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_WALL, BOPBlocks.ORPIMENT);
         this.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_ORPIMENT, 4).define('#', BOPBlocks.ORPIMENT).pattern("##").pattern("##").unlockedBy("has_orpiment", has(BOPBlocks.ORPIMENT)).save(output);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_ORPIMENT, BOPBlocks.ORPIMENT);
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_ORPIMENT_SLAB, Ingredient.of(BOPBlocks.POLISHED_ORPIMENT)).unlockedBy("has_polished_orpiment", has(BOPBlocks.POLISHED_ORPIMENT)).save(output);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_ORPIMENT_SLAB, BOPBlocks.ORPIMENT, 2);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.POLISHED_ORPIMENT_SLAB, BOPBlocks.POLISHED_ORPIMENT, 2);
@@ -272,7 +273,6 @@ public class BOPRecipeProvider extends RecipeProvider
         stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_BRICK_WALL, BOPBlocks.ORPIMENT);
         stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_BRICK_WALL, BOPBlocks.POLISHED_ORPIMENT);
         chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_ORPIMENT, Ingredient.of(BOPBlocks.ORPIMENT_SLAB)).unlockedBy("has_orpiment_slab", has(BOPBlocks.ORPIMENT_SLAB)).unlockedBy("has_chiseled_orpiment", has(BOPBlocks.CHISELED_ORPIMENT)).save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_ORPIMENT, BOPBlocks.ORPIMENT_BRICKS);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_ORPIMENT, BOPBlocks.ORPIMENT);
 
         this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_CLUSTER, 2).define('#', BOPBlocks.ORPIMENT).pattern("#").pattern("#").unlockedBy("has_orpiment", has(BOPBlocks.ORPIMENT)).save(output);

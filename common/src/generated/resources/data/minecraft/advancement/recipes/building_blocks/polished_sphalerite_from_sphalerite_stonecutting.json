@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sphalerite_bricks": {
+    "has_sphalerite": {
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:sphalerite_bricks"
+            "items": "biomesoplenty:sphalerite"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:chiseled_sphalerite_from_sphalerite_bricks_stonecutting"
+        "recipe": "minecraft:polished_sphalerite_from_sphalerite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_sphalerite_bricks"
+      "has_sphalerite"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:chiseled_sphalerite_from_sphalerite_bricks_stonecutting"
+      "minecraft:polished_sphalerite_from_sphalerite_stonecutting"
     ]
   }
 }

@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "biomesoplenty:orpiment_bricks",
-  "result": {
-    "id": "biomesoplenty:chiseled_orpiment"
-  }
-}

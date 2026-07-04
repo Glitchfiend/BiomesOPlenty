@@ -4,7 +4,7 @@
       "default": {
         "max_delay": 24000,
         "min_delay": 12000,
-        "sound": "biomesoplenty:music.overworld.nostalgic"
+        "sound": "minecraft:music.overworld.sulfur_caves"
       }
     },
     "minecraft:visual/sky_color": "#7ea2ff",
