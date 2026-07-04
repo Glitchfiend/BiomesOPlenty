@@ -153,7 +153,7 @@ public class ModItems
         DRIED_SALT = registerBlock(func, BOPBlocks.DRIED_SALT);
 
         SPHALERITE = registerBlock(func, BOPBlocks.SPHALERITE);
-        SPHALERITE_VENT = registerBlock(func, BOPBlocks.SPHALERITE_VENT);
+        POTENT_SPHALERITE = registerBlock(func, BOPBlocks.POTENT_SPHALERITE);
         ORPIMENT = registerBlock(func, BOPBlocks.ORPIMENT);
         ORPIMENT_BRICKS = registerBlock(func, BOPBlocks.ORPIMENT_BRICKS);
         ORPIMENT_BRICK_STAIRS = registerBlock(func, BOPBlocks.ORPIMENT_BRICK_STAIRS);

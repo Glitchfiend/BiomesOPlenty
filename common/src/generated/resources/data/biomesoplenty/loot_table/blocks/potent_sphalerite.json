@@ -10,11 +10,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomesoplenty:sphalerite_vent"
+          "name": "biomesoplenty:potent_sphalerite"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "biomesoplenty:blocks/sphalerite_vent"
+  "random_sequence": "biomesoplenty:blocks/potent_sphalerite"
 }

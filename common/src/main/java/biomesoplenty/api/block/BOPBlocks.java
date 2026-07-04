@@ -46,7 +46,7 @@ public class BOPBlocks
     public static Block DRIED_SALT;
 
     public static Block SPHALERITE;
-    public static Block SPHALERITE_VENT;
+    public static Block POTENT_SPHALERITE;
     public static Block ORPIMENT;
     public static Block ORPIMENT_BRICKS;
     public static Block ORPIMENT_BRICK_SLAB;

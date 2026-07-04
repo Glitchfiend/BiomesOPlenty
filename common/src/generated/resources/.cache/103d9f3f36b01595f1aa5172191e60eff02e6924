@@ -1,4 +1,4 @@
-// 26.2	2026-07-03T22:11:34.406587	Registries
+// 26.2	2026-07-03T23:18:33.7615132	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -555,7 +555,7 @@ f224153d2c13903c8fd8c9452dd95f782b108935 data/biomesoplenty/worldgen/placed_feat
 9c3010687c7b3846afe910505d7d12e465357d57 data/biomesoplenty/worldgen/placed_feature/flower_scrubland.json
 90507a548299944d9ba789aa68a9d0781dbb339b data/biomesoplenty/worldgen/placed_feature/flower_seasonal_forest.json
 c43fa34e0c83edb249576c000fb350593eb11102 data/biomesoplenty/worldgen/placed_feature/flower_shrubland.json
-acb375612f5a491785e4b06d533c4a4a97d618b1 data/biomesoplenty/worldgen/placed_feature/flower_snowblossom_grove.json
+23586fb17d08ee45e6427ab3a1157dcafcd84ee4 data/biomesoplenty/worldgen/placed_feature/flower_snowblossom_grove.json
 5d17bf870ea5c9916fcf38a0d613960d551f0bb9 data/biomesoplenty/worldgen/placed_feature/flower_snowy.json
 ad9c791298ca47c806cfbafca2bb68fb424c4a7b data/biomesoplenty/worldgen/placed_feature/flower_subtropics.json
 2d87a27d59e83ac694d34a35d84fc48cd40b5b6e data/biomesoplenty/worldgen/placed_feature/flower_tropics.json

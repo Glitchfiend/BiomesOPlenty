@@ -65,7 +65,7 @@ public class ModLegacy
         remap("mud_brick_wall", Blocks.MUD_BRICK_WALL);
         //Thermal Calcite and Brimstone
         remap("thermal_calcite", BOPBlocks.SPHALERITE);
-        remap("thermal_calcite_vent", BOPBlocks.SPHALERITE_VENT);
+        remap("thermal_calcite_vent", BOPBlocks.POTENT_SPHALERITE);
         remap("brimstone", BOPBlocks.ORPIMENT);
         remap("brimstone_bricks", BOPBlocks.ORPIMENT_BRICKS);
         remap("brimstone_brick_slab", BOPBlocks.ORPIMENT_BRICK_SLAB);

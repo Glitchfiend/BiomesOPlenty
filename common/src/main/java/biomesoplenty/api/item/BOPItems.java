@@ -48,7 +48,7 @@ public class BOPItems
     public static Item DRIED_SALT;
 
     public static Item SPHALERITE;
-    public static Item SPHALERITE_VENT;
+    public static Item POTENT_SPHALERITE;
     public static Item ORPIMENT;
     public static Item ORPIMENT_BRICKS;
     public static Item ORPIMENT_BRICK_SLAB;

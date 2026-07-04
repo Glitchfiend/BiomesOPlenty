@@ -37,7 +37,7 @@ public class HotSpringVentFeature extends Feature<NoneFeatureConfiguration>
             BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
             if (world.getBlockState(blockpos).getBlock() == Blocks.WATER && world.getBlockState(blockpos.below()).getBlock() == BOPBlocks.SPHALERITE)
             {
-                world.setBlock(blockpos.below(), BOPBlocks.SPHALERITE_VENT.defaultBlockState(), 2);
+                world.setBlock(blockpos.below(), BOPBlocks.POTENT_SPHALERITE.defaultBlockState(), 2);
 
                 ++i;
             }

@@ -9,7 +9,6 @@ import net.minecraft.client.particle.*;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.material.Fluids;
 
 public class SteamParticle extends SingleQuadParticle
 {

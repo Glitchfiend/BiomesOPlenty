@@ -1,4 +1,4 @@
-// 26.2	2026-07-03T21:59:51.8527186	Loot Tables
+// 26.2	2026-07-03T23:31:19.0350204	Loot Tables
 d1d5d18fa9c50b48b27ec58b02a582367005a891 data/biomesoplenty/loot_table/blocks/algal_end_stone.json
 b2caaa75afd5cbb3243564b75579d4bcffccfeaf data/biomesoplenty/loot_table/blocks/anomaly.json
 1d64138cf51d514b6335bcc65f5f8824273d0fd4 data/biomesoplenty/loot_table/blocks/barley.json
@@ -279,6 +279,7 @@ c360095df06349099e26170f12553d210781e865 data/biomesoplenty/loot_table/blocks/pi
 63cbd246211da69d9c8c305001dff592b1ee35e6 data/biomesoplenty/loot_table/blocks/pink_flower_petal_block.json
 52595375452051dd208ab477de384cfbc5603dcd data/biomesoplenty/loot_table/blocks/pink_hibiscus.json
 7c18c19127e34e79c84c2b969aec5e1fa3810617 data/biomesoplenty/loot_table/blocks/porous_flesh.json
+a57fc541e42dd1d083cf751e559007a26ee38dc7 data/biomesoplenty/loot_table/blocks/potent_sphalerite.json
 8ba672a977f012d007077d8a037ef8c6e724b36e data/biomesoplenty/loot_table/blocks/potted_burning_blossom.json
 b4eba1462234a38ea3ada7f4109c9282a9b1b792 data/biomesoplenty/loot_table/blocks/potted_cypress_sapling.json
 0b667b675a3ccf8c8449fa0f5c67080bb8659105 data/biomesoplenty/loot_table/blocks/potted_dead_sapling.json
@@ -358,7 +359,6 @@ efee4a236a980cc36173ebef6170d8e686cf7936 data/biomesoplenty/loot_table/blocks/sm
 8a3570a774db6447bb5af2fd41035b7d3c350628 data/biomesoplenty/loot_table/blocks/spanish_moss.json
 14fd558308fdddda1e2546a204bfd21cdfd2a0a5 data/biomesoplenty/loot_table/blocks/spanish_moss_plant.json
 818bbb81de35ef0de93a535580c96503374e9434 data/biomesoplenty/loot_table/blocks/sphalerite.json
-cd6700b55d2122cde10da82c8130da4a44b165ba data/biomesoplenty/loot_table/blocks/sphalerite_vent.json
 ad8f805c3f5dcb2a3588373bf34941f04b8ffffd data/biomesoplenty/loot_table/blocks/spider_egg.json
 65af60953b47acee91042ea2297507c47a6471d4 data/biomesoplenty/loot_table/blocks/sprout.json
 0a1164031c540e8afa5793d7944789e73ddf0856 data/biomesoplenty/loot_table/blocks/stringy_cobweb.json

@@ -14,9 +14,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 
-public class SphaleriteVentBlock extends SphaleriteBlock
+public class PotentSphaleriteBlock extends SphaleriteBlock
 {
-    public SphaleriteVentBlock(Properties properties)
+    public PotentSphaleriteBlock(Properties properties)
     {
         super(properties);
     }

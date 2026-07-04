@@ -94,7 +94,7 @@ public class ModBlocks
         DRIED_SALT = register(func, "dried_salt", DriedSaltBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL)));
 
         SPHALERITE = register(func, "sphalerite", SphaleriteBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
-        SPHALERITE_VENT = register(func, "sphalerite_vent", SphaleriteVentBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
+        POTENT_SPHALERITE = register(func, "potent_sphalerite", PotentSphaleriteBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
         ORPIMENT = register(func, "orpiment", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(0.5F));
         ORPIMENT_BRICKS = register(func, "orpiment_bricks", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
         ORPIMENT_BRICK_STAIRS = register(func, "orpiment_brick_stairs", p -> new StairBlock(ORPIMENT_BRICKS.defaultBlockState(), p), Block.Properties.ofFullCopy(ORPIMENT_BRICKS));

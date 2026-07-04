@@ -97,19 +97,12 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.BLACK_SANDSTONE_WALL);
 
         // Misc Terrain Blocks
-        this.dropSelf(BOPBlocks.SPHALERITE);
-        this.dropSelf(BOPBlocks.SPHALERITE_VENT);
         this.dropSelf(BOPBlocks.DRIED_SALT);
 
-        // Flesh Blocks
-        this.dropSelf(BOPBlocks.FLESH);
-        this.dropSelf(BOPBlocks.POROUS_FLESH);
-        this.addStrandPlantDropTable(BOPBlocks.FLESH_TENDONS, BOPBlocks.FLESH_TENDONS_STRAND);
-        this.add(BOPBlocks.EYEBULB, (p_250741_) -> { return this.createSinglePropConditionTable(p_250741_, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER); });
-        this.add(BOPBlocks.HAIR, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
-        this.dropWhenSilkTouch(BOPBlocks.PUS_BUBBLE);
+        // Sphalerite and Orpiment
+        this.dropSelf(BOPBlocks.SPHALERITE);
+        this.dropSelf(BOPBlocks.POTENT_SPHALERITE);
 
-        // Orpiment
         this.dropSelf(BOPBlocks.ORPIMENT);
         this.dropSelf(BOPBlocks.ORPIMENT_BRICKS);
         this.add(BOPBlocks.ORPIMENT_BRICK_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
@@ -119,6 +112,15 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_FUMAROLE);
         this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_CLUSTER);
         this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_BUD);
+
+
+        // Flesh Blocks
+        this.dropSelf(BOPBlocks.FLESH);
+        this.dropSelf(BOPBlocks.POROUS_FLESH);
+        this.addStrandPlantDropTable(BOPBlocks.FLESH_TENDONS, BOPBlocks.FLESH_TENDONS_STRAND);
+        this.add(BOPBlocks.EYEBULB, (p_250741_) -> { return this.createSinglePropConditionTable(p_250741_, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER); });
+        this.add(BOPBlocks.HAIR, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
+        this.dropWhenSilkTouch(BOPBlocks.PUS_BUBBLE);
 
         this.dropWhenSilkTouch(BOPBlocks.BLACKSTONE_SPINES);
         this.dropWhenSilkTouch(BOPBlocks.BLACKSTONE_BULB);
