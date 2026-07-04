@@ -4,7 +4,7 @@
     "half_height": 1,
     "radius": {
       "type": "minecraft:uniform",
-      "max_inclusive": 2,
+      "max_inclusive": 3,
       "min_inclusive": 1
     },
     "state_provider": {
@@ -12,7 +12,7 @@
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "biomesoplenty:thermal_calcite"
+          "Name": "minecraft:sulfur"
         }
       },
       "rules": []
@@ -35,8 +35,7 @@
         "minecraft:smooth_basalt",
         "minecraft:calcite",
         "minecraft:cinnabar",
-        "biomesoplenty:brimstone",
-        "minecraft:sulfur"
+        "biomesoplenty:brimstone"
       ]
     }
   }

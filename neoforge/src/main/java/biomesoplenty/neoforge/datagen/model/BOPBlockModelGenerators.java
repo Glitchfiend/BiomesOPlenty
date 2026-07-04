@@ -213,12 +213,12 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createRotatedVariantBlock(BOPBlocks.ORANGE_SAND);
         this.createRotatedVariantBlock(BOPBlocks.BLACK_SAND);
 
-        this.createRotatedVariantBlock(BOPBlocks.BRIMSTONE);
+        this.createTrivialCube(BOPBlocks.THERMAL_CALCITE);
+        this.createTrivialCube(BOPBlocks.THERMAL_CALCITE_VENT);
+        this.createTrivialCube(BOPBlocks.BRIMSTONE);
         this.createTrivialCube(BOPBlocks.ROSE_QUARTZ_BLOCK);
         this.createTrivialCube(BOPBlocks.WISPJELLY);
         this.createRotatedVariantBlock(BOPBlocks.DRIED_SALT);
-        this.registerSimpleItemModel(BOPBlocks.THERMAL_CALCITE, ModelLocationUtils.getModelLocation(BOPBlocks.THERMAL_CALCITE, "_inventory"));
-        this.registerSimpleItemModel(BOPBlocks.THERMAL_CALCITE_VENT, ModelLocationUtils.getModelLocation(BOPBlocks.THERMAL_CALCITE_VENT, "_inventory"));
 
         this.createMushroomBlock(BOPBlocks.TOADSTOOL_BLOCK);
         this.createMushroomBlockWithInside(BOPBlocks.GLOWSHROOM_BLOCK);

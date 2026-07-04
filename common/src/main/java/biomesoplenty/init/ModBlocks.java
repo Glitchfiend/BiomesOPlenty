@@ -91,13 +91,8 @@ public class ModBlocks
         CUT_BLACK_SANDSTONE_SLAB = register(func, "cut_black_sandstone_slab", SlabBlock::new, Block.Properties.ofFullCopy(CUT_BLACK_SANDSTONE));
         CHISELED_BLACK_SANDSTONE = register(func, "chiseled_black_sandstone", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(0.8F));
 
-        MapColor tc1 = MapColor.GOLD;
-        MapColor tc2 = MapColor.COLOR_YELLOW;
-        MapColor tc3 = MapColor.COLOR_ORANGE;
-        MapColor tc4 = MapColor.TERRACOTTA_ORANGE;
-        MapColor tc5 = MapColor.TERRACOTTA_RED;
-        THERMAL_CALCITE = register(func, "thermal_calcite", ThermalCalciteBlock::new, BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(ThermalCalciteBlock.DISTANCE) == 1 ? tc1 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 2 ? tc2 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 3 ? tc3 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 4 ? tc4 : tc5).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
-        THERMAL_CALCITE_VENT = register(func, "thermal_calcite_vent", ThermalCalciteVentBlock::new, BlockBehaviour.Properties.of().mapColor((blockState) -> blockState.getValue(ThermalCalciteBlock.DISTANCE) == 1 ? tc1 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 2 ? tc2 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 3 ? tc3 : blockState.getValue(ThermalCalciteBlock.DISTANCE) == 4 ? tc4 : tc5).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
+        THERMAL_CALCITE = register(func, "thermal_calcite", ThermalCalciteBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
+        THERMAL_CALCITE_VENT = register(func, "thermal_calcite_vent", ThermalCalciteVentBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
         DRIED_SALT = register(func, "dried_salt", DriedSaltBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL)));
 
         FLESH = register(func, "flesh", FleshBlock::new, BlockBehaviour.Properties.of().randomTicks().mapColor(MapColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL)));

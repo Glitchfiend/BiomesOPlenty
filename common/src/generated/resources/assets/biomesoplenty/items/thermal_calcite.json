@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "biomesoplenty:block/thermal_calcite_inventory"
+    "model": "biomesoplenty:block/thermal_calcite"
   }
 }
