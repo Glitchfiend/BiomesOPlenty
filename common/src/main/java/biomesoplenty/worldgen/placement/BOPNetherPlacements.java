@@ -29,8 +29,8 @@ public class BOPNetherPlacements
     public static final ResourceKey<PlacedFeature> BLACKSTONE_SPINES = BOPPlacementUtils.createKey("blackstone_spines");
     public static final ResourceKey<PlacedFeature> BLOOD_LAKE = BOPPlacementUtils.createKey("blood_lake");
     public static final ResourceKey<PlacedFeature> BLOOD_SPRING = BOPPlacementUtils.createKey("blood_spring");
-    public static final ResourceKey<PlacedFeature> BRIMSTONE_BUD = BOPPlacementUtils.createKey("brimstone_bud");
-    public static final ResourceKey<PlacedFeature> BRIMSTONE_CLUSTER = BOPPlacementUtils.createKey("brimstone_cluster");
+    public static final ResourceKey<PlacedFeature> ORPIMENT_BUD = BOPPlacementUtils.createKey("orpiment_bud");
+    public static final ResourceKey<PlacedFeature> ORPIMENT_CLUSTER = BOPPlacementUtils.createKey("orpiment_cluster");
     public static final ResourceKey<PlacedFeature> DEAD_GRASS_45 = BOPPlacementUtils.createKey("dead_grass_45");
     public static final ResourceKey<PlacedFeature> EYEBULB = BOPPlacementUtils.createKey("eyebulb");
     public static final ResourceKey<PlacedFeature> FLESH_TENDON = BOPPlacementUtils.createKey("flesh_tendon");
@@ -61,8 +61,8 @@ public class BOPNetherPlacements
         final Holder<ConfiguredFeature<?, ?>> BLACKSTONE_SPINES = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.BLACKSTONE_SPINES);
         final Holder<ConfiguredFeature<?, ?>> BLOOD_LAKE = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.BLOOD_LAKE);
         final Holder<ConfiguredFeature<?, ?>> BLOOD_SPRING = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.BLOOD_SPRING);
-        final Holder<ConfiguredFeature<?, ?>> BRIMSTONE_BUD = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.BRIMSTONE_BUD);
-        final Holder<ConfiguredFeature<?, ?>> BRIMSTONE_CLUSTER = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.BRIMSTONE_CLUSTER);
+        final Holder<ConfiguredFeature<?, ?>> ORPIMENT_BUD = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.ORPIMENT_BUD);
+        final Holder<ConfiguredFeature<?, ?>> ORPIMENT_CLUSTER = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.ORPIMENT_CLUSTER);
         final Holder<ConfiguredFeature<?, ?>> DEAD_GRASS = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.DEAD_GRASS);
         final Holder<ConfiguredFeature<?, ?>> EYEBULB = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.EYEBULB);
         final Holder<ConfiguredFeature<?, ?>> FLESH_TENDON = configuredFeatureGetter.getOrThrow(BOPNetherFeatures.FLESH_TENDON);
@@ -89,8 +89,8 @@ public class BOPNetherPlacements
         register(context, BOPNetherPlacements.BLACKSTONE_SPINES, BLACKSTONE_SPINES, Util.copyAndAdd(netherSquaredWithCount(100), new PlacementModifier[]{CountPlacement.of(96), RandomOffsetPlacement.ofTriangle(7, 3), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)}));
         register(context, BOPNetherPlacements.BLOOD_LAKE, BLOOD_LAKE, List.of(CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
         register(context, BOPNetherPlacements.BLOOD_SPRING, BLOOD_SPRING, List.of(CountPlacement.of(12), InSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
-        register(context, BOPNetherPlacements.BRIMSTONE_BUD, BRIMSTONE_BUD, Util.copyAndAdd(netherSquaredWithCount(175), new PlacementModifier[]{CountPlacement.of(96), RandomOffsetPlacement.ofTriangle(7, 3), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)}));
-        register(context, BOPNetherPlacements.BRIMSTONE_CLUSTER, BRIMSTONE_CLUSTER, Util.copyAndAdd(netherSquaredWithCount(14), new PlacementModifier[]{CountPlacement.of(96), RandomOffsetPlacement.ofTriangle(7, 3), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)}));
+        register(context, BOPNetherPlacements.ORPIMENT_BUD, ORPIMENT_BUD, Util.copyAndAdd(netherSquaredWithCount(175), new PlacementModifier[]{CountPlacement.of(96), RandomOffsetPlacement.ofTriangle(7, 3), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)}));
+        register(context, BOPNetherPlacements.ORPIMENT_CLUSTER, ORPIMENT_CLUSTER, Util.copyAndAdd(netherSquaredWithCount(14), new PlacementModifier[]{CountPlacement.of(96), RandomOffsetPlacement.ofTriangle(7, 3), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)}));
         register(context, BOPNetherPlacements.DEAD_GRASS_45, DEAD_GRASS, Util.copyAndAdd(netherSquaredWithCount(45), new PlacementModifier[]{CountPlacement.of(96), RandomOffsetPlacement.ofTriangle(7, 3), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)}));
         register(context, BOPNetherPlacements.EYEBULB, EYEBULB, Util.copyAndAdd(nether1010SquaredWithCount(3), new PlacementModifier[]{CountPlacement.of(96), RandomOffsetPlacement.ofTriangle(7, 3), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)}));
         register(context, BOPNetherPlacements.FLESH_TENDON, FLESH_TENDON, List.of(CountPlacement.of(50), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));

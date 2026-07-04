@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "biomesoplenty:brimstone_bricks",
-  "result": {
-    "id": "biomesoplenty:brimstone_brick_wall"
-  }
-}

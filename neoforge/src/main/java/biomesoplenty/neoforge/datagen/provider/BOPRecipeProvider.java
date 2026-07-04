@@ -202,26 +202,26 @@ public class BOPRecipeProvider extends RecipeProvider
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_BLACK_SANDSTONE_SLAB, BOPBlocks.SMOOTH_BLACK_SANDSTONE, 2);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.SMOOTH_BLACK_SANDSTONE_STAIRS, BOPBlocks.SMOOTH_BLACK_SANDSTONE);
 
-        // Brimstone
-        chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_BRIMSTONE_BRICKS, Ingredient.of(BOPBlocks.BRIMSTONE_BRICK_SLAB)).unlockedBy("has_brimstone_bricks", has(BOPBlocks.BRIMSTONE_BRICKS)).unlockedBy("has_chiseled_brimstone_bricks", has(BOPBlocks.CHISELED_BRIMSTONE_BRICKS)).save(output);
-        this.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICKS, 4).define('#', BOPBlocks.BRIMSTONE).pattern("##").pattern("##").unlockedBy("has_brimstone", has(BOPBlocks.BRIMSTONE)).save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICKS, BOPBlocks.BRIMSTONE);
-        slabBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_SLAB, Ingredient.of(BOPBlocks.BRIMSTONE_BRICKS)).unlockedBy("has_brimstone_bricks", has(BOPBlocks.BRIMSTONE_BRICKS)).save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_SLAB, BOPBlocks.BRIMSTONE_BRICKS, 2);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_SLAB, BOPBlocks.BRIMSTONE, 2);
-        stairBuilder(BOPBlocks.BRIMSTONE_BRICK_STAIRS, Ingredient.of(BOPBlocks.BRIMSTONE_BRICKS)).unlockedBy("has_brimstone_bricks", has(BOPBlocks.BRIMSTONE_BRICKS)).save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_STAIRS, BOPBlocks.BRIMSTONE_BRICKS);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.BRIMSTONE_BRICK_STAIRS, BOPBlocks.BRIMSTONE);
-        wall(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BRICK_WALL, BOPBlocks.BRIMSTONE_BRICKS);
-        stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BRICK_WALL, BOPBlocks.BRIMSTONE_BRICKS);
-        stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BRICK_WALL, BOPBlocks.BRIMSTONE);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_BRIMSTONE_BRICKS, BOPBlocks.BRIMSTONE_BRICKS);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_BRIMSTONE_BRICKS, BOPBlocks.BRIMSTONE);
-        this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_CLUSTER, 2).define('#', BOPBlocks.BRIMSTONE).pattern("#").pattern("#").unlockedBy("has_brimstone", has(BOPBlocks.BRIMSTONE)).save(output);
-        stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_CLUSTER, BOPBlocks.BRIMSTONE, 2);
-        this.shapeless(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BUD, 4).requires(BOPBlocks.BRIMSTONE).unlockedBy("has_brimstone", has(BOPBlocks.BRIMSTONE)).save(output);
-        stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_BUD, BOPBlocks.BRIMSTONE, 4);
-        this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.BRIMSTONE_FUMAROLE).define('#', BOPBlocks.BRIMSTONE).define('F', Items.FIRE_CHARGE).pattern(" # ").pattern("#F#").pattern("###").unlockedBy("has_brimstone", has(BOPBlocks.BRIMSTONE)).save(output);
+        // Orpiment
+        chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_ORPIMENT, Ingredient.of(BOPBlocks.ORPIMENT_BRICK_SLAB)).unlockedBy("has_orpiment_bricks", has(BOPBlocks.ORPIMENT_BRICKS)).unlockedBy("has_chiseled_orpiment", has(BOPBlocks.CHISELED_ORPIMENT)).save(output);
+        this.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORPIMENT_BRICKS, 4).define('#', BOPBlocks.ORPIMENT).pattern("##").pattern("##").unlockedBy("has_orpiment", has(BOPBlocks.ORPIMENT)).save(output);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORPIMENT_BRICKS, BOPBlocks.ORPIMENT);
+        slabBuilder(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORPIMENT_BRICK_SLAB, Ingredient.of(BOPBlocks.ORPIMENT_BRICKS)).unlockedBy("has_orpiment_bricks", has(BOPBlocks.ORPIMENT_BRICKS)).save(output);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORPIMENT_BRICK_SLAB, BOPBlocks.ORPIMENT_BRICKS, 2);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORPIMENT_BRICK_SLAB, BOPBlocks.ORPIMENT, 2);
+        stairBuilder(BOPBlocks.ORPIMENT_BRICK_STAIRS, Ingredient.of(BOPBlocks.ORPIMENT_BRICKS)).unlockedBy("has_orpiment_bricks", has(BOPBlocks.ORPIMENT_BRICKS)).save(output);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORPIMENT_BRICK_STAIRS, BOPBlocks.ORPIMENT_BRICKS);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ORPIMENT_BRICK_STAIRS, BOPBlocks.ORPIMENT);
+        wall(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_BRICK_WALL, BOPBlocks.ORPIMENT_BRICKS);
+        stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_BRICK_WALL, BOPBlocks.ORPIMENT_BRICKS);
+        stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_BRICK_WALL, BOPBlocks.ORPIMENT);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_ORPIMENT, BOPBlocks.ORPIMENT_BRICKS);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.CHISELED_ORPIMENT, BOPBlocks.ORPIMENT);
+        this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_CLUSTER, 2).define('#', BOPBlocks.ORPIMENT).pattern("#").pattern("#").unlockedBy("has_orpiment", has(BOPBlocks.ORPIMENT)).save(output);
+        stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_CLUSTER, BOPBlocks.ORPIMENT, 2);
+        this.shapeless(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_BUD, 4).requires(BOPBlocks.ORPIMENT).unlockedBy("has_orpiment", has(BOPBlocks.ORPIMENT)).save(output);
+        stonecutterResultFromBase(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_BUD, BOPBlocks.ORPIMENT, 4);
+        this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.ORPIMENT_FUMAROLE).define('#', BOPBlocks.ORPIMENT).define('F', Items.FIRE_CHARGE).pattern(" # ").pattern("#F#").pattern("###").unlockedBy("has_orpiment", has(BOPBlocks.ORPIMENT)).save(output);
 
         // Blackstone Decorations
         this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.BLACKSTONE_BULB, 2).define('#', Blocks.BLACKSTONE).define('O', Blocks.CRYING_OBSIDIAN).pattern("O").pattern("#").unlockedBy("has_blackstone", has(Blocks.BLACKSTONE)).save(output);

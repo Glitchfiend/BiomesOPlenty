@@ -19,8 +19,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class LargeFumaroleFeature extends Feature<NoneFeatureConfiguration>
 {
-    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE;
-    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_CLUSTER;
+    protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == BOPBlocks.ORPIMENT;
+    protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ORPIMENT_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.ORPIMENT_CLUSTER;
 
     public LargeFumaroleFeature(Codec<NoneFeatureConfiguration> deserializer)
     {
@@ -58,7 +58,7 @@ public class LargeFumaroleFeature extends Feature<NoneFeatureConfiguration>
                         {
                             for (int y = 0; y <= height; y++)
                             {
-                                this.setBlock(world, pos.offset(x, y, z), BOPBlocks.BRIMSTONE.defaultBlockState());
+                                this.setBlock(world, pos.offset(x, y, z), BOPBlocks.ORPIMENT.defaultBlockState());
                             }
                         }
 
@@ -66,20 +66,20 @@ public class LargeFumaroleFeature extends Feature<NoneFeatureConfiguration>
                         {
                             if (height > -1)
                             {
-                                this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.BRIMSTONE_BUD.defaultBlockState());
+                                this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.ORPIMENT_BUD.defaultBlockState());
                             }
                         }
                         else
                         {
-                            this.setBlock(world, pos.offset(x, -1, z), BOPBlocks.BRIMSTONE.defaultBlockState());
-                            this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.BRIMSTONE.defaultBlockState());
-                            this.setBlock(world, pos.offset(x, height+2, z), BOPBlocks.BRIMSTONE_BUD.defaultBlockState());
+                            this.setBlock(world, pos.offset(x, -1, z), BOPBlocks.ORPIMENT.defaultBlockState());
+                            this.setBlock(world, pos.offset(x, height+1, z), BOPBlocks.ORPIMENT.defaultBlockState());
+                            this.setBlock(world, pos.offset(x, height+2, z), BOPBlocks.ORPIMENT_BUD.defaultBlockState());
                         }
                     }
                 }
 
-                this.setBlock(world, pos.offset(0, height+2, 0), BOPBlocks.BRIMSTONE.defaultBlockState());
-                this.setBlock(world, pos.above(height+3), BOPBlocks.BRIMSTONE_FUMAROLE.defaultBlockState());
+                this.setBlock(world, pos.offset(0, height+2, 0), BOPBlocks.ORPIMENT.defaultBlockState());
+                this.setBlock(world, pos.above(height+3), BOPBlocks.ORPIMENT_FUMAROLE.defaultBlockState());
 
                 return true;
             }

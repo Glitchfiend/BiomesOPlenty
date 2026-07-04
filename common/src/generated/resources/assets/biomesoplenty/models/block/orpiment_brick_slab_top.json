@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "biomesoplenty:block/orpiment_bricks",
+    "side": "biomesoplenty:block/orpiment_bricks",
+    "top": "biomesoplenty:block/orpiment_bricks"
+  }
+}

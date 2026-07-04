@@ -45,9 +45,19 @@ public class BOPItems
     public static Item BLACK_SANDSTONE_STAIRS;
     public static Item BLACK_SANDSTONE_WALL;
 
-    public static Item THERMAL_CALCITE;
-    public static Item THERMAL_CALCITE_VENT;
     public static Item DRIED_SALT;
+
+    public static Item SPHALERITE;
+    public static Item SPHALERITE_VENT;
+    public static Item ORPIMENT;
+    public static Item ORPIMENT_BRICKS;
+    public static Item ORPIMENT_BRICK_SLAB;
+    public static Item ORPIMENT_BRICK_STAIRS;
+    public static Item ORPIMENT_BRICK_WALL;
+    public static Item CHISELED_ORPIMENT;
+    public static Item ORPIMENT_FUMAROLE;
+    public static Item ORPIMENT_CLUSTER;
+    public static Item ORPIMENT_BUD;
 
     public static Item FLESH;
     public static Item POROUS_FLESH;
@@ -59,15 +69,6 @@ public class BOPItems
     public static Item BLOOD;
     public static Item BLOOD_BUCKET;
 
-    public static Item BRIMSTONE;
-    public static Item BRIMSTONE_BRICKS;
-    public static Item BRIMSTONE_BRICK_SLAB;
-    public static Item BRIMSTONE_BRICK_STAIRS;
-    public static Item BRIMSTONE_BRICK_WALL;
-    public static Item CHISELED_BRIMSTONE_BRICKS;
-    public static Item BRIMSTONE_FUMAROLE;
-    public static Item BRIMSTONE_CLUSTER;
-    public static Item BRIMSTONE_BUD;
     public static Item BLACKSTONE_SPINES;
     public static Item BLACKSTONE_BULB;
 

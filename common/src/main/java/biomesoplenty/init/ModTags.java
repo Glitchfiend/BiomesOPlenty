@@ -41,7 +41,7 @@ public class ModTags
         public static final TagKey<Block> EMPYREAL_LOGS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "empyreal_logs"));
 
         public static final TagKey<Block> BLACKSTONE_DECORATION_PLACEABLE = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "blackstone_decoration_placeable"));
-        public static final TagKey<Block> BRIMSTONE_DECORATION_PLACEABLE = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "brimstone_decoration_placeable"));
+        public static final TagKey<Block> ORPIMENT_DECORATION_PLACEABLE = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "orpiment_decoration_placeable"));
         public static final TagKey<Block> DEAD_CORALS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "dead_corals"));
         public static final TagKey<Block> DEAD_CORAL_BLOCKS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "dead_coral_blocks"));
         public static final TagKey<Block> DEAD_WALL_CORALS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "dead_wall_corals"));

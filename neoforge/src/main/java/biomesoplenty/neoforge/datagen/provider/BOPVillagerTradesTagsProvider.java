@@ -71,7 +71,7 @@ public class BOPVillagerTradesTagsProvider extends TagsProvider<VillagerTrade>
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_ORANGE_SAND,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_BLACK_SAND,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_DRIED_SALT,
-                BOPVillagerTrades.WANDERING_TRADER_EMERALD_THERMAL_CALCITE,
+                BOPVillagerTrades.WANDERING_TRADER_EMERALD_SPHALERITE,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_ORIGIN_OAK_SAPLING,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_MAGIC_SAPLING,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_MAGIC_LOG,
@@ -89,7 +89,7 @@ public class BOPVillagerTradesTagsProvider extends TagsProvider<VillagerTrade>
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_GLOWFLOWER,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_BURNING_BLOSSOM,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_ICY_IRIS,
-                BOPVillagerTrades.WANDERING_TRADER_EMERALD_BRIMSTONE,
+                BOPVillagerTrades.WANDERING_TRADER_EMERALD_ORPIMENT,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_BRAMBLE,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_GLOWWORM_SILK,
                 BOPVillagerTrades.WANDERING_TRADER_EMERALD_SPIDER_EGG

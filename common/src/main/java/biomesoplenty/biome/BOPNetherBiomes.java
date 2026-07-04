@@ -102,8 +102,8 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.INFERNO_SPLATTER);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.LARGE_FUMAROLE);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.SMALL_FUMAROLE);
-        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.BRIMSTONE_BUD);
-        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.BRIMSTONE_CLUSTER);
+        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.ORPIMENT_BUD);
+        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.ORPIMENT_CLUSTER);
 
         return baseBiome()
             .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x4F2B13)

@@ -60,7 +60,7 @@ public class BOPSurfaceRuleData
     private static final SurfaceRules.RuleSource BLACK_SANDSTONE = makeStateRule(BOPBlocks.BLACK_SANDSTONE);
     private static final SurfaceRules.RuleSource ORIGIN_GRASS = makeStateRule(BOPBlocks.ORIGIN_GRASS_BLOCK);
     private static final SurfaceRules.RuleSource FLESH = makeStateRule(BOPBlocks.FLESH);
-    private static final SurfaceRules.RuleSource BRIMSTONE = makeStateRule(BOPBlocks.BRIMSTONE);
+    private static final SurfaceRules.RuleSource ORPIMENT = makeStateRule(BOPBlocks.ORPIMENT);
 
     private static SurfaceRules.RuleSource makeStateRule(Block p_194811_) {
         return SurfaceRules.state(p_194811_.defaultBlockState());
@@ -309,7 +309,7 @@ public class BOPSurfaceRuleData
                         SurfaceRules.sequence(
                             tuffPatchRules,
                             SurfaceRules.ifTrue(isStateSelectorNoiseSuitable, NETHERRACK),
-                            BRIMSTONE
+                            ORPIMENT
                         )
                     )
                 )

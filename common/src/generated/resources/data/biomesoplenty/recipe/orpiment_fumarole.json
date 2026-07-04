@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": "biomesoplenty:orpiment",
+    "F": "minecraft:fire_charge"
+  },
+  "pattern": [
+    " # ",
+    "#F#",
+    "###"
+  ],
+  "result": {
+    "id": "biomesoplenty:orpiment_fumarole"
+  }
+}

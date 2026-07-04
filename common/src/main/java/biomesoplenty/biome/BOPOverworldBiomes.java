@@ -659,6 +659,7 @@ public class BOPOverworldBiomes
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(EntityTypes.SULFUR_CUBE, 1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -671,9 +672,9 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_BASALT);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_PACKED_MUD);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_CINNABAR);
-        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_BRIMSTONE);
+        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_ORPIMENT);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_SULFUR);
-        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_THERMAL_CALCITE);
+        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPMiscOverworldPlacements.DISK_HOT_SPRING_SPHALERITE);
 
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.TREES_HOT_SPRINGS);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.THIN_BAMBOO);

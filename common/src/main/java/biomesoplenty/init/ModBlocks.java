@@ -91,9 +91,19 @@ public class ModBlocks
         CUT_BLACK_SANDSTONE_SLAB = register(func, "cut_black_sandstone_slab", SlabBlock::new, Block.Properties.ofFullCopy(CUT_BLACK_SANDSTONE));
         CHISELED_BLACK_SANDSTONE = register(func, "chiseled_black_sandstone", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(0.8F));
 
-        THERMAL_CALCITE = register(func, "thermal_calcite", ThermalCalciteBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
-        THERMAL_CALCITE_VENT = register(func, "thermal_calcite_vent", ThermalCalciteVentBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
         DRIED_SALT = register(func, "dried_salt", DriedSaltBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL)));
+
+        SPHALERITE = register(func, "sphalerite", SphaleriteBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
+        SPHALERITE_VENT = register(func, "sphalerite_vent", SphaleriteVentBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
+        ORPIMENT = register(func, "orpiment", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(0.5F));
+        ORPIMENT_BRICKS = register(func, "orpiment_bricks", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
+        ORPIMENT_BRICK_STAIRS = register(func, "orpiment_brick_stairs", p -> new StairBlock(ORPIMENT_BRICKS.defaultBlockState(), p), Block.Properties.ofFullCopy(ORPIMENT_BRICKS));
+        ORPIMENT_BRICK_SLAB = register(func, "orpiment_brick_slab", SlabBlock::new, Block.Properties.ofFullCopy(ORPIMENT_BRICKS));
+        ORPIMENT_BRICK_WALL = register(func, "orpiment_brick_wall", WallBlock::new, Block.Properties.ofFullCopy(ORPIMENT_BRICKS).forceSolidOn());
+        CHISELED_ORPIMENT = register(func, "chiseled_orpiment", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
+        ORPIMENT_FUMAROLE = register(func, "orpiment_fumarole", OrpimentFumaroleBlock::new, BlockBehaviour.Properties.ofFullCopy(ORPIMENT));
+        ORPIMENT_CLUSTER = register(func, "orpiment_cluster", OrpimentClusterBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.NONE));
+        ORPIMENT_BUD = register(func, "orpiment_bud", OrpimentBudBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).pushReaction(PushReaction.DESTROY).noCollision().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ));
 
         FLESH = register(func, "flesh", FleshBlock::new, BlockBehaviour.Properties.of().randomTicks().mapColor(MapColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL)));
         POROUS_FLESH = register(func, "porous_flesh", FleshBlock::new, BlockBehaviour.Properties.of().randomTicks().mapColor(MapColor.TERRACOTTA_RED).strength(0.4F).sound(new SoundType(1.0F, 0.5F, SoundEvents.CORAL_BLOCK_BREAK, SoundEvents.CORAL_BLOCK_STEP, SoundEvents.CORAL_BLOCK_PLACE, SoundEvents.CORAL_BLOCK_HIT, SoundEvents.CORAL_BLOCK_FALL)));
@@ -103,15 +113,6 @@ public class ModBlocks
         HAIR = register(func, "hair", HairBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).pushReaction(PushReaction.DESTROY).noCollision().instabreak().sound(SoundType.WOOL).offsetType(BlockBehaviour.OffsetType.XYZ));
         PUS_BUBBLE = register(func, "pus_bubble", PusBubbleBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).pushReaction(PushReaction.DESTROY).noCollision().instabreak().sound(new SoundType(1.0F, 1.0F, BOPSounds.PUS_BUBBLE_POP, BOPSounds.PUS_BUBBLE_POP, SoundEvents.CORAL_BLOCK_PLACE, BOPSounds.PUS_BUBBLE_POP, BOPSounds.PUS_BUBBLE_POP)));
 
-        BRIMSTONE = register(func, "brimstone", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(0.5F));
-        BRIMSTONE_BRICKS = register(func, "brimstone_bricks", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
-        BRIMSTONE_BRICK_STAIRS = register(func, "brimstone_brick_stairs", p -> new StairBlock(BRIMSTONE_BRICKS.defaultBlockState(), p), Block.Properties.ofFullCopy(BRIMSTONE_BRICKS));
-        BRIMSTONE_BRICK_SLAB = register(func, "brimstone_brick_slab", SlabBlock::new, Block.Properties.ofFullCopy(BRIMSTONE_BRICKS));
-        BRIMSTONE_BRICK_WALL = register(func, "brimstone_brick_wall", WallBlock::new, Block.Properties.ofFullCopy(BRIMSTONE_BRICKS).forceSolidOn());
-        CHISELED_BRIMSTONE_BRICKS = register(func, "chiseled_brimstone_bricks", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
-        BRIMSTONE_FUMAROLE = register(func, "brimstone_fumarole", BrimstoneFumaroleBlock::new, BlockBehaviour.Properties.ofFullCopy(BRIMSTONE));
-        BRIMSTONE_CLUSTER = register(func, "brimstone_cluster", BrimstoneClusterBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).pushReaction(PushReaction.DESTROY).strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.NONE));
-        BRIMSTONE_BUD = register(func, "brimstone_bud", BrimstoneBudBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).pushReaction(PushReaction.DESTROY).noCollision().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ));
         BLACKSTONE_SPINES = register(func, "blackstone_spines", BlackstoneDecorationBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.DESTROY).noCollision().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ));
         BLACKSTONE_BULB = register(func, "blackstone_bulb", BlackstoneDecorationBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).pushReaction(PushReaction.DESTROY).noCollision().strength(0.2F).sound(SoundType.STONE).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 2).emissiveRendering(state -> true));
 

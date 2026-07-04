@@ -41,7 +41,7 @@ public class BOPBlockFamilies
     public static final BlockFamily BLACK_SANDSTONE = familyBuilder(BOPBlocks.BLACK_SANDSTONE).wall(BOPBlocks.BLACK_SANDSTONE_WALL).stairs(BOPBlocks.BLACK_SANDSTONE_STAIRS).slab(BOPBlocks.BLACK_SANDSTONE_SLAB).chiseled(BOPBlocks.CHISELED_BLACK_SANDSTONE).cut(BOPBlocks.CUT_BLACK_SANDSTONE).dontGenerateCraftingRecipe().getFamily();
     public static final BlockFamily CUT_BLACK_SANDSTONE = familyBuilder(BOPBlocks.CUT_BLACK_SANDSTONE).slab(BOPBlocks.CUT_BLACK_SANDSTONE_SLAB).getFamily();
     public static final BlockFamily SMOOTH_BLACK_SANDSTONE = familyBuilder(BOPBlocks.SMOOTH_BLACK_SANDSTONE).slab(BOPBlocks.SMOOTH_BLACK_SANDSTONE_SLAB).stairs(BOPBlocks.SMOOTH_BLACK_SANDSTONE_STAIRS).getFamily();
-    public static final BlockFamily BRIMSTONE_BRICK = familyBuilder(BOPBlocks.BRIMSTONE_BRICKS).wall(BOPBlocks.BRIMSTONE_BRICK_WALL).stairs(BOPBlocks.BRIMSTONE_BRICK_STAIRS).slab(BOPBlocks.BRIMSTONE_BRICK_SLAB).chiseled(BOPBlocks.CHISELED_BRIMSTONE_BRICKS).dontGenerateCraftingRecipe().getFamily();
+    public static final BlockFamily ORPIMENT_BRICK = familyBuilder(BOPBlocks.ORPIMENT_BRICKS).wall(BOPBlocks.ORPIMENT_BRICK_WALL).stairs(BOPBlocks.ORPIMENT_BRICK_STAIRS).slab(BOPBlocks.ORPIMENT_BRICK_SLAB).chiseled(BOPBlocks.CHISELED_ORPIMENT).dontGenerateCraftingRecipe().getFamily();
 
     private static BlockFamily.Builder familyBuilder(Block block)
     {

@@ -149,9 +149,21 @@ public class ModItems
         CUT_BLACK_SANDSTONE = registerBlock(func, BOPBlocks.CUT_BLACK_SANDSTONE);
         CUT_BLACK_SANDSTONE_SLAB = registerBlock(func, BOPBlocks.CUT_BLACK_SANDSTONE_SLAB);
         CHISELED_BLACK_SANDSTONE = registerBlock(func, BOPBlocks.CHISELED_BLACK_SANDSTONE);
-        THERMAL_CALCITE = registerBlock(func, BOPBlocks.THERMAL_CALCITE);
-        THERMAL_CALCITE_VENT = registerBlock(func, BOPBlocks.THERMAL_CALCITE_VENT);
+
         DRIED_SALT = registerBlock(func, BOPBlocks.DRIED_SALT);
+
+        SPHALERITE = registerBlock(func, BOPBlocks.SPHALERITE);
+        SPHALERITE_VENT = registerBlock(func, BOPBlocks.SPHALERITE_VENT);
+        ORPIMENT = registerBlock(func, BOPBlocks.ORPIMENT);
+        ORPIMENT_BRICKS = registerBlock(func, BOPBlocks.ORPIMENT_BRICKS);
+        ORPIMENT_BRICK_STAIRS = registerBlock(func, BOPBlocks.ORPIMENT_BRICK_STAIRS);
+        ORPIMENT_BRICK_SLAB = registerBlock(func, BOPBlocks.ORPIMENT_BRICK_SLAB);
+        ORPIMENT_BRICK_WALL = registerBlock(func, BOPBlocks.ORPIMENT_BRICK_WALL);
+        CHISELED_ORPIMENT = registerBlock(func, BOPBlocks.CHISELED_ORPIMENT);
+        ORPIMENT_FUMAROLE = registerBlock(func, BOPBlocks.ORPIMENT_FUMAROLE);
+        ORPIMENT_CLUSTER = registerBlock(func, BOPBlocks.ORPIMENT_CLUSTER);
+        ORPIMENT_BUD = registerBlock(func, BOPBlocks.ORPIMENT_BUD);
+
         FLESH = registerBlock(func, BOPBlocks.FLESH);
         POROUS_FLESH = registerBlock(func, BOPBlocks.POROUS_FLESH);
         FLESH_TENDONS = registerBlock(func, BOPBlocks.FLESH_TENDONS);
@@ -159,15 +171,6 @@ public class ModItems
         EYEBULB = registerBlock(func, BOPBlocks.EYEBULB);
         HAIR = registerBlock(func, BOPBlocks.HAIR);
         PUS_BUBBLE = registerBlock(func, BOPBlocks.PUS_BUBBLE);
-        BRIMSTONE = registerBlock(func, BOPBlocks.BRIMSTONE);
-        BRIMSTONE_BRICKS = registerBlock(func, BOPBlocks.BRIMSTONE_BRICKS);
-        BRIMSTONE_BRICK_STAIRS = registerBlock(func, BOPBlocks.BRIMSTONE_BRICK_STAIRS);
-        BRIMSTONE_BRICK_SLAB = registerBlock(func, BOPBlocks.BRIMSTONE_BRICK_SLAB);
-        BRIMSTONE_BRICK_WALL = registerBlock(func, BOPBlocks.BRIMSTONE_BRICK_WALL);
-        CHISELED_BRIMSTONE_BRICKS = registerBlock(func, BOPBlocks.CHISELED_BRIMSTONE_BRICKS);
-        BRIMSTONE_FUMAROLE = registerBlock(func, BOPBlocks.BRIMSTONE_FUMAROLE);
-        BRIMSTONE_CLUSTER = registerBlock(func, BOPBlocks.BRIMSTONE_CLUSTER);
-        BRIMSTONE_BUD = registerBlock(func, BOPBlocks.BRIMSTONE_BUD);
         BLACKSTONE_SPINES = registerBlock(func, BOPBlocks.BLACKSTONE_SPINES);
         BLACKSTONE_BULB = registerBlock(func, BOPBlocks.BLACKSTONE_BULB);
         ROSE_QUARTZ_BLOCK = registerBlock(func, BOPBlocks.ROSE_QUARTZ_BLOCK);
@@ -175,6 +178,7 @@ public class ModItems
         LARGE_ROSE_QUARTZ_BUD = registerBlock(func, BOPBlocks.LARGE_ROSE_QUARTZ_BUD);
         MEDIUM_ROSE_QUARTZ_BUD = registerBlock(func, BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD);
         SMALL_ROSE_QUARTZ_BUD = registerBlock(func, BOPBlocks.SMALL_ROSE_QUARTZ_BUD);
+
         BARNACLES = registerBlock(func, BOPBlocks.BARNACLES);
         WISPJELLY = registerBlock(func, BOPBlocks.WISPJELLY);
         //VOIDCAP = registerBlock(func, BOPBlocks.VOIDCAP);
@@ -186,6 +190,7 @@ public class ModItems
         NULL_LEAVES = registerBlock(func, BOPBlocks.NULL_LEAVES);
         NULL_PLANT = registerBlock(func, BOPBlocks.NULL_PLANT);
         ANOMALY = registerBlock(func, BOPBlocks.ANOMALY);
+
         TOADSTOOL = registerBlock(func, BOPBlocks.TOADSTOOL);
         TOADSTOOL_BLOCK = registerBlock(func, BOPBlocks.TOADSTOOL_BLOCK);
         GLOWSHROOM = registerBlock(func, BOPBlocks.GLOWSHROOM);
@@ -199,6 +204,7 @@ public class ModItems
         HANGING_COBWEB_STRAND = registerBlock(func, BOPBlocks.HANGING_COBWEB_STRAND);
         STRINGY_COBWEB = registerBlock(func, BOPBlocks.STRINGY_COBWEB, StringyCobwebBlockItem::new);
         WEBBING = registerBlock(func, BOPBlocks.WEBBING);
+
         WHITE_FLOWER_PETAL_BLOCK = registerBlock(func, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
         LIGHT_GRAY_FLOWER_PETAL_BLOCK = registerBlock(func, BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
         GRAY_FLOWER_PETAL_BLOCK = registerBlock(func, BOPBlocks.GRAY_FLOWER_PETAL_BLOCK);

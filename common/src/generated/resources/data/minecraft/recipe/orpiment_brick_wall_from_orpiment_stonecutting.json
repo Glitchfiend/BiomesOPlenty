@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:orpiment",
+  "result": {
+    "id": "biomesoplenty:orpiment_brick_wall"
+  }
+}

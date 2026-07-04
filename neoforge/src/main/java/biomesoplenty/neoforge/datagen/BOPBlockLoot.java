@@ -97,8 +97,8 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.BLACK_SANDSTONE_WALL);
 
         // Misc Terrain Blocks
-        this.dropSelf(BOPBlocks.THERMAL_CALCITE);
-        this.dropSelf(BOPBlocks.THERMAL_CALCITE_VENT);
+        this.dropSelf(BOPBlocks.SPHALERITE);
+        this.dropSelf(BOPBlocks.SPHALERITE_VENT);
         this.dropSelf(BOPBlocks.DRIED_SALT);
 
         // Flesh Blocks
@@ -109,16 +109,16 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.add(BOPBlocks.HAIR, (p_251652_) -> { return createShearsOnlyDrop(p_251652_); });
         this.dropWhenSilkTouch(BOPBlocks.PUS_BUBBLE);
 
-        // Brimstone
-        this.dropSelf(BOPBlocks.BRIMSTONE);
-        this.dropSelf(BOPBlocks.BRIMSTONE_BRICKS);
-        this.add(BOPBlocks.BRIMSTONE_BRICK_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
-        this.dropSelf(BOPBlocks.BRIMSTONE_BRICK_STAIRS);
-        this.dropSelf(BOPBlocks.BRIMSTONE_BRICK_WALL);
-        this.dropSelf(BOPBlocks.CHISELED_BRIMSTONE_BRICKS);
-        this.dropWhenSilkTouch(BOPBlocks.BRIMSTONE_FUMAROLE);
-        this.dropWhenSilkTouch(BOPBlocks.BRIMSTONE_CLUSTER);
-        this.dropWhenSilkTouch(BOPBlocks.BRIMSTONE_BUD);
+        // Orpiment
+        this.dropSelf(BOPBlocks.ORPIMENT);
+        this.dropSelf(BOPBlocks.ORPIMENT_BRICKS);
+        this.add(BOPBlocks.ORPIMENT_BRICK_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
+        this.dropSelf(BOPBlocks.ORPIMENT_BRICK_STAIRS);
+        this.dropSelf(BOPBlocks.ORPIMENT_BRICK_WALL);
+        this.dropSelf(BOPBlocks.CHISELED_ORPIMENT);
+        this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_FUMAROLE);
+        this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_CLUSTER);
+        this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_BUD);
 
         this.dropWhenSilkTouch(BOPBlocks.BLACKSTONE_SPINES);
         this.dropWhenSilkTouch(BOPBlocks.BLACKSTONE_BULB);

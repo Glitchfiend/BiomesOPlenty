@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "biomesoplenty:block/brimstone_bricks",
-    "side": "biomesoplenty:block/brimstone_bricks",
-    "top": "biomesoplenty:block/brimstone_bricks"
-  }
-}

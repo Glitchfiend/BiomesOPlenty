@@ -71,9 +71,9 @@
       "biomesoplenty:disk_hot_spring_basalt",
       "biomesoplenty:disk_hot_spring_packed_mud",
       "biomesoplenty:disk_hot_spring_cinnabar",
-      "biomesoplenty:disk_hot_spring_brimstone",
+      "biomesoplenty:disk_hot_spring_orpiment",
       "biomesoplenty:disk_hot_spring_sulfur",
-      "biomesoplenty:disk_hot_spring_thermal_calcite"
+      "biomesoplenty:disk_hot_spring_sphalerite"
     ],
     [
       "minecraft:spring_water",
@@ -162,6 +162,12 @@
         "maxCount": 1,
         "minCount": 1,
         "weight": 5
+      },
+      {
+        "type": "minecraft:sulfur_cube",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 10
       }
     ],
     "underground_water_creature": [

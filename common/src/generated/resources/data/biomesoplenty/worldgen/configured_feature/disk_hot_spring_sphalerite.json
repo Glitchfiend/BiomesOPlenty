@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:disk",
+  "config": {
+    "half_height": 1,
+    "radius": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 2,
+      "min_inclusive": 1
+    },
+    "state_provider": {
+      "type": "minecraft:rule_based_state_provider",
+      "fallback": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "biomesoplenty:sphalerite"
+        }
+      },
+      "rules": []
+    },
+    "target": {
+      "type": "minecraft:matching_blocks",
+      "blocks": [
+        "minecraft:dirt",
+        "minecraft:coarse_dirt",
+        "minecraft:podzol",
+        "minecraft:grass_block",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:clay",
+        "minecraft:andesite",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:stone",
+        "minecraft:packed_mud",
+        "minecraft:smooth_basalt",
+        "minecraft:calcite",
+        "minecraft:cinnabar",
+        "biomesoplenty:orpiment",
+        "minecraft:sulfur"
+      ]
+    }
+  }
+}

@@ -36,18 +36,18 @@ public class SmallFumaroleFeature extends Feature<NoneFeatureConfiguration>
         for(int j = 0; j < 64; ++j)
         {
             BlockPos blockpos = pos.offset(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-            if ((TreeFeature.isAirOrLeaves(world, blockpos) || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.BRIMSTONE_CLUSTER) && world.getBlockState(blockpos.below()).getBlock() == BOPBlocks.BRIMSTONE)
+            if ((TreeFeature.isAirOrLeaves(world, blockpos) || world.getBlockState(pos).getBlock() == BOPBlocks.ORPIMENT_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.ORPIMENT_CLUSTER) && world.getBlockState(blockpos.below()).getBlock() == BOPBlocks.ORPIMENT)
             {
                 if (rand.nextInt(5) == 0)
                 {
                     if (rand.nextInt(2) == 0)
                     {
-                        world.setBlock(blockpos, BOPBlocks.BRIMSTONE.defaultBlockState(), 2);
-                        world.setBlock(blockpos.above(), BOPBlocks.BRIMSTONE_FUMAROLE.defaultBlockState(), 2);
+                        world.setBlock(blockpos, BOPBlocks.ORPIMENT.defaultBlockState(), 2);
+                        world.setBlock(blockpos.above(), BOPBlocks.ORPIMENT_FUMAROLE.defaultBlockState(), 2);
                     }
                     else
                     {
-                        world.setBlock(blockpos, BOPBlocks.BRIMSTONE_FUMAROLE.defaultBlockState(), 2);
+                        world.setBlock(blockpos, BOPBlocks.ORPIMENT_FUMAROLE.defaultBlockState(), 2);
                         world.setBlock(blockpos.above(), Blocks.AIR.defaultBlockState(), 2);
                     }
                 }

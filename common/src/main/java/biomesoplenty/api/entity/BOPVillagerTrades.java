@@ -78,7 +78,7 @@ public class BOPVillagerTrades
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_ORANGE_SAND = resourceKey("wandering_trader/orange_sand");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_BLACK_SAND = resourceKey("wandering_trader/black_sand");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_DRIED_SALT = resourceKey("wandering_trader/dried_salt");
-    public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_THERMAL_CALCITE = resourceKey("wandering_trader/thermal_calcite");
+    public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_SPHALERITE = resourceKey("wandering_trader/sphalerite");
 
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_ORIGIN_OAK_SAPLING = resourceKey("wandering_trader/origin_oak_sapling");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_MAGIC_SAPLING = resourceKey("wandering_trader/magic_sapling");
@@ -93,7 +93,7 @@ public class BOPVillagerTrades
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_GLOWFLOWER = resourceKey("wandering_trader/glowflower");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_BURNING_BLOSSOM = resourceKey("wandering_trader/burning_blossom");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_ICY_IRIS = resourceKey("wandering_trader/icy_iris");
-    public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_BRIMSTONE = resourceKey("wandering_trader/brimstone");
+    public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_ORPIMENT = resourceKey("wandering_trader/orpiment");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_BRAMBLE = resourceKey("wandering_trader/bramble");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_GLOWWORM_SILK = resourceKey("wandering_trader/glowworm_silk");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_SPIDER_EGG = resourceKey("wandering_trader/spider_egg");

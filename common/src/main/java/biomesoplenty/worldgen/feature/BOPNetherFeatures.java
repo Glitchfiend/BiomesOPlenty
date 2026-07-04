@@ -39,8 +39,8 @@ public class BOPNetherFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACKSTONE_SPINES = BOPFeatureUtils.createKey("blackstone_spines");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOD_LAKE = BOPFeatureUtils.createKey("blood_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOD_SPRING = BOPFeatureUtils.createKey("blood_spring");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMSTONE_BUD = BOPFeatureUtils.createKey("brimstone_bud");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMSTONE_CLUSTER = BOPFeatureUtils.createKey("brimstone_cluster");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORPIMENT_BUD = BOPFeatureUtils.createKey("orpiment_bud");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORPIMENT_CLUSTER = BOPFeatureUtils.createKey("orpiment_cluster");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_GRASS = BOPFeatureUtils.createKey("dead_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> EYEBULB = BOPFeatureUtils.createKey("eyebulb");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLESH_TENDON = BOPFeatureUtils.createKey("flesh_tendon");
@@ -81,8 +81,8 @@ public class BOPNetherFeatures
                 BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE))
         ));
         register(context, BOPNetherFeatures.BLOOD_SPRING, Feature.SPRING, new SpringConfiguration(BOPFluids.BLOOD.defaultFluidState(), false, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, Blocks.NETHERRACK, BOPBlocks.FLESH, BOPBlocks.POROUS_FLESH)));
-        register(context, BOPNetherFeatures.BRIMSTONE_BUD, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_BUD)));
-        register(context, BOPNetherFeatures.BRIMSTONE_CLUSTER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.BRIMSTONE_CLUSTER)));
+        register(context, BOPNetherFeatures.ORPIMENT_BUD, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ORPIMENT_BUD)));
+        register(context, BOPNetherFeatures.ORPIMENT_CLUSTER, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.ORPIMENT_CLUSTER)));
         register(context, BOPNetherFeatures.DEAD_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.DEAD_GRASS)));
         register(context, BOPNetherFeatures.EYEBULB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BOPBlocks.EYEBULB)));
         register(context, BOPNetherFeatures.FLESH_TENDON, BOPBaseFeatures.FLESH_TENDON, NoneFeatureConfiguration.INSTANCE);
@@ -90,7 +90,7 @@ public class BOPNetherFeatures
         register(context, BOPNetherFeatures.HANGING_FLESH_TENDON, BOPBaseFeatures.HANGING_FLESH_TENDON, NoneFeatureConfiguration.INSTANCE);
         register(context, BOPNetherFeatures.INFERNO_LAVA_LAKE, BOPBaseFeatures.LAKE, new LakeFeature.Configuration(
                 BlockStateProvider.simple(Blocks.LAVA),
-                BlockStateProvider.simple(BOPBlocks.BRIMSTONE),
+                BlockStateProvider.simple(BOPBlocks.ORPIMENT),
                 BlockPredicate.alwaysTrue(),
                 BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.FEATURES_CANNOT_REPLACE)),
                 BlockPredicate.not(BlockPredicate.matchesTag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE))

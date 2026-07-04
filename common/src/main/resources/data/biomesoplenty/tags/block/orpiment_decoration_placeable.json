@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+	"minecraft:netherrack",
+	"minecraft:sulfur",
+	"minecraft:potent_sulfur",
+	"minecraft:cinnabar",
+	"biomesoplenty:sphalerite",
+	"biomesoplenty:sphalerite_vent",
+	"biomesoplenty:orpiment"
+  ]
+}

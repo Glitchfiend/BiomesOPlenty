@@ -213,9 +213,9 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createRotatedVariantBlock(BOPBlocks.ORANGE_SAND);
         this.createRotatedVariantBlock(BOPBlocks.BLACK_SAND);
 
-        this.createTrivialCube(BOPBlocks.THERMAL_CALCITE);
-        this.createTrivialCube(BOPBlocks.THERMAL_CALCITE_VENT);
-        this.createTrivialCube(BOPBlocks.BRIMSTONE);
+        this.createTrivialCube(BOPBlocks.SPHALERITE);
+        this.createTrivialCube(BOPBlocks.SPHALERITE_VENT);
+        this.createTrivialCube(BOPBlocks.ORPIMENT);
         this.createTrivialCube(BOPBlocks.ROSE_QUARTZ_BLOCK);
         this.createTrivialCube(BOPBlocks.WISPJELLY);
         this.createRotatedVariantBlock(BOPBlocks.DRIED_SALT);
@@ -258,7 +258,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.registerSimpleFlatItemModel(BOPBlocks.GOLDENROD, "_top");
         this.registerSimpleFlatItemModel(BOPBlocks.BLUE_HYDRANGEA, "_top");
         this.registerSimpleFlatItemModel(BOPBlocks.ICY_IRIS, "_top");
-        this.registerSimpleFlatItemModel(BOPBlocks.BRIMSTONE_CLUSTER, "_bottom");
+        this.registerSimpleFlatItemModel(BOPBlocks.ORPIMENT_CLUSTER, "_bottom");
         this.registerSimpleFlatItemModel(BOPBlocks.LUMALOOP, "_plant_lit");
 
         // Hanging plants
@@ -272,7 +272,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.registerSimpleFlatItemModel(BOPBlocks.GLOWSHROOM);
         //this.registerSimpleFlatItemModel(BOPBlocks.VOIDCAP);
 
-        this.registerSimpleFlatItemModel(BOPBlocks.BRIMSTONE_BUD);
+        this.registerSimpleFlatItemModel(BOPBlocks.ORPIMENT_BUD);
         this.registerSimpleFlatItemModel(BOPBlocks.BLACKSTONE_SPINES);
         this.registerSimpleFlatItemModel(BOPBlocks.BLACKSTONE_BULB);
         this.registerSimpleFlatItemModel(BOPBlocks.ROSE_QUARTZ_CLUSTER);

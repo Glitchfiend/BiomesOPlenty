@@ -43,9 +43,19 @@ public class BOPBlocks
     public static Block BLACK_SANDSTONE_STAIRS;
     public static Block BLACK_SANDSTONE_WALL;
 
-    public static Block THERMAL_CALCITE;
-    public static Block THERMAL_CALCITE_VENT;
     public static Block DRIED_SALT;
+
+    public static Block SPHALERITE;
+    public static Block SPHALERITE_VENT;
+    public static Block ORPIMENT;
+    public static Block ORPIMENT_BRICKS;
+    public static Block ORPIMENT_BRICK_SLAB;
+    public static Block ORPIMENT_BRICK_STAIRS;
+    public static Block ORPIMENT_BRICK_WALL;
+    public static Block CHISELED_ORPIMENT;
+    public static Block ORPIMENT_FUMAROLE;
+    public static Block ORPIMENT_CLUSTER;
+    public static Block ORPIMENT_BUD;
 
     public static Block FLESH;
     public static Block POROUS_FLESH;
@@ -56,15 +66,6 @@ public class BOPBlocks
     public static Block PUS_BUBBLE;
     public static Block BLOOD;
 
-    public static Block BRIMSTONE;
-    public static Block BRIMSTONE_BRICKS;
-    public static Block BRIMSTONE_BRICK_SLAB;
-    public static Block BRIMSTONE_BRICK_STAIRS;
-    public static Block BRIMSTONE_BRICK_WALL;
-    public static Block CHISELED_BRIMSTONE_BRICKS;
-    public static Block BRIMSTONE_FUMAROLE;
-    public static Block BRIMSTONE_CLUSTER;
-    public static Block BRIMSTONE_BUD;
     public static Block BLACKSTONE_SPINES;
     public static Block BLACKSTONE_BULB;
 

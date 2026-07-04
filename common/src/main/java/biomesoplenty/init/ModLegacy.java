@@ -63,6 +63,18 @@ public class ModLegacy
         remap("mud_brick_stairs", Blocks.MUD_BRICK_STAIRS);
         remap("mud_brick_slab", Blocks.MUD_BRICK_SLAB);
         remap("mud_brick_wall", Blocks.MUD_BRICK_WALL);
+        //Thermal Calcite and Brimstone
+        remap("thermal_calcite", BOPBlocks.SPHALERITE);
+        remap("thermal_calcite_vent", BOPBlocks.SPHALERITE_VENT);
+        remap("brimstone", BOPBlocks.ORPIMENT);
+        remap("brimstone_bricks", BOPBlocks.ORPIMENT_BRICKS);
+        remap("brimstone_brick_slab", BOPBlocks.ORPIMENT_BRICK_SLAB);
+        remap("brimstone_brick_stairs", BOPBlocks.ORPIMENT_BRICK_STAIRS);
+        remap("brimstone_brick_wall", BOPBlocks.ORPIMENT_BRICK_WALL);
+        remap("chiseled_brimstone_bricks", BOPBlocks.CHISELED_ORPIMENT);
+        remap("brimstone_fumarole", BOPBlocks.ORPIMENT_FUMAROLE);
+        remap("brimstone_cluster", BOPBlocks.ORPIMENT_CLUSTER);
+        remap("brimstone_bud", BOPBlocks.ORPIMENT_BUD);
         // Misc
         remap("loamy_grass_block", Blocks.GRASS_BLOCK);
         remap("loamy_dirt", Blocks.DIRT);
