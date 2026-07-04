@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomesoplenty:block/orpiment_slab"
+    },
+    "type=double": {
+      "model": "biomesoplenty:block/orpiment"
+    },
+    "type=top": {
+      "model": "biomesoplenty:block/orpiment_slab_top"
+    }
+  }
+}

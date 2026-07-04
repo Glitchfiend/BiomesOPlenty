@@ -94,11 +94,31 @@ public class ModBlocks
         DRIED_SALT = register(func, "dried_salt", DriedSaltBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.0F).sound(new SoundType(1.0F, 0.5F, SoundEvents.GRAVEL_BREAK, SoundEvents.GRAVEL_STEP, SoundEvents.GRAVEL_PLACE, SoundEvents.GRAVEL_HIT, SoundEvents.GRAVEL_FALL)));
 
         SPHALERITE = register(func, "sphalerite", SphaleriteBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
+        SPHALERITE_SLAB = register(func, "sphalerite_slab", SlabBlock::new, Block.Properties.ofFullCopy(SPHALERITE));
+        SPHALERITE_STAIRS = register(func, "sphalerite_stairs", p -> new StairBlock(SPHALERITE.defaultBlockState(), p), Block.Properties.ofFullCopy(SPHALERITE));
+        SPHALERITE_WALL = register(func, "sphalerite_wall", WallBlock::new, Block.Properties.ofFullCopy(SPHALERITE).forceSolidOn());
+        POLISHED_SPHALERITE = register(func, "polished_sphalerite", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.GLOW_LICHEN).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
+        POLISHED_SPHALERITE_SLAB = register(func, "polished_sphalerite_slab", SlabBlock::new, Block.Properties.ofFullCopy(POLISHED_SPHALERITE));
+        POLISHED_SPHALERITE_STAIRS = register(func, "polished_sphalerite_stairs", p -> new StairBlock(POLISHED_SPHALERITE.defaultBlockState(), p), Block.Properties.ofFullCopy(POLISHED_SPHALERITE));
+        POLISHED_SPHALERITE_WALL = register(func, "polished_sphalerite_wall", WallBlock::new, Block.Properties.ofFullCopy(POLISHED_SPHALERITE).forceSolidOn());
+        SPHALERITE_BRICKS = register(func, "sphalerite_bricks", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.GLOW_LICHEN).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
+        SPHALERITE_BRICK_SLAB = register(func, "sphalerite_brick_slab", SlabBlock::new, Block.Properties.ofFullCopy(SPHALERITE_BRICKS));
+        SPHALERITE_BRICK_STAIRS = register(func, "sphalerite_brick_stairs", p -> new StairBlock(SPHALERITE_BRICKS.defaultBlockState(), p), Block.Properties.ofFullCopy(SPHALERITE_BRICKS));
+        SPHALERITE_BRICK_WALL = register(func, "sphalerite_brick_wall", WallBlock::new, Block.Properties.ofFullCopy(SPHALERITE_BRICKS).forceSolidOn());
+        CHISELED_SPHALERITE = register(func, "chiseled_sphalerite", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.GLOW_LICHEN).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
         POTENT_SPHALERITE = register(func, "potent_sphalerite", PotentSphaleriteBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
+
         ORPIMENT = register(func, "orpiment", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(0.5F));
+        ORPIMENT_SLAB = register(func, "orpiment_slab", SlabBlock::new, Block.Properties.ofFullCopy(ORPIMENT));
+        ORPIMENT_STAIRS = register(func, "orpiment_stairs", p -> new StairBlock(ORPIMENT.defaultBlockState(), p), Block.Properties.ofFullCopy(ORPIMENT));
+        ORPIMENT_WALL = register(func, "orpiment_wall", WallBlock::new, Block.Properties.ofFullCopy(ORPIMENT).forceSolidOn());
+        POLISHED_ORPIMENT = register(func, "polished_orpiment", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
+        POLISHED_ORPIMENT_SLAB = register(func, "polished_orpiment_slab", SlabBlock::new, Block.Properties.ofFullCopy(POLISHED_ORPIMENT));
+        POLISHED_ORPIMENT_STAIRS = register(func, "polished_orpiment_stairs", p -> new StairBlock(POLISHED_ORPIMENT.defaultBlockState(), p), Block.Properties.ofFullCopy(POLISHED_SPHALERITE));
+        POLISHED_ORPIMENT_WALL = register(func, "polished_orpiment_wall", WallBlock::new, Block.Properties.ofFullCopy(POLISHED_ORPIMENT).forceSolidOn());
         ORPIMENT_BRICKS = register(func, "orpiment_bricks", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
-        ORPIMENT_BRICK_STAIRS = register(func, "orpiment_brick_stairs", p -> new StairBlock(ORPIMENT_BRICKS.defaultBlockState(), p), Block.Properties.ofFullCopy(ORPIMENT_BRICKS));
         ORPIMENT_BRICK_SLAB = register(func, "orpiment_brick_slab", SlabBlock::new, Block.Properties.ofFullCopy(ORPIMENT_BRICKS));
+        ORPIMENT_BRICK_STAIRS = register(func, "orpiment_brick_stairs", p -> new StairBlock(ORPIMENT_BRICKS.defaultBlockState(), p), Block.Properties.ofFullCopy(ORPIMENT_BRICKS));
         ORPIMENT_BRICK_WALL = register(func, "orpiment_brick_wall", WallBlock::new, Block.Properties.ofFullCopy(ORPIMENT_BRICKS).forceSolidOn());
         CHISELED_ORPIMENT = register(func, "chiseled_orpiment", Block::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(1.0F, 3.0F));
         ORPIMENT_FUMAROLE = register(func, "orpiment_fumarole", OrpimentFumaroleBlock::new, BlockBehaviour.Properties.ofFullCopy(ORPIMENT));

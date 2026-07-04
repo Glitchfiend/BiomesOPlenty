@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomesoplenty:block/polished_sphalerite_slab"
+    },
+    "type=double": {
+      "model": "biomesoplenty:block/polished_sphalerite"
+    },
+    "type=top": {
+      "model": "biomesoplenty:block/polished_sphalerite_slab_top"
+    }
+  }
+}

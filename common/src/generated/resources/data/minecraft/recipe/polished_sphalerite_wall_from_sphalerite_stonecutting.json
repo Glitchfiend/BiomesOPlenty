@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:sphalerite",
+  "result": {
+    "id": "biomesoplenty:polished_sphalerite_wall"
+  }
+}

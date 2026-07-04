@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "biomesoplenty:orpiment"
+    "#": "biomesoplenty:polished_orpiment"
   },
   "pattern": [
     "##",

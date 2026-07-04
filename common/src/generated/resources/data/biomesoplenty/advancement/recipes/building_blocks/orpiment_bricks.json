@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_orpiment": {
+    "has_polished_orpiment": {
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:orpiment"
+            "items": "biomesoplenty:polished_orpiment"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_orpiment"
+      "has_polished_orpiment"
     ]
   ],
   "rewards": {

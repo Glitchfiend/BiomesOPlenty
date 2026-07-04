@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chiseled_sphalerite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:chiseled_sphalerite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sphalerite_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:sphalerite_slab"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:chiseled_sphalerite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sphalerite_slab",
+      "has_chiseled_sphalerite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:chiseled_sphalerite"
+    ]
+  }
+}

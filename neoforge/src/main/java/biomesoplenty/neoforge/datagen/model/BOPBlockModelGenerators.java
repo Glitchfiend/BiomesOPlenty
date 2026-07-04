@@ -213,9 +213,9 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.createRotatedVariantBlock(BOPBlocks.ORANGE_SAND);
         this.createRotatedVariantBlock(BOPBlocks.BLACK_SAND);
 
-        this.createTrivialCube(BOPBlocks.SPHALERITE);
+        //this.createTrivialCube(BOPBlocks.SPHALERITE);
         this.createTrivialCube(BOPBlocks.POTENT_SPHALERITE);
-        this.createTrivialCube(BOPBlocks.ORPIMENT);
+        //this.createTrivialCube(BOPBlocks.ORPIMENT);
         this.createTrivialCube(BOPBlocks.ROSE_QUARTZ_BLOCK);
         this.createTrivialCube(BOPBlocks.WISPJELLY);
         this.createRotatedVariantBlock(BOPBlocks.DRIED_SALT);

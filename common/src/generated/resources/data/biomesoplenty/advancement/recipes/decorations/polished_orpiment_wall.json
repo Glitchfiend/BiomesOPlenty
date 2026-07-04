@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_orpiment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:polished_orpiment"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomesoplenty:polished_orpiment_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_polished_orpiment"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomesoplenty:polished_orpiment_wall"
+    ]
+  }
+}

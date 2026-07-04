@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomesoplenty:block/sphalerite_brick_slab"
+    },
+    "type=double": {
+      "model": "biomesoplenty:block/sphalerite_bricks"
+    },
+    "type=top": {
+      "model": "biomesoplenty:block/sphalerite_brick_slab_top"
+    }
+  }
+}

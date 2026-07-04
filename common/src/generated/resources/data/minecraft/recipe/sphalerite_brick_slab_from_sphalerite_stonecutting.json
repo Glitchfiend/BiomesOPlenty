@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:sphalerite",
+  "result": {
+    "count": 2,
+    "id": "biomesoplenty:sphalerite_brick_slab"
+  }
+}

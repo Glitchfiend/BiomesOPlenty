@@ -153,11 +153,31 @@ public class ModItems
         DRIED_SALT = registerBlock(func, BOPBlocks.DRIED_SALT);
 
         SPHALERITE = registerBlock(func, BOPBlocks.SPHALERITE);
+        SPHALERITE_SLAB = registerBlock(func, BOPBlocks.SPHALERITE_SLAB);
+        SPHALERITE_STAIRS = registerBlock(func, BOPBlocks.SPHALERITE_STAIRS);
+        SPHALERITE_WALL = registerBlock(func, BOPBlocks.SPHALERITE_WALL);
+        POLISHED_SPHALERITE = registerBlock(func, BOPBlocks.POLISHED_SPHALERITE);
+        POLISHED_SPHALERITE_SLAB = registerBlock(func, BOPBlocks.POLISHED_SPHALERITE_SLAB);
+        POLISHED_SPHALERITE_STAIRS = registerBlock(func, BOPBlocks.POLISHED_SPHALERITE_STAIRS);
+        POLISHED_SPHALERITE_WALL = registerBlock(func, BOPBlocks.POLISHED_SPHALERITE_WALL);
+        SPHALERITE_BRICKS = registerBlock(func, BOPBlocks.SPHALERITE_BRICKS);
+        SPHALERITE_BRICK_SLAB = registerBlock(func, BOPBlocks.SPHALERITE_BRICK_SLAB);
+        SPHALERITE_BRICK_STAIRS = registerBlock(func, BOPBlocks.SPHALERITE_BRICK_STAIRS);
+        SPHALERITE_BRICK_WALL = registerBlock(func, BOPBlocks.SPHALERITE_BRICK_WALL);
+        CHISELED_SPHALERITE = registerBlock(func, BOPBlocks.CHISELED_SPHALERITE);
         POTENT_SPHALERITE = registerBlock(func, BOPBlocks.POTENT_SPHALERITE);
+
         ORPIMENT = registerBlock(func, BOPBlocks.ORPIMENT);
+        ORPIMENT_SLAB = registerBlock(func, BOPBlocks.ORPIMENT_SLAB);
+        ORPIMENT_STAIRS = registerBlock(func, BOPBlocks.ORPIMENT_STAIRS);
+        ORPIMENT_WALL = registerBlock(func, BOPBlocks.ORPIMENT_WALL);
+        POLISHED_ORPIMENT = registerBlock(func, BOPBlocks.POLISHED_ORPIMENT);
+        POLISHED_ORPIMENT_SLAB = registerBlock(func, BOPBlocks.POLISHED_ORPIMENT_SLAB);
+        POLISHED_ORPIMENT_STAIRS = registerBlock(func, BOPBlocks.POLISHED_ORPIMENT_STAIRS);
+        POLISHED_ORPIMENT_WALL = registerBlock(func, BOPBlocks.POLISHED_ORPIMENT_WALL);
         ORPIMENT_BRICKS = registerBlock(func, BOPBlocks.ORPIMENT_BRICKS);
-        ORPIMENT_BRICK_STAIRS = registerBlock(func, BOPBlocks.ORPIMENT_BRICK_STAIRS);
         ORPIMENT_BRICK_SLAB = registerBlock(func, BOPBlocks.ORPIMENT_BRICK_SLAB);
+        ORPIMENT_BRICK_STAIRS = registerBlock(func, BOPBlocks.ORPIMENT_BRICK_STAIRS);
         ORPIMENT_BRICK_WALL = registerBlock(func, BOPBlocks.ORPIMENT_BRICK_WALL);
         CHISELED_ORPIMENT = registerBlock(func, BOPBlocks.CHISELED_ORPIMENT);
         ORPIMENT_FUMAROLE = registerBlock(func, BOPBlocks.ORPIMENT_FUMAROLE);

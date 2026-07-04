@@ -46,8 +46,28 @@ public class BOPBlocks
     public static Block DRIED_SALT;
 
     public static Block SPHALERITE;
+    public static Block SPHALERITE_SLAB;
+    public static Block SPHALERITE_STAIRS;
+    public static Block SPHALERITE_WALL;
+    public static Block POLISHED_SPHALERITE;
+    public static Block POLISHED_SPHALERITE_SLAB;
+    public static Block POLISHED_SPHALERITE_STAIRS;
+    public static Block POLISHED_SPHALERITE_WALL;
+    public static Block SPHALERITE_BRICKS;
+    public static Block SPHALERITE_BRICK_SLAB;
+    public static Block SPHALERITE_BRICK_STAIRS;
+    public static Block SPHALERITE_BRICK_WALL;
+    public static Block CHISELED_SPHALERITE;
     public static Block POTENT_SPHALERITE;
+
     public static Block ORPIMENT;
+    public static Block ORPIMENT_SLAB;
+    public static Block ORPIMENT_STAIRS;
+    public static Block ORPIMENT_WALL;
+    public static Block POLISHED_ORPIMENT;
+    public static Block POLISHED_ORPIMENT_SLAB;
+    public static Block POLISHED_ORPIMENT_STAIRS;
+    public static Block POLISHED_ORPIMENT_WALL;
     public static Block ORPIMENT_BRICKS;
     public static Block ORPIMENT_BRICK_SLAB;
     public static Block ORPIMENT_BRICK_STAIRS;

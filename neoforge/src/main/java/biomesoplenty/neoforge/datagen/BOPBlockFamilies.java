@@ -41,7 +41,12 @@ public class BOPBlockFamilies
     public static final BlockFamily BLACK_SANDSTONE = familyBuilder(BOPBlocks.BLACK_SANDSTONE).wall(BOPBlocks.BLACK_SANDSTONE_WALL).stairs(BOPBlocks.BLACK_SANDSTONE_STAIRS).slab(BOPBlocks.BLACK_SANDSTONE_SLAB).chiseled(BOPBlocks.CHISELED_BLACK_SANDSTONE).cut(BOPBlocks.CUT_BLACK_SANDSTONE).dontGenerateCraftingRecipe().getFamily();
     public static final BlockFamily CUT_BLACK_SANDSTONE = familyBuilder(BOPBlocks.CUT_BLACK_SANDSTONE).slab(BOPBlocks.CUT_BLACK_SANDSTONE_SLAB).getFamily();
     public static final BlockFamily SMOOTH_BLACK_SANDSTONE = familyBuilder(BOPBlocks.SMOOTH_BLACK_SANDSTONE).slab(BOPBlocks.SMOOTH_BLACK_SANDSTONE_SLAB).stairs(BOPBlocks.SMOOTH_BLACK_SANDSTONE_STAIRS).getFamily();
-    public static final BlockFamily ORPIMENT_BRICK = familyBuilder(BOPBlocks.ORPIMENT_BRICKS).wall(BOPBlocks.ORPIMENT_BRICK_WALL).stairs(BOPBlocks.ORPIMENT_BRICK_STAIRS).slab(BOPBlocks.ORPIMENT_BRICK_SLAB).chiseled(BOPBlocks.CHISELED_ORPIMENT).dontGenerateCraftingRecipe().getFamily();
+    public static final BlockFamily SPHALERITE = familyBuilder(BOPBlocks.SPHALERITE).wall(BOPBlocks.SPHALERITE_WALL).stairs(BOPBlocks.SPHALERITE_STAIRS).slab(BOPBlocks.SPHALERITE_SLAB).chiseled(BOPBlocks.CHISELED_SPHALERITE).dontGenerateCraftingRecipe().getFamily();
+    public static final BlockFamily POLISHED_SPHALERITE = familyBuilder(BOPBlocks.POLISHED_SPHALERITE).wall(BOPBlocks.POLISHED_SPHALERITE_WALL).stairs(BOPBlocks.POLISHED_SPHALERITE_STAIRS).slab(BOPBlocks.POLISHED_SPHALERITE_SLAB).dontGenerateCraftingRecipe().getFamily();
+    public static final BlockFamily SPHALERITE_BRICK = familyBuilder(BOPBlocks.SPHALERITE_BRICKS).wall(BOPBlocks.SPHALERITE_BRICK_WALL).stairs(BOPBlocks.SPHALERITE_BRICK_STAIRS).slab(BOPBlocks.SPHALERITE_BRICK_SLAB).dontGenerateCraftingRecipe().getFamily();
+    public static final BlockFamily ORPIMENT = familyBuilder(BOPBlocks.ORPIMENT).wall(BOPBlocks.ORPIMENT_WALL).stairs(BOPBlocks.ORPIMENT_STAIRS).slab(BOPBlocks.ORPIMENT_SLAB).chiseled(BOPBlocks.CHISELED_ORPIMENT).dontGenerateCraftingRecipe().getFamily();
+    public static final BlockFamily POLISHED_ORPIMENT = familyBuilder(BOPBlocks.POLISHED_ORPIMENT).wall(BOPBlocks.POLISHED_ORPIMENT_WALL).stairs(BOPBlocks.POLISHED_ORPIMENT_STAIRS).slab(BOPBlocks.POLISHED_ORPIMENT_SLAB).dontGenerateCraftingRecipe().getFamily();
+    public static final BlockFamily ORPIMENT_BRICK = familyBuilder(BOPBlocks.ORPIMENT_BRICKS).wall(BOPBlocks.ORPIMENT_BRICK_WALL).stairs(BOPBlocks.ORPIMENT_BRICK_STAIRS).slab(BOPBlocks.ORPIMENT_BRICK_SLAB).dontGenerateCraftingRecipe().getFamily();
 
     private static BlockFamily.Builder familyBuilder(Block block)
     {

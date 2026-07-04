@@ -101,9 +101,28 @@ public class BOPBlockLoot extends BlockLootSubProvider
 
         // Sphalerite and Orpiment
         this.dropSelf(BOPBlocks.SPHALERITE);
+        this.add(BOPBlocks.SPHALERITE_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
+        this.dropSelf(BOPBlocks.SPHALERITE_STAIRS);
+        this.dropSelf(BOPBlocks.SPHALERITE_WALL);
+        this.dropSelf(BOPBlocks.POLISHED_SPHALERITE);
+        this.add(BOPBlocks.POLISHED_SPHALERITE_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
+        this.dropSelf(BOPBlocks.POLISHED_SPHALERITE_STAIRS);
+        this.dropSelf(BOPBlocks.POLISHED_SPHALERITE_WALL);
+        this.dropSelf(BOPBlocks.SPHALERITE_BRICKS);
+        this.add(BOPBlocks.SPHALERITE_BRICK_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
+        this.dropSelf(BOPBlocks.SPHALERITE_BRICK_STAIRS);
+        this.dropSelf(BOPBlocks.SPHALERITE_BRICK_WALL);
+        this.dropSelf(BOPBlocks.CHISELED_SPHALERITE);
         this.dropSelf(BOPBlocks.POTENT_SPHALERITE);
 
         this.dropSelf(BOPBlocks.ORPIMENT);
+        this.add(BOPBlocks.ORPIMENT_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
+        this.dropSelf(BOPBlocks.ORPIMENT_STAIRS);
+        this.dropSelf(BOPBlocks.ORPIMENT_WALL);
+        this.dropSelf(BOPBlocks.POLISHED_ORPIMENT);
+        this.add(BOPBlocks.POLISHED_ORPIMENT_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
+        this.dropSelf(BOPBlocks.POLISHED_ORPIMENT_STAIRS);
+        this.dropSelf(BOPBlocks.POLISHED_ORPIMENT_WALL);
         this.dropSelf(BOPBlocks.ORPIMENT_BRICKS);
         this.add(BOPBlocks.ORPIMENT_BRICK_SLAB, (p_251501_) -> { return this.createSlabItemTable(p_251501_); });
         this.dropSelf(BOPBlocks.ORPIMENT_BRICK_STAIRS);
@@ -112,7 +131,6 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_FUMAROLE);
         this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_CLUSTER);
         this.dropWhenSilkTouch(BOPBlocks.ORPIMENT_BUD);
-
 
         // Flesh Blocks
         this.dropSelf(BOPBlocks.FLESH);

@@ -48,8 +48,27 @@ public class BOPItems
     public static Item DRIED_SALT;
 
     public static Item SPHALERITE;
+    public static Item SPHALERITE_SLAB;
+    public static Item SPHALERITE_STAIRS;
+    public static Item SPHALERITE_WALL;
+    public static Item POLISHED_SPHALERITE;
+    public static Item POLISHED_SPHALERITE_SLAB;
+    public static Item POLISHED_SPHALERITE_STAIRS;
+    public static Item POLISHED_SPHALERITE_WALL;
+    public static Item SPHALERITE_BRICKS;
+    public static Item SPHALERITE_BRICK_SLAB;
+    public static Item SPHALERITE_BRICK_STAIRS;
+    public static Item SPHALERITE_BRICK_WALL;
+    public static Item CHISELED_SPHALERITE;
     public static Item POTENT_SPHALERITE;
     public static Item ORPIMENT;
+    public static Item ORPIMENT_SLAB;
+    public static Item ORPIMENT_STAIRS;
+    public static Item ORPIMENT_WALL;
+    public static Item POLISHED_ORPIMENT;
+    public static Item POLISHED_ORPIMENT_SLAB;
+    public static Item POLISHED_ORPIMENT_STAIRS;
+    public static Item POLISHED_ORPIMENT_WALL;
     public static Item ORPIMENT_BRICKS;
     public static Item ORPIMENT_BRICK_SLAB;
     public static Item ORPIMENT_BRICK_STAIRS;

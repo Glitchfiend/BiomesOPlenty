@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_orpiment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:polished_orpiment"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:polished_orpiment_slab_from_polished_orpiment_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_polished_orpiment"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:polished_orpiment_slab_from_polished_orpiment_stonecutting"
+    ]
+  }
+}

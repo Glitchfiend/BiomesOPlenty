@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_orpiment_bricks": {
+    "has_orpiment_slab": {
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:orpiment_bricks"
+            "items": "biomesoplenty:orpiment_slab"
           }
         ]
       },
@@ -31,7 +31,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_orpiment_bricks",
+      "has_orpiment_slab",
       "has_chiseled_orpiment"
     ]
   ],
