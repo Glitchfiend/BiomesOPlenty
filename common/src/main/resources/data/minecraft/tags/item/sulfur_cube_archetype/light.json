@@ -1,4 +1,20 @@
 {
   "values": [
+	"biomesoplenty:white_flower_petal_block",
+	"biomesoplenty:light_gray_flower_petal_block",
+	"biomesoplenty:gray_flower_petal_block",
+	"biomesoplenty:black_flower_petal_block",
+	"biomesoplenty:brown_flower_petal_block",
+	"biomesoplenty:red_flower_petal_block",
+	"biomesoplenty:orange_flower_petal_block",
+	"biomesoplenty:yellow_flower_petal_block",
+	"biomesoplenty:lime_flower_petal_block",
+	"biomesoplenty:green_flower_petal_block",
+	"biomesoplenty:cyan_flower_petal_block",
+	"biomesoplenty:light_blue_flower_petal_block",
+	"biomesoplenty:blue_flower_petal_block",
+	"biomesoplenty:purple_flower_petal_block",
+	"biomesoplenty:magenta_flower_petal_block",
+	"biomesoplenty:pink_flower_petal_block"
   ]
 }

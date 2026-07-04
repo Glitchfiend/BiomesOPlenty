@@ -1,4 +1,25 @@
 {
   "values": [
+	"biomesoplenty:white_sandstone",
+	"biomesoplenty:cut_white_sandstone",
+	"biomesoplenty:chiseled_white_sandstone",
+	"biomesoplenty:smooth_white_sandstone",
+	"biomesoplenty:orange_sandstone",
+	"biomesoplenty:cut_orange_sandstone",
+	"biomesoplenty:chiseled_orange_sandstone",
+	"biomesoplenty:smooth_orange_sandstone",
+	"biomesoplenty:black_sandstone",
+	"biomesoplenty:cut_black_sandstone",
+	"biomesoplenty:chiseled_black_sandstone",
+	"biomesoplenty:smooth_black_sandstone",
+	"biomesoplenty:sphalerite",
+	"biomesoplenty:orpiment",
+	"biomesoplenty:orpiment_bricks",
+	"biomesoplenty:chiseled_orpiment",
+	"biomesoplenty:rose_quartz_block",
+	"biomesoplenty:algal_end_stone",
+	"biomesoplenty:unmapped_end_stone",
+	"biomesoplenty:null_end_stone",
+	"biomesoplenty:null_block"
   ]
 }
