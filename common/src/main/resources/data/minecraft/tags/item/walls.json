@@ -4,6 +4,11 @@
     "biomesoplenty:black_sandstone_wall",
     "biomesoplenty:orange_sandstone_wall",
     "biomesoplenty:white_sandstone_wall",
+	"biomesoplenty:sphalerite_wall",
+	"biomesoplenty:polished_sphalerite_wall",
+	"biomesoplenty:sphalerite_brick_wall",
+	"biomesoplenty:orpiment_wall",
+	"biomesoplenty:polished_orpiment_wall",
 	"biomesoplenty:orpiment_brick_wall"
   ]
 }
