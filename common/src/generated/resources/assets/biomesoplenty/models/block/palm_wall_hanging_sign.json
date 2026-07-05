@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_wall_hanging_sign",
+  "textures": {
+    "all": "biomesoplenty:block/palm_hanging_sign",
+    "particle": "biomesoplenty:block/stripped_palm_log"
+  }
+}

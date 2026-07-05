@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
-      "model": "biomesoplenty:block/magic_hanging_sign"
+    "facing=east": {
+      "model": "biomesoplenty:block/magic_wall_hanging_sign",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "biomesoplenty:block/magic_wall_hanging_sign",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "biomesoplenty:block/magic_wall_hanging_sign"
+    },
+    "facing=west": {
+      "model": "biomesoplenty:block/magic_wall_hanging_sign",
+      "y": 90
     }
   }
 }

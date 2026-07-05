@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_attached_hanging_sign_rot_1",
+  "textures": {
+    "all": "biomesoplenty:block/origin_oak_hanging_sign",
+    "particle": "biomesoplenty:block/stripped_origin_oak_log"
+  }
+}

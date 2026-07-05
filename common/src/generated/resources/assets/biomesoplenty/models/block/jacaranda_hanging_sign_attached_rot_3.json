@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_attached_hanging_sign_rot_3",
+  "textures": {
+    "all": "biomesoplenty:block/jacaranda_hanging_sign",
+    "particle": "biomesoplenty:block/stripped_jacaranda_log"
+  }
+}

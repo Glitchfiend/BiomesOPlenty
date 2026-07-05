@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_hanging_sign_rot_2",
+  "textures": {
+    "all": "biomesoplenty:block/redwood_hanging_sign",
+    "particle": "biomesoplenty:block/stripped_redwood_log"
+  }
+}

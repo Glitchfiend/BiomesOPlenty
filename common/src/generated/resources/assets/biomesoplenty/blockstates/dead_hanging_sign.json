@@ -1,7 +1,124 @@
 {
   "variants": {
-    "": {
-      "model": "biomesoplenty:block/dead_hanging_sign"
+    "attached=false,rotation=0": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_0"
+    },
+    "attached=false,rotation=1": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_1"
+    },
+    "attached=false,rotation=10": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_2",
+      "y": 180
+    },
+    "attached=false,rotation=11": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_3",
+      "y": 180
+    },
+    "attached=false,rotation=12": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_0",
+      "y": 270
+    },
+    "attached=false,rotation=13": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_1",
+      "y": 270
+    },
+    "attached=false,rotation=14": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_2",
+      "y": 270
+    },
+    "attached=false,rotation=15": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_3",
+      "y": 270
+    },
+    "attached=false,rotation=2": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_2"
+    },
+    "attached=false,rotation=3": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_3"
+    },
+    "attached=false,rotation=4": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_0",
+      "y": 90
+    },
+    "attached=false,rotation=5": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_1",
+      "y": 90
+    },
+    "attached=false,rotation=6": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_2",
+      "y": 90
+    },
+    "attached=false,rotation=7": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_3",
+      "y": 90
+    },
+    "attached=false,rotation=8": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_0",
+      "y": 180
+    },
+    "attached=false,rotation=9": {
+      "model": "biomesoplenty:block/dead_hanging_sign_rot_1",
+      "y": 180
+    },
+    "attached=true,rotation=0": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_0"
+    },
+    "attached=true,rotation=1": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_1"
+    },
+    "attached=true,rotation=10": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_2",
+      "y": 180
+    },
+    "attached=true,rotation=11": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_3",
+      "y": 180
+    },
+    "attached=true,rotation=12": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_0",
+      "y": 270
+    },
+    "attached=true,rotation=13": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_1",
+      "y": 270
+    },
+    "attached=true,rotation=14": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_2",
+      "y": 270
+    },
+    "attached=true,rotation=15": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_3",
+      "y": 270
+    },
+    "attached=true,rotation=2": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_2"
+    },
+    "attached=true,rotation=3": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_3"
+    },
+    "attached=true,rotation=4": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_0",
+      "y": 90
+    },
+    "attached=true,rotation=5": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_1",
+      "y": 90
+    },
+    "attached=true,rotation=6": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_2",
+      "y": 90
+    },
+    "attached=true,rotation=7": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_3",
+      "y": 90
+    },
+    "attached=true,rotation=8": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_0",
+      "y": 180
+    },
+    "attached=true,rotation=9": {
+      "model": "biomesoplenty:block/dead_hanging_sign_attached_rot_1",
+      "y": 180
     }
   }
 }

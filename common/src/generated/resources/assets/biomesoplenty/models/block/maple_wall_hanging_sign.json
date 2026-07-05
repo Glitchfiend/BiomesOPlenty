@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_wall_hanging_sign",
+  "textures": {
+    "all": "biomesoplenty:block/maple_hanging_sign",
+    "particle": "biomesoplenty:block/stripped_maple_log"
+  }
+}
