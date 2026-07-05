@@ -20,6 +20,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -68,6 +69,7 @@ public abstract class MixinBloodFluid
         // These may or may not exist depending on MC version
         fogData.skyEnd = 0.0F;
         fogData.cloudEnd = 0.0F;
+        fogData.color = new Vector4f(0.407F, 0.121F, 0.137F, 1.0F);
 
         cir.setReturnValue(fogData);
     }
