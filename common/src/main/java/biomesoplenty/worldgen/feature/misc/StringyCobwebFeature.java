@@ -34,10 +34,13 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
 
     public static boolean canPlace(WorldGenLevel world, BlockPos pos, int length, Direction dir)
     {
+        if (!respectsCutoff((WorldGenRegion)world, pos))
+            return false;
+
         BlockPos belowPos = pos.below();
         BlockState belowState = world.getBlockState(belowPos);
 
-        if (!isStringyCobwebReplaceable(world.getBlockState(pos)) || !belowState.isFaceSturdy(world, belowPos, Direction.UP) || !respectsCutoff((WorldGenRegion)world, pos))
+        if (!isStringyCobwebReplaceable(world.getBlockState(pos)) || !belowState.isFaceSturdy(world, belowPos, Direction.UP))
         {
             return false;
         }
@@ -47,9 +50,13 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         for (int i = 0; i < length; i++)
         {
             nextStringPos = nextStringPos.relative(dir, 1).above(1);
+
+            if (!respectsCutoff((WorldGenRegion)world, nextStringPos))
+                return false;
+
             BlockState nextStringState = world.getBlockState(nextStringPos);
 
-            if ((!nextStringState.isAir() && world.getBlockState(nextStringPos).getBlock() != Blocks.COBWEB && world.getBlockState(nextStringPos).getBlock() != Blocks.GLOW_LICHEN && world.getBlockState(nextStringPos).getBlock() != BOPBlocks.WEBBING) || !respectsCutoff((WorldGenRegion)world, nextStringPos))
+            if ((!nextStringState.isAir() && world.getBlockState(nextStringPos).getBlock() != Blocks.COBWEB && world.getBlockState(nextStringPos).getBlock() != Blocks.GLOW_LICHEN && world.getBlockState(nextStringPos).getBlock() != BOPBlocks.WEBBING))
             {
                 return false;
             }
@@ -58,7 +65,7 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
         BlockPos abovePos = nextStringPos.above();
         BlockState aboveState = world.getBlockState(abovePos);
 
-        if (!aboveState.isFaceSturdy(world, abovePos, Direction.DOWN) || !respectsCutoff((WorldGenRegion)world, nextStringPos))
+        if (!aboveState.isFaceSturdy(world, abovePos, Direction.DOWN))
         {
             return false;
         }

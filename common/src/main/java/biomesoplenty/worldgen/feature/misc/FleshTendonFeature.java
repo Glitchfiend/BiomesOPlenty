@@ -53,8 +53,12 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         RandomSource rand = context.random();
         BlockPos pos = context.origin();
         final int maxY = world.getMinY() + world.getHeight() - 1;
-        
+
+        if (!respectsCutoff((WorldGenRegion)world, pos) || !respectsCutoff((WorldGenRegion)world, pos.below()))
+            return false;
+
         BlockState below = world.getBlockState(pos.below());
+
         if (!below.is(ModTags.Blocks.FLESH))
         {
             return false;
@@ -66,9 +70,15 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         int minZ = rand.nextBoolean() ? MIN_DISTANCE : -MIN_DISTANCE;
         BlockPos endPos = pos.offset(Math.abs(xOff) < MIN_DISTANCE ? minX : xOff, pos.getY(), Math.abs(zOff) < MIN_DISTANCE ? minZ : zOff);
 
+        if (!respectsCutoff((WorldGenRegion)world, endPos))
+            return false;
+
         while (world.isEmptyBlock(endPos) && endPos.getY() < maxY)
         {
             endPos = endPos.above();
+
+            if (!respectsCutoff((WorldGenRegion)world, endPos))
+                return false;
         }
 
         // No room for the tendon
@@ -150,10 +160,16 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
         int maxHeight = rand == 0 ? 8 : 4;
         int height = Mth.nextInt(p_67378_, minHeight, maxHeight);
 
+        if (!respectsCutoff((WorldGenRegion)p_67377_, blockpos$mutable) || !respectsCutoff((WorldGenRegion)p_67377_, blockpos$mutable.above()))
+            return;
+
         if (p_67377_.getBlockState(blockpos$mutable.above()).is(ModTags.Blocks.FLESH))
         {
             for(int i = 0; i <= height; ++i)
             {
+                if (!respectsCutoff((WorldGenRegion)p_67377_, blockpos$mutable) || !respectsCutoff((WorldGenRegion)p_67377_, blockpos$mutable.below()) || !respectsCutoff((WorldGenRegion)p_67377_, blockpos$mutable.above()))
+                    break;
+
                 Block fleshCheck = p_67377_.getBlockState(blockpos$mutable.below()).getBlock();
                 if (fleshCheck == BOPBlocks.FLESH_TENDONS || fleshCheck == BOPBlocks.FLESH_TENDONS_STRAND)
                 {
