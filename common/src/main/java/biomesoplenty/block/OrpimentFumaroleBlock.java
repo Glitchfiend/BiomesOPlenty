@@ -5,6 +5,7 @@
 package biomesoplenty.block;
 
 import biomesoplenty.api.damagesource.BOPDamageTypes;
+import biomesoplenty.init.ModParticles;
 import biomesoplenty.init.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -48,7 +49,7 @@ public class OrpimentFumaroleBlock extends Block
         super.animateTick(stateIn, worldIn, pos, rand);
         if (worldIn.getBlockState(pos.above()).isAir())
         {
-            worldIn.addAlwaysVisibleParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, (double) (pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), (double) (pos.getY() + 1.0D), (double) (pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), 0.0D, 0.02D, 0.0D);
+            worldIn.addAlwaysVisibleParticle(ModParticles.STEAM, (double) (pos.getX() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), (double) (pos.getY() + 1.0D), (double) (pos.getZ() + 0.5D + ((rand.nextDouble() - rand.nextDouble()) / 6.0D)), 0.0D, 0.02D, 0.0D);
 
             if (rand.nextInt(6) == 0)
             {
