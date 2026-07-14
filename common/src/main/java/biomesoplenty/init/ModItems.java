@@ -41,7 +41,7 @@ public class ModItems
 
         BOP_ICON = registerItem(func, "bop_icon", Item::new, new Item.Properties());
 
-        ROSE_QUARTZ_CHUNK = registerItem(func, "rose_quartz_chunk", Item::new, new Item.Properties());
+        ROSE_QUARTZ_CHUNK = registerItem(func, "rose_quartz_chunk", Item::new, new Item.Properties().trimMaterial(ModTrimMaterials.ROSE_QUARTZ));
         MUSIC_DISC_WANDERER = registerItem(func, "music_disc_wanderer", Item::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).jukeboxPlayable(ModJukeboxSongs.WANDERER));
         BLOOD_BUCKET = registerItem(func, "blood_bucket", (properties) -> new BucketItem(BOPFluids.BLOOD, properties), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
         LIQUID_NULL_BUCKET = registerItem(func, "liquid_null_bucket", (properties) -> new BucketItem(BOPFluids.LIQUID_NULL, properties), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
@@ -217,7 +217,7 @@ public class ModItems
         GLOWSHROOM_BLOCK = registerBlock(func, BOPBlocks.GLOWSHROOM_BLOCK);
         GLOWING_MOSS_BLOCK = registerBlock(func, BOPBlocks.GLOWING_MOSS_BLOCK);
         GLOWING_MOSS_CARPET = registerBlock(func, BOPBlocks.GLOWING_MOSS_CARPET);
-        GLOWWORM_SILK = registerBlock(func, BOPBlocks.GLOWWORM_SILK);
+        GLOWWORM_SILK = registerBlock(func, BOPBlocks.GLOWWORM_SILK, BlockItem::new, new Item.Properties().trimMaterial(ModTrimMaterials.GLOWWORM_SILK));
         GLOWWORM_SILK_STRAND = registerBlock(func, BOPBlocks.GLOWWORM_SILK_STRAND);
         SPIDER_EGG = registerBlock(func, BOPBlocks.SPIDER_EGG);
         HANGING_COBWEB = registerBlock(func, BOPBlocks.HANGING_COBWEB);

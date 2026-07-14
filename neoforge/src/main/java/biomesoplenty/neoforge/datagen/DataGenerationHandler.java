@@ -5,10 +5,7 @@
 package biomesoplenty.neoforge.datagen;
 
 import biomesoplenty.core.BiomesOPlenty;
-import biomesoplenty.init.ModBiomes;
-import biomesoplenty.init.ModDamageTypes;
-import biomesoplenty.init.ModJukeboxSongs;
-import biomesoplenty.init.ModVillagerTrades;
+import biomesoplenty.init.*;
 import biomesoplenty.neoforge.datagen.provider.*;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
 import biomesoplenty.util.worldgen.BOPPlacementUtils;
@@ -36,7 +33,8 @@ public class DataGenerationHandler
             .add(Registries.BIOME, ModBiomes::bootstrapBiomes)
             .add(Registries.DAMAGE_TYPE, ModDamageTypes::bootstrap)
             .add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap)
-            .add(Registries.VILLAGER_TRADE, ModVillagerTrades::bootstrap);
+            .add(Registries.VILLAGER_TRADE, ModVillagerTrades::bootstrap)
+            .add(Registries.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent.Client event)
