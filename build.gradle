@@ -195,6 +195,7 @@ subprojects {
                     if (name.equals("Fabric")) {
                         required.project "fabric-api"
                     }
+                    required.project "glitchcore"
                 }
 
                 if (changelog_file.exists()) {

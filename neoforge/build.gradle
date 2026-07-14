@@ -84,5 +84,10 @@ curseforge {
         mainArtifact(jar) {
             displayName = "${mod_display_name} ${name} ${version}"
         }
+
+        relations {
+            requiredDependency 'terrablender-neoforge'
+            requiredDependency 'glitchcore'
+        }
     }
 }

@@ -74,6 +74,7 @@ curseforge {
 
         relations {
             requiredDependency 'fabric-api'
+            requiredDependency 'terrablender-fabric'
         }
     }
 }
