@@ -99,8 +99,11 @@ public class SpiderEggBlock extends Block
     public void spawnSpider(Level p_154567_, BlockPos p_154569_)
     {
         CaveSpider spider = EntityTypes.CAVE_SPIDER.create(p_154567_, EntitySpawnReason.TRIGGERED);
-        spider.snapTo((double)p_154569_.getX() + 0.5D, (double)p_154569_.getY(), (double)p_154569_.getZ() + 0.5D, 0.0F, 0.0F);
-        p_154567_.addFreshEntity(spider);
+        if (spider!=null)
+        {
+            spider.snapTo((double)p_154569_.getX() + 0.5D, (double)p_154569_.getY(), (double)p_154569_.getZ() + 0.5D, 0.0F, 0.0F);
+            p_154567_.addFreshEntity(spider);
+        }
     }
 
     @Override
