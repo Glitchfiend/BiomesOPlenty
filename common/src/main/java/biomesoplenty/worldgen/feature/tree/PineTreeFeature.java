@@ -117,78 +117,115 @@ public class PineTreeFeature extends BOPTreeFeature<PineTreeConfiguration>
             }
         }
 
-        //Generate lower branches
-        BlockPos lowerBranchStartPos = start.above(endHeight - 9);
-        Direction lowerBranchDir = Direction.Plane.HORIZONTAL.getRandomDirection(world.getRandom());
-
-        if (world.getRandom().nextInt(6) != 0)
+        //Generate upper branches
+        if (height > 8)
         {
-            generateBranch(logs, leaves, world, lowerBranchStartPos, lowerBranchDir, 2, config);
+            //Generate lower branches
+            BlockPos lowerBranchStartPos = start.above(endHeight - 9);
+            Direction lowerBranchDir = Direction.Plane.HORIZONTAL.getRandomDirection(world.getRandom());
 
-            if (world.getRandom().nextInt(4) == 0)
+            if (world.getRandom().nextInt(6) != 0)
             {
-                generateBranch(logs, leaves, world, lowerBranchStartPos, lowerBranchDir.getOpposite(), 2, config);
+                generateBranch(logs, leaves, world, lowerBranchStartPos, lowerBranchDir, 2, config);
 
-                if (world.getRandom().nextInt(6) == 0)
+                if (world.getRandom().nextInt(4) == 0)
                 {
-                    generateBranch(logs, leaves, world, lowerBranchStartPos, lowerBranchDir.getClockWise(), 2, config);
-                    generateBranch(logs, leaves, world, lowerBranchStartPos, lowerBranchDir.getCounterClockWise(), 2, config);
+                    generateBranch(logs, leaves, world, lowerBranchStartPos, lowerBranchDir.getOpposite(), 2, config);
+
+                    if (world.getRandom().nextInt(6) == 0)
+                    {
+                        generateBranch(logs, leaves, world, lowerBranchStartPos, lowerBranchDir.getClockWise(), 2, config);
+                        generateBranch(logs, leaves, world, lowerBranchStartPos, lowerBranchDir.getCounterClockWise(), 2, config);
+                    }
                 }
             }
+
+            BlockPos upperBranchStartPos = start.above(endHeight - 6);
+
+            generateBranch(logs, leaves, world, upperBranchStartPos, Direction.NORTH, 1, config);
+            generateBranch(logs, leaves, world, upperBranchStartPos, Direction.EAST, 1, config);
+            generateBranch(logs, leaves, world, upperBranchStartPos, Direction.SOUTH, 1, config);
+            generateBranch(logs, leaves, world, upperBranchStartPos, Direction.WEST, 1, config);
+
+            //Generate top leaves
+            BlockPos topStartPos = start.above(endHeight - 3);
+
+            this.placeLeaves(world, topStartPos.offset(0, 0, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 0, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 0, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 0, 0), leaves, config);
+
+            this.placeLeaves(world, topStartPos.offset(0, 1, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 1, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 1, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 1, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 1, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 1, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 1, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 1, -1), leaves, config);
+
+            this.placeLeaves(world, topStartPos.offset(1, 1, 2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 1, -2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 1, 2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 1, -2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(2, 1, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(2, 1, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-2, 1, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-2, 1, -1), leaves, config);
+
+            this.placeLeaves(world, topStartPos.offset(0, 3, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 3, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 3, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 3, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 3, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 3, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 3, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 3, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 3, 2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 3, -2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(2, 3, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-2, 3, 0), leaves, config);
+
+            this.placeLeaves(world, topStartPos.offset(0, 4, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 4, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 4, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 4, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 4, 0), leaves, config);
         }
+        else
+        {
+            BlockPos topStartPos = start.above(endHeight - 2);
 
-        //Generate upper branches
-        BlockPos upperBranchStartPos = start.above(endHeight - 6);
+            this.placeLeaves(world, topStartPos.offset(-1, 0, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-2, 0, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 0, -2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 0, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-2, 0, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 0, 2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 0, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(2, 0, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 0, -2), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 0, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(2, 0, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 0, 2), leaves, config);
 
-        generateBranch(logs, leaves, world, upperBranchStartPos, Direction.NORTH, 1, config);
-        generateBranch(logs, leaves, world, upperBranchStartPos, Direction.EAST, 1, config);
-        generateBranch(logs, leaves, world, upperBranchStartPos, Direction.SOUTH, 1, config);
-        generateBranch(logs, leaves, world, upperBranchStartPos, Direction.WEST, 1, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 0, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 0, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 0, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 0, 1), leaves, config);
 
-        //Generate top leaves
-        BlockPos topStartPos = start.above(endHeight - 3);
+            this.placeLeaves(world, topStartPos.offset(-1, 1, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 1, 1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 1, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 1, 1), leaves, config);
 
-        this.placeLeaves(world, topStartPos.offset(0,0,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(0,0,-1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,0,0), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,0,0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(-1, 2, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(1, 2, 0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 2, -1), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 2, 1), leaves, config);
 
-        this.placeLeaves(world, topStartPos.offset(0,1,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(0,1,-1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,1,0), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,1,0), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,1,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,1,-1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,1,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,1,-1), leaves, config);
-
-        this.placeLeaves(world, topStartPos.offset(1,1,2), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,1,-2), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,1,2), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,1,-2), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(2,1,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(2,1,-1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-2,1,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-2,1,-1), leaves, config);
-
-        this.placeLeaves(world, topStartPos.offset(0,3,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(0,3,-1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,3,0), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,3,0), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,3,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,3,-1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,3,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,3,-1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(0,3,2), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(0,3,-2), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(2,3,0), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-2,3,0), leaves, config);
-
-        this.placeLeaves(world, topStartPos.offset(0,4,0), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(0,4,1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(0,4,-1), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(1,4,0), leaves, config);
-        this.placeLeaves(world, topStartPos.offset(-1,4,0), leaves, config);
+            this.placeLeaves(world, topStartPos.offset(0, 3, 0), leaves, config);
+        }
     }
 
     private void generateBranch(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, WorldGenLevel world, BlockPos middle, Direction direction, int length, PineTreeConfiguration config)

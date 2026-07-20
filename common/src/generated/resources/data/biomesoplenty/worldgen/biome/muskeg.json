@@ -74,9 +74,11 @@
     [
       "minecraft:glow_lichen",
       "biomesoplenty:trees_muskeg",
+      "biomesoplenty:huge_brown_mushroom_extra",
       "biomesoplenty:small_brown_mushroom",
       "biomesoplenty:mud_splatter",
-      "biomesoplenty:patch_grass_1"
+      "biomesoplenty:patch_grass_1",
+      "biomesoplenty:patch_tall_grass_6"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -97,9 +99,9 @@
     "creature": [
       {
         "type": "minecraft:frog",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 10
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
       }
     ],
     "misc": [],

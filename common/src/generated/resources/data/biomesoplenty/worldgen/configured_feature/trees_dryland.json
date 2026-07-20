@@ -12,7 +12,11 @@
         "feature": "biomesoplenty:sparse_oak_tree"
       },
       {
-        "chance": 0.125,
+        "chance": 0.15,
+        "feature": "biomesoplenty:pine_tree_small"
+      },
+      {
+        "chance": 0.075,
         "feature": "biomesoplenty:pine_tree"
       }
     ]

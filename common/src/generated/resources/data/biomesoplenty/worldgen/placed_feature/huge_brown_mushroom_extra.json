@@ -1,9 +1,9 @@
 {
-  "feature": "minecraft:huge_red_mushroom",
+  "feature": "minecraft:huge_brown_mushroom",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 4
+      "chance": 8
     },
     {
       "type": "minecraft:in_square"

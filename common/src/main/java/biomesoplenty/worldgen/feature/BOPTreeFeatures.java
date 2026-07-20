@@ -113,6 +113,7 @@ public class BOPTreeFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE = BOPFeatureUtils.createKey("palm_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE_LARGE = BOPFeatureUtils.createKey("redwood_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_TREE = BOPFeatureUtils.createKey("pine_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_TREE_SMALL = BOPFeatureUtils.createKey("pine_tree_small");
     public static final ResourceKey<ConfiguredFeature<?, ?>> EMPYREAL_TREE = BOPFeatureUtils.createKey("empyreal_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> NULL_TREE = BOPFeatureUtils.createKey("null_tree");
 
@@ -207,6 +208,7 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.SNOWBLOSSOM_TREE, Feature.TREE, snowblossom(belowTrunkProvider).build());
         register(context, BOPTreeFeatures.REDWOOD_TREE_LARGE, BOPBaseFeatures.REDWOOD_TREE, createRedwood(BOPBlocks.REDWOOD_WOOD).minHeight(45).maxHeight(60).trunkWidth(3).build());
         register(context, BOPTreeFeatures.PINE_TREE, BOPBaseFeatures.PINE_TREE, new PineTreeConfiguration.Builder().build());
+        register(context, BOPTreeFeatures.PINE_TREE_SMALL, BOPBaseFeatures.PINE_TREE, new PineTreeConfiguration.Builder().minHeight(3).maxHeight(6).build());
         register(context, BOPTreeFeatures.EMPYREAL_TREE, BOPBaseFeatures.EMPYREAL_TREE, new EmpyrealTreeConfiguration.Builder().build());
         register(context, BOPTreeFeatures.NULL_TREE, BOPBaseFeatures.BASIC_TREE, new BasicTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.NULL_BLOCK)).foliage(BlockStateProvider.simple(BOPBlocks.NULL_LEAVES)).build());
     }

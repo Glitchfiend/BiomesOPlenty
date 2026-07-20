@@ -4,8 +4,8 @@
     "default": "biomesoplenty:pine_tree",
     "features": [
       {
-        "chance": 0.05,
-        "feature": "biomesoplenty:pine_tree"
+        "chance": 0.1,
+        "feature": "biomesoplenty:pine_tree_small"
       }
     ]
   }

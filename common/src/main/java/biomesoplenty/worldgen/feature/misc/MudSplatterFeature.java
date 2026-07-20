@@ -6,10 +6,13 @@ package biomesoplenty.worldgen.feature.misc;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeafLitterBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -49,24 +52,32 @@ public class MudSplatterFeature extends Feature<NoneFeatureConfiguration>
                         BlockState blockstate = worldIn.getBlockState(blockpos);
                         BlockState blockstate1 = worldIn.getBlockState(blockpos.above());
 
-                        if (blockstate.getBlock() == Blocks.GRASS_BLOCK)
+                        if (blockstate.getBlock() == Blocks.GRASS_BLOCK && blockstate1.is(BlockTags.REPLACEABLE))
                         {
-                            if (rand.nextInt(3) == 0)
+                            if (rand.nextInt(6) == 0)
                             {
-                                worldIn.setBlock(blockpos, Blocks.MUD.defaultBlockState(), 2);
+                                worldIn.setBlock(blockpos, Blocks.PODZOL.defaultBlockState(), 2);
 
-                                if (rand.nextInt(18) == 0)
+                                if (rand.nextInt(6) == 0)
                                 {
-                                    worldIn.setBlock(blockpos.above(), Blocks.DEAD_BUSH.defaultBlockState(), 2);
+                                    worldIn.setBlock(blockpos.above(), Blocks.BROWN_MUSHROOM.defaultBlockState(), 2);
+                                }
+                                else if (rand.nextInt(4) == 0)
+                                {
+                                    worldIn.setBlock(blockpos.above(), Blocks.LEAF_LITTER.defaultBlockState().setValue(LeafLitterBlock.AMOUNT,1+rand.nextInt(4)).setValue(LeafLitterBlock.FACING, Direction.Plane.HORIZONTAL.getRandomDirection(rand)), 2);
                                 }
                             }
                             else
                             {
-                                worldIn.setBlock(blockpos, Blocks.PODZOL.defaultBlockState(), 2);
+                                worldIn.setBlock(blockpos, Blocks.MUD.defaultBlockState(), 2);
 
-                                if (rand.nextInt(9) == 0)
+                                if (rand.nextInt(15) == 0)
                                 {
-                                    worldIn.setBlock(blockpos.above(), Blocks.BROWN_MUSHROOM.defaultBlockState(), 2);
+                                    worldIn.setBlock(blockpos.above(), Blocks.DEAD_BUSH.defaultBlockState(), 2);
+                                }
+                                else if (rand.nextInt(3) == 0)
+                                {
+                                    worldIn.setBlock(blockpos.above(), Blocks.LEAF_LITTER.defaultBlockState().setValue(LeafLitterBlock.AMOUNT,1+rand.nextInt(4)).setValue(LeafLitterBlock.FACING, Direction.Plane.HORIZONTAL.getRandomDirection(rand)), 2);
                                 }
                             }
 
