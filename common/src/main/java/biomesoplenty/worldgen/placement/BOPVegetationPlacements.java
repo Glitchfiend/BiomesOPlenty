@@ -528,9 +528,9 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.SMALL_DRIPLEAF, SMALL_DRIPLEAF, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_LOG, FALLEN_LOG, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_FIR_LOG, FALLEN_FIR_LOG, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.FALLEN_BIRCH_LOG, FALLEN_BIRCH_LOG, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FALLEN_BIRCH_LOG, FALLEN_BIRCH_LOG, List.of(RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, BOPVegetationPlacements.FALLEN_DEAD_LOG, FALLEN_DEAD_LOG, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, BOPVegetationPlacements.FALLEN_JACARANDA_LOG, FALLEN_JACARANDA_LOG, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+        register(context, BOPVegetationPlacements.FALLEN_JACARANDA_LOG, FALLEN_JACARANDA_LOG, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     }
 
     private static List<PlacementModifier> waterTreePlacement(PlacementModifier modifier)

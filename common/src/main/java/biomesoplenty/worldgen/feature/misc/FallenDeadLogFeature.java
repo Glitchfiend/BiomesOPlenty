@@ -13,10 +13,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeafLitterBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.VegetationBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -54,6 +51,8 @@ public class FallenDeadLogFeature extends Feature<NoneFeatureConfiguration>
         int groundCheck = 0;
         boolean startConnected = false;
         boolean endConnected = false;
+        boolean generateStump = false;
+        int stumpDistance = 2 + rand.nextInt(2);
 
         int groundRequired;
         if (length % 2 == 0)
@@ -94,8 +93,51 @@ public class FallenDeadLogFeature extends Feature<NoneFeatureConfiguration>
             return false;
         }
 
+        // Check if there's space for a stump
+        if (this.placeOn.matches(world, startPos.relative(direction.getOpposite(), stumpDistance)))
+        {
+            if (this.checkSpace(world, startPos.above(), direction.getOpposite(), stumpDistance))
+            {
+                generateStump = true;
+            }
+        }
+
         BlockPos pos = startPos.above();
 
+        //Stump
+        if (generateStump)
+        {
+            BlockPos stumpPos = startPos.above().relative(direction.getOpposite(), stumpDistance);
+            this.setBlock(world, stumpPos, BOPBlocks.DEAD_LOG.defaultBlockState());
+
+            //Top
+            if (rand.nextInt(2) == 0)
+            {
+                this.setBlock(world, stumpPos.above(), Blocks.PALE_MOSS_CARPET.defaultBlockState());
+            }
+
+            //Sides
+            for (Direction face : Direction.Plane.HORIZONTAL)
+            {
+                if (rand.nextInt(2) == 0)
+                {
+                    this.setBlock(world, stumpPos.relative(face), BOPBlocks.DEAD_BRANCH.defaultBlockState().setValue(DeadBranchBlock.FACING, face));
+                }
+            }
+
+            //Roots
+            for (int i = 0; i < stumpDistance; i++)
+            {
+                BlockPos rootPos = stumpPos.below().relative(direction, i);
+                BlockState blockBelow = world.getBlockState(rootPos);
+                if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
+                {
+                    super.setBlock(world, rootPos, Blocks.ROOTED_DIRT.defaultBlockState());
+                }
+            }
+        }
+
+        //Fallen Log
         for (int i = 0; i < length; i++)
         {
             this.setBlock(world, pos.relative(direction, i), BOPBlocks.DEAD_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, direction.getAxis()));

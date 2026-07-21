@@ -51,6 +51,8 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
         int groundCheck = 0;
         boolean startConnected = false;
         boolean endConnected = false;
+        boolean generateStump = false;
+        int stumpDistance = 2 + rand.nextInt(2);
 
         int groundRequired;
         if (length % 2 == 0)
@@ -91,12 +93,56 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
             return false;
         }
 
+        // Check if there's space for a stump
+        if (this.placeOn.matches(world, startPos.relative(direction.getOpposite(), stumpDistance)))
+        {
+            if (this.checkSpace(world, startPos.above(), direction.getOpposite(), stumpDistance))
+            {
+                generateStump = true;
+            }
+        }
+
         BlockPos pos = startPos.above();
 
+        //Stump
+        if (generateStump)
+        {
+            BlockPos stumpPos = startPos.above().relative(direction.getOpposite(), stumpDistance);
+            this.setBlock(world, stumpPos, Blocks.BIRCH_LOG.defaultBlockState());
+
+            //Top
+            if (rand.nextInt(2) == 0)
+            {
+                this.setBlock(world, stumpPos.above(), BOPBlocks.SPROUT.defaultBlockState());
+            }
+
+            //Sides
+            for (Direction face : Direction.Plane.HORIZONTAL)
+            {
+                if (rand.nextInt(2) == 0)
+                {
+                    this.setBlock(world, stumpPos.relative(face), Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(face.getOpposite()), true));
+                }
+            }
+
+            //Roots
+            for (int i = 0; i < stumpDistance; i++)
+            {
+                BlockPos rootPos = stumpPos.below().relative(direction, i);
+                BlockState blockBelow = world.getBlockState(rootPos);
+                if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
+                {
+                    super.setBlock(world, rootPos, Blocks.ROOTED_DIRT.defaultBlockState());
+                }
+            }
+        }
+
+        //Fallen Log
         for (int i = 0; i < length; i++)
         {
             this.setBlock(world, pos.relative(direction, i), Blocks.BIRCH_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
 
+            //Top
             BlockState blockAbove = world.getBlockState(pos.above().relative(direction, i));
             if (blockAbove.isAir() || blockAbove.getBlock() instanceof VegetationBlock)
             {
@@ -110,6 +156,7 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
                 }
             }
 
+            //Roots
             BlockState blockBelow = world.getBlockState(pos.below().relative(direction, i));
             if (blockBelow.isAir() || blockBelow.getFluidState().is(Fluids.WATER) || blockBelow.getBlock() instanceof VegetationBlock)
             {
