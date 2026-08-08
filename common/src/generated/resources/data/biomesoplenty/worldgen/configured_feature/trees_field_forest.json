@@ -6,6 +6,10 @@
       {
         "chance": 0.25,
         "feature": "biomesoplenty:oak_bush"
+      },
+      {
+        "chance": 0.25,
+        "feature": "biomesoplenty:pine_tree_small"
       }
     ]
   }

@@ -1,4 +1,4 @@
-// 26.2	2026-07-21T01:35:39.2071419	Registries
+// 26.2	2026-08-08T12:12:36.6382451	Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -415,7 +415,7 @@ f65947e9697a2ce1d73ea2fe2879c7f19c92fb2a data/biomesoplenty/worldgen/configured_
 b30b546db0d147741d48bf7644eb24d2f164f667 data/biomesoplenty/worldgen/configured_feature/trees_end_corruption.json
 1e0e1f876b7f30b19a55f11e3647e579c7e97db0 data/biomesoplenty/worldgen/configured_feature/trees_end_wilds.json
 4099fe136d5a5f2d712108931d88159d8aa81d58 data/biomesoplenty/worldgen/configured_feature/trees_field.json
-c5a22c26fd099d67a30e64a2956cc4b5c265f431 data/biomesoplenty/worldgen/configured_feature/trees_field_forest.json
+104dacf3acc0161240974ba002f7a4363c36371f data/biomesoplenty/worldgen/configured_feature/trees_field_forest.json
 2a34a8affa673f46a2dc57a01266026fc0ba35bd data/biomesoplenty/worldgen/configured_feature/trees_fungal_jungle.json
 2df395246bd684b835d55fa3b5945609bff9e0ed data/biomesoplenty/worldgen/configured_feature/trees_hot_springs.json
 50ca719d84a48ea826e37bb12511d64422ab522d data/biomesoplenty/worldgen/configured_feature/trees_jade_cliffs.json
