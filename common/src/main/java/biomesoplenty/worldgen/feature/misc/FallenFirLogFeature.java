@@ -5,7 +5,6 @@
 package biomesoplenty.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.block.DeadBranchBlock;
 import biomesoplenty.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;

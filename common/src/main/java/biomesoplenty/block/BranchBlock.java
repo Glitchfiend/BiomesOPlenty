@@ -25,12 +25,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class DeadBranchBlock extends Block
+public class BranchBlock extends Block
 {
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     private static final Map<Direction, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(Direction.NORTH, Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 16.0D), Direction.SOUTH, Block.box(4.0D, 0.0D, 0.0D, 12.0D, 16.0D, 12.0D), Direction.WEST, Block.box(4.0D, 0.0D, 4.0D, 16.0D, 16.0D, 12.0D), Direction.EAST, Block.box(0.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D)));
 
-    public DeadBranchBlock(Properties properties)
+    public BranchBlock(Properties properties)
     {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
@@ -68,7 +68,7 @@ public class DeadBranchBlock extends Block
         Direction direction = state.getValue(FACING);
         BlockPos blockpos = pos.relative(direction.getOpposite());
         BlockState blockstate = worldIn.getBlockState(blockpos);
-        return blockstate.getBlock() == BOPBlocks.DEAD_LOG || blockstate.getBlock() == BOPBlocks.DEAD_WOOD;
+        return blockstate.is(BlockTags.LOGS);
     }
 
     @Override

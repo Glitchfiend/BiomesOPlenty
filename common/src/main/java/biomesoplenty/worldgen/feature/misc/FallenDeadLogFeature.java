@@ -5,7 +5,7 @@
 package biomesoplenty.worldgen.feature.misc;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.block.DeadBranchBlock;
+import biomesoplenty.block.BranchBlock;
 import biomesoplenty.util.SimpleBlockPredicate;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -121,7 +121,7 @@ public class FallenDeadLogFeature extends Feature<NoneFeatureConfiguration>
             {
                 if (rand.nextInt(2) == 0)
                 {
-                    this.setBlock(world, stumpPos.relative(face), BOPBlocks.DEAD_BRANCH.defaultBlockState().setValue(DeadBranchBlock.FACING, face));
+                    this.setBlock(world, stumpPos.relative(face), BOPBlocks.DEAD_BRANCH.defaultBlockState().setValue(BranchBlock.FACING, face));
                 }
             }
 
@@ -162,7 +162,7 @@ public class FallenDeadLogFeature extends Feature<NoneFeatureConfiguration>
             {
                 if (rand.nextInt(4) == 0)
                 {
-                    this.setBlock(world, pos.relative(direction, i).relative(direction.getClockWise()), BOPBlocks.DEAD_BRANCH.defaultBlockState().setValue(DeadBranchBlock.FACING, direction.getClockWise()));
+                    this.setBlock(world, pos.relative(direction, i).relative(direction.getClockWise()), BOPBlocks.DEAD_BRANCH.defaultBlockState().setValue(BranchBlock.FACING, direction.getClockWise()));
                 }
             }
 
@@ -171,7 +171,7 @@ public class FallenDeadLogFeature extends Feature<NoneFeatureConfiguration>
             {
                 if (rand.nextInt(4) == 0)
                 {
-                    this.setBlock(world, pos.relative(direction, i).relative(direction.getCounterClockWise()), BOPBlocks.DEAD_BRANCH.defaultBlockState().setValue(DeadBranchBlock.FACING, direction.getCounterClockWise()));
+                    this.setBlock(world, pos.relative(direction, i).relative(direction.getCounterClockWise()), BOPBlocks.DEAD_BRANCH.defaultBlockState().setValue(BranchBlock.FACING, direction.getCounterClockWise()));
                 }
             }
 

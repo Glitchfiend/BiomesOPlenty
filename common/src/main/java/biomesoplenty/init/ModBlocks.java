@@ -11,7 +11,6 @@ import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.block.*;
 import biomesoplenty.block.trees.BOPTreeGrowers;
 import biomesoplenty.core.BiomesOPlenty;
-import biomesoplenty.worldgen.BOPSurfaceRuleData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ColorParticleOption;
@@ -31,7 +30,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import terrablender.api.SurfaceRuleManager;
 
 import java.util.function.BiConsumer;
 import java.util.function.Function;
@@ -397,7 +395,7 @@ public class ModBlocks
         WILLOW_WALL_HANGING_SIGN = register(func, "willow_wall_hanging_sign", p -> new WallHangingSignBlock(BOPWoodTypes.WILLOW, p), wallVariant(WILLOW_HANGING_SIGN, true).mapColor(WILLOW_PLANKS.defaultMapColor()).instrument(NoteBlockInstrument.BASS).ignitedByLava().forceSolidOn().noCollision().strength(1.0F));
 
         DEAD_SAPLING = register(func, "dead_sapling", p -> new SaplingBlockBOP(BOPTreeGrowers.DEAD, p), BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).pushReaction(PushReaction.DESTROY).noCollision().randomTicks().instabreak().sound(SoundType.GRASS));
-        DEAD_BRANCH = register(func, "dead_branch", DeadBranchBlock::new, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_GRAY).ignitedByLava().noCollision().instabreak().sound(SoundType.WOOD));
+        DEAD_BRANCH = register(func, "dead_branch", BranchBlock::new, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_GRAY).ignitedByLava().noCollision().instabreak().sound(SoundType.WOOD));
         DEAD_LEAVES = register(func, "dead_leaves", p -> new TintedParticleLeavesBlock(0.01F, p), BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.WOOD).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).ignitedByLava().isRedstoneConductor(ModBlocks::never));
         DEAD_LOG = register(func, "dead_log", RotatedPillarBlock::new, logProperties(MapColor.STONE, MapColor.COLOR_GRAY, SoundType.WOOD));
         DEAD_WOOD = register(func, "dead_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor(MapColor.COLOR_GRAY).strength(2.0F).sound(SoundType.WOOD));
