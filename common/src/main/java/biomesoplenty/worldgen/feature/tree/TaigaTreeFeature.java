@@ -6,6 +6,7 @@ package biomesoplenty.worldgen.feature.tree;
 
 import biomesoplenty.util.biome.GeneratorUtil;
 import biomesoplenty.worldgen.feature.configurations.TaigaTreeConfiguration;
+import biomesoplenty.worldgen.feature.configurations.TwigletTreeConfiguration;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,6 +16,8 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CocoaBlock;
+import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
@@ -197,10 +200,47 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                     }
 
                     this.placeLog(world, startPos.offset(x, y, z), logs, config);
+
+                    if (y < height / 4)
+                    {
+                        for (Direction dir : Direction.Plane.HORIZONTAL)
+                        {
+                            BlockPos fruitPos = startPos.offset(x + dir.getStepX(), y, z + dir.getStepZ());
+                            BlockState trunkFruit = config.trunkFruitProvider.getState(world, random, fruitPos);
+
+                            if (trunkFruit.getBlock() != Blocks.AIR && random.nextInt(6) == 0)
+                            {
+                                if (trunkFruit.getBlock() == Blocks.COCOA)
+                                    fruitPos = startPos.offset(x + dir.getOpposite().getStepX(), y, z + dir.getOpposite().getStepZ());
+
+                                this.generateTrunkFruit(world, random.nextInt(3), fruitPos, dir, config);
+                            }
+                        }
+                    }
                 }
             }
         }
 
         return true;
+    }
+
+    private void generateTrunkFruit(WorldGenLevel world, int age, BlockPos pos, Direction direction, TaigaTreeConfiguration config)
+    {
+        BlockState trunkFruit = config.trunkFruitProvider.getState(world, world.getRandom(), pos);
+
+        if (trunkFruit == Blocks.COCOA.defaultBlockState())
+        {
+            if (world.getBlockState(pos).getBlock() == Blocks.AIR || world.getBlockState(pos).getBlock() instanceof VegetationBlock)
+            {
+                this.setBlock(world, pos, trunkFruit.setValue(CocoaBlock.AGE, Integer.valueOf(age)).setValue(CocoaBlock.FACING, direction));
+            }
+        }
+        else
+        {
+            if (world.getBlockState(pos).getBlock() == Blocks.AIR || world.getBlockState(pos).getBlock() instanceof VegetationBlock)
+            {
+                this.setBlock(world, pos, trunkFruit.setValue(CocoaBlock.FACING, direction));
+            }
+        }
     }
 }

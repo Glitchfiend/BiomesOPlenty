@@ -163,9 +163,10 @@ public class BOPTreeFeatures
         register(context, BOPTreeFeatures.GIANT_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.DARK_OAK_LOG)).foliage(BlockStateProvider.simple(Blocks.DARK_OAK_LEAVES)).minHeight(15).maxHeight(20).trunkWidth(4).build());
         register(context, BOPTreeFeatures.SPARSE_ACACIA_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().trunk(BlockStateProvider.simple(Blocks.ACACIA_LOG)).foliage(BlockStateProvider.simple(Blocks.ACACIA_LEAVES)).maxHeight(8).foliageHeight(1).build());
         register(context, BOPTreeFeatures.SPARSE_OAK_TREE, BOPBaseFeatures.BIG_TREE, new BigTreeConfiguration.Builder().maxHeight(10).foliageHeight(2).build());
-        register(context, BOPTreeFeatures.FIR_TREE, BOPBaseFeatures.TAIGA_TREE, createFir().minHeight(5).maxHeight(28).build());
-        register(context, BOPTreeFeatures.FIR_TREE_LARGE, BOPBaseFeatures.TAIGA_TREE, createFir().minHeight(20).maxHeight(40).trunkWidth(2).build());
-        register(context, BOPTreeFeatures.FIR_TREE_SMALL, BOPBaseFeatures.TAIGA_TREE, createFir().minHeight(5).maxHeight(11).build());
+        //TODO:REPLACE DEAD BRANCHES WITH SHELF FUNGI
+        register(context, BOPTreeFeatures.FIR_TREE, BOPBaseFeatures.TAIGA_TREE, createFir().minHeight(5).maxHeight(28).trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).build());
+        register(context, BOPTreeFeatures.FIR_TREE_LARGE, BOPBaseFeatures.TAIGA_TREE, createFir().minHeight(20).maxHeight(40).trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).trunkWidth(2).build());
+        register(context, BOPTreeFeatures.FIR_TREE_SMALL, BOPBaseFeatures.TAIGA_TREE, createFir().minHeight(5).maxHeight(11).trunkFruit(BlockStateProvider.simple(BOPBlocks.DEAD_BRANCH)).build());
         register(context, BOPTreeFeatures.TALL_SPRUCE_TREE, BOPBaseFeatures.TAIGA_TREE, new TaigaTreeConfiguration.Builder().maxHeight(13).build());
         register(context, BOPTreeFeatures.TALL_SPRUCE_TREE_BEES, BOPBaseFeatures.TAIGA_TREE, new TaigaTreeConfiguration.Builder().maxHeight(13).decorator(new BeehiveDecorator(0.05f)).build());
         register(context, BOPTreeFeatures.TALL_UMBRAN_TREE, BOPBaseFeatures.UMBRAN_TREE, new TaigaTreeConfiguration.Builder().trunk(BlockStateProvider.simple(BOPBlocks.UMBRAN_LOG)).foliage(BlockStateProvider.simple(BOPBlocks.UMBRAN_LEAVES)).minHeight(20).maxHeight(30).trunkWidth(2).build());

@@ -30,7 +30,10 @@
     "trunk_fruit_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:air"
+        "Name": "biomesoplenty:dead_branch",
+        "Properties": {
+          "facing": "north"
+        }
       }
     },
     "trunk_provider": {
