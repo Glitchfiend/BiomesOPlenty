@@ -14,8 +14,10 @@
     "minecraft:cave_extra_underground",
     "minecraft:canyon"
   ],
-  "downfall": 0.5,
+  "downfall": 0.8,
   "effects": {
+    "foliage_color": "#b98862",
+    "grass_color": "#c37864",
     "water_color": "#3f76e4"
   },
   "features": [
@@ -71,15 +73,13 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:flower_default",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_leaf_litter",
       "minecraft:patch_pumpkin",
-      "minecraft:patch_berry_rare",
-      "biomesoplenty:trees_snowy_maple_forest",
-      "biomesoplenty:flower_snowy",
-      "biomesoplenty:patch_fern_2",
-      "biomesoplenty:patch_grass_3"
+      "biomesoplenty:trees_snowy_maple_woods",
+      "biomesoplenty:patch_grass_6"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -127,12 +127,6 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 5
-      },
-      {
-        "type": "minecraft:rabbit",
-        "maxCount": 3,
-        "minCount": 2,
-        "weight": 4
       },
       {
         "type": "minecraft:fox",

@@ -7,15 +7,17 @@
         "sound": "biomesoplenty:music.overworld.nostalgic"
       }
     },
-    "minecraft:visual/sky_color": "#7da3ff"
+    "minecraft:visual/sky_color": "#7ca4ff"
   },
   "carvers": [
     "minecraft:cave",
     "minecraft:cave_extra_underground",
     "minecraft:canyon"
   ],
-  "downfall": 0.5,
+  "downfall": 0.8,
   "effects": {
+    "foliage_color": "#d1b24a",
+    "grass_color": "#dd9a4a",
     "water_color": "#3f76e4"
   },
   "features": [
@@ -71,16 +73,17 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:flower_default",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_leaf_litter",
       "minecraft:patch_pumpkin",
-      "minecraft:patch_berry_rare",
-      "biomesoplenty:trees_maple_forest",
-      "biomesoplenty:flower_snowy",
-      "biomesoplenty:patch_fern_2",
-      "biomesoplenty:patch_grass_6",
-      "biomesoplenty:red_maple_leaf_litter"
+      "biomesoplenty:trees_maple_woods",
+      "biomesoplenty:flower_seasonal_forest",
+      "biomesoplenty:toadstool_normal",
+      "biomesoplenty:patch_reed_5",
+      "biomesoplenty:patch_grass_12",
+      "biomesoplenty:maple_leaf_litter"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -128,12 +131,6 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 5
-      },
-      {
-        "type": "minecraft:rabbit",
-        "maxCount": 3,
-        "minCount": 2,
-        "weight": 4
       },
       {
         "type": "minecraft:fox",
@@ -204,5 +201,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.25
+  "temperature": 0.4
 }

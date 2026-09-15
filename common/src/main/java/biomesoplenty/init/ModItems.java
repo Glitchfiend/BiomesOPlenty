@@ -302,15 +302,11 @@ public class ModItems
         PINE_BUTTON = registerBlock(func, BOPBlocks.PINE_BUTTON);
         PINE_SHELF = registerBlock(func, BOPBlocks.PINE_SHELF, p_432579_ -> p_432579_.component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 
-        RED_MAPLE_SAPLING = registerBlock(func, BOPBlocks.RED_MAPLE_SAPLING);
-        RED_MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.RED_MAPLE_LEAF_LITTER);
-        RED_MAPLE_LEAVES = registerBlock(func, BOPBlocks.RED_MAPLE_LEAVES);
-        ORANGE_MAPLE_SAPLING = registerBlock(func, BOPBlocks.ORANGE_MAPLE_SAPLING);
-        ORANGE_MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.ORANGE_MAPLE_LEAF_LITTER);
-        ORANGE_MAPLE_LEAVES = registerBlock(func, BOPBlocks.ORANGE_MAPLE_LEAVES);
-        YELLOW_MAPLE_SAPLING = registerBlock(func, BOPBlocks.YELLOW_MAPLE_SAPLING);
-        YELLOW_MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.YELLOW_MAPLE_LEAF_LITTER);
-        YELLOW_MAPLE_LEAVES = registerBlock(func, BOPBlocks.YELLOW_MAPLE_LEAVES);
+        MAPLE_SAPLING = registerBlock(func, BOPBlocks.MAPLE_SAPLING);
+        MAPLE_LEAF_LITTER = registerBlock(func, BOPBlocks.MAPLE_LEAF_LITTER);
+        PINK_MAPLE_LEAVES = registerBlock(func, BOPBlocks.PINK_MAPLE_LEAVES);
+        MAGENTA_MAPLE_LEAVES = registerBlock(func, BOPBlocks.MAGENTA_MAPLE_LEAVES);
+        PURPLE_MAPLE_LEAVES = registerBlock(func, BOPBlocks.PURPLE_MAPLE_LEAVES);
         MAPLE_LOG = registerBlock(func, BOPBlocks.MAPLE_LOG);
         MAPLE_WOOD = registerBlock(func, BOPBlocks.MAPLE_WOOD);
         STRIPPED_MAPLE_LOG = registerBlock(func, BOPBlocks.STRIPPED_MAPLE_LOG);
@@ -550,9 +546,7 @@ public class ModItems
         POTTED_ORIGIN_OAK_SAPLING = registerBlock(func, BOPBlocks.POTTED_ORIGIN_OAK_SAPLING);
         POTTED_FIR_SAPLING = registerBlock(func, BOPBlocks.POTTED_FIR_SAPLING);
         POTTED_PINE_SAPLING = registerBlock(func, BOPBlocks.POTTED_PINE_SAPLING);
-        POTTED_RED_MAPLE_SAPLING = registerBlock(func, BOPBlocks.POTTED_RED_MAPLE_SAPLING);
-        POTTED_ORANGE_MAPLE_SAPLING = registerBlock(func, BOPBlocks.POTTED_ORANGE_MAPLE_SAPLING);
-        POTTED_YELLOW_MAPLE_SAPLING = registerBlock(func, BOPBlocks.POTTED_YELLOW_MAPLE_SAPLING);
+        POTTED_MAPLE_SAPLING = registerBlock(func, BOPBlocks.POTTED_MAPLE_SAPLING);
         POTTED_REDWOOD_SAPLING = registerBlock(func, BOPBlocks.POTTED_REDWOOD_SAPLING);
         POTTED_MAHOGANY_SAPLING = registerBlock(func, BOPBlocks.POTTED_MAHOGANY_SAPLING);
         POTTED_JACARANDA_SAPLING = registerBlock(func, BOPBlocks.POTTED_JACARANDA_SAPLING);

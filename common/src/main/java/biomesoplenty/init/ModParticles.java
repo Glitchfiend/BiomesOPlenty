@@ -41,9 +41,9 @@ public class ModParticles
 
     public static final SimpleParticleType JACARANDA_LEAVES = new SimpleParticleType(false);
     public static final SimpleParticleType SNOWBLOSSOM_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType RED_MAPLE_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType ORANGE_MAPLE_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType YELLOW_MAPLE_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType PINK_MAPLE_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType MAGENTA_MAPLE_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType PURPLE_MAPLE_LEAVES = new SimpleParticleType(false);
     public static final SimpleParticleType FIR_LEAVES = new SimpleParticleType(false);
     public static final SimpleParticleType REDWOOD_LEAVES = new SimpleParticleType(false);
     public static final SimpleParticleType CYPRESS_LEAVES = new SimpleParticleType(false);
@@ -84,9 +84,9 @@ public class ModParticles
 
         register(func, "jacaranda_leaves", JACARANDA_LEAVES);
         register(func, "snowblossom_leaves", SNOWBLOSSOM_LEAVES);
-        register(func, "red_maple_leaves", RED_MAPLE_LEAVES);
-        register(func, "orange_maple_leaves", ORANGE_MAPLE_LEAVES);
-        register(func, "yellow_maple_leaves", YELLOW_MAPLE_LEAVES);
+        register(func, "pink_maple_leaves", PINK_MAPLE_LEAVES);
+        register(func, "magenta_maple_leaves", MAGENTA_MAPLE_LEAVES);
+        register(func, "purple_maple_leaves", PURPLE_MAPLE_LEAVES);
         register(func, "fir_leaves", FIR_LEAVES);
         register(func, "redwood_leaves", REDWOOD_LEAVES);
         register(func, "cypress_leaves", CYPRESS_LEAVES);

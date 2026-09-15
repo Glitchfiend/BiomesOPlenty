@@ -214,15 +214,11 @@ public class BOPBlocks
     public static Block PINE_HANGING_SIGN;
     public static Block PINE_WALL_HANGING_SIGN;
 
-    public static Block RED_MAPLE_SAPLING;
-    public static Block RED_MAPLE_LEAF_LITTER;
-    public static Block RED_MAPLE_LEAVES;
-    public static Block ORANGE_MAPLE_SAPLING;
-    public static Block ORANGE_MAPLE_LEAF_LITTER;
-    public static Block ORANGE_MAPLE_LEAVES;
-    public static Block YELLOW_MAPLE_SAPLING;
-    public static Block YELLOW_MAPLE_LEAF_LITTER;
-    public static Block YELLOW_MAPLE_LEAVES;
+    public static Block MAPLE_SAPLING;
+    public static Block MAPLE_LEAF_LITTER;
+    public static Block PINK_MAPLE_LEAVES;
+    public static Block MAGENTA_MAPLE_LEAVES;
+    public static Block PURPLE_MAPLE_LEAVES;
     public static Block MAPLE_LOG;
     public static Block STRIPPED_MAPLE_LOG;
     public static Block MAPLE_WOOD;
@@ -509,9 +505,7 @@ public class BOPBlocks
     public static Block POTTED_ORIGIN_OAK_SAPLING;
     public static Block POTTED_FIR_SAPLING;
     public static Block POTTED_PINE_SAPLING;
-    public static Block POTTED_RED_MAPLE_SAPLING;
-    public static Block POTTED_ORANGE_MAPLE_SAPLING;
-    public static Block POTTED_YELLOW_MAPLE_SAPLING;
+    public static Block POTTED_MAPLE_SAPLING;
     public static Block POTTED_REDWOOD_SAPLING;
     public static Block POTTED_MAHOGANY_SAPLING;
     public static Block POTTED_JACARANDA_SAPLING;

@@ -47,15 +47,24 @@ public class ModLegacy
         remap("potted_white_cherry_sapling", BOPBlocks.POTTED_SNOWBLOSSOM_SAPLING);
         remap("potted_pink_cherry_sapling", Blocks.POTTED_CHERRY_SAPLING);
         // Maple
-        remap("maple_sapling", BOPBlocks.RED_MAPLE_SAPLING);
-        remap("orange_autumn_sapling", BOPBlocks.ORANGE_MAPLE_SAPLING);
-        remap("yellow_autumn_sapling", BOPBlocks.YELLOW_MAPLE_SAPLING);
-        remap("maple_leaves", BOPBlocks.RED_MAPLE_LEAVES);
-        remap("orange_autumn_leaves", BOPBlocks.ORANGE_MAPLE_LEAVES);
-        remap("yellow_autumn_leaves", BOPBlocks.YELLOW_MAPLE_LEAVES);
-        remap("potted_maple_sapling", BOPBlocks.POTTED_RED_MAPLE_SAPLING);
-        remap("potted_orange_autumn_sapling", BOPBlocks.POTTED_ORANGE_MAPLE_SAPLING);
-        remap("potted_yellow_autumn_sapling", BOPBlocks.POTTED_YELLOW_MAPLE_SAPLING);
+        /*remap("maple_sapling", Blocks.POPLAR_SAPLING);
+        remap("orange_autumn_sapling", Blocks.POPLAR_SAPLING);
+        remap("yellow_autumn_sapling", Blocks.POPLAR_SAPLING);
+        remap("red_maple_sapling", Blocks.POPLAR_SAPLING);
+        remap("orange_maple_sapling", Blocks.POPLAR_SAPLING);
+        remap("yellow_maple_sapling", Blocks.POPLAR_SAPLING);
+        remap("maple_leaves", Blocks.RED_POPLAR_LEAVES);
+        remap("orange_autumn_leaves", Blocks.ORANGE_POPLAR_LEAVES);
+        remap("yellow_autumn_leaves", Blocks.YELLOW_POPLAR_LEAVES);
+        remap("red_maple_leaves", Blocks.RED_POPLAR_LEAVES);
+        remap("orange_maple_leaves", Blocks.ORANGE_POPLAR_LEAVES);
+        remap("yellow_maple_leaves", Blocks.YELLOW_POPLAR_LEAVES);
+        remap("potted_maple_sapling", Blocks.POTTED_POPLAR_SAPLING);
+        remap("potted_orange_autumn_sapling", Blocks.POTTED_POPLAR_SAPLING);
+        remap("potted_yellow_autumn_sapling", Blocks.POTTED_POPLAR_SAPLING);
+        remap("potted_red_maple_sapling", Blocks.POTTED_POPLAR_SAPLING);
+        remap("potted_orange_maple_sapling", Blocks.POTTED_POPLAR_SAPLING);
+        remap("potted_yellow_maple_sapling", Blocks.POTTED_POPLAR_SAPLING);*/
         // Mud
         remap("mud", Blocks.MUD);
         remap("mud_bricks", Blocks.MUD_BRICKS);
@@ -119,9 +128,12 @@ public class ModLegacy
         remap("potted_clover", Blocks.FLOWER_POT);
         remap("potted_wildflower", Blocks.FLOWER_POT);
         remap("bush", Blocks.BUSH);
-        remap("orange_maple_leaf_pile", BOPBlocks.ORANGE_MAPLE_LEAF_LITTER);
-        remap("red_maple_leaf_pile", BOPBlocks.RED_MAPLE_LEAF_LITTER);
-        remap("yellow_maple_leaf_pile", BOPBlocks.YELLOW_MAPLE_LEAF_LITTER);
+        remap("orange_maple_leaf_pile", Blocks.LEAF_LITTER);
+        remap("red_maple_leaf_pile", Blocks.LEAF_LITTER);
+        remap("yellow_maple_leaf_pile", Blocks.LEAF_LITTER);
+        remap("orange_maple_leaf_litter", Blocks.LEAF_LITTER);
+        remap("red_maple_leaf_litter", Blocks.LEAF_LITTER);
+        remap("yellow_maple_leaf_litter", Blocks.LEAF_LITTER);
     }
 
     public static void setupItems()

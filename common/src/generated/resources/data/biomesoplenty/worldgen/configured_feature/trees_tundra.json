@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "biomesoplenty:maple_twiglet_tree",
+    "default": "biomesoplenty:poplar_twiglet_tree",
     "features": [
       {
         "chance": 0.1,

@@ -152,7 +152,7 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
                 }
                 else
                 {
-                    this.setBlock(world, pos.above().relative(direction, i), BOPBlocks.YELLOW_MAPLE_LEAF_LITTER.defaultBlockState().setValue(LeafLitterBlock.AMOUNT,1+rand.nextInt(4)).setValue(LeafLitterBlock.FACING, Direction.Plane.HORIZONTAL.getRandomDirection(rand)));
+                    this.setBlock(world, pos.above().relative(direction, i), Blocks.LEAF_LITTER.defaultBlockState().setValue(LeafLitterBlock.AMOUNT,1+rand.nextInt(4)).setValue(LeafLitterBlock.FACING, Direction.Plane.HORIZONTAL.getRandomDirection(rand)));
                 }
             }
 

@@ -266,15 +266,11 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropSelf(BOPBlocks.PINE_SIGN);
         this.dropSelf(BOPBlocks.PINE_HANGING_SIGN);
 
-        this.dropSelf(BOPBlocks.RED_MAPLE_SAPLING);
-        this.add(BOPBlocks.RED_MAPLE_LEAF_LITTER, this.createSegmentedBlockDrops(BOPBlocks.RED_MAPLE_LEAF_LITTER));
-        this.add(BOPBlocks.RED_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.RED_MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
-        this.dropSelf(BOPBlocks.ORANGE_MAPLE_SAPLING);
-        this.add(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER, this.createSegmentedBlockDrops(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER));
-        this.add(BOPBlocks.ORANGE_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.ORANGE_MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
-        this.dropSelf(BOPBlocks.YELLOW_MAPLE_SAPLING);
-        this.add(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, this.createSegmentedBlockDrops(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER));
-        this.add(BOPBlocks.YELLOW_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.YELLOW_MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
+        this.dropSelf(BOPBlocks.MAPLE_SAPLING);
+        this.add(BOPBlocks.MAPLE_LEAF_LITTER, this.createSegmentedBlockDrops(BOPBlocks.MAPLE_LEAF_LITTER));
+        this.add(BOPBlocks.PINK_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
+        this.add(BOPBlocks.MAGENTA_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
+        this.add(BOPBlocks.PURPLE_MAPLE_LEAVES, (p_280940_) -> { return this.createLeavesDrops(p_280940_, BOPBlocks.MAPLE_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES); });
         this.dropSelf(BOPBlocks.MAPLE_LOG);
         this.dropSelf(BOPBlocks.STRIPPED_MAPLE_LOG);
         this.dropSelf(BOPBlocks.MAPLE_WOOD);
@@ -540,9 +536,7 @@ public class BOPBlockLoot extends BlockLootSubProvider
         this.dropPottedContents(BOPBlocks.POTTED_ORIGIN_OAK_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_FIR_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_PINE_SAPLING);
-        this.dropPottedContents(BOPBlocks.POTTED_RED_MAPLE_SAPLING);
-        this.dropPottedContents(BOPBlocks.POTTED_ORANGE_MAPLE_SAPLING);
-        this.dropPottedContents(BOPBlocks.POTTED_YELLOW_MAPLE_SAPLING);
+        this.dropPottedContents(BOPBlocks.POTTED_MAPLE_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_REDWOOD_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_MAHOGANY_SAPLING);
         this.dropPottedContents(BOPBlocks.POTTED_JACARANDA_SAPLING);

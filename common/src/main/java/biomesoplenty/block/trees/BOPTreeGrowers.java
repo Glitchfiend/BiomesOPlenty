@@ -23,16 +23,15 @@ public class BOPTreeGrowers
     public static final TreeGrower JACARANDA = register("jacaranda", 0.1F, Optional.empty(), Optional.empty(), Optional.of(BOPTreeFeatures.JACARANDA_TREE), Optional.of(BOPTreeFeatures.BIG_JACARANDA_TREE), Optional.of(BOPTreeFeatures.JACARANDA_TREE_BEES), Optional.of(BOPTreeFeatures.BIG_JACARANDA_TREE_BEES));
     public static final TreeGrower MAGIC = register("magic", Optional.of(BOPTreeFeatures.MAGIC_TREE), Optional.of(BOPTreeFeatures.BIG_MAGIC_TREE));
     public static final TreeGrower MAHOGANY = register("mahogany", Optional.of(BOPTreeFeatures.MAHOGANY_TREE), Optional.empty());
-    public static final TreeGrower ORANGE_MAPLE = register("orange_maple", Optional.of(BOPTreeFeatures.ORANGE_MAPLE_TREE), Optional.of(BOPTreeFeatures.BIG_ORANGE_MAPLE_TREE));
+    //TODO: ADD OTHER MAPLE VARIANTS BASED ON HOW POPLAR TREES GROW
+    public static final TreeGrower MAPLE = register("maple", Optional.of(BOPTreeFeatures.MAGENTA_MAPLE_TREE), Optional.of(BOPTreeFeatures.BIG_MAGENTA_MAPLE_TREE));
     public static final TreeGrower ORIGIN_OAK = register("origin_oak", Optional.of(BOPTreeFeatures.ORIGIN_OAK_TREE), Optional.of(BOPTreeFeatures.BIG_ORIGIN_OAK_TREE));
     public static final TreeGrower PALM = register("palm", Optional.of(BOPTreeFeatures.PALM_TREE), Optional.empty());
     public static final TreeGrower PINE = register("pine", Optional.of(BOPTreeFeatures.PINE_TREE), Optional.of(BOPTreeFeatures.PINE_TREE_SMALL));
-    public static final TreeGrower RED_MAPLE = register("red_maple", Optional.of(BOPTreeFeatures.RED_MAPLE_TREE), Optional.of(BOPTreeFeatures.BIG_RED_MAPLE_TREE));
     public static final TreeGrower REDWOOD = register("redwood", Optional.of(BOPTreeFeatures.REDWOOD_TREE), Optional.empty(), Optional.of(BOPTreeFeatures.REDWOOD_TREE_MEDIUM), Optional.of(BOPTreeFeatures.REDWOOD_TREE_LARGE));
     public static final TreeGrower SNOWBLOSSOM = register("snowblossom", Optional.of(BOPTreeFeatures.SNOWBLOSSOM_TREE), Optional.empty());
     public static final TreeGrower UMBRAN = register("umbran", Optional.of(BOPTreeFeatures.UMBRAN_TREE), Optional.empty(), Optional.of(BOPTreeFeatures.TALL_UMBRAN_TREE), Optional.empty());
     public static final TreeGrower WILLOW = register("willow", Optional.of(BOPTreeFeatures.WILLOW_TREE), Optional.of(BOPTreeFeatures.BAYOU_TREE));
-    public static final TreeGrower YELLOW_MAPLE = register("yellow_maple", Optional.of(BOPTreeFeatures.YELLOW_MAPLE_TREE), Optional.of(BOPTreeFeatures.BIG_YELLOW_MAPLE_TREE));
 
     private static TreeGrower register(String name, float secondaryChance, Optional<ResourceKey<ConfiguredFeature<?, ?>>> megaTree, Optional<ResourceKey<ConfiguredFeature<?, ?>>> secondaryMegaTree, Optional<ResourceKey<ConfiguredFeature<?, ?>>> tree, Optional<ResourceKey<ConfiguredFeature<?, ?>>> secondaryTree, Optional<ResourceKey<ConfiguredFeature<?, ?>>> flowers, Optional<ResourceKey<ConfiguredFeature<?, ?>>> secondaryFlowers)
     {

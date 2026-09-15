@@ -91,9 +91,9 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.PINE_FENCE, 5, 20);
         registerFlammable(BOPBlocks.PINE_FENCE_GATE, 5, 20);
         registerFlammable(BOPBlocks.PINE_SHELF, 30, 20);
-        registerFlammable(BOPBlocks.RED_MAPLE_LEAVES, 30, 60);
-        registerFlammable(BOPBlocks.ORANGE_MAPLE_LEAVES, 30, 60);
-        registerFlammable(BOPBlocks.YELLOW_MAPLE_LEAVES, 30, 60);
+        registerFlammable(BOPBlocks.PINK_MAPLE_LEAVES, 30, 60);
+        registerFlammable(BOPBlocks.MAGENTA_MAPLE_LEAVES, 30, 60);
+        registerFlammable(BOPBlocks.PURPLE_MAPLE_LEAVES, 30, 60);
         registerFlammable(BOPBlocks.MAPLE_LOG, 5, 5);
         registerFlammable(BOPBlocks.MAPLE_WOOD, 5, 5);
         registerFlammable(BOPBlocks.STRIPPED_MAPLE_LOG, 5, 5);
@@ -234,9 +234,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.HIGH_GRASS_PLANT, 60, 100);
         registerFlammable(BOPBlocks.CLOVER, 60, 100);
         registerFlammable(BOPBlocks.HUGE_CLOVER_PETAL, 60, 100);
-        registerFlammable(BOPBlocks.RED_MAPLE_LEAF_LITTER, 60, 100);
-        registerFlammable(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER, 60, 100);
-        registerFlammable(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, 60, 100);
+        registerFlammable(BOPBlocks.MAPLE_LEAF_LITTER, 60, 100);
         registerFlammable(BOPBlocks.DUNE_GRASS, 60, 100);
         registerFlammable(BOPBlocks.DESERT_GRASS, 60, 100);
         registerFlammable(BOPBlocks.DEAD_GRASS, 60, 100);
@@ -315,12 +313,10 @@ public class ModVanillaCompat
         registerCompostable(0.3F, BOPBlocks.FIR_LEAVES);
         registerCompostable(0.3F, BOPBlocks.PINE_SAPLING);
         registerCompostable(0.3F, BOPBlocks.PINE_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.RED_MAPLE_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.RED_MAPLE_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.ORANGE_MAPLE_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.ORANGE_MAPLE_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.YELLOW_MAPLE_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.YELLOW_MAPLE_LEAVES);
+        registerCompostable(0.3F, BOPBlocks.MAPLE_SAPLING);
+        registerCompostable(0.3F, BOPBlocks.PINK_MAPLE_LEAVES);
+        registerCompostable(0.3F, BOPBlocks.MAGENTA_MAPLE_LEAVES);
+        registerCompostable(0.3F, BOPBlocks.PURPLE_MAPLE_LEAVES);
         registerCompostable(0.3F, BOPBlocks.REDWOOD_SAPLING);
         registerCompostable(0.3F, BOPBlocks.REDWOOD_LEAVES);
         registerCompostable(0.3F, BOPBlocks.MAHOGANY_SAPLING);
@@ -376,9 +372,7 @@ public class ModVanillaCompat
         registerCompostable(0.5F, BOPBlocks.CLOVER);
         registerCompostable(0.5F, BOPBlocks.HUGE_CLOVER_PETAL);
 
-        registerCompostable(0.3F, BOPBlocks.RED_MAPLE_LEAF_LITTER);
-        registerCompostable(0.3F, BOPBlocks.ORANGE_MAPLE_LEAF_LITTER);
-        registerCompostable(0.3F, BOPBlocks.YELLOW_MAPLE_LEAF_LITTER);
+        registerCompostable(0.3F, BOPBlocks.MAPLE_LEAF_LITTER);
 
         registerCompostable(0.5F, BOPBlocks.DUNE_GRASS);
         registerCompostable(0.5F, BOPBlocks.DESERT_GRASS);

@@ -297,9 +297,7 @@ public class BOPRecipeProvider extends RecipeProvider
         this.shaped(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.ROSE_QUARTZ_BLOCK).define('#', BOPItems.ROSE_QUARTZ_CHUNK).pattern("##").pattern("##").unlockedBy("has_rose_quartz_chunk", has(BOPItems.ROSE_QUARTZ_CHUNK)).save(output);
 
         // Leaf Litter
-        this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.RED_MAPLE_LEAF_LITTER, 12).define('#', BOPBlocks.RED_MAPLE_LEAVES).pattern("###").unlockedBy("has_red_maple_leaves", has(BOPBlocks.RED_MAPLE_LEAVES)).save(output);
-        this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.ORANGE_MAPLE_LEAF_LITTER, 12).define('#', BOPBlocks.ORANGE_MAPLE_LEAVES).pattern("###").unlockedBy("has_orange_maple_leaves", has(BOPBlocks.ORANGE_MAPLE_LEAVES)).save(output);
-        this.shaped(RecipeCategory.DECORATIONS, BOPBlocks.YELLOW_MAPLE_LEAF_LITTER, 12).define('#', BOPBlocks.YELLOW_MAPLE_LEAVES).pattern("###").unlockedBy("has_yellow_maple_leaves", has(BOPBlocks.YELLOW_MAPLE_LEAVES)).save(output);
+        this.shapeless(RecipeCategory.DECORATIONS, BOPBlocks.MAPLE_LEAF_LITTER, 4).requires(ModTags.Items.MAPLE_LEAVES).unlockedBy("has_maple_leaves", has(ModTags.Items.MAPLE_LEAVES)).save(output);
 
         // Dyes
         oneToOneConversionRecipe(Items.DYE.brown(), BOPBlocks.CATTAIL, "brown_dye", 2);

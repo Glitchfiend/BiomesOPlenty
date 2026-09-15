@@ -284,17 +284,17 @@ public class ModClient
                 return new LeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
-        event.registerSpriteSet(ModParticles.RED_MAPLE_LEAVES, (p_277215_) -> {
+        event.registerSpriteSet(ModParticles.PINK_MAPLE_LEAVES, (p_277215_) -> {
             return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
                 return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
-        event.registerSpriteSet(ModParticles.ORANGE_MAPLE_LEAVES, (p_277215_) -> {
+        event.registerSpriteSet(ModParticles.MAGENTA_MAPLE_LEAVES, (p_277215_) -> {
             return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
                 return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };
         });
-        event.registerSpriteSet(ModParticles.YELLOW_MAPLE_LEAVES, (p_277215_) -> {
+        event.registerSpriteSet(ModParticles.PURPLE_MAPLE_LEAVES, (p_277215_) -> {
             return (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_,  random) -> {
                 return new LargeLeafParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_, p_277215_.get(random));
             };

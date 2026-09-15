@@ -110,12 +110,10 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.woodProvider(BOPBlocks.MAPLE_LOG).logWithHorizontal(BOPBlocks.MAPLE_LOG).wood(BOPBlocks.MAPLE_WOOD);
         this.woodProvider(BOPBlocks.STRIPPED_MAPLE_LOG).logWithHorizontal(BOPBlocks.STRIPPED_MAPLE_LOG).wood(BOPBlocks.STRIPPED_MAPLE_WOOD);
         //this.createHangingSign(BOPBlocks.STRIPPED_MAPLE_LOG, BOPBlocks.MAPLE_HANGING_SIGN, BOPBlocks.MAPLE_WALL_HANGING_SIGN);
-        this.createTrivialBlock(BOPBlocks.ORANGE_MAPLE_LEAVES, TexturedModel.LEAVES);
-        this.createTrivialBlock(BOPBlocks.RED_MAPLE_LEAVES, TexturedModel.LEAVES);
-        this.createTrivialBlock(BOPBlocks.YELLOW_MAPLE_LEAVES, TexturedModel.LEAVES);
-        this.createPlantWithDefaultItem(BOPBlocks.ORANGE_MAPLE_SAPLING, BOPBlocks.POTTED_ORANGE_MAPLE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
-        this.createPlantWithDefaultItem(BOPBlocks.RED_MAPLE_SAPLING, BOPBlocks.POTTED_RED_MAPLE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
-        this.createPlantWithDefaultItem(BOPBlocks.YELLOW_MAPLE_SAPLING, BOPBlocks.POTTED_YELLOW_MAPLE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        this.createTrivialBlock(BOPBlocks.PINK_MAPLE_LEAVES, TexturedModel.LEAVES);
+        this.createTrivialBlock(BOPBlocks.MAGENTA_MAPLE_LEAVES, TexturedModel.LEAVES);
+        this.createTrivialBlock(BOPBlocks.PURPLE_MAPLE_LEAVES, TexturedModel.LEAVES);
+        this.createPlantWithDefaultItem(BOPBlocks.MAPLE_SAPLING, BOPBlocks.POTTED_MAPLE_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         this.createShelf(BOPBlocks.MAPLE_SHELF, BOPBlocks.STRIPPED_MAPLE_LOG);
 
         // Redwood
@@ -297,9 +295,7 @@ public class BOPBlockModelGenerators extends BlockModelGenerators
         this.registerSimpleFlatItemModel(BOPBlocks.ENDBLOOM);
 
         // Foliage
-        this.registerSimpleFlatItemModel(BOPBlocks.ORANGE_MAPLE_LEAF_LITTER);
-        this.registerSimpleFlatItemModel(BOPBlocks.RED_MAPLE_LEAF_LITTER);
-        this.registerSimpleFlatItemModel(BOPBlocks.YELLOW_MAPLE_LEAF_LITTER);
+        this.registerSimpleFlatItemModel(BOPBlocks.MAPLE_LEAF_LITTER);
         this.createTintedItemModel(BOPBlocks.SPROUT, new GrassColorSource());
         this.createTintedItemModel(BOPBlocks.BRAMBLE_LEAVES, ItemModelUtils.constantTint(-12012264));
         this.registerSimpleFlatItemModel(BOPBlocks.DUNE_GRASS);

@@ -17,9 +17,7 @@ public class BOPVillagerTrades
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_SNOWBLOSSOM_SAPLING = resourceKey("wandering_trader/snowblossom_sapling");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_FIR_SAPLING = resourceKey("wandering_trader/fir_sapling");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_PINE_SAPLING = resourceKey("wandering_trader/pine_sapling");
-    public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_RED_MAPLE_SAPLING = resourceKey("wandering_trader/red_maple_sapling");
-    public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_ORANGE_MAPLE_SAPLING = resourceKey("wandering_trader/orange_maple_sapling");
-    public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_YELLOW_MAPLE_SAPLING = resourceKey("wandering_trader/yellow_maple_sapling");
+    public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_MAPLE_SAPLING = resourceKey("wandering_trader/maple_sapling");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_REDWOOD_SAPLING = resourceKey("wandering_trader/redwood_sapling");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_MAHOGANY_SAPLING = resourceKey("wandering_trader/mahogany_sapling");
     public static final ResourceKey<VillagerTrade> WANDERING_TRADER_EMERALD_JACARANDA_SAPLING = resourceKey("wandering_trader/jacaranda_sapling");

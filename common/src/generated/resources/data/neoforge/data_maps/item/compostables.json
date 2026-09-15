@@ -159,6 +159,9 @@
     "biomesoplenty:magenta_flower_petal_block": {
       "chance": 0.5
     },
+    "biomesoplenty:magenta_maple_leaves": {
+      "chance": 0.3
+    },
     "biomesoplenty:magic_leaves": {
       "chance": 0.3
     },
@@ -171,6 +174,12 @@
     "biomesoplenty:mahogany_sapling": {
       "chance": 0.3
     },
+    "biomesoplenty:maple_leaf_litter": {
+      "chance": 0.3
+    },
+    "biomesoplenty:maple_sapling": {
+      "chance": 0.3
+    },
     "biomesoplenty:marigold": {
       "chance": 0.65
     },
@@ -179,15 +188,6 @@
     },
     "biomesoplenty:orange_flower_petal_block": {
       "chance": 0.5
-    },
-    "biomesoplenty:orange_maple_leaf_litter": {
-      "chance": 0.3
-    },
-    "biomesoplenty:orange_maple_leaves": {
-      "chance": 0.3
-    },
-    "biomesoplenty:orange_maple_sapling": {
-      "chance": 0.3
     },
     "biomesoplenty:origin_dandelion": {
       "chance": 0.65
@@ -222,23 +222,20 @@
     "biomesoplenty:pink_hibiscus": {
       "chance": 0.65
     },
+    "biomesoplenty:pink_maple_leaves": {
+      "chance": 0.3
+    },
     "biomesoplenty:purple_flower_petal_block": {
       "chance": 0.5
+    },
+    "biomesoplenty:purple_maple_leaves": {
+      "chance": 0.3
     },
     "biomesoplenty:purple_wildflowers": {
       "chance": 0.65
     },
     "biomesoplenty:red_flower_petal_block": {
       "chance": 0.5
-    },
-    "biomesoplenty:red_maple_leaf_litter": {
-      "chance": 0.3
-    },
-    "biomesoplenty:red_maple_leaves": {
-      "chance": 0.3
-    },
-    "biomesoplenty:red_maple_sapling": {
-      "chance": 0.3
     },
     "biomesoplenty:redwood_leaves": {
       "chance": 0.3
@@ -320,15 +317,6 @@
     },
     "biomesoplenty:yellow_flower_petal_block": {
       "chance": 0.5
-    },
-    "biomesoplenty:yellow_maple_leaf_litter": {
-      "chance": 0.3
-    },
-    "biomesoplenty:yellow_maple_leaves": {
-      "chance": 0.3
-    },
-    "biomesoplenty:yellow_maple_sapling": {
-      "chance": 0.3
     }
   }
 }

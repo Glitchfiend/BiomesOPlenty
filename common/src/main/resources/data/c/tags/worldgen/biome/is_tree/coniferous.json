@@ -26,11 +26,11 @@
             "required": false
         },
         {
-            "id": "biomesoplenty:maple_woods",
+            "id": "biomesoplenty:ominous_woods",
             "required": false
         },
         {
-            "id": "biomesoplenty:ominous_woods",
+            "id": "biomesoplenty:seasonal_forest",
             "required": false
         },
         {
@@ -39,10 +39,6 @@
         },
         {
             "id": "biomesoplenty:snowy_fir_clearing",
-            "required": false
-        },
-        {
-            "id": "biomesoplenty:snowy_maple_woods",
             "required": false
         }
 	]

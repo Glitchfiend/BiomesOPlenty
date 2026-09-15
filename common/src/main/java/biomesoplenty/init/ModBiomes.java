@@ -174,7 +174,7 @@ public class ModBiomes
         registerVillagerType(BOPBiomes.REDWOOD_FOREST, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.ROCKY_SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SCRUBLAND, VillagerType.SAVANNA);
-        registerVillagerType(BOPBiomes.SEASONAL_FOREST, VillagerType.PLAINS);
+        registerVillagerType(BOPBiomes.SEASONAL_FOREST, VillagerType.TAIGA);
         registerVillagerType(BOPBiomes.SHRUBLAND, VillagerType.PLAINS);
         registerVillagerType(BOPBiomes.SNOWBLOSSOM_GROVE, VillagerType.SNOW);
         registerVillagerType(BOPBiomes.SNOWY_CONIFEROUS_FOREST, VillagerType.TAIGA);

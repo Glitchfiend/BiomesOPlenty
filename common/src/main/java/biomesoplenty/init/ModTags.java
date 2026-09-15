@@ -40,6 +40,8 @@ public class ModTags
         public static final TagKey<Block> HELLBARK_LOGS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "hellbark_logs"));
         public static final TagKey<Block> EMPYREAL_LOGS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "empyreal_logs"));
 
+        public static final TagKey<Block> MAPLE_LEAVES = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "maple_leaves"));
+
         public static final TagKey<Block> BLACKSTONE_DECORATION_PLACEABLE = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "blackstone_decoration_placeable"));
         public static final TagKey<Block> ORPIMENT_DECORATION_PLACEABLE = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "orpiment_decoration_placeable"));
         public static final TagKey<Block> DEAD_CORALS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "dead_corals"));
@@ -75,6 +77,8 @@ public class ModTags
         public static final TagKey<Item> UMBRAN_LOGS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "umbran_logs"));
         public static final TagKey<Item> HELLBARK_LOGS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "hellbark_logs"));
         public static final TagKey<Item> EMPYREAL_LOGS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "empyreal_logs"));
+
+        public static final TagKey<Item> MAPLE_LEAVES = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "maple_logs"));
 
         public static final TagKey<Item> SHEARS = create(Identifier.fromNamespaceAndPath("c", "tools/shear"));
 

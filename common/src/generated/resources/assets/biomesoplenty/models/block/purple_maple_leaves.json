@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "biomesoplenty:block/purple_maple_leaves"
+  }
+}
