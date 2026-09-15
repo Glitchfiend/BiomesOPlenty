@@ -49,6 +49,7 @@ public class BOPTreePlacements
     public static final ResourceKey<PlacedFeature> DEAD_TREE_WASTELAND_CHECKED = BOPPlacementUtils.createKey("dead_tree_wasteland");
     public static final ResourceKey<PlacedFeature> DEAD_TWIGLET_TREE_CHECKED = BOPPlacementUtils.createKey("dead_twiglet_tree");
     public static final ResourceKey<PlacedFeature> DEAD_TWIGLET_TREE_LEAF_LITTER_CHECKED = BOPPlacementUtils.createKey("dead_twiglet_tree_leaf_litter");
+    public static final ResourceKey<PlacedFeature> DEAD_TWIGLET_TREE_SHELF_FUNGI_CHECKED = BOPPlacementUtils.createKey("dead_twiglet_tree_shelf_fungi");
     public static final ResourceKey<PlacedFeature> DEAD_TWIGLET_TREE_SMALL_CHECKED = BOPPlacementUtils.createKey("dead_twiglet_tree_small");
     public static final ResourceKey<PlacedFeature> DYING_TREE_CHECKED = BOPPlacementUtils.createKey("dying_tree");
     public static final ResourceKey<PlacedFeature> DYING_TREE_LEAF_LITTER_CHECKED = BOPPlacementUtils.createKey("dying_tree_leaf_litter");
@@ -131,6 +132,7 @@ public class BOPTreePlacements
         final Holder<ConfiguredFeature<?, ?>> DEAD_TREE_WASTELAND = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TREE_WASTELAND);
         final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE);
         final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_LEAF_LITTER);
+        final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_SHELF_FUNGI = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_SHELF_FUNGI);
         final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_SMALL);
         final Holder<ConfiguredFeature<?, ?>> DYING_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE);
         final Holder<ConfiguredFeature<?, ?>> DYING_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE_LEAF_LITTER);
@@ -209,6 +211,7 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.DEAD_TREE_WASTELAND_CHECKED, DEAD_TREE_WASTELAND, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DEAD_TWIGLET_TREE_CHECKED, DEAD_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DEAD_TWIGLET_TREE_LEAF_LITTER_CHECKED, DEAD_TWIGLET_TREE_LEAF_LITTER, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
+        register(context, BOPTreePlacements.DEAD_TWIGLET_TREE_SHELF_FUNGI_CHECKED, DEAD_TWIGLET_TREE_SHELF_FUNGI, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DEAD_TWIGLET_TREE_SMALL_CHECKED, DEAD_TWIGLET_TREE_SMALL, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DYING_TREE_CHECKED, DYING_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.DYING_TREE_LEAF_LITTER_CHECKED, DYING_TREE_LEAF_LITTER, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));

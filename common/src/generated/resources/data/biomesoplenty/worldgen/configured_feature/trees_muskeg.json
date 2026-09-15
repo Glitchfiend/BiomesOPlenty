@@ -4,12 +4,16 @@
     "default": "biomesoplenty:dead_twiglet_tree_leaf_litter",
     "features": [
       {
-        "chance": 0.1,
+        "chance": 0.2,
         "feature": "biomesoplenty:tall_dead_twiglet_tree_leaf_litter"
       },
       {
-        "chance": 0.25,
+        "chance": 0.3,
         "feature": "biomesoplenty:pine_tree_small"
+      },
+      {
+        "chance": 0.5,
+        "feature": "biomesoplenty:dead_twiglet_tree_shelf_fungi"
       }
     ]
   }

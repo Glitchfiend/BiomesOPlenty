@@ -497,7 +497,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_SEASONAL_PUMPKIN_PATCH, TREES_SEASONAL_PUMPKIN_PATCH, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_SNOWBLOSSOM_GROVE, TREES_SNOWBLOSSOM_GROVE, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1), BOPBlocks.SNOWBLOSSOM_SAPLING));
         register(context, BOPVegetationPlacements.TREES_SNOWY_CONIFEROUS_FOREST, TREES_SNOWY_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));
-        register(context, BOPVegetationPlacements.TREES_SNOWY_MAPLE_WOODS, TREES_SNOWY_MAPLE_WOODS, treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
+        register(context, BOPVegetationPlacements.TREES_SNOWY_MAPLE_WOODS, TREES_SNOWY_MAPLE_WOODS, treePlacement(PlacementUtils.countExtra(4, 0.1F, 2)));
         register(context, BOPVegetationPlacements.TREES_SUBTROPICS, TREES_SUBTROPICS, treePlacement(PlacementUtils.countExtra(1, 0.2F, 2)));
         register(context, BOPVegetationPlacements.TREES_TROPICS, TREES_TROPICS, treePlacement(PlacementUtils.countExtra(9, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_TUNDRA, TREES_TUNDRA, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));

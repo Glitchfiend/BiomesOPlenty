@@ -4,7 +4,7 @@
     "default": "biomesoplenty:pink_maple_tree_leaf_litter",
     "features": [
       {
-        "chance": 0.3,
+        "chance": 0.4,
         "feature": "biomesoplenty:tall_spruce_tree"
       },
       {
