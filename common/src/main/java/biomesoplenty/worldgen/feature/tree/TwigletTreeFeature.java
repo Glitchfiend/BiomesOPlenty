@@ -86,13 +86,31 @@ public class TwigletTreeFeature extends BOPTreeFeature<TwigletTreeConfiguration>
             {
                 BlockPos fruitPos = pos.offset(dir.getStepX(), y, dir.getStepZ());
                 BlockState trunkFruit = config.trunkFruitProvider.getState(world, random, fruitPos);
+                int fruitAge = 0;
 
                 if (trunkFruit.getBlock() != Blocks.AIR && random.nextInt(4) == 0)
                 {
+                    //TODO: REPLACE WITH SHELF MUSHROOMS
                     if (trunkFruit.getBlock() == Blocks.COCOA)
+                    {
+                        fruitPos = pos.offset(dir.getOpposite().getStepX(), y, dir.getOpposite().getStepZ());
+                        if (y < 3)
+                        {
+                            fruitAge = 1;
+                        }
+                        else
+                        {
+                            fruitAge = 0;
+                        }
+                    }
+                    /*
+                    else if (trunkFruit.getBlock() == Blocks.COCOA)
+                    {
                         fruitPos = pos.offset(dir.getOpposite().getStepX(), 0, dir.getOpposite().getStepZ());
+                        fruitAge = random.nextInt(3);
+                    }*/
 
-                    this.generateTrunkFruit(world, random.nextInt(3), fruitPos, dir, config);
+                    this.generateTrunkFruit(world, fruitAge, fruitPos, dir, config);
                 }
             }
         }
