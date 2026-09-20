@@ -1,0 +1,40 @@
+{
+  "type": "biomesoplenty:redwood_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [],
+  "foliage_provider": {
+    "id": "biomesoplenty:redwood_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 60,
+  "min_height": 45,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:redwood_wood",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "trunk_width": 3,
+  "vine_provider": {
+    "id": "minecraft:vine",
+    "properties": {
+      "east": "false",
+      "north": "false",
+      "south": "false",
+      "up": "false",
+      "west": "false"
+    }
+  }
+}

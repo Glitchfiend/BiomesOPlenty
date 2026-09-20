@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:mahogany_slab"
+        "recipes": "biomesoplenty:mahogany_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

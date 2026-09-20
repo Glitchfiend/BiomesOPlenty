@@ -1,0 +1,37 @@
+{
+  "type": "biomesoplenty:basic_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [],
+  "foliage_provider": {
+    "id": "biomesoplenty:dead_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_chance": 0.0,
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "leaf_layers": 4,
+  "leaves_layer_height": 2,
+  "leaves_offset": 1,
+  "max_height": 7,
+  "max_leaves_radius": 1,
+  "min_height": 4,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:dead_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "vine_provider": {
+    "id": "minecraft:air"
+  }
+}

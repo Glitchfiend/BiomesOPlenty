@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:black_sandstone_wall"
+        "recipes": "biomesoplenty:black_sandstone_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

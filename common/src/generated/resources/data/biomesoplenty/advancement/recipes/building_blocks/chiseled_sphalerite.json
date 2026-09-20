@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:chiseled_sphalerite"
+        "recipes": "biomesoplenty:chiseled_sphalerite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

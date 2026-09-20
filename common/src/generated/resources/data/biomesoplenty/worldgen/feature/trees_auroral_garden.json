@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:pale_oak_twiglet_tree",
+  "features": [
+    {
+      "chance": 0.2,
+      "feature": "biomesoplenty:flowering_oak_bush"
+    }
+  ]
+}

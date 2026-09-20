@@ -1,0 +1,325 @@
+{
+  "type": "biomesoplenty:big_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [
+    {
+      "type": "minecraft:place_on_ground",
+      "block_state_provider": {
+        "type": "minecraft:weighted",
+        "entries": [
+          {
+            "data": "biomesoplenty:maple_leaf_litter",
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "east",
+                "segment_amount": "1"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "south",
+                "segment_amount": "1"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "west",
+                "segment_amount": "1"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "north",
+                "segment_amount": "2"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "east",
+                "segment_amount": "2"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "south",
+                "segment_amount": "2"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "west",
+                "segment_amount": "2"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "north",
+                "segment_amount": "3"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "east",
+                "segment_amount": "3"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "south",
+                "segment_amount": "3"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "west",
+                "segment_amount": "3"
+              }
+            },
+            "weight": 1
+          }
+        ]
+      },
+      "height": 2,
+      "radius": 4,
+      "tries": 96
+    },
+    {
+      "type": "minecraft:place_on_ground",
+      "block_state_provider": {
+        "type": "minecraft:weighted",
+        "entries": [
+          {
+            "data": "biomesoplenty:maple_leaf_litter",
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "east",
+                "segment_amount": "1"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "south",
+                "segment_amount": "1"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "west",
+                "segment_amount": "1"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "north",
+                "segment_amount": "2"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "east",
+                "segment_amount": "2"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "south",
+                "segment_amount": "2"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "west",
+                "segment_amount": "2"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "north",
+                "segment_amount": "3"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "east",
+                "segment_amount": "3"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "south",
+                "segment_amount": "3"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "west",
+                "segment_amount": "3"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "north",
+                "segment_amount": "4"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "east",
+                "segment_amount": "4"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "south",
+                "segment_amount": "4"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "data": {
+              "id": "biomesoplenty:maple_leaf_litter",
+              "properties": {
+                "facing": "west",
+                "segment_amount": "4"
+              }
+            },
+            "weight": 1
+          }
+        ]
+      },
+      "height": 2,
+      "tries": 150
+    }
+  ],
+  "foliage_density": 1.0,
+  "foliage_height": 5,
+  "foliage_provider": {
+    "id": "biomesoplenty:magenta_maple_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 12,
+  "min_height": 5,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:maple_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "trunk_width": 1,
+  "vine_provider": {
+    "id": "minecraft:air"
+  }
+}

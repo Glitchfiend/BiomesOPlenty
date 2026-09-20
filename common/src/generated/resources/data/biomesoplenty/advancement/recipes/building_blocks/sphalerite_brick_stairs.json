@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:sphalerite_brick_stairs"
+        "recipes": "biomesoplenty:sphalerite_brick_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

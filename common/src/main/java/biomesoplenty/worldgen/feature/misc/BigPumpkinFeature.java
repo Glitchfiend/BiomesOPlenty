@@ -15,28 +15,26 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
 
-public class BigPumpkinFeature extends Feature<NoneFeatureConfiguration>
+public class BigPumpkinFeature implements Feature
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
     protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == Blocks.PUMPKIN || world.getBlockState(pos).getBlock() == Blocks.CARVED_PUMPKIN || world.getBlockState(pos).getBlock() == Blocks.JACK_O_LANTERN || world.getBlockState(pos).is(BlockTags.REPLACEABLE_BY_TREES);
 
-    public BigPumpkinFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<BigPumpkinFeature> CODEC = MapCodec.unit(BigPumpkinFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<BigPumpkinFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos startPos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos startPos)
+    {
         while (startPos.getY() >= world.getMinY()+1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos.offset(2, 0, 2)))
@@ -109,7 +107,7 @@ public class BigPumpkinFeature extends Feature<NoneFeatureConfiguration>
     {
         if (this.replace.matches(world, pos))
         {
-            super.setBlock(world, pos, state);
+            Feature.super.setBlock(world, pos, state);
             return true;
         }
         return false;

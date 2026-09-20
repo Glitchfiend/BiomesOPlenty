@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:disk",
+  "half_height": 2,
+  "radius": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 8,
+    "min_inclusive": 6
+  },
+  "state_provider": {
+    "id": "biomesoplenty:white_sandstone"
+  },
+  "target": {
+    "type": "minecraft:matching_blocks",
+    "blocks": [
+      "minecraft:stone",
+      "minecraft:sandstone",
+      "minecraft:granite",
+      "minecraft:diorite",
+      "minecraft:andesite"
+    ]
+  }
+}

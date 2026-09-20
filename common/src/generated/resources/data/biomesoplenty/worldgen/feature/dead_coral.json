@@ -1,0 +1,77 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "features": [
+    {
+      "feature": {
+        "type": "minecraft:coral_tree",
+        "feature": {
+          "feature": {
+            "type": "biomesoplenty:dead_coral_block",
+            "to_place": {
+              "type": "minecraft:random_block",
+              "blocks": "#biomesoplenty:dead_coral_blocks"
+            }
+          },
+          "placement": []
+        }
+      },
+      "placement": []
+    },
+    {
+      "feature": {
+        "type": "minecraft:coral_claw",
+        "feature": {
+          "feature": {
+            "type": "biomesoplenty:dead_coral_block",
+            "to_place": {
+              "type": "minecraft:random_block",
+              "blocks": "#biomesoplenty:dead_coral_blocks"
+            }
+          },
+          "placement": []
+        }
+      },
+      "placement": []
+    },
+    {
+      "feature": {
+        "type": "biomesoplenty:dead_coral_block",
+        "to_place": {
+          "type": "minecraft:random_block",
+          "blocks": "#biomesoplenty:dead_coral_blocks"
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:offset",
+          "x": 0,
+          "y": {
+            "type": "minecraft:uniform",
+            "max_inclusive": -1,
+            "min_inclusive": -3
+          },
+          "z": 0
+        },
+        {
+          "type": "minecraft:cuboid",
+          "include_edges": false,
+          "include_interior": false,
+          "xz_size": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 5,
+            "min_inclusive": 3
+          },
+          "y_size": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 5,
+            "min_inclusive": 3
+          }
+        },
+        {
+          "type": "minecraft:random_chance",
+          "chance": 0.9
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "biomesoplenty:lake",
+  "barrier": {
+    "id": "minecraft:air"
+  },
+  "fluid": {
+    "id": "minecraft:water",
+    "properties": {
+      "level": "0"
+    }
+  }
+}

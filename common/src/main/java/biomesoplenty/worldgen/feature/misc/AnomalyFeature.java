@@ -18,27 +18,25 @@ import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
 
-public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
+public class AnomalyFeature implements Feature
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.END_STONE || world.getBlockState(pos).getBlock() == BOPBlocks.UNMAPPED_END_STONE;
     protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).is(BlockTags.REPLACEABLE_BY_TREES) || world.getBlockState(pos).getBlock() instanceof VegetationBlock || world.getBlockState(pos).is(ModTags.Blocks.NULL_REPLACEABLE);
 
-    public AnomalyFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<AnomalyFeature> CODEC = MapCodec.unit(AnomalyFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<AnomalyFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos startPos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos startPos)
+    {
         while (startPos.getY() >= world.getMinY()+1 && !this.placeOn.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos.offset(0, 0, 0)))
@@ -176,7 +174,7 @@ public class AnomalyFeature extends Feature<NoneFeatureConfiguration>
     {
         if (this.replace.matches(world, pos))
         {
-            super.setBlock(world, pos, state);
+            Feature.super.setBlock(world, pos, state);
             return true;
         }
         return false;

@@ -20,7 +20,6 @@ import net.minecraft.world.level.material.Fluids;
 
 public class BarnaclesBlock extends MultifaceBlock implements SimpleWaterloggedBlock
 {
-    public static final MapCodec<BarnaclesBlock> CODEC = simpleCodec(BarnaclesBlock::new);
 
     public BarnaclesBlock(Properties p_153282_)
     {
@@ -28,11 +27,6 @@ public class BarnaclesBlock extends MultifaceBlock implements SimpleWaterloggedB
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 
-    @Override
-    public MapCodec<BarnaclesBlock> codec()
-    {
-        return CODEC;
-    }
 
 
     @Override

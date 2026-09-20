@@ -15,24 +15,22 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SmallDripleafBlock;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
 
-public class SmallDripleafFeature extends Feature<NoneFeatureConfiguration>
+public class SmallDripleafFeature implements Feature
 {
-    public SmallDripleafFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<SmallDripleafFeature> CODEC = MapCodec.unit(SmallDripleafFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<SmallDripleafFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos pos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos pos)
+    {
         int i = 0;
 
         for(int j = 0; j < 64; ++j)

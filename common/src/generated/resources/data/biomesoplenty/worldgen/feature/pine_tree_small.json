@@ -1,0 +1,32 @@
+{
+  "type": "biomesoplenty:pine_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [],
+  "foliage_provider": {
+    "id": "biomesoplenty:pine_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 6,
+  "min_height": 3,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:pine_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "vine_provider": {
+    "id": "minecraft:air"
+  }
+}

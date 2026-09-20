@@ -7,6 +7,7 @@ package biomesoplenty.worldgen.feature.tree;
 import biomesoplenty.util.biome.GeneratorUtil;
 import biomesoplenty.worldgen.feature.configurations.PalmTreeConfiguration;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -14,22 +15,30 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.function.BiConsumer;
 
 public class PalmTreeFeature extends BOPTreeFeature<PalmTreeConfiguration>
 {
-    public PalmTreeFeature(Codec<PalmTreeConfiguration> codec)
-    {
-        super(codec);
-    }
+    public static final MapCodec<PalmTreeFeature> CODEC = PalmTreeConfiguration.CODEC.xmap(PalmTreeFeature::new, f -> f.config);
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
+    public MapCodec<PalmTreeFeature> codec()
     {
-        PalmTreeConfiguration config = (PalmTreeConfiguration)configBase;
+        return CODEC;
+    }
+
+    public PalmTreeFeature(PalmTreeConfiguration config)
+    {
+        super(config);
+    }
+
+
+    @Override
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves)
+    {
+        PalmTreeConfiguration config = this.config;
 
         // Move down until we reach the ground
         while (startPos.getY() >= world.getMinY()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {startPos = startPos.below();}

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:mahogany_wood"
+        "recipes": "biomesoplenty:mahogany_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

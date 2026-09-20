@@ -1,0 +1,12 @@
+{
+  "type": "biomesoplenty:lake",
+  "barrier": {
+    "id": "biomesoplenty:null_end_stone"
+  },
+  "fluid": {
+    "id": "biomesoplenty:liquid_null",
+    "properties": {
+      "level": "0"
+    }
+  }
+}

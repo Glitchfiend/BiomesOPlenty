@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:magic_wood"
+        "recipes": "biomesoplenty:magic_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:acacia_twiglet",
+  "features": [
+    {
+      "chance": 0.3,
+      "feature": "biomesoplenty:spruce_twiglet_tree"
+    },
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:tall_twiglet_tree"
+    }
+  ]
+}

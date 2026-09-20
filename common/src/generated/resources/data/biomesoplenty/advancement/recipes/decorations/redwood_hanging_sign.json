@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:redwood_hanging_sign"
+        "recipes": "biomesoplenty:redwood_hanging_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

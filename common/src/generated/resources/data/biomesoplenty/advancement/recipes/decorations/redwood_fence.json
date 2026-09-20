@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:redwood_fence"
+        "recipes": "biomesoplenty:redwood_fence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

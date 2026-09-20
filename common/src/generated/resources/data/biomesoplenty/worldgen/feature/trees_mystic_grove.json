@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:magic_tree",
+  "features": [
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:big_flowering_tree"
+    },
+    {
+      "chance": 0.3,
+      "feature": "biomesoplenty:big_magic_tree"
+    },
+    {
+      "chance": 0.025,
+      "feature": "biomesoplenty:giant_tree"
+    }
+  ]
+}

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:origin_oak_stairs"
+        "recipes": "biomesoplenty:origin_oak_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

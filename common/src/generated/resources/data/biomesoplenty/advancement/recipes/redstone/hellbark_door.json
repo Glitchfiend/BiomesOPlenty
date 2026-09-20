@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:hellbark_door"
+        "recipes": "biomesoplenty:hellbark_door"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:hellbark_pressure_plate"
+        "recipes": "biomesoplenty:hellbark_pressure_plate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

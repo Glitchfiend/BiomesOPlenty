@@ -14,24 +14,22 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
 
-public class MyceliumSplatterFeature extends Feature<NoneFeatureConfiguration>
+public class MyceliumSplatterFeature implements Feature
 {
-   public MyceliumSplatterFeature(Codec<NoneFeatureConfiguration> deserializer)
-   {
-      super(deserializer);
-   }
+   public static final MapCodec<MyceliumSplatterFeature> CODEC = MapCodec.unit(MyceliumSplatterFeature::new);
+
+    @Override
+    public MapCodec<MyceliumSplatterFeature> codec()
+    {
+        return CODEC;
+    }
+
 
    @Override
-   public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+   public boolean place(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos pos)
    {
-      WorldGenLevel worldIn = featurePlaceContext.level();
-      ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-      RandomSource rand = featurePlaceContext.random();
-      BlockPos pos = featurePlaceContext.origin();
-      NoneFeatureConfiguration config = featurePlaceContext.config();
       int i = 0;
       int j = rand.nextInt(8 - 2) + 2;
 

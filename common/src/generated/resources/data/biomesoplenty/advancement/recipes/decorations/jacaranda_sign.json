@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:jacaranda_sign"
+        "recipes": "biomesoplenty:jacaranda_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

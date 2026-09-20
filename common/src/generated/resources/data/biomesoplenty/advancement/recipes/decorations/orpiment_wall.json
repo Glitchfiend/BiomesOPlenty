@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:orpiment_wall"
+        "recipes": "biomesoplenty:orpiment_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

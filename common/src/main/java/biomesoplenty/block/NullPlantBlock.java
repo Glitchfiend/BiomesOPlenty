@@ -18,9 +18,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class NullPlantBlock extends Block implements BonemealableBlock
 {
@@ -57,19 +58,19 @@ public class NullPlantBlock extends Block implements BonemealableBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState)
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, BonemealSource source)
     {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState)
+    public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState, BonemealSource source)
     {
         return (double)randomSource.nextFloat() < 0.1D;
     }
 
     @Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState)
+    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState, BonemealSource source)
     {
         this.growTree(serverLevel, randomSource, blockPos, blockState);
     }
@@ -78,8 +79,8 @@ public class NullPlantBlock extends Block implements BonemealableBlock
     {
         serverLevel.removeBlock(blockPos, false);
 
-        Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry = serverLevel.registryAccess().lookupOrThrow(Registries.CONFIGURED_FEATURE);
-        ConfiguredFeature<?, ?> feature = configuredFeatureRegistry.get(BOPTreeFeatures.NULL_TREE).orElseThrow().value();
+        Registry<Feature> configuredFeatureRegistry = serverLevel.registryAccess().lookupOrThrow(Registries.FEATURE);
+        Feature feature = configuredFeatureRegistry.get(BOPTreeFeatures.NULL_TREE).orElseThrow().value();
 
         if (feature.place(serverLevel, serverLevel.getChunkSource().getGenerator(), randomSource, blockPos))
         {

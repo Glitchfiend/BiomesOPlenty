@@ -1,0 +1,32 @@
+{
+  "type": "biomesoplenty:magic_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [],
+  "foliage_provider": {
+    "id": "biomesoplenty:magic_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 20,
+  "min_height": 16,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:magic_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "vine_provider": {
+    "id": "minecraft:air"
+  }
+}

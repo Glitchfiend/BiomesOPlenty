@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:mahogany_trapdoor"
+        "recipes": "biomesoplenty:mahogany_trapdoor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

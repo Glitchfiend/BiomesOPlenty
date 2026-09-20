@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "biomesoplenty:glowflower",
+        "weight": 1
+      },
+      {
+        "data": "biomesoplenty:pink_daffodil",
+        "weight": 1
+      },
+      {
+        "data": "minecraft:azure_bluet",
+        "weight": 1
+      },
+      {
+        "data": "minecraft:allium",
+        "weight": 1
+      }
+    ]
+  }
+}

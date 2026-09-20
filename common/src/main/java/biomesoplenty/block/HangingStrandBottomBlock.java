@@ -16,21 +16,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
 {
-    public static final MapCodec<HangingStrandBottomBlock> CODEC = simpleCodec(HangingStrandBottomBlock::new);
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public HangingStrandBottomBlock(Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false, 0.01D);
     }
 
-    @Override
-    public MapCodec<HangingStrandBottomBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     protected Block getBodyBlock() {
@@ -73,19 +68,19 @@ public class HangingStrandBottomBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_)
+    public boolean isValidBonemealTarget(LevelReader p_176473_1_, BlockPos p_176473_2_, BlockState p_176473_3_, BonemealSource source)
     {
         return false;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level p_180670_1_, RandomSource p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_)
+    public boolean isBonemealSuccess(Level p_180670_1_, RandomSource p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_, BonemealSource source)
     {
         return false;
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_225535_1_, RandomSource p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_)
+    public void performBonemeal(ServerLevel p_225535_1_, RandomSource p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_, BonemealSource source)
     {
     }
 }

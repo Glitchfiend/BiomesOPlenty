@@ -6,6 +6,7 @@ package biomesoplenty.worldgen.feature.configurations;
 
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -15,14 +16,14 @@ import java.util.List;
 
 public class CypressTreeConfiguration extends BOPTreeConfiguration
 {
-    public static final Codec<CypressTreeConfiguration> CODEC = RecordCodecBuilder.create((builder) -> {
+    public static final MapCodec<CypressTreeConfiguration> CODEC = RecordCodecBuilder.mapCodec((builder) -> {
         return builder.group(
-                BlockStateProvider.CODEC.fieldOf("trunk_provider").forGetter((instance) -> instance.trunkProvider),
-                BlockStateProvider.CODEC.fieldOf("foliage_provider").forGetter((instance) -> instance.foliageProvider),
-                BlockStateProvider.CODEC.fieldOf("vine_provider").forGetter((instance) -> instance.vineProvider),
-                BlockStateProvider.CODEC.fieldOf("hanging_provider").forGetter((instance) -> instance.hangingProvider),
-                BlockStateProvider.CODEC.fieldOf("trunk_fruit_provider").forGetter((instance) -> instance.trunkFruitProvider),
-                BlockStateProvider.CODEC.fieldOf("alt_foliage_provider").forGetter((instance) -> instance.altFoliageProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("trunk_provider").forGetter((instance) -> instance.trunkProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("foliage_provider").forGetter((instance) -> instance.foliageProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("vine_provider").forGetter((instance) -> instance.vineProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("hanging_provider").forGetter((instance) -> instance.hangingProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("trunk_fruit_provider").forGetter((instance) -> instance.trunkFruitProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("alt_foliage_provider").forGetter((instance) -> instance.altFoliageProvider),
                 Codec.INT.fieldOf("min_height").forGetter((instance) -> instance.minHeight),
                 Codec.INT.fieldOf("max_height").forGetter((instance) -> instance.maxHeight),
                 TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators),
@@ -46,8 +47,8 @@ public class CypressTreeConfiguration extends BOPTreeConfiguration
         {
             this.minHeight = 12;
             this.maxHeight = 15;
-            this.trunkProvider = BlockStateProvider.simple(Blocks.SPRUCE_LOG);
-            this.foliageProvider = BlockStateProvider.simple(BOPBlocks.CYPRESS_LEAVES);
+            this.trunkProvider = BlockStateProvider.of(Blocks.SPRUCE_LOG);
+            this.foliageProvider = BlockStateProvider.of(BOPBlocks.CYPRESS_LEAVES);
             this.leavesAtBottom = false;
         }
 

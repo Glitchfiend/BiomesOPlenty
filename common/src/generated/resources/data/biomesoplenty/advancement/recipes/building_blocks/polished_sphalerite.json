@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:polished_sphalerite"
+        "recipes": "biomesoplenty:polished_sphalerite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

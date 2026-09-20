@@ -4,10 +4,12 @@
  ******************************************************************************/
 package biomesoplenty.worldgen.feature.tree;
 
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.util.biome.GeneratorUtil;
 import biomesoplenty.worldgen.feature.configurations.BayouTreeConfiguration;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -18,7 +20,6 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.material.Fluids;
 
@@ -26,10 +27,19 @@ import java.util.function.BiConsumer;
 
 public class BayouTreeFeature extends BOPTreeFeature<BayouTreeConfiguration>
 {
-    public BayouTreeFeature(Codec<BayouTreeConfiguration> codec)
+    public static final MapCodec<BayouTreeFeature> CODEC = BayouTreeConfiguration.CODEC.xmap(BayouTreeFeature::new, f -> f.config);
+
+    @Override
+    public MapCodec<BayouTreeFeature> codec()
     {
-        super(codec);
+        return CODEC;
     }
+
+    public BayouTreeFeature(BayouTreeConfiguration config)
+    {
+        super(config);
+    }
+
 
     public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height, BayouTreeConfiguration config)
     {
@@ -52,7 +62,7 @@ public class BayouTreeFeature extends BOPTreeFeature<BayouTreeConfiguration>
         }
 
         BlockPos pos2 = pos.offset(0, height - 2,0);
-        if (!isAirOrLeaves(world, pos2))
+        if (!TreeFeature.isAirOrLeaves(world, pos2))
         {
             return false;
         }
@@ -114,9 +124,9 @@ public class BayouTreeFeature extends BOPTreeFeature<BayouTreeConfiguration>
 
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves)
     {
-        BayouTreeConfiguration config = (BayouTreeConfiguration)configBase;
+        BayouTreeConfiguration config = this.config;
 
         // Move down until we reach the ground
         while (startPos.getY() >= world.getMinY()+1 && this.canReplace(world, startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {startPos = startPos.below();}
@@ -295,7 +305,7 @@ public class BayouTreeFeature extends BOPTreeFeature<BayouTreeConfiguration>
     @Override
     public boolean placeLeaves(WorldGenLevel level, BlockPos pos, FoliagePlacer.FoliageSetter leaves, BayouTreeConfiguration config)
     {
-        if (isAirOrLeaves(level, pos))
+        if (TreeFeature.isAirOrLeaves(level, pos))
         {
             leaves.set(pos, config.foliageProvider.getState(level, level.getRandom(), pos));
             return true;

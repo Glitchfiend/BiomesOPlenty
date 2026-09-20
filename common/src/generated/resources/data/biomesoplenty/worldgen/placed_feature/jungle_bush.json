@@ -5,12 +5,7 @@
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
-        "state": {
-          "Name": "minecraft:jungle_sapling",
-          "Properties": {
-            "stage": "0"
-          }
-        }
+        "state": "minecraft:jungle_sapling"
       }
     }
   ]

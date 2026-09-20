@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "minecraft:lily_of_the_valley",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:lily_of_the_valley",
+        "weight": 2
+      },
+      {
+        "data": "minecraft:blue_orchid",
+        "weight": 3
+      }
+    ]
+  }
+}

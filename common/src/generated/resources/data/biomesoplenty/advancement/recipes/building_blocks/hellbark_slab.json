@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:hellbark_slab"
+        "recipes": "biomesoplenty:hellbark_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

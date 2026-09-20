@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:white_sandstone_slab"
+        "recipes": "biomesoplenty:white_sandstone_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

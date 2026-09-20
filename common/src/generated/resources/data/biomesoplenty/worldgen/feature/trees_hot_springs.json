@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:pine_tree",
+  "features": [
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:pine_tree_small"
+    }
+  ]
+}

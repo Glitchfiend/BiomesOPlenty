@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:umbran_wood"
+        "recipes": "biomesoplenty:umbran_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

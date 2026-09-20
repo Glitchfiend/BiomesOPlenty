@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:disk",
+  "half_height": 4,
+  "radius": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 8,
+    "min_inclusive": 8
+  },
+  "state_provider": {
+    "id": "minecraft:gravel"
+  },
+  "target": {
+    "type": "minecraft:matching_blocks",
+    "blocks": [
+      "minecraft:dirt",
+      "minecraft:coarse_dirt",
+      "minecraft:podzol",
+      "minecraft:grass_block",
+      "minecraft:sand",
+      "minecraft:clay",
+      "minecraft:andesite",
+      "minecraft:granite",
+      "minecraft:diorite",
+      "minecraft:stone"
+    ]
+  }
+}

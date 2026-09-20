@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:oak_bush",
+  "features": [
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:sparse_oak_tree"
+    },
+    {
+      "chance": 0.05,
+      "feature": "minecraft:dark_oak_checked"
+    },
+    {
+      "chance": 0.6,
+      "feature": "biomesoplenty:cypress_tree"
+    },
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:flowering_oak_bush"
+    }
+  ]
+}

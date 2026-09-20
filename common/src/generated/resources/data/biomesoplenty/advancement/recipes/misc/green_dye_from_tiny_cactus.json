@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:green_dye_from_tiny_cactus"
+        "recipes": "biomesoplenty:green_dye_from_tiny_cactus"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

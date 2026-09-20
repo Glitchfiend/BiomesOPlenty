@@ -19,18 +19,22 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 
-public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
+public class StringyCobwebFeature implements Feature
 {
     public static final int MIN_DISTANCE = 2;
     public static final int MAX_DISTANCE = 32;
 
-    public StringyCobwebFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public static final MapCodec<StringyCobwebFeature> CODEC = MapCodec.unit(StringyCobwebFeature::new);
+
+    @Override
+    public MapCodec<StringyCobwebFeature> codec()
     {
-        super(deserializer);
+        return CODEC;
     }
+
 
     public static boolean canPlace(WorldGenLevel world, BlockPos pos, int length, Direction dir)
     {
@@ -99,11 +103,8 @@ public class StringyCobwebFeature extends Feature<NoneFeatureConfiguration>
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos pos)
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos pos = featurePlaceContext.origin();
         int k = 0;
 
         for(int j = 0; j < 128; ++j)

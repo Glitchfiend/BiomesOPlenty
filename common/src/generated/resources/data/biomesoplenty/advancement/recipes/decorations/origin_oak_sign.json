@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:origin_oak_sign"
+        "recipes": "biomesoplenty:origin_oak_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

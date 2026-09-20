@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:white_sandstone_stairs"
+        "recipes": "biomesoplenty:white_sandstone_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

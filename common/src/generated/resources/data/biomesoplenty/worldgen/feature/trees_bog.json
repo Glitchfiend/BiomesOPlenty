@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:mangrove_twiglet_tree",
+  "features": [
+    {
+      "chance": 0.4,
+      "feature": "biomesoplenty:spruce_twiglet_tree"
+    }
+  ]
+}

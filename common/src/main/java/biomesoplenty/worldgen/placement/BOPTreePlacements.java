@@ -17,7 +17,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
@@ -107,90 +107,90 @@ public class BOPTreePlacements
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context)
     {
-        HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
+        HolderGetter<Feature> configuredFeatureGetter = context.lookup(Registries.FEATURE);
 
-        final Holder<ConfiguredFeature<?, ?>> ACACIA_BUSH_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_BUSH_TREE);
-        final Holder<ConfiguredFeature<?, ?>> ACACIA_TWIGLET = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_TWIGLET);
-        final Holder<ConfiguredFeature<?, ?>> ACACIA_TWIGLET_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_TWIGLET_SMALL);
-        final Holder<ConfiguredFeature<?, ?>> ASPEN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ASPEN_TREE);
-        final Holder<ConfiguredFeature<?, ?>> AZALEA_TREE = configuredFeatureGetter.getOrThrow(TreeFeatures.AZALEA_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_BIRCH_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_BIRCH_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_FLOWERING_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_FLOWERING_OAK_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_HELLBARK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_HELLBARK_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_JACARANDA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_JACARANDA_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_MAGIC_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_MAGIC_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_PINK_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_PINK_MAPLE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_PINK_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_PINK_MAPLE_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> BIG_MAGENTA_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_MAGENTA_MAPLE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_MAGENTA_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_MAGENTA_MAPLE_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> BIG_PURPLE_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_PURPLE_MAPLE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_PURPLE_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_PURPLE_MAPLE_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> BIG_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_OAK_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_ORIGIN_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_ORIGIN_OAK_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BAYOU_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BAYOU_TREE);
-        final Holder<ConfiguredFeature<?, ?>> BAYOU_TREE_MEDIUM = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BAYOU_TREE_MEDIUM);
-        final Holder<ConfiguredFeature<?, ?>> DEAD_TREE_WASTELAND = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TREE_WASTELAND);
-        final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_SHELF_FUNGI = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_SHELF_FUNGI);
-        final Holder<ConfiguredFeature<?, ?>> DEAD_TWIGLET_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_SMALL);
-        final Holder<ConfiguredFeature<?, ?>> DYING_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE);
-        final Holder<ConfiguredFeature<?, ?>> DYING_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> DYING_TREE_WASTELAND = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE_WASTELAND);
-        final Holder<ConfiguredFeature<?, ?>> EMPYREAL_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.EMPYREAL_TREE);
-        final Holder<ConfiguredFeature<?, ?>> FIR_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE);
-        final Holder<ConfiguredFeature<?, ?>> FIR_TREE_LARGE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE_LARGE);
-        final Holder<ConfiguredFeature<?, ?>> FIR_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE_SMALL);
-        final Holder<ConfiguredFeature<?, ?>> FLOWERING_OAK_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FLOWERING_OAK_BUSH);
-        final Holder<ConfiguredFeature<?, ?>> FLOWERING_OAK_TREE_BEES = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FLOWERING_OAK_TREE_BEES);
-        final Holder<ConfiguredFeature<?, ?>> FLOWERING_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FLOWERING_OAK_TREE);
-        final Holder<ConfiguredFeature<?, ?>> GIANT_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.GIANT_TREE);
-        final Holder<ConfiguredFeature<?, ?>> HELLBARK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.HELLBARK_TREE);
-        final Holder<ConfiguredFeature<?, ?>> JACARANDA_TREE_BEES = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.JACARANDA_TREE_BEES);
-        final Holder<ConfiguredFeature<?, ?>> JACARANDA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.JACARANDA_TREE);
-        final Holder<ConfiguredFeature<?, ?>> JUNGLE_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.JUNGLE_BUSH);
-        final Holder<ConfiguredFeature<?, ?>> JUNGLE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.JUNGLE_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> MAGIC_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAGIC_TREE);
-        final Holder<ConfiguredFeature<?, ?>> MAHOGANY_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAHOGANY_TREE);
-        final Holder<ConfiguredFeature<?, ?>> MANGROVE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MANGROVE_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> POPLAR_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.POPLAR_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> NULL_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.NULL_TREE);
-        final Holder<ConfiguredFeature<?, ?>> OAK_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.OAK_BUSH);
-        final Holder<ConfiguredFeature<?, ?>> PINK_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PINK_MAPLE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> PINK_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PINK_MAPLE_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> MAGENTA_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAGENTA_MAPLE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> MAGENTA_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAGENTA_MAPLE_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> PURPLE_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PURPLE_MAPLE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> PURPLE_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PURPLE_MAPLE_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> ORIGIN_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ORIGIN_OAK_TREE);
-        final Holder<ConfiguredFeature<?, ?>> PALE_OAK_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PALE_OAK_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> PALM_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PALM_TREE);
-        final Holder<ConfiguredFeature<?, ?>> PALM_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PALM_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> PINE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PINE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> PINE_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PINE_TREE_SMALL);
-        final Holder<ConfiguredFeature<?, ?>> REDWOOD_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.REDWOOD_TREE);
-        final Holder<ConfiguredFeature<?, ?>> REDWOOD_TREE_LARGE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.REDWOOD_TREE_LARGE);
-        final Holder<ConfiguredFeature<?, ?>> REDWOOD_TREE_MEDIUM = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.REDWOOD_TREE_MEDIUM);
-        final Holder<ConfiguredFeature<?, ?>> SMALL_DEAD_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SMALL_DEAD_TREE);
-        final Holder<ConfiguredFeature<?, ?>> SMALL_DEAD_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SMALL_DEAD_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> SPARSE_ACACIA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPARSE_ACACIA_TREE);
-        final Holder<ConfiguredFeature<?, ?>> SPARSE_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPARSE_OAK_TREE);
-        final Holder<ConfiguredFeature<?, ?>> SPRUCE_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPRUCE_BUSH);
-        final Holder<ConfiguredFeature<?, ?>> CYPRESS_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.CYPRESS_TREE);
-        final Holder<ConfiguredFeature<?, ?>> SPRUCE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPRUCE_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> TALL_DEAD_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_DEAD_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> TALL_DEAD_TWIGLET_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_DEAD_TWIGLET_TREE_LEAF_LITTER);
-        final Holder<ConfiguredFeature<?, ?>> TALL_SPRUCE_TREE_BEES = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_SPRUCE_TREE_BEES);
-        final Holder<ConfiguredFeature<?, ?>> TALL_SPRUCE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_SPRUCE_TREE);
-        final Holder<ConfiguredFeature<?, ?>> TALL_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> TALL_UMBRAN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_UMBRAN_TREE);
-        final Holder<ConfiguredFeature<?, ?>> TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TWIGLET_TREE);
-        final Holder<ConfiguredFeature<?, ?>> UMBRAN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.UMBRAN_TREE);
-        final Holder<ConfiguredFeature<?, ?>> WILLOW_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.WILLOW_TREE);
+        final Holder<Feature> ACACIA_BUSH_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_BUSH_TREE);
+        final Holder<Feature> ACACIA_TWIGLET = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_TWIGLET);
+        final Holder<Feature> ACACIA_TWIGLET_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ACACIA_TWIGLET_SMALL);
+        final Holder<Feature> ASPEN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ASPEN_TREE);
+        final Holder<Feature> AZALEA_TREE = configuredFeatureGetter.getOrThrow(TreeFeatures.AZALEA_TREE);
+        final Holder<Feature> BIG_BIRCH_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_BIRCH_TREE);
+        final Holder<Feature> BIG_FLOWERING_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_FLOWERING_OAK_TREE);
+        final Holder<Feature> BIG_HELLBARK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_HELLBARK_TREE);
+        final Holder<Feature> BIG_JACARANDA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_JACARANDA_TREE);
+        final Holder<Feature> BIG_MAGIC_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_MAGIC_TREE);
+        final Holder<Feature> BIG_PINK_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_PINK_MAPLE_TREE);
+        final Holder<Feature> BIG_PINK_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_PINK_MAPLE_TREE_LEAF_LITTER);
+        final Holder<Feature> BIG_MAGENTA_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_MAGENTA_MAPLE_TREE);
+        final Holder<Feature> BIG_MAGENTA_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_MAGENTA_MAPLE_TREE_LEAF_LITTER);
+        final Holder<Feature> BIG_PURPLE_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_PURPLE_MAPLE_TREE);
+        final Holder<Feature> BIG_PURPLE_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_PURPLE_MAPLE_TREE_LEAF_LITTER);
+        final Holder<Feature> BIG_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_OAK_TREE);
+        final Holder<Feature> BIG_ORIGIN_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BIG_ORIGIN_OAK_TREE);
+        final Holder<Feature> BAYOU_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BAYOU_TREE);
+        final Holder<Feature> BAYOU_TREE_MEDIUM = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.BAYOU_TREE_MEDIUM);
+        final Holder<Feature> DEAD_TREE_WASTELAND = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TREE_WASTELAND);
+        final Holder<Feature> DEAD_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE);
+        final Holder<Feature> DEAD_TWIGLET_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_LEAF_LITTER);
+        final Holder<Feature> DEAD_TWIGLET_TREE_SHELF_FUNGI = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_SHELF_FUNGI);
+        final Holder<Feature> DEAD_TWIGLET_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DEAD_TWIGLET_TREE_SMALL);
+        final Holder<Feature> DYING_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE);
+        final Holder<Feature> DYING_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE_LEAF_LITTER);
+        final Holder<Feature> DYING_TREE_WASTELAND = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.DYING_TREE_WASTELAND);
+        final Holder<Feature> EMPYREAL_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.EMPYREAL_TREE);
+        final Holder<Feature> FIR_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE);
+        final Holder<Feature> FIR_TREE_LARGE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE_LARGE);
+        final Holder<Feature> FIR_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE_SMALL);
+        final Holder<Feature> FLOWERING_OAK_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FLOWERING_OAK_BUSH);
+        final Holder<Feature> FLOWERING_OAK_TREE_BEES = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FLOWERING_OAK_TREE_BEES);
+        final Holder<Feature> FLOWERING_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FLOWERING_OAK_TREE);
+        final Holder<Feature> GIANT_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.GIANT_TREE);
+        final Holder<Feature> HELLBARK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.HELLBARK_TREE);
+        final Holder<Feature> JACARANDA_TREE_BEES = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.JACARANDA_TREE_BEES);
+        final Holder<Feature> JACARANDA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.JACARANDA_TREE);
+        final Holder<Feature> JUNGLE_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.JUNGLE_BUSH);
+        final Holder<Feature> JUNGLE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.JUNGLE_TWIGLET_TREE);
+        final Holder<Feature> MAGIC_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAGIC_TREE);
+        final Holder<Feature> MAHOGANY_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAHOGANY_TREE);
+        final Holder<Feature> MANGROVE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MANGROVE_TWIGLET_TREE);
+        final Holder<Feature> POPLAR_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.POPLAR_TWIGLET_TREE);
+        final Holder<Feature> NULL_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.NULL_TREE);
+        final Holder<Feature> OAK_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.OAK_BUSH);
+        final Holder<Feature> PINK_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PINK_MAPLE_TREE);
+        final Holder<Feature> PINK_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PINK_MAPLE_TREE_LEAF_LITTER);
+        final Holder<Feature> MAGENTA_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAGENTA_MAPLE_TREE);
+        final Holder<Feature> MAGENTA_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.MAGENTA_MAPLE_TREE_LEAF_LITTER);
+        final Holder<Feature> PURPLE_MAPLE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PURPLE_MAPLE_TREE);
+        final Holder<Feature> PURPLE_MAPLE_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PURPLE_MAPLE_TREE_LEAF_LITTER);
+        final Holder<Feature> ORIGIN_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.ORIGIN_OAK_TREE);
+        final Holder<Feature> PALE_OAK_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PALE_OAK_TWIGLET_TREE);
+        final Holder<Feature> PALM_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PALM_TREE);
+        final Holder<Feature> PALM_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PALM_TWIGLET_TREE);
+        final Holder<Feature> PINE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PINE_TREE);
+        final Holder<Feature> PINE_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.PINE_TREE_SMALL);
+        final Holder<Feature> REDWOOD_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.REDWOOD_TREE);
+        final Holder<Feature> REDWOOD_TREE_LARGE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.REDWOOD_TREE_LARGE);
+        final Holder<Feature> REDWOOD_TREE_MEDIUM = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.REDWOOD_TREE_MEDIUM);
+        final Holder<Feature> SMALL_DEAD_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SMALL_DEAD_TREE);
+        final Holder<Feature> SMALL_DEAD_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SMALL_DEAD_TREE_LEAF_LITTER);
+        final Holder<Feature> SPARSE_ACACIA_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPARSE_ACACIA_TREE);
+        final Holder<Feature> SPARSE_OAK_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPARSE_OAK_TREE);
+        final Holder<Feature> SPRUCE_BUSH = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPRUCE_BUSH);
+        final Holder<Feature> CYPRESS_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.CYPRESS_TREE);
+        final Holder<Feature> SPRUCE_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.SPRUCE_TWIGLET_TREE);
+        final Holder<Feature> TALL_DEAD_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_DEAD_TWIGLET_TREE);
+        final Holder<Feature> TALL_DEAD_TWIGLET_TREE_LEAF_LITTER = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_DEAD_TWIGLET_TREE_LEAF_LITTER);
+        final Holder<Feature> TALL_SPRUCE_TREE_BEES = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_SPRUCE_TREE_BEES);
+        final Holder<Feature> TALL_SPRUCE_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_SPRUCE_TREE);
+        final Holder<Feature> TALL_TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_TWIGLET_TREE);
+        final Holder<Feature> TALL_UMBRAN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TALL_UMBRAN_TREE);
+        final Holder<Feature> TWIGLET_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.TWIGLET_TREE);
+        final Holder<Feature> UMBRAN_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.UMBRAN_TREE);
+        final Holder<Feature> WILLOW_TREE = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.WILLOW_TREE);
 
-        register(context, BOPTreePlacements.ACACIA_BUSH_TREE_CHECKED, ACACIA_BUSH_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BOPBlocks.ORANGE_SAND))));
-        register(context, BOPTreePlacements.ACACIA_TWIGLET_CHECKED, ACACIA_TWIGLET, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BOPBlocks.ORANGE_SAND)))));
-        register(context, BOPTreePlacements.ACACIA_TWIGLET_SMALL_CHECKED, ACACIA_TWIGLET_SMALL, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.SAND, BOPBlocks.ORANGE_SAND)))));
+        register(context, BOPTreePlacements.ACACIA_BUSH_TREE_CHECKED, ACACIA_BUSH_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), List.of(BOPBlocks.ORANGE_SAND)))));
+        register(context, BOPTreePlacements.ACACIA_TWIGLET_CHECKED, ACACIA_TWIGLET, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), List.of(BOPBlocks.ORANGE_SAND))))));
+        register(context, BOPTreePlacements.ACACIA_TWIGLET_SMALL_CHECKED, ACACIA_TWIGLET_SMALL, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), List.of(Blocks.SAND, BOPBlocks.ORANGE_SAND))))));
         register(context, BOPTreePlacements.ASPEN_TREE_CHECKED, ASPEN_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.BIRCH_SAPLING)));
         register(context, BOPTreePlacements.AZALEA_TREE_CHECKED, AZALEA_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.AZALEA)));
         register(context, BOPTreePlacements.BIG_BIRCH_TREE_CHECKED, BIG_BIRCH_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.BIRCH_SAPLING)));
@@ -240,7 +240,7 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.PURPLE_MAPLE_TREE_LEAF_LITTER_CHECKED, PURPLE_MAPLE_TREE_LEAF_LITTER, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.MAPLE_SAPLING)));
         //TODO: REPLACE CHECK WITH POPLAR SAPLING
         register(context, BOPTreePlacements.POPLAR_TWIGLET_TREE_CHECKED, POPLAR_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING)));
-        register(context, BOPTreePlacements.NULL_TREE_CHECKED, NULL_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BOPBlocks.UNMAPPED_END_STONE))));
+        register(context, BOPTreePlacements.NULL_TREE_CHECKED, NULL_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), List.of(BOPBlocks.UNMAPPED_END_STONE)))));
         register(context, BOPTreePlacements.OAK_BUSH_CHECKED, OAK_BUSH, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.ORIGIN_OAK_TREE_CHECKED, ORIGIN_OAK_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.PALE_OAK_TWIGLET_TREE_CHECKED, PALE_OAK_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.PALE_OAK_SAPLING)));
@@ -253,7 +253,7 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.REDWOOD_TREE_MEDIUM_CHECKED, REDWOOD_TREE_MEDIUM, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.REDWOOD_SAPLING)));
         register(context, BOPTreePlacements.SMALL_DEAD_TREE_CHECKED, SMALL_DEAD_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
         register(context, BOPTreePlacements.SMALL_DEAD_TREE_LEAF_LITTER_CHECKED, SMALL_DEAD_TREE_LEAF_LITTER, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.DEAD_SAPLING)));
-        register(context, BOPTreePlacements.SPARSE_ACACIA_TREE_CHECKED, SPARSE_ACACIA_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BOPBlocks.ORANGE_SAND))));
+        register(context, BOPTreePlacements.SPARSE_ACACIA_TREE_CHECKED, SPARSE_ACACIA_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), List.of(BOPBlocks.ORANGE_SAND)))));
         register(context, BOPTreePlacements.SPARSE_OAK_TREE_CHECKED, SPARSE_OAK_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.SPRUCE_BUSH_CHECKED, SPRUCE_BUSH, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING)));
         register(context, BOPTreePlacements.CYPRESS_TREE_CHECKED, CYPRESS_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.CYPRESS_SAPLING)));
@@ -269,12 +269,12 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.WILLOW_TREE_CHECKED, WILLOW_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.WILLOW_SAPLING)));
     }
     
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<Feature> configuredFeature, PlacementModifier... modifiers)
     {
         register(context, placedFeatureKey, configuredFeature, List.of(modifiers));
     }
 
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> modifiers)
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<Feature> configuredFeature, List<PlacementModifier> modifiers)
     {
         context.register(placedFeatureKey, new PlacedFeature(configuredFeature, modifiers));
     }

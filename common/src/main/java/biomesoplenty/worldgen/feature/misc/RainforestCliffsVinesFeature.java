@@ -18,31 +18,29 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.List;
+import com.mojang.serialization.MapCodec;
 
-public class RainforestCliffsVinesFeature extends Feature<NoneFeatureConfiguration>
+public class RainforestCliffsVinesFeature implements Feature
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.DIRT || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.STONE || world.getBlockState(pos).getBlock() == Blocks.TERRACOTTA || world.getBlockState(pos).getBlock() == Blocks.ANDESITE || world.getBlockState(pos).getBlock() == Blocks.GRANITE || world.getBlockState(pos).getBlock() == Blocks.DIORITE;
     protected SimpleBlockPredicate replace = (world, pos) -> this.isAir(world, pos);
     int minHeight = 7;
     int maxHeight = 14;
 
-    public RainforestCliffsVinesFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<RainforestCliffsVinesFeature> CODEC = MapCodec.unit(RainforestCliffsVinesFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<RainforestCliffsVinesFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos startPos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos startPos)
+    {
         while (startPos.getY() >= world.getMinY()+1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos.offset(2, 0, 2)))
@@ -98,7 +96,7 @@ public class RainforestCliffsVinesFeature extends Feature<NoneFeatureConfigurati
     {
         if (this.replace.matches(world, pos))
         {
-            super.setBlock(world, pos, state);
+            Feature.super.setBlock(world, pos, state);
             return true;
         }
         return false;

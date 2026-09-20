@@ -27,11 +27,12 @@ import java.util.*;
 import java.util.logging.Logger;
 
 import static glitchcore.util.BlockHelper.*;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProvider;
+import net.minecraft.resources.ResourceKey;
 
 public class ModVanillaCompat
 {
-    public static final Map<ItemLike, Float> compostables = new HashMap<>();
-
     public static void setup()
     {
         //Dispenser Behavior
@@ -245,7 +246,7 @@ public class ModVanillaCompat
         registerFlammable(BOPBlocks.DEAD_BRANCH, 60, 100);
         registerFlammable(BOPBlocks.BARLEY, 60, 100);
 
-        //Log Stripping
+        // Strippable Blocks
         registerStrippable(BOPBlocks.ORIGIN_OAK_LOG, BOPBlocks.STRIPPED_ORIGIN_OAK_LOG);
         registerStrippable(BOPBlocks.ORIGIN_OAK_WOOD, BOPBlocks.STRIPPED_ORIGIN_OAK_WOOD);
         registerStrippable(BOPBlocks.FIR_LOG, BOPBlocks.STRIPPED_FIR_LOG);
@@ -275,135 +276,131 @@ public class ModVanillaCompat
         registerStrippable(BOPBlocks.EMPYREAL_LOG, BOPBlocks.STRIPPED_EMPYREAL_LOG);
         registerStrippable(BOPBlocks.EMPYREAL_WOOD, BOPBlocks.STRIPPED_EMPYREAL_WOOD);
 
-        // Flattening
-        registerFlattenable(BOPBlocks.ORIGIN_GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState());
-
         //Compostable Blocks
-        registerCompostable(0.85F, BOPBlocks.GLOWSHROOM_BLOCK);
-        registerCompostable(0.85F, BOPBlocks.TOADSTOOL_BLOCK);
-        //registerCompostable(0.85F, BOPBlocks.VOIDCAP_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH, BOPBlocks.GLOWSHROOM_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH, BOPBlocks.TOADSTOOL_BLOCK);
+        //registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM_HIGH, BOPBlocks.VOIDCAP_BLOCK);
 
-        registerCompostable(0.5F, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.GRAY_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.BLACK_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.BROWN_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.RED_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.ORANGE_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.YELLOW_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.LIME_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.GREEN_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.CYAN_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.LIGHT_BLUE_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.BLUE_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.PURPLE_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.PINK_FLOWER_PETAL_BLOCK);
-        registerCompostable(0.5F, BOPBlocks.FLOWER_STEM);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.WHITE_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.LIGHT_GRAY_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.GRAY_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.BLACK_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.BROWN_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.RED_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.ORANGE_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.YELLOW_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.LIME_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.GREEN_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.CYAN_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.LIGHT_BLUE_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.BLUE_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.PURPLE_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.MAGENTA_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.PINK_FLOWER_PETAL_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.FLOWER_STEM);
 
-        registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.FLOWERING_OAK_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.CYPRESS_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.CYPRESS_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.SNOWBLOSSOM_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.SNOWBLOSSOM_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.ORIGIN_OAK_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.ORIGIN_OAK_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.FIR_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.FIR_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.PINE_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.PINE_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.MAPLE_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.PINK_MAPLE_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.MAGENTA_MAPLE_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.PURPLE_MAPLE_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.REDWOOD_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.REDWOOD_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.MAHOGANY_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.MAHOGANY_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.JACARANDA_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.JACARANDA_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.PALM_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.PALM_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.WILLOW_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.WILLOW_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.DEAD_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.DEAD_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.MAGIC_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.MAGIC_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.UMBRAN_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.UMBRAN_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.HELLBARK_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.HELLBARK_LEAVES);
-        registerCompostable(0.3F, BOPBlocks.EMPYREAL_SAPLING);
-        registerCompostable(0.3F, BOPBlocks.EMPYREAL_LEAVES);
-        registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_CARPET);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.FLOWERING_OAK_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.FLOWERING_OAK_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.CYPRESS_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.CYPRESS_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.SNOWBLOSSOM_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.SNOWBLOSSOM_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.ORIGIN_OAK_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.ORIGIN_OAK_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.FIR_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.FIR_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.PINE_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.PINE_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.MAPLE_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.PINK_MAPLE_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.MAGENTA_MAPLE_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.PURPLE_MAPLE_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.REDWOOD_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.REDWOOD_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.MAHOGANY_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.MAHOGANY_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.JACARANDA_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.JACARANDA_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.PALM_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.PALM_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.WILLOW_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.WILLOW_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.DEAD_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.DEAD_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.MAGIC_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.MAGIC_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.UMBRAN_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.UMBRAN_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.HELLBARK_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.HELLBARK_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.EMPYREAL_SAPLING);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.EMPYREAL_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.GLOWING_MOSS_CARPET);
 
-        registerCompostable(0.65F, BOPBlocks.FLOWER_BUD);
-        registerCompostable(0.65F, BOPBlocks.ORIGIN_DANDELION);
-        registerCompostable(0.65F, BOPBlocks.ORIGIN_ROSE);
-        registerCompostable(0.65F, BOPBlocks.MARIGOLD);
-        registerCompostable(0.65F, BOPBlocks.VIOLET);
-        registerCompostable(0.65F, BOPBlocks.LAVENDER);
-        registerCompostable(0.65F, BOPBlocks.WHITE_LAVENDER);
-        registerCompostable(0.65F, BOPBlocks.PURPLE_WILDFLOWERS);
-        registerCompostable(0.65F, BOPBlocks.ORANGE_COSMOS);
-        registerCompostable(0.65F, BOPBlocks.PINK_DAFFODIL);
-        registerCompostable(0.65F, BOPBlocks.PINK_HIBISCUS);
-        registerCompostable(0.65F, BOPBlocks.WATERLILY);
-        registerCompostable(0.3F, BOPBlocks.WHITE_PETALS);
-        registerCompostable(0.65F, BOPBlocks.GLOWFLOWER);
-        registerCompostable(0.65F, BOPBlocks.WILTED_LILY);
-        registerCompostable(0.65F, BOPBlocks.BURNING_BLOSSOM);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.FLOWER_BUD);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.ORIGIN_DANDELION);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.ORIGIN_ROSE);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.MARIGOLD);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.VIOLET);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.LAVENDER);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.WHITE_LAVENDER);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.PURPLE_WILDFLOWERS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.ORANGE_COSMOS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.PINK_DAFFODIL);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.PINK_HIBISCUS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.WATERLILY);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.WHITE_PETALS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.GLOWFLOWER);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.WILTED_LILY);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.BURNING_BLOSSOM);
 
-        registerCompostable(0.65F, BOPBlocks.TALL_LAVENDER);
-        registerCompostable(0.65F, BOPBlocks.TALL_WHITE_LAVENDER);
-        registerCompostable(0.65F, BOPBlocks.BLUE_HYDRANGEA);
-        registerCompostable(0.65F, BOPBlocks.GOLDENROD);
-        registerCompostable(0.65F, BOPBlocks.ICY_IRIS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.TALL_LAVENDER);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.TALL_WHITE_LAVENDER);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.BLUE_HYDRANGEA);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.GOLDENROD);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.ICY_IRIS);
 
-        registerCompostable(0.5F, BOPBlocks.WILLOW_VINE);
-        registerCompostable(0.5F, BOPBlocks.SPANISH_MOSS);
-        registerCompostable(0.5F, BOPBlocks.SPANISH_MOSS_PLANT);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.WILLOW_VINE);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.SPANISH_MOSS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.SPANISH_MOSS_PLANT);
 
-        registerCompostable(0.5F, BOPBlocks.SPROUT);
-        registerCompostable(0.5F, BOPBlocks.HIGH_GRASS);
-        registerCompostable(0.5F, BOPBlocks.HIGH_GRASS_PLANT);
-        registerCompostable(0.5F, BOPBlocks.CLOVER);
-        registerCompostable(0.5F, BOPBlocks.HUGE_CLOVER_PETAL);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.SPROUT);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.HIGH_GRASS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.HIGH_GRASS_PLANT);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.CLOVER);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.HUGE_CLOVER_PETAL);
 
-        registerCompostable(0.3F, BOPBlocks.MAPLE_LEAF_LITTER);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.MAPLE_LEAF_LITTER);
 
-        registerCompostable(0.5F, BOPBlocks.DUNE_GRASS);
-        registerCompostable(0.5F, BOPBlocks.DESERT_GRASS);
-        registerCompostable(0.5F, BOPBlocks.DEAD_GRASS);
-        registerCompostable(0.5F, BOPBlocks.TUNDRA_SHRUB);
-        registerCompostable(0.5F, BOPBlocks.CATTAIL);
-        registerCompostable(0.5F, BOPBlocks.BARLEY);
-        registerCompostable(0.5F, BOPBlocks.REED);
-        registerCompostable(0.5F, BOPBlocks.WATERGRASS);
-        registerCompostable(0.5F, BOPBlocks.TINY_CACTUS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.DUNE_GRASS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.DESERT_GRASS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.DEAD_GRASS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.TUNDRA_SHRUB);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.CATTAIL);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.BARLEY);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.REED);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.WATERGRASS);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW_MEDIUM, BOPBlocks.TINY_CACTUS);
 
-        registerCompostable(0.3F, BOPBlocks.DEAD_BRANCH);
-        registerCompostable(0.3F, BOPBlocks.BRAMBLE);
-        registerCompostable(0.3F, BOPBlocks.BRAMBLE_LEAVES);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.DEAD_BRANCH);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.BRAMBLE);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.BRAMBLE_LEAVES);
 
-        registerCompostable(0.3F, BOPBlocks.ENDBLOOM);
-        registerCompostable(0.3F, BOPBlocks.ENDERPHYTE);
-        registerCompostable(0.3F, BOPBlocks.LUMALOOP);
-        registerCompostable(0.3F, BOPBlocks.LUMALOOP_PLANT);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.ENDBLOOM);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.ENDERPHYTE);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.LUMALOOP);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_LOW, BOPBlocks.LUMALOOP_PLANT);
 
-        registerCompostable(0.65F, BOPBlocks.TOADSTOOL);
-        registerCompostable(0.65F, BOPBlocks.GLOWSHROOM);
-        //registerCompostable(0.65F, BOPBlocks.VOIDCAP);
-        registerCompostable(0.65F, BOPBlocks.GLOWING_MOSS_BLOCK);
-        registerCompostable(0.65F, BOPBlocks.HUGE_LILY_PAD);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.TOADSTOOL);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.GLOWSHROOM);
+        //registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.VOIDCAP);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.GLOWING_MOSS_BLOCK);
+        registerCompostable(ContextIntProviders.COMPOSTABLE_MEDIUM, BOPBlocks.HUGE_LILY_PAD);
 
-        registerTillable(BOPBlocks.ORIGIN_GRASS_BLOCK, HoeItem::onlyIfAirAbove, Blocks.FARMLAND.defaultBlockState());
     }
 
-    private static void registerCompostable(float chance, ItemLike item) {
-        compostables.put(item, chance);
+    private static void registerCompostable(ResourceKey<ContextIntProvider> chance, ItemLike item)
+    {
         BlockHelper.registerCompostable(chance, item);
     }
 }

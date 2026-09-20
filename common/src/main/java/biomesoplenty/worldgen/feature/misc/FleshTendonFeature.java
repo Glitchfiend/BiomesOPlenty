@@ -20,12 +20,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.Vec3;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 
-public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
+public class FleshTendonFeature implements Feature
 {
     protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.ROSE_QUARTZ_CLUSTER || world.getBlockState(pos).getBlock() == BOPBlocks.LARGE_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.MEDIUM_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.SMALL_ROSE_QUARTZ_BUD || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS_STRAND || world.getBlockState(pos).getBlock() == BOPBlocks.FLESH_TENDONS || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR || world.getBlockState(pos).getBlock() == BOPBlocks.EYEBULB || world.getBlockState(pos).getBlock() == BOPBlocks.BLOOD || world.getBlockState(pos).getBlock() == Blocks.LAVA;
 
@@ -34,10 +34,14 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
     private static final float MID_POS_MULTIPLIER = 0.9F;
     private static final float TENDON_STEP = 0.005f;
 
-    public FleshTendonFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public static final MapCodec<FleshTendonFeature> CODEC = MapCodec.unit(FleshTendonFeature::new);
+
+    @Override
+    public MapCodec<FleshTendonFeature> codec()
     {
-        super(deserializer);
+        return CODEC;
     }
+
 
     private static BlockPos quadratic(float t, BlockPos v0, BlockPos v1, BlockPos v2)
     {
@@ -47,11 +51,8 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context)
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos pos)
     {
-        WorldGenLevel world = context.level();
-        RandomSource rand = context.random();
-        BlockPos pos = context.origin();
         final int maxY = world.getMinY() + world.getHeight() - 1;
 
         if (!respectsCutoff((WorldGenRegion)world, pos) || !respectsCutoff((WorldGenRegion)world, pos.below()))
@@ -196,7 +197,7 @@ public class FleshTendonFeature extends Feature<NoneFeatureConfiguration>
     {
         if (this.respectsCutoff((WorldGenRegion)world, pos) && this.replace.matches(world, pos))
         {
-            super.setBlock(world, pos, state);
+            Feature.super.setBlock(world, pos, state);
             return true;
         }
         return false;

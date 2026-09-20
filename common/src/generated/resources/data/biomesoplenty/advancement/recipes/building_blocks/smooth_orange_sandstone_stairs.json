@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:smooth_orange_sandstone_stairs"
+        "recipes": "biomesoplenty:smooth_orange_sandstone_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

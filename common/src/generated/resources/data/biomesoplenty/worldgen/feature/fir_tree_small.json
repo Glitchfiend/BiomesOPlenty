@@ -1,0 +1,43 @@
+{
+  "type": "biomesoplenty:taiga_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [],
+  "foliage_provider": {
+    "id": "biomesoplenty:fir_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 11,
+  "min_height": 5,
+  "trunk_fruit_provider": {
+    "id": "biomesoplenty:dead_branch",
+    "properties": {
+      "facing": "north"
+    }
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:fir_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "trunk_width": 1,
+  "vine_provider": {
+    "id": "minecraft:vine",
+    "properties": {
+      "east": "false",
+      "north": "false",
+      "south": "false",
+      "up": "false",
+      "west": "false"
+    }
+  }
+}

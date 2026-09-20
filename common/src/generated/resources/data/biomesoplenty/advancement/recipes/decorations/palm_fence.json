@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:palm_fence"
+        "recipes": "biomesoplenty:palm_fence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

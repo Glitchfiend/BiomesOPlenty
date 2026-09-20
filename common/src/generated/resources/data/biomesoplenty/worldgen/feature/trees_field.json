@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:oak_bush",
+  "features": [
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:tall_spruce_tree_bees"
+    }
+  ]
+}

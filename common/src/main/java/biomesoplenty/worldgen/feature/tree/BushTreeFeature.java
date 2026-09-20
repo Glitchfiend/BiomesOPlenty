@@ -7,27 +7,36 @@ package biomesoplenty.worldgen.feature.tree;
 import biomesoplenty.util.biome.GeneratorUtil;
 import biomesoplenty.worldgen.feature.configurations.BasicTreeConfiguration;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.function.BiConsumer;
 
 public class BushTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
 {
-    public BushTreeFeature(Codec<BasicTreeConfiguration> codec)
-    {
-        super(codec);
-    }
+    public static final MapCodec<BushTreeFeature> CODEC = BasicTreeConfiguration.CODEC.xmap(BushTreeFeature::new, f -> f.config);
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
+    public MapCodec<BushTreeFeature> codec()
     {
-        BasicTreeConfiguration config = (BasicTreeConfiguration)configBase;
+        return CODEC;
+    }
+
+    public BushTreeFeature(BasicTreeConfiguration config)
+    {
+        super(config);
+    }
+
+
+    @Override
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves)
+    {
+        BasicTreeConfiguration config = this.config;
         // Move down until we reach the ground
         while (startPos.getY() >= world.getMinY()+1 && (world.isEmptyBlock(startPos) || world.getBlockState(startPos).isAir())) {startPos = startPos.below();}
 

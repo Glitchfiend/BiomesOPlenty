@@ -18,25 +18,23 @@ import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
+import com.mojang.serialization.MapCodec;
 
-public class TidepoolFeature extends Feature<NoneFeatureConfiguration>
+public class TidepoolFeature implements Feature
 {
-    public TidepoolFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<TidepoolFeature> CODEC = MapCodec.unit(TidepoolFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<TidepoolFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos pos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos pos)
+    {
         int i = 0;
 
         BlockState linerBlock;

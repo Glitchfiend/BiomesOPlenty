@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:dead_slab"
+        "recipes": "biomesoplenty:dead_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

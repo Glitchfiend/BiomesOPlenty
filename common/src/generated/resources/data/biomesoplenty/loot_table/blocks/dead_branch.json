@@ -8,29 +8,22 @@
           "children": [
             {
               "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "items": "#c:tools/shear"
-                  }
-                }
-              ],
+              "condition": "minecraft:tool/can_shear",
               "name": "biomesoplenty:dead_branch"
             },
             {
               "type": "minecraft:item",
-              "functions": [
+              "modifier": [
                 {
+                  "type": "minecraft:set_count",
                   "count": {
                     "type": "minecraft:uniform",
-                    "max": 2.0,
-                    "min": 0.0
-                  },
-                  "function": "minecraft:set_count"
+                    "max": 2,
+                    "min": 0
+                  }
                 },
                 {
-                  "function": "minecraft:explosion_decay"
+                  "type": "minecraft:explosion_decay"
                 }
               ],
               "name": "minecraft:stick"
@@ -38,7 +31,7 @@
           ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "biomesoplenty:blocks/dead_branch"

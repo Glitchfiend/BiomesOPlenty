@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:magic_stairs"
+        "recipes": "biomesoplenty:magic_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

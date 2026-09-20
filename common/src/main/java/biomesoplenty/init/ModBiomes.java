@@ -16,11 +16,11 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.villager.VillagerType;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import terrablender.api.EndBiomeRegistry;
 import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
+import terrablender.api.MaterialRuleManager;
 
 public class ModBiomes
 {
@@ -51,7 +51,7 @@ public class ModBiomes
 
     public static void bootstrapBiomes(BootstrapContext<Biome> context)
     {
-        HolderGetter<ConfiguredWorldCarver<?>> carverGetter = context.lookup(Registries.CONFIGURED_CARVER);
+        HolderGetter<WorldCarver> carverGetter = context.lookup(Registries.CARVER);
         HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
 
         register(context, BOPBiomes.AURORAL_GARDEN, BOPOverworldBiomes.auroralGarden(placedFeatureGetter, carverGetter));

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:flesh"
+        "recipes": "biomesoplenty:flesh"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

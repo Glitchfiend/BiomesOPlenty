@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:umbran_door"
+        "recipes": "biomesoplenty:umbran_door"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

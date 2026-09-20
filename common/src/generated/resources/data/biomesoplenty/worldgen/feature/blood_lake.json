@@ -1,0 +1,12 @@
+{
+  "type": "biomesoplenty:lake",
+  "barrier": {
+    "id": "biomesoplenty:flesh"
+  },
+  "fluid": {
+    "id": "biomesoplenty:blood",
+    "properties": {
+      "level": "0"
+    }
+  }
+}

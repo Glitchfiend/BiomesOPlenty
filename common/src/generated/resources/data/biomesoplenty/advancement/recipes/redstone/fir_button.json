@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:fir_button"
+        "recipes": "biomesoplenty:fir_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,35 @@
+{
+  "type": "biomesoplenty:big_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [],
+  "foliage_density": 1.0,
+  "foliage_height": 5,
+  "foliage_provider": {
+    "id": "biomesoplenty:pink_maple_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 12,
+  "min_height": 5,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:maple_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "trunk_width": 1,
+  "vine_provider": {
+    "id": "minecraft:air"
+  }
+}

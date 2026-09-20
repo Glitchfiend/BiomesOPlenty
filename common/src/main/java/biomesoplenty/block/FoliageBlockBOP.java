@@ -4,6 +4,8 @@
  ******************************************************************************/
 package biomesoplenty.block;
 
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import biomesoplenty.api.block.BOPBlocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -29,7 +31,6 @@ import javax.annotation.Nullable;
 
 public class FoliageBlockBOP extends VegetationBlockBOP
 {
-    public static final MapCodec<FoliageBlockBOP> CODEC = simpleCodec(FoliageBlockBOP::new);
     protected static final VoxelShape NORMAL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
     protected static final VoxelShape SHORT = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 7.0D, 15.0D);
 
@@ -38,11 +39,6 @@ public class FoliageBlockBOP extends VegetationBlockBOP
         super(properties);
     }
 
-    @Override
-    public MapCodec<FoliageBlockBOP> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
@@ -58,7 +54,7 @@ public class FoliageBlockBOP extends VegetationBlockBOP
     }
 
     @Override
-    public void playerDestroy(Level worldIn, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity te, ItemStack stack)
+    public void playerDestroy(ServerLevel worldIn, ServerPlayer player, BlockPos pos, BlockState state, @Nullable BlockEntity te, ItemStack stack)
     {
         if (!worldIn.isClientSide() && stack.getItem() == Items.SHEARS)
         {

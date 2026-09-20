@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.block;
 
+import net.minecraft.server.level.ServerPlayer;
 import biomesoplenty.block.properties.QuarterProperty;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -34,7 +35,6 @@ import javax.annotation.Nullable;
 
 public class HugeLilyPadBlock extends VegetationBlockBOP
 {
-    public static final MapCodec<HugeLilyPadBlock> CODEC = simpleCodec(HugeLilyPadBlock::new);
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public static final EnumProperty<QuarterProperty> QUARTER = EnumProperty.create("quarter", QuarterProperty.class);
 
@@ -46,11 +46,6 @@ public class HugeLilyPadBlock extends VegetationBlockBOP
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(QUARTER, QuarterProperty.SOUTH_WEST));
     }
 
-    @Override
-    public MapCodec<HugeLilyPadBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context)
@@ -178,7 +173,7 @@ public class HugeLilyPadBlock extends VegetationBlockBOP
     {
         if (level instanceof ServerLevel && entity instanceof Boat)
         {
-            level.destroyBlock(new BlockPos(pos), true, entity);
+            level.destroyBlock(pos, true, entity);
         }
     }
 
@@ -201,7 +196,7 @@ public class HugeLilyPadBlock extends VegetationBlockBOP
     }
 
     @Override
-    public void playerDestroy(Level p_52865_, Player p_52866_, BlockPos p_52867_, BlockState p_52868_, @Nullable BlockEntity p_52869_, ItemStack p_52870_)
+    public void playerDestroy(ServerLevel p_52865_, ServerPlayer p_52866_, BlockPos p_52867_, BlockState p_52868_, @Nullable BlockEntity p_52869_, ItemStack p_52870_)
     {
         super.playerDestroy(p_52865_, p_52866_, p_52867_, Blocks.AIR.defaultBlockState(), p_52869_, p_52870_);
     }

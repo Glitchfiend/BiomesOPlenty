@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:black_sandstone_stairs"
+        "recipes": "biomesoplenty:black_sandstone_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

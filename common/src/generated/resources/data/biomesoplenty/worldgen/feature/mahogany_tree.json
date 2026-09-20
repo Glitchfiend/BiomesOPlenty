@@ -1,0 +1,32 @@
+{
+  "type": "biomesoplenty:mahogany_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [],
+  "foliage_provider": {
+    "id": "biomesoplenty:mahogany_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 14,
+  "min_height": 8,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:mahogany_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "vine_provider": {
+    "id": "minecraft:air"
+  }
+}

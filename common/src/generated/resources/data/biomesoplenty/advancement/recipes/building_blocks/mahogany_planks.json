@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:mahogany_planks"
+        "recipes": "biomesoplenty:mahogany_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

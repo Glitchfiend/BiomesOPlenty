@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:pine_sign"
+        "recipes": "biomesoplenty:pine_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

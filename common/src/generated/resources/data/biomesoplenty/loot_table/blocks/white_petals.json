@@ -5,67 +5,59 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
-              "conditions": [
-                {
-                  "block": "biomesoplenty:white_petals",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "flower_amount": "1"
-                  }
+              "type": "minecraft:set_count",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "biomesoplenty:white_petals",
+                "state": {
+                  "flower_amount": "1"
                 }
-              ],
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              },
+              "count": 1
             },
             {
-              "conditions": [
-                {
-                  "block": "biomesoplenty:white_petals",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "flower_amount": "2"
-                  }
+              "type": "minecraft:set_count",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "biomesoplenty:white_petals",
+                "state": {
+                  "flower_amount": "2"
                 }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              },
+              "count": 2
             },
             {
-              "conditions": [
-                {
-                  "block": "biomesoplenty:white_petals",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "flower_amount": "3"
-                  }
+              "type": "minecraft:set_count",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "biomesoplenty:white_petals",
+                "state": {
+                  "flower_amount": "3"
                 }
-              ],
-              "count": 3.0,
-              "function": "minecraft:set_count"
+              },
+              "count": 3
             },
             {
-              "conditions": [
-                {
-                  "block": "biomesoplenty:white_petals",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "flower_amount": "4"
-                  }
+              "type": "minecraft:set_count",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "biomesoplenty:white_petals",
+                "state": {
+                  "flower_amount": "4"
                 }
-              ],
-              "count": 4.0,
-              "function": "minecraft:set_count"
+              },
+              "count": 4
             },
             {
-              "function": "minecraft:explosion_decay"
+              "type": "minecraft:explosion_decay"
             }
           ],
           "name": "biomesoplenty:white_petals"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "biomesoplenty:blocks/white_petals"

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "id": "biomesoplenty:icy_iris",
+    "properties": {
+      "half": "lower"
+    }
+  }
+}

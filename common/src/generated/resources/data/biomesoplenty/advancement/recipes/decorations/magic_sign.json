@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:magic_sign"
+        "recipes": "biomesoplenty:magic_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:magic_planks"
+        "recipes": "biomesoplenty:magic_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

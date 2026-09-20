@@ -18,14 +18,14 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class FlowerBudBlock extends VegetationBlockBOP implements BonemealableBlock
 {
-    public static final MapCodec<FlowerBudBlock> CODEC = simpleCodec(FlowerBudBlock::new);
     protected static final VoxelShape NORMAL = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 8.0D, 11.0D);
 
     public FlowerBudBlock(Properties properties)
@@ -33,11 +33,6 @@ public class FlowerBudBlock extends VegetationBlockBOP implements BonemealableBl
         super(properties);
     }
 
-    @Override
-    public MapCodec<FlowerBudBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext selectionContext)
@@ -53,8 +48,8 @@ public class FlowerBudBlock extends VegetationBlockBOP implements BonemealableBl
     {
         level.removeBlock(p_226940_2_, false);
 
-        Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry = level.registryAccess().lookupOrThrow(Registries.CONFIGURED_FEATURE);
-        ConfiguredFeature<?, ?> feature;
+        Registry<Feature> configuredFeatureRegistry = level.registryAccess().lookupOrThrow(Registries.FEATURE);
+        Feature feature;
 
         if (this != BOPBlocks.FLOWER_BUD)
         {
@@ -76,15 +71,15 @@ public class FlowerBudBlock extends VegetationBlockBOP implements BonemealableBl
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, BonemealSource source) {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) { return rand.nextInt(32) == 0; }
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state, BonemealSource source) { return rand.nextInt(32) == 0; }
 
     @Override
-    public void performBonemeal(ServerLevel p_225535_1_, RandomSource p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
+    public void performBonemeal(ServerLevel p_225535_1_, RandomSource p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_, BonemealSource source) {
         this.growHugeFlower(p_225535_1_, p_225535_3_, p_225535_4_, p_225535_2_);
     }
 }

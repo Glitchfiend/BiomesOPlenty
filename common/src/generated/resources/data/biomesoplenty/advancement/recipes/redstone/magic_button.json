@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:magic_button"
+        "recipes": "biomesoplenty:magic_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

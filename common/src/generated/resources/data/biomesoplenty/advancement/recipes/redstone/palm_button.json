@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:palm_button"
+        "recipes": "biomesoplenty:palm_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

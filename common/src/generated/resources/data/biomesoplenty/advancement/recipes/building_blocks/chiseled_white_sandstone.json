@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:chiseled_white_sandstone"
+        "recipes": "biomesoplenty:chiseled_white_sandstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

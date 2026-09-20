@@ -4,12 +4,13 @@
  ******************************************************************************/
 package biomesoplenty.init;
 
+import net.minecraft.core.Direction;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPFluids;
 import biomesoplenty.api.entity.BOPEntities;
 import biomesoplenty.core.BiomesOPlenty;
 import biomesoplenty.item.StringyCobwebBlockItem;
-import biomesoplenty.worldgen.BOPSurfaceRuleData;
+import biomesoplenty.worldgen.BOPMaterialRuleData;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -18,7 +19,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import terrablender.api.SurfaceRuleManager;
+import terrablender.api.MaterialRuleManager;
 
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -46,34 +47,34 @@ public class ModItems
         BLOOD_BUCKET = registerItem(func, "blood_bucket", (properties) -> new BucketItem(BOPFluids.BLOOD, properties), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
         LIQUID_NULL_BUCKET = registerItem(func, "liquid_null_bucket", (properties) -> new BucketItem(BOPFluids.LIQUID_NULL, properties), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
 
-        ORIGIN_OAK_SIGN = registerBlock(func, BOPBlocks.ORIGIN_OAK_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.ORIGIN_OAK_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        ORIGIN_OAK_HANGING_SIGN = registerBlock(func, BOPBlocks.ORIGIN_OAK_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.ORIGIN_OAK_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        FIR_SIGN = registerBlock(func, BOPBlocks.FIR_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.FIR_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        FIR_HANGING_SIGN = registerBlock(func, BOPBlocks.FIR_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.FIR_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        PINE_SIGN = registerBlock(func, BOPBlocks.PINE_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.PINE_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        PINE_HANGING_SIGN = registerBlock(func, BOPBlocks.PINE_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.PINE_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        MAPLE_SIGN = registerBlock(func, BOPBlocks.MAPLE_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.MAPLE_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        MAPLE_HANGING_SIGN = registerBlock(func, BOPBlocks.MAPLE_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.MAPLE_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        REDWOOD_SIGN = registerBlock(func, BOPBlocks.REDWOOD_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.REDWOOD_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        REDWOOD_HANGING_SIGN = registerBlock(func, BOPBlocks.REDWOOD_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.REDWOOD_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        MAHOGANY_SIGN = registerBlock(func, BOPBlocks.MAHOGANY_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.MAHOGANY_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        MAHOGANY_HANGING_SIGN = registerBlock(func, BOPBlocks.MAHOGANY_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.MAHOGANY_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        JACARANDA_SIGN = registerBlock(func, BOPBlocks.JACARANDA_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.JACARANDA_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        JACARANDA_HANGING_SIGN = registerBlock(func, BOPBlocks.JACARANDA_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.JACARANDA_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        PALM_SIGN = registerBlock(func, BOPBlocks.PALM_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.PALM_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        PALM_HANGING_SIGN = registerBlock(func, BOPBlocks.PALM_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.PALM_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        WILLOW_SIGN = registerBlock(func, BOPBlocks.WILLOW_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.WILLOW_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        WILLOW_HANGING_SIGN = registerBlock(func, BOPBlocks.WILLOW_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.WILLOW_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        DEAD_SIGN = registerBlock(func, BOPBlocks.DEAD_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.DEAD_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        DEAD_HANGING_SIGN = registerBlock(func, BOPBlocks.DEAD_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.DEAD_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        MAGIC_SIGN = registerBlock(func, BOPBlocks.MAGIC_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.MAGIC_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        MAGIC_HANGING_SIGN = registerBlock(func, BOPBlocks.MAGIC_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.MAGIC_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        UMBRAN_SIGN = registerBlock(func, BOPBlocks.UMBRAN_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.UMBRAN_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        UMBRAN_HANGING_SIGN = registerBlock(func, BOPBlocks.UMBRAN_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.UMBRAN_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        HELLBARK_SIGN = registerBlock(func, BOPBlocks.HELLBARK_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.HELLBARK_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        HELLBARK_HANGING_SIGN = registerBlock(func, BOPBlocks.HELLBARK_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.HELLBARK_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
-        EMPYREAL_SIGN = registerBlock(func, BOPBlocks.EMPYREAL_SIGN, (block, properties) -> new SignItem(block, BOPBlocks.EMPYREAL_WALL_SIGN, properties), new Item.Properties().stacksTo(16));
-        EMPYREAL_HANGING_SIGN = registerBlock(func, BOPBlocks.EMPYREAL_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.EMPYREAL_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16));
+        ORIGIN_OAK_SIGN = registerBlock(func, BOPBlocks.ORIGIN_OAK_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.ORIGIN_OAK_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        ORIGIN_OAK_HANGING_SIGN = registerBlock(func, BOPBlocks.ORIGIN_OAK_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.ORIGIN_OAK_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        FIR_SIGN = registerBlock(func, BOPBlocks.FIR_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.FIR_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        FIR_HANGING_SIGN = registerBlock(func, BOPBlocks.FIR_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.FIR_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        PINE_SIGN = registerBlock(func, BOPBlocks.PINE_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.PINE_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        PINE_HANGING_SIGN = registerBlock(func, BOPBlocks.PINE_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.PINE_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        MAPLE_SIGN = registerBlock(func, BOPBlocks.MAPLE_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.MAPLE_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        MAPLE_HANGING_SIGN = registerBlock(func, BOPBlocks.MAPLE_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.MAPLE_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        REDWOOD_SIGN = registerBlock(func, BOPBlocks.REDWOOD_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.REDWOOD_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        REDWOOD_HANGING_SIGN = registerBlock(func, BOPBlocks.REDWOOD_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.REDWOOD_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        MAHOGANY_SIGN = registerBlock(func, BOPBlocks.MAHOGANY_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.MAHOGANY_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        MAHOGANY_HANGING_SIGN = registerBlock(func, BOPBlocks.MAHOGANY_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.MAHOGANY_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        JACARANDA_SIGN = registerBlock(func, BOPBlocks.JACARANDA_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.JACARANDA_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        JACARANDA_HANGING_SIGN = registerBlock(func, BOPBlocks.JACARANDA_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.JACARANDA_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        PALM_SIGN = registerBlock(func, BOPBlocks.PALM_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.PALM_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        PALM_HANGING_SIGN = registerBlock(func, BOPBlocks.PALM_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.PALM_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        WILLOW_SIGN = registerBlock(func, BOPBlocks.WILLOW_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.WILLOW_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        WILLOW_HANGING_SIGN = registerBlock(func, BOPBlocks.WILLOW_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.WILLOW_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        DEAD_SIGN = registerBlock(func, BOPBlocks.DEAD_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.DEAD_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        DEAD_HANGING_SIGN = registerBlock(func, BOPBlocks.DEAD_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.DEAD_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        MAGIC_SIGN = registerBlock(func, BOPBlocks.MAGIC_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.MAGIC_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        MAGIC_HANGING_SIGN = registerBlock(func, BOPBlocks.MAGIC_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.MAGIC_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        UMBRAN_SIGN = registerBlock(func, BOPBlocks.UMBRAN_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.UMBRAN_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        UMBRAN_HANGING_SIGN = registerBlock(func, BOPBlocks.UMBRAN_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.UMBRAN_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        HELLBARK_SIGN = registerBlock(func, BOPBlocks.HELLBARK_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.HELLBARK_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        HELLBARK_HANGING_SIGN = registerBlock(func, BOPBlocks.HELLBARK_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.HELLBARK_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
+        EMPYREAL_SIGN = registerBlock(func, BOPBlocks.EMPYREAL_SIGN, (block, properties) -> new StandingAndWallBlockItem(block, BOPBlocks.EMPYREAL_WALL_SIGN, Direction.DOWN, properties), new Item.Properties().stacksTo(16).signText());
+        EMPYREAL_HANGING_SIGN = registerBlock(func, BOPBlocks.EMPYREAL_HANGING_SIGN, (block, properties) -> new HangingSignItem(block, BOPBlocks.EMPYREAL_WALL_HANGING_SIGN, properties), new Item.Properties().stacksTo(16).signText());
 
         ORIGIN_OAK_BOAT = registerItem(func, "origin_oak_boat", (properties) -> new BoatItem(BOPEntities.ORIGIN_OAK_BOAT, properties), new Item.Properties().stacksTo(1));
         ORIGIN_OAK_CHEST_BOAT = registerItem(func, "origin_oak_chest_boat", (properties) -> new BoatItem(BOPEntities.ORIGIN_OAK_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
@@ -106,9 +107,9 @@ public class ModItems
 
 
         // Register surface rules
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData::overworld);
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData::nether);
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, BiomesOPlenty.MOD_ID, BOPSurfaceRuleData::end);
+        MaterialRuleManager.addRules(MaterialRuleManager.RuleCategory.OVERWORLD, BiomesOPlenty.MOD_ID, BOPMaterialRuleData::overworld);
+        MaterialRuleManager.addRules(MaterialRuleManager.RuleCategory.NETHER, BiomesOPlenty.MOD_ID, BOPMaterialRuleData::nether);
+        MaterialRuleManager.addRules(MaterialRuleManager.RuleCategory.END, BiomesOPlenty.MOD_ID, BOPMaterialRuleData::end);
     }
 
     public static void registerBlockItems(BiConsumer<Identifier, Item> func)

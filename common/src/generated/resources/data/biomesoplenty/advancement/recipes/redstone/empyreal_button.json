@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:empyreal_button"
+        "recipes": "biomesoplenty:empyreal_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

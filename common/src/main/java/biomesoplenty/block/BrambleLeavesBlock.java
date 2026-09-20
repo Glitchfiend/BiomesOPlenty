@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
 
 public class BrambleLeavesBlock extends DirectionalBlock
 {
-    public static final MapCodec<BrambleLeavesBlock> CODEC = simpleCodec(BrambleLeavesBlock::new);
     protected static final VoxelShape HORIZONTAL = Block.box(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D);
     protected static final VoxelShape VERTICAL = Block.box(0.0D, 0.0D, 4.0D, 16.0D, 16.0D, 12.0D);
 
@@ -34,11 +33,6 @@ public class BrambleLeavesBlock extends DirectionalBlock
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
     }
 
-    @Override
-    public MapCodec<BrambleLeavesBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context)

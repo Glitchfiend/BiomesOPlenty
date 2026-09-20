@@ -1,0 +1,40 @@
+{
+  "type": "biomesoplenty:bayou_tree",
+  "alt_foliage_provider": {
+    "id": "minecraft:air"
+  },
+  "decorators": [],
+  "foliage_provider": {
+    "id": "biomesoplenty:willow_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 25,
+  "min_height": 18,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "biomesoplenty:willow_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "trunk_width": 2,
+  "vine_provider": {
+    "id": "biomesoplenty:willow_vine",
+    "properties": {
+      "east": "false",
+      "north": "false",
+      "south": "false",
+      "up": "false",
+      "west": "false"
+    }
+  }
+}

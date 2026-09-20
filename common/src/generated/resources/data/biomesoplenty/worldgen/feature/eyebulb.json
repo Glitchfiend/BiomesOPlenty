@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "id": "biomesoplenty:eyebulb",
+    "properties": {
+      "half": "lower"
+    }
+  }
+}

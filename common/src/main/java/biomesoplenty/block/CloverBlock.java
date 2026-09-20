@@ -13,23 +13,24 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.FlowerBedBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class CloverBlock extends FlowerBedBlock
 {
     public CloverBlock(Properties properties)
     {
-        super(properties);
+        super(properties, 3);
     }
 
     @Override
-    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state)
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state, BonemealSource source)
     {
         return (double)rand.nextFloat() < 0.4D;
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state)
+    public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state, BonemealSource source)
     {
         int i = state.getValue(AMOUNT);
         if (i < 4)
@@ -46,8 +47,8 @@ public class CloverBlock extends FlowerBedBlock
     public boolean growHugeClover(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state)
     {
         level.removeBlock(pos, false);
-        Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry = level.registryAccess().lookupOrThrow(Registries.CONFIGURED_FEATURE);
-        ConfiguredFeature<?, ?> configuredfeature = configuredFeatureRegistry.get(BOPVegetationFeatures.HUGE_CLOVER).orElseThrow().value();
+        Registry<Feature> configuredFeatureRegistry = level.registryAccess().lookupOrThrow(Registries.FEATURE);
+        Feature configuredfeature = configuredFeatureRegistry.get(BOPVegetationFeatures.HUGE_CLOVER).orElseThrow().value();
 
         if (configuredfeature.place(level, level.getChunkSource().getGenerator(), rand, pos))
         {

@@ -5,6 +5,7 @@
 package biomesoplenty.worldgen.feature.configurations;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -14,14 +15,14 @@ import java.util.List;
 
 public class TaigaTreeConfiguration extends BOPTreeConfiguration
 {
-    public static final Codec<TaigaTreeConfiguration> CODEC = RecordCodecBuilder.create((builder) -> {
+    public static final MapCodec<TaigaTreeConfiguration> CODEC = RecordCodecBuilder.mapCodec((builder) -> {
         return builder.group(
-                BlockStateProvider.CODEC.fieldOf("trunk_provider").forGetter((instance) -> instance.trunkProvider),
-                BlockStateProvider.CODEC.fieldOf("foliage_provider").forGetter((instance) -> instance.foliageProvider),
-                BlockStateProvider.CODEC.fieldOf("vine_provider").forGetter((instance) -> instance.vineProvider),
-                BlockStateProvider.CODEC.fieldOf("hanging_provider").forGetter((instance) -> instance.hangingProvider),
-                BlockStateProvider.CODEC.fieldOf("trunk_fruit_provider").forGetter((instance) -> instance.trunkFruitProvider),
-                BlockStateProvider.CODEC.fieldOf("alt_foliage_provider").forGetter((instance) -> instance.altFoliageProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("trunk_provider").forGetter((instance) -> instance.trunkProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("foliage_provider").forGetter((instance) -> instance.foliageProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("vine_provider").forGetter((instance) -> instance.vineProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("hanging_provider").forGetter((instance) -> instance.hangingProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("trunk_fruit_provider").forGetter((instance) -> instance.trunkFruitProvider),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("alt_foliage_provider").forGetter((instance) -> instance.altFoliageProvider),
                 Codec.INT.fieldOf("min_height").forGetter((instance) -> instance.minHeight),
                 Codec.INT.fieldOf("max_height").forGetter((instance) -> instance.maxHeight),
                 TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators),
@@ -45,9 +46,9 @@ public class TaigaTreeConfiguration extends BOPTreeConfiguration
         {
             this.minHeight = 6;
             this.maxHeight = 12;
-            this.trunkProvider = BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState());
-            this.foliageProvider = BlockStateProvider.simple(Blocks.SPRUCE_LEAVES.defaultBlockState());
-            this.vineProvider = BlockStateProvider.simple(Blocks.VINE.defaultBlockState());
+            this.trunkProvider = BlockStateProvider.of(Blocks.SPRUCE_LOG.defaultBlockState());
+            this.foliageProvider = BlockStateProvider.of(Blocks.SPRUCE_LEAVES.defaultBlockState());
+            this.vineProvider = BlockStateProvider.of(Blocks.VINE.defaultBlockState());
             this.trunkWidth = 1;
         }
 

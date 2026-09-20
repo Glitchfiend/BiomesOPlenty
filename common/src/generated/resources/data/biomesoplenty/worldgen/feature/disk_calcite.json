@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:disk",
+  "half_height": 2,
+  "radius": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 7,
+    "min_inclusive": 3
+  },
+  "state_provider": {
+    "id": "minecraft:calcite"
+  },
+  "target": {
+    "type": "minecraft:matching_blocks",
+    "blocks": [
+      "minecraft:dirt",
+      "minecraft:grass_block",
+      "minecraft:podzol",
+      "minecraft:sand",
+      "minecraft:gravel",
+      "minecraft:granite",
+      "minecraft:andesite",
+      "minecraft:diorite",
+      "minecraft:coal_ore",
+      "minecraft:iron_ore",
+      "minecraft:stone",
+      "minecraft:calcite"
+    ]
+  }
+}

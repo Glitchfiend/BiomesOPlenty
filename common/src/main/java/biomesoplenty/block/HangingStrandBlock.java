@@ -17,10 +17,10 @@ import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class HangingStrandBlock extends GrowingPlantBodyBlock
 {
-    public static final MapCodec<HangingStrandBlock> CODEC = simpleCodec(HangingStrandBlock::new);
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public HangingStrandBlock(Properties properties)
@@ -28,11 +28,6 @@ public class HangingStrandBlock extends GrowingPlantBodyBlock
         super(properties, Direction.DOWN, SHAPE, false);
     }
 
-    @Override
-    public MapCodec<HangingStrandBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
@@ -64,19 +59,19 @@ public class HangingStrandBlock extends GrowingPlantBodyBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, BlockState blockState)
+    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, BlockState blockState, BonemealSource source)
     {
         return false;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos blockPos, BlockState blockState)
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos blockPos, BlockState blockState, BonemealSource source)
     {
         return false;
     }
 
     @Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos blockPos, BlockState blockState)
+    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos blockPos, BlockState blockState, BonemealSource source)
     {
     }
 }

@@ -23,6 +23,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.lighting.LightEngine;
 
 import java.util.Optional;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class OvergrownSandBlock extends ColoredFallingBlock implements BonemealableBlock
 {
@@ -56,19 +57,19 @@ public class OvergrownSandBlock extends ColoredFallingBlock implements Bonemeala
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_)
+    public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_, BonemealSource source)
     {
         return p_153797_.getBlockState(p_153798_.above()).isAir();
     }
 
     @Override
-    public boolean isBonemealSuccess(Level p_153802_, RandomSource p_153803_, BlockPos p_153804_, BlockState p_153805_)
+    public boolean isBonemealSuccess(Level p_153802_, RandomSource p_153803_, BlockPos p_153804_, BlockState p_153805_, BonemealSource source)
     {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_)
+    public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_, BonemealSource source)
     {
         BlockPos blockpos = p_221272_.above();
         BlockState blockstate = Blocks.SHORT_GRASS.defaultBlockState();
@@ -90,7 +91,7 @@ public class OvergrownSandBlock extends ColoredFallingBlock implements Bonemeala
             BlockState blockstate1 = p_221270_.getBlockState(blockpos1);
             if (blockstate1.is(blockstate.getBlock()) && p_221271_.nextInt(10) == 0)
             {
-                ((BonemealableBlock)blockstate.getBlock()).performBonemeal(p_221270_, p_221271_, blockpos1, blockstate1);
+                ((BonemealableBlock)blockstate.getBlock()).performBonemeal(p_221270_, p_221271_, blockpos1, blockstate1, source);
             }
 
             if (blockstate1.isAir())

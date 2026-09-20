@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:umbran_shelf"
+        "recipes": "biomesoplenty:umbran_shelf"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

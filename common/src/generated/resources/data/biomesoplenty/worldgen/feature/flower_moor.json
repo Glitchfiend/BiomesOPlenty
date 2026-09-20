@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "minecraft:allium",
+        "weight": 1
+      },
+      {
+        "data": "biomesoplenty:violet",
+        "weight": 1
+      }
+    ]
+  }
+}

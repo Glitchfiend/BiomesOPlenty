@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "id": "biomesoplenty:glowworm_silk",
+    "properties": {
+      "age": "0"
+    }
+  }
+}

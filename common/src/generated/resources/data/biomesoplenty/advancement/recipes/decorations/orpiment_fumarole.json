@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:orpiment_fumarole"
+        "recipes": "biomesoplenty:orpiment_fumarole"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

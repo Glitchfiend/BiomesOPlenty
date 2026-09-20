@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:cut_orange_sandstone"
+        "recipes": "biomesoplenty:cut_orange_sandstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

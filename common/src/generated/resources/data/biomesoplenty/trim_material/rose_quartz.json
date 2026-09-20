@@ -1,7 +1,7 @@
 {
-  "asset_name": "rose_quartz",
   "description": {
     "color": "#E33A61",
     "translate": "trim_material.biomesoplenty.rose_quartz"
-  }
+  },
+  "palette_id": "biomesoplenty:rose_quartz"
 }

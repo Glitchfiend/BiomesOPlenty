@@ -7,20 +7,24 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.util.RandomSource;
 
-public class OriginGravelCliffFeature extends Feature<NoneFeatureConfiguration>
+public class OriginGravelCliffFeature implements Feature
 {
-    public OriginGravelCliffFeature(Codec<NoneFeatureConfiguration> p_66836_)
+    public static final MapCodec<OriginGravelCliffFeature> CODEC = MapCodec.unit(OriginGravelCliffFeature::new);
+
+    @Override
+    public MapCodec<OriginGravelCliffFeature> codec()
     {
-        super(p_66836_);
+        return CODEC;
     }
 
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_160368_)
+
+    @Override
+    public boolean place(WorldGenLevel worldgenlevel, ChunkGenerator chunkGenerator, RandomSource random, BlockPos blockpos)
     {
-        WorldGenLevel worldgenlevel = p_160368_.level();
-        BlockPos blockpos = p_160368_.origin();
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         BlockPos.MutableBlockPos blockpos$mutableblockpos1 = new BlockPos.MutableBlockPos();
 

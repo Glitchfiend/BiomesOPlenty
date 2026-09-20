@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:fir_fence_gate"
+        "recipes": "biomesoplenty:fir_fence_gate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

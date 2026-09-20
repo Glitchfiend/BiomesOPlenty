@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:chiseled_black_sandstone"
+        "recipes": "biomesoplenty:chiseled_black_sandstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

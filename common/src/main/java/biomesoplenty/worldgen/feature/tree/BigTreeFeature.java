@@ -7,6 +7,7 @@ package biomesoplenty.worldgen.feature.tree;
 import biomesoplenty.worldgen.feature.configurations.BigTreeConfiguration;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.List;
@@ -29,10 +29,19 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     private final double widthScale = 1;
     private final int trunkWidth = 1;
 
-    public BigTreeFeature(Codec<BigTreeConfiguration> codec)
+    public static final MapCodec<BigTreeFeature> CODEC = BigTreeConfiguration.CODEC.xmap(BigTreeFeature::new, f -> f.config);
+
+    @Override
+    public MapCodec<BigTreeFeature> codec()
     {
-        super(codec);
+        return CODEC;
     }
+
+    public BigTreeFeature(BigTreeConfiguration config)
+    {
+        super(config);
+    }
+
 
     // Create a circular cross section.
     //
@@ -302,9 +311,9 @@ public class BigTreeFeature extends BOPTreeFeature<BigTreeConfiguration>
     }
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves)
     {
-        BigTreeConfiguration config = (BigTreeConfiguration)configBase;
+        BigTreeConfiguration config = this.config;
 
         int height = this.checkLocation(world, pos, config.minHeight + random.nextInt(config.maxHeight), logs, config);
         if (height == -1)

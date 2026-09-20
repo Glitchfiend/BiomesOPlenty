@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:palm_stairs"
+        "recipes": "biomesoplenty:palm_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

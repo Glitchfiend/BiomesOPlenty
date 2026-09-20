@@ -19,15 +19,18 @@ import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
 
-public class BrambleFeature extends Feature<NoneFeatureConfiguration>
+public class BrambleFeature implements Feature
 {
-    public BrambleFeature(Codec<NoneFeatureConfiguration> deserializer)
+    public static final MapCodec<BrambleFeature> CODEC = MapCodec.unit(BrambleFeature::new);
+
+    @Override
+    public MapCodec<BrambleFeature> codec()
     {
-        super(deserializer);
+        return CODEC;
     }
+
 
     protected SimpleBlockPredicate placeOn = (world, pos) ->
     {
@@ -38,13 +41,8 @@ public class BrambleFeature extends Feature<NoneFeatureConfiguration>
     protected SimpleBlockPredicate replace = (world, pos) -> world.getBlockState(pos).isAir();
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos startPos)
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos startPos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
         for (int i = 0; i < 128; ++i)
         {
             BlockPos genPos = startPos.offset(rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4));

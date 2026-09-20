@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:jacaranda_door"
+        "recipes": "biomesoplenty:jacaranda_door"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -19,31 +19,29 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.List;
+import com.mojang.serialization.MapCodec;
 
-public class NetherVinesFeature extends Feature<NoneFeatureConfiguration>
+public class NetherVinesFeature implements Feature
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.NETHERRACK;
     protected SimpleBlockPredicate replace = (world, pos) -> this.isAir(world, pos);
     int minHeight = 8;
     int maxHeight = 20;
 
-    public NetherVinesFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<NetherVinesFeature> CODEC = MapCodec.unit(NetherVinesFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<NetherVinesFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos startPos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos startPos)
+    {
         while (startPos.getY() >= world.getMinY()+1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos.offset(2, 0, 2)))
@@ -99,7 +97,7 @@ public class NetherVinesFeature extends Feature<NoneFeatureConfiguration>
     {
         if (this.replace.matches(world, pos))
         {
-            super.setBlock(world, pos, state);
+            Feature.super.setBlock(world, pos, state);
             return true;
         }
         return false;

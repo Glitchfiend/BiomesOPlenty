@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:white_sandstone_wall"
+        "recipes": "biomesoplenty:white_sandstone_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

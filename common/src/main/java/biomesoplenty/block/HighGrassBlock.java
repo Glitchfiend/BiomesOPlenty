@@ -19,10 +19,10 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class HighGrassBlock extends GrowingPlantHeadBlock
 {
-    public static final MapCodec<HighGrassBlock> CODEC = simpleCodec(HighGrassBlock::new);
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     public static final int MAX_AGE = 8;
     private final double growPerTickProbability;
@@ -32,11 +32,6 @@ public class HighGrassBlock extends GrowingPlantHeadBlock
         this.growPerTickProbability = 0.01D;
     }
 
-    @Override
-    public MapCodec<HighGrassBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -64,7 +59,7 @@ public class HighGrassBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_221337_, RandomSource p_221338_, BlockPos p_221339_, BlockState p_221340_) {
+    public void performBonemeal(ServerLevel p_221337_, RandomSource p_221338_, BlockPos p_221339_, BlockState p_221340_, BonemealSource source) {
         BlockPos blockpos = p_221339_.relative(this.growthDirection);
         int i = Math.min(p_221340_.getValue(AGE) + 1, MAX_AGE);
         int j = this.getBlocksToGrowWhenBonemealed(p_221338_);

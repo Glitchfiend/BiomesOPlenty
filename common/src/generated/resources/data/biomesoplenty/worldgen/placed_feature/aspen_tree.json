@@ -5,12 +5,7 @@
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
-        "state": {
-          "Name": "minecraft:birch_sapling",
-          "Properties": {
-            "stage": "0"
-          }
-        }
+        "state": "minecraft:birch_sapling"
       }
     }
   ]

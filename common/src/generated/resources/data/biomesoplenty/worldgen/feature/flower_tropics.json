@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "biomesoplenty:pink_hibiscus",
+        "weight": 1
+      },
+      {
+        "data": "minecraft:poppy",
+        "weight": 1
+      },
+      {
+        "data": "minecraft:dandelion",
+        "weight": 1
+      }
+    ]
+  }
+}

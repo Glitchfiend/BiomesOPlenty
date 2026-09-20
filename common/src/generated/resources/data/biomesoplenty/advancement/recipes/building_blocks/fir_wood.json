@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:fir_wood"
+        "recipes": "biomesoplenty:fir_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

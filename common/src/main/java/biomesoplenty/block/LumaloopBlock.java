@@ -24,10 +24,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.ToIntFunction;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class LumaloopBlock extends GrowingPlantHeadBlock
 {
-    public static final MapCodec<LumaloopBlock> CODEC = simpleCodec(LumaloopBlock::new);
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     public static final int MAX_AGE = 8;
@@ -40,11 +40,6 @@ public class LumaloopBlock extends GrowingPlantHeadBlock
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(LIT, false));
     }
 
-    @Override
-    public MapCodec<LumaloopBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context)
@@ -78,7 +73,7 @@ public class LumaloopBlock extends GrowingPlantHeadBlock
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_221337_, RandomSource p_221338_, BlockPos p_221339_, BlockState p_221340_) {
+    public void performBonemeal(ServerLevel p_221337_, RandomSource p_221338_, BlockPos p_221339_, BlockState p_221340_, BonemealSource source) {
         BlockPos blockpos = p_221339_.relative(this.growthDirection);
         int i = Math.min(p_221340_.getValue(AGE) + 1, MAX_AGE);
         int j = this.getBlocksToGrowWhenBonemealed(p_221338_);

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:dead_stairs"
+        "recipes": "biomesoplenty:dead_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:poplar_twiglet_tree",
+  "features": [
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:dead_twiglet_tree_small"
+    }
+  ]
+}

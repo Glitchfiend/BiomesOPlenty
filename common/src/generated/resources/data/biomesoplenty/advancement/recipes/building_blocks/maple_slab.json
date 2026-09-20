@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:maple_slab"
+        "recipes": "biomesoplenty:maple_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

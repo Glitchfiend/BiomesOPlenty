@@ -8,44 +8,28 @@
           "children": [
             {
               "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "predicates": {
-                      "minecraft:enchantments": [
-                        {
-                          "enchantments": "minecraft:silk_touch",
-                          "levels": {
-                            "min": 1
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              ],
+              "condition": "minecraft:tool/can_silk_touch",
               "name": "biomesoplenty:toadstool_block"
             },
             {
               "type": "minecraft:item",
-              "functions": [
+              "modifier": [
                 {
+                  "type": "minecraft:set_count",
                   "count": {
                     "type": "minecraft:uniform",
-                    "max": 2.0,
-                    "min": -6.0
-                  },
-                  "function": "minecraft:set_count"
-                },
-                {
-                  "function": "minecraft:limit_count",
-                  "limit": {
-                    "min": 0.0
+                    "max": 2,
+                    "min": -6
                   }
                 },
                 {
-                  "function": "minecraft:explosion_decay"
+                  "type": "minecraft:limit_count",
+                  "limit": {
+                    "min": 0
+                  }
+                },
+                {
+                  "type": "minecraft:explosion_decay"
                 }
               ],
               "name": "biomesoplenty:toadstool"
@@ -53,7 +37,7 @@
           ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "biomesoplenty:blocks/toadstool_block"

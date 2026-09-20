@@ -1,0 +1,12 @@
+{
+  "type": "biomesoplenty:lake",
+  "barrier": {
+    "id": "biomesoplenty:orpiment"
+  },
+  "fluid": {
+    "id": "minecraft:lava",
+    "properties": {
+      "level": "0"
+    }
+  }
+}

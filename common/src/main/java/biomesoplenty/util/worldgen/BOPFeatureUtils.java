@@ -11,11 +11,11 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 public class BOPFeatureUtils
 {
-    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context)
+    public static void bootstrap(BootstrapContext<Feature> context)
     {
         BOPCaveFeatures.bootstrap(context);
         BOPMiscOverworldFeatures.bootstrap(context);
@@ -25,8 +25,8 @@ public class BOPFeatureUtils
         BOPVegetationFeatures.bootstrap(context);
     }
 
-    public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name)
+    public static ResourceKey<Feature> createKey(String name)
     {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
+        return ResourceKey.create(Registries.FEATURE, Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, name));
     }
 }

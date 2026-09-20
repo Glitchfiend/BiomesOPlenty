@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:mossy_black_sand"
+        "recipes": "biomesoplenty:mossy_black_sand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

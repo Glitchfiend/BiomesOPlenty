@@ -17,29 +17,27 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
 
-public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
+public class BoneSpineFeature implements Feature
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).is(ModTags.Blocks.FLESH) || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
     protected SimpleBlockPredicate replace = (world, pos) -> this.isAir(world, pos) || TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).liquid() || world.getBlockState(pos).getBlock() == BOPBlocks.PUS_BUBBLE || world.getBlockState(pos).getBlock() == BOPBlocks.HAIR;
     private int maxHeight = 3;
 
-    public BoneSpineFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<BoneSpineFeature> CODEC = MapCodec.unit(BoneSpineFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<BoneSpineFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos startPos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos startPos)
+    {
         while (startPos.getY() >= world.getMinY()+1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
@@ -70,7 +68,7 @@ public class BoneSpineFeature extends Feature<NoneFeatureConfiguration>
     {
         if (this.replace.matches(world, pos))
         {
-            super.setBlock(world, pos, state);
+            Feature.super.setBlock(world, pos, state);
             return true;
         }
         return false;

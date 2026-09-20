@@ -6,6 +6,7 @@ package biomesoplenty.worldgen.feature.tree;
 
 import biomesoplenty.worldgen.feature.configurations.MahoganyTreeConfiguration;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -14,22 +15,30 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.function.BiConsumer;
 
 public class MahoganyTreeFeature extends BOPTreeFeature<MahoganyTreeConfiguration>
 {
-    public MahoganyTreeFeature(Codec<MahoganyTreeConfiguration> codec)
-    {
-        super(codec);
-    }
+    public static final MapCodec<MahoganyTreeFeature> CODEC = MahoganyTreeConfiguration.CODEC.xmap(MahoganyTreeFeature::new, f -> f.config);
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
+    public MapCodec<MahoganyTreeFeature> codec()
     {
-        MahoganyTreeConfiguration config = (MahoganyTreeConfiguration)configBase;
+        return CODEC;
+    }
+
+    public MahoganyTreeFeature(MahoganyTreeConfiguration config)
+    {
+        super(config);
+    }
+
+
+    @Override
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos pos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves)
+    {
+        MahoganyTreeConfiguration config = this.config;
 
         int height = random.nextInt(config.maxHeight - config.minHeight) + config.minHeight;
         boolean hasSpace = true;

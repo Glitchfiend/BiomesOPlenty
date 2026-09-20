@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:maple_button"
+        "recipes": "biomesoplenty:maple_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

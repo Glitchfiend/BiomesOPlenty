@@ -10,7 +10,6 @@ import biomesoplenty.neoforge.datagen.provider.*;
 import biomesoplenty.util.worldgen.BOPFeatureUtils;
 import biomesoplenty.util.worldgen.BOPPlacementUtils;
 import biomesoplenty.worldgen.carver.BOPConfiguredCarvers;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
@@ -21,14 +20,13 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 
 @EventBusSubscriber(modid = BiomesOPlenty.MOD_ID)
 public class DataGenerationHandler
 {
-    private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-            .add(Registries.CONFIGURED_CARVER, BOPConfiguredCarvers::bootstrap)
-            .add(Registries.CONFIGURED_FEATURE, BOPFeatureUtils::bootstrap)
+    private static final RegistrySetBuilder WORLD_BUILDER = new RegistrySetBuilder()
+            .add(Registries.CARVER, BOPConfiguredCarvers::bootstrap)
+            .add(Registries.FEATURE, BOPFeatureUtils::bootstrap)
             .add(Registries.PLACED_FEATURE, BOPPlacementUtils::bootstrap)
             .add(Registries.BIOME, ModBiomes::bootstrapBiomes)
             .add(Registries.DAMAGE_TYPE, ModDamageTypes::bootstrap)
@@ -36,26 +34,26 @@ public class DataGenerationHandler
             .add(Registries.VILLAGER_TRADE, ModVillagerTrades::bootstrap)
             .add(Registries.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 
+    private static final RegistrySetBuilder RELOADABLE_BUILDER = new RegistrySetBuilder()
+            .add(Registries.LOOT_TABLE, BOPLootTableProvider.create())
+            .add(BOPRecipeProvider.create());
+
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent.Client event)
     {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
 
-        var datapackProvider = generator.addProvider(true, new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
+        var worldProvider = generator.addProvider(true, DatapackBuiltinEntriesProvider.forWorldLayer(
+                output, "BOP World Registries", event.getWorldLookupProvider(), WORLD_BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
 
-        // Recipes
-        generator.addProvider(true, new BOPRecipeProvider.Runner(output, datapackProvider.getRegistryProvider()));
-
-        // Loot
-        generator.addProvider(true, BOPLootTableProvider.create(output, datapackProvider.getRegistryProvider()));
-
-        // Data Maps
-        generator.addProvider(true, new BOPDataMapProvider(output, datapackProvider.getRegistryProvider()));
+        generator.addProvider(true, DatapackBuiltinEntriesProvider.forReloadableLayer(
+                output, "BOP Reloadable Registries", worldProvider.getRegistryProvider(), event.getReloadableLookupProvider(),
+                RELOADABLE_BUILDER, Set.of(BiomesOPlenty.MOD_ID)));
 
         // Tags
-        generator.addProvider(true, new BOPDamageTypeTagsProvider(output, datapackProvider.getRegistryProvider()));
-        generator.addProvider(true, new BOPVillagerTradesTagsProvider(output, datapackProvider.getRegistryProvider()));
+        generator.addProvider(true, new BOPDamageTypeTagsProvider(output, worldProvider.getRegistryProvider()));
+        generator.addProvider(true, new BOPVillagerTradesTagsProvider(output, worldProvider.getRegistryProvider()));
 
         // Client
         generator.addProvider(true, new BOPModelProvider(output));

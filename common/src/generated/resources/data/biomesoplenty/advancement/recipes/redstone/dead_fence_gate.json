@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:dead_fence_gate"
+        "recipes": "biomesoplenty:dead_fence_gate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

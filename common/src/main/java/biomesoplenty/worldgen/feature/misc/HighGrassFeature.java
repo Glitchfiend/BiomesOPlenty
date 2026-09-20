@@ -16,27 +16,29 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 
-public class HighGrassFeature extends Feature<NoneFeatureConfiguration>
+public class HighGrassFeature implements Feature
 {
-    public HighGrassFeature(Codec<NoneFeatureConfiguration> p_67292_)
+    public static final MapCodec<HighGrassFeature> CODEC = MapCodec.unit(HighGrassFeature::new);
+
+    @Override
+    public MapCodec<HighGrassFeature> codec()
     {
-        super(p_67292_);
+        return CODEC;
     }
 
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_160558_)
+
+    @Override
+    public boolean place(WorldGenLevel worldgenlevel, ChunkGenerator chunkGenerator, RandomSource randomsource, BlockPos blockpos)
     {
-        WorldGenLevel worldgenlevel = p_160558_.level();
-        BlockPos blockpos = p_160558_.origin();
         if (isInvalidPlacementLocation(worldgenlevel, blockpos))
         {
             return false;
         }
         else
         {
-            RandomSource randomsource = p_160558_.random();
             int i = 5;
             int j = 3;
             BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();

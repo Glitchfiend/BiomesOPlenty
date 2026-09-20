@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:umbran_sign"
+        "recipes": "biomesoplenty:umbran_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

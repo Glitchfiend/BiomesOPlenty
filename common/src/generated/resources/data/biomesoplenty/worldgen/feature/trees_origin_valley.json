@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:origin_oak_tree",
+  "features": [
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:big_origin_oak_tree"
+    }
+  ]
+}

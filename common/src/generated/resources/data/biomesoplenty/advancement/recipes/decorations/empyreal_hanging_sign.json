@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:empyreal_hanging_sign"
+        "recipes": "biomesoplenty:empyreal_hanging_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

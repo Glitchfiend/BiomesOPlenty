@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:redwood_stairs"
+        "recipes": "biomesoplenty:redwood_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:jacaranda_chest_boat"
+        "recipes": "biomesoplenty:jacaranda_chest_boat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

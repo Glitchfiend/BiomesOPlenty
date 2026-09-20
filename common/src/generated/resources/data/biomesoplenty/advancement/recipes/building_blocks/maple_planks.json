@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:maple_planks"
+        "recipes": "biomesoplenty:maple_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

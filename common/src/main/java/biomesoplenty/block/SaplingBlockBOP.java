@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
 {
@@ -44,7 +45,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    }
 
    @Override
-   public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state)
+   public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state, BonemealSource source)
    {
       if (state.getValue(STAGE) == 0)
       {
@@ -61,13 +62,13 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
     * Whether this IGrowable can grow
     */
    @Override
-   public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state)
+   public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, BonemealSource source)
    {
       return true;
    }
 
    @Override
-   public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state)
+   public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state, BonemealSource source)
    {
       return (double)worldIn.getRandom().nextFloat() < 0.45D;
    }
@@ -75,7 +76,7 @@ public class SaplingBlockBOP extends SaplingBlock implements BonemealableBlock
    @Override
    public void advanceTree(ServerLevel world, BlockPos pos, BlockState state, RandomSource rand)
    {
-      this.performBonemeal(world, rand, pos, state);
+      this.performBonemeal(world, rand, pos, state, BonemealSource.INTERACTION);
    }
    
    @Override

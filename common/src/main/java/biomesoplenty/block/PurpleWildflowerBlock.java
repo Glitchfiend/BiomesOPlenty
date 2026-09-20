@@ -14,7 +14,7 @@ public class PurpleWildflowerBlock extends FlowerBedBlock
 {
     public PurpleWildflowerBlock(Properties properties)
     {
-        super(properties);
+        super(properties, 3);
     }
 
     @Override

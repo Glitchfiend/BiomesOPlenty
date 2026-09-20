@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:blackstone_bulb"
+        "recipes": "biomesoplenty:blackstone_bulb"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

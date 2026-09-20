@@ -25,7 +25,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HugeCloverPetalBlock extends HorizontalDirectionalBlock
 {
-    public static final MapCodec<HugeCloverPetalBlock> CODEC = simpleCodec(HugeCloverPetalBlock::new);
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public static final VoxelShape SHAPE = Block.box(0.0D, 13.0D, 0.0D, 16.0D, 15.0D, 16.0D);
 
@@ -35,11 +34,6 @@ public class HugeCloverPetalBlock extends HorizontalDirectionalBlock
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    @Override
-    public MapCodec<HugeCloverPetalBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:orange_sandstone_slab"
+        "recipes": "biomesoplenty:orange_sandstone_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

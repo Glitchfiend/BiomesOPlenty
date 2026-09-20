@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:stripped_origin_oak_wood"
+        "recipes": "biomesoplenty:stripped_origin_oak_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

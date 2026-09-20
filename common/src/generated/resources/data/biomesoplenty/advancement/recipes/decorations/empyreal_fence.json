@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:empyreal_fence"
+        "recipes": "biomesoplenty:empyreal_fence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

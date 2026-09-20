@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:orpiment_cluster"
+        "recipes": "biomesoplenty:orpiment_cluster"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

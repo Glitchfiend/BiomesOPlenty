@@ -14,7 +14,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 
@@ -63,44 +63,44 @@ public class BOPMiscOverworldPlacements
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context)
     {
-        HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
+        HolderGetter<Feature> configuredFeatureGetter = context.lookup(Registries.FEATURE);
 
-        final Holder<ConfiguredFeature<?, ?>> CRAG_MOSS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.CRAG_MOSS);
-        final Holder<ConfiguredFeature<?, ?>> CRAG_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.CRAG_SPLATTER);
-        final Holder<ConfiguredFeature<?, ?>> DISK_BLACK_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_BLACK_SAND);
-        final Holder<ConfiguredFeature<?, ?>> DISK_CALCITE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_CALCITE);
-        final Holder<ConfiguredFeature<?, ?>> DISK_GRAVEL_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_GRAVEL_EXTRA);
+        final Holder<Feature> CRAG_MOSS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.CRAG_MOSS);
+        final Holder<Feature> CRAG_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.CRAG_SPLATTER);
+        final Holder<Feature> DISK_BLACK_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_BLACK_SAND);
+        final Holder<Feature> DISK_CALCITE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_CALCITE);
+        final Holder<Feature> DISK_GRAVEL_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_GRAVEL_EXTRA);
 
-        final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_GRAVEL = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_GRAVEL);
-        final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_CALCITE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_CALCITE);
-        final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_BASALT = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_BASALT);
-        final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_PACKED_MUD = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_PACKED_MUD);
-        final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_CINNABAR = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_CINNABAR);
-        final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_ORPIMENT = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_ORPIMENT);
-        final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_SULFUR = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_SULFUR);
-        final Holder<ConfiguredFeature<?, ?>> DISK_HOT_SPRING_SPHALERITE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_SPHALERITE);
+        final Holder<Feature> DISK_HOT_SPRING_GRAVEL = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_GRAVEL);
+        final Holder<Feature> DISK_HOT_SPRING_CALCITE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_CALCITE);
+        final Holder<Feature> DISK_HOT_SPRING_BASALT = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_BASALT);
+        final Holder<Feature> DISK_HOT_SPRING_PACKED_MUD = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_PACKED_MUD);
+        final Holder<Feature> DISK_HOT_SPRING_CINNABAR = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_CINNABAR);
+        final Holder<Feature> DISK_HOT_SPRING_ORPIMENT = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_ORPIMENT);
+        final Holder<Feature> DISK_HOT_SPRING_SULFUR = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_SULFUR);
+        final Holder<Feature> DISK_HOT_SPRING_SPHALERITE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_HOT_SPRING_SPHALERITE);
 
-        final Holder<ConfiguredFeature<?, ?>> DISK_VOLCANO_SMOOTH_BASALT = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_SMOOTH_BASALT);
-        final Holder<ConfiguredFeature<?, ?>> DISK_VOLCANO_BLACK_SANDSTONE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_BLACK_SANDSTONE);
-        final Holder<ConfiguredFeature<?, ?>> DISK_VOLCANO_MAGMA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_MAGMA);
+        final Holder<Feature> DISK_VOLCANO_SMOOTH_BASALT = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_SMOOTH_BASALT);
+        final Holder<Feature> DISK_VOLCANO_BLACK_SANDSTONE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_BLACK_SANDSTONE);
+        final Holder<Feature> DISK_VOLCANO_MAGMA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_VOLCANO_MAGMA);
 
-        final Holder<ConfiguredFeature<?, ?>> DISK_SURFACE_CLAY = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_SURFACE_CLAY);
-        final Holder<ConfiguredFeature<?, ?>> DISK_MUD = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_MUD);
-        final Holder<ConfiguredFeature<?, ?>> DISK_ORANGE_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_ORANGE_SAND);
-        final Holder<ConfiguredFeature<?, ?>> DISK_WHITE_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SAND);
-        final Holder<ConfiguredFeature<?, ?>> DISK_WHITE_SAND_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SAND_EXTRA);
-        final Holder<ConfiguredFeature<?, ?>> DISK_WHITE_SANDSTONE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SANDSTONE);
-        final Holder<ConfiguredFeature<?, ?>> MOSSY_BLACK_SAND_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.MOSSY_BLACK_SAND_SPLATTER);
-        final Holder<ConfiguredFeature<?, ?>> MUD_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.MUD_SPLATTER);
-        final Holder<ConfiguredFeature<?, ?>> LAKE_WATER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.WATER_LAKE);
-        final Holder<ConfiguredFeature<?, ?>> LAKE_HOT_SPRING = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.HOT_SPRING_LAKE);
-        final Holder<ConfiguredFeature<?, ?>> LAKE_OBSIDIAN = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.OBSIDIAN_LAKE);
-        final Holder<ConfiguredFeature<?, ?>> LAKE_LAVA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.LAVA_LAKE_VOLCANO);
-        final Holder<ConfiguredFeature<?, ?>> SPRING_LAVA_VOLCANO = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO);
-        final Holder<ConfiguredFeature<?, ?>> SPRING_WATER_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_WATER_EXTRA);
-        final Holder<ConfiguredFeature<?, ?>> ORIGIN_GRAVEL_CLIFFS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.ORIGIN_GRAVEL_CLIFFS);
+        final Holder<Feature> DISK_SURFACE_CLAY = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_SURFACE_CLAY);
+        final Holder<Feature> DISK_MUD = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_MUD);
+        final Holder<Feature> DISK_ORANGE_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_ORANGE_SAND);
+        final Holder<Feature> DISK_WHITE_SAND = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SAND);
+        final Holder<Feature> DISK_WHITE_SAND_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SAND_EXTRA);
+        final Holder<Feature> DISK_WHITE_SANDSTONE = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.DISK_WHITE_SANDSTONE);
+        final Holder<Feature> MOSSY_BLACK_SAND_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.MOSSY_BLACK_SAND_SPLATTER);
+        final Holder<Feature> MUD_SPLATTER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.MUD_SPLATTER);
+        final Holder<Feature> LAKE_WATER = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.WATER_LAKE);
+        final Holder<Feature> LAKE_HOT_SPRING = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.HOT_SPRING_LAKE);
+        final Holder<Feature> LAKE_OBSIDIAN = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.OBSIDIAN_LAKE);
+        final Holder<Feature> LAKE_LAVA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.LAVA_LAKE_VOLCANO);
+        final Holder<Feature> SPRING_LAVA_VOLCANO = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_LAVA_VOLCANO);
+        final Holder<Feature> SPRING_WATER_EXTRA = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.SPRING_WATER_EXTRA);
+        final Holder<Feature> ORIGIN_GRAVEL_CLIFFS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.ORIGIN_GRAVEL_CLIFFS);
 
-        final Holder<ConfiguredFeature<?, ?>> JADE_CLIFFS_ERODED_PILLARS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.ERODED_PILLAR);
+        final Holder<Feature> JADE_CLIFFS_ERODED_PILLARS = configuredFeatureGetter.getOrThrow(BOPMiscOverworldFeatures.ERODED_PILLAR);
 
         register(context, BOPMiscOverworldPlacements.CRAG_MOSS, CRAG_MOSS, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
         register(context, BOPMiscOverworldPlacements.CRAG_SPLATTER, CRAG_SPLATTER, List.of(CountPlacement.of(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
@@ -142,12 +142,12 @@ public class BOPMiscOverworldPlacements
         register(context, BOPMiscOverworldPlacements.JADE_CLIFFS_ERODED_PILLARS, JADE_CLIFFS_ERODED_PILLARS, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
     }
 
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, PlacementModifier... modifiers)
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<Feature> configuredFeature, PlacementModifier... modifiers)
     {
         register(context, placedFeatureKey, configuredFeature, List.of(modifiers));
     }
 
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> modifiers)
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> placedFeatureKey, Holder<Feature> configuredFeature, List<PlacementModifier> modifiers)
     {
         context.register(placedFeatureKey, new PlacedFeature(configuredFeature, modifiers));
     }

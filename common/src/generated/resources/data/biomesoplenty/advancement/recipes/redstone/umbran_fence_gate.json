@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:umbran_fence_gate"
+        "recipes": "biomesoplenty:umbran_fence_gate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -27,12 +27,38 @@ import net.minecraft.world.level.block.SuspiciousEffectHolder;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
+import java.util.Set;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.MultiRegistryBootstrap;
+import net.minecraft.core.Registry;
+import net.minecraft.advancements.Advancement;
 
 public class BOPRecipeProvider extends RecipeProvider
 {
-    public BOPRecipeProvider(HolderLookup.Provider provider, RecipeOutput output)
+    public BOPRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput)
     {
-        super(provider, output);
+        super(recipeOutput, advancementOutput);
+    }
+
+    public static MultiRegistryBootstrap create()
+    {
+        return new MultiRegistryBootstrap()
+        {
+            @Override
+            public Set<ResourceKey<? extends Registry<?>>> requestedRegistries()
+            {
+                return Set.of(Registries.RECIPE, Registries.ADVANCEMENT);
+            }
+
+            @Override
+            public void run(MultiRegistryBootstrap.BootstrapGetter registries)
+            {
+                new BOPRecipeProvider(registries.get(Registries.RECIPE), registries.get(Registries.ADVANCEMENT)).buildRecipes();
+            }
+        };
     }
 
     @Override
@@ -394,21 +420,4 @@ public class BOPRecipeProvider extends RecipeProvider
         hangingSignBuilder(sign, Ingredient.of(ingredient));
     }
 
-    public static class Runner extends RecipeProvider.Runner
-    {
-        public Runner(PackOutput p_365442_, CompletableFuture<HolderLookup.Provider> p_362168_) {
-            super(p_365442_, p_362168_);
-        }
-
-        @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput output)
-        {
-            return new BOPRecipeProvider(provider, output);
-        }
-
-        @Override
-        public String getName() {
-            return "BOP Recipes";
-        }
-    }
 }

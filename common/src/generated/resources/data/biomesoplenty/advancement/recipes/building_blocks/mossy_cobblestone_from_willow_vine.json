@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:mossy_cobblestone_from_willow_vine"
+        "recipes": "biomesoplenty:mossy_cobblestone_from_willow_vine"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -2,7 +2,7 @@
   "gives": {
     "id": "biomesoplenty:white_lavender"
   },
-  "max_uses": 12.0,
+  "max_uses": 12,
   "reputation_discount": 0.05,
   "wants": {
     "id": "minecraft:emerald"

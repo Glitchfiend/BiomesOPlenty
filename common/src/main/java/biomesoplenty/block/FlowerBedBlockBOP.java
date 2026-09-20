@@ -9,6 +9,6 @@ import net.minecraft.world.level.block.FlowerBedBlock;
 public class FlowerBedBlockBOP extends FlowerBedBlock
 {
     public FlowerBedBlockBOP(Properties properties) {
-        super(properties);
+        super(properties, 3);
     }
 }

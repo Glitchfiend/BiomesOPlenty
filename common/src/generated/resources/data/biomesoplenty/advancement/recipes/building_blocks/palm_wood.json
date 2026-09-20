@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:palm_wood"
+        "recipes": "biomesoplenty:palm_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

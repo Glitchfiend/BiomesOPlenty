@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.BonemealSource;
 
 public abstract class VegetationBlockBOP extends VegetationBlock implements BonemealableBlock
 {
@@ -32,19 +33,19 @@ public abstract class VegetationBlockBOP extends VegetationBlock implements Bone
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader $$0, BlockPos $$1, BlockState $$2)
+    public boolean isValidBonemealTarget(LevelReader $$0, BlockPos $$1, BlockState $$2, BonemealSource source)
     {
         return BonemealableBlock.hasSpreadableNeighbourPos($$0, $$1, $$2);
     }
 
     @Override
-    public boolean isBonemealSuccess(Level $$0, RandomSource $$1, BlockPos $$2, BlockState $$3)
+    public boolean isBonemealSuccess(Level $$0, RandomSource $$1, BlockPos $$2, BlockState $$3, BonemealSource source)
     {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel $$0, RandomSource $$1, BlockPos $$2, BlockState $$3)
+    public void performBonemeal(ServerLevel $$0, RandomSource $$1, BlockPos $$2, BlockState $$3, BonemealSource source)
     {
         BonemealableBlock.findSpreadableNeighbourPos($$0, $$2, $$3).ifPresent(($$1x) -> $$0.setBlockAndUpdate($$1x, this.defaultBlockState()));
     }

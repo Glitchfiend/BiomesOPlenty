@@ -5,8 +5,6 @@
 package biomesoplenty.fabric.mixin;
 
 import biomesoplenty.api.block.BOPFluids;
-import com.mojang.blaze3d.buffers.GpuBuffer;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Camera;

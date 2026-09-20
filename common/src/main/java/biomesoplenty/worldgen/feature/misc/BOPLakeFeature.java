@@ -10,6 +10,7 @@ package biomesoplenty.worldgen.feature.misc;
 //
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -17,28 +18,42 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-public class BOPLakeFeature extends net.minecraft.world.level.levelgen.feature.LakeFeature
+public class BOPLakeFeature implements Feature
 {
     private static final BlockState AIR;
 
-    public BOPLakeFeature(Codec<net.minecraft.world.level.levelgen.feature.LakeFeature.Configuration> codec) {
-        super(codec);
-    }
+    public static final MapCodec<BOPLakeFeature> CODEC = RecordCodecBuilder.mapCodec(
+        i -> i.group(
+                BlockStateProvider.DIRECT_CODEC.fieldOf("fluid").forGetter(f -> f.fluid),
+                BlockStateProvider.DIRECT_CODEC.fieldOf("barrier").forGetter(f -> f.barrier)
+            ).apply(i, BOPLakeFeature::new)
+    );
 
     @Override
-    public boolean place(FeaturePlaceContext<net.minecraft.world.level.levelgen.feature.LakeFeature.Configuration> featurePlaceContext)
+    public MapCodec<BOPLakeFeature> codec()
     {
-        BlockPos blockPos = featurePlaceContext.origin();
-        WorldGenLevel worldGenLevel = featurePlaceContext.level();
-        RandomSource randomSource = featurePlaceContext.random();
-        net.minecraft.world.level.levelgen.feature.LakeFeature.Configuration configuration = (net.minecraft.world.level.levelgen.feature.LakeFeature.Configuration)featurePlaceContext.config();
+        return CODEC;
+    }
+
+    private final BlockStateProvider fluid;
+    private final BlockStateProvider barrier;
+
+    public BOPLakeFeature(BlockStateProvider fluid, BlockStateProvider barrier)
+    {
+        this.fluid = fluid;
+        this.barrier = barrier;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel worldGenLevel, ChunkGenerator chunkGenerator, RandomSource randomSource, BlockPos blockPos)
+    {
         if (blockPos.getY() <= worldGenLevel.getMinY() + 4) {
             return false;
         } else {
@@ -69,7 +84,7 @@ public class BOPLakeFeature extends net.minecraft.world.level.levelgen.feature.L
                 }
             }
 
-            BlockState blockState = configuration.fluid().getState(worldGenLevel, randomSource, blockPos);
+            BlockState blockState = this.fluid.getState(worldGenLevel, randomSource, blockPos);
 
             int t;
             boolean w;
@@ -112,7 +127,7 @@ public class BOPLakeFeature extends net.minecraft.world.level.levelgen.feature.L
                 }
             }
 
-            BlockState blockState3 = configuration.barrier().getState(worldGenLevel, randomSource, blockPos);
+            BlockState blockState3 = this.barrier.getState(worldGenLevel, randomSource, blockPos);
             if (!blockState3.isAir()) {
                 for(t = 0; t < 16; ++t) {
                     for(u = 0; u < 16; ++u) {

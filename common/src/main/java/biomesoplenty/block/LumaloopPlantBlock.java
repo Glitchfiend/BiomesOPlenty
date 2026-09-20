@@ -22,10 +22,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.ToIntFunction;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class LumaloopPlantBlock extends GrowingPlantBodyBlock
 {
-    public static final MapCodec<LumaloopPlantBlock> CODEC = simpleCodec(LumaloopPlantBlock::new);
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
@@ -35,11 +35,6 @@ public class LumaloopPlantBlock extends GrowingPlantBodyBlock
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false));
     }
 
-    @Override
-    public MapCodec<LumaloopPlantBlock> codec()
-    {
-        return CODEC;
-    }
 
     @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
@@ -74,7 +69,7 @@ public class LumaloopPlantBlock extends GrowingPlantBodyBlock
     }
 
     @Override
-    public void performBonemeal(ServerLevel $$0, RandomSource $$1, BlockPos $$2, BlockState $$3)
+    public void performBonemeal(ServerLevel $$0, RandomSource $$1, BlockPos $$2, BlockState $$3, BonemealSource source)
     {
         $$0.setBlock($$2, (BlockState)$$3.setValue(LIT, true), 2);
     }

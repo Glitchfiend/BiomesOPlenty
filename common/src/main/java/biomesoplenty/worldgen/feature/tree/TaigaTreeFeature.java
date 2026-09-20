@@ -8,6 +8,7 @@ import biomesoplenty.util.biome.GeneratorUtil;
 import biomesoplenty.worldgen.feature.configurations.TaigaTreeConfiguration;
 import biomesoplenty.worldgen.feature.configurations.TwigletTreeConfiguration;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -19,17 +20,25 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CocoaBlock;
 import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.function.BiConsumer;
 
 public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
 {
-    public TaigaTreeFeature(Codec<TaigaTreeConfiguration> codec)
+    public static final MapCodec<TaigaTreeFeature> CODEC = TaigaTreeConfiguration.CODEC.xmap(TaigaTreeFeature::new, f -> f.config);
+
+    @Override
+    public MapCodec<TaigaTreeFeature> codec()
     {
-        super(codec);
+        return CODEC;
     }
+
+    public TaigaTreeFeature(TaigaTreeConfiguration config)
+    {
+        super(config);
+    }
+
 
     public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height, TaigaTreeConfiguration config)
     {
@@ -108,9 +117,9 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
     }
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves)
     {
-        TaigaTreeConfiguration config = (TaigaTreeConfiguration)configBase;
+        TaigaTreeConfiguration config = this.config;
 
         // Move down until we reach the ground
         while (startPos.getY() >= world.getMinY()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES))

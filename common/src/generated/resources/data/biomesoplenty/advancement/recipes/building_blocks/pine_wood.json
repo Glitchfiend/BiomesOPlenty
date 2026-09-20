@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:pine_wood"
+        "recipes": "biomesoplenty:pine_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

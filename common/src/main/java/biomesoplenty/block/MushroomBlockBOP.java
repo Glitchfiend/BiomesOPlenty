@@ -19,7 +19,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
 {
@@ -47,8 +48,8 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
     {
         level.removeBlock(p_226940_2_, false);
 
-        Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry = level.registryAccess().lookupOrThrow(Registries.CONFIGURED_FEATURE);
-        ConfiguredFeature<?, ?> feature;
+        Registry<Feature> configuredFeatureRegistry = level.registryAccess().lookupOrThrow(Registries.FEATURE);
+        Feature feature;
         if (this == BOPBlocks.GLOWSHROOM)
         {
             feature = configuredFeatureRegistry.get(BOPCaveFeatures.HUGE_GLOWSHROOM_CAVE).orElseThrow().value();
@@ -76,17 +77,17 @@ public class MushroomBlockBOP extends MushroomBlock implements BonemealableBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, BonemealSource source) {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state, BonemealSource source) {
         return (double)rand.nextFloat() < 0.4D;
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_225535_1_, RandomSource p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
+    public void performBonemeal(ServerLevel p_225535_1_, RandomSource p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_, BonemealSource source) {
         this.growMushroom(p_225535_1_, p_225535_3_, p_225535_4_, p_225535_2_);
     }
 }

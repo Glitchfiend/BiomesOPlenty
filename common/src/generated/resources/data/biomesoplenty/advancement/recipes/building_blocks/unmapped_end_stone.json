@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:unmapped_end_stone"
+        "recipes": "biomesoplenty:unmapped_end_stone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

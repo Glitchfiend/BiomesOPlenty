@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:chiseled_orpiment"
+        "recipes": "biomesoplenty:chiseled_orpiment"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

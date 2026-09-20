@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:maple_leaf_litter"
+        "recipes": "biomesoplenty:maple_leaf_litter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

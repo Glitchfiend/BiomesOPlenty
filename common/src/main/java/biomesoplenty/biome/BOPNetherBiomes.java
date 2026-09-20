@@ -4,6 +4,9 @@
  ******************************************************************************/
 package biomesoplenty.biome;
 
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.ARGB;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.worldgen.placement.BOPNetherPlacements;
 import net.minecraft.core.HolderGetter;
@@ -22,7 +25,7 @@ import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.Collections;
@@ -46,11 +49,11 @@ public class BOPNetherBiomes
         builder.addFeature(step, feature);
     }
 
-    public static Biome crystallineChasm(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome crystallineChasm(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 60, new MobSpawnSettings.SpawnerData(EntityTypes.STRIDER, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.STRIDER, MobCategory.CREATURE, 60, UniformInt.of(1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -67,7 +70,7 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.SMALL_CRYSTAL);
 
         return baseBiome()
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x59002C)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x59002C))
             .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_CRIMSON_FOREST_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)), Collections.emptyList()))
             .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.ELECTRIC_SPARK, 0.0008925F))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_CRYSTALLINE_CHASM))
@@ -75,16 +78,16 @@ public class BOPNetherBiomes
             .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome eruptingInferno(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome eruptingInferno(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.GHAST, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 2, new MobSpawnSettings.SpawnerData(EntityTypes.MAGMA_CUBE, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 60, new MobSpawnSettings.SpawnerData(EntityTypes.ZOMBIFIED_PIGLIN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 15, new MobSpawnSettings.SpawnerData(EntityTypes.PIGLIN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityTypes.ENDERMAN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(EntityTypes.STRIDER, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.GHAST, MobCategory.MONSTER, 50, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.MAGMA_CUBE, MobCategory.MONSTER, 2, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.ZOMBIFIED_PIGLIN, MobCategory.MONSTER, 60, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PIGLIN, MobCategory.MONSTER, 15, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.ENDERMAN, MobCategory.MONSTER, 1, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.STRIDER, MobCategory.CREATURE, 100, UniformInt.of(1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -107,7 +110,7 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.ORPIMENT_CLUSTER);
 
         return baseBiome()
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x4F2B13)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x4F2B13))
             .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))))
             .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SMOKE, 0.00023065104F))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_ERUPTING_INFERNO))
@@ -115,14 +118,14 @@ public class BOPNetherBiomes
             .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome undergrowth(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome undergrowth(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.GHAST, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 2, new MobSpawnSettings.SpawnerData(EntityTypes.MAGMA_CUBE, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 9, new MobSpawnSettings.SpawnerData(EntityTypes.HOGLIN, 3, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 60, new MobSpawnSettings.SpawnerData(EntityTypes.STRIDER, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.GHAST, MobCategory.MONSTER, 50, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.MAGMA_CUBE, MobCategory.MONSTER, 2, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.HOGLIN, MobCategory.MONSTER, 9, UniformInt.of(3, 4));
+        spawnBuilder.addSpawn(EntityTypes.STRIDER, MobCategory.CREATURE, 60, UniformInt.of(1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -144,7 +147,7 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.NETHER_VINES);
 
         return baseBiome()
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x1C2109)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x1C2109))
             .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_WARPED_FOREST_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D))))
             .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ParticleTypes.SPORE_BLOSSOM_AIR, 0.00357F))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_UNDERGROWTH))
@@ -152,13 +155,13 @@ public class BOPNetherBiomes
             .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome visceralHeap(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome visceralHeap(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.GHAST, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(EntityTypes.ZOMBIFIED_PIGLIN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 60, new MobSpawnSettings.SpawnerData(EntityTypes.STRIDER, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.GHAST, MobCategory.MONSTER, 50, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.ZOMBIFIED_PIGLIN, MobCategory.MONSTER, 100, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.STRIDER, MobCategory.CREATURE, 60, UniformInt.of(1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -178,19 +181,19 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.HAIR);
 
         return baseBiome()
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x601F18)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x601F18))
             .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_NETHER_WASTES_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_VISCERAL_HEAP))
             .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).build())
             .mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome witheredAbyss(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome witheredAbyss(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.ENDERMAN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.WITHER_SKELETON, 1, 1));
+        spawnBuilder.addSpawn(EntityTypes.ENDERMAN, MobCategory.MONSTER, 50, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.WITHER_SKELETON, MobCategory.MONSTER, 50, ConstantInt.of(1));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -201,7 +204,7 @@ public class BOPNetherBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPNetherPlacements.BLACKSTONE_BULBS);
 
         return baseBiome()
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x0A0711)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x0A0711))
             .setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP), Optional.of(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_WITHERED_ABYSS))
             .specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).grassColorOverride(0x312C36).foliageColorOverride(0x312C36).build())

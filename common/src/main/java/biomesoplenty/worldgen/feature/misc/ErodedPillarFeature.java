@@ -17,25 +17,26 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 
-public class ErodedPillarFeature extends Feature<NoneFeatureConfiguration>
+public class ErodedPillarFeature implements Feature
 {
     private static final int BASE_RADIUS = 8;
     private static final int PEAK_MIN_RADIUS = 3;
 
-    public ErodedPillarFeature(Codec<NoneFeatureConfiguration> codec)
-    {
-        super(codec);
-    }
+    public static final MapCodec<ErodedPillarFeature> CODEC = MapCodec.unit(ErodedPillarFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context)
+    public MapCodec<ErodedPillarFeature> codec()
     {
-        BlockPos pos = context.origin();
-        WorldGenLevel level = context.level();
-        RandomSource random = context.random();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel level, ChunkGenerator chunkGenerator, RandomSource random, BlockPos pos)
+    {
         int width = BASE_RADIUS;
         int height = random.nextInt(10) + 10;
         if (random.nextDouble() > 0.75) {

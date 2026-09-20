@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:redwood_planks"
+        "recipes": "biomesoplenty:redwood_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

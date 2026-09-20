@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:hellbark_trapdoor"
+        "recipes": "biomesoplenty:hellbark_trapdoor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

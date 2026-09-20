@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:twiglet_tree",
+  "features": [
+    {
+      "chance": 0.2,
+      "feature": "biomesoplenty:oak_bush"
+    },
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:aspen_tree"
+    },
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:magenta_maple_tree_leaf_litter"
+    },
+    {
+      "chance": 0.05,
+      "feature": "biomesoplenty:big_magenta_maple_tree_leaf_litter"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:bayou_tree",
+  "features": [
+    {
+      "chance": 0.3,
+      "feature": "biomesoplenty:bayou_tree_medium"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:tall_spruce_tree",
+  "features": [
+    {
+      "chance": 0.25,
+      "feature": "biomesoplenty:oak_bush"
+    },
+    {
+      "chance": 0.25,
+      "feature": "biomesoplenty:pine_tree_small"
+    }
+  ]
+}

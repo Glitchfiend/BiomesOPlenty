@@ -4,6 +4,8 @@
  ******************************************************************************/
 package biomesoplenty.biome;
 
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.ConstantInt;
 import biomesoplenty.api.sound.BOPSounds;
 import biomesoplenty.worldgen.carver.BOPConfiguredCarvers;
 import biomesoplenty.worldgen.placement.BOPCavePlacements;
@@ -31,7 +33,7 @@ import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class BOPOverworldBiomes
@@ -48,7 +50,7 @@ public class BOPOverworldBiomes
             .hasPrecipitation(true)
             .temperature(p_453538_)
             .downfall(p_455956_)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, calculateSkyColor(p_453538_))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(calculateSkyColor(p_453538_)))
             .specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build());
     }
 
@@ -81,11 +83,11 @@ public class BOPOverworldBiomes
         BiomeDefaultFeatures.addSurfaceFreezing(builder);
     }
 
-    public static Biome auroralGarden(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+    public static Biome auroralGarden(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter) {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.caveSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -100,10 +102,10 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
         return baseBiome(-0.25F, 0.5F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x050533)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xF0FDFD)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0xBDECFC)
-            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.white(0.2F))
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x050533))
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0xF0FDFD))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0xBDECFC))
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.vector4fFromARGB32(ARGB.white(0.2F)))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_CHERRY_GROVE))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
@@ -116,15 +118,15 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome bayou(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome bayou(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.PIG, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.FROG, 2, 5));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityTypes.SLIME, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityTypes.BOGGED, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.PIG, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.FROG, MobCategory.CREATURE, 10, UniformInt.of(2, 5));
+        spawnBuilder.addSpawn(EntityTypes.SLIME, MobCategory.MONSTER, 1, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.BOGGED, MobCategory.MONSTER, 30, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -144,7 +146,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
         return baseBiome(0.95F, 0.9F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x0C211C)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x0C211C))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
             .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
@@ -162,13 +164,13 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome bog(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome bog(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityTypes.SLIME, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityTypes.BOGGED, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.SLIME, MobCategory.MONSTER, 1, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.BOGGED, MobCategory.MONSTER, 30, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -199,13 +201,12 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome coldDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome coldDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        spawnBuilder.creatureGenerationProbability(0.07F);
         BiomeDefaultFeatures.snowySpawns(spawnBuilder, true);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 2, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 2, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -216,6 +217,7 @@ public class BOPOverworldBiomes
 
         return baseBiome(0.25F, 0.0F)
             .hasPrecipitation(false)
+            .setAttribute(EnvironmentAttributes.CREATURE_WORLD_GEN_SPAWN_PROBABILITY, 0.07F)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
@@ -228,15 +230,15 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome coniferousForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean isSnowy)
+    public static Biome coniferousForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter, boolean isSnowy)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         if (!isSnowy) BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.RABBIT, 2, 3));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 5, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.RABBIT, MobCategory.CREATURE, 4, UniformInt.of(2, 3));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -268,12 +270,12 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome crag(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome crag(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.GOAT, 4, 6));
+        spawnBuilder.addSpawn(EntityTypes.GOAT, MobCategory.CREATURE, 10, UniformInt.of(4, 6));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -297,7 +299,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome deadForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome deadForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -327,16 +329,16 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome dryland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome dryland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.CHICKEN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.COW, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 2, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 80, new MobSpawnSettings.SpawnerData(EntityTypes.HUSK, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.PARCHED, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.CHICKEN, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.COW, MobCategory.CREATURE, 8, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 4, UniformInt.of(2, 4));
+        spawnBuilder.addSpawn(EntityTypes.HUSK, MobCategory.MONSTER, 80, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PARCHED, MobCategory.MONSTER, 50, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -353,8 +355,8 @@ public class BOPOverworldBiomes
 
         return baseBiome(0.85F, 0.05F)
             .hasPrecipitation(false)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 12638463)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x9E9DFF)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(12638463))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0x9E9DFF))
             .setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC))
             .specialEffects(
@@ -368,7 +370,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome duneBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome duneBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -388,13 +390,13 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome field(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean forest)
+    public static Biome field(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter, boolean forest)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -437,15 +439,15 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome firClearing(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean snowy)
+    public static Biome firClearing(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter, boolean snowy)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.RABBIT, 2, 3));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 5, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.RABBIT, MobCategory.CREATURE, 4, UniformInt.of(2, 3));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -477,14 +479,14 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome floodplain(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome floodplain(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.FROG, 2, 5));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityTypes.SLIME, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityTypes.BOGGED, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.FROG, MobCategory.CREATURE, 10, UniformInt.of(2, 5));
+        spawnBuilder.addSpawn(EntityTypes.SLIME, MobCategory.MONSTER, 1, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.BOGGED, MobCategory.MONSTER, 30, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -502,7 +504,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_50);
 
         return baseBiome(1.2F, 2.0F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x041A2C)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x041A2C))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
             .setAttribute(EnvironmentAttributes.INCREASED_FIRE_BURNOUT, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_JUNGLE))
@@ -517,12 +519,12 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome fungalJungle(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome fungalJungle(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.FROG, 2, 5));
+        spawnBuilder.addSpawn(EntityTypes.FROG, MobCategory.CREATURE, 10, UniformInt.of(2, 5));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -543,11 +545,11 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_12);
 
         return baseBiome(0.9F, 0.9F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x042F18)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x042F18))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xE1ED63)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x62DCEA)
-            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(0.4F, 0xFF7FBF))
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0xE1ED63))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0x62DCEA))
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.vector4fFromARGB32(ARGB.color(0.4F, 0xFF7FBF)))
             .setAttribute(EnvironmentAttributes.INCREASED_FIRE_BURNOUT, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_JUNGLE))
             .specialEffects(
@@ -561,7 +563,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome glowingGrotto(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome glowingGrotto(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
@@ -583,9 +585,9 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPCavePlacements.EXTRA_GLOW_LICHEN);
 
         return baseBiome(0.5F, 0.5F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x1F78B7)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x408ADA)
-            .setAttribute(EnvironmentAttributes.BLOCK_LIGHT_TINT, 0x408ADA)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x1F78B7))
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x408ADA))
+            .setAttribute(EnvironmentAttributes.BLOCK_LIGHT_TINT, ARGB.vector3fFromRGB24(0x408ADA))
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.75F)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_LUSH_CAVES))
             .specialEffects(
@@ -597,7 +599,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome gravelBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome gravelBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -611,7 +613,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_GRAVEL);
 
         return baseBiome(0.45F, 0.5F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 329011)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(329011))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
@@ -622,13 +624,13 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome highland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome highland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.GOAT, 4, 6));
+        spawnBuilder.addSpawn(EntityTypes.GOAT, MobCategory.CREATURE, 10, UniformInt.of(4, 6));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -653,13 +655,13 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome hotSprings(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome hotSprings(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(EntityTypes.SULFUR_CUBE, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
+        spawnBuilder.addSpawn(EntityTypes.SULFUR_CUBE, MobCategory.MONSTER, 10, UniformInt.of(1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -685,7 +687,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.HOT_SPRING_VENTS);
 
         return baseBiome(0.17F, 0.5F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 270131)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(270131))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_SULFUR_CAVES))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
@@ -698,12 +700,12 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome jadeCliffs(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome jadeCliffs(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 1, new MobSpawnSettings.SpawnerData(EntityTypes.PANDA, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.PANDA, MobCategory.CREATURE, 1, UniformInt.of(1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -719,8 +721,8 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
         return baseBiome(0.8F, 0.85F)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xBBD1D5)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0xB7CCAD)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0xBBD1D5))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0xB7CCAD))
             .setAttribute(EnvironmentAttributes.INCREASED_FIRE_BURNOUT, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_JAGGED_PEAKS))
             .specialEffects(
@@ -734,7 +736,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome lavenderField(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome lavenderField(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -765,7 +767,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome lushDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome lushDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -787,7 +789,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.SPARSE_DUNE_GRASS);
 
         return baseBiome(0.9F, 0.5F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 267827)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(267827))
             .setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_DESERT))
             .specialEffects(
@@ -801,16 +803,16 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome lushSavanna(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome lushSavanna(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.plainsSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.RABBIT, 2, 3));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 80, new MobSpawnSettings.SpawnerData(EntityTypes.HUSK, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.PARCHED, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 6, new MobSpawnSettings.SpawnerData(EntityTypes.ARMADILLO, 1, 2));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 4, 8));
+        spawnBuilder.addSpawn(EntityTypes.RABBIT, MobCategory.CREATURE, 4, UniformInt.of(2, 3));
+        spawnBuilder.addSpawn(EntityTypes.HUSK, MobCategory.MONSTER, 80, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PARCHED, MobCategory.MONSTER, 50, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.ARMADILLO, MobCategory.CREATURE, 6, UniformInt.of(1, 2));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 8, UniformInt.of(4, 8));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -827,7 +829,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_TALL_GRASS_24);
 
         return baseBiome(0.9F, 0.5F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 267827)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(267827))
             .setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_DESERT))
             .specialEffects(
@@ -841,14 +843,14 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome mapleWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean snowy)
+    public static Biome mapleWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter, boolean snowy)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 5, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -887,15 +889,15 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome marsh(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome marsh(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.PIG, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.CHICKEN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityTypes.SLIME, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityTypes.BOGGED, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.PIG, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.CHICKEN, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.SLIME, MobCategory.MONSTER, 1, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.BOGGED, MobCategory.MONSTER, 30, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -916,7 +918,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome mediterraneanForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome mediterraneanForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -938,7 +940,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_3);
 
         return baseBiome(0.8F, 0.275F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 267827)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(267827))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
                     .waterColor(4566514)
@@ -948,13 +950,13 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome moor(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome moor(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.GOAT, 4, 6));
+        spawnBuilder.addSpawn(EntityTypes.GOAT, MobCategory.CREATURE, 10, UniformInt.of(4, 6));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -990,12 +992,12 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome muskeg(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome muskeg(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 1, new MobSpawnSettings.SpawnerData(EntityTypes.FROG, 1, 1));
+        spawnBuilder.addSpawn(EntityTypes.FROG, MobCategory.CREATURE, 1, ConstantInt.of(1));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1025,18 +1027,18 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome mysticGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome mysticGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.caveSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.RABBIT, 2, 3));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.ALLAY, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 5, new MobSpawnSettings.SpawnerData(EntityTypes.ZOMBIE_VILLAGER, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(EntityTypes.SLIME, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 20, new MobSpawnSettings.SpawnerData(EntityTypes.WITCH, 1, 1));
+        spawnBuilder.addSpawn(EntityTypes.RABBIT, MobCategory.CREATURE, 4, UniformInt.of(2, 3));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 4, UniformInt.of(2, 4));
+        spawnBuilder.addSpawn(EntityTypes.ALLAY, MobCategory.CREATURE, 8, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 4, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.ZOMBIE_VILLAGER, MobCategory.MONSTER, 5, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.SLIME, MobCategory.MONSTER, 100, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.WITCH, MobCategory.MONSTER, 20, ConstantInt.of(1));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1058,11 +1060,11 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
         return baseBiome(0.7F, 0.8F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x2E0533)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x2E0533))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xFFC9DA)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0xAAEFFF)
-            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(0.6F, 0x7FFFF4))
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0xFFC9DA))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0xAAEFFF))
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.vector4fFromARGB32(ARGB.color(0.6F, 0x7FFFF4)))
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_CHERRY_GROVE))
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
@@ -1076,7 +1078,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome oldGrowthDeadForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome oldGrowthDeadForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1107,17 +1109,17 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome ominousWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome ominousWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.caveSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.ILLUSIONER, 2, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(EntityTypes.SPIDER, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(EntityTypes.SLIME, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(EntityTypes.ENDERMAN, 1, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WITCH, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 2, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 1, 1));
+        spawnBuilder.addSpawn(EntityTypes.ILLUSIONER, MobCategory.MONSTER, 50, UniformInt.of(2, 4));
+        spawnBuilder.addSpawn(EntityTypes.SPIDER, MobCategory.MONSTER, 100, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.SLIME, MobCategory.MONSTER, 100, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.ENDERMAN, MobCategory.MONSTER, 10, UniformInt.of(1, 4));
+        spawnBuilder.addSpawn(EntityTypes.WITCH, MobCategory.MONSTER, 5, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 2, ConstantInt.of(1));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1131,11 +1133,11 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
         return baseBiome(0.6F, 0.6F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x0A030C)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x0A030C))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x7881A5)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x84A1CC)
-            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(0.8F, 0x666D8C))
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x7881A5))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0x84A1CC))
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.vector4fFromARGB32(ARGB.color(0.8F, 0x666D8C)))
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.15F)
             .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.15F)
             .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.15F)
@@ -1151,7 +1153,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome orchard(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome orchard(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1184,16 +1186,16 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome originValley(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean snowy)
+    public static Biome originValley(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter, boolean snowy)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(EntityTypes.SPIDER, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 95, new MobSpawnSettings.SpawnerData(EntityTypes.ZOMBIE, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(EntityTypes.SKELETON, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(EntityTypes.CREEPER, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(EntityTypes.SLIME, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.SPIDER, MobCategory.MONSTER, 100, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.ZOMBIE, MobCategory.MONSTER, 95, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.SKELETON, MobCategory.MONSTER, 100, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.CREEPER, MobCategory.MONSTER, 100, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.SLIME, MobCategory.MONSTER, 100, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1222,9 +1224,9 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_ORIGIN_VALLEY);
 
         return baseBiome(snowy ? -0.25F : 0.6F, 0.6F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x050533)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xC0D8FF)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x88BBFF)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x050533))
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0xC0D8FF))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0x88BBFF))
             //.setAttribute(EnvironmentAttributes.CLOUD_HEIGHT, 108.33F)
             .setAttribute(EnvironmentAttributes.CAN_PILLAGER_PATROL_SPAWN, false)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_ORIGIN_VALLEY))
@@ -1240,7 +1242,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome overgrownGreens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome overgrownGreens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1274,7 +1276,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome pasture(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome pasture(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1300,7 +1302,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome prairie(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome prairie(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1330,14 +1332,14 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome pumpkinPatch(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome pumpkinPatch(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 5, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1369,15 +1371,15 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome rainforest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome rainforest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.CHICKEN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.PIG, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 40, new MobSpawnSettings.SpawnerData(EntityTypes.PARROT, 1, 2));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 2, new MobSpawnSettings.SpawnerData(EntityTypes.OCELOT, 1, 1));
+        spawnBuilder.addSpawn(EntityTypes.CHICKEN, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PIG, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PARROT, MobCategory.CREATURE, 40, UniformInt.of(1, 2));
+        spawnBuilder.addSpawn(EntityTypes.OCELOT, MobCategory.MONSTER, 2, ConstantInt.of(1));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1402,7 +1404,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
         return baseBiome(1.2F, 2.0F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x042F26)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x042F26))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
             .setAttribute(EnvironmentAttributes.INCREASED_FIRE_BURNOUT, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_JUNGLE))
@@ -1417,14 +1419,14 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome rockyRainforest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome rockyRainforest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.CHICKEN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 40, new MobSpawnSettings.SpawnerData(EntityTypes.PARROT, 1, 2));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 2, new MobSpawnSettings.SpawnerData(EntityTypes.OCELOT, 1, 1));
+        spawnBuilder.addSpawn(EntityTypes.CHICKEN, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PARROT, MobCategory.CREATURE, 40, UniformInt.of(1, 2));
+        spawnBuilder.addSpawn(EntityTypes.OCELOT, MobCategory.MONSTER, 2, ConstantInt.of(1));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1446,7 +1448,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
         return baseBiome(1.2F, 2.0F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x042F26)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x042F26))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
             .setAttribute(EnvironmentAttributes.INCREASED_FIRE_BURNOUT, true)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_JUNGLE))
@@ -1461,15 +1463,15 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome redwoodForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome redwoodForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.RABBIT, 2, 3));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 5, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.RABBIT, MobCategory.CREATURE, 4, UniformInt.of(2, 3));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1501,13 +1503,13 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome rockyShrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome rockyShrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.LLAMA, 4, 6));
+        spawnBuilder.addSpawn(EntityTypes.LLAMA, MobCategory.CREATURE, 5, UniformInt.of(4, 6));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1525,12 +1527,12 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome scrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome scrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.plainsSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 6, new MobSpawnSettings.SpawnerData(EntityTypes.ARMADILLO, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.ARMADILLO, MobCategory.CREATURE, 6, UniformInt.of(1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1552,15 +1554,15 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome seasonalForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome seasonalForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
         BiomeDefaultFeatures.farmAnimals(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.RABBIT, 2, 3));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 5, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.RABBIT, MobCategory.CREATURE, 4, UniformInt.of(2, 3));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1583,7 +1585,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome shrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome shrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1607,14 +1609,14 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome snowblossomGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome snowblossomGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 12, new MobSpawnSettings.SpawnerData(EntityTypes.SHEEP, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 4, new MobSpawnSettings.SpawnerData(EntityTypes.RABBIT, 2, 3));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
+        spawnBuilder.addSpawn(EntityTypes.SHEEP, MobCategory.CREATURE, 12, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.RABBIT, MobCategory.CREATURE, 4, UniformInt.of(2, 3));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1641,11 +1643,11 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome spiderNest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome spiderNest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.CAVE_SPIDER, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.CAVE_SPIDER, MobCategory.MONSTER, 50, UniformInt.of(1, 2));
 
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         globalOverworldGeneration(biomeBuilder);
@@ -1665,7 +1667,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome subtropics(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome subtropics(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1702,18 +1704,18 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome tropics(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome tropics(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.CHICKEN, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.PIG, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 40, new MobSpawnSettings.SpawnerData(EntityTypes.PARROT, 1, 2));
-        spawnBuilder.addSpawn(MobCategory.WATER_AMBIENT, 15, new MobSpawnSettings.SpawnerData(EntityTypes.PUFFERFISH, 1, 3));
-        spawnBuilder.addSpawn(MobCategory.WATER_AMBIENT, 25, new MobSpawnSettings.SpawnerData(EntityTypes.TROPICAL_FISH, 8, 8));
-        spawnBuilder.addSpawn(MobCategory.WATER_CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.SQUID, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.WATER_CREATURE, 2, new MobSpawnSettings.SpawnerData(EntityTypes.DOLPHIN, 1, 2));
+        spawnBuilder.addSpawn(EntityTypes.CHICKEN, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PIG, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PARROT, MobCategory.CREATURE, 40, UniformInt.of(1, 2));
+        spawnBuilder.addSpawn(EntityTypes.PUFFERFISH, MobCategory.WATER_AMBIENT, 15, UniformInt.of(1, 3));
+        spawnBuilder.addSpawn(EntityTypes.TROPICAL_FISH, MobCategory.WATER_AMBIENT, 25, ConstantInt.of(8));
+        spawnBuilder.addSpawn(EntityTypes.SQUID, MobCategory.WATER_CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.DOLPHIN, MobCategory.WATER_CREATURE, 2, UniformInt.of(1, 2));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1732,10 +1734,10 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_12);
 
         return baseBiome(0.95F, 1.0F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 270131)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xB2EDFF)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x66BCFF)
-            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.white(0.0F))
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(270131))
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0xB2EDFF))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0x66BCFF))
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.vector4fFromARGB32(ARGB.white(0.0F)))
             .setAttribute(EnvironmentAttributes.INCREASED_FIRE_BURNOUT, true)
             .setAttribute(EnvironmentAttributes.CAN_PILLAGER_PATROL_SPAWN, false)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_JUNGLE))
@@ -1748,12 +1750,12 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome tundra(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome tundra(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 5, new MobSpawnSettings.SpawnerData(EntityTypes.WOLF, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.WOLF, MobCategory.CREATURE, 5, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1781,7 +1783,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome volcano(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome volcano(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1803,10 +1805,10 @@ public class BOPOverworldBiomes
 
         return baseBiome(0.95F, 0.3F)
             .hasPrecipitation(false)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 267827)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(267827))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x7F7F7F)
-            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(1.0F, 0x7F7F7F))
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x7F7F7F))
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.vector4fFromARGB32(ARGB.color(1.0F, 0x7F7F7F)))
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
             .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
             .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
@@ -1825,7 +1827,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome volcanicPlains(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome volcanicPlains(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1845,9 +1847,9 @@ public class BOPOverworldBiomes
 
         return baseBiome(0.95F, 0.3F)
             .hasPrecipitation(false)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 267827)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(267827))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
-            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.color(0.8F, 0xBEBEBE))
+            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.vector4fFromARGB32(ARGB.color(0.8F, 0xBEBEBE)))
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
             .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
             .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
@@ -1864,13 +1866,13 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome wasteland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome wasteland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawnWithZombieHorse(spawnBuilder);
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 80, new MobSpawnSettings.SpawnerData(EntityTypes.HUSK, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityTypes.PARCHED, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.HUSK, MobCategory.MONSTER, 80, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.PARCHED, MobCategory.MONSTER, 50, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1883,10 +1885,10 @@ public class BOPOverworldBiomes
 
         return baseBiome(2.0F, 0.0F)
             .hasPrecipitation(false)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x0C0C03)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x0C0C03))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xDBDDC1)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x89A3B7)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0xDBDDC1))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0x89A3B7))
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
             .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
             .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.25F)
@@ -1905,7 +1907,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome wastelandSteppe(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome wastelandSteppe(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -1922,10 +1924,10 @@ public class BOPOverworldBiomes
 
         return baseBiome(2.0F, 0.0F)
             .hasPrecipitation(false)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x08081B)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x08081B))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
-            .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xCDDADF)
-            .setAttribute(EnvironmentAttributes.SKY_COLOR, 0x7CA8D6)
+            .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0xCDDADF))
+            .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0x7CA8D6))
             .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.375F)
             .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.375F)
             .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.375F)
@@ -1943,16 +1945,16 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome wetland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome wetland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder, 70);
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.PIG, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 8, new MobSpawnSettings.SpawnerData(EntityTypes.FOX, 2, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityTypes.FROG, 2, 5));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityTypes.SLIME, 1, 1));
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 30, new MobSpawnSettings.SpawnerData(EntityTypes.BOGGED, 4, 4));
+        spawnBuilder.addSpawn(EntityTypes.PIG, MobCategory.CREATURE, 10, ConstantInt.of(4));
+        spawnBuilder.addSpawn(EntityTypes.FOX, MobCategory.CREATURE, 8, UniformInt.of(2, 4));
+        spawnBuilder.addSpawn(EntityTypes.FROG, MobCategory.CREATURE, 10, UniformInt.of(2, 5));
+        spawnBuilder.addSpawn(EntityTypes.SLIME, MobCategory.MONSTER, 1, ConstantInt.of(1));
+        spawnBuilder.addSpawn(EntityTypes.BOGGED, MobCategory.MONSTER, 30, ConstantInt.of(4));
 
         // Biome features
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -1974,7 +1976,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_WATERGRASS_10);
 
         return baseBiome(0.6F, 0.7F)
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x0C031B)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x0C031B))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_SWAMP))
             .specialEffects(
@@ -1988,7 +1990,7 @@ public class BOPOverworldBiomes
             .generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome woodland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean dense)
+    public static Biome woodland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter, boolean dense)
     {
         // Mob spawns
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();

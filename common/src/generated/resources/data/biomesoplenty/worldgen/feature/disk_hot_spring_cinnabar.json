@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:disk",
+  "half_height": 1,
+  "radius": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 5,
+    "min_inclusive": 4
+  },
+  "state_provider": {
+    "id": "minecraft:cinnabar"
+  },
+  "target": {
+    "type": "minecraft:matching_blocks",
+    "blocks": [
+      "minecraft:dirt",
+      "minecraft:coarse_dirt",
+      "minecraft:podzol",
+      "minecraft:grass_block",
+      "minecraft:sand",
+      "minecraft:gravel",
+      "minecraft:clay",
+      "minecraft:andesite",
+      "minecraft:granite",
+      "minecraft:diorite",
+      "minecraft:stone",
+      "minecraft:packed_mud",
+      "minecraft:smooth_basalt",
+      "minecraft:calcite"
+    ]
+  }
+}

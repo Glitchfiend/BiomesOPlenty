@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:umbran_stairs"
+        "recipes": "biomesoplenty:umbran_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

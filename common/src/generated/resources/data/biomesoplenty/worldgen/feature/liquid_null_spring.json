@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:spring_feature",
+  "requires_block_below": false,
+  "state": {
+    "id": "biomesoplenty:liquid_null",
+    "properties": {
+      "falling": "true"
+    }
+  },
+  "valid_blocks": [
+    "minecraft:end_stone",
+    "biomesoplenty:null_end_stone",
+    "biomesoplenty:unmapped_end_stone"
+  ]
+}

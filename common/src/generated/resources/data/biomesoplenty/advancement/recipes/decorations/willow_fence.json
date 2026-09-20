@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:willow_fence"
+        "recipes": "biomesoplenty:willow_fence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

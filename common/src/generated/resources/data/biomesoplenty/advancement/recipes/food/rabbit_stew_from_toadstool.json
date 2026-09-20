@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:rabbit_stew_from_toadstool"
+        "recipes": "biomesoplenty:rabbit_stew_from_toadstool"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

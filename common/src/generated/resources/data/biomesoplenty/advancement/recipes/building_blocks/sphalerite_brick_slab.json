@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:sphalerite_brick_slab"
+        "recipes": "biomesoplenty:sphalerite_brick_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

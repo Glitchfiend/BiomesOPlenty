@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "id": "biomesoplenty:reed",
+    "properties": {
+      "half": "lower",
+      "waterlogged": "true"
+    }
+  }
+}

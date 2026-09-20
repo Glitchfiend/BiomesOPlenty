@@ -18,29 +18,27 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
+import com.mojang.serialization.MapCodec;
 
-public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
+public class FallenBirchLogFeature implements Feature
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos).getBlock() == Blocks.COARSE_DIRT;
     protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() instanceof VegetationBlock;
 
-    public FallenBirchLogFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<FallenBirchLogFeature> CODEC = MapCodec.unit(FallenBirchLogFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<FallenBirchLogFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos startPos = featurePlaceContext.origin();
-        NoneFeatureConfiguration config = featurePlaceContext.config();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos startPos)
+    {
         while (startPos.getY() >= world.getMinY()+1 && this.replace.matches(world, startPos)) {
             startPos = startPos.below();
         }
@@ -132,7 +130,7 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
                 BlockState blockBelow = world.getBlockState(rootPos);
                 if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
                 {
-                    super.setBlock(world, rootPos, Blocks.ROOTED_DIRT.defaultBlockState());
+                    Feature.super.setBlock(world, rootPos, Blocks.ROOTED_DIRT.defaultBlockState());
                 }
             }
         }
@@ -164,7 +162,7 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
             }
             if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
             {
-                super.setBlock(world, pos.below().relative(direction, i), Blocks.ROOTED_DIRT.defaultBlockState());
+                Feature.super.setBlock(world, pos.below().relative(direction, i), Blocks.ROOTED_DIRT.defaultBlockState());
             }
         }
 
@@ -175,12 +173,12 @@ public class FallenBirchLogFeature extends Feature<NoneFeatureConfiguration>
     {
         if (this.replace.matches(world, pos))
         {
-            super.setBlock(world, pos, state);
+            Feature.super.setBlock(world, pos, state);
             return true;
         }
         else if (world.getBlockState(pos).getFluidState().is(Fluids.WATER) && state.getBlock() == Blocks.HANGING_ROOTS)
         {
-            super.setBlock(world, pos, state);
+            Feature.super.setBlock(world, pos, state);
             return true;
         }
 

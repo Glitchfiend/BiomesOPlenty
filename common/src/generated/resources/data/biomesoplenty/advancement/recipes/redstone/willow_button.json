@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:willow_button"
+        "recipes": "biomesoplenty:willow_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -18,30 +18,28 @@ import net.minecraft.world.level.block.IceBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
+import com.mojang.serialization.MapCodec;
 
-public class HugeLilyPadFeature extends Feature<NoneFeatureConfiguration>
+public class HugeLilyPadFeature implements Feature
 {
     protected SimpleBlockPredicate placeOn = (world, pos) -> (world.getBlockState(pos).getFluidState().getType() == Fluids.WATER || world.getBlockState(pos).getBlock() instanceof IceBlock) && world.getBlockState(pos.above()).getFluidState().getType() == Fluids.EMPTY;
     protected SimpleBlockPredicate replace = (world, pos) -> TreeFeature.isAirOrLeaves(world, pos) || world.getBlockState(pos).getBlock() == BOPBlocks.WATERGRASS;
 
-    public HugeLilyPadFeature(Codec<NoneFeatureConfiguration> deserializer)
-    {
-        super(deserializer);
-    }
+    public static final MapCodec<HugeLilyPadFeature> CODEC = MapCodec.unit(HugeLilyPadFeature::new);
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext)
+    public MapCodec<HugeLilyPadFeature> codec()
     {
-        WorldGenLevel world = featurePlaceContext.level();
-        ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
-        RandomSource rand = featurePlaceContext.random();
-        BlockPos startPos = featurePlaceContext.origin();
+        return CODEC;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos startPos)
+    {
         Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
-        NoneFeatureConfiguration config = featurePlaceContext.config();
         while (startPos.getY() >= world.getMinY()+1 && this.replace.matches(world, startPos)) {startPos = startPos.below();}
 
         if (!this.placeOn.matches(world, startPos))
@@ -70,8 +68,8 @@ public class HugeLilyPadFeature extends Feature<NoneFeatureConfiguration>
     {
         if (this.replace.matches(world, pos))
         {
-            super.setBlock(world, pos, state);
-            super.markAboveForPostProcessing(world, pos.below());
+            Feature.super.setBlock(world, pos, state);
+            Feature.super.markAboveForPostProcessing(world, pos.below());
             return true;
         }
         return false;

@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.Optional;
+import net.minecraft.world.level.block.BonemealSource;
 
 public class NullBlock extends Block implements BonemealableBlock
 {
@@ -55,19 +56,19 @@ public class NullBlock extends Block implements BonemealableBlock
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_)
+    public boolean isValidBonemealTarget(LevelReader p_153797_, BlockPos p_153798_, BlockState p_153799_, BonemealSource source)
     {
         return p_153797_.getBlockState(p_153798_.above()).isAir();
     }
 
     @Override
-    public boolean isBonemealSuccess(Level p_153802_, RandomSource p_153803_, BlockPos p_153804_, BlockState p_153805_)
+    public boolean isBonemealSuccess(Level p_153802_, RandomSource p_153803_, BlockPos p_153804_, BlockState p_153805_, BonemealSource source)
     {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_)
+    public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_, BonemealSource source)
     {
         BlockPos blockpos = p_221272_.above();
         Optional<Holder.Reference<PlacedFeature>> optional = p_221270_.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE).get(BOPEndPlacements.NULL_PLANT_BONEMEAL);

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:empyreal_tree",
+  "features": [
+    {
+      "chance": 0.075,
+      "feature": "biomesoplenty:empyreal_tree"
+    }
+  ]
+}

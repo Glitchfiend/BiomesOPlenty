@@ -7,46 +7,86 @@ package biomesoplenty.worldgen.feature.misc;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.util.biome.RoseQuartzUtils;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.FloatProvider;
+import net.minecraft.util.valueproviders.FloatProviders;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Column;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.LargeDripstoneConfiguration;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
 
-public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
+public class LargeRoseQuartzFeature implements Feature
 {
-    public LargeRoseQuartzFeature(Codec<LargeDripstoneConfiguration> p_159960_)
+    public static final MapCodec<LargeRoseQuartzFeature> CODEC = RecordCodecBuilder.mapCodec(
+        i -> i.group(
+                Codec.intRange(1, 512).optionalFieldOf("floor_to_ceiling_search_range", 30).forGetter(f -> f.floorToCeilingSearchRange),
+                IntProviders.codec(1, 16).fieldOf("column_radius").forGetter(f -> f.columnRadius),
+                FloatProviders.codec(0.0F, 20.0F).fieldOf("height_scale").forGetter(f -> f.heightScale),
+                Codec.floatRange(0.1F, 1.0F).fieldOf("max_column_radius_to_cave_height_ratio").forGetter(f -> f.maxColumnRadiusToCaveHeightRatio),
+                FloatProviders.codec(0.1F, 10.0F).fieldOf("stalactite_bluntness").forGetter(f -> f.stalactiteBluntness),
+                FloatProviders.codec(0.1F, 10.0F).fieldOf("stalagmite_bluntness").forGetter(f -> f.stalagmiteBluntness),
+                FloatProviders.codec(0.0F, 2.0F).fieldOf("wind_speed").forGetter(f -> f.windSpeed),
+                Codec.intRange(0, 100).fieldOf("min_radius_for_wind").forGetter(f -> f.minRadiusForWind),
+                Codec.floatRange(0.0F, 5.0F).fieldOf("min_bluntness_for_wind").forGetter(f -> f.minBluntnessForWind)
+            ).apply(i, LargeRoseQuartzFeature::new)
+    );
+
+    @Override
+    public MapCodec<LargeRoseQuartzFeature> codec()
     {
-        super(p_159960_);
+        return CODEC;
     }
 
-    public boolean place(FeaturePlaceContext<LargeDripstoneConfiguration> p_159967_)
+    public final int floorToCeilingSearchRange;
+    public final IntProvider columnRadius;
+    public final FloatProvider heightScale;
+    public final float maxColumnRadiusToCaveHeightRatio;
+    public final FloatProvider stalactiteBluntness;
+    public final FloatProvider stalagmiteBluntness;
+    public final FloatProvider windSpeed;
+    public final int minRadiusForWind;
+    public final float minBluntnessForWind;
+
+    public LargeRoseQuartzFeature(int floorToCeilingSearchRange, IntProvider columnRadius, FloatProvider heightScale, float maxColumnRadiusToCaveHeightRatio, FloatProvider stalactiteBluntness, FloatProvider stalagmiteBluntness, FloatProvider windSpeed, int minRadiusForWind, float minBluntnessForWind)
     {
-        WorldGenLevel worldgenlevel = p_159967_.level();
-        BlockPos blockpos = p_159967_.origin();
-        LargeDripstoneConfiguration largedripstoneconfiguration = p_159967_.config();
-        RandomSource random = p_159967_.random();
+        this.floorToCeilingSearchRange = floorToCeilingSearchRange;
+        this.columnRadius = columnRadius;
+        this.heightScale = heightScale;
+        this.maxColumnRadiusToCaveHeightRatio = maxColumnRadiusToCaveHeightRatio;
+        this.stalactiteBluntness = stalactiteBluntness;
+        this.stalagmiteBluntness = stalagmiteBluntness;
+        this.windSpeed = windSpeed;
+        this.minRadiusForWind = minRadiusForWind;
+        this.minBluntnessForWind = minBluntnessForWind;
+    }
+
+
+    @Override
+    public boolean place(WorldGenLevel worldgenlevel, ChunkGenerator chunkGenerator, RandomSource random, BlockPos blockpos)
+    {
         if (!RoseQuartzUtils.isEmptyOrWater(worldgenlevel, blockpos))
         {
             return false;
         }
         else
         {
-            Optional<Column> optional = Column.scan(worldgenlevel, blockpos, largedripstoneconfiguration.floorToCeilingSearchRange, RoseQuartzUtils::isEmptyOrWater, RoseQuartzUtils::isRoseQuartzBaseOrLava);
+            Optional<Column> optional = Column.scan(worldgenlevel, blockpos, this.floorToCeilingSearchRange, RoseQuartzUtils::isEmptyOrWater, RoseQuartzUtils::isRoseQuartzBaseOrLava);
             if (optional.isPresent() && optional.get() instanceof Column.Range)
             {
                 Column.Range column$range = (Column.Range)optional.get();
@@ -56,14 +96,14 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
                 }
                 else
                 {
-                    int i = (int)((float)column$range.height() * largedripstoneconfiguration.maxColumnRadiusToCaveHeightRatio);
-                    int j = Mth.clamp(i, largedripstoneconfiguration.columnRadius.minInclusive(), largedripstoneconfiguration.columnRadius.maxInclusive());
-                    int k = Mth.randomBetweenInclusive(random, largedripstoneconfiguration.columnRadius.minInclusive(), j);
-                    LargeRoseQuartzFeature.LargeRoseQuartz largedripstonefeature$largedripstone = makeRoseQuartz(blockpos.atY(column$range.ceiling() - 1), false, random, k, largedripstoneconfiguration.stalactiteBluntness, largedripstoneconfiguration.heightScale);
-                    LargeRoseQuartzFeature.LargeRoseQuartz largedripstonefeature$largedripstone1 = makeRoseQuartz(blockpos.atY(column$range.floor() + 1), true, random, k, largedripstoneconfiguration.stalagmiteBluntness, largedripstoneconfiguration.heightScale);
+                    int i = (int)((float)column$range.height() * this.maxColumnRadiusToCaveHeightRatio);
+                    int j = Mth.clamp(i, this.columnRadius.minInclusive(), this.columnRadius.maxInclusive());
+                    int k = Mth.randomBetweenInclusive(random, this.columnRadius.minInclusive(), j);
+                    LargeRoseQuartzFeature.LargeRoseQuartz largedripstonefeature$largedripstone = makeRoseQuartz(blockpos.atY(column$range.ceiling() - 1), false, random, k, this.stalactiteBluntness, this.heightScale);
+                    LargeRoseQuartzFeature.LargeRoseQuartz largedripstonefeature$largedripstone1 = makeRoseQuartz(blockpos.atY(column$range.floor() + 1), true, random, k, this.stalagmiteBluntness, this.heightScale);
                     LargeRoseQuartzFeature.WindOffsetter largedripstonefeature$windoffsetter;
-                    if (largedripstonefeature$largedripstone.isSuitableForWind(largedripstoneconfiguration) && largedripstonefeature$largedripstone1.isSuitableForWind(largedripstoneconfiguration)) {
-                        largedripstonefeature$windoffsetter = new LargeRoseQuartzFeature.WindOffsetter(blockpos.getY(), random, largedripstoneconfiguration.windSpeed);
+                    if (largedripstonefeature$largedripstone.isSuitableForWind(this) && largedripstonefeature$largedripstone1.isSuitableForWind(this)) {
+                        largedripstonefeature$windoffsetter = new LargeRoseQuartzFeature.WindOffsetter(blockpos.getY(), random, this.windSpeed);
                     }
                     else
                     {
@@ -236,7 +276,7 @@ public class LargeRoseQuartzFeature extends Feature<LargeDripstoneConfiguration>
 
         }
 
-        boolean isSuitableForWind(LargeDripstoneConfiguration p_159997_) {
+        boolean isSuitableForWind(LargeRoseQuartzFeature p_159997_) {
             return this.radius >= p_159997_.minRadiusForWind && this.bluntness >= (double)p_159997_.minBluntnessForWind;
         }
     }

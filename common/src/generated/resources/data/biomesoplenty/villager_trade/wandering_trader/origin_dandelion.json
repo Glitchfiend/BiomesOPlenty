@@ -2,7 +2,7 @@
   "gives": {
     "id": "biomesoplenty:origin_dandelion"
   },
-  "max_uses": 6.0,
+  "max_uses": 6,
   "reputation_discount": 0.05,
   "wants": {
     "id": "minecraft:emerald"

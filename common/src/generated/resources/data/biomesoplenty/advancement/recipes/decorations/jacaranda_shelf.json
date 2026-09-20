@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:jacaranda_shelf"
+        "recipes": "biomesoplenty:jacaranda_shelf"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "id": "biomesoplenty:watergrass",
+    "properties": {
+      "half": "lower",
+      "waterlogged": "true"
+    }
+  }
+}

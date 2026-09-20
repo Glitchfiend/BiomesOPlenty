@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:fir_trapdoor"
+        "recipes": "biomesoplenty:fir_trapdoor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

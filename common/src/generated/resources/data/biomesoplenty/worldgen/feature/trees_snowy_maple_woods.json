@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:purple_maple_tree",
+  "features": [
+    {
+      "chance": 0.05,
+      "feature": "minecraft:oak_leaf_litter"
+    },
+    {
+      "chance": 0.025,
+      "feature": "minecraft:fancy_oak_checked"
+    },
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:pink_maple_tree"
+    },
+    {
+      "chance": 0.3,
+      "feature": "biomesoplenty:magenta_maple_tree"
+    },
+    {
+      "chance": 0.05,
+      "feature": "biomesoplenty:big_pink_maple_tree"
+    },
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:big_magenta_maple_tree"
+    },
+    {
+      "chance": 0.1,
+      "feature": "biomesoplenty:big_purple_maple_tree"
+    }
+  ]
+}

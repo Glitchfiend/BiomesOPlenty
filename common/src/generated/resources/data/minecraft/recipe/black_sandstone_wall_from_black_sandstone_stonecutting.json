@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "biomesoplenty:black_sandstone",
-  "result": {
-    "id": "biomesoplenty:black_sandstone_wall"
-  }
-}

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:mahogany_stairs"
+        "recipes": "biomesoplenty:mahogany_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

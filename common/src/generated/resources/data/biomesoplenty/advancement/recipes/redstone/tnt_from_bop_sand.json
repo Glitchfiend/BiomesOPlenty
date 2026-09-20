@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:tnt_from_bop_sand"
+        "recipes": "biomesoplenty:tnt_from_bop_sand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

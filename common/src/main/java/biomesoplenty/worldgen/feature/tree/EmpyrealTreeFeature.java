@@ -7,6 +7,7 @@ package biomesoplenty.worldgen.feature.tree;
 import biomesoplenty.util.biome.GeneratorUtil;
 import biomesoplenty.worldgen.feature.configurations.EmpyrealTreeConfiguration;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -15,22 +16,30 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.function.BiConsumer;
 
 public class EmpyrealTreeFeature extends BOPTreeFeature<EmpyrealTreeConfiguration>
 {
-    public EmpyrealTreeFeature(Codec<EmpyrealTreeConfiguration> codec)
-    {
-        super(codec);
-    }
+    public static final MapCodec<EmpyrealTreeFeature> CODEC = EmpyrealTreeConfiguration.CODEC.xmap(EmpyrealTreeFeature::new, f -> f.config);
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
+    public MapCodec<EmpyrealTreeFeature> codec()
     {
-        EmpyrealTreeConfiguration config = (EmpyrealTreeConfiguration)configBase;
+        return CODEC;
+    }
+
+    public EmpyrealTreeFeature(EmpyrealTreeConfiguration config)
+    {
+        super(config);
+    }
+
+
+    @Override
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves)
+    {
+        EmpyrealTreeConfiguration config = this.config;
 
         // Move down until we reach the ground
         while (startPos.getY() >= world.getMinY()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {startPos = startPos.below();}

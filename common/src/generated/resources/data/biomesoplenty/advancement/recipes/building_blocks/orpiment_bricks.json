@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:orpiment_bricks"
+        "recipes": "biomesoplenty:orpiment_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

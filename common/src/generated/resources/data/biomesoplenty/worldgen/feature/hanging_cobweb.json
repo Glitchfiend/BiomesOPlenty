@@ -1,0 +1,54 @@
+{
+  "type": "minecraft:block_column",
+  "allowed_placement": {
+    "type": "minecraft:matching_block_tag",
+    "tag": "minecraft:air"
+  },
+  "direction": "down",
+  "layers": [
+    {
+      "height": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "max_inclusive": 15,
+              "min_inclusive": 0
+            },
+            "weight": 2
+          },
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "max_inclusive": 3,
+              "min_inclusive": 0
+            },
+            "weight": 3
+          },
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "max_inclusive": 7,
+              "min_inclusive": 0
+            },
+            "weight": 3
+          }
+        ]
+      },
+      "provider": {
+        "id": "biomesoplenty:hanging_cobweb_strand"
+      }
+    },
+    {
+      "height": 1,
+      "provider": {
+        "id": "biomesoplenty:hanging_cobweb",
+        "properties": {
+          "age": "0"
+        }
+      }
+    }
+  ],
+  "prioritize_tip": true
+}

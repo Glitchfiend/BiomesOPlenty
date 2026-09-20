@@ -1,0 +1,45 @@
+{
+  "type": "biomesoplenty:big_tree",
+  "alt_foliage_provider": {
+    "id": "biomesoplenty:flowering_oak_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "decorators": [
+    {
+      "type": "minecraft:beehive",
+      "probability": 0.05
+    }
+  ],
+  "foliage_density": 1.0,
+  "foliage_height": 5,
+  "foliage_provider": {
+    "id": "minecraft:oak_leaves",
+    "properties": {
+      "distance": "7",
+      "persistent": "false",
+      "waterlogged": "false"
+    }
+  },
+  "hanging_provider": {
+    "id": "minecraft:air"
+  },
+  "max_height": 12,
+  "min_height": 5,
+  "trunk_fruit_provider": {
+    "id": "minecraft:air"
+  },
+  "trunk_provider": {
+    "id": "minecraft:oak_log",
+    "properties": {
+      "axis": "y"
+    }
+  },
+  "trunk_width": 1,
+  "vine_provider": {
+    "id": "minecraft:air"
+  }
+}

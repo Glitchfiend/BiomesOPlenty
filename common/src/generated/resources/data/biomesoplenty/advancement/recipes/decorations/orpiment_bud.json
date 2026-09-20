@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:orpiment_bud"
+        "recipes": "biomesoplenty:orpiment_bud"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

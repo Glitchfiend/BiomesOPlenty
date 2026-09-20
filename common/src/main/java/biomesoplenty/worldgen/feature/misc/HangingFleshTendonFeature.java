@@ -15,23 +15,25 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 
-public class HangingFleshTendonFeature extends Feature<NoneFeatureConfiguration>
+public class HangingFleshTendonFeature implements Feature
 {
     private static final Direction[] DIRECTIONS = Direction.values();
 
-    public HangingFleshTendonFeature(Codec<NoneFeatureConfiguration> p_67375_)
+    public static final MapCodec<HangingFleshTendonFeature> CODEC = MapCodec.unit(HangingFleshTendonFeature::new);
+
+    @Override
+    public MapCodec<HangingFleshTendonFeature> codec()
     {
-        super(p_67375_);
+        return CODEC;
     }
 
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_160661_)
+
+    @Override
+    public boolean place(WorldGenLevel worldgenlevel, ChunkGenerator chunkGenerator, RandomSource random, BlockPos blockpos)
     {
-        WorldGenLevel worldgenlevel = p_160661_.level();
-        BlockPos blockpos = p_160661_.origin();
-        RandomSource random = p_160661_.random();
         if (!worldgenlevel.isEmptyBlock(blockpos))
         {
             return false;

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:fir_shelf"
+        "recipes": "biomesoplenty:fir_shelf"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

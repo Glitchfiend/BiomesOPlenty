@@ -7,28 +7,37 @@ package biomesoplenty.worldgen.feature.tree;
 import biomesoplenty.util.biome.GeneratorUtil;
 import biomesoplenty.worldgen.feature.configurations.CypressTreeConfiguration;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 
 import java.util.function.BiConsumer;
 
 public class CypressTreeFeature extends BOPTreeFeature<CypressTreeConfiguration>
 {
-    public CypressTreeFeature(Codec<CypressTreeConfiguration> codec)
-    {
-        super(codec);
-    }
+    public static final MapCodec<CypressTreeFeature> CODEC = CypressTreeConfiguration.CODEC.xmap(CypressTreeFeature::new, f -> f.config);
 
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
+    public MapCodec<CypressTreeFeature> codec()
     {
-        CypressTreeConfiguration config = (CypressTreeConfiguration)configBase;
+        return CODEC;
+    }
+
+    public CypressTreeFeature(CypressTreeConfiguration config)
+    {
+        super(config);
+    }
+
+
+    @Override
+    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves)
+    {
+        CypressTreeConfiguration config = this.config;
 
         // Move down until we reach the ground
         while (startPos.getY() >= world.getMinY()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {startPos = startPos.below();}

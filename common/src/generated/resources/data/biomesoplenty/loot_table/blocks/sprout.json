@@ -8,35 +8,26 @@
           "children": [
             {
               "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "items": "#c:tools/shear"
-                  }
-                }
-              ],
+              "condition": "minecraft:tool/can_shear",
               "name": "biomesoplenty:sprout"
             },
             {
               "type": "minecraft:item",
-              "conditions": [
+              "condition": {
+                "type": "minecraft:random_chance",
+                "chance": 0.125
+              },
+              "modifier": [
                 {
-                  "chance": 0.125,
-                  "condition": "minecraft:random_chance"
-                }
-              ],
-              "functions": [
-                {
+                  "type": "minecraft:apply_bonus",
                   "enchantment": "minecraft:fortune",
                   "formula": "minecraft:uniform_bonus_count",
-                  "function": "minecraft:apply_bonus",
                   "parameters": {
                     "bonusMultiplier": 2
                   }
                 },
                 {
-                  "function": "minecraft:explosion_decay"
+                  "type": "minecraft:explosion_decay"
                 }
               ],
               "name": "minecraft:wheat_seeds"
@@ -44,7 +35,7 @@
           ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "biomesoplenty:blocks/sprout"

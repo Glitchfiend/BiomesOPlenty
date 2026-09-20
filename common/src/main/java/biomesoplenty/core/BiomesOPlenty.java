@@ -6,7 +6,6 @@ package biomesoplenty.core;
 
 import biomesoplenty.api.BOPAPI;
 import biomesoplenty.init.*;
-import biomesoplenty.worldgen.carver.BOPWorldCarvers;
 import biomesoplenty.worldgen.feature.BOPBaseFeatures;
 import glitchcore.event.EventManager;
 import glitchcore.util.Environment;
@@ -40,8 +39,7 @@ public class BiomesOPlenty
         regHelper.addRegistrar(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities::registerBlockEntities);
         regHelper.addRegistrar(Registries.FLUID, ModFluids::registerFluids);
         regHelper.addRegistrar(Registries.ITEM, ModItems::setup);
-        regHelper.addRegistrar(Registries.FEATURE, BOPBaseFeatures::registerFeatures);
-        regHelper.addRegistrar(Registries.CARVER, BOPWorldCarvers::registerCarvers);
+        regHelper.addRegistrar(Registries.FEATURE_TYPE, BOPBaseFeatures::registerFeatureTypes);
         regHelper.addRegistrar(Registries.ENTITY_TYPE, ModEntities::registerEntities);
         regHelper.addRegistrar(Registries.CREATIVE_MODE_TAB, ModCreativeTab::registerCreativeTabs);
         regHelper.addRegistrar(Registries.PARTICLE_TYPE, ModParticles::registerParticles);

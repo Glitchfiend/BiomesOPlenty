@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.biome;
 
+import net.minecraft.util.ARGB;
 import biomesoplenty.init.ModParticles;
 import biomesoplenty.worldgen.placement.BOPEndPlacements;
 import biomesoplenty.worldgen.placement.BOPVegetationPlacements;
@@ -13,7 +14,7 @@ import net.minecraft.world.attribute.AmbientParticle;
 import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class BOPEndBiomes
@@ -26,7 +27,7 @@ public class BOPEndBiomes
             .specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build());
     }
 
-    public static Biome endWilds(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome endWilds(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -42,7 +43,7 @@ public class BOPEndBiomes
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome endReef(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome endReef(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -56,13 +57,13 @@ public class BOPEndBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_DEAD_GRASS);
 
         return baseBiome()
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x434949)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x434949))
             .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(ModParticles.WISP_BUBBLE, 0.001F))
             .specialEffects(new BiomeSpecialEffects.Builder().grassColorOverride(0xE5FFFC).foliageColorOverride(0xE5FFFC).waterColor(0xE5FFFC).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome endMycosis(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome endMycosis(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -73,7 +74,7 @@ public class BOPEndBiomes
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome endFlats(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome endFlats(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -81,12 +82,12 @@ public class BOPEndBiomes
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BOPEndPlacements.ENDSCRAPER);
 
         return baseBiome()
-            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 0x497164)
+            .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x497164))
             .specialEffects(new BiomeSpecialEffects.Builder().waterColor(0x66A977).build())
             .mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome endCorruption(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter)
+    public static Biome endCorruption(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<WorldCarver> carverGetter)
     {
         MobSpawnSettings.Builder mobSpawnBuilder = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);

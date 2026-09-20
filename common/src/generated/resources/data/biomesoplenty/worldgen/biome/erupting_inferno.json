@@ -20,6 +20,52 @@
         "sound": "biomesoplenty:music.nether.erupting_inferno"
       }
     },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "creature": [
+            {
+              "type": "minecraft:strider",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 2,
+                "min_inclusive": 1
+              },
+              "weight": 100
+            }
+          ],
+          "monster": [
+            {
+              "type": "minecraft:ghast",
+              "count": 4,
+              "weight": 50
+            },
+            {
+              "type": "minecraft:magma_cube",
+              "count": 4,
+              "weight": 2
+            },
+            {
+              "type": "minecraft:zombified_piglin",
+              "count": 4,
+              "weight": 60
+            },
+            {
+              "type": "minecraft:piglin",
+              "count": 4,
+              "weight": 15
+            },
+            {
+              "type": "minecraft:enderman",
+              "count": 4,
+              "weight": 1
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
     "minecraft:visual/ambient_particles": [
       {
         "particle": {
@@ -68,54 +114,5 @@
     ]
   ],
   "has_precipitation": false,
-  "spawn_costs": {},
-  "spawners": {
-    "ambient": [],
-    "axolotls": [],
-    "creature": [
-      {
-        "type": "minecraft:strider",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 100
-      }
-    ],
-    "misc": [],
-    "monster": [
-      {
-        "type": "minecraft:ghast",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 50
-      },
-      {
-        "type": "minecraft:magma_cube",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 2
-      },
-      {
-        "type": "minecraft:zombified_piglin",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 60
-      },
-      {
-        "type": "minecraft:piglin",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 15
-      },
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 1
-      }
-    ],
-    "underground_water_creature": [],
-    "water_ambient": [],
-    "water_creature": []
-  },
   "temperature": 2.0
 }

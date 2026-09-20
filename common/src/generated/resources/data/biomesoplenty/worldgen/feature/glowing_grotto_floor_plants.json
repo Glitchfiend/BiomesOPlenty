@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "biomesoplenty:glowshroom",
+        "weight": 6
+      },
+      {
+        "data": "biomesoplenty:glowing_moss_carpet",
+        "weight": 25
+      }
+    ]
+  }
+}

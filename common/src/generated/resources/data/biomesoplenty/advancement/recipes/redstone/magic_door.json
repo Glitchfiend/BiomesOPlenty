@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomesoplenty:magic_door"
+        "recipes": "biomesoplenty:magic_door"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -20,6 +20,26 @@
         "sound": "biomesoplenty:music.nether.withered_abyss"
       }
     },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "minecraft:enderman",
+              "count": 4,
+              "weight": 50
+            },
+            {
+              "type": "minecraft:wither_skeleton",
+              "count": 1,
+              "weight": 50
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
     "minecraft:visual/fog_color": "#0a0711"
   },
   "carvers": "minecraft:nether_cave",
@@ -50,29 +70,5 @@
     ]
   ],
   "has_precipitation": false,
-  "spawn_costs": {},
-  "spawners": {
-    "ambient": [],
-    "axolotls": [],
-    "creature": [],
-    "misc": [],
-    "monster": [
-      {
-        "type": "minecraft:enderman",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 50
-      },
-      {
-        "type": "minecraft:wither_skeleton",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 50
-      }
-    ],
-    "underground_water_creature": [],
-    "water_ambient": [],
-    "water_creature": []
-  },
   "temperature": 2.0
 }

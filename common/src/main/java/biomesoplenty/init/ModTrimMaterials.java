@@ -12,7 +12,6 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.Util;
-import net.minecraft.world.item.equipment.trim.MaterialAssetGroup;
 import net.minecraft.world.item.equipment.trim.TrimMaterial;
 
 public class ModTrimMaterials
@@ -22,23 +21,18 @@ public class ModTrimMaterials
 
     public static void bootstrap(BootstrapContext<TrimMaterial> context)
     {
-        register(context, ROSE_QUARTZ, Style.EMPTY.withColor(0xE33A61), MaterialAssetGroups.ROSE_QUARTZ);
-        register(context, GLOWWORM_SILK, Style.EMPTY.withColor(0x52BEE2), MaterialAssetGroups.GLOWWORM_SILK);
+        register(context, ROSE_QUARTZ, Style.EMPTY.withColor(0xE33A61), "rose_quartz");
+        register(context, GLOWWORM_SILK, Style.EMPTY.withColor(0x52BEE2), "glowworm_silk");
     }
 
-    private static void register(BootstrapContext<TrimMaterial> context, ResourceKey<TrimMaterial> registryKey, Style hoverTextStyle, MaterialAssetGroup assets) {
+    private static void register(BootstrapContext<TrimMaterial> context, ResourceKey<TrimMaterial> registryKey, Style hoverTextStyle, String palette)
+    {
         Component description = Component.translatable(Util.makeDescriptionId("trim_material", registryKey.identifier())).withStyle(hoverTextStyle);
-        context.register(registryKey, new TrimMaterial(assets, description));
+        context.register(registryKey, new TrimMaterial(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, palette), description));
     }
 
     private static ResourceKey<TrimMaterial> registryKey(String id)
     {
         return ResourceKey.create(Registries.TRIM_MATERIAL, Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, id));
-    }
-
-    class MaterialAssetGroups
-    {
-        public static final MaterialAssetGroup ROSE_QUARTZ = MaterialAssetGroup.create("rose_quartz");
-        public static final MaterialAssetGroup GLOWWORM_SILK = MaterialAssetGroup.create("glowworm_silk");
     }
 }

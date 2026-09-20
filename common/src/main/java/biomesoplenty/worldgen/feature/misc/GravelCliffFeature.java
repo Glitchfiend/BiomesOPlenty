@@ -8,20 +8,24 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.util.RandomSource;
 
-public class GravelCliffFeature extends Feature<NoneFeatureConfiguration>
+public class GravelCliffFeature implements Feature
 {
-    public GravelCliffFeature(Codec<NoneFeatureConfiguration> p_66836_)
+    public static final MapCodec<GravelCliffFeature> CODEC = MapCodec.unit(GravelCliffFeature::new);
+
+    @Override
+    public MapCodec<GravelCliffFeature> codec()
     {
-        super(p_66836_);
+        return CODEC;
     }
 
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_160368_)
+
+    @Override
+    public boolean place(WorldGenLevel worldgenlevel, ChunkGenerator chunkGenerator, RandomSource random, BlockPos blockpos)
     {
-        WorldGenLevel worldgenlevel = p_160368_.level();
-        BlockPos blockpos = p_160368_.origin();
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         BlockPos.MutableBlockPos blockpos$mutableblockpos1 = new BlockPos.MutableBlockPos();
 
