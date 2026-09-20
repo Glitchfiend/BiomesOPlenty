@@ -18,7 +18,7 @@
 		{
 			"from": [0, 0, 8],
 			"to": [16, 16, 8],
-			"shade": false,
+			"shade_direction_override": "up",
 			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#stem_back", "tintindex": 0},

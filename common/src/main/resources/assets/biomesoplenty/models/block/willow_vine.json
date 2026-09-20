@@ -7,7 +7,7 @@
     "elements": [
         {   "from": [ 0, 0, 0.8 ],
             "to": [ 16, 16, 0.8 ],
-            "shade": false,
+            "shade_direction_override": "up",
             "faces": {
                 "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#vine", "tintindex": 0 },
                 "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#vine", "tintindex": 0 }
