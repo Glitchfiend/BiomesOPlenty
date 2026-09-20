@@ -47,7 +47,6 @@ public class ModLegacy
         remap("potted_white_cherry_sapling", BOPBlocks.POTTED_SNOWBLOSSOM_SAPLING);
         remap("potted_pink_cherry_sapling", Blocks.POTTED_CHERRY_SAPLING);
         // Maple
-        remap("maple_sapling", Blocks.POPLAR_SAPLING);
         remap("orange_autumn_sapling", Blocks.POPLAR_SAPLING);
         remap("yellow_autumn_sapling", Blocks.POPLAR_SAPLING);
         remap("red_maple_sapling", Blocks.POPLAR_SAPLING);
@@ -59,7 +58,6 @@ public class ModLegacy
         remap("red_maple_leaves", Blocks.RED_POPLAR_LEAVES);
         remap("orange_maple_leaves", Blocks.ORANGE_POPLAR_LEAVES);
         remap("yellow_maple_leaves", Blocks.YELLOW_POPLAR_LEAVES);
-        remap("potted_maple_sapling", Blocks.POTTED_POPLAR_SAPLING);
         remap("potted_orange_autumn_sapling", Blocks.POTTED_POPLAR_SAPLING);
         remap("potted_yellow_autumn_sapling", Blocks.POTTED_POPLAR_SAPLING);
         remap("potted_red_maple_sapling", Blocks.POTTED_POPLAR_SAPLING);
