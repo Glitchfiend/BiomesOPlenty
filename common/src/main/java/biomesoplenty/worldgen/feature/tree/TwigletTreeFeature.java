@@ -102,7 +102,10 @@ public class TwigletTreeFeature extends BOPTreeFeature<TwigletTreeConfiguration>
                 {
                     if (trunkFruit.getBlock() == Blocks.SHELF_MUSHROOM)
                     {
-                        fruitAge = random.nextInt(2);
+                        if (random.nextInt(6) == 0)
+                        {
+                            fruitAge = 1;
+                        }
                     }
                     else if (trunkFruit.getBlock() == Blocks.COCOA)
                     {

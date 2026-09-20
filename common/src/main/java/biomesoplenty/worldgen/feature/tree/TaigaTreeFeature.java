@@ -219,11 +219,14 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                             BlockState trunkFruit = config.trunkFruitProvider.getState(world, random, fruitPos);
                             int fruitAge = 0;
 
-                            if (trunkFruit.getBlock() != Blocks.AIR && random.nextInt(12) == 0)
+                            if (trunkFruit.getBlock() != Blocks.AIR && random.nextInt(16) == 0)
                             {
                                 if (trunkFruit.getBlock() == Blocks.SHELF_MUSHROOM)
                                 {
-                                    fruitAge = random.nextInt(2);
+                                    if (random.nextInt(6) == 0)
+                                    {
+                                        fruitAge = 1;
+                                    }
                                 }
                                 else if (trunkFruit.getBlock() == Blocks.COCOA)
                                 {
