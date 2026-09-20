@@ -25,8 +25,7 @@ public class BOPTreeGrowers
     public static final TreeGrower JACARANDA = register("jacaranda", 0.1F, Optional.empty(), Optional.empty(), Optional.of(BOPTreeFeatures.JACARANDA_TREE), Optional.of(BOPTreeFeatures.BIG_JACARANDA_TREE), Optional.of(BOPTreeFeatures.JACARANDA_TREE_BEES), Optional.of(BOPTreeFeatures.BIG_JACARANDA_TREE_BEES));
     public static final TreeGrower MAGIC = register("magic", Optional.of(BOPTreeFeatures.MAGIC_TREE), Optional.of(BOPTreeFeatures.BIG_MAGIC_TREE));
     public static final TreeGrower MAHOGANY = register("mahogany", Optional.of(BOPTreeFeatures.MAHOGANY_TREE), Optional.empty());
-    //TODO: ADD OTHER MAPLE VARIANTS BASED ON HOW POPLAR TREES GROW
-    public static final TreeGrower MAPLE = register("maple", Optional.of(BOPTreeFeatures.MAGENTA_MAPLE_TREE), Optional.of(BOPTreeFeatures.BIG_MAGENTA_MAPLE_TREE));
+    public static final TreeGrower MAPLE = register("maple", WeightedList.of(new Weighted<>(BOPTreeFeatures.PINK_MAPLE_TREE, 9), new Weighted<>(BOPTreeFeatures.MAGENTA_MAPLE_TREE, 9), new Weighted<>(BOPTreeFeatures.PURPLE_MAPLE_TREE, 9), new Weighted<>(BOPTreeFeatures.BIG_PINK_MAPLE_TREE, 1), new Weighted<>(BOPTreeFeatures.BIG_MAGENTA_MAPLE_TREE, 1), new Weighted<>(BOPTreeFeatures.BIG_PURPLE_MAPLE_TREE, 1)), WeightedList.of(), WeightedList.of(), Optional.of(BOPTreeFeatures.MAGENTA_MAPLE_TREE));
     public static final TreeGrower ORIGIN_OAK = register("origin_oak", Optional.of(BOPTreeFeatures.ORIGIN_OAK_TREE), Optional.of(BOPTreeFeatures.BIG_ORIGIN_OAK_TREE));
     public static final TreeGrower PALM = register("palm", Optional.of(BOPTreeFeatures.PALM_TREE), Optional.empty());
     public static final TreeGrower PINE = register("pine", Optional.of(BOPTreeFeatures.PINE_TREE), Optional.of(BOPTreeFeatures.PINE_TREE_SMALL));
@@ -41,6 +40,15 @@ public class BOPTreeGrowers
                 weighted(tree, secondaryTree, secondaryChance),
                 weighted(megaTree, secondaryMegaTree, secondaryChance),
                 weighted(flowers, secondaryFlowers, secondaryChance),
+                tree.orElse(null));
+    }
+
+    private static TreeGrower register(String name, WeightedList<ResourceKey<Feature>> trees, WeightedList<ResourceKey<Feature>> megaTrees, WeightedList<ResourceKey<Feature>> flowers, Optional<ResourceKey<Feature>> tree)
+    {
+        return new TreeGrower(String.format("%s:%s", BOPAPI.MOD_ID, name),
+                trees,
+                megaTrees,
+                flowers,
                 tree.orElse(null));
     }
 
