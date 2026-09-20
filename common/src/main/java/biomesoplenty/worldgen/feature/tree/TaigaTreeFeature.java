@@ -18,6 +18,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CocoaBlock;
+import net.minecraft.world.level.block.ShelfMushroomBlock;
 import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
@@ -218,27 +219,17 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
                             BlockState trunkFruit = config.trunkFruitProvider.getState(world, random, fruitPos);
                             int fruitAge = 0;
 
-                            if (trunkFruit.getBlock() != Blocks.AIR && random.nextInt(8) == 0)
+                            if (trunkFruit.getBlock() != Blocks.AIR && random.nextInt(12) == 0)
                             {
-                                //TODO: REPLACE WITH SHELF MUSHROOMS
-                                if (trunkFruit.getBlock() == Blocks.COCOA)
+                                if (trunkFruit.getBlock() == Blocks.SHELF_MUSHROOM)
                                 {
-                                    fruitPos = startPos.offset(x + dir.getOpposite().getStepX(), y, z + dir.getOpposite().getStepZ());
-                                    if (y < 3)
-                                    {
-                                        fruitAge = 1;
-                                    }
-                                    else
-                                    {
-                                        fruitAge = 0;
-                                    }
+                                    fruitAge = random.nextInt(2);
                                 }
-                                /*
                                 else if (trunkFruit.getBlock() == Blocks.COCOA)
                                 {
                                     fruitPos = startPos.offset(x + dir.getOpposite().getStepX(), y, z + dir.getOpposite().getStepZ());
                                     fruitAge = random.nextInt(3);
-                                }*/
+                                }
 
                                 this.generateTrunkFruit(world, fruitAge, fruitPos, dir, config);
                             }
@@ -255,7 +246,14 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
     {
         BlockState trunkFruit = config.trunkFruitProvider.getState(world, world.getRandom(), pos);
 
-        if (trunkFruit == Blocks.COCOA.defaultBlockState())
+        if (trunkFruit == Blocks.SHELF_MUSHROOM.defaultBlockState())
+        {
+            if (world.getBlockState(pos).getBlock() == Blocks.AIR || world.getBlockState(pos).getBlock() instanceof VegetationBlock)
+            {
+                this.setBlock(world, pos, trunkFruit.setValue(ShelfMushroomBlock.AGE, Integer.valueOf(age)).setValue(CocoaBlock.FACING, direction));
+            }
+        }
+        else if (trunkFruit == Blocks.COCOA.defaultBlockState())
         {
             if (world.getBlockState(pos).getBlock() == Blocks.AIR || world.getBlockState(pos).getBlock() instanceof VegetationBlock)
             {

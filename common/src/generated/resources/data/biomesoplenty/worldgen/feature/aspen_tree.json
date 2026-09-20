@@ -295,7 +295,7 @@
     }
   ],
   "foliage_provider": {
-    "id": "minecraft:birch_leaves",
+    "id": "minecraft:yellow_poplar_leaves",
     "properties": {
       "distance": "7",
       "persistent": "false",

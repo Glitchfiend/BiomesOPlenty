@@ -186,6 +186,8 @@ public class BOPVegetationFeatures
         final Holder<PlacedFeature> OAK_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.OAK_CHECKED);
         final Holder<PlacedFeature> OAK_LEAF_LITTER_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.OAK_LEAF_LITTER);
         final Holder<PlacedFeature> DARK_OAK_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.DARK_OAK_CHECKED);
+        final Holder<PlacedFeature> RED_POPLAR_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.RED_POPLAR_LEAF_LITTER);
+        final Holder<PlacedFeature> ORANGE_POPLAR_CHECKED = placedFeatureGetter.getOrThrow(TreePlacements.ORANGE_POPLAR_LEAF_LITTER);
         final Holder<PlacedFeature> ACACIA_BUSH_TREE_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ACACIA_BUSH_TREE_CHECKED);
         final Holder<PlacedFeature> ACACIA_TWIGLET_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ACACIA_TWIGLET_CHECKED);
         final Holder<PlacedFeature> ACACIA_TWIGLET_SMALL_CHECKED = placedFeatureGetter.getOrThrow(BOPTreePlacements.ACACIA_TWIGLET_SMALL_CHECKED);
@@ -376,10 +378,8 @@ public class BOPVegetationFeatures
         register(context, BOPVegetationFeatures.TREES_RAINFOREST_FLOODPLAIN, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(SPARSE_OAK_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(BIG_OAK_TREE_CHECKED, 0.1F)), OAK_BUSH_CHECKED));
         register(context, BOPVegetationFeatures.TREES_REDWOOD_FOREST, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(REDWOOD_TREE_CHECKED, 0.3f), new WeightedPlacedFeature(REDWOOD_TREE_LARGE_CHECKED, 0.5f)), REDWOOD_TREE_MEDIUM_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SCRUBLAND, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(SPRUCE_TWIGLET_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(TALL_TWIGLET_TREE_CHECKED, 0.1F)), ACACIA_TWIGLET_CHECKED));
-        //TODO: ADD RED POPLAR TREES
-        register(context, BOPVegetationFeatures.TREES_SEASONAL_FOREST, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(BIG_PINK_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.3F)), PINK_MAPLE_TREE_LEAF_LITTER_CHECKED));
-        //TODO: REPLACE MAGENTA MAPLE WITH ORANGE POPLAR
-        register(context, BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.2F), new WeightedPlacedFeature(ASPEN_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(MAGENTA_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_MAGENTA_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.05F)), TWIGLET_TREE_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_SEASONAL_FOREST, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(TALL_SPRUCE_TREE_CHECKED, 0.4F), new WeightedPlacedFeature(BIG_PINK_MAPLE_TREE_LEAF_LITTER_CHECKED, 0.3F)), RED_POPLAR_CHECKED));
+        register(context, BOPVegetationFeatures.TREES_SEASONAL_PUMPKIN_PATCH, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(OAK_BUSH_CHECKED, 0.2F), new WeightedPlacedFeature(ASPEN_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(ORANGE_POPLAR_CHECKED, 0.1F)), TWIGLET_TREE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SNOWBLOSSOM_GROVE, snowblossom(belowTrunkProvider).build());
         register(context, BOPVegetationFeatures.TREES_SNOWY_CONIFEROUS_FOREST, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(FIR_TREE_CHECKED, 0.4F)), FIR_TREE_LARGE_CHECKED));
         register(context, BOPVegetationFeatures.TREES_SNOWY_MAPLE_WOODS, new RandomSelectorFeature(ImmutableList.of(new WeightedPlacedFeature(OAK_LEAF_LITTER_CHECKED, 0.05F), new WeightedPlacedFeature(FANCY_OAK_CHECKED, 0.025F), new WeightedPlacedFeature(PINK_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(MAGENTA_MAPLE_TREE_CHECKED, 0.3F), new WeightedPlacedFeature(BIG_PINK_MAPLE_TREE_CHECKED, 0.05F), new WeightedPlacedFeature(BIG_MAGENTA_MAPLE_TREE_CHECKED, 0.1F), new WeightedPlacedFeature(BIG_PURPLE_MAPLE_TREE_CHECKED, 0.1F)), PURPLE_MAPLE_TREE_CHECKED));

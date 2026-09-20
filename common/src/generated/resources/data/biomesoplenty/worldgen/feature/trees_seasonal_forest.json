@@ -1,6 +1,6 @@
 {
   "type": "minecraft:random_selector",
-  "default": "biomesoplenty:pink_maple_tree_leaf_litter",
+  "default": "minecraft:red_poplar_leaf_litter",
   "features": [
     {
       "chance": 0.4,

@@ -15,8 +15,9 @@
   "max_height": 4,
   "min_height": 2,
   "trunk_fruit_provider": {
-    "id": "biomesoplenty:dead_branch",
+    "id": "minecraft:shelf_mushroom",
     "properties": {
+      "age": "0",
       "facing": "north"
     }
   },

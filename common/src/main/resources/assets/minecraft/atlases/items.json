@@ -1,18 +1,23 @@
 {
     "sources": [
+		{
+		  "type": "minecraft:directory",
+		  "prefix": "item/",
+		  "source": "item"
+		},
         {
             "type": "minecraft:paletted_permutations",
+			"palette_key": "minecraft:trim_base",
+			"permutations": {
+				"rose_quartz": "biomesoplenty:trim/rose_quartz",
+				"glowworm_silk": "biomesoplenty:trim/glowworm_silk"
+            },
             "textures": [
-                "minecraft:trims/items/leggings_trim",
-                "minecraft:trims/items/chestplate_trim",
                 "minecraft:trims/items/helmet_trim",
-                "minecraft:trims/items/boots_trim"
-            ],
-            "palette_key": "minecraft:trims/color_palettes/trim_palette",
-            "permutations": {
-				"rose_quartz": "biomesoplenty:trims/color_palettes/rose_quartz",
-				"glowworm_silk": "biomesoplenty:trims/color_palettes/glowworm_silk"
-            }
+				"minecraft:trims/items/chestplate_trim",
+				"minecraft:trims/items/leggings_trim",
+				"minecraft:trims/items/boots_trim"
+            ]
         }
     ]
 }

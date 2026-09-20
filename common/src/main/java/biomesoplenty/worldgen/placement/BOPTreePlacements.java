@@ -238,8 +238,7 @@ public class BOPTreePlacements
         register(context, BOPTreePlacements.MAGENTA_MAPLE_TREE_LEAF_LITTER_CHECKED, MAGENTA_MAPLE_TREE_LEAF_LITTER, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.MAPLE_SAPLING)));
         register(context, BOPTreePlacements.PURPLE_MAPLE_TREE_CHECKED, PURPLE_MAPLE_TREE, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.MAPLE_SAPLING)));
         register(context, BOPTreePlacements.PURPLE_MAPLE_TREE_LEAF_LITTER_CHECKED, PURPLE_MAPLE_TREE_LEAF_LITTER, List.of(PlacementUtils.filteredByBlockSurvival(BOPBlocks.MAPLE_SAPLING)));
-        //TODO: REPLACE CHECK WITH POPLAR SAPLING
-        register(context, BOPTreePlacements.POPLAR_TWIGLET_TREE_CHECKED, POPLAR_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING)));
+        register(context, BOPTreePlacements.POPLAR_TWIGLET_TREE_CHECKED, POPLAR_TWIGLET_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.POPLAR_SAPLING)));
         register(context, BOPTreePlacements.NULL_TREE_CHECKED, NULL_TREE, List.of(BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), List.of(BOPBlocks.UNMAPPED_END_STONE)))));
         register(context, BOPTreePlacements.OAK_BUSH_CHECKED, OAK_BUSH, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
         register(context, BOPTreePlacements.ORIGIN_OAK_TREE_CHECKED, ORIGIN_OAK_TREE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));

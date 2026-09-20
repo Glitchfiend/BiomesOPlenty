@@ -96,7 +96,7 @@ public class BOPOverworldBiomeBuilder
 
     private final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{
             {Biomes.ICE_SPIKES,       null, Biomes.SNOWY_TAIGA, null,                           null},
-            {null,                    null, null,               null,                           Biomes.OLD_GROWTH_PINE_TAIGA},
+            {Biomes.DAPPLED_FOREST,   null, null,               null,                           Biomes.OLD_GROWTH_PINE_TAIGA},
             {Biomes.SUNFLOWER_PLAINS, null, null,               Biomes.OLD_GROWTH_BIRCH_FOREST, null},
             {null,                    null, Biomes.PLAINS,      Biomes.SPARSE_JUNGLE,           Biomes.BAMBOO_JUNGLE},
             {null,                    null, null,               null,                           null}

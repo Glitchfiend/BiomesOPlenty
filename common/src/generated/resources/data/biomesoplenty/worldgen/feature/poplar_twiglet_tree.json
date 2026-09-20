@@ -5,7 +5,7 @@
   },
   "decorators": [],
   "foliage_provider": {
-    "id": "minecraft:spruce_leaves",
+    "id": "minecraft:red_poplar_leaves",
     "properties": {
       "distance": "7",
       "persistent": "false",
@@ -23,7 +23,7 @@
     "id": "minecraft:air"
   },
   "trunk_provider": {
-    "id": "minecraft:spruce_log",
+    "id": "minecraft:poplar_log",
     "properties": {
       "axis": "y"
     }
