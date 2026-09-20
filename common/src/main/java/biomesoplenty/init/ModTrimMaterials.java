@@ -21,8 +21,8 @@ public class ModTrimMaterials
 
     public static void bootstrap(BootstrapContext<TrimMaterial> context)
     {
-        register(context, ROSE_QUARTZ, Style.EMPTY.withColor(0xE33A61), "rose_quartz");
-        register(context, GLOWWORM_SILK, Style.EMPTY.withColor(0x52BEE2), "glowworm_silk");
+        register(context, ROSE_QUARTZ, Style.EMPTY.withColor(0xE33A61), "trim/rose_quartz");
+        register(context, GLOWWORM_SILK, Style.EMPTY.withColor(0x52BEE2), "trim/glowworm_silk");
     }
 
     private static void register(BootstrapContext<TrimMaterial> context, ResourceKey<TrimMaterial> registryKey, Style hoverTextStyle, String palette)
