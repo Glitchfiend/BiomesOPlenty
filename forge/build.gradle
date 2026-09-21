@@ -76,7 +76,7 @@ curseforge {
         }
 
         relations {
-            requiredDependency 'terrablender-forge'
+            requiredDependency 'terrablender'
             requiredDependency 'glitchcore'
         }
     }
