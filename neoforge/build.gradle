@@ -1,6 +1,6 @@
 plugins {
     id 'net.neoforged.moddev' version '2.0.147'
-    id "de.maxhenkel.cursegradle" version "1.5.1"
+    id "de.maxhenkel.cursegradle" version "1.5.2"
 }
 
 base.archivesName.set("${mod_name}-neoforge")
@@ -80,6 +80,8 @@ curseforge {
         releaseType = release_channel
         addGameVersion minecraft_version
         addGameVersion name
+		addGameVersion 'Client'
+		addGameVersion 'Server'
 
         mainArtifact(jar) {
             displayName = "${mod_display_name} ${name} ${version}"

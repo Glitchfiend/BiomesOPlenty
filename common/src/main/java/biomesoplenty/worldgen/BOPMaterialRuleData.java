@@ -158,6 +158,18 @@ public class BOPMaterialRuleData
             gravelStoneSurface
         ));
 
+        MaterialRule volcanicPlainsUnderground = MaterialRules.sequence(
+                MaterialRules.ifTrue(surfaceNoiseAbove(2.4D), TUFF),
+                MaterialRules.sequence(MaterialRules.ifTrue(surfaceNoiseAbove(1.2D), SMOOTH_BASALT),
+                BLACK_SANDSTONE)
+        );
+
+        MaterialRule volcanicPlainsLining = MaterialRules.sequence(
+                MaterialRules.ifTrue(surfaceNoiseAbove(2.4D), TUFF),
+                MaterialRules.sequence(MaterialRules.ifTrue(surfaceNoiseAbove(1.2D), SMOOTH_BASALT),
+                MaterialRules.sequence(MaterialRules.ifTrue(ON_CEILING, BLACK_SANDSTONE), BLACK_SAND)
+        ));
+
         MaterialRule volcanoSurface = MaterialRules.sequence(
                 MaterialRules.ifTrue(ON_FLOOR, BASALT),
                 SMOOTH_BASALT
@@ -191,7 +203,7 @@ public class BOPMaterialRuleData
                             MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.DUNE_BEACH), sandstoneLinedSand),
                             MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.COLD_DESERT), coldDesertStoneLinedGravelSnow),
                             MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.LUSH_DESERT), lushDesertSandstoneLinedOrangeSand),
-                            MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.VOLCANIC_PLAINS), blackSandstoneLining)
+                            MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.VOLCANIC_PLAINS), volcanicPlainsLining)
                         )
                     ),
                     MaterialRules.ifTrue(
@@ -202,7 +214,7 @@ public class BOPMaterialRuleData
                             ),
                             MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.COLD_DESERT), STONE),
                             MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.LUSH_DESERT), ORANGE_SANDSTONE),
-                            MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.VOLCANIC_PLAINS), BLACK_SANDSTONE)
+                            MaterialRules.ifTrue(MaterialRules.isBiome(biomes, BOPBiomes.VOLCANIC_PLAINS), volcanicPlainsUnderground)
                         )
                     )
                 )
