@@ -1851,10 +1851,6 @@ public class BOPOverworldBiomes
             .hasPrecipitation(false)
             .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(267827))
             .modifyAttribute(EnvironmentAttributes.WATER_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.85F)
-            .setAttribute(EnvironmentAttributes.CLOUD_COLOR, ARGB.vector4fFromARGB32(ARGB.color(0.8F, 0xBEBEBE)))
-            .modifyAttribute(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
-            .modifyAttribute(EnvironmentAttributes.SKY_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
-            .modifyAttribute(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE, FloatModifier.MULTIPLY, 0.5F)
             .setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true)
             .specialEffects(
                 new BiomeSpecialEffects.Builder()

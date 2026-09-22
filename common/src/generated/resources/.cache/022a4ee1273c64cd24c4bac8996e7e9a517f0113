@@ -1,4 +1,4 @@
-// 26.3	2026-09-20T20:38:39.203976	Registries for BOP World Registries
+// 26.3	2026-09-22T15:08:08.8363465	Registries for BOP World Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -142,7 +142,7 @@ c8316582b73e8a4e3fffb72330497db2d9514fad data/biomesoplenty/worldgen/biome/subtr
 06e66a22655cdbc88c7d09bc700370971c81c07f data/biomesoplenty/worldgen/biome/tundra.json
 d2ea520c67861cb7aa2d5f9ec14c3ff6bcdf75c9 data/biomesoplenty/worldgen/biome/undergrowth.json
 958e0194bfc5fe19aa8e288bf2a269c1030826c4 data/biomesoplenty/worldgen/biome/visceral_heap.json
-7795eda2745a23488e42e23d34d7e8aa63dc4d06 data/biomesoplenty/worldgen/biome/volcanic_plains.json
+caf1ff8cf506a4e0524d1b96a2e334d8ff87dc0a data/biomesoplenty/worldgen/biome/volcanic_plains.json
 4890c01a545ed9165afdfc285626c721177f9365 data/biomesoplenty/worldgen/biome/volcano.json
 0349bd2080aeb9d0ce098989fa30f15322921702 data/biomesoplenty/worldgen/biome/wasteland.json
 f75f4881d341e7377f1335f4866125bf32c62acc data/biomesoplenty/worldgen/biome/wasteland_steppe.json

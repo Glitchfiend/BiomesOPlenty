@@ -12,10 +12,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.VegetationBlock;
-import net.minecraft.world.level.block.VineBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -119,21 +116,19 @@ public class FallenFirLogFeature implements Feature
             //Sides
             for (Direction face : Direction.Plane.HORIZONTAL)
             {
-                if (rand.nextInt(2) == 0)
+                if (rand.nextInt(4) == 0)
                 {
-                    this.setBlock(world, stumpPos.relative(face), BOPBlocks.WILLOW_VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(face.getOpposite()), true));
+                    int age = 0;
+                    if (rand.nextInt(5 ) == 0) { age = 1; }
+                    this.setBlock(world, stumpPos.relative(face), Blocks.SHELF_MUSHROOM.defaultBlockState().setValue(ShelfMushroomBlock.FACING, face).setValue(ShelfMushroomBlock.AGE, age));
                 }
             }
 
             //Roots
-            for (int i = 0; i < stumpDistance; i++)
+            BlockState blockBelow = world.getBlockState(stumpPos.below());
+            if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
             {
-                BlockPos rootPos = stumpPos.below().relative(direction, i);
-                BlockState blockBelow = world.getBlockState(rootPos);
-                if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
-                {
-                    Feature.super.setBlock(world, rootPos, Blocks.ROOTED_DIRT.defaultBlockState());
-                }
+                Feature.super.setBlock(world, stumpPos.below(), Blocks.ROOTED_DIRT.defaultBlockState());
             }
         }
 
@@ -160,18 +155,22 @@ public class FallenFirLogFeature implements Feature
             BlockState blockClockwise = world.getBlockState(pos.relative(direction, i).relative(direction.getClockWise()));
             if (blockClockwise.isAir() || blockClockwise.getBlock() instanceof VegetationBlock || blockClockwise.getBlock() == Blocks.SNOW)
             {
-                if (rand.nextInt(3) == 0)
+                if (rand.nextInt(6) == 0)
                 {
-                    this.setBlock(world, pos.relative(direction, i).relative(direction.getClockWise()), BOPBlocks.WILLOW_VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(direction.getClockWise().getOpposite()), true));
+                    int age = 0;
+                    if (rand.nextInt(5 ) == 0) { age = 1; }
+                    this.setBlock(world, pos.relative(direction, i).relative(direction.getClockWise()), Blocks.SHELF_MUSHROOM.defaultBlockState().setValue(ShelfMushroomBlock.FACING, direction.getClockWise()).setValue(ShelfMushroomBlock.AGE, age));
                 }
             }
 
             BlockState blockCounterClockwise = world.getBlockState(pos.relative(direction, i).relative(direction.getCounterClockWise()));
             if (blockCounterClockwise.isAir() || blockCounterClockwise.getBlock() instanceof VegetationBlock || blockCounterClockwise.getBlock() == Blocks.SNOW)
             {
-                if (rand.nextInt(3) == 0)
+                if (rand.nextInt(6) == 0)
                 {
-                    this.setBlock(world, pos.relative(direction, i).relative(direction.getCounterClockWise()), BOPBlocks.WILLOW_VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(direction.getCounterClockWise().getOpposite()), true));
+                    int age = 0;
+                    if (rand.nextInt(5 ) == 0) { age = 1; }
+                    this.setBlock(world, pos.relative(direction, i).relative(direction.getCounterClockWise()), Blocks.SHELF_MUSHROOM.defaultBlockState().setValue(ShelfMushroomBlock.FACING, direction.getCounterClockWise()).setValue(ShelfMushroomBlock.AGE, age));
                 }
             }
 

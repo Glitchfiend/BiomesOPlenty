@@ -124,14 +124,10 @@ public class FallenDeadLogFeature implements Feature
             }
 
             //Roots
-            for (int i = 0; i < stumpDistance; i++)
+            BlockState blockBelow = world.getBlockState(stumpPos.below());
+            if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
             {
-                BlockPos rootPos = stumpPos.below().relative(direction, i);
-                BlockState blockBelow = world.getBlockState(rootPos);
-                if (blockBelow.is(BlockTags.SUPPORTS_VEGETATION))
-                {
-                    Feature.super.setBlock(world, rootPos, Blocks.ROOTED_DIRT.defaultBlockState());
-                }
+                Feature.super.setBlock(world, stumpPos.below(), Blocks.ROOTED_DIRT.defaultBlockState());
             }
         }
 
