@@ -78,7 +78,7 @@ public class ModTags
         public static final TagKey<Item> HELLBARK_LOGS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "hellbark_logs"));
         public static final TagKey<Item> EMPYREAL_LOGS = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "empyreal_logs"));
 
-        public static final TagKey<Item> MAPLE_LEAVES = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "maple_logs"));
+        public static final TagKey<Item> MAPLE_LEAVES = create(Identifier.fromNamespaceAndPath(BiomesOPlenty.MOD_ID, "maple_leaves"));
 
         public static final TagKey<Item> SHEARS = create(Identifier.fromNamespaceAndPath("c", "tools/shear"));
 
