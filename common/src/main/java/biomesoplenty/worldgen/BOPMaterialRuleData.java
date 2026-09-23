@@ -8,6 +8,7 @@ import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.block.BOPBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.registries.VanillaRegistries;
 import net.minecraft.world.level.biome.Biome;
@@ -75,8 +76,9 @@ public class BOPMaterialRuleData
         return MaterialRules.state(p_194811_.defaultBlockState());
     }
 
-    public static MaterialRule overworld(HolderGetter<Biome> biomes)
+    public static MaterialRule overworld(RegistryAccess registryAccess)
     {
+        HolderGetter<Biome> biomes = registryAccess.lookupOrThrow(Registries.BIOME);
         MaterialRule surfaceRules = MaterialRules.sequence(
             makeBOPOverworldRules(biomes));
 
@@ -89,8 +91,9 @@ public class BOPMaterialRuleData
         }));
     }
 
-    public static MaterialRule nether(HolderGetter<Biome> biomes)
+    public static MaterialRule nether(RegistryAccess registryAccess)
     {
+        HolderGetter<Biome> biomes = registryAccess.lookupOrThrow(Registries.BIOME);
         MaterialCondition surfacerules$conditionsource1 = MaterialRules.yBlockCheck(VerticalAnchor.absolute(32), 0);
         MaterialCondition isTop5Blocks = MaterialRules.yBlockCheck(VerticalAnchor.belowTop(5), 0);
         MaterialCondition isHole = MaterialRules.hole();
@@ -357,8 +360,9 @@ public class BOPMaterialRuleData
         );
     }
 
-    public static MaterialRule end(HolderGetter<Biome> biomes)
+    public static MaterialRule end(RegistryAccess registryAccess)
     {
+        HolderGetter<Biome> biomes = registryAccess.lookupOrThrow(Registries.BIOME);
         MaterialRule whiteSandstoneLining = MaterialRules.sequence(MaterialRules.ifTrue(ON_CEILING, WHITE_SANDSTONE), WHITE_SAND);
 
         return MaterialRules.sequence(
