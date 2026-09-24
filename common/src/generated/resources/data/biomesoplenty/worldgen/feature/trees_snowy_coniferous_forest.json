@@ -3,6 +3,10 @@
   "default": "biomesoplenty:fir_tree_large",
   "features": [
     {
+      "chance": 0.03,
+      "feature": "minecraft:red_poplar_leaf_litter"
+    },
+    {
       "chance": 0.4,
       "feature": "biomesoplenty:fir_tree"
     }

@@ -8,10 +8,10 @@
     },
     {
       "chance": 0.1,
-      "feature": "biomesoplenty:aspen_tree"
+      "feature": "biomesoplenty:big_birch_tree"
     },
     {
-      "chance": 0.1,
+      "chance": 0.05,
       "feature": "minecraft:orange_poplar_leaf_litter"
     }
   ]

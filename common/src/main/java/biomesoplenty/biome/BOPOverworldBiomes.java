@@ -881,8 +881,8 @@ public class BOPOverworldBiomes
             .specialEffects(
                 new BiomeSpecialEffects.Builder()
                     .waterColor(4159204)
-                    .grassColorOverride(snowy ? 0xC37864 : 0xDD9A4A)
-                    .foliageColorOverride(snowy ? 0xB98862 : 0xD1B24A)
+                    .grassColorOverride(snowy ? 0xC19083 : 0xDD9A4A)
+                    .foliageColorOverride(snowy ? 0x769A9E : 0xD1B24A)
                     .build()
             )
             .mobSpawnSettings(spawnBuilder.build())
