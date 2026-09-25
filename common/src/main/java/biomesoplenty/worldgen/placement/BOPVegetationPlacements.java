@@ -292,8 +292,8 @@ public class BOPVegetationPlacements
         final Holder<Feature> TREES_DRYLAND = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_DRYLAND);
         final Holder<Feature> TREES_FIELD = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_FIELD);
         final Holder<Feature> TREES_FIELD_FOREST = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_FIELD_FOREST);
+        final Holder<Feature> TREES_FIR_CLEARING = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_FIR_CLEARING);
         final Holder<Feature> TREES_FUNGAL_JUNGLE = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_FUNGAL_JUNGLE);
-        final Holder<Feature> FIR_TREE_SMALL = configuredFeatureGetter.getOrThrow(BOPTreeFeatures.FIR_TREE_SMALL);
         final Holder<Feature> TREES_HOT_SPRINGS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_HOT_SPRINGS);
         final Holder<Feature> TREES_JADE_CLIFFS = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_JADE_CLIFFS);
         final Holder<Feature> TREES_LAVENDER_FIELD = configuredFeatureGetter.getOrThrow(BOPVegetationFeatures.TREES_LAVENDER_FIELD);
@@ -469,7 +469,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_FIELD, TREES_FIELD, treePlacement(PlacementUtils.countExtra(3, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_FIELD_FOREST, TREES_FIELD_FOREST, treePlacement(PlacementUtils.countExtra(9, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_FUNGAL_JUNGLE, TREES_FUNGAL_JUNGLE, treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
-        register(context, BOPVegetationPlacements.TREES_FIR_CLEARING, FIR_TREE_SMALL, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BOPBlocks.FIR_SAPLING));
+        register(context, BOPVegetationPlacements.TREES_FIR_CLEARING, TREES_FIR_CLEARING, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_HOT_SPRINGS, TREES_HOT_SPRINGS, treePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
         register(context, BOPVegetationPlacements.TREES_JADE_CLIFFS, TREES_JADE_CLIFFS, treePlacement(PlacementUtils.countExtra(30, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_LAVENDER_FIELD, TREES_LAVENDER_FIELD, treePlacement(PlacementUtils.countExtra(0, 0.2F, 9)));
@@ -493,7 +493,7 @@ public class BOPVegetationPlacements
         register(context, BOPVegetationPlacements.TREES_ROCKY_SHRUBLAND, OAK_BUSH, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1), Blocks.OAK_SAPLING));
         register(context, BOPVegetationPlacements.TREES_SHRUBLAND, OAK_BUSH, treePlacement(PlacementUtils.countExtra(2, 0.05F, 1), Blocks.OAK_SAPLING));
         register(context, BOPVegetationPlacements.TREES_SCRUBLAND, TREES_SCRUBLAND, treePlacement(PlacementUtils.countExtra(0, 0.2F, 6)));
-        register(context, BOPVegetationPlacements.TREES_SEASONAL_FOREST, TREES_SEASONAL_FOREST, treePlacement(PlacementUtils.countExtra(12, 0.1F, 1)));
+        register(context, BOPVegetationPlacements.TREES_SEASONAL_FOREST, TREES_SEASONAL_FOREST, treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_SEASONAL_PUMPKIN_PATCH, TREES_SEASONAL_PUMPKIN_PATCH, treePlacement(PlacementUtils.countExtra(4, 0.1F, 1)));
         register(context, BOPVegetationPlacements.TREES_SNOWBLOSSOM_GROVE, TREES_SNOWBLOSSOM_GROVE, treePlacement(PlacementUtils.countExtra(7, 0.1F, 1), BOPBlocks.SNOWBLOSSOM_SAPLING));
         register(context, BOPVegetationPlacements.TREES_SNOWY_CONIFEROUS_FOREST, TREES_SNOWY_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(6, 0.1F, 1)));

@@ -19,7 +19,7 @@
   "leaf_layers": 4,
   "leaves_layer_height": 2,
   "leaves_offset": 1,
-  "max_height": 8,
+  "max_height": 10,
   "max_leaves_radius": 1,
   "min_height": 5,
   "trunk_fruit_provider": {

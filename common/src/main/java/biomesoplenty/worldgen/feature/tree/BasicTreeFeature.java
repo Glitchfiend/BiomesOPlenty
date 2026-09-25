@@ -4,6 +4,7 @@
  ******************************************************************************/
 package biomesoplenty.worldgen.feature.tree;
 
+import biomesoplenty.init.ModTags;
 import biomesoplenty.worldgen.feature.configurations.BasicTreeConfiguration;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -141,6 +142,17 @@ public class BasicTreeFeature extends BOPTreeFeature<BasicTreeConfiguration>
                                     else
                                     {
                                         this.placeLeaves(world, leavesPos, leaves, config);
+
+                                        if (config.foliageProvider.getState(world, random, pos).is(ModTags.Blocks.MAPLE_LEAVES))
+                                        {
+                                            for (Direction dir : Direction.values())
+                                            {
+                                                if (random.nextInt(4 ) != 0)
+                                                {
+                                                    this.placeLeaves(world, leavesPos.relative(dir), leaves, config);
+                                                }
+                                            }
+                                        }
                                     }
                                 }
 

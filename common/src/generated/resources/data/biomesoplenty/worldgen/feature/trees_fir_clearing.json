@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "biomesoplenty:fir_tree_small",
+  "features": [
+    {
+      "chance": 0.15,
+      "feature": "minecraft:oak_leaf_litter"
+    }
+  ]
+}

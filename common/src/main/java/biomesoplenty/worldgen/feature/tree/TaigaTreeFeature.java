@@ -211,7 +211,7 @@ public class TaigaTreeFeature extends BOPTreeFeature<TaigaTreeConfiguration>
 
                     this.placeLog(world, startPos.offset(x, y, z), logs, config);
 
-                    if (y < 5)
+                    if (y > 0 && y < 5)
                     {
                         for (Direction dir : Direction.Plane.HORIZONTAL)
                         {

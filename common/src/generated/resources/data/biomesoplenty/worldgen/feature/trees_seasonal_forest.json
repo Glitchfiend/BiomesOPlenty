@@ -3,6 +3,14 @@
   "default": "biomesoplenty:big_pink_maple_tree_leaf_litter",
   "features": [
     {
+      "chance": 0.1,
+      "feature": "minecraft:dark_oak_checked"
+    },
+    {
+      "chance": 0.2,
+      "feature": "biomesoplenty:fir_tree_small"
+    },
+    {
       "chance": 0.4,
       "feature": "biomesoplenty:tall_spruce_tree"
     },

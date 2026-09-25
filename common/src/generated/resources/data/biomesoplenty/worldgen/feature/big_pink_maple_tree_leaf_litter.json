@@ -295,7 +295,7 @@
     }
   ],
   "foliage_density": 1.0,
-  "foliage_height": 5,
+  "foliage_height": 3,
   "foliage_provider": {
     "id": "biomesoplenty:pink_maple_leaves",
     "properties": {

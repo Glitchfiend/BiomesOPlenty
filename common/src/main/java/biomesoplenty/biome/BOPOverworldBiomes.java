@@ -469,6 +469,7 @@ public class BOPOverworldBiomes
         }
         else
         {
+            addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.FLOWER_SNOWY);
             addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_2);
             addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_1);
         }
@@ -1579,7 +1580,7 @@ public class BOPOverworldBiomes
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_FERN_2);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, BOPVegetationPlacements.PATCH_GRASS_6);
 
-        return baseBiome(0.25F, 0.5F)
+        return baseBiome(0.175F, 0.5F)
             .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC))
             .mobSpawnSettings(spawnBuilder.build())
             .generationSettings(biomeBuilder.build()).build();
