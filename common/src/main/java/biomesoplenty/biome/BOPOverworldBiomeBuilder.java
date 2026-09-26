@@ -105,7 +105,7 @@ public class BOPOverworldBiomeBuilder
     protected final ResourceKey<Biome>[][] PLATEAU_BIOMES = new ResourceKey[][]{
             {Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS,    Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA,     Biomes.SNOWY_TAIGA},
             {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.FOREST,       Biomes.TAIGA,           Biomes.OLD_GROWTH_SPRUCE_TAIGA},
-            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.MEADOW,       Biomes.MEADOW,          Biomes.DARK_FOREST},
+            {Biomes.MEADOW,          Biomes.MEADOW,          Biomes.MEADOW,       Biomes.MEADOW,          Biomes.PALE_GARDEN},
             {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU, Biomes.FOREST,       Biomes.FOREST,          Biomes.JUNGLE},
             {Biomes.BADLANDS,        Biomes.BADLANDS,        Biomes.BADLANDS,     Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
     };
@@ -113,12 +113,12 @@ public class BOPOverworldBiomeBuilder
     protected final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
             {Biomes.ICE_SPIKES,      null,                   null,          null,                null},
             {Biomes.CHERRY_GROVE,    null,                   Biomes.MEADOW, Biomes.MEADOW,       Biomes.OLD_GROWTH_PINE_TAIGA},
-            {Biomes.CHERRY_GROVE,    Biomes.CHERRY_GROVE,    Biomes.FOREST, Biomes.BIRCH_FOREST, Biomes.PALE_GARDEN},
+            {Biomes.CHERRY_GROVE,    Biomes.CHERRY_GROVE,    Biomes.FOREST, Biomes.BIRCH_FOREST, null},
             {null,                   null,                   null,          null,                null},
             {Biomes.ERODED_BADLANDS, Biomes.ERODED_BADLANDS, null,          null,                null}
     };
 
-    private final ResourceKey<Biome>[][] EXTREME_HILLS_BIOMES = new ResourceKey[][]{
+    private final ResourceKey<Biome>[][] SHATTERED_BIOMES = new ResourceKey[][]{
             {Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.WINDSWEPT_FOREST},
             {Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.WINDSWEPT_FOREST},
             {Biomes.WINDSWEPT_HILLS,          Biomes.WINDSWEPT_HILLS,          Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.WINDSWEPT_FOREST},
@@ -193,7 +193,7 @@ public class BOPOverworldBiomeBuilder
             {null,                  null,                  null,                  null,                  null}
     };
 
-    protected final ResourceKey<Biome>[][] EXTREME_HILLS_BIOMES_BOP = new ResourceKey[][]{
+    protected final ResourceKey<Biome>[][] SHATTERED_BIOMES_BOP = new ResourceKey[][]{
             {null,               null,               null,               null,               null},
             {BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND},
             {BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND, BOPBiomes.HIGHLAND},
@@ -640,13 +640,13 @@ public class BOPOverworldBiomeBuilder
 
     protected ResourceKey<Biome> pickExtremeHillsBiomeVanilla(int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
-        ResourceKey<Biome> resourcekey = this.EXTREME_HILLS_BIOMES[temperatureIndex][humidityIndex];
+        ResourceKey<Biome> resourcekey = this.SHATTERED_BIOMES[temperatureIndex][humidityIndex];
         return resourcekey == null ? this.pickMiddleBiomeVanilla(temperatureIndex, humidityIndex, weirdness) : resourcekey;
     }
 
     protected ResourceKey<Biome> pickExtremeHillsBiomeBOP(Registry<Biome> biomeRegistry, int temperatureIndex, int humidityIndex, Climate.Parameter weirdness)
     {
-        return BiomeUtil.biomeOrFallback(biomeRegistry, this.EXTREME_HILLS_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
+        return BiomeUtil.biomeOrFallback(biomeRegistry, this.SHATTERED_BIOMES_BOP[temperatureIndex][humidityIndex], this.pickExtremeHillsBiomeVanilla(temperatureIndex, humidityIndex, weirdness));
     }
 
     protected void addSurfaceBiome(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter weirdness, float offset, ResourceKey<Biome> biome)
