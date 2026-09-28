@@ -4,7 +4,7 @@
       "default": {
         "max_delay": 24000,
         "min_delay": 12000,
-        "sound": "biomesoplenty:music.overworld.nostalgic"
+        "sound": "minecraft:music.overworld.desert"
       }
     },
     "minecraft:gameplay/natural_mob_spawns": {

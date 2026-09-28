@@ -1,12 +1,5 @@
 {
   "attributes": {
-    "minecraft:audio/background_music": {
-      "default": {
-        "max_delay": 24000,
-        "min_delay": 12000,
-        "sound": "biomesoplenty:music.overworld.nostalgic"
-      }
-    },
     "minecraft:gameplay/creature_world_gen_spawn_probability": 0.07,
     "minecraft:gameplay/natural_mob_spawns": {
       "argument": {

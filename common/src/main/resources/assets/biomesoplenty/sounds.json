@@ -140,52 +140,92 @@
       {
         "name": "minecraft:music/game/creative/aria_math",
         "stream": true,
-		"weight": 3
+		"weight": 1
       },
       {
         "name": "minecraft:music/game/creative/biome_fest",
         "stream": true,
-		"weight": 3
+		"weight": 1
       },
       {
         "name": "minecraft:music/game/creative/blind_spots",
         "stream": true,
-		"weight": 3
+		"weight": 1
       },
       {
         "name": "minecraft:music/game/creative/dreiton",
         "stream": true,
-		"weight": 3
+		"weight": 1
       },
       {
         "name": "minecraft:music/game/creative/haunt_muskie",
         "stream": true,
-		"weight": 3
+		"weight": 1
       },
       {
         "name": "minecraft:music/game/creative/taswell",
         "stream": true,
-		"weight": 3
-      },
-	  {
-        "name": "minecraft:music/game/mice_on_venus",
-        "stream": true,
 		"weight": 1
       },
 	  {
-        "name": "minecraft:music/game/living_mice",
+        "name": "minecraft:music/game/key",
         "stream": true,
-		"weight": 1
+		"weight": 2
       },
 	  {
         "name": "minecraft:music/game/subwoofer_lullaby",
         "stream": true,
-		"weight": 1
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/living_mice",
+        "stream": true,
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/haggstrom",
+        "stream": true,
+		"weight": 2
       },
 	  {
         "name": "minecraft:music/game/minecraft",
         "stream": true,
-		"weight": 1
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/oxygene",
+        "stream": true,
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/clark",
+        "stream": true,
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/danny",
+        "stream": true,
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/sweden",
+        "stream": true,
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/dry_hands",
+        "stream": true,
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/wet_hands",
+        "stream": true,
+		"weight": 2
+      },
+	  {
+        "name": "minecraft:music/game/mice_on_venus",
+        "stream": true,
+		"weight": 2
       }
     ]
   },
