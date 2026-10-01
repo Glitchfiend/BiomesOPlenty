@@ -474,7 +474,7 @@ public class BOPOverworldBiomes
         }
 
         return baseBiome(snowy ? -0.25F : 0.45F, 0.5F)
-            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(SoundEvents.MUSIC_BIOME_FOREST))
+            .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(BOPSounds.MUSIC_BIOME_NOSTALGIC))
             .mobSpawnSettings(spawnBuilder.build())
             .generationSettings(biomeBuilder.build()).build();
     }

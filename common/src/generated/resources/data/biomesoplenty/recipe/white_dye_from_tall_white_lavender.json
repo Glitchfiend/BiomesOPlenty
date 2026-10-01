@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "white_dye",
+  "ingredients": [
+    "biomesoplenty:tall_white_lavender"
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:white_dye"
+  }
+}

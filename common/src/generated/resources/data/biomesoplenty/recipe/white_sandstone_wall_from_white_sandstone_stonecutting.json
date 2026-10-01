@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:white_sandstone",
+  "result": {
+    "id": "biomesoplenty:white_sandstone_wall"
+  }
+}

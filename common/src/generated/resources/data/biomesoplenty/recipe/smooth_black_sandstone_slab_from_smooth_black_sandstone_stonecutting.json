@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:smooth_black_sandstone",
+  "result": {
+    "count": 2,
+    "id": "biomesoplenty:smooth_black_sandstone_slab"
+  }
+}

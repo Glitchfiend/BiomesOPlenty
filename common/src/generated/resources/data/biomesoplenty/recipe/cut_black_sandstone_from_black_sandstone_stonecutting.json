@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:black_sandstone",
+  "result": {
+    "id": "biomesoplenty:cut_black_sandstone"
+  }
+}

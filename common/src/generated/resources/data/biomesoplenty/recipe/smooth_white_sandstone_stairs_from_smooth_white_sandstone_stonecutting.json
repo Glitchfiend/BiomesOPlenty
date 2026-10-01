@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:smooth_white_sandstone",
+  "result": {
+    "id": "biomesoplenty:smooth_white_sandstone_stairs"
+  }
+}

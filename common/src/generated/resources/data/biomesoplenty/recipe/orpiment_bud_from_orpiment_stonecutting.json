@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:orpiment",
+  "result": {
+    "count": 4,
+    "id": "biomesoplenty:orpiment_bud"
+  }
+}

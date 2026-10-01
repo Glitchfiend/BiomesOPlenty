@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "purple_dye",
+  "ingredients": [
+    "biomesoplenty:violet"
+  ],
+  "result": {
+    "id": "minecraft:purple_dye"
+  }
+}

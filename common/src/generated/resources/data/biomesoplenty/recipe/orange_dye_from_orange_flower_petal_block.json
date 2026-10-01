@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "orange_dye",
+  "ingredients": [
+    "biomesoplenty:orange_flower_petal_block"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:orange_dye"
+  }
+}

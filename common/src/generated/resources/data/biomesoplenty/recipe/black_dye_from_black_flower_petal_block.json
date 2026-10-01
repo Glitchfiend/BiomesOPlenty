@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "black_dye",
+  "ingredients": [
+    "biomesoplenty:black_flower_petal_block"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:black_dye"
+  }
+}

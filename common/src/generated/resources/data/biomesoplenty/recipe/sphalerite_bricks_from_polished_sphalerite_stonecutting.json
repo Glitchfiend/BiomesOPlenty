@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomesoplenty:polished_sphalerite",
+  "result": {
+    "id": "biomesoplenty:sphalerite_bricks"
+  }
+}

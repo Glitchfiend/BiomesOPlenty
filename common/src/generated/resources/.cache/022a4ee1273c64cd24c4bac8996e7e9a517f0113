@@ -1,4 +1,4 @@
-// 26.3	2026-09-27T22:41:52.5802282	Registries for BOP World Registries
+// 26.3	2026-09-29T21:15:44.1782686	Registries for BOP World Registries
 bec08031dc5126119d3c7a1033703f8235bdf56e data/biomesoplenty/damage_type/bramble.json
 41f8df67f585538edc9847b6754275d24b813e06 data/biomesoplenty/damage_type/fumarole.json
 0c0c0e1d86c46fe18511530c95f33978fb71286a data/biomesoplenty/jukebox_song/wanderer.json
@@ -98,7 +98,7 @@ fe49681df4ca0076ec553e393269c700e10ef73e data/biomesoplenty/worldgen/biome/end_r
 29d205f4be08f4ea797736765b0e86820af8f750 data/biomesoplenty/worldgen/biome/end_wilds.json
 82f584d71ef3c8f926d658ffec6bd6c084ddef28 data/biomesoplenty/worldgen/biome/erupting_inferno.json
 d9c77ea6e01491dded26e0053d1ca124df6ba097 data/biomesoplenty/worldgen/biome/field.json
-57bb02a43dd499e484376c5e652a2c45192754ff data/biomesoplenty/worldgen/biome/fir_clearing.json
+bdc6f1a52fcab9f5c8deb604fda779c772c17de8 data/biomesoplenty/worldgen/biome/fir_clearing.json
 63f6674f11e9d303a3d1913aa65295f77fe462da data/biomesoplenty/worldgen/biome/floodplain.json
 141f59c8130a849614c0cd158d1e7e461d800862 data/biomesoplenty/worldgen/biome/forested_field.json
 b44ad74f7c76f5cbb6e075dd6fd16104101e996f data/biomesoplenty/worldgen/biome/fungal_jungle.json
@@ -134,7 +134,7 @@ f56b320c0a1470f54092969b2bf46ea3ab018fd7 data/biomesoplenty/worldgen/biome/rainf
 f20456d02105e97e40ae8653e8ae6a34f3309459 data/biomesoplenty/worldgen/biome/shrubland.json
 299f081fb4d0b09d86876ab6888d0926aa81c2c6 data/biomesoplenty/worldgen/biome/snowblossom_grove.json
 bac50468c7a58bd60e4066906e5bcbc5a6ce809c data/biomesoplenty/worldgen/biome/snowy_coniferous_forest.json
-667b1da07ce3b7a06a9d05f4c2c069a4ceddabd1 data/biomesoplenty/worldgen/biome/snowy_fir_clearing.json
+c825f8124fc82727b79f5e97f873671cb503040f data/biomesoplenty/worldgen/biome/snowy_fir_clearing.json
 f983d3abc8a4204b9b867beca964843bca67e933 data/biomesoplenty/worldgen/biome/snowy_maple_woods.json
 b49b6213b7a557b179c4de4c4e1cec99f3b92a3c data/biomesoplenty/worldgen/biome/spider_nest.json
 c8316582b73e8a4e3fffb72330497db2d9514fad data/biomesoplenty/worldgen/biome/subtropics.json

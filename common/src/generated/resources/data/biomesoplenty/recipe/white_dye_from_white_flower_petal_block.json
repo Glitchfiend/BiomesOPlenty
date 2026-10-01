@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "white_dye",
+  "ingredients": [
+    "biomesoplenty:white_flower_petal_block"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:white_dye"
+  }
+}

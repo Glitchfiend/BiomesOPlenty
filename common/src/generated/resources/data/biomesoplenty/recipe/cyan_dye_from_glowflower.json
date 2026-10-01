@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cyan_dye",
+  "ingredients": [
+    "biomesoplenty:glowflower"
+  ],
+  "result": {
+    "id": "minecraft:cyan_dye"
+  }
+}

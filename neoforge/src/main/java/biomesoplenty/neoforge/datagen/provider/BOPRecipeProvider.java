@@ -397,22 +397,19 @@ public class BOPRecipeProvider extends RecipeProvider
         this.shapeless(RecipeCategory.BUILDING_BLOCKS, planks, count).requires(log).group("planks").unlockedBy("has_logs", has(log)).save(output);
     }
 
-    protected void stonecutterResultFromBase(RecipeOutput output, RecipeCategory category, ItemLike result, ItemLike input)
-    {
-        this.stonecutterResultFromBase(category, result, input, 1);
+    protected void stonecutterResultFromBase(RecipeCategory category, ItemLike result, ItemLike base) {
+        this.stonecutterResultFromBase(category, result, base, 1);
     }
 
-    protected void stonecutterResultFromBase(RecipeOutput output, RecipeCategory category, ItemLike result, ItemLike input, int count)
-    {
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), category, result, count).unlockedBy(getHasName(input), has(input)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(result, input) + "_stonecutting");
+    protected void stonecutterResultFromBase(RecipeCategory category, ItemLike result, ItemLike base, int count) {
+        SingleItemRecipeBuilder var10000 = SingleItemRecipeBuilder.stonecutting(Ingredient.of(base), category, result, count).unlockedBy(getHasName(base), this.has(base));
+        RecipeOutput var10001 = this.output;
+        String var10002 = BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(result, base);
+        var10000.save(var10001, var10002 + "_stonecutting");
     }
 
-    protected void oneToOneConversionRecipe(RecipeOutput p_299023_, ItemLike p_176553_, ItemLike p_176554_, @Nullable String p_176555_) {
-        this.oneToOneConversionRecipe(p_299023_, p_176553_, p_176554_, p_176555_, 1);
-    }
-
-    protected void oneToOneConversionRecipe(RecipeOutput p_301230_, ItemLike p_176558_, ItemLike p_176559_, @Nullable String p_176560_, int p_176561_) {
-        this.shapeless(RecipeCategory.MISC, p_176558_, p_176561_).requires(p_176559_).group(p_176560_).unlockedBy(getHasName(p_176559_), has(p_176559_)).save(p_301230_, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(p_176558_, p_176559_));
+    protected void oneToOneConversionRecipe(ItemLike product, ItemLike resource, @org.jspecify.annotations.Nullable String group, int productCount) {
+        this.shapeless(RecipeCategory.MISC, product, productCount).requires(resource).group(group).unlockedBy(getHasName(resource), this.has(resource)).save(this.output, BiomesOPlenty.MOD_ID + ":" + getConversionRecipeName(product, resource));
     }
 
     protected void hangingSign(Item sign, Block ingredient)
